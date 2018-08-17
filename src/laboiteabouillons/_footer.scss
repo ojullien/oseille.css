@@ -1,0 +1,50 @@
+//
+// La boîte à bouillons footer specific.
+// Author: Olivier Jullien (https://github.com/ojullien)
+// version: v1.0.0
+//
+footer {
+
+    hr {
+        border-top: 1px #1a1a1a solid;
+        border-bottom: 1px rgba(255, 255, 255, 0.07) solid;
+        height: 0;
+        margin: 0;
+    }
+
+    li {
+        list-style-type: none;
+        float: left;
+    }
+
+    li:not(:first-child):before {
+        content: "\B7\A0";
+    }
+
+    li:after {
+        content: "\2009";
+    }
+
+    a.button {
+        color: #F5F5F5;
+    }
+
+    .icon {
+        vertical-align: top;
+    }
+
+    .alignedTextFooter {
+        text-align: center;
+    }
+
+    @media screen and (max-width: #{$grid-medium-breakpoint}-1px) {
+        li, .floatedImage {
+            float: inherit;
+        }
+    }
+    @media screen and (min-width: #{$grid-medium-breakpoint}) {
+        .alignedTextFooter {
+            text-align: inherit;
+        }
+    }
+}

@@ -1,0 +1,81 @@
+//
+// La boîte à bouillons theme specific.
+// Author: Olivier Jullien (https://github.com/ojullien)
+// version: v1.0.0
+//
+
+// Core enhancement
+html {
+    scroll-behavior: smooth;
+}
+
+// Typography enhancement
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: #{$headingFont};
+}
+
+blockquote, cite, q, figcaption {
+  font-family: #{$cursiveFont};
+}
+
+cite, q {
+  font-size: $cursiveFontSize;
+}
+
+@if $apply-defaults-to-all {
+    a {
+        font-family: inherit;
+        font-size: inherit;
+    }
+}
+
+// Text alignement
+
+.centeredAlignedText {
+  text-align: center;
+}
+
+.justifiedAlignedText {
+  text-align: justify;
+}
+
+.leftAlignedText {
+  text-align: left;
+}
+
+.rightAlignedText {
+    text-align: right;
+}
+
+// Figure and image
+
+.circularPicto {
+  border-radius: 500rem;
+  width: 90px;
+  height: auto;
+}
+
+figure.fullWidth {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+figure img {
+  width: 100%;
+}
+
+.floatedImage {
+  float: left;
+  margin-right: 1em;
+  margin-bottom: 0em;
+}
+
+.rotatedImage {
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.floatedImage:last-child {
+  margin-bottom: 0em;
+}
