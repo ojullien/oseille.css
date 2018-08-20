@@ -2,25 +2,37 @@
     "name": "laboiteabouillons-mini.css",
     "version": "1.0.0",
     "description": "mini.css flavors for La boîte à bouillons websites",
-	"keywords": [
-    	"La boîte à bouillons",
-	    "css",
-    	"sass",
-	    "flavor",
-    	"mini.css"
-  ],
-	"homepage": "https://github.com/laboiteabouillons/mini.css",    
-	"author": "Olivier Jullien <https://github.com/ojullien>",
+    "keywords": [
+        "La boîte à bouillons",
+        "css",
+        "sass",
+        "flavor",
+        "mini.css"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/laboiteabouillons/mini.css.git"
+    },
+    "homepage": "https://github.com/laboiteabouillons/mini.css",
+    "author": "Olivier Jullien <https://github.com/ojullien>",
     "license": "MIT",
     "devDependencies": {
-        "node-sass": "4.5.2"
+        "autoprefixer": "^9.1.2",
+        "clean-css-cli": "^4.2.1",
+        "node-sass": "4.5.2",
+        "postcss-cli": "^6.0.0"
     },
-    "scripts": {
+    "browserslist": [
+        "last 4 versions"
+    ],
+	"scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "autoprefixer": "postcss dist/*.css --use autoprefixer -d dist/prefixed/",
-        "scsse": "node-sass --output-style expanded -o dist src",
-        "scssc": "node-sass --output-style compressed -o dist src",
-        "build": "npm run scsse && npm run autoprefixer",
-        "compress": "npm runs cssc && npm run autoprefixer"
+        "autoprefixer": "postcss dist/*.css --dir dist/prefixed --no-map -u autoprefixer",
+        "build:lbab": "node-sass --output-style=expanded --indent-type=tab --indent-width=1 -o dist src/flavors/laboiteabouillons.scss",
+        "build:default": "node-sass --output-style=expanded --indent-type=tab --indent-width=1 -o dist src/flavors/mini-default.scss",
+        "build": "npm run build:default && npm run build:lbab",
+        "minify:lbab": "cleancss -o dist/laboiteabouillons.min.css dist/laboiteabouillons.css",
+        "minify:default": "cleancss -o dist/mini-default.min.css dist/mini-default.css",
+        "minify": "npm run minify:lbab && npm run minify:default"
     }
 }

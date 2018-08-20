@@ -1,8 +1,8 @@
-# mini.css
+# mini.css Flavors
 
-CSS framework for the 'La boîte à bouillons' web sites.
+[Mini.css](https://github.com/Chalarangelo/mini.css) flavors for the 'La boîte à bouillons' web sites.
 
-Forked from the [Angelos Chalaris](https://github.com/Chalarangelo) [mini.css](https://github.com/Chalarangelo/mini.css) project (version 2.3.7 aka fermion.v2) to which we have refactored the structure into several modules.
+Forked from the [Angelos Chalaris](https://github.com/Chalarangelo) [mini.css](https://github.com/Chalarangelo/mini.css) project (version 2.3.7 aka fermion.v2) to which we have refactored the flavor structure into several modules.
 
 ## Table of Contents
 
@@ -15,10 +15,14 @@ Forked from the [Angelos Chalaris](https://github.com/Chalarangelo) [mini.css](h
 
 ## Setup
 
-Require ...
+Requires:
 
-1. Install **mini.css** and the 'La boîte à bouillons' flavors using `npm install mini.css`
-2. Build the flavors using `npm run ....`
+- npm v5.6.0
+- node-sass v4.5.2
+
+1. Install **mini.css** framework, the 'La boîte à bouillons' flavors and de dependencies using `npm install`
+2. Build the flavors using `npm run build`
+3. Minifies the css using `npm run minify`
 
 ## Features
 
