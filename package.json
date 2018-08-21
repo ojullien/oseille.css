@@ -28,11 +28,13 @@
 	"scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "autoprefixer": "postcss dist/*.css --dir dist/prefixed --no-map -u autoprefixer",
+        "build:lbab-m": "node-sass --output-style=expanded --indent-type=tab --indent-width=1 -o dist src/flavors/laboiteabouillons-maintenance.scss",
         "build:lbab": "node-sass --output-style=expanded --indent-type=tab --indent-width=1 -o dist src/flavors/laboiteabouillons.scss",
         "build:default": "node-sass --output-style=expanded --indent-type=tab --indent-width=1 -o dist src/flavors/mini-default.scss",
-        "build": "npm run build:default && npm run build:lbab",
+        "build": "npm run build:default && npm run build:lbab && npm run build:lbab-m",
+        "minify:lbab-m": "cleancss -o dist/laboiteabouillons-maintenance.min.css dist/laboiteabouillons-maintenance.css",
         "minify:lbab": "cleancss -o dist/laboiteabouillons.min.css dist/laboiteabouillons.css",
         "minify:default": "cleancss -o dist/mini-default.min.css dist/mini-default.css",
-        "minify": "npm run minify:lbab && npm run minify:default"
+        "minify": "npm run minify:lbab && npm run minify:lbab-m && npm run minify:default"
     }
 }
