@@ -1,5 +1,11 @@
 @charset "UTF-8";
 /*
+  Flavor name: La boîte à bouillons
+  Author: Olivier Jullien (https://github.com/ojullien)
+  Version: v1.0.0
+  mini.css version: v2.3.7
+*/
+/*
   Browsers resets and base typography.
 */
 html {
@@ -1655,9 +1661,6 @@ table.striped tr:nth-of-type(2n) > td {
 	}
 }
 
-/*
-  Custom elements for cards and containers.
-*/
 @media screen and (min-width: 480px) {
 	.card.large {
 		max-width: 480px;
@@ -1990,9 +1993,6 @@ mark.inline-block {
 	z-index: 1211;
 }
 
-/*
-  Custom contextual background elements and alerts.
-*/
 mark.secondary {
 	background: #e53935;
 }
@@ -2094,9 +2094,6 @@ progress[value="1000"]::-moz-progress-bar {
 	animation: spinner-donut-anim 1.2s linear infinite;
 }
 
-/*
-  Custom elements for progress elements and spinners.
-*/
 progress.inline {
 	display: inline-block;
 	vertical-align: middle;
@@ -2244,9 +2241,6 @@ ul.breadcrumbs li:last-child:after {
 	text-align: center;
 }
 
-/*
-  Custom elements for utilities and helper classes.
-*/
 .bordered {
 	border: 1px solid rgba(0, 0, 0, 0.25) !important;
 }
