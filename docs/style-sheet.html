@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <title>La boîte à bouillons style sheet</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    <link rel="stylesheet" href="../dist/laboiteabouillons.min.css">
+    <link rel='stylesheet' id='lbab-fonts-css' href='https://fonts.googleapis.com/css?family=Athiti%3A500%2C700%7CCaveat%3A400%2C700%7CRaleway%3A500%2C500i%2C700%2C700&#038;subset=latin-ext'
+        type='text/css' media='all' />
+</head>
+
+<body>
+    <main class="container">
+        <header>
+            <h1>La boîte à bouillons style sheet</h1>
+        </header>
+        <section class="row">
+            <div class="col-sm-12">
+                <h2>1. Headings</h2>
+                <h1>Heading 1 <small>Subheading</small></h1>
+                <h2>Heading 2 <small>Subheading</small></h2>
+                <h3>Heading 3 <small>Subheading</small></h3>
+                <h4>Heading 4 <small>Subheading</small></h4>
+                <h5>Heading 5 <small>Subheading</small></h5>
+                <h6>Heading 6 <small>Subheading</small></h6>
+                <hr/>
+            </div>
+        </section>
+        <section class="row">
+            <div class="col-sm-12">
+                <h2>2. Common textual elements</h2>
+                <p>This is a paragraph. with some <strong>bold text</strong> and some <em>italics text</em>.</p>
+                <p><a href="#">This is a link.</a></p>
+                <p><small>This is some small text.</small>
+                    <sub>Subscript</sub>
+                    <sup>Superscript</sup></p>
+                <p><code>Inline code</code></p>
+                <p><kbd>Keyboard Input</kbd></p>
+                    <pre>This is some preformatted text.</pre>
+                    <blockquote cite="www.quotation.source">This is some quoted text from another website or person.</blockquote>
+                <q cite="www.quotation.source">This is a short inline quotation that don't require paragraph breaks.</q>
+                <hr/>
+            </div>
+        </section>
+        <section class="row">
+            <div class="col-sm-12">
+                <h2>3. List</h2>
+                <ul>
+                    <li>Apple</li>
+                    <li>Orange</li>
+                    <li>Strawberry</li>
+                </ul>
+                <ol>
+                    <li>Wake up</li>
+                    <li>Eat breakfast</li>
+                    <li>Go to work</li>
+                </ol>
+                <hr/>
+            </div>
+        </section>
+
+        <section class="row">
+            <div class="col-sm-12">
+                <h2>4. Image responsiveness & captions</h2>
+                <div class="col-sm-12 col-sm-last col-md-4 col-md-normal">
+                    <figure>
+                        <img src="../docs/800x600.png">
+                        <figcaption>Image caption</figcaption>
+                    </figure>
+                </div>
+                <hr/>
+            </div>
+        </section>
+
+        <section class="row">
+            <style>
+                .box-colored {
+                    background: #0277bd;
+                    border-radius: 2px;
+                    padding: 14px;
+                    margin-bottom: 8px;
+                    min-height: 14px;
+                    color: #f5f5f5;
+                }
+
+                .red {
+                    background: rgba(219, 40, 40, 1)
+                }
+
+                .orange {
+                    background: rgba(242, 113, 28, 1)
+                }
+
+                .olive {
+                    background: rgba(181, 204, 24, 1)
+                }
+
+                .teal {
+                    background: rgba(0, 181, 173, 1)
+                }
+
+                .purple {
+                    background: rgba(163, 51, 200, 1)
+                }
+
+                .black {
+                    background: rgba(27, 28, 29, 1)
+                }
+
+                .yellow {
+                    background: rgba(254, 199, 62, 1)
+                }
+
+                .green {
+                    background: rgba(89, 188, 171, 1)
+                }
+
+                .blue {
+                    background: rgba(13, 73, 82, 1)
+                }
+
+                .violet {
+                    background: rgba(127, 84, 135, 1)
+                }
+
+                .pink {
+                    background: rgba(233, 50, 93, 1)
+                }
+
+                .brown {
+                    background: rgba(197, 178, 134, 1)
+                }
+
+                .grey {
+                    background: rgba(105, 106, 108, 1)
+                }
+            </style>
+            <div class="col-sm-12">
+                <h2>5. Color</h2>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="box-colored red">red</div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="box-colored orange">orange</div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="box-colored olive">olive</div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="box-colored teal">teal</div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="box-colored purple">purple</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="box-colored black">black</div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="box-colored yellow">yellow</div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="box-colored green">green</div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="box-colored blue">blue</div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="box-colored violet">violet</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="box-colored pink">pink</div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="box-colored brown">brown</div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="box-colored grey">grey</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="row">
+            <div class="col-sm-12">
+                <h2>6. Buttons</h2>
+                <button>Default button</button>
+                <input type="button" class="primary" value="Primary button">
+                <input type="reset" class="secondary" value="Secondary button">
+                <input type="submit" class="tertiary" value="Tertiary button">
+                <button class="inverse">Inverse button</button>
+                <button class="small">Small button</button>
+                <button class="large">Large button</button>
+                <button disabled>Disabled button</button>
+                <a href="#" class="button">Link button</a>
+                <a href="#" role="button">Link button</a>
+                <label class="button">Label button</label>
+                <label role="button">Label button</label>
+                <div class="button-group">
+                    <button>Button</button>
+                    <button>Button</button>
+                    <button>Button</button>
+                </div>
+                <hr/>
+            </div>
+        </section>
+
+        <section class="row">
+            <div class="col-sm-12">
+                <h2>7. Pagination</h2>
+                <nav class="navigation pagination">
+                    <!--h2 class="screen-reader-text">Navigation des articles</h2-->
+                    <a class="page-prev" href="https://www.laboiteabouillons.fr/blog/"><span class="tooltip" aria-label="Les plus récents articles"><span
+                                class="text-first"></span></span></a>
+                    <a class="page-number" href="https://www.laboiteabouillons.fr/blog/">1</a>
+                    <span aria-current="page" class="page-current">2</span>
+                    <span aria-current="page" class="page-dots">...</span>
+                    <a class="page-number" href="https://www.laboiteabouillons.fr/blog/page/4/">5</a>
+                    <a class="page-next" href="https://www.laboiteabouillons.fr/blog/page/3/"><span class="tooltip" aria-label="Les plus anciens articles"><span
+                                class="text-last"></span></span></a>
+                </nav>
+                <hr/>
+            </div>
+        </section>
+
+        <section class="row">
+            <div class="col-sm-12">
+                <h2>8. Others</h2>
+                For Grid, input control, navigation, table, progress and more ..., please read the <a href="https://minicss.org/docs">Mini.css
+                    (Fermion version)</a> documentation.
+                <hr/>
+            </div>
+        </section>
+
+        <footer>
+            <p>&copy; 2018 La boîte à bouillons | <a href="https://www.laboiteabouillons.fr/lesprit">About</a> | <a href="https://www.laboiteabouillons.fr/lesprit/mentions-legales/">Terms
+                    of use</a></p>
+        </footer>
+
+    </main>
+</body>
+
+</html>

@@ -35,6 +35,8 @@ Requires:
 - Main color is "Vert céladon" (#59BCAB).
 - Full wide.
 
+Watch the [style sheet](/docs/style-sheet.html)
+
 ### Maintenance theme
 
 ![Maintenance](/docs/maintenance.jpg)
