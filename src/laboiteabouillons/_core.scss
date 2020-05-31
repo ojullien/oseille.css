@@ -23,7 +23,7 @@ cite, q {
   font-size: $cursiveFontSize;
 }
 
-@if $apply-defaults-to-all {
+@if $_apply-defaults-to-all {
     a {
         font-family: inherit;
         font-size: inherit;

@@ -33,7 +33,7 @@ $card-fluid-width:             100%;               // Width for fluid cards.
 $card-warning-name:            'warning';          // Class name for card warnging color variant.
 $card-warning-back-color:      $lightYellow;       // Background color for card warnging color variant.
 $card-warning-fore-color:      #111;               // Text color for card warnging color variant.
-$card-warning-border-color:    $yellow             // Border style for card warnging color variant.
+$card-warning-border-color:    $yellow;             // Border style for card warnging color variant.
 @include make-card-alt-color ($card-warning-name, $card-warning-back-color, $card-warning-fore-color, $card-warning-border-color);
 $card-error-name:              'error';            // Class name for card error color variant.
 $card-error-back-color:        $lightRed;          // Background color for card error color variant.

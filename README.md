@@ -1,8 +1,8 @@
 # mini.css Flavor
 
-[Mini.css](https://github.com/Chalarangelo/mini.css) flavor for the 'La boîte à bouillons' web sites.
+[Mini.css](https://github.com/Chalarangelo/mini.css) flavor for the 'La boite à bouillons' web sites.
 
-Forked from the [Angelos Chalaris](https://github.com/Chalarangelo) [mini.css](https://github.com/Chalarangelo/mini.css) project (version 2.3.7 aka fermion.v2) to which we have refactored the flavor structure into several modules.
+Forked from the [Angelos Chalaris](https://github.com/Chalarangelo) [mini.css](https://github.com/Chalarangelo/mini.css) project (version 3.0.1 aka gluon.v3) to which we have refactored the flavor structure into several modules.
 
 ## Table of Contents
 
@@ -65,4 +65,4 @@ Be sure to include a title and clear description,as much relevant information as
 
 **mini.css** is an open-source framework and is licensed under the [MIT License](https://github.com/Chalarangelo/mini.css/blob/master/LICENSE).
 
-**La boîte à bouillons flavor** are open-source and are licensed under the [MIT License](https://github.com/laboiteabouillons/mini.css/blob/master/LICENSE).
+**La boite à bouillons flavor** are open-source and are licensed under the [MIT License](https://github.com/laboiteabouillons/mini.css/blob/master/LICENSE).
