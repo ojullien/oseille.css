@@ -3,22 +3,63 @@
 */
 $hidden-name:           'hidden' !default;          // Class name for hidden elements.
 $visually-hidden-name:  'visually-hidden' !default; // Class name for visually hidden elements.
-$include-breadcrumbs:   true !default;              // [Hidden flag] Should breadcrumbs be included? (`true`/`false`)
-$breadcrumbs-name:      'breadcrumbs' !default;     // Class name for breadcrumbs.
-$include-close-icon:    true !default;              // [Hidden flag] Should the close icon be included? (`true`/`false`)
-$close-icon-name:       'close'!default;            // Class name for close icon.
-// The floats, clearfix and center-block flags are for legacy features.
-$include-floats:        false !default;             // Should floats be included? (`true`/`false`)
-$include-clearfix:      false !default;             // Should clearfix be included? (`true`/`false`)
-$include-center-block:  false !default;             // Should center block be included? (`true`/`false`)
-$style-link-active-state:    false !default;        // [External flag - core] Should the :active state of <a> elements be stylized, same as the :hover state (`true`/`false`).
-// Check the `_utility_mixins.scss` file to find this module's mixins.
-@import 'utility_mixins';
-// Hidden elements class. ATTENTION: Uses !important.
+$border-generic-name:   'bordered' !default;        // Class name for bordered elements.
+$border-generic-color:   rgba(0,0,0, 0.3) !default; // Border color for bordered elements.
+$border-rounded-name:   'rounded' !default;         // Class name for rounded-border elements.
+$border-circular-name:   'circular' !default;       // Class name for circular-border elements.
+$box-shadow-generic-name:'shadowed' !default;       // Class name for box-shadow elements.
+$box-shadow-generic: 0 4*$__1px 4*$__1px 0 rgba(0, 0, 0, 0.125),  0 2*$__1px 2*$__1px -2*$__1px rgba(0, 0, 0, 0.25) !default;
+$responsive-margin-name: 'responsive-margin' !default; //Class name for responsive margin elements.
+$responsive-margin-medium-breakpoint: 768px !default; // Medium screen breakpoint for responsive margin elements.
+$responsive-margin-large-breakpoint: 1280px !default; // Medium screen breakpoint for responsive margin elements.
+$responsive-padding-name: 'responsive-padding' !default; //Class name for responsive padding elements.
+$responsive-padding-medium-breakpoint: 768px !default; // Medium screen breakpoint for responsive padding elements.
+$responsive-padding-large-breakpoint: 1280px !default; // Medium screen breakpoint for responsive padding elements.
+$hidden-prefix:           'hidden' !default;           // Class prefix for responsive hidden elements.
+$hidden-small-suffix:     'sm' !default;               // Class suffix for responsive hidden elements.
+$hidden-medium-breakpoint: 768px !default;             // Medium screen breakpoint for responsive hidden elements.
+$hidden-medium-suffix:     'md' !default;              // Class suffix for responsive hidden elements.
+$hidden-large-breakpoint: 1280px !default;             // Medium screen breakpoint for responsive hidden elements.
+$hidden-large-suffix:     'lg' !default;               // Class suffix for responsive hidden elements.
+$visually-hidden-prefix:  'visually-hidden' !default;  // Class prefix for responsive visually hidden elements.
+$visually-hidden-small-suffix:   'sm' !default;        // Class suffix for responsive hidden elements.
+$visually-hidden-medium-breakpoint: 768px !default;    // Medium screen breakpoint for responsive visually hidden elements.
+$visually-hidden-medium-suffix:   'md' !default;       // Class suffix for responsive hidden elements.
+$visually-hidden-large-breakpoint: 1280px !default;    // Medium screen breakpoint for responsive visually hidden elements.
+$visually-hidden-large-suffix:  'lg' !default;         // Class suffix for responsive hidden elements.
+// CSS variable name definitions [exercise caution if modifying these]
+$border-generic-color-var:        '--generic-border-color' !default;
+$box-shadow-generic-var:          '--generic-box-shadow' !default;
+// == Uncomment below code if this module is used on its own ==
+//
+// $universal-margin:        0.5rem !default;      // Universal margin for the most elements
+// $universal-padding:       0.5rem !default;      // Universal padding for the most elements
+// $universal-border-radius: 0.125rem !default;    // Universal border-radius for most elements
+// $universal-box-shadow:    none !default;        // Universal box-shadow for most elements
+// $universal-margin-var:          '--universal-margin' !default;
+// $universal-padding-var:         '--universal-padding' !default;
+// $universal-border-radius-var:   '--universal-border-radius' !default;
+// $universal-box-shadow-var:      '--universal-box-shadow' !default;
+// :root {
+//  #{$universal-margin-var}: $universal-margin;
+//  #{$universal-padding-var}: $universal-padding;
+//  #{$universal-border-radius-var}: $universal-border-radius;
+//  @if $universal-box-shadow != none {
+//   #{$universal-box-shadow-var}: $universal-box-shadow;
+//  }
+// }
+//
+// ============================================================
+/* Utility module CSS variable definitions */
+:root {
+  #{$border-generic-color-var}: $border-generic-color;
+  #{$box-shadow-generic-var}: $box-shadow-generic;
+}
+// Hidden elements class. NOTE: Uses !important.
 .#{$hidden-name}{
   display: none !important;
 }
-// Visually hidden elements class. ATTENTION: Uses !important.
+// Visually hidden elements class. NOTE: Uses !important.
 .#{$visually-hidden-name} {
   position: absolute !important;
   width: 1px !important;
@@ -28,140 +69,101 @@ $style-link-active-state:    false !default;        // [External flag - core] Sh
   padding: 0 !important;
   clip: rect(0 0 0 0) !important;
   -webkit-clip-path: inset(100%) !important;
-          clip-path: inset(100%) !important;
+  clip-path: inset(100%) !important;
   overflow: hidden !important;
 }
-@if $include-breadcrumbs {  // Turn off if you do not want breadcrumbs to be included.
-  // Breadcrumbs
-  ul.#{$breadcrumbs-name} {
-    // Old syntax
-    display: -webkit-box;
-    // New syntax
-    display:   -webkit-flex;
-    display:            flex;
-    list-style: none;
-    // Apply margin from styling
-    @if $breadcrumbs-margin != 0 {
-      margin: $breadcrumbs-margin;
-    }
-    @else {  // Reset margins from list styling
-      margin-left: 0;
-      margin-right: 0;
-    }
-    padding: 0;        // Remove unnecessary left and right empty space
-    @if $breadcrumbs-border-style !=0 {
-      border: $breadcrumbs-border-style;
-    }
-    @if $breadcrumbs-border-radius != 0 {
-      border-radius: $breadcrumbs-border-radius;
-    }
-    @if $breadcrumbs-box-shadow != none {
-      box-shadow: $breadcrumbs-box-shadow;
-    }
-    li {
-      // Old syntax
-      -webkit-box-flex: 1;
-      max-width: 100%;
-      // New syntax
-      -webkit-flex-grow: 1;
-              flex-grow: 1;
-      -webkit-flex-basis: 0;
-              flex-basis: 0;
-      position: relative;
-      text-align: center;
-      background: $breadcrumbs-back-color;
-      height: $breadcrumbs-height;
-      line-height: $breadcrumbs-height;
-      margin-right: ($breadcrumbs-height/2) + $breadcrumbs-separator-width;
-      &:before, &:after {
-        content: "";
-        position: absolute;
-        top: 0;
-        width: 0;
-        height: 0;
-        border: 0 solid $breadcrumbs-back-color;
-        border-width: ($breadcrumbs-height/2) ceil($breadcrumbs-height/4);
-      }
-      &:before {
-        left: -($breadcrumbs-height/2);
-        border-left-color: transparent;
-      }
-      &:after {
-        left: 100%;
-        border-color: transparent;
-        border-left-color: $breadcrumbs-back-color;
-      }
-      &:first-child {
-        &:before {
-          border: 0;
-        }
-      }
-      &:last-child {
-        margin-right: 0;
-        &:after {
-          border: 0;
-        }
-      }
-    }
+// Generic bordered element class. NOTE: Uses !important.
+.#{$border-generic-name} {
+  border: $__1px solid var(#{$border-generic-color-var}) !important;
+}
+// Generic rounded-border element class. NOTE: Uses !important.
+.#{$border-rounded-name} {
+  border-radius: var(#{$universal-border-radius-var}) !important;
+}
+// Generic circular-border element class. NOTE: Uses !important.
+.#{$border-circular-name} {
+  border-radius: 50% !important;
+}
+// Generic box-shadow element class. NOTE: Uses !important.
+.#{$box-shadow-generic-name} {
+  box-shadow: var(#{$box-shadow-generic-var}) !important;
+}
+// Responsive margin class. NOTE: Uses !important.
+.#{$responsive-margin-name} {
+  margin: calc(var(#{$universal-margin-var}) / 4) !important;
+  @media screen and (min-width: #{$responsive-margin-medium-breakpoint}) {
+    margin: calc(var(#{$universal-margin-var}) / 2) !important;
+  }
+  @media screen and (min-width: #{$responsive-margin-large-breakpoint}) {
+    margin: var(#{$universal-margin-var}) !important;
   }
 }
-@if $include-close-icon { // Turn off if you do not want to include the close icon
-  // Close icon
-  .#{$close-icon-name}{
-    display: inline-block;
-    width: $close-icon-size;
-    font-family: sans-serif;
-    font-size: $close-icon-size;
-    line-height: 1;
-    font-weight: 700;
-    border-radius: 2rem;
-    background: rgba($close-icon-back-color,0);
-    vertical-align: top;
-    cursor: pointer;
-    transition: background 0.3s;
-    @if $style-link-active-state {
-      &:hover, &:focus, &:active {
-        background: rgba($close-icon-back-color,1);
-      }
-    }
-    @else {
-      &:hover, &:focus {
-        background: rgba($close-icon-back-color,1);
-      }
-    }
-    &:before {
-      content: "\00D7";
-      display: block;
-      text-align: center;
-    }
+// Responsive padding class. NOTE: Uses !important.
+.#{$responsive-padding-name} {
+  padding: calc(var(#{$universal-padding-var}) / 4) !important;
+  @media screen and (min-width: #{$responsive-padding-medium-breakpoint}) {
+    padding: calc(var(#{$universal-padding-var}) / 2) !important;
+  }
+  @media screen and (min-width: #{$responsive-padding-large-breakpoint}) {
+    padding: var(#{$universal-padding-var}) !important;
   }
 }
-// Floats. ATTENTION: Uses !important.
-// NOTE: Might be obsolete and not play well with others.
-@if $include-floats {
-  .#{$float-prefix}-left {
-    float: left !important;
-  }
-  .#{$float-prefix}-right {
-    float: right !important;
+// Responsive hidden element class. NOTE: Uses !important.
+@media screen and (max-width: $hidden-medium-breakpoint - 1px) {
+  .#{$hidden-prefix}-#{$hidden-small-suffix} {
+    display: none !important;
   }
 }
-// Clearfix mixin. ATTENTION: Uses !important.
-// NOTE: Might be obsolete and not play well with others.
-@if $include-clearfix {
-  .#{$clearfix-name} {
-    &:before, &:after {
-      content: ' ' !important;
-      display: table !important;
-      clear: both !important;
-    }
+@media screen and (min-width: #{$hidden-medium-breakpoint}) and (max-width: $hidden-large-breakpoint - 1px) {
+  .#{$hidden-prefix}-#{$hidden-medium-suffix} {
+    display: none !important;
   }
 }
-// Center block. ATTENTION: Uses !important.
-@if $include-center-block {
-  .#{$center-block-name} {
-    display: block !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
+@media screen and (min-width: #{$hidden-large-breakpoint}) {
+  .#{$hidden-prefix}-#{$hidden-large-suffix} {
+    display: none !important;
+  }
+}
+// Responsive visually hidden element class. NOTE: Uses !important.
+@media screen and (max-width: $visually-hidden-medium-breakpoint - 1px) {
+  .#{$visually-hidden-prefix}-#{$visually-hidden-small-suffix} {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    margin: -1px !important;
+    border: 0 !important;
+    padding: 0 !important;
+    clip: rect(0 0 0 0) !important;
+    -webkit-clip-path: inset(100%) !important;
+    clip-path: inset(100%) !important;
+    overflow: hidden !important;
+  }
+}
+@media screen and (min-width: #{$visually-hidden-medium-breakpoint}) and (max-width: $visually-hidden-large-breakpoint - 1px) {
+  .#{$visually-hidden-prefix}-#{$visually-hidden-medium-suffix} {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    margin: -1px !important;
+    border: 0 !important;
+    padding: 0 !important;
+    clip: rect(0 0 0 0) !important;
+    -webkit-clip-path: inset(100%) !important;
+    clip-path: inset(100%) !important;
+    overflow: hidden !important;
+  }
+}
+@media screen and (min-width: #{$visually-hidden-large-breakpoint}) {
+  .#{$visually-hidden-prefix}-#{$visually-hidden-large-suffix} {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    margin: -1px !important;
+    border: 0 !important;
+    padding: 0 !important;
+    clip: rect(0 0 0 0) !important;
+    -webkit-clip-path: inset(100%) !important;
+    clip-path: inset(100%) !important;
+    overflow: hidden !important;
   }
 }

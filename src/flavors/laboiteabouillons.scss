@@ -1,9 +1,9 @@
 @charset "UTF-8";
 /*
-  Flavor name: La boîte à bouillons
+  Flavor name: La boite à bouillons
   Author: Olivier Jullien (https://github.com/ojullien)
-  Version: v1.0.0
-  mini.css version: v2.3.7
+  Version: v2.0.0
+  mini.css version: v3.0.1
 */
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // Mandatory core variables
@@ -13,10 +13,40 @@
 @import 'variables/bodyandtypography';
 @import '../mini/core';
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-// Grid
+// Layout
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 @import 'variables/grid';
-@import '../mini/grid';
+@import 'variables/card';
+@import '../mini/layout';
+//
+// Custom elements for card elements.
+//
+$card-small-name:              'small';            // Class name for small cards.
+$card-small-width:             240px;              // Width for small cards.
+@include make-card-alt-size ($card-small-name, $card-small-width);
+$card-large-name:              'large';            // Class name for large cards.
+$card-large-width:             480px;              // Width for large cards.
+@include make-card-alt-size ($card-large-name, $card-large-width);
+$card-fluid-name:              'fluid';            // Class name for fluid cards.
+$card-fluid-width:             100%;               // Width for fluid cards.
+@include make-card-alt-size ($card-fluid-name, $card-fluid-width);
+$card-warning-name:            'warning';          // Class name for card warnging color variant.
+$card-warning-back-color:      $lightYellow;       // Background color for card warnging color variant.
+$card-warning-fore-color:      #111;               // Text color for card warnging color variant.
+$card-warning-border-color:    $yellow             // Border style for card warnging color variant.
+@include make-card-alt-color ($card-warning-name, $card-warning-back-color, $card-warning-fore-color, $card-warning-border-color);
+$card-error-name:              'error';            // Class name for card error color variant.
+$card-error-back-color:        $lightRed;          // Background color for card error color variant.
+$card-error-fore-color:        #f8f8f8;            // Text color for card error color variant.
+$card-error-border-color:      $red;               // Border style for card error color variant.
+@include make-card-alt-color ($card-error-name, $card-error-back-color, $card-error-fore-color, $card-error-border-color);
+$card-section-dark-name:        'dark';            // Class name for card dark section variant.
+$card-section-dark-back-color:  #e0e0e0;           // Background color for card dark section variant.
+$card-section-dark-fore-color:  #111;              // Text color for card dark section variant.
+@include make-card-section-alt-color ($card-section-dark-name, $card-section-dark-back-color, $card-section-dark-fore-color);
+$card-section-double-padded-name:    'double-padded';   // Class name for card double-padded section variant.
+$card-section-double-padded-padding:  calc(1.5 * var(#{$universal-padding-var}));  // Padding for card sectiondouble-padded section variant.
+@include make-card-section-alt-style ($card-section-double-padded-name, $card-section-double-padded-padding);
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // Form and Input
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -25,12 +55,34 @@
 //
 //  Custom elements for forms and input elements.
 //
-@include make-button-alt-color ($button-variant1-name, $button-variant1-back-color, $button-variant1-back-opacity, $button-variant1-hover-back-opacity, $button-variant1-fore-color);
-@include make-button-alt-color ($button-variant2-name, $button-variant2-back-color, $button-variant2-back-opacity, $button-variant2-hover-back-opacity, $button-variant2-fore-color);
-@include make-button-alt-color ($button-variant3-name, $button-variant3-back-color, $button-variant3-back-opacity, $button-variant3-hover-back-opacity, $button-variant3-fore-color);
-@include make-button-alt-color ($button-variant4-name, $button-variant4-back-color, $button-variant4-back-opacity, $button-variant4-hover-back-opacity, $button-variant4-fore-color);
-@include make-button-alt-style ($button-style1-name, $button-style1-border-style, $button-style1-border-radius, $button-style1-padding, $button-style1-margin);
-@include make-button-alt-style ($button-style2-name, $button-style2-border-style, $button-style2-border-radius, $button-style2-padding, $button-style2-margin);
+$button-primary-name:            'primary';   // Class name for primary button color variant.
+$button-primary-back-color:      $blue;       // Background color for primary button color variant.
+$button-primary-hover-back-color:$lightBlue;  // Background color for primary button color variant (hover).
+$button-primary-fore-color:      #f8f8f8;     // Text color for primary button color variant.
+@include make-button-alt-color ($button-primary-name, $button-primary-back-color, $button-primary-hover-back-color, $button-primary-fore-color);
+$button-secondary-name:            'secondary'; // Class name for secondary button color variant.
+$button-secondary-back-color:      $red;        // Background color for secondary button color variant.
+$button-secondary-hover-back-color:$lightRed;   // Background color for secondary button color variant (hover).
+$button-secondary-fore-color:      #f8f8f8;     // Text color for secondary button color variant.
+@include make-button-alt-color ($button-secondary-name, $button-secondary-back-color, $button-secondary-hover-back-color, $button-secondary-fore-color);
+$button-tertiary-name:            'tertiary';  // Class name for tertiary button color variant.
+$button-tertiary-back-color:      $green;      // Background color for tertiary button color variant.
+$button-tertiary-hover-back-color:$lightGreen; // Background color for tertiary button color variant (hover).
+$button-tertiary-fore-color:      #f8f8f8;     // Text color for tertiary button color variant.
+@include make-button-alt-color ($button-tertiary-name, $button-tertiary-back-color, $button-tertiary-hover-back-color, $button-tertiary-fore-color);
+$button-inverse-name:            'inverse';   // Class name for inverse button color variant.
+$button-inverse-back-color:      #212121;     // Background color for inverse button color variant.
+$button-inverse-hover-back-color:#111;        // Background color for inverse button color variant (hover).
+$button-inverse-fore-color:      #f8f8f8;     // Text color for inverse button color variant.
+@include make-button-alt-color ($button-inverse-name, $button-inverse-back-color, $button-inverse-hover-back-color, $button-inverse-fore-color);
+$button-small-name:    'small';              // Class name, padding and margin for small button size variant.
+$button-small-padding: calc(0.5 * var(#{$universal-padding-var})) calc(0.75 * var(#{$universal-padding-var}));
+$button-small-margin:  var(#{$universal-margin-var});
+@include make-button-alt-size ($button-small-name, $button-small-padding, $button-small-margin);
+$button-large-name:    'large';              // Class name, padding and margin for large button size variant.
+$button-large-padding: calc(1.5 * var(#{$universal-padding-var})) calc(2 * var(#{$universal-padding-var}));
+$button-large-margin:  var(#{$universal-margin-var});
+@include make-button-alt-size ($button-large-name, $button-large-padding, $button-large-margin);
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // Header, Footer, Drawer, nav and sticky
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -42,40 +94,23 @@
 @import 'variables/table';
 @import '../mini/table';
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-// Card
+// Contextual
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-@import 'variables/card';
-@import '../mini/card';
-//
-//  Custom elements for cards and containers.
-//
-@include make-card-alt-size ($card-size1-name, $card-size1-width);
-@include make-card-alt-size ($card-size2-name, $card-size2-width);
-@include make-card-alt-size ($card-size3-name, $card-size3-width);
-@include make-card-alt-color ($card-style1-name, $card-style1-back-color, $card-style1-fore-color, $card-style1-border-style, $card-style1-border-radius, $card-style1-section-border-style);
-@include make-card-alt-color ($card-style2-name, $card-style2-back-color, $card-style2-fore-color, $card-style2-border-style, $card-style2-border-radius, $card-style2-section-border-style);
-@include make-card-section-alt-color ($card-section-style1-name, $card-section-style1-back-color, $card-section-style1-fore-color);
-@include make-card-section-alt-color ($card-section-style2-name, $card-section-style2-back-color, $card-section-style2-fore-color);
-@include make-card-section-alt-style ($card-section-padding1-name, $card-section-padding1-padding);
-////////////////////////////////////////////////////////////////////////////////////////////////////
-// Tab
-////////////////////////////////////////////////////////////////////////////////////////////////////
-@import 'variables/tab';
-@import '../mini/tab';
-////////////////////////////////////////////////////////////////////////////////////////////////////
-// Mark, Toast, Tooltip, Modal
-////////////////////////////////////////////////////////////////////////////////////////////////////
-@import 'variables/backgroundelementsandalerts';
+@import 'variables/contextual';
 @import '../mini/contextual';
 //
-// Custom contextual background elements and alerts.
+// Custom elements for contextual background elements, toasts and tooltips.
 //
-@include make-mark-alt-color ($mark-variant1-name, $mark-variant1-back-color);
-@include make-mark-alt-color ($mark-variant2-name, $mark-variant2-back-color);
-@include make-mark-alt-style ($mark-style1-name, $mark-style1-border-style, $mark-style1-border-radius, $mark-style1-padding);
-@include make-mark-alt-style ($mark-style2-name, $mark-style2-border-style, $mark-style2-border-radius, $mark-style2-padding, $mark-style2-font-size, $mark-style2-line-height);
-@include make-toast-alt-style($toast-style1-name, $toast-style1-border-style, $toast-style1-border-radius, $toast-style1-padding);
-@include make-toast-alt-style($toast-style2-name, $toast-style2-border-style, $toast-style2-border-radius, $toast-style2-padding);
+$mark-secondary-name:            'secondary'; // Class name for secondary <mark> color variant.
+$mark-secondary-back-color:      $red;     // Background color for secondary <mark> color variant.
+@include make-mark-alt-color ($mark-secondary-name, $mark-secondary-back-color);
+$mark-tertiary-name:            'tertiary';  // Class name for tertiary <mark> color variant.
+$mark-tertiary-back-color:      $green;     // Background color for tertiary <mark> color variant.
+@include make-mark-alt-color ($mark-tertiary-name, $mark-tertiary-back-color);
+$mark-tag-name:                 'tag';       // Class name, padding and border radius for tag <mark> size variant.
+$mark-tag-padding:      calc(var(#{$universal-padding-var})/2) var(#{$universal-padding-var});
+$mark-tag-border-radius:        1em;
+@include make-mark-alt-size ($mark-tag-name, $mark-tag-padding, $mark-tag-border-radius);
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // Progress and Spinner
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -84,30 +119,35 @@
 //
 //  Custom elements for progress elements and spinners.
 //
-@include make-progress-inline ($progress-inline-name, $progress-inline-width);
-@include make-progress-alt-color ($progress-variant1-name, $progress-variant1-fore-color);
-@include make-progress-alt-color ($progress-variant2-name, $progress-variant2-fore-color);
-@include make-spinner-donut-alt-color ($spinner-donut-variant1-name, $spinner-donut-variant1-back-color, $spinner-donut-variant1-fore-color);
-@include make-spinner-donut-alt-color ($spinner-donut-variant2-name, $spinner-donut-variant2-back-color, $spinner-donut-variant2-fore-color);
-@include make-spinner-donut-alt-style ($spinner-donut-style1-name, $spinner-donut-style1-size, $spinner-donut-style1-border-thickness);
+$progress-primary-name:         'primary';        // Class name for primary <progress> color variant.
+$progress-primary-fore-color:   $blue;            // Foreground color for primary <progress> color variant.
+@include make-progress-alt-color ($progress-primary-name, $progress-primary-fore-color);
+$progress-secondary-name:     'secondary';        // Class name for secondary <progress> color variant.
+$progress-secondary-fore-color: $red;             // Foreground color for secondary <progress> color variant.
+@include make-progress-alt-color ($progress-secondary-name, $progress-secondary-fore-color);
+$progress-tertiary-name:       'tertiary';        // Class name for tertiary <progress> color variant.
+$progress-tertiary-fore-color:   $green;          // Foreground color for tertiary <progress> color variant.
+@include make-progress-alt-color ($progress-tertiary-name, $progress-tertiary-fore-color);
+$spinner-donut-primary-name:         'primary';   // Class name for primary spinner donutcolor variant.
+$spinner-donut-primary-fore-color:   $blue;       // Foreground color for primary spinner donut color variant.
+@include make-spinner-donut-alt-color ($spinner-donut-primary-name, $spinner-donut-primary-fore-color);
+$spinner-donut-secondary-name:     'secondary';   // Class name for secondary spinner donut color variant.
+$spinner-donut-secondary-fore-color: $red;     // Foreground color for secondary spinner donut color variant.
+@include make-spinner-donut-alt-color ($spinner-donut-secondary-name, $spinner-donut-secondary-fore-color);
+$spinner-donut-tertiary-name:       'tertiary';   // Class name for tertiary spinner donut color variant.
+$spinner-donut-tertiary-fore-color:   $green;     // Foreground color for tertiary spinner donut color variant.
+@include make-spinner-donut-alt-color ($spinner-donut-tertiary-name, $spinner-donut-tertiary-fore-color);
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// Icons - powered by Feather (https://feathericons.com/).
+////////////////////////////////////////////////////////////////////////////////////////////////////
+@import '../mini/icon';
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // Breadcrumb, Close icon and other utilities
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 @import 'variables/utilitiesandhelper';
 @import '../mini/utility';
-//
-//  Custom elements for utilities and helper classes.
-//
-@include make-border-generic ($border-generic-name);
-@include make-border-radial-style ($border-radial-style1-name, $border-radial-style1-radius);
-@include make-border-radial-style ($border-radial-style2-name, $border-radial-style2-radius);
-@include make-margin-responsive ($responsive-margin-name, $responsive-margin-small-value, $responsive-margin-medium-value, $responsive-margin-large-value);
-@include make-padding-responsive ($responsive-padding-name, $responsive-padding-small-value, $responsive-padding-medium-value, $responsive-padding-large-value);
-@include make-box-shadow-generic ($box-shadow-style1-name, $box-shadow-style1-value);
-@include make-hidden-responsive ($responsive-hidden-prefix);
-@include make-visually-hidden-responsive ($responsive-visually-hidden-prefix);
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-// La boîte à bouillons specific
+// La boite à bouillons specific
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 @import '../laboiteabouillons/core';
 @import '../laboiteabouillons/grid';

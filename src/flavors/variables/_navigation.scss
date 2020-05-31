@@ -1,74 +1,21 @@
 //
 //  Variables for navigational elements
-//  Author: Angelos Chalaris (chalarangelo@gmail.com)
-//  Maintainers: Angelos Chalaris
-//  mini.css version: v2.3.7
-//  Update: Olivier Jullien (https://github.com/ojullien)
-//  La boîte à bouillons version: v1.0.0
 //
-//  Variables for navigational elements
-$header-height: 2.75rem; // Height for <header>
-$header-back-color: $green; // Background color for <header>. Default: #12171a
-$header-fore-color: #f5f5f5; // Text color for <header>
-$header-border-style: 0; // Border style for <header>
-$header-margin: 0; // Margin for <header>
-$header-padding: 0.125rem 0.5rem; // Padding for <header>
-$header-box-shadow: none; // Box shadow for <header>
-$header-logo-name: 'logo'; // Class name for <header>'s logo
-$header-logo-font-size: 1.75rem; // Font size for <header>'s logo
-$header-logo-line-height: 1.3125em; // Line height for <header>'s logo
-$header-logo-margin: 0.0625rem 0.375rem 0.0625rem 0.0625rem; // Margin for <header>'s logo
-$header-logo-padding: 0; // Padding for <header>'s logo
-$header-link-hover-color: $lightGreen; // Hover color for <header>'s links. Default #20292e;
-$header-link-margin: 0.125rem 0; // Margin for <header>'s links
-$include-header-sticky: true; // Should sticky <header> elements be included? (`true`/`false`) [1]
-$header-sticky-name: 'sticky'; // Class name for sticky <header>
-$nav-back-color: #eceff1; // Background for <nav>
-$nav-fore-color: $fore-color; // Text color for <nav>
-$nav-border-style: $_1px solid #c9c9c9; // Border style for <nav>
-$nav-border-radius: 0; // Border radius for <nav>
-$nav-padding: 0.75rem 1rem; // Padding for <nav>
-$nav-margin: 0.5rem; // Margin for <nav>
-$nav-box-shadow: none; // Box shadow for <nav>
-$nav-link-fore-color: $green; // Text color for links in <nav> // Default #145caf;
-$nav-sublink-prefix: 'sublink'; // Prefix for the subcategory links in <nav>
-$nav-sublink-depth: 2; // Amount of subcategory classes to add
-$nav-sublink-padding-left: 1rem; // Left padding to add to subcategories
-$nav-include-sublink-bar: true; // Should a left border bar be added to subcategories (`true`/`false`) [2]
-$nav-sublink-bar-left-position: 0.1875rem; // Left position of subcategory bar
-$nav-sublink-bar-width: $_1px; // Width of the subcategory bar
-$nav-sublink-bar-color: #bdbdbd; // Subcategory bar color
-$drawer-name: 'drawer'; // Class name for the drawer component
-$drawer-back-color: $nav-back-color; // Background color of the drawer component
-$drawer-border-style: $nav-border-style; // Border style of the drawer component
-$drawer-border-radius: 0; // Border radius of the drawer component
-$drawer-width: 320px; // Width of the drawer component
-$drawer-padding: 0; // Padding of the drawer component
-$drawer-box-shadow: none; // Box shadow for the drawer component
-$drawer-mobile-breakpoint: 768px; // Mobile breakpoint for the drawer component
-$drawer-normal-height: calc(100vh - 3rem); // Height of the drawer component when shown as normal menu
-$drawer-right-name: 'right'; // Class name for the right variant of the drawer component
-$drawer-persistent-name: 'persistent'; // Class name for the persisten variant of the drawer component
-$drawer-toggle-name: 'drawer-toggle'; // Class name for the drawer component's toggle
-$drawer-toggle-font-size: 2.5rem; // Font size for the drawer component's toggle icon
-$drawer-toggle-line-height:0.125; // Line height for the drawer component's toggle icon
-$drawer-toggle-top: 0.4375rem; // Top position for the drawer component's toggle icon
-$drawer-close-name: 'close'; // Class name of the close element for the drawer component
-$drawer-close-top: 0.75rem; // Top position of the drawer component's close icon
-$drawer-close-right: 0.25rem; // Right position of the drawer component's close icon
-$footer-back-color: $footerBackColor; // Background color for <footer>. Default: #192024;
-$footer-fore-color: $footerForeColor; // Text color for <footer>. Default #f5f5f5;
-$footer-border-style: 0; // Border stye for <footer>
-$footer-font-size: 0.875rem; // Font size for <footer>
-$footer-margin: 1rem 0 0; // Margin for <footer>
-$footer-padding: 1.5rem 0.5rem 0.75rem; // Padding for <footer>
-$footer-link-fore-color: $green; // Text color for links in <footer>. Default #0288d1;
-$include-footer-sticky: true; // Should sticky <footer> elements be included (`true`/`false`) [3]
-$footer-sticky-name: 'sticky'; // Class name for sticky <footer> elements
-//  Notes:
-// [1] - If the value of $include-header-sticky is `true`, a class will be created that will allow for sticky positioning
-//  of <header> elements, using the value of $header-sticky-name for the name of the class.
-// [2] - If the value of $nav-include-sublink-bar is `true`, a left-side border bar will appear next to the navigation
-//  subcategories, using the values specified.
-// [3] - If the value of $include-footer-bottom is `true`, a class will be created that will allow for sticky positioning
-//  of <footer> elements, using the value of $footer-sticky-name for the name of the class.
+$header-back-color: $green;            // Background color for the header element.
+$header-hover-back-color: $lightGreen; // Background color for the header element (hover).
+$header-fore-color: #f5f5f5;           // Text color for the header element.
+$header-border-color: #e5e9f0;         // Border color for the header element.
+$nav-back-color: #f8f8f8;              // Background color for the nav element.
+$nav-hover-back-color: #f0f0f0;        // Background color for the nav element (hover).
+$nav-fore-color: $fore-color;          // Text color for the nav element.
+$nav-border-color: #ddd;               // Border color for the nav element.
+$nav-link-color: $green;               // Color for link in the nav element.
+$footer-fore-color: $footerForeColor;  // Text color for the footer element.
+$footer-back-color: $footerBackColor;  // Background color for footer nav element.
+$footer-border-color: #ddd;            // Border color for the footer element.
+$footer-link-color: $green;            // Color for link in the footer element.
+$drawer-back-color: $green;                    // Background color for the drawer component.
+$drawer-border-color: #ddd;                    // Border color for the drawer component.
+$drawer-hover-back-color: $lightGreen;         // Background color for the drawer component's close (hover).
+$drawer-close-color: #444;                     // Color of the close element for the drawer component.
+$drawer-mobile-breakpoint: $mobile-breakpoint; // Mobile breakpoint for the drawer component.
