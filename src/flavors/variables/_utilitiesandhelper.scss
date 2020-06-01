@@ -3,3 +3,7 @@
 //
 $box-shadow-generic: 0 4*$__1px 4*$__1px 0 rgba(0,0,0,0.125),  0 2*$__1px 2*$__1px -2*$__1px rgba(0,0,0,0.125);
 $border-generic-color: rgba(0,0,0,0.3); // Border color for bordered elements.
+$responsive-margin-medium-breakpoint: $mobile-breakpoint;
+$responsive-padding-medium-breakpoint: $mobile-breakpoint;
+$hidden-medium-breakpoint: $mobile-breakpoint;
+$visually-hidden-medium-breakpoint: $mobile-breakpoint;

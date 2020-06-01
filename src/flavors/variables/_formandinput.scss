@@ -2,6 +2,7 @@
 //  Variables for forms and inputs
 //
 $input-group-mobile-breakpoint: $mobile-breakpoint - 1px; // Breakpoint for fluid input group mobile view.
+$button-group-mobile-breakpoint: $mobile-breakpoint - 1px; 
 $form-fore-color: $fore-color;         // Text color for forms.
 $input-fore-color: $fore-color;        // Text color for input elements.
 $button-back-color: $green;            // Background color for buttons.
