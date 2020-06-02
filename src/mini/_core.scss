@@ -76,6 +76,7 @@ $a-visited-color-var:           '--a-visited-color' !default;
   }
 }
 html {
+  scroll-behavior: smooth; // Added by La boite à bouillon
   font-size: $base-root-font-size;  // Set root's font sizing.
 }
 a, b, del, em, i, ins, q, span, strong, u {
@@ -136,6 +137,7 @@ img {
 }
 
 h1, h2, h3, h4, h5, h6 {
+  font-family: #{$headingFont}; // Added by La boite à bouillons
   line-height: $heading-line-height;
   margin: calc(1.5 * var(#{$universal-margin-var})) var(#{$universal-margin-var});
   font-weight: $heading-font-weight;
@@ -291,6 +293,8 @@ figcaption {
 }
 
 a {
+  font-family: inherit;
+  font-size: inherit;
   text-decoration: none;
   &:link{
     color: var(#{$a-link-color-var});
@@ -299,6 +303,10 @@ a {
     color: var(#{$a-visited-color-var});
   }
   &:hover, &:focus {
-    text-decoration: underline;
+      // La boite à bouillons
+      //  1. Comment: text-decoration...
+      //  2. Add: box-shadow...
+    // text-decoration: underline;
+    box-shadow: 0 2px;
   }
 }

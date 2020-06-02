@@ -4,30 +4,14 @@
 // version: v1.0.0
 //
 
-// Core enhancement
-html {
-    scroll-behavior: smooth;
-}
-
+//
 // Typography enhancement
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: #{$headingFont};
-}
-
+//
 blockquote, cite, q, figcaption {
   font-family: #{$cursiveFont};
 }
-
 cite, q {
   font-size: $cursiveFontSize;
-}
-
-@if $_apply-defaults-to-all {
-    a {
-        font-family: inherit;
-        font-size: inherit;
-    }
 }
 
 // Text alignement

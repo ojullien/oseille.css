@@ -5,12 +5,12 @@ $base-root-font-size: 16px; // Root font sizing for all elements (`px` only)
 $base-font-family: $pageFont;
 $base-line-height: 1.5; // Line height for most elements
 $fore-color: #212121; // Text & foreground color
-$secondary-fore-color: #3b4252; // Secondary text & foreground color
+$secondary-fore-color: yellow; // Secondary text & foreground color. Default: #3b4252
 $back-color: #f8f8f8; // Background color
-$secondary-back-color: #eeeeee; // Secondary background color
+$secondary-back-color: DeepPink; // Secondary background color. Default: #eeeeee
 $blockquote-color: $fore-color; // <blockquote> sidebar and quotation color
 $pre-color: #b48ead; // <pre> sidebar color
 $border-color: #d8dee9; // Border color
 $secondary-border-color: #e5e9f0; // Secondary border color
-$a-link-color: $green; // Color for <a>:link
+$a-link-color: inherit; // Color for <a>:link $green
 $a-visited-color: #bc596a; // Color for <a>:visited
