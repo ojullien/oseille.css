@@ -298,6 +298,7 @@ mark {
         background: var(#{$collapse-label-hover-back-color-var});
       }
       + div {
+        flex-basis: -webkit-auto;
         flex-basis: auto;
         height: 1px;
         width: 1px;

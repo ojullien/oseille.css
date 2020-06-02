@@ -89,6 +89,7 @@ a, b, del, em, i, ins, q, span, strong, u {
     line-height: $base-line-height;
     // Prevent adjustments of font size after orientation changes in mobile.
     -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
   * {
     font-size: $base-font-size;
@@ -100,6 +101,7 @@ a, b, del, em, i, ins, q, span, strong, u {
     line-height: $base-line-height;
     // Prevent adjustments of font size after orientation changes in mobile.
     -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
 }
 
@@ -137,7 +139,6 @@ img {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: #{$headingFont}; // Added by La boite à bouillons
   line-height: $heading-line-height;
   margin: calc(1.5 * var(#{$universal-margin-var})) var(#{$universal-margin-var});
   font-weight: $heading-font-weight;

@@ -2,7 +2,7 @@
 /*
   Flavor name: La boite à bouillons - Maintenance
   Author: Olivier Jullien (https://github.com/ojullien)
-  Version: v1.0.0
+  Version: v2.0.0
   mini.css version: v3.0.1
 */
 ////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -13,41 +13,69 @@
 @import 'variables/bodyandtypography';
 @import '../mini/core';
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-// Grid
+// Layout
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 @import 'variables/grid';
 @import '../mini/layout';
+////////////////////////////////////////////////////////////////////////////////////////////////////
+// Form and Input
+////////////////////////////////////////////////////////////////////////////////////////////////////
+@import 'variables/formandinput';
+@import '../mini/input_control';
+//
+//  Custom elements for forms and input elements.
+//
+$button-primary-name:            'primary';   // Class name for primary button color variant.
+$button-primary-back-color:      $blue;       // Background color for primary button color variant.
+$button-primary-hover-back-color:$lightBlue;  // Background color for primary button color variant (hover).
+$button-primary-fore-color:      #f8f8f8;     // Text color for primary button color variant.
+@include make-button-alt-color ($button-primary-name, $button-primary-back-color, $button-primary-hover-back-color, $button-primary-fore-color);
+$button-secondary-name:            'secondary'; // Class name for secondary button color variant.
+$button-secondary-back-color:      $red;        // Background color for secondary button color variant.
+$button-secondary-hover-back-color:$lightRed;   // Background color for secondary button color variant (hover).
+$button-secondary-fore-color:      #f8f8f8;     // Text color for secondary button color variant.
+@include make-button-alt-color ($button-secondary-name, $button-secondary-back-color, $button-secondary-hover-back-color, $button-secondary-fore-color);
+$button-tertiary-name:            'tertiary';  // Class name for tertiary button color variant.
+$button-tertiary-back-color:      $green;      // Background color for tertiary button color variant.
+$button-tertiary-hover-back-color:$lightGreen; // Background color for tertiary button color variant (hover).
+$button-tertiary-fore-color:      #f8f8f8;     // Text color for tertiary button color variant.
+@include make-button-alt-color ($button-tertiary-name, $button-tertiary-back-color, $button-tertiary-hover-back-color, $button-tertiary-fore-color);
+$button-inverse-name:            'inverse';   // Class name for inverse button color variant.
+$button-inverse-back-color:      #212121;     // Background color for inverse button color variant.
+$button-inverse-hover-back-color:#111;        // Background color for inverse button color variant (hover).
+$button-inverse-fore-color:      #f8f8f8;     // Text color for inverse button color variant.
+@include make-button-alt-color ($button-inverse-name, $button-inverse-back-color, $button-inverse-hover-back-color, $button-inverse-fore-color);
+$button-small-name:    'small';              // Class name, padding and margin for small button size variant.
+$button-small-padding: calc(0.5 * var(#{$universal-padding-var})) calc(0.75 * var(#{$universal-padding-var}));
+$button-small-margin:  var(#{$universal-margin-var});
+@include make-button-alt-size ($button-small-name, $button-small-padding, $button-small-margin);
+$button-large-name:    'large';              // Class name, padding and margin for large button size variant.
+$button-large-padding: calc(1.5 * var(#{$universal-padding-var})) calc(2 * var(#{$universal-padding-var}));
+$button-large-margin:  var(#{$universal-margin-var});
+@include make-button-alt-size ($button-large-name, $button-large-padding, $button-large-margin);
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // Header, Footer, Drawer, nav and sticky
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 @import 'variables/navigation';
 @import '../mini/navigation';
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-// Breadcrumb, Close icon and other utilities
+// Contextual
 ////////////////////////////////////////////////////////////////////////////////////////////////////
-@import 'variables/progressandspinner';
-@import '../mini/progress';
+@import 'variables/contextual';
+@import '../mini/contextual';
 //
-//  Custom elements for progress elements and spinners.
+// Custom elements for contextual background elements, toasts and tooltips.
 //
-$progress-primary-name:         'primary';        // Class name for primary <progress> color variant.
-$progress-primary-fore-color:   $blue;            // Foreground color for primary <progress> color variant.
-@include make-progress-alt-color ($progress-primary-name, $progress-primary-fore-color);
-$progress-secondary-name:     'secondary';        // Class name for secondary <progress> color variant.
-$progress-secondary-fore-color: $red;             // Foreground color for secondary <progress> color variant.
-@include make-progress-alt-color ($progress-secondary-name, $progress-secondary-fore-color);
-$progress-tertiary-name:       'tertiary';        // Class name for tertiary <progress> color variant.
-$progress-tertiary-fore-color:   $green;          // Foreground color for tertiary <progress> color variant.
-@include make-progress-alt-color ($progress-tertiary-name, $progress-tertiary-fore-color);
-$spinner-donut-primary-name:         'primary';   // Class name for primary spinner donutcolor variant.
-$spinner-donut-primary-fore-color:   $blue;       // Foreground color for primary spinner donut color variant.
-@include make-spinner-donut-alt-color ($spinner-donut-primary-name, $spinner-donut-primary-fore-color);
-$spinner-donut-secondary-name:     'secondary';   // Class name for secondary spinner donut color variant.
-$spinner-donut-secondary-fore-color: $red;     // Foreground color for secondary spinner donut color variant.
-@include make-spinner-donut-alt-color ($spinner-donut-secondary-name, $spinner-donut-secondary-fore-color);
-$spinner-donut-tertiary-name:       'tertiary';   // Class name for tertiary spinner donut color variant.
-$spinner-donut-tertiary-fore-color:   $green;     // Foreground color for tertiary spinner donut color variant.
-@include make-spinner-donut-alt-color ($spinner-donut-tertiary-name, $spinner-donut-tertiary-fore-color);
+$mark-secondary-name:            'secondary'; // Class name for secondary <mark> color variant.
+$mark-secondary-back-color:      $red;     // Background color for secondary <mark> color variant.
+@include make-mark-alt-color ($mark-secondary-name, $mark-secondary-back-color);
+$mark-tertiary-name:            'tertiary';  // Class name for tertiary <mark> color variant.
+$mark-tertiary-back-color:      $green;     // Background color for tertiary <mark> color variant.
+@include make-mark-alt-color ($mark-tertiary-name, $mark-tertiary-back-color);
+$mark-tag-name:                 'tag';       // Class name, padding and border radius for tag <mark> size variant.
+$mark-tag-padding:      calc(var(#{$universal-padding-var})/2) var(#{$universal-padding-var});
+$mark-tag-border-radius:        1em;
+@include make-mark-alt-size ($mark-tag-name, $mark-tag-padding, $mark-tag-border-radius);
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 // La boite à bouillons specific
 ////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -17,20 +17,17 @@
     "author": "Olivier Jullien <https://github.com/ojullien>",
     "license": "MIT",
     "devDependencies": {
-        "autoprefixer": "^9.8.0",
         "clean-css-cli": "^4.3.0",
-        "node-sass": "4.14.1",
-        "postcss-cli": "^7.1.1"
+        "node-sass": "4.14.1"
     },
     "browserslist": [
         "last 4 versions"
     ],
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "autoprefixer": "postcss dist/*.css --dir dist/prefixed --no-map -u autoprefixer",
-        "build:lbab-m": "node-sass --output-style=expanded --indent-type=tab --indent-width=1 -o dist src/flavors/laboiteabouillons-maintenance.scss",
+        "build:lbab-m": "./node_modules/.bin/node-sass --output-style=expanded --indent-type=tab --indent-width=1 -o dist src/flavors/laboiteabouillons-maintenance.scss",
         "build:lbab": "./node_modules/.bin/node-sass --output-style=expanded --indent-type=tab --indent-width=1 -o dist src/flavors/laboiteabouillons.scss",
-        "build:default": "node-sass --output-style=expanded --indent-type=tab --indent-width=1 -o dist src/flavors/mini-default.scss",
+        "build:default": "./node_modules/.bin/node-sass --output-style=expanded --indent-type=tab --indent-width=1 -o dist src/flavors/mini-default.scss",
         "build": "npm run build:default && npm run build:lbab && npm run build:lbab-m",
         "minify:lbab-m": "cleancss -o dist/laboiteabouillons-maintenance.min.css dist/laboiteabouillons-maintenance.css",
         "minify:lbab": "cleancss -o dist/laboiteabouillons.min.css dist/laboiteabouillons.css",

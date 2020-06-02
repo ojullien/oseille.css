@@ -5,16 +5,12 @@
 //
 #top-image img {
     position: relative;
-    background-size: cover;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
+    background-size: cover;    
     background-position: center;
     height: -webkit-calc(100vh - 0px);
     height: calc(100vh - 0px);
     overflow: hidden;
     width: 100%;
-    -o-object-fit: cover;
     object-fit: cover;
 }
 
