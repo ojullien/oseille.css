@@ -12,5 +12,5 @@ $blockquote-color: $fore-color; // <blockquote> sidebar and quotation color
 $pre-color: #b48ead; // <pre> sidebar color
 $border-color: #d8dee9; // Border color
 $secondary-border-color: #e5e9f0; // Secondary border color
-$a-link-color: inherit; // Color for <a>:link $green
+$a-link-color: currentColor; // Color for <a>:link $green
 $a-visited-color: #bc596a; // Color for <a>:visited
