@@ -1,7 +1,5 @@
 //
 // La boîte à bouillons pagination specific.
-// Author: Olivier Jullien (https://github.com/ojullien)
-// version: v1.0.0
 //
 .pagination {
     padding-top: 2em;
@@ -11,17 +9,17 @@
 }
 
 .pagination {
-
-    [class*='page-'] {
+    [class*="page-"] {
         list-style-type: none;
         display: block;
         padding: 1.1em 1.6em;
     }
 
-    [class*='page-number'],
-    [class*='page-dots'],
-    [class*='page-current'] {
-        transform: scale(1) rotate(19deg) translateX(0px) translateY(0px) skewX(-10deg) skewY(-20deg);
+    [class*="page-number"],
+    [class*="page-dots"],
+    [class*="page-current"] {
+        transform: scale(1) rotate(19deg) translateX(0px) translateY(0px)
+            skewX(-10deg) skewY(-20deg);
     }
 
     .text-first::before {
@@ -45,20 +43,18 @@
 }
 
 @media screen and (min-width: #{$responsive-margin-medium-breakpoint}) {
-
     .pagination {
-
-        [class*='page-'] {
+        [class*="page-"] {
             display: inline-block;
         }
 
-        [class*='page-number'],
-        [class*='page-dots'],
-        [class*='page-current'] {
+        [class*="page-number"],
+        [class*="page-dots"],
+        [class*="page-current"] {
             border-right: 1px solid #d7dadb;
         }
 
-        [class*='page-']:last-child {
+        [class*="page-"]:last-child {
             border-right: none;
         }
 

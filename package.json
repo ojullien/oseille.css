@@ -18,11 +18,15 @@
     "license": "MIT",
     "devDependencies": {
         "clean-css-cli": "^4.3.0",
-        "node-sass": "4.14.1"
+        "node-sass": "4.14.1",
+        "prettier": "2.0.5"
     },
     "browserslist": [
         "last 4 versions"
     ],
+    "prettier": {
+        "tabWidth": 4
+    },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "build:lbab-m": "./node_modules/.bin/node-sass --output-style=expanded --indent-type=tab --indent-width=1 -o dist src/flavors/laboiteabouillons-maintenance.scss",
@@ -30,6 +34,7 @@
         "build": "npm run build:lbab && npm run build:lbab-m",
         "minify:lbab-m": "cleancss -o dist/laboiteabouillons-maintenance.min.css dist/laboiteabouillons-maintenance.css",
         "minify:lbab": "cleancss -o dist/laboiteabouillons.min.css dist/laboiteabouillons.css",
-        "minify": "npm run minify:lbab && npm run minify:lbab-m"
+        "minify": "npm run minify:lbab && npm run minify:lbab-m",
+        "format": "prettier --write 'src/flavors/variables/*.scss' 'src/flavors/*.scss' 'src/laboiteabouillons/*.scss'"
     }
 }

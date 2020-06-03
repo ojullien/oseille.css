@@ -1,36 +1,43 @@
 //
 // La boîte à bouillons theme specific.
-// Author: Olivier Jullien (https://github.com/ojullien)
-// version: v1.0.0
 //
 
 //
 // Typography enhancement
 //
-h1, h2, h3, h4, h5, h6 {
-  font-family: #{$headingFont}; // Added by La boite à bouillons
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: #{$headingFont}; // Added by La boite à bouillons
 }
 
-blockquote, cite, q, figcaption {
-  font-family: #{$cursiveFont};
+blockquote,
+cite,
+q,
+figcaption {
+    font-family: #{$cursiveFont};
 }
 
-cite, q {
-  font-size: $cursiveFontSize;
+cite,
+q {
+    font-size: $cursiveFontSize;
 }
 
 // Text alignement
 
 .centeredAlignedText {
-  text-align: center;
+    text-align: center;
 }
 
 .justifiedAlignedText {
-  text-align: justify;
+    text-align: justify;
 }
 
 .leftAlignedText {
-  text-align: left;
+    text-align: left;
 }
 
 .rightAlignedText {
@@ -40,31 +47,31 @@ cite, q {
 // Figure and image
 
 .circularPicto {
-  border-radius: 500rem;
-  width: 90px;
-  height: auto;
+    border-radius: 500rem;
+    width: 90px;
+    height: auto;
 }
 
 figure.fullWidth {
-  margin-left: 0px;
-  margin-right: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
 }
 
 figure img {
-  width: 100%;
+    width: 100%;
 }
 
 .floatedImage {
-  float: left;
-  margin-right: 1em;
-  margin-bottom: 0em;
+    float: left;
+    margin-right: 1em;
+    margin-bottom: 0em;
 }
 
 .rotatedImage {
-  -webkit-transform: rotate(180deg);
-  transform: rotate(180deg);
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
 }
 
 .floatedImage:last-child {
-  margin-bottom: 0em;
+    margin-bottom: 0em;
 }
