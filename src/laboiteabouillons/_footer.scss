@@ -15,18 +15,18 @@ footer {
     }
 
     li:not(:first-child):before {
-        content: "\B7\A0";
+        content: "\A0"; /* \b7 is a middot, \a0 is a space */
     }
 
     li:after {
-        content: "\2009";
+        content: "\2009"; /* insecable space */
     }
 
     a.button {
         color: #f5f5f5;
     }
 
-    .icon {
+    img {
         vertical-align: top;
     }
 
@@ -34,7 +34,7 @@ footer {
         text-align: center;
     }
 
-    @media screen and (max-width: #{$grid-medium-breakpoint}-1px) {
+    @media screen and (max-width: $grid-medium-breakpoint - 1px) {
         li,
         .floatedImage {
             float: inherit;

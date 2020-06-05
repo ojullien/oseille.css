@@ -303,10 +303,11 @@ a {
   &:visited {
     color: var(#{$a-visited-color-var});
   }
-  &:hover, &:focus {
+  &:not(.button):hover, &:not(.button):focus {
       // La boite à bouillons
       //  1. Comment: text-decoration...
       //  2. Add: box-shadow...
+      //  3. Add: :not(.button) property
     // text-decoration: underline;
     box-shadow: 0 2px;
   }
