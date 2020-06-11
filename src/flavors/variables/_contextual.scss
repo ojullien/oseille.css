@@ -17,3 +17,6 @@ $collapse-selected-label-back-color: #e5e9f0; // Background color for selected l
 $collapse-border-color: #e5e9f0; // Border color for collapse component
 $collapse-selected-label-border-color: #0277bd; // Border color for collapse component's selected labels
 $collapse-content-back-color: #fafafa; // Background color for collapse component's content panes
+$_include-toast: false; // [Hidden] Should toasts be included? (boolean)
+$_include-tooltip: false; // [Hidden] Should tooltips be included? (boolean)
+$_include-modal: false; // [Hidden] Should modal dialogs be included? (boolean)
