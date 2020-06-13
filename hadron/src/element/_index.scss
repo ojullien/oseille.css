@@ -1,0 +1,8 @@
+// Laod shared variables
+@forward "variables" as shared-*;
+@use 'root/root';
+@use 'sectioning/sectioning';
+@use 'sectioning/header';
+@use 'sectioning/heading';
+@use 'sectioning/navigation';
+@use 'sectioning/footer';

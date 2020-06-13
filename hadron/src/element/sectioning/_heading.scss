@@ -1,0 +1,54 @@
+/*
+ Content sectioning elements allow you to organize the document content into logical pieces.
+  Use the sectioning elements to create a broad outline for your page content, including header and footer navigation, 
+  and heading elements to identify sections of content. 
+*/
+@use 'sass:string';
+@use '../stdlib';
+
+// Public variables. May be overrided using @use <url> with (<variable>: <value>, <variable>: <value>)
+
+$line-height: 1.2 !default; // Line height for headings
+$font-weight: 500 !default; // Font weight for headings
+$subheading-font-size: 0.75em !default; // Font sizing for <small> elements in headings
+$subheading-margin-top: -0.25rem !default; // Top margin of <small> elements in headings
+$heading-ratio: 1.19 !default; // Ratio for headings (strictly unitless)
+$margin: 0.5rem !default; // Universal margin for the most elements
+$fore-color: #444 !default; // Secondary text & foreground color
+
+// Private variables
+
+// Elements
+
+h1, h2, h3, h4, h5, h6 {
+    line-height: $line-height;
+    margin: calc(1.5 * $margin) $margin;
+    font-weight: $font-weight;
+    small {
+        color: $fore-color;
+        display: block;
+        @if $subheading-margin-top != 0 {
+            margin-top: $subheading-margin-top;
+        }
+        font-size: $subheading-font-size;
+    }
+}
+
+h1 {
+    font-size: string.unquote(stdlib.buildFontSize(4, $heading-ratio));
+}
+h2 {
+    font-size: string.unquote(string.unquote(stdlib.buildFontSize(3, $heading-ratio)));
+}
+h3 {
+    font-size: string.unquote(stdlib.buildFontSize(2, $heading-ratio));
+}
+h4 {
+    font-size: string.unquote(stdlib.buildFontSize(1, $heading-ratio));
+}
+h5 {
+    font-size: 1rem;
+}
+h6 {
+    font-size: string.unquote(stdlib.buildFontSize(-1, $heading-ratio));
+}

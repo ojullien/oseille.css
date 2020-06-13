@@ -1,0 +1,9 @@
+@use '../element/root/root' with (
+    $fore-color: red,
+    $back-color: yellow
+    );
+@use '../element/sectioning/sectioning';
+@use '../element/sectioning/header';
+@use '../element/sectioning/heading';
+@use '../element/sectioning/navigation';
+@use '../element/sectioning/footer';

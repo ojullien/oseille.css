@@ -1,0 +1,18 @@
+// @todo cooment
+@function rempx($size) {
+    @return 1px / $size;
+}
+// @todo cooment
+@function buildFontSize($exponent, $ratio, $base: "1rem") {
+    $sCalc: "";
+
+    @if $exponent < 0 {
+        $sCalc: " / #{$ratio}";
+    } @else {
+        @for $_ from 1 through $exponent {
+            $sCalc: "#{$sCalc} * #{$ratio}";
+        }
+    }
+
+    @return "calc(#{$base}#{$sCalc})";
+}
