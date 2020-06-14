@@ -1,8 +1,32 @@
-// Laod shared variables
-@forward "variables" as shared-*;
-@use 'root/root';
+@use 'sass:color';
+// Loads shared variables
+// using @forward to make its mixins, functions, and variables available to the main stylesheet flavor.
+//@forward 'variables' as ev-*;
+@use 'variables' as v;
+
+// Loads all elements
+@use 'root/root' with (
+    $fore-color: v.$default-fore-color
+    );
+
 @use 'sectioning/sectioning';
-@use 'sectioning/header';
-@use 'sectioning/heading';
-@use 'sectioning/navigation';
-@use 'sectioning/footer';
+
+@use 'sectioning/heading' with (
+    $margin: v.$universal-margin,
+    $fore-color: color.scale(v.$default-fore-color, $lightness: 21.5%)
+    );
+
+@use 'sectioning/header' with (
+    $padding: v.$universal-padding
+    );
+
+@use 'sectioning/navigation'with (
+    $border-radius: v.$universal-border-radius,
+    $margin: v.$universal-margin,
+    $box-shadow: v.$universal-box-shadow,
+    $padding: v.$universal-padding
+    );
+
+@use 'sectioning/footer' with (
+    $padding: v.$universal-padding
+    );

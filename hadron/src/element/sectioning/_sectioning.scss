@@ -1,21 +1,9 @@
-/*
- Content sectioning elements allow you to organize the document content into logical pieces.
-  Use the sectioning elements to create a broad outline for your page content, including header and footer navigation, 
-  and heading elements to identify sections of content. 
-*/
-/*
-<address>
-<article>
-<aside>
-<footer>
-<header>
-<h1>, <h2>, <h3>, <h4>, <h5>, <h6>
-<hgroup>
-<main>
-<nav>
-<section>
-*/
+//
+// Content sectioning elements allow you to organize the document content into logical pieces.
+// Use the sectioning elements to create a broad outline for your page content, including header and footer navigation, 
+// and heading elements to identify sections of content. 
+//
 
-address, article, aside, section {
+address, article, aside, section, hgroup, main {
     margin-bottom: 1rem;
 }

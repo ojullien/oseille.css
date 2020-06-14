@@ -1,0 +1,9 @@
+// Fix for responsive header, using the grid system's row and column alignment.
+header {
+    &.#{$grid-row-name} {
+        box-sizing: content-box;
+        & .#{$header-logo-name} {
+            line-height: 1;
+        }
+    }
+}

@@ -1,6 +1,7 @@
-/*
-  Sectioning root using top-level elements
-*/
+:root {
+  --px: 0.0625rem ;
+}
+
 html {
   scroll-behavior: smooth;
   font-size: 16px;
@@ -10,69 +11,24 @@ html {
 
 body {
   margin: 0;
-  padding: 0;
-  overflow-x: hidden;
-  min-width: 320px;
-  font-family: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Ubuntu, 'Helvetica Neue', Helvetica, sans-serif";
-  font-size: 1.03rem;
-  line-height: 1.5;
   color: #111;
   background: #f8f8f8;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, sans-serif;
+  line-height: 1.5;
+  font-size: 1rem;
 }
 
-/*
- Content sectioning elements allow you to organize the document content into logical pieces.
-  Use the sectioning elements to create a broad outline for your page content, including header and footer navigation, 
-  and heading elements to identify sections of content. 
-*/
-/*
-<address>
-<article>
-<aside>
-<footer>
-<header>
-<h1>, <h2>, <h3>, <h4>, <h5>, <h6>
-<hgroup>
-<main>
-<nav>
-<section>
-*/
-address, article, aside, section {
+address, article, aside, section, hgroup, main {
   margin-bottom: 1rem;
 }
 
-/*
- Content sectioning elements allow you to organize the document content into logical pieces.
-  Use the sectioning elements to create a broad outline for your page content, including header and footer navigation, 
-  and heading elements to identify sections of content. 
-*/
-header {
-  background: var(--nc-bg-2);
-  border-bottom: 1px solid var(--nc-bg-3);
-  padding: 2rem 1.5rem;
-  /* This sets the right and left margins to cancel out the body's margins. It's width is still the same, but the background stretches across the page's width. */
-  margin: -2rem calc(0px - (50vw - 50%)) 2rem;
-  /* Shorthand for:
-  margin-top: -2rem;
-  margin-bottom: 2rem;
-  margin-left: calc(0px - (50vw - 50%));
-  margin-right: calc(0px - (50vw - 50%)); */
-  padding-left: calc(50vw - 50%);
-  padding-right: calc(50vw - 50%);
-}
-
-/*
- Content sectioning elements allow you to organize the document content into logical pieces.
-  Use the sectioning elements to create a broad outline for your page content, including header and footer navigation, 
-  and heading elements to identify sections of content. 
-*/
 h1, h2, h3, h4, h5, h6 {
   line-height: 1.2;
-  margin: calc(1.5 * $margin) 0.5rem;
+  margin: calc(1.5 * 0.5rem) 0.5rem;
   font-weight: 500;
 }
 h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
-  color: #444;
+  color: #444444;
   display: block;
   margin-top: -0.25rem;
   font-size: 0.75em;
@@ -102,13 +58,106 @@ h6 {
   font-size: calc(1rem / 1.19);
 }
 
-/*
- Content sectioning elements allow you to organize the document content into logical pieces.
-  Use the sectioning elements to create a broad outline for your page content, including header and footer navigation, 
-  and heading elements to identify sections of content. 
-*/
-/*
- Content sectioning elements allow you to organize the document content into logical pieces.
-  Use the sectioning elements to create a broad outline for your page content, including header and footer navigation, 
-  and heading elements to identify sections of content. 
-*/
+header {
+  height: 3.1875rem;
+  background: #f8f8f8;
+  color: #444;
+  border-bottom: var(--px) solid #ddd;
+  padding: calc(0.5rem / 4) 0;
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+header .logo {
+  color: #444;
+  font-size: 1.75rem;
+  padding: 0.5rem calc(2 * 0.5rem);
+  text-decoration: none;
+}
+header span, header button, header [type=button], header .button, header [role=button] {
+  box-sizing: border-box;
+  position: relative;
+  top: calc(0rem - 0.5rem / 4);
+  height: calc(height + 0.5rem / 2);
+  background: #f8f8f8;
+  line-height: calc(3.1875rem - 0.5rem * 1.5);
+  text-align: center;
+  color: #444;
+  border: 0;
+  border-radius: 0;
+  margin: 0;
+  text-transform: uppercase;
+}
+header button:hover, header button:focus, header [type=button]:hover, header [type=button]:focus, header .button:hover, header .button:focus, header [role=button]:hover, header [role=button]:focus {
+  background: #f0f0f0;
+}
+header .sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  z-index: 1101;
+  top: 0;
+}
+
+nav {
+  background: #f8f8f8;
+  color: #444;
+  border: var(--px) solid #ddd;
+  border-radius: 0.125rem;
+  margin: 0.5rem;
+}
+nav * {
+  padding: 0.5rem calc(1.5 * 0.5rem);
+}
+nav a, nav a:visited {
+  display: block;
+  color: #0277bd;
+  border-radius: 0.125rem;
+  transition: background 0.3s;
+}
+nav a:hover, nav a:focus, nav a:visited:hover, nav a:visited:focus {
+  text-decoration: none;
+  background: #f0f0f0;
+}
+nav ._sublink-prefix-1 {
+  position: relative;
+  margin-left: calc(2 * 0.5rem);
+}
+nav ._sublink-prefix-1:before {
+  position: absolute;
+  left: calc(0.5rem - 1 * 0.5rem);
+  top: -var(--px);
+  content: "";
+  height: 100%;
+  border: var(--px) solid #ddd;
+  border-left: 0;
+}
+nav ._sublink-prefix-2 {
+  position: relative;
+  margin-left: calc(4 * 0.5rem);
+}
+nav ._sublink-prefix-2:before {
+  position: absolute;
+  left: calc(0.5rem - 3 * 0.5rem);
+  top: -var(--px);
+  content: "";
+  height: 100%;
+  border: var(--px) solid #ddd;
+  border-left: 0;
+}
+
+footer {
+  background: #f8f8f8;
+  color: #444;
+  border-top: var(--px) solid #ddd;
+  padding: calc(2 * 0.5rem) 0.5rem;
+  font-size: 0.875rem;
+}
+footer a, footer a:visited {
+  color: #0277bd;
+}
+footer .sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  z-index: 1101;
+  bottom: 0;
+}

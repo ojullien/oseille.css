@@ -1,2 +1,7 @@
 // Common variables
-$font-size: 1.03rem; // Font sizing for all elements
+//$main-font-size: 1.03rem; // Font sizing for all elements
+$default-fore-color: #111; // Text & foreground color
+$universal-margin: 0.5rem !default; // Universal margin for the most elements
+$universal-padding: 0.5rem !default; // Universal padding for the most elements
+$universal-border-radius: 0.125rem !default; // Universal border-radius for most elements
+$universal-box-shadow: none !default; // Universal box-shadow for most elements

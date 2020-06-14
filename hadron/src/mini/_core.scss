@@ -2,17 +2,6 @@
   Browsers resets and base typography.
 */
 
-// TODO: Add fluid type and test thoroughly
-
-
-
-
-
-
-
-
-
-
 $secondary-back-color:    #f0f0f0 !default;     // Secondary background color
 $blockquote-color:        #f57c00 !default;     // <blockquote> sidebar and quotation color
 $pre-color:               #1565c0 !default;     // <pre> sidebar color
@@ -22,8 +11,7 @@ $secondary-border-color:  #ddd !default;        // Secondary border color
 $main-padding: 0.5rem !default; // Universal padding for the most elements
 
 
-$universal-border-radius: 0.125rem !default;    // Universal border-radius for most elements
-$universal-box-shadow:    none !default;        // Universal box-shadow for most elements
+
 
 $bold-font-weight:        700 !default;         // Font weight for <b> and <strong>
 $horizontal-rule-line-height:  1.25em !default; // <hr> line height
@@ -49,7 +37,7 @@ $secondary-border-color-var:    '--secondary-border-color' !default;
 
 
 $universal-border-radius-var:   '--universal-border-radius' !default;
-$universal-box-shadow-var:      '--universal-box-shadow' !default;
+
 $a-link-color-var:              '--a-link-color' !default;
 $a-visited-color-var:           '--a-visited-color' !default;
 /* Core module CSS variable definitions */

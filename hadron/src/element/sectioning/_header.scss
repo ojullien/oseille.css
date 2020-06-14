@@ -1,25 +1,84 @@
-/*
- Content sectioning elements allow you to organize the document content into logical pieces.
-  Use the sectioning elements to create a broad outline for your page content, including header and footer navigation, 
-  and heading elements to identify sections of content. 
-*/
-//mini\_navigation.scss
+//
+// Content sectioning elements allow you to organize the document content into logical pieces.
+// Use the sectioning elements to create a broad outline for your page content, including header and footer navigation,
+// and heading elements to identify sections of content.
+//
 
+// Public variables.
+// May be overrided using @use <url> with (<variable>: <value>, <variable>: <value>)
+
+$back-color: #f8f8f8 !default; // Background color for the header element.
+$fore-color: #444 !default; // Text color for the header element.
+$border-color: #ddd !default; // Border color for the header element.
+$hover-back-color: #f0f0f0 !default; // Background color for the header element (hover).
+$padding: 0.5rem !default; // Universal padding for the most elements
+$height: 3.1875rem !default; // Height of the header element.
+$logo-font-size: 1.75rem !default; // Font ize for the header logo element.
+
+// Private variables
+
+$_only-bottom-border: true !default; // Apply styling only to the bottom border of header? (boolean)
+$_logo-name: 'logo' !default; // Class name for the header logo element.
+$_button-class-name: 'button' !default; // Class name for elements styled as buttons.
+$_sticky-name: 'sticky' !default; // Class name for sticky headers and footers.
+$_links-uppercase: true !default; // [Should header links and buttons be uppercase? (boolean)
+
+// Header styling
+// No box-shadow as it causes lots of weird bugs in Chrome. No margin as it shouldn't have any.
 header {
-    background: var(--nc-bg-2);
-    border-bottom: 1px solid var(--nc-bg-3);
-    padding: 2rem 1.5rem;
+    height: $height;
+    background: $back-color; // Always apply background color to avoid shine through
+    color: $fore-color;
 
-    /* This sets the right and left margins to cancel out the body's margins. It's width is still the same, but the background stretches across the page's width. */
+    @if $_only-bottom-border {
+        border-bottom: var(--px) solid $border-color;
+    } @else {
+        border: var(--px) solid $border-color;
+    }
 
-    margin: -2rem calc(0px - (50vw - 50%)) 2rem;
+    padding: calc(#{$padding} / 4) 0;
 
-    /* Shorthand for:
-	margin-top: -2rem;
-	margin-bottom: 2rem;
-	margin-left: calc(0px - (50vw - 50%));
-	margin-right: calc(0px - (50vw - 50%)); */
+    // Responsiveness for smaller displays, scrolls horizontally.
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
 
-    padding-left: calc(50vw - 50%);
-    padding-right: calc(50vw - 50%);
+    // Header logo styling.
+    .#{$_logo-name} {
+        color: $fore-color;
+        font-size: $logo-font-size;
+        padding: $padding calc(2 * #{$padding});
+        text-decoration: none;
+    }
+
+    // Link and span styling.
+    span, button, [type='button'], .#{$_button-class-name}, [role='button'] {
+        box-sizing: border-box;
+        position: relative;
+        top: calc(0rem - #{$padding} / 4); // Use universal-padding to offset the padding of the header.
+        height: calc(#{height} + #{$padding} / 2); // Fill header.
+        background: $back-color; // Apply color regardless to override styling from other things.
+        line-height: calc(#{$height} - #{$padding} * 1.5);
+        text-align: center;
+        color: $fore-color;
+        border: 0;
+        border-radius: 0;
+        margin: 0;
+        @if $_links-uppercase {
+            text-transform: uppercase;
+        }
+    }
+
+    button, [type='button'], .#{$_button-class-name}, [role='button'] {
+        &:hover, &:focus {
+            background: $hover-back-color;
+        }
+    }
+
+    .#{$_sticky-name} {
+        position: -webkit-sticky; // One of the rare instances where prefixes are necessary.
+        position: sticky;
+        z-index: 1101; // Deals with certain problems when combined with cards and tables.
+        top: 0;
+    }
 }

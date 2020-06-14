@@ -1,12 +1,13 @@
-/*
-  Sectioning root using top-level elements
-*/
+//
+// Sectioning root using top-level elements
+//
 @use '../stdlib';
 
-// Public variables. May be overrided using @use <url> with (<variable>: <value>, <variable>: <value>)
+// Public variables.
+// May be overrided using @use <url> with (<variable>: <value>, <variable>: <value>)
 
-$font-sans: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Ubuntu, 'Helvetica Neue', Helvetica, sans-serif" !default; // Font stack for all elements
-//$font-mono: "Menlo, Consolas, monospace" !default; // Font stack for code elements
+$font-sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Ubuntu, 'Helvetica Neue', Helvetica, sans-serif !default; // Font stack for all elements
+//$font-mono: 'Menlo, Consolas, monospace' !default; // Font stack for code elements
 //$font-heading: #{$font-sans}; // Font stack for heading elements
 //$font-quote: #{$font-sans}; // Font stack for quote elements
 $root-font-size: 16px !default; // Root font sizing for all elements (`px` only)
@@ -17,9 +18,13 @@ $back-color: #f8f8f8 !default; // Background color
 
 // Private variables
 
-$__1px: stdlib.rempx($root-font-size) * 1rem !default; // [Private Calculated] Calculated rem value of `1px`
+$__1px: stdlib.rempx($root-font-size) * 1rem; // Calculated rem value of `1px`
 
-// Elements
+// Top level styling
+
+:root {
+    --px: #{$__1px}
+}
 
 html {
     scroll-behavior: smooth;
@@ -36,7 +41,4 @@ body {
     font-family: $font-sans;
     line-height: $line-height;
     font-size: $font-size;
-    padding: 0; // New
-    overflow-x: hidden; // New
-    min-width: 320px; // New
 }
