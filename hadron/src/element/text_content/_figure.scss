@@ -1,0 +1,25 @@
+//
+// Use HTML text content elements to organize blocks or sections of content placed between the opening <body>
+// and closing </body> tags. Important for accessibility and SEO, these elements identify the purpose or
+// structure of that content.
+//
+
+// Public variables.
+// May be overrided using @use <url> with (<variable>: <value>, <variable>: <value>)
+
+$fore-color: #444 !default; // Text & foreground color
+$margin: 0.5rem !default; // Universal margin for the most elements
+$font-size: 0.75em !default; // Font sizing for <figcaption> elements
+
+// Private variables
+
+// Figure styling
+
+figcaption {
+    font-size: $font-size;
+    color: $fore-color;
+}
+
+figure {
+    margin: $margin;
+}

@@ -19,6 +19,7 @@ $hover-back-color: #f0f0f0 !default; // Background color for the nav element (ho
 $sublink-depth: 2 !default; // Amount of subcategory classes to add.
 
 // Private variables
+
 $_sublink-prefix: 'sublink' !default; // Prefix for the subcategory tabs in nav.
 
 // Navigation sidebar styling.
@@ -53,13 +54,13 @@ nav {
 
     // Subcategories in navigation.
     @for $i from 1 through $sublink-depth {
-        .#{_sublink-prefix}-#{$i} {
+        .#{$_sublink-prefix}-#{$i} {
             position: relative;
             margin-left: calc(#{$i * 2} * #{$padding});
             &:before {
                 position: absolute;
                 left: calc(#{$padding} - #{1 + ($i - 1) * 2} * #{$padding});
-                top: -#{var(--px)};
+                top: calc( 0 - var(--px) );
                 content: "";
                 height: 100%;
                 border: var(--px) solid $border-color;

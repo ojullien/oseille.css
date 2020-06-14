@@ -9,24 +9,31 @@
     $fore-color: v.$default-fore-color
     );
 
-@use 'sectioning/sectioning';
-
-@use 'sectioning/heading' with (
+@use 'content_sectioning/sectioning';
+@use 'content_sectioning/heading' with (
     $margin: v.$universal-margin,
     $fore-color: color.scale(v.$default-fore-color, $lightness: 21.5%)
     );
-
-@use 'sectioning/header' with (
+@use 'content_sectioning/header' with (
     $padding: v.$universal-padding
     );
-
-@use 'sectioning/navigation'with (
+@use 'content_sectioning/navigation'with (
     $border-radius: v.$universal-border-radius,
     $margin: v.$universal-margin,
     $box-shadow: v.$universal-box-shadow,
     $padding: v.$universal-padding
     );
-
-@use 'sectioning/footer' with (
+@use 'content_sectioning/footer' with (
     $padding: v.$universal-padding
     );
+
+@use 'text_content/blockquote' with (
+    $border-radius: v.$universal-border-radius,
+    $box-shadow: v.$universal-box-shadow,
+    $margin: v.$universal-margin,
+    $padding: v.$universal-padding
+    );
+@use 'text_content/figure';
+@use 'text_content/definition';
+@use 'text_content/list';
+@use 'text_content/paragraph';
