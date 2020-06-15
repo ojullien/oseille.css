@@ -16,15 +16,17 @@ $subheading-font-size: 0.75em !default; // Font sizing for <small> elements in h
 $subheading-margin-top: -0.25rem !default; // Top margin of <small> elements in headings
 $heading-ratio: 1.19 !default; // Ratio for headings (strictly unitless)
 $fore-color: #444 !default; // Sub element text & foreground color. #444
+$font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Ubuntu, 'Helvetica Neue', Helvetica, sans-serif !default; // Font stack for heading
 
 //
 // Heading styling
 //
 
 h1, h2, h3, h4, h5, h6 {
+    font-family: $font-family;
+    font-weight: $font-weight;
     line-height: $line-height;
     margin: calc(1.5 * #{$margin}) $margin;
-    font-weight: $font-weight;
     small {
         color: $fore-color;
         display: block;

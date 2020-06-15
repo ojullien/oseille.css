@@ -3,9 +3,11 @@
 // and closing </body> tags. Important for accessibility and SEO, these elements identify the purpose or
 // structure of that content.
 //
+@use '../stdlib';
 
 // Public variables.
 // May be overrided using @use <url> with (<variable>: <value>, <variable>: <value>)
+$font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, sans-serif !default; // Font stack for quote elements
 $fore-color: #444 !default; // Text & foreground color
 $margin: 0.5rem !default; // Universal margin for the most elements
 $padding: 0.5rem !default; // Universal padding for the most elements
@@ -32,9 +34,7 @@ blockquote {
     border-left: calc(6 * var(--px)) solid $sidebar-color;
     border-radius: 0 $border-radius $border-radius 0;
 
-    @if $box-shadow != none {
-        box-shadow: $box-shadow;
-    }
+    @include stdlib.box-shadow($box-shadow);
 
     &:before {
         position: absolute;
@@ -54,4 +54,9 @@ blockquote {
         content: "\a—  "attr(cite);
         white-space: pre;
     }
+}
+
+// Fix for elements inside headings not displaying properly.
+q {
+    font-size: 1em;
 }

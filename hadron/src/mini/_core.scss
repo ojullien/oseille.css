@@ -2,54 +2,48 @@
   Browsers resets and base typography.
 */
 
-$secondary-back-color:    #f0f0f0 !default;     // Secondary background color
 
-$pre-color:               #1565c0 !default;     // <pre> sidebar color
+
+
 $border-color:            #aaa !default;        // Border color
-$secondary-border-color:  #ddd !default;        // Secondary border color
+
 
 $main-padding: 0.5rem !default; // Universal padding for the most elements
 
 
 
 
-$bold-font-weight:        700 !default;         // Font weight for <b> and <strong>
+
 
 
 
 $code-font-family: 'Menlo, Consolas, monospace' !default; // Font stack for code elements
-$code-font-size:           0.85em !default;     // Font size for <code>, <kbd>
-$small-element-font-size:     0.75em !default;  // Font size for <small>, <sub>, <sup>
-$sup-top:                  -0.5em !default;     // <sup> top
-$sub-bottom:               -0.25em !default;    // <sub> bottom
-$a-link-color:             #0277bd !default;    // Color for <a>:link
-$a-visited-color:          #01579b !default;    // Color for <a>:visited
+
+
+
+
 // CSS variable name definitions [exercise caution if modifying these]
 $fore-color-var:                '--fore-color' !default;
 
 $back-color-var:                '--back-color' !default;
-$secondary-back-color-var:      '--secondary-back-color' !default;
-$pre-color-var:                 '--pre-color' !default;
-$secondary-border-color-var:    '--secondary-border-color' !default;
+
+
+
 
 
 
 $universal-border-radius-var:   '--universal-border-radius' !default;
 
-$a-link-color-var:              '--a-link-color' !default;
-$a-visited-color-var:           '--a-visited-color' !default;
 /* Core module CSS variable definitions */
 :root {
 
 
     #{$secondary-back-color-var}: $secondary-back-color;
-    #{$pre-color-var}: $pre-color;
-    #{$secondary-border-color-var}: $secondary-border-color;
+
+
 
 
     #{$universal-border-radius-var}: $universal-border-radius;
-    #{$a-link-color-var}: $a-link-color;
-    #{$a-visited-color-var}: $a-visited-color;
     @if $universal-box-shadow != none {
         #{$universal-box-shadow-var}: $universal-box-shadow;
     }
@@ -73,10 +67,6 @@ input {
   overflow: visible;
 }
 
-// Make images responsive by default.
-img {
-  max-width: 100%;
-  height: auto;
-}
+
 
 

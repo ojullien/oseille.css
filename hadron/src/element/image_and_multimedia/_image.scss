@@ -1,0 +1,12 @@
+//
+// Various multimedia resources such as images, audio, and video.
+//
+
+// Multimedia resources styling
+// <map> <area> <audio> <track>
+
+// Make images responsive by default.
+picture {
+    max-width: 100%;
+    height: auto;
+}

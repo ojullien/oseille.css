@@ -1,0 +1,84 @@
+//
+// Use the HTML inline text semantic to define the meaning, structure, or style of a word, line, or
+// any arbitrary piece of text.
+//
+@use "sass:map";
+@use '../stdlib';
+
+// Public variables.
+// May be overrided using @use <url> with (<variable>: <value>, <variable>: <value>)
+
+$back-colors: (
+    "primary": #0277bd,
+    "secondary": #d32f2f,
+    "tertiary": #308732,
+) !default; // Background colors for <mark>
+$fore-color: #fafafa !default; // Text color for <mark>
+$font-size: 0.95em !default; // Font size for <mark>
+$line-height: 1em !default; // Line height for <mark>
+$default-line-height: 1.5 !default; // Line height for most elements
+$padding: 0.5rem !default; // Universal padding for the most elements
+$box-shadow: none !default; // Universal box-shadow for most elements
+$border-radius: 0.125rem !default; // Universal border-radius for most elements
+
+// Private variables
+$_inline-block-name: "inline-block" !default; // Class name for inline-block <mark>
+$_secondary-name: "secondary"; // Class name for secondary <mark> color variant.
+$_tertiary-name: "tertiary"; // Class name for tertiary <mark> color variant.
+$_tag-name: "tag"; // Class name, padding and border radius for tag <mark> size variant.
+
+// Mark styling
+
+mark {
+    background: map.get($back-colors, "primary");
+    color: $fore-color;
+    font-size: $font-size;
+    line-height: $line-height;
+    border-radius: $border-radius;
+    padding: calc(#{$padding} / 4) calc(#{$padding} / 2);
+    @include stdlib.box-shadow($box-shadow);
+
+    &.#{$_inline-block-name} {
+        display: inline-block;
+        // This is hardcoded, as we want inline-block <mark> elements to be styled as normal pieces of text, instead of look small and weird.
+        font-size: 1em;
+        // Line height is reset to the normal line-height from `core`. Also hardcoded for same reasons.
+        line-height: $default-line-height;
+        padding: calc(#{$padding} / 2) #{$padding};
+    }
+
+    &.#{$_tag-name} {
+        padding: calc(#{$padding} / 2) #{$padding};
+        border-radius: 1em;
+    }
+
+    &.#{$_secondary-name} {
+        background: map.get($back-colors, "secondary");
+    }
+
+    &.#{$_tertiary-name} {
+        background: map.get($back-colors, "tertiary");
+    }
+
+    // The presence of the mark element is not announced by most screen reading technology
+    // in its default configuration. It can be made to be announced by using the CSS
+    // content property, along with the ::before and ::after pseudo-elements.
+    &:before,
+    &:after {
+        clip-path: inset(100%);
+        clip: rect(1px, 1px, 1px, 1px);
+        height: 1px;
+        overflow: hidden;
+        position: absolute;
+        white-space: nowrap;
+        width: 1px;
+    }
+
+    &:before {
+        content: " [highlight start] ";
+    }
+
+    &:after {
+        content: " [highlight end] ";
+    }
+}

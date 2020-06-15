@@ -1,8 +1,13 @@
-// @todo cooment
+//
+// Some usefull functions and mixins.
+//
+//
+// @todo Add comment
 @function rempx($size) {
     @return 1px / $size;
 }
-// @todo cooment
+
+// @todo Add comment
 @function buildFontSize($exponent, $ratio, $base: "1rem") {
     $sCalc: "";
 
@@ -15,4 +20,24 @@
     }
 
     @return "calc(#{$base}#{$sCalc})";
+}
+
+// Correct the inheritance and scaling of font size in all browsers.
+@mixin normalize-font-size($font-size: 1em, $font-family: inherit) {
+    font-family: $font-family;
+    font-size: $font-size;
+}
+
+// Prevent element from affecting the line height in all browsers.
+@mixin normalize-line-height {
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+// @todo Add comment
+@mixin box-shadow($box-shadow: none) {
+    @if $box-shadow != none {
+        box-shadow: $box-shadow;
+    }
 }

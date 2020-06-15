@@ -3,6 +3,7 @@
 // Use the sectioning elements to create a broad outline for your page content, including header and footer navigation,
 // and heading elements to identify sections of content.
 //
+@use '../stdlib';
 
 // Public variables.
 // May be overrided using @use <url> with (<variable>: <value>, <variable>: <value>)
@@ -30,9 +31,7 @@ nav {
     border: var(--px) solid $border-color;
     border-radius: $border-radius;
     margin: $margin;
-    @if $box-shadow != none {
-        box-shadow: $box-shadow;
-    }
+    @include stdlib.box-shadow($box-shadow);
 
     * {
         padding: $padding calc(1.5 * #{$padding});
