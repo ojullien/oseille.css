@@ -3,39 +3,47 @@
 // Use the sectioning elements to create a broad outline for your page content, including header and footer navigation,
 // and heading elements to identify sections of content.
 //
+@use 'sass:map';
 
 // Public variables.
 // May be overrided using @use <url> with (<variable>: <value>, <variable>: <value>)
 
-$back-color: #f8f8f8 !default; // Background color for footer nav element.
-$fore-color: #444 !default; // Text color for the footer element.
-$link-color: #0277bd !default; // Color for link in the footer element.
-$border-color: #ddd !default; // Border color for the footer element.
 $padding: 0.5rem !default; // Universal padding for the most elements
 $font-size: 0.875rem !default; // Font size for text in footer element.
+$colors: (
+    // Background color for footer nav element.
+        "back": #f8f8f8,
+    // Text color for the footer element.t
+        "fore": #444,
+    // Color for link in the footer element.
+        "link": #0277bd,
+    // Border color for the footer element.
+        "border": #ddd
+) !default;
 
 // Private variables
 
 $_only-top-border: true !default; // Apply styling only to the top border of footer? (boolean)
-$_sticky-name: 'sticky' !default; // Class name for sticky headers and footers.
+$_sticky-name: "sticky" !default; // Class name for sticky headers and footers.
 
-// Footer styling
+/* Footer styling */
 
 footer {
-    background: $back-color; // Always apply background color to avoid shine through
-    color: $fore-color;
+    background: map.get($colors, "back"); // Always apply background color to avoid shine through
+    color: map.get($colors, "fore");
 
     @if $_only-top-border {
-        border-top: var(--px) solid $border-color;
+        border-top: var(--px) solid map.get($colors, "border");
     } @else {
-        border: var(--px) solid $border-color;
+        border: var(--px) solid map.get($colors, "border");
     }
 
     padding: calc(2 * #{$padding}) $padding;
     font-size: $font-size;
 
-    a, a:visited {
-        color: $link-color;
+    a,
+    a:visited {
+        color: map.get($colors, "link");
     }
 
     .#{$_sticky-name} {

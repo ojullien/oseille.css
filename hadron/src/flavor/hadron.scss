@@ -1,4 +1,4 @@
 // To load a module with configuration, write @use <url> with (<variable>: <value>, <variable>: <value>).
 // @link https://sass-lang.com/documentation/variables
-@charset "UTF-8";
 @use '../element';
+@use '../module';

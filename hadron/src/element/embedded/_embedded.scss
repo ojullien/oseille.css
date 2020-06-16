@@ -10,7 +10,7 @@ $padding-bottom: 26.875rem !default; // bottom padding
 
 $_container-name: "iframe-container"; // Class name for <iframe> container.
 
-// Embedded content styling
+/* Embedded content styling */
 
 .#{$_container-name} {
     position: relative;

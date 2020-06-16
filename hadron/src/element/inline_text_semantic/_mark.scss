@@ -3,7 +3,7 @@
 // any arbitrary piece of text.
 //
 @use "sass:map";
-@use '../stdlib';
+@use '../../common/stdlib';
 
 // Public variables.
 // May be overrided using @use <url> with (<variable>: <value>, <variable>: <value>)
@@ -27,7 +27,7 @@ $_secondary-name: "secondary"; // Class name for secondary <mark> color variant.
 $_tertiary-name: "tertiary"; // Class name for tertiary <mark> color variant.
 $_tag-name: "tag"; // Class name, padding and border radius for tag <mark> size variant.
 
-// Mark styling
+/* Mark styling*/
 
 mark {
     background: map.get($back-colors, "primary");

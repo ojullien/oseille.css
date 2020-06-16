@@ -2,29 +2,34 @@
 // Use the HTML inline text semantic to define the meaning, structure, or style of a word, line, or
 // any arbitrary piece of text.
 //
-@use '../stdlib';
+@use 'sass:map';
+@use '../../common/stdlib';
 
 // Public variables.
 // May be overrided using @use <url> with (<variable>: <value>, <variable>: <value>)
 
 $bold-font-weight: 700 !default; // Font weight for <b> and <strong>
-$link-color: #0277bd !default; // Color for <a>:link
-$visited-link-color: #01579b !default; // Color for <a>:visited
 $small-element-font-size: 0.75em !default; // Font size for <small>, <sub>, <sup>
 $sup-top: -0.5em !default; // <sup> top
 $sub-bottom: -0.25em !default; // <sub> bottom
+$colors: (
+    // Color for <a>:link
+        "link": #0277bd,
+    // Color for <a>:visited
+        "visited": #01579b
+) !default;
 
-// Inline text semantic styling
+/* Inline text semantic styling */
 
 a {
     font-size: 1em; // Fix for elements inside headings not displaying properly.
     font-family: inherit;
     text-decoration: none;
     &:link {
-        color: $link-color;
+        color: map.get($colors, "link");
     }
     &:visited {
-        color: $visited-link-color;
+        color: map.get($colors, "visited");
     }
     &:not(.button):hover,
     &:not(.button):focus {
@@ -37,7 +42,8 @@ abbr[title] {
     text-decoration: underline dotted; // Opinionated style-fix for all browsers.
 }
 
-b, strong {
+b,
+strong {
     font-weight: $bold-font-weight;
     font-size: 1em; // Fix for elements inside headings not displaying properly.
 }
@@ -51,7 +57,13 @@ data {
 }
 
 // Fix for elements inside headings not displaying properly.
-dfn, del, em, i, ins, span, u {
+dfn,
+del,
+em,
+i,
+ins,
+span,
+u {
     font-size: 1em;
 }
 
@@ -61,7 +73,8 @@ s {
     // The presence of the s element is not announced by most screen reading technology
     // in its default configuration. It can be made to be announced by using the CSS
     // content property, along with the ::before and ::after pseudo-elements.
-    &:before, &:after {
+    &:before,
+    &:after {
         clip-path: inset(100%);
         clip: rect(1px, 1px, 1px, 1px);
         height: 1px;

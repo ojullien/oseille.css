@@ -1,15 +1,12 @@
-@use 'sass:color';
 // Loads shared variables
 // using @forward to make its mixins, functions, and variables available to the main stylesheet flavor.
-//@forward 'variables' as ev-*;
-@use 'variables' as v;
+@use 'sass:color';
+@use '../common/variables' as v;
 
 // Loads all elements
 @use 'root/root' with (
-    $fore-color: v.$default-fore-color,
     $line-height: v.$default-line-height
     );
-
 @use 'content_sectioning/sectioning';
 @use 'content_sectioning/heading' with (
     $margin: v.$universal-margin,
@@ -58,4 +55,10 @@
     $margin: v.$universal-margin,
     $padding: v.$universal-padding,
     $mobile-breakpoint: v.$mobile-breakpoint
+    );
+@use 'form/fieldset' with (
+        $padding: v.$universal-padding
+    );
+@use 'form/input' with (
+        $padding: v.$universal-padding
     );

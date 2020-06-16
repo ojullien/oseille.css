@@ -1,6 +1,6 @@
 @charset "UTF-8";
 :root {
-  --px: 0.0625rem ;
+  --px: 0.0625rem;
 }
 
 html {
@@ -20,17 +20,34 @@ body {
   font-size: 1rem;
 }
 
-address, article, aside, section, hgroup, main {
+/* Content sectioning styling */
+address,
+article,
+aside,
+section,
+hgroup,
+main {
   margin-bottom: 1rem;
 }
 
-h1, h2, h3, h4, h5, h6 {
+/* Heading styling */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, sans-serif;
   font-weight: 500;
   line-height: 1.2;
   margin: calc(1.5 * 0.5rem) 0.5rem;
 }
-h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
+h1 small,
+h2 small,
+h3 small,
+h4 small,
+h5 small,
+h6 small {
   color: #444444;
   display: block;
   margin-top: -0.25rem;
@@ -61,6 +78,7 @@ h6 {
   font-size: calc(1rem / 1.19);
 }
 
+/* Header styling */
 header {
   height: 3.1875rem;
   background: #f8f8f8;
@@ -77,7 +95,11 @@ header .logo {
   padding: 0.5rem calc(2 * 0.5rem);
   text-decoration: none;
 }
-header span, header button, header [type=button], header .button, header [role=button] {
+header span,
+header button,
+header [type=button],
+header .button,
+header [role=button] {
   box-sizing: border-box;
   position: relative;
   top: calc(0rem - 0.5rem / 4);
@@ -91,7 +113,13 @@ header span, header button, header [type=button], header .button, header [role=b
   margin: 0;
   text-transform: uppercase;
 }
-header button:hover, header button:focus, header [type=button]:hover, header [type=button]:focus, header .button:hover, header .button:focus, header [role=button]:hover, header [role=button]:focus {
+header button:hover, header button:focus,
+header [type=button]:hover,
+header [type=button]:focus,
+header .button:hover,
+header .button:focus,
+header [role=button]:hover,
+header [role=button]:focus {
   background: #f0f0f0;
 }
 header .sticky {
@@ -101,6 +129,7 @@ header .sticky {
   top: 0;
 }
 
+/* Navigation styling. */
 nav {
   background: #f8f8f8;
   color: #444;
@@ -111,13 +140,16 @@ nav {
 nav * {
   padding: 0.5rem calc(1.5 * 0.5rem);
 }
-nav a, nav a:visited {
+nav a,
+nav a:visited {
   display: block;
   color: #0277bd;
   border-radius: 0.125rem;
   transition: background 0.3s;
 }
-nav a:hover, nav a:focus, nav a:visited:hover, nav a:visited:focus {
+nav a:hover, nav a:focus,
+nav a:visited:hover,
+nav a:visited:focus {
   text-decoration: none;
   background: #f0f0f0;
 }
@@ -128,7 +160,7 @@ nav .sublink-1 {
 nav .sublink-1:before {
   position: absolute;
   left: calc(0.5rem - 1 * 0.5rem);
-  top: calc( 0 - var(--px) );
+  top: calc(0 - var(--px));
   content: "";
   height: 100%;
   border: var(--px) solid #ddd;
@@ -141,13 +173,14 @@ nav .sublink-2 {
 nav .sublink-2:before {
   position: absolute;
   left: calc(0.5rem - 3 * 0.5rem);
-  top: calc( 0 - var(--px) );
+  top: calc(0 - var(--px));
   content: "";
   height: 100%;
   border: var(--px) solid #ddd;
   border-left: 0;
 }
 
+/* Footer styling */
 footer {
   background: #f8f8f8;
   color: #444;
@@ -155,7 +188,8 @@ footer {
   padding: calc(2 * 0.5rem) 0.5rem;
   font-size: 0.875rem;
 }
-footer a, footer a:visited {
+footer a,
+footer a:visited {
   color: #0277bd;
 }
 footer .sticky {
@@ -225,6 +259,7 @@ p {
   margin: 0.5rem;
 }
 
+/* Code styling */
 code {
   font-family: Menlo, Consolas, monospace;
   font-size: 0.85em;
@@ -265,6 +300,7 @@ samp {
   font-size: 0.85em;
 }
 
+/* Inline text semantic styling */
 a {
   font-size: 1em;
   font-family: inherit;
@@ -285,7 +321,8 @@ abbr[title] {
   text-decoration: underline dotted;
 }
 
-b, strong {
+b,
+strong {
   font-weight: 700;
   font-size: 1em;
 }
@@ -298,7 +335,13 @@ data:hover:after {
   font-size: 0.7em;
 }
 
-dfn, del, em, i, ins, span, u {
+dfn,
+del,
+em,
+i,
+ins,
+span,
+u {
   font-size: 1em;
 }
 
@@ -343,6 +386,7 @@ sup {
   top: -0.5em;
 }
 
+/* Mark styling*/
 mark {
   background: #0277bd;
   color: #fafafa;
@@ -383,11 +427,13 @@ mark:after {
   content: " [highlight end] ";
 }
 
+/* Multimedia resources styling */
 picture {
   max-width: 100%;
   height: auto;
 }
 
+/* Embedded content styling */
 .iframe-container {
   position: relative;
   height: 0;
@@ -635,4 +681,261 @@ table.hoverable tr:hover, table.hoverable tr:hover > td, table.hoverable tr:focu
   table.hoverable tr:hover, table.hoverable tr:hover > td, table.hoverable tr:focus, table.hoverable tr:focus > td {
     background: #90caf9;
   }
+}
+/* Styling for captions */
+label {
+  padding: calc(0.5rem / 2) 0.5rem;
+}
+
+/* Styling for checkboxes and radio buttons. */
+[type=checkbox],
+[type=radio] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: relative;
+  height: calc(1rem + 0.5rem / 2);
+  width: calc(1rem + 0.5rem / 2);
+  vertical-align: text-bottom;
+  padding: 0;
+  flex-basis: calc(1rem + 0.5rem / 2) !important;
+  flex-grow: 0 !important;
+}
+[type=checkbox]:checked:before,
+[type=radio]:checked:before {
+  position: absolute;
+}
+
+[type=checkbox]:checked:before {
+  content: "✓";
+  font-family: sans-serif;
+  font-size: calc(1rem + 0.5rem / 2);
+  top: calc(0rem - 0.5rem);
+  left: calc(0.5rem / 4);
+}
+
+[type=radio] {
+  border-radius: 100%;
+}
+[type=radio]:checked:before {
+  border-radius: 100%;
+  content: "";
+  top: calc(var(--px) + 0.5rem / 2);
+  left: calc(var(--px) + 0.5rem / 2);
+  background: #111;
+  width: 0.5rem;
+  height: 0.5rem;
+}
+
+/* Spoilers & Accordions styling */
+.collapse {
+  width: calc(100% - 2 * 0.5rem);
+  opacity: 1;
+  display: flex;
+  flex-direction: column;
+  margin: 0.5rem;
+  border-radius: 0.125rem;
+}
+.collapse > [type=radio], .collapse > [type=checkbox] {
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  overflow: hidden;
+  position: absolute;
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(100%);
+  clip-path: inset(100%);
+}
+.collapse > label {
+  flex-grow: 1;
+  display: inline-block;
+  height: 1.5rem;
+  cursor: pointer;
+  transition: background 0.3s;
+  color: #212121;
+  background: #e8e8e8;
+  border: var(--px) solid #ddd;
+  padding: calc(1.5 * 0.5rem);
+}
+.collapse > label:hover, .collapse > label:focus {
+  background: #f0f0f0;
+}
+.collapse > label + div {
+  flex-basis: -webkit-auto;
+  flex-basis: auto;
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  overflow: hidden;
+  position: absolute;
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(100%);
+  clip-path: inset(100%);
+  transition: max-height 0.3s;
+  max-height: 1px;
+}
+.collapse > :checked + label {
+  background: #ececec;
+  border-bottom-color: #0277bd;
+}
+.collapse > :checked + label + div {
+  box-sizing: border-box;
+  position: relative;
+  width: 100%;
+  height: auto;
+  overflow: auto;
+  margin: 0;
+  background: #fafafa;
+  border: var(--px) solid #ddd;
+  border-top: 0;
+  padding: 0.5rem;
+  clip: auto;
+  -webkit-clip-path: inset(0%);
+  clip-path: inset(0%);
+  max-height: 400px;
+}
+.collapse > label:not(:first-of-type) {
+  border-top: 0;
+}
+.collapse > label:first-of-type {
+  border-radius: 0.125rem 0.125rem 0 0;
+}
+.collapse > label:last-of-type:not(:first-of-type) {
+  border-radius: 0 0 0.125rem 0.125rem;
+}
+.collapse > label:last-of-type:first-of-type {
+  border-radius: 0.125rem;
+}
+.collapse > :checked:last-of-type:not(:first-of-type) + label {
+  border-radius: 0;
+}
+.collapse > :checked:last-of-type + label + div {
+  border-radius: 0 0 0.125rem 0.125rem;
+}
+
+/* Toast styling */
+.toast {
+  position: fixed;
+  bottom: calc(0.5rem * 3);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1111;
+  color: #fafafa;
+  background: #424242;
+  border-radius: calc(0.125rem * 16);
+  padding: 0.5rem calc(0.5rem * 3);
+}
+
+/* Tooltip styling */
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+.tooltip:before, .tooltip:after {
+  position: absolute;
+  opacity: 0;
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(100%);
+  clip-path: inset(100%);
+  transition: all 0.3s;
+  z-index: 1010;
+  left: 50%;
+}
+.tooltip:not(.bottom):before, .tooltip:not(.bottom):after {
+  bottom: 75%;
+}
+.tooltip.bottom:before, .tooltip.bottom:after {
+  top: 75%;
+}
+.tooltip:hover:before, .tooltip:hover:after, .tooltip:focus:before, .tooltip:focus:after {
+  opacity: 1;
+  clip: auto;
+  -webkit-clip-path: inset(0%);
+  clip-path: inset(0%);
+}
+.tooltip:before {
+  content: "";
+  background: transparent;
+  border: 0.5rem solid transparent;
+  left: calc(50% - 0.5rem);
+}
+.tooltip:not(.bottom):before {
+  border-top-color: #212121;
+}
+.tooltip.bottom:before {
+  border-bottom-color: #212121;
+}
+.tooltip:after {
+  content: attr(aria-label);
+  color: #fafafa;
+  background: #212121;
+  border-radius: 0.125rem;
+  padding: 0.5rem;
+  white-space: nowrap;
+  transform: translateX(-50%);
+}
+.tooltip:not(.bottom):after {
+  margin-bottom: calc(2 * 0.5rem);
+}
+.tooltip.bottom:after {
+  margin-top: calc(2 * 0.5rem);
+}
+
+/* Styling for modal dialogs */
+[type=checkbox].modal {
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  overflow: hidden;
+  position: absolute;
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(100%);
+  clip-path: inset(100%);
+}
+[type=checkbox].modal + div {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.45);
+}
+[type=checkbox].modal + div .card {
+  margin: 0 auto;
+  max-height: 50vh;
+  overflow: auto;
+}
+[type=checkbox].modal + div .card .modal-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 0.125rem;
+  padding: 0.5rem;
+  margin: 0;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+[type=checkbox].modal + div .card .modal-close:before {
+  display: block;
+  content: "×";
+  color: #444;
+  position: relative;
+  font-family: sans-serif;
+  font-size: 1.75rem;
+  line-height: 1;
+  text-align: center;
+}
+[type=checkbox].modal + div .card .modal-close:hover, [type=checkbox].modal + div .card .modal-close:focus {
+  background: #f0f0f0;
+}
+[type=checkbox].modal:checked + div {
+  display: flex;
+  flex: 0 1 auto;
+  z-index: 1200;
+}
+[type=checkbox].modal:checked + div .card .modal-close {
+  z-index: 1211;
 }

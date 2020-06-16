@@ -35,19 +35,6 @@ $back-color-var:                '--back-color' !default;
 $universal-border-radius-var:   '--universal-border-radius' !default;
 
 /* Core module CSS variable definitions */
-:root {
-
-
-    #{$secondary-back-color-var}: $secondary-back-color;
-
-
-
-
-    #{$universal-border-radius-var}: $universal-border-radius;
-    @if $universal-box-shadow != none {
-        #{$universal-box-shadow-var}: $universal-box-shadow;
-    }
-}
 
 // Correct display for Edge & Firefox.
 details {

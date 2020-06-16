@@ -4,7 +4,7 @@
 //
 @use "sass:map";
 @use "sass:color";
-@use '../stdlib';
+@use '../../common/stdlib';
 
 // Public variables.
 // May be overrided using @use <url> with (<variable>: <value>, <variable>: <value>)
@@ -23,7 +23,7 @@ $fore-color: #111 !default; // Text & foreground color
 $back-color: #f8f8f8 !default; // Background color
 $code-back-color: #f0f0f0 !default; // <code> background color
 
-// Code styling
+/* Code styling */
 
 code {
     @include stdlib.normalize-font-size($font-size, $font-family);

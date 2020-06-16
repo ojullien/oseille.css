@@ -1,0 +1,27 @@
+//
+// HTML provides a number of elements which can be used together to create forms which the user can fill out and
+// submit to the Web site or application.
+//
+
+// Public variables.
+// May be overrided using @use <url> with (<variable>: <value>, <variable>: <value>)
+
+$padding: 0.5rem !default; // Universal padding for the most elements
+$margin: 0.5rem !default; // Universal margin for the most elements
+$box-shadow: none !default; // Universal box-shadow for most elements
+$border-radius: 0.125rem !default; // Universal border-radius for most elements
+
+/* Styling for fieldset */
+
+fieldset {
+    // Apply always to overwrite defaults for all of the below.
+    border: $__1px solid var(#{$form-border-color-var});
+    border-radius: var(#{$universal-border-radius-var});
+    margin: calc(#{$margin} / 4);
+    padding: var(#{$universal-padding-var});
+}
+
+// Label syling. - Basically just padding, but there might be more in the future.
+label {
+    padding: calc(#{$padding} / 2) $padding;
+}

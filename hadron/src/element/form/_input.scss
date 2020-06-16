@@ -1,0 +1,50 @@
+//
+// HTML provides a number of elements which can be used together to create forms which the user can fill out and
+// submit to the Web site or application.
+//
+
+// Public variables.
+// May be overrided using @use <url> with (<variable>: <value>, <variable>: <value>)
+
+$font-size: 1rem !default; // Font sizing for all elements
+$padding: 0.5rem !default; // Universal padding for the most elements
+$fore-color: #111 !default; // Text color for input elements.
+
+/* Styling for checkboxes and radio buttons. */
+[type="checkbox"],
+[type="radio"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    position: relative;
+    height: calc(#{$font-size} + #{$padding} / 2);
+    width: calc(#{$font-size} + #{$padding} / 2);
+    vertical-align: text-bottom;
+    padding: 0; // Remove padding added from previous styles.
+    flex-basis: calc(#{$font-size} + #{$padding} / 2) !important; // Override fluid input-group styling.
+    flex-grow: 0 !important; // Using with fluid input-groups is not recommended.
+    &:checked:before {
+        position: absolute;
+    }
+}
+[type="checkbox"] {
+    &:checked:before {
+        content: "\2713";
+        font-family: sans-serif;
+        font-size: calc(#{$font-size} + #{$padding} / 2);
+        top: calc(0rem - #{$padding});
+        left: calc(#{$padding} / 4);
+    }
+}
+[type="radio"] {
+    border-radius: 100%;
+    &:checked:before {
+        border-radius: 100%;
+        content: "";
+        top: calc(var(--px) + #{$padding} / 2);
+        left: calc(var(--px) + #{$padding} / 2);
+        background: $fore-color;
+        width: 0.5rem;
+        height: 0.5rem;
+    }
+}

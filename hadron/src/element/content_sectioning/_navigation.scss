@@ -3,32 +3,39 @@
 // Use the sectioning elements to create a broad outline for your page content, including header and footer navigation,
 // and heading elements to identify sections of content.
 //
-@use '../stdlib';
+@use 'sass:map';
+@use '../../common/stdlib';
 
 // Public variables.
 // May be overrided using @use <url> with (<variable>: <value>, <variable>: <value>)
 
-$back-color: #f8f8f8 !default; // Background color for the nav element.
-$fore-color: #444 !default; // Text color for the nav element.
-$border-color: #ddd !default; // Border color for the nav element.
 $border-radius: 0.125rem !default; // Universal border-radius for most elements
 $margin: 0.5rem !default; // Universal margin for the most elements
 $padding: 0.5rem !default; // Universal padding for the most elements
 $box-shadow: none !default; // Universal box-shadow for most elements
-$link-color: #0277bd !default; // Color for link in the nav element.
-$hover-back-color: #f0f0f0 !default; // Background color for the nav element (hover).
 $sublink-depth: 2 !default; // Amount of subcategory classes to add.
+$colors: (
+    // Background color for the nav element.
+        "back": #f8f8f8,
+    // Text color for the nav element.
+        "fore": #444,
+    // Color for link in the nav element.
+        "link": #0277bd,
+    // Background color for the nav element (hover).
+        "hover-back": #f0f0f0,
+    // Border color for the nav element.
+        "border": #ddd
+) !default;
 
 // Private variables
 
-$_sublink-prefix: 'sublink' !default; // Prefix for the subcategory tabs in nav.
+$_sublink-prefix: "sublink" !default; // Prefix for the subcategory tabs in nav.
 
-// Navigation sidebar styling.
+/* Navigation styling. */
 nav {
-
-    background: $back-color;
-    color: $fore-color;
-    border: var(--px) solid $border-color;
+    background: map.get($colors, "back");
+    color: map.get($colors, "fore");
+    border: var(--px) solid map.get($colors, "border");
     border-radius: $border-radius;
     margin: $margin;
     @include stdlib.box-shadow($box-shadow);
@@ -37,18 +44,18 @@ nav {
         padding: $padding calc(1.5 * #{$padding});
     }
 
-    a, a:visited {
-
+    a,
+    a:visited {
         display: block;
-        color: $link-color; // Apply regardless to de-stylize visited links.
+        color: map.get($colors, "link"); // Apply regardless to de-stylize visited links.
         border-radius: $border-radius;
         transition: background 0.3s;
 
-        &:hover, &:focus {
+        &:hover,
+        &:focus {
             text-decoration: none;
-            background: $hover-back-color;
+            background: map.get($colors, "hover-back");
         }
-
     }
 
     // Subcategories in navigation.
@@ -59,10 +66,10 @@ nav {
             &:before {
                 position: absolute;
                 left: calc(#{$padding} - #{1 + ($i - 1) * 2} * #{$padding});
-                top: calc( 0 - var(--px) );
+                top: calc(0 - var(--px));
                 content: "";
                 height: 100%;
-                border: var(--px) solid $border-color;
+                border: var(--px) solid map.get($colors, "border");
                 border-left: 0;
             }
         }
