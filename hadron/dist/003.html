@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>HADRON</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--link rel="stylesheet" href="https://cdn.rawgit.com/Chalarangelo/mini.css/v3.0.1/dist/mini-default.min.css"-->
+    <link href="hadron.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+    <h1>HADRON<small>.css</small></h1>
+</body>
+
+<header class="row sticky">
+    <span class="col-md-1 col-lg-2"></span>
+    <span class="logo col-sm-3 col-md">hadron.css</span>
+    <a class="button col-sm col-md" href="docs">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="height: 20px; vertical-align: text-top;">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+            <polyline points="14 2 14 8 20 8"></polyline>
+            <line x1="16" y1="13" x2="8" y2="13"></line>
+            <line x1="16" y1="17" x2="8" y2="17"></line>
+            <polyline points="10 9 9 9 8 9"></polyline>
+        </svg>
+        <span>&nbsp;Docs</span></a>
+    <a class="button col-sm col-md" href="https://github.com/Chalarangelo/mini.css" target="_blank">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="height: 20px; vertical-align: text-top;">
+            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+        </svg>
+        <span>&nbsp;Github</span></a>
+    <a class="button col-sm col-md" href="flavors">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="height: 20px; vertical-align: text-top;">
+            <path d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34"></path>
+            <polygon points="18 2 22 6 12 16 8 16 8 12 18 2"></polygon>
+        </svg>
+        <span>&nbsp;Flavors</span></a>
+    <span class="col-md-1 col-lg-2"></span>
+</header>
+
+<aside></aside>
+
+<main>
+    <style>
+        .box-colored {
+            background: #0277bd;
+            border-radius: 0.125rem;
+            padding: 0.875rem;
+            margin-bottom: 0.5rem;
+            min-height: 0.875rem;
+            color: #f8f8f8;
+        }
+    </style>
+    <div class="row padded">
+
+        <section class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+            <h2 id="semantics">Semantics</h2>
+            <p>
+                I am <a href="?abc123">the a tag</a> example<br>
+                I am <abbr title="test">the abbr tag</abbr> example<br>
+                I am <b>the b tag</b> example<br>
+                I am <cite>the cite tag</cite> example<br>
+                I am <code>the code tag</code> example<br>
+                I am <del>the del tag</del> example<br>
+                I am <dfn>the dfn tag</dfn> example<br>
+                I am <em>the em tag</em> example<br>
+                I am <i>the i tag</i> example<br>
+                I am <ins>the ins tag</ins> example<br>
+                I am <kbd>the kbd tag</kbd> example<br>
+                I am <q>the q tag</q> example<br>
+                I am <samp>the samp tag</samp> example<br>
+                I am <small>the small tag</small> example<br>
+                I am <span>the span tag</span> example<br>
+                I am <strong>the strong tag</strong> example<br>
+                I am <sub>the sub tag</sub> example<br>
+                I am <sup>the sup tag</sup> example<br>
+                I am <var>the var tag</var> example<br>
+                I am <mark>the mark tag</mark> example<br>
+                This is a <mark class="secondary">secondary highlight</mark> and this is a <mark class="tertiary">tertiary highlight</mark><br>
+                This is a highlight styled as a <mark class="tag">tag</mark><br>
+                <mark class="inline-block">This is some highlighted text that is displayed as an inline block.</mark><br>
+                I am <s>the s tag</s> example<br>
+                I am <data value="398">the data tag</data> example<br>
+            </p>
+            <hr>
+        </section>
+
+        <section class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+            <h2 id="heading">Heading</h2>
+            <h1>Heading <strong>1</strong> <small>Subheading</small></h1>
+            <h2>Heading 2 <small>Subheading</small></h2>
+            <h3>Heading 3 <small>Subheading</small></h3>
+            <h4>Heading 4 <small>Subheading</small></h4>
+            <h5>Heading 5 <small>Subheading</small></h5>
+            <h6>Heading 6 <small>Subheading</small></h6>
+            <hr>
+        </section>
+
+        <section class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+            <h2 id="images">Images & captions</h2>
+            <figure><img src="https://placehold.it/800x600" alt="placeholder">
+                <figcaption class="doc">Image caption</figcaption>
+            </figure>
+        </section>
+
+        <section class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+            <h2 id="lists">Lists</h2>
+            <h3><strong>Unordered</strong> lists</h3>
+            <ul>
+                <li>Apple</li>
+                <li>Orange</li>
+                <li>
+                    Make sure to style list items to:
+                    <ol>
+                        <li>Not forgetting child list items</li>
+                        <li>Not forgetting child list items</li>
+                    </ol>
+                </li>
+                <li>Strawberry</li>
+                <li>
+                    Make sure to style list items to:
+                    <ul>
+                        <li>Not forgetting child list items</li>
+                        <li>Not forgetting child list items</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3><strong>Ordered</strong> lists</h3>
+
+            <ol>
+                <li>Wake up</li>
+                <li>
+                    Make sure to style list items to:
+                    <ul>
+                        <li>Not forgetting child list items</li>
+                        <li>Not forgetting child list items</li>
+                    </ul>
+                </li>
+                <li>Eat breakfast</li>
+                <li>
+                    Make sure to style list items to:
+                    <ol>
+                        <li>Not forgetting child list items</li>
+                        <li>Not forgetting child list items</li>
+                    </ol>
+                </li>
+                <li>Go to work</li>
+            </ol>
+
+            <h3><strong>Description lists </strong>are also included.</h3>
+            <dl>
+                <dt>Description list title 01</dt>
+                <dd>Description list description 01</dd>
+                <dt>Description list title 02</dt>
+                <dd>Description list description 02</dd>
+                <dd>Description list description 03</dd>
+            </dl>
+
+        </section>
+
+        <section class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+            <h2 id="code">Code</h2>
+            <p>This is some text with some inline <code>source code</code> and some keyboard <kbd>input</kbd>.</p>
+            <pre>function sum(num1, num2){
+          return num1 + num2;
+        }</pre>
+            <pre><code>function sus(num1, num2){
+            return num1 - num2;
+          }</code></pre>
+            <code>function mul(num1, num2){
+            return num1 * num2;
+          }</code>
+        </section>
+
+        <section class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+            <h2 id="quotation">Quotation</h2>
+            <blockquote cite="www.quotation.source">This is some text quoted from elsewhere.</blockquote>
+            <blockquote>
+                <p>
+                    <em>This is a properly formatted blockquote, btw.</em> Measuring
+                    programming progress by lines of code is like measuring aircraft building
+                    progress by weight.
+                </p>
+                <footer>
+                    <cite><a href="http://www.thegatesnotes.com">Bill Gates</a></cite>
+                </footer>
+            </blockquote>
+        </section>
+
+        <section class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+            <h2 id="grid">Grid system</h2>
+            <div class="container" style="padding: 0.25rem">
+                <div class="row">
+                    <div class="col-sm-1">
+                        <div class="box-colored">1</div>
+                    </div>
+                    <div class="col-sm-11">
+                        <div class="box-colored">11</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-2">
+                        <div class="box-colored">2</div>
+                    </div>
+                    <div class="col-sm-10">
+                        <div class="box-colored">10</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="box-colored">3</div>
+                    </div>
+                    <div class="col-sm-9">
+                        <div class="box-colored">9</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="box-colored">4</div>
+                    </div>
+                    <div class="col-sm-8">
+                        <div class="box-colored">8</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-5">
+                        <div class="box-colored">5</div>
+                    </div>
+                    <div class="col-sm-7">
+                        <div class="box-colored">7</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="box-colored">6</div>
+                    </div>
+                    <div class="col-sm-6">
+                        <div class="box-colored">6</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="box-colored">12</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm">
+                        <div class="box-colored">fluid</div>
+                    </div>
+                    <div class="col-sm">
+                        <div class="box-colored">fluid</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+            <h2 id="mediaobjectgrid">Media Object Grid</h2>
+            <div class="row">
+                <div class="col-sm-2">
+                    <img src="https://picsum.photos/200/300?random&amp;1" alt="random image" width="auto" height="auto">
+                </div>
+                <div class="col-sm">
+                    <h2>Media object heading</h2>
+                    <p>Media object content...</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+            <h2 id="imagegrid">Image Grid</h2>
+            <div class="image-grid">
+                <a href="https://picsum.photos" style="border: none;"><img src="https://picsum.photos/200/300?random&amp;1" alt="random image" width="auto" height="auto"></a>
+                <a href="https://picsum.photos" style="border: none;"><img src="https://picsum.photos/200/300?random&amp;2" alt="random image" width="auto" height="auto"></a>
+                <a href="https://picsum.photos" style="border: none;"><img src="https://picsum.photos/200/300?random&amp;3" alt="random image" width="auto" height="auto"></a>
+                <a href="https://picsum.photos" style="border: none;"><img src="https://picsum.photos/200/300?random&amp;4" alt="random image" width="auto" height="auto"></a>
+                <a href="https://picsum.photos" style="border: none;"><img src="https://picsum.photos/200/300?random&amp;5" alt="random image" width="auto" height="auto"></a>
+                <a href="https://picsum.photos" style="border: none;"><img src="https://picsum.photos/200/300?random&amp;6" alt="random image" width="auto" height="auto"></a>
+                <a href="https://picsum.photos" style="border: none;"><img src="https://picsum.photos/200/300?random&amp;7" alt="random image" width="auto" height="auto"></a>
+            </div>
+        </section>
+
+        <section class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+            <h2 id="gridmodifiers">Grid modifiers</h2>
+            <div class="container" style="padding: 0.25rem">
+                <div class="row">
+                    <div class="col-sm-12 col-md">
+                        <div class="row">
+                            <div class="col-sm">
+                                <h6 style="text-align:center">Small screen layout</h6>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm">
+                                <div class="box-colored">sm-12</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="box-colored" style="height: 3.75rem">sm-12 md-8</div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="box-colored" style="height: 2rem">sm-12 md-4</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm">
+                                <div class="box-colored">sm-12</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md">
+                        <div class="row">
+                            <div class="col-sm">
+                                <h6 style="text-align:center">Medium/Large screen layout</h6>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm">
+                                <div class="box-colored">sm-12</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-8">
+                                <div class="box-colored" style="height: 8rem">sm-12 md-8</div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="box-colored" style="height: 8rem">sm-12 md-4</div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm">
+                                <div class="box-colored">sm-12</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+            <h2 id="columnoffsets">Column offsets</h2>
+            <div class="container" style="padding: 0.25rem">
+                <div class="row">
+                    <div class="col-sm col-sm-offset-11">
+                        <div class="box-colored">11</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm col-sm-offset-10">
+                        <div class="box-colored">10</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm col-sm-offset-9">
+                        <div class="box-colored">9</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm col-sm-offset-8">
+                        <div class="box-colored">8</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm col-sm-offset-7">
+                        <div class="box-colored">7</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm col-sm-offset-6">
+                        <div class="box-colored">6</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm col-sm-offset-5">
+                        <div class="box-colored">5</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm col-sm-offset-4">
+                        <div class="box-colored">4</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm col-sm-offset-3">
+                        <div class="box-colored">3</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm col-sm-offset-2">
+                        <div class="box-colored">2</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm col-sm-offset-1">
+                        <div class="box-colored">1</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm col-sm-offset-0">
+                        <div class="box-colored">0</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+            <h2 id="columnreordering">Column reordering</h2>
+            <div class="container" style="padding: 0.25rem">
+                <div class="row">
+                    <div class="col-sm-12 col-md">
+                        <div class="row">
+                            <div class="col-sm">
+                                <h6 style="text-align:center">Small screen layout</h6>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="box-colored">md-last</div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="box-colored">&nbsp;</div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="box-colored">md-first</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md">
+                        <div class="row">
+                            <div class="col-sm">
+                                <h6 style="text-align:center">Medium/Large screen layout</h6>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="box-colored">md-first</div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="box-colored">&nbsp;</div>
+                            </div>
+                            <div class="col-sm-4">
+                                <div class="box-colored">md-last</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+            <h2 id="cards">Cards</h2>
+            <div class="container" style="padding: 0.25rem">
+                <div class="row">
+                    <div class="card">
+                        <div class="section">
+                            <h3 class="doc">Card 1</h3>
+                            <p class="doc">This is a basic card with some sample content.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="section">
+                            <h3 class="doc">Card 2</h3>
+                            <p class="doc">This is another card with some sample content.</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <div class="section">
+                            <h3 class="doc">Card 3</h3>
+                            <p class="doc">This is one more card with some sample content.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+            <h2 id="cardsmodifiers">Cards Modifiers</h2>
+            <div class="container" style="padding: 0.25rem">
+                <div class="row">
+                    <div class="card small">
+                        <div class="section">
+                            <h3 class="doc">Small Card</h3>
+                            <p class="doc">Small cards are <code>240px</code> wide.</p>
+                        </div>
+                    </div>
+                    <div class="card large">
+                        <div class="section">
+                            <h3 class="doc">Large Card</h3>
+                            <p class="doc">Large cards are <code>480px</code> wide.</p>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-10 col-lg-8">
+                        <div class="card fluid" style="margin: 0.5rem 0.25rem;">
+                            <div class="section">
+                                <h3 class="doc">Fluid Card</h3>
+                                <p class="doc">Fluid cards scale their width based on the column that contains them.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+            <h2 id="colorvariants">Color variants</h2>
+            <div class="container" style="padding: 0.25rem">
+                <style>
+                    .card.warning {
+                        --card-back-color: #ffca28;
+                        --card-border-color: #e8b825;
+                    }
+
+                    .card.error {
+                        --card-back-color: #b71c1c;
+                        --card-fore-color: #f8f8f8;
+                        --card-border-color: #a71a1a;
+                    }
+                </style>
+                <div class="row">
+                    <div class="card warning">
+                        <div class="section">
+                            <h3 class="doc">Warning Card</h3>
+                            <p class="doc">Warning cards are used to display important information to users.</p>
+                        </div>
+                    </div>
+                    <div class="card error">
+                        <div class="section">
+                            <h3 class="doc">Error Card</h3>
+                            <p class="doc">Error cards are used to display error messages to users.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+            <h2 id="cardsections">Card sections</h2>
+            <div class="container" style="padding: 0.25rem">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card fluid" style="margin: 0.5rem 0.25rem">
+                            <h3 class="doc section">Title section</h3>
+                            <p class="doc section">This is a section with some textual content.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+            <h2 id="cardmediasections">Card Media sections</h2>
+            <div class="container" style="padding: 0.25rem;">
+                <div class="row">
+                    <div class="card">
+                        <div class="section">
+                            <h3 class="doc">Card with image</h3>
+                        </div><img class="section media" src="https://placehold.it/800x600" alt="placeholder">
+                    </div>
+                    <div class="card">
+                        <div class="section">
+                            <h3 class="doc">Card with video</h3>
+                        </div><iframe class="section media" width="1280" height="720" src="https://www.youtube.com/embed/ScMzIvxBSi4"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+            <h2 id="cardcolorvariants">Card Color variants</h2>
+            <div class="container" style="padding: 0.25rem;">
+                <div class="row">
+                    <div class="card">
+                        <div class="section">
+                            <h3 class="doc">Normal section</h3>
+                        </div>
+                        <div class="section dark">
+                            <h3 class="doc">Dark section</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+            <h2 id="cardadditionalspacing">Card Additional spacing</h2>
+            <div class="container" style="padding: 0.25rem;">
+                <div class="row">
+                    <div class="card">
+                        <div class="section">
+                            <h3 class="doc">Normal spacing</h3>
+                        </div>
+                        <div class="section double-padded">
+                            <h3 class="doc">Additional spacing</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+            <h2 id="formsinput">Forms & input</h2>
+            <form>
+                <fieldset>
+                    <legend class="doc">Sample form</legend>
+                    <div class="row responsive-label">
+                        <div class="col-sm-12 col-md-3"><label for="sf1-text" class="doc">Text</label></div>
+                        <div class="col-sm-12 col-md"><input type="text" placeholder="Text" id="sf1-text" style="width:85%;" class="doc"></div>
+                    </div>
+                    <div class="row responsive-label">
+                        <div class="col-sm-12 col-md-3"><label for="sf1-pwd" class="doc">Password</label></div>
+                        <div class="col-sm-12 col-md"><input type="password" placeholder="Password" id="sf1-pwd" style="width:85%;" class="doc"></div>
+                    </div>
+                    <div class="row responsive-label">
+                        <div class="col-sm-12 col-md-3"><label for="sf1-num" class="doc">Number</label></div>
+                        <div class="col-sm-12 col-md"><input type="number" value="42" id="sf1-num" style="width:85%;" class="doc"></div>
+                    </div>
+                    <div class="row responsive-label">
+                        <div class="col-sm-12 col-md-3"><label for="sf1-select" class="doc">Select</label></div>
+                        <div class="col-sm-12 col-md"><select id="sf1-select" style="width:85%;" class="doc">
+                                <option class="doc">Apples</option>
+                                <option class="doc">Oranges</option>
+                            </select></div>
+                    </div>
+                    <div class="row responsive-label">
+                        <div class="col-sm-12 col-md-3"><label for="sf1-check" class="doc">Checkbox</label></div>
+                        <div class="col-sm-12 col-md"><input type="checkbox" autocomplete="off" id="sf1-check" class="doc"></div>
+                    </div>
+                    <div class="row responsive-label">
+                        <div class="col-sm-12 col-md-3"><label for="sf1-radio" class="doc">Radio</label></div>
+                        <div class="col-sm-12 col-md"><input type="radio" autocomplete="off" id="sf1-radio" class="doc"></div>
+                    </div>
+                    <div class="row responsive-label">
+                        <div class="col-sm-12 col-md-3"><label for="sf1-textarea" class="doc">Textarea</label></div>
+                        <div class="col-sm-12 col-md"><textarea class="doc" style="width:85%;" placeholder="Textarea"></textarea></div>
+                    </div>
+                    <div class="row responsive-label">
+                        <div class="col-sm-12 col-md-3"><label for="sf1-invalid" class="doc">Invalid</label></div>
+                        <div class="col-sm-12 col-md"><input value="Invalid" id="sf1-invalid" style="width:85%;" class="doc"></div>
+                        <script>document.getElementById("sf1-invalid").setCustomValidity("This field is invalid");</script>
+                    </div>
+                    <div class="row responsive-label">
+                        <div class="col-sm-12 col-md-3"><label for="sf1-disabled" class="doc">Disabled</label></div>
+                        <div class="col-sm-12 col-md"><input disabled="" value="Disabled" id="sf1-disabled" style="width:85%;" class="doc"></div>
+                    </div>
+                    <div class="row responsive-label">
+                        <div class="col-sm-12 col-md-3"><label for="sf1-readonly" class="doc">Readonly</label></div>
+                        <div class="col-sm-12 col-md"><input readonly="" value="Readonly" id="sf1-readonly" style="width:85%;" class="doc"></div>
+                    </div>
+                </fieldset>
+            </form>
+        </section>
+
+        <section class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+            <h2 id="buttonscolorvariants">Buttons Color variants</h2>
+            <button class="primary doc">Primary</button>
+            <button class="secondary doc">Secondary</button>
+            <button class="tertiary doc">Tertiary</button>
+            <button class="inverse doc">Inverse</button>
+        </section>
+
+        <section class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+            <h2 id="buttonssizevariants">Buttons Size variants</h2>
+            <button class="small doc">Small</button>
+            <button class="large doc">Large</button>
+        </section>
+
+        <section class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+            <h2 id="inputgrouping">Input grouping</h2>
+            <form>
+                <fieldset>
+                    <legend class="doc">Grouped inputs</legend>
+                    <div class="input-group"><label for="gi1-un" class="doc">Username</label> <input type="email" value="" id="gi1-un" placeholder="Username" class="doc"></div><br>
+                    <div class="input-group"><label for="gi1-pwd" class="doc">Password</label> <input type="password" value="" id="gi1-pwd" placeholder="Password" class="doc"></div>
+                </fieldset>
+            </form>
+            <div class="button-group"><button class="doc">Buttons</button><button class="doc">can be</button><button class="doc">grouped</button></div>
+        </section>
+
+        <section class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+            <h2 id="inputgroupingmodifiers">Input Grouping Modifiers</h2>
+            <form>
+                <fieldset>
+                    <legend class="doc">Fluid input groups</legend>
+                    <div class="input-group fluid"><label for="gi2-un" class="doc">Username</label> <input type="email" value="" id="gi2-un" placeholder="Username" class="doc"></div>
+                    <div class="input-group fluid"><label for="gi2-pwd" class="doc">Password</label> <input type="password" value="" id="gi2-pwd" placeholder="Password" class="doc"></div>
+                </fieldset>
+            </form>
+            <form>
+                <fieldset>
+                    <legend class="doc">Vertical input groups</legend>
+                    <div class="input-group vertical"><label for="gi3-un" class="doc">Username</label> <input type="email" value="" id="gi3-un" placeholder="Username" class="doc"></div>
+                    <div class="input-group vertical"><label for="gi3-pwd" class="doc">Password</label> <input type="password" value="" id="gi3-pwd" placeholder="Password" class="doc"></div>
+                </fieldset>
+            </form>
+        </section>
+
+        <section class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+            <h2 id="header">Header</h2>
+            <header>
+                <a href="#" class="logo">Logo</a> <button class="doc">Home</button>
+                <a href="#" class="button doc">News</a>
+                <button class="doc">About</button> <button class="doc">Contact</button>
+            </header>
+        </section>
+
+        <section class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+            <h2 id="footer">Footer</h2>
+            <footer>
+                <p class="doc">© 2016-2017 Web Corporation | <a href="#" class="doc">About</a> | <a href="#" class="doc">Terms of use</a></p>
+            </footer>
+        </section>
+
+        <section class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+            <h2 id="menudrawer">Menu drawer</h2>
+            <div style="height: 8rem; position: relative; text-align: center;"><br>
+                <style>
+                    .drawer+.demo {
+                        position: absolute;
+                        height: 8rem;
+                        z-index: 0;
+                        top: 0;
+                        right: calc(0rem - 320px - 0.5rem);
+                        padding: 0.5rem;
+                        text-align: left;
+                    }
+
+                    [type="checkbox"]:checked.drawer+.demo {
+                        z-index: 1001;
+                        margin-right: 0.5rem;
+                    }
+                </style>
+                <label for="demo-toggle" class="button drawer-toggle persistent doc"></label>
+                <input type="checkbox" id="demo-toggle" class="drawer persistent">
+                <div class="demo doc">
+                    <label for="demo-toggle" class="drawer-close doc"></label><a href="#" class="doc">Home</a><br> <a href="#" class="doc">News</a><br>
+                    <a href="#" class="doc">About</a><br> <a href="#" class="doc">Contact</a><br></div>
+            </div>
+        </section>
+
+        <section class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+            <h2 id="tables">Tables</h2>
+            <h6 style="text-align:center">Desktop view</h6>
+            <table class="doc">
+                <caption class="doc">People</caption>
+                <thead class="doc">
+                    <tr class="doc">
+                        <th class="doc">Name</th>
+                        <th class="doc">Surname</th>
+                        <th class="doc">Alias</th>
+                    </tr>
+                </thead>
+                <tbody class="doc">
+                    <tr class="doc">
+                        <td data-label="Name" class="doc">Chad</td>
+                        <td data-label="Surname" class="doc">Wilberts</td>
+                        <td data-label="Alias" class="doc">MrOne</td>
+                    </tr>
+                    <tr class="doc">
+                        <td data-label="Name" class="doc">Adam</td>
+                        <td data-label="Surname" class="doc">Smith</td>
+                        <td data-label="Alias" class="doc">TheSmith</td>
+                    </tr>
+                    <tr class="doc">
+                        <td data-label="Name" class="doc">Sophia</td>
+                        <td data-label="Surname" class="doc">Canderson</td>
+                        <td data-label="Alias" class="doc">Candee</td>
+                    </tr>
+                    <tr class="doc">
+                        <td data-label="Name" class="doc">Nick</td>
+                        <td data-label="Surname" class="doc">Thomson</td>
+                        <td data-label="Alias" class="doc">NickThom</td>
+                    </tr>
+                    <tr class="doc">
+                        <td data-label="Name" class="doc">Mark</td>
+                        <td data-label="Surname" class="doc">Gerkis</td>
+                        <td data-label="Alias" class="doc">Markie</td>
+                    </tr>
+                    <tr class="doc">
+                        <td data-label="Name" class="doc">John</td>
+                        <td data-label="Surname" class="doc">Fergusson</td>
+                        <td data-label="Alias" class="doc">Fergujohn</td>
+                    </tr>
+                    <tr class="doc">
+                        <td data-label="Name" class="doc">Sylvia</td>
+                        <td data-label="Surname" class="doc">Pouleau</td>
+                        <td data-label="Alias" class="doc">Sylver</td>
+                    </tr>
+                    <tr class="doc">
+                        <td data-label="Name" class="doc">Norman</td>
+                        <td data-label="Surname" class="doc">Jones</td>
+                        <td data-label="Alias" class="doc">NormalJones</td>
+                    </tr>
+                    <tr class="doc">
+                        <td data-label="Name" class="doc">Trevor</td>
+                        <td data-label="Surname" class="doc">Heidel</td>
+                        <td data-label="Alias" class="doc">Heidi</td>
+                    </tr>
+                </tbody>
+            </table>
+            <br>
+            <h6 style="text-align:center">Mobile view</h6>
+            <table class="doc cardized">
+                <caption class="doc">People</caption>
+                <thead class="doc">
+                    <tr class="doc">
+                        <th class="doc">Name</th>
+                        <th class="doc">Surname</th>
+                        <th class="doc">Alias</th>
+                    </tr>
+                </thead>
+                <tbody class="doc">
+                    <tr class="doc">
+                        <td data-label="Name" class="doc">Chad</td>
+                        <td data-label="Surname" class="doc">Wilberts</td>
+                        <td data-label="Alias" class="doc">MrOne</td>
+                    </tr>
+                    <tr class="doc">
+                        <td data-label="Name" class="doc">Adam</td>
+                        <td data-label="Surname" class="doc">Smith</td>
+                        <td data-label="Alias" class="doc">TheSmith</td>
+                    </tr>
+                    <tr class="doc">
+                        <td data-label="Name" class="doc">Sophia</td>
+                        <td data-label="Surname" class="doc">Canderson</td>
+                        <td data-label="Alias" class="doc">Candee</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+            <h2 id="horizontaltables">Horizontal tables</h2>
+            <table class="doc horizontal">
+                <caption class="doc">People</caption>
+                <thead class="doc">
+                    <tr class="doc">
+                        <th class="doc">Name</th>
+                        <th class="doc">Surname</th>
+                        <th class="doc">Alias</th>
+                    </tr>
+                </thead>
+                <tbody class="doc">
+                    <tr class="doc">
+                        <td data-label="Name" class="doc">Chad</td>
+                        <td data-label="Surname" class="doc">Wilberts</td>
+                        <td data-label="Alias" class="doc">MrOne</td>
+                    </tr>
+                    <tr class="doc">
+                        <td data-label="Name" class="doc">Adam</td>
+                        <td data-label="Surname" class="doc">Smith</td>
+                        <td data-label="Alias" class="doc">TheSmith</td>
+                    </tr>
+                    <tr class="doc">
+                        <td data-label="Name" class="doc">Sophia</td>
+                        <td data-label="Surname" class="doc">Canderson</td>
+                        <td data-label="Alias" class="doc">Candee</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+            <h2 id="stripedtables">Striped tables</h2>
+            <table class="doc striped">
+                <caption class="doc">People</caption>
+                <thead class="doc">
+                    <tr class="doc">
+                        <th class="doc">Name</th>
+                        <th class="doc">Surname</th>
+                        <th class="doc">Alias</th>
+                    </tr>
+                </thead>
+                <tbody class="doc">
+                    <tr class="doc">
+                        <td data-label="Name" class="doc">Chad</td>
+                        <td data-label="Surname" class="doc">Wilberts</td>
+                        <td data-label="Alias" class="doc">MrOne</td>
+                    </tr>
+                    <tr class="doc">
+                        <td data-label="Name" class="doc">Adam</td>
+                        <td data-label="Surname" class="doc">Smith</td>
+                        <td data-label="Alias" class="doc">TheSmith</td>
+                    </tr>
+                    <tr class="doc">
+                        <td data-label="Name" class="doc">Sophia</td>
+                        <td data-label="Surname" class="doc">Canderson</td>
+                        <td data-label="Alias" class="doc">Candee</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+            <h2 id="hoverabletables">Hoverable tables</h2>
+            <table class="doc hoverable">
+                <caption class="doc">People</caption>
+                <thead class="doc">
+                    <tr class="doc">
+                        <th class="doc">Name</th>
+                        <th class="doc">Surname</th>
+                        <th class="doc">Alias</th>
+                    </tr>
+                </thead>
+                <tbody class="doc">
+                    <tr class="doc">
+                        <td data-label="Name" class="doc">Chad</td>
+                        <td data-label="Surname" class="doc">Wilberts</td>
+                        <td data-label="Alias" class="doc">MrOne</td>
+                    </tr>
+                    <tr class="doc">
+                        <td data-label="Name" class="doc">Adam</td>
+                        <td data-label="Surname" class="doc">Smith</td>
+                        <td data-label="Alias" class="doc">TheSmith</td>
+                    </tr>
+                    <tr class="doc">
+                        <td data-label="Name" class="doc">Sophia</td>
+                        <td data-label="Surname" class="doc">Canderson</td>
+                        <td data-label="Alias" class="doc">Candee</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+            <h2 id="texthighlighting">Text highlighting</h2>
+            <p>This is some <mark>highlighted text</mark>.</p>
+            <p>This is a <mark class="secondary">secondary highlight</mark> and this is a <mark class="tertiary">tertiary highlight</mark>.</p>
+            <p>This is a highlight styled as a <mark class="tag">tag</mark>.</p>
+            <p><mark class="inline-block">This is some highlighted text that is displayed as an inline block.</mark></p>
+        </section>
+
+        <section class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+            <h2 id="tooltips">Tooltips</h2>
+            <span class="tooltip" aria-label="Tooltip text">Hover over text to see tooltip</span>
+            <span class="tooltip bottom" aria-label="Tooltip text">Hover over text to see tooltip</span>
+        </section>
+
+        <section class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+            <h2 id="toasts">Toasts</h2>
+            <span class="toast">This is a toast message!</span>
+        </section>
+
+        <section class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+            <h2 id="modal">Modal dialogs</h2>
+            <label for="modal-control">Show modal</label>
+            <input type="checkbox" id="modal-control" class="modal">
+            <div>
+                <div class="card">
+                    <label for="modal-control" class="modal-close"></label>
+                    <h3 class="section">Modal</h3>
+                    <p class="section">This is a modal dialog!</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+            <h2 id="accordions">Spoilers & accordions</h2>
+            <div class="collapse">
+                <input type="checkbox" id="collapse-section1" checked aria-hidden="true">
+                <label for="collapse-section1" aria-hidden="true">Collapse section 1</label>
+                <div>
+                    <p>This is the first section of the collapse</p>
+                </div>
+                <input type="checkbox" id="collapse-section2" aria-hidden="true">
+                <label for="collapse-section2" aria-hidden="true">Collapse section 2</label>
+                <div>
+                    <p>This is the second section of the collapse</p>
+                </div>
+            </div>
+            <div class="collapse">
+                <input type="radio" id="accordion-section1" checked aria-hidden="true" name="accordion">
+                <label for="accordion-section1" aria-hidden="true">Accordion section 1</label>
+                <div>
+                    <p>This is the first section of the accordion</p>
+                </div>
+                <input type="radio" id="accordion-section2" aria-hidden="true" name="accordion">
+                <label for="accordion-section2" aria-hidden="true">Accordion section 2</label>
+                <div>
+                    <p>This is the second section of the accordion</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+            <h2 id="progress">Progress bars</h2>
+            <progress value="450" max="1000"></progress>
+            <progress value="450" max="1000" class="inline"></progress>
+            <progress value="450" max="1000" class="primary"></progress>
+            <progress value="450" max="1000" class="secondary"></progress>
+            <progress value="450" max="1000" class="tertiary"></progress>
+        </section>
+
+        <section class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+            <h2 id="spinners">Donut spinners</h2>
+            <div class="spinner"></div>
+            <div class="spinner primary"></div>
+            <div class="spinner secondary"></div>
+            <div class="spinner tertiary"></div>
+        </section>
+
+        <section class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+            <h2 id="icons">Icons</h2>
+            <span class="icon-alert"></span>
+            <span class="icon-bookmark"></span>
+            <span class="icon-calendar"></span>
+            <span class="icon-cart"></span>
+            <span class="icon-credit"></span>
+            <span class="icon-edit"></span>
+            <span class="icon-help"></span>
+            <span class="icon-home"></span>
+            <span class="icon-info"></span>
+            <span class="icon-link"></span>
+            <span class="icon-location"></span>
+            <span class="icon-lock"></span>
+            <span class="icon-mail"></span>
+            <span class="icon-phone"></span>
+            <span class="icon-rss"></span>
+            <span class="icon-search"></span>
+            <span class="icon-settings"></span>
+            <span class="icon-share"></span>
+            <span class="icon-upload"></span>
+            <span class="icon-user"></span>
+            <p style="padding: 0.5rem;" class="doc">This is a <span class="icon-home secondary"></span> secondary icon, which has a lighter color.</p>
+            <p style="background: #111; color: #f8f8f8; padding: 0.5rem;" class="doc">This is an <span class="icon-home inverse"></span> inverse icon.</p>
+        </section>
+
+        <section class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+            <h2 id="helpers">Visibility helpers</h2>
+            <p class="hidden">Not visible for any users.</p>
+            <p class="visually-hidden">Visible only for screen readers.</p>
+            <p class="hidden-sm">Not visible for users on screens under 768px wide.</p>
+            <p class="hidden-md">Not visible for users on screens 768px-1280px wide.</p>
+            <p class="hidden-lg">Not visible for users on screens wider than 1280px.</p>
+            <p class="visually-hidden-sm">Visible only for screen readers under 768px wide.</p>
+            <p class="visually-hidden-md">Visible only for screen readers 768px-1280px wide.</p>
+            <p class="visually-hidden-lg">Visible only for screen readers wider than 1280px.</p>
+        </section>
+
+        <section class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+            <h2 id="decorators">Element decorators</h2>
+            <button class="bordered">Bordered element.</button>
+            <button class=" primary bordered">Bordered element.</button>
+            <button class="shadowed">Shadowed element.</button>
+            <button class="rounded">Rounded element.</button>
+            <button class="circular">Circular element.</button>
+        </section>
+
+    </div>
+</main>
+
+<footer class="row">
+    <div class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+        <p style="text-align: justify;"><strong>hadron.css</strong> was designed and built by <a href="https://github.com/Chalarangelo" target="_blank">@Chalarangelo</a>. Source code licensed under the <a href="https://github.com/Chalarangelo/mini.css/blob/master/LICENSE">MIT License</a>.</p>
+        <p>Icons provided by <a href="https://feathericons.com/" target="_blank">Feather</a>. Photo by <a href="https://unsplash.com/photos/vjMgqUkS8q8" target="_blank">Christopher Gower</a> on <a href="https://unsplash.com" target="_blank">Unsplash</a>.</p>
+    </div>
+</footer>
+
+</html>
