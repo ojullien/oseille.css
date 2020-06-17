@@ -9,35 +9,30 @@
 
 $padding: 0.5rem !default; // Universal padding for the most elements
 $margin: 0.5rem !default; // Universal margin for the most elements
+$box-shadow: none !default; // Universal box-shadow for most elements
 $border-radius: 0.125rem !default; // Universal border-radius for most elements
 $colors: (
+    // Background color for forms
+        "back": #f0f0f0,
+    // Text color for forms.
+        "fore": #111,
     // Border color for forms.
         "border": #ddd
 ) !default;
 
-/* Styling for fieldset */
+/* Styling for form */
 
-fieldset {
-    // Apply always to overwrite defaults for all of the below.
-    border: var(--px) solid var(--border-color, map.get($colors, "border"));
+form {
+    width: 100%;
+    background: map.get($colors, "back");
+    color: map.get($colors, "fore");
+
+    margin: $margin;
+    padding: calc(2 * #{$padding}) $padding;
+
+    --border-color: #{map.get($colors, "border")};
+    border: var(--px) solid var(--border-color);
     border-radius: $border-radius;
-    margin: calc(#{$margin} / 4);
-    padding: $padding;
-}
 
-legend {
-    // Edge fixes.
-    box-sizing: border-box;
-    display: table;
-    max-width: 100%;
-    white-space: normal;
-    // Actual styling.
-    font-weight: bolder;
-    font-size: 1em;
-    padding: calc(#{$padding} / 2);
-}
-
-label {
-    padding: calc(#{$padding} / 2) $padding;
-    font-size: 1em;
+    @include stdlib.box-shadow($box-shadow);
 }

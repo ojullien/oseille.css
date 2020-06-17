@@ -29,6 +29,7 @@ $_logo-name: "logo" !default; // Class name for the header logo element.
 $_button-class-name: "button" !default; // Class name for elements styled as buttons.
 $_sticky-name: "sticky" !default; // Class name for sticky headers and footers.
 $_links-uppercase: true !default; // [Should header links and buttons be uppercase? (boolean)
+$_row-name: "row" !default; // Class name for the grid system rows.
 
 /* Header styling */
 // No box-shadow as it causes lots of weird bugs in Chrome. No margin as it shouldn't have any.
@@ -95,5 +96,12 @@ header {
         position: sticky;
         z-index: 1101; // Deals with certain problems when combined with cards and tables.
         top: 0;
+    }
+
+    &.#{$_row-name} {
+        box-sizing: content-box;
+        & .#{$_logo-name} {
+            line-height: 1;
+        }
     }
 }

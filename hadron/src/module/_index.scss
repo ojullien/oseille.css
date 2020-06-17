@@ -26,3 +26,13 @@
         $border-radius: v.$universal-border-radius,
         $padding: v.$universal-padding
         );
+@use 'grid' with (
+        $padding: v.$universal-padding,
+        $medium-breakpoint: v.$mobile-breakpoint
+    );
+@use 'card' with (
+        $border-radius: v.$universal-border-radius,
+        $margin: v.$universal-margin,
+        $padding: v.$universal-padding,
+        $box-shadow: v.$universal-box-shadow
+    );

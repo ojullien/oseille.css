@@ -1,6 +1,7 @@
 //
 // Sectioning root using top-level elements
 //
+@use "sass:meta";
 @use 'sass:map';
 @use '../../common/stdlib';
 
@@ -42,6 +43,6 @@ body {
     margin: 0;
     color: map.get($colors, "fore");
     background: map.get($colors, "back");
-    font-family: $font-family;
+    font-family: #{meta.inspect($font-family)};
     font-size: $font-size;
 }

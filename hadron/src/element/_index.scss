@@ -56,8 +56,16 @@
     $padding: v.$universal-padding,
     $mobile-breakpoint: v.$mobile-breakpoint
     );
+@use 'form/form' with (
+    $border-radius: v.$universal-border-radius,
+    $box-shadow: v.$universal-box-shadow,
+    $margin: v.$universal-margin,
+    $padding: v.$universal-padding
+    );
 @use 'form/fieldset' with (
-        $padding: v.$universal-padding
+    $border-radius: v.$universal-border-radius,
+    $margin: v.$universal-margin,
+    $padding: v.$universal-padding
     );
 @use 'form/input' with (
         $padding: v.$universal-padding

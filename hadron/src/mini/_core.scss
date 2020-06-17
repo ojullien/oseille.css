@@ -2,58 +2,20 @@
   Browsers resets and base typography.
 */
 
-
-
-
-$border-color:            #aaa !default;        // Border color
-
-
+$border-color: #aaa !default; // Border color
 $main-padding: 0.5rem !default; // Universal padding for the most elements
-
-
-
-
-
-
-
-
-$code-font-family: 'Menlo, Consolas, monospace' !default; // Font stack for code elements
-
-
-
-
-// CSS variable name definitions [exercise caution if modifying these]
-$fore-color-var:                '--fore-color' !default;
-
-$back-color-var:                '--back-color' !default;
-
-
-
-
-
-
-$universal-border-radius-var:   '--universal-border-radius' !default;
+$code-font-family: "Menlo, Consolas, monospace" !default; // Font stack for code elements
 
 /* Core module CSS variable definitions */
 
 // Correct display for Edge & Firefox.
 details {
-  display: block;
+    display: block;
 }
 
 // Correct display in all browsers.
 summary {
-  display: list-item;
+    display: list-item;
 }
 
 // Abbreviations
-
-
-// Show overflow in Edge.
-input {
-  overflow: visible;
-}
-
-
-
-
