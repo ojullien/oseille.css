@@ -1,0 +1,48 @@
+//
+// Sectioning root using top-level elements
+//
+@use "sass:meta";
+@use 'sass:map';
+@use '../../common/stdlib';
+
+// Public variables.
+// May be overrided using @use <url> with (<variable>: <value>, <variable>: <value>)
+
+$font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, sans-serif !default; // Font stack for all elements
+$root-font-size: 16px !default; // Root font sizing for all elements (`px` only)
+$font-size: 1rem !default; // Font sizing for all elements
+$line-height: 1.5 !default; // Line height for most elements
+$colors: (
+    // Background color
+        "back": #f8f8f8,
+    // Text & foreground color
+        "fore": #111
+) !default;
+
+// Private variables
+
+$__1px: stdlib.rempx($root-font-size) * 1rem; // Calculated rem value of `1px`
+
+// Top level styling
+
+:root {
+    --px: #{$__1px};
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: $root-font-size;
+    line-height: $line-height;
+    // Prevent adjustments of font size after orientation changes in mobile.
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    color: map.get($colors, "fore");
+    background: map.get($colors, "back");
+    font-family: #{meta.inspect($font-family)};
+    font-size: $font-size;
+}

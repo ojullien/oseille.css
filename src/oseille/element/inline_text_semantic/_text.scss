@@ -1,0 +1,110 @@
+//
+// Use the HTML inline text semantic to define the meaning, structure, or style of a word, line, or
+// any arbitrary piece of text.
+//
+@use 'sass:map';
+@use '../../common/stdlib';
+
+// Public variables.
+// May be overrided using @use <url> with (<variable>: <value>, <variable>: <value>)
+
+$bold-font-weight: 700 !default; // Font weight for <b> and <strong>
+$small-element-font-size: 0.75em !default; // Font size for <small>, <sub>, <sup>
+$sup-top: -0.5em !default; // <sup> top
+$sub-bottom: -0.25em !default; // <sub> bottom
+$colors: (
+    // Color for <a>:link
+        "link": #0277bd,
+    // Color for <a>:visited
+        "visited": #01579b
+) !default;
+
+/* Inline text semantic styling */
+
+a {
+    font-size: 1em; // Fix for elements inside headings not displaying properly.
+    font-family: inherit;
+    text-decoration: none;
+    &:link {
+        color: map.get($colors, "link");
+    }
+    &:visited {
+        color: map.get($colors, "visited");
+    }
+    &:not(.button):hover,
+    &:not(.button):focus {
+        box-shadow: 0 2px;
+    }
+}
+
+abbr[title] {
+    border-bottom: none; // Remove bottom border in Firefox 39-.
+    text-decoration: underline dotted; // Opinionated style-fix for all browsers.
+}
+
+b,
+strong {
+    font-weight: $bold-font-weight;
+    font-size: 1em; // Fix for elements inside headings not displaying properly.
+}
+
+data {
+    font-size: 1em;
+    &:hover:after {
+        content: " (ID " attr(value) ")";
+        font-size: 0.7em;
+    }
+}
+
+// Fix for elements inside headings not displaying properly.
+dfn,
+del,
+em,
+i,
+ins,
+span,
+u {
+    font-size: 1em;
+}
+
+s {
+    font-size: 1em;
+
+    // The presence of the s element is not announced by most screen reading technology
+    // in its default configuration. It can be made to be announced by using the CSS
+    // content property, along with the ::before and ::after pseudo-elements.
+    &:before,
+    &:after {
+        clip-path: inset(100%);
+        clip: rect(1px, 1px, 1px, 1px);
+        height: 1px;
+        overflow: hidden;
+        position: absolute;
+        white-space: nowrap;
+        width: 1px;
+    }
+
+    &:before {
+        content: " [start of stricken text] ";
+    }
+
+    &:after {
+        content: " [end of stricken text] ";
+    }
+}
+
+small {
+    font-size: $small-element-font-size;
+}
+
+sub {
+    @include stdlib.normalize-font-size($small-element-font-size);
+    @include stdlib.normalize-line-height;
+    bottom: $sub-bottom;
+}
+
+sup {
+    @include stdlib.normalize-font-size($small-element-font-size);
+    @include stdlib.normalize-line-height;
+    top: $sup-top;
+}

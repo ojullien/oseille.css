@@ -1,0 +1,72 @@
+// Loads shared variables
+// using @forward to make its mixins, functions, and variables available to the main stylesheet flavor.
+@use 'sass:color';
+@use '../common/variables' as v;
+
+// Loads all elements
+@use 'root/root' with (
+    $line-height: v.$default-line-height
+    );
+@use 'content_sectioning/sectioning';
+@use 'content_sectioning/heading' with (
+    $margin: v.$universal-margin,
+    $fore-color: color.scale(v.$default-fore-color, $lightness: 21.5%)
+    );
+@use 'content_sectioning/header' with (
+    $padding: v.$universal-padding
+    );
+@use 'content_sectioning/navigation'with (
+    $border-radius: v.$universal-border-radius,
+    $margin: v.$universal-margin,
+    $box-shadow: v.$universal-box-shadow,
+    $padding: v.$universal-padding
+    );
+@use 'content_sectioning/footer' with (
+    $padding: v.$universal-padding
+    );
+
+@use 'text_content/blockquote' with (
+    $border-radius: v.$universal-border-radius,
+    $box-shadow: v.$universal-box-shadow,
+    $margin: v.$universal-margin,
+    $padding: v.$universal-padding
+    );
+@use 'text_content/figure';
+@use 'text_content/definition';
+@use 'text_content/list';
+@use 'text_content/paragraph';
+@use 'inline_text_semantic/code' with (
+    $border-radius: v.$universal-border-radius,
+    $box-shadow: v.$universal-box-shadow,
+    $margin: v.$universal-margin,
+    $padding: v.$universal-padding
+    );
+@use 'inline_text_semantic/text';
+@use 'inline_text_semantic/mark' with (
+    $border-radius: v.$universal-border-radius,
+    $box-shadow: v.$universal-box-shadow,
+    $default-line-height: v.$default-line-height,
+    $padding: v.$universal-padding
+    );
+@use 'image_and_multimedia/image';
+@use 'embedded/embedded';
+@use 'table/table' with (
+    $border-radius: v.$universal-border-radius,
+    $margin: v.$universal-margin,
+    $padding: v.$universal-padding,
+    $mobile-breakpoint: v.$mobile-breakpoint
+    );
+@use 'form/form' with (
+    $border-radius: v.$universal-border-radius,
+    $box-shadow: v.$universal-box-shadow,
+    $margin: v.$universal-margin,
+    $padding: v.$universal-padding
+    );
+@use 'form/fieldset' with (
+    $border-radius: v.$universal-border-radius,
+    $margin: v.$universal-margin,
+    $padding: v.$universal-padding
+    );
+@use 'form/input' with (
+        $padding: v.$universal-padding
+    );

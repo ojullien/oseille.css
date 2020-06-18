@@ -1,0 +1,4 @@
+// To load a module with configuration, write @use <url> with (<variable>: <value>, <variable>: <value>).
+// @link https://sass-lang.com/documentation/variables
+@use '../oseille/element';
+@use '../oseille/module';
