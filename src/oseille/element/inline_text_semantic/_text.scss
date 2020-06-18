@@ -5,14 +5,16 @@
 @use 'sass:map';
 @use '../../common/stdlib';
 
-// Public variables.
+// Variables.
 // May be overrided using @use <url> with (<variable>: <value>, <variable>: <value>)
 
-$bold-font-weight: 700 !default; // Font weight for <b> and <strong>
-$small-element-font-size: 0.75em !default; // Font size for <small>, <sub>, <sup>
-$sup-top: -0.5em !default; // <sup> top
-$sub-bottom: -0.25em !default; // <sub> bottom
-$colors: (
+$_bold-font-weight: 700 !default; // Font weight for <b> and <strong>
+$_small-font-size: 0.75em !default; // Font size for <small>, <sub>, <sup>
+
+$_sup-top: -0.5em !default; // <sup> top
+$_sub-bottom: -0.25em !default; // <sub> bottom
+
+$_colors: (
     // Color for <a>:link
         "link": #0277bd,
     // Color for <a>:visited
@@ -21,16 +23,44 @@ $colors: (
 
 /* Inline text semantic styling */
 
-a {
-    font-size: 1em; // Fix for elements inside headings not displaying properly.
+// Fix for elements inside headings not displaying properly.
+%_normalize-font-family {
     font-family: inherit;
+}
+
+// Fix for elements inside headings not displaying properly.
+%_normalize-small-font-size {
+    font-size: var(--smaller, #{$_small-font-size});
+}
+
+%_normalize-font-size {
+    font-size: 1em;
+}
+
+// Correct the inheritance and scaling of font size in all browsers.
+%_normalize {
+    @extend %_normalize-font-family;
+    @extend %_normalize-font-size;
+}
+
+%_normalize_small {
+    @extend %_normalize-font-family;
+    @extend %_normalize-small-font-size;
+}
+
+a {
+    @extend %_normalize;
+
     text-decoration: none;
+
     &:link {
-        color: map.get($colors, "link");
+        color: map.get($_colors, "link");
     }
+
     &:visited {
-        color: map.get($colors, "visited");
+        color: map.get($_colors, "visited");
     }
+
     &:not(.button):hover,
     &:not(.button):focus {
         box-shadow: 0 2px;
@@ -44,12 +74,12 @@ abbr[title] {
 
 b,
 strong {
-    font-weight: $bold-font-weight;
-    font-size: 1em; // Fix for elements inside headings not displaying properly.
+    font-weight: $_bold-font-weight;
+    @extend %_normalize-font-size;
 }
 
 data {
-    font-size: 1em;
+    @extend %_normalize-font-size;
     &:hover:after {
         content: " (ID " attr(value) ")";
         font-size: 0.7em;
@@ -64,11 +94,11 @@ i,
 ins,
 span,
 u {
-    font-size: 1em;
+    @extend %_normalize-font-size;
 }
 
 s {
-    font-size: 1em;
+    @extend %_normalize-font-size;
 
     // The presence of the s element is not announced by most screen reading technology
     // in its default configuration. It can be made to be announced by using the CSS
@@ -94,17 +124,17 @@ s {
 }
 
 small {
-    font-size: $small-element-font-size;
+    @extend %_normalize_small;
 }
 
 sub {
-    @include stdlib.normalize-font-size($small-element-font-size);
-    @include stdlib.normalize-line-height;
-    bottom: $sub-bottom;
+    @extend %_normalize_small;
+    @extend %normalize-line-height;
+    bottom: $_sub-bottom;
 }
 
 sup {
-    @include stdlib.normalize-font-size($small-element-font-size);
-    @include stdlib.normalize-line-height;
-    top: $sup-top;
+    @extend %_normalize_small;
+    @extend %normalize-line-height;
+    top: $_sup-top;
 }

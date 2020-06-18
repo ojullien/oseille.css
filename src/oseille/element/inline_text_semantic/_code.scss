@@ -6,62 +6,79 @@
 @use "sass:color";
 @use '../../common/stdlib';
 
-// Public variables.
+// Variables.
 // May be overrided using @use <url> with (<variable>: <value>, <variable>: <value>)
 
-$font-family: Menlo, Consolas, monospace !default; // Font stack for code elements
-$font-size: 0.85em !default; // Font size for <code>, <kbd>
-$margin: 0.5rem !default; // Universal margin for the most elements
-$padding: 0.5rem !default; // Universal padding for the most elements
-$box-shadow: none !default; // Universal box-shadow for most elements
-$border-radius: 0.125rem !default; // Universal border-radius for most elements
-$pre-colors: (
-    "border": #ddd,
-    "sidebar": #1565c0,
+$_font-family: Menlo, Consolas, monospace !default; // Font stack for code elements
+$_font-size: 0.85em !default; // Font size for <code>, <kbd>
+
+$_margin: 0.5rem !default; // Universal margin for the most elements
+$_padding: 0.5rem !default; // Universal padding for the most elements
+
+$_box-shadow: none !default; // Universal box-shadow for most elements
+$_border-radius: 0.125rem !default; // Universal border-radius for most elements
+
+$_colors: (
+    // Text & foreground color
+        "fore": #111,
+    // Background color
+        "back": #f8f8f8,
+    // <code> background color
+        "code": #f0f0f0,
+    // <pre> border color
+        "border": #ddd,
+    // <pre> sidebar color
+        "sidebar": #1565c0
 ) !default; // Border colors
-$fore-color: #111 !default; // Text & foreground color
-$back-color: #f8f8f8 !default; // Background color
-$code-back-color: #f0f0f0 !default; // <code> background color
 
 /* Code styling */
 
-code {
-    @include stdlib.normalize-font-size($font-size, $font-family);
-    @include stdlib.normalize-line-height;
+// Correct the inheritance and scaling of font size in all browsers.
+%_normalize-font-size {
+    font-family: $_font-family;
+    font-size: $_font-size;
+}
+
+// Correct the line height, the inheritance and scaling of font size in all browsers.
+%_normalize {
+    @extend %_normalize-font-size;
+    @extend %normalize-line-height;
+
+    // This could be a bit counterintuitive and burden the codebase a bit, look into it again?
+    padding: calc(#{$_padding} / 4) calc(#{$_padding} / 2);
 
     // No border color by default and fore color is the default for text, can be altered manually.
-    background: $code-back-color;
-    border-radius: $border-radius;
-    // This could be a bit counterintuitive and burden the codebase a bit, look into it again?
-    padding: calc(#{$padding} / 4) calc(#{$padding} / 2);
-    @include stdlib.box-shadow($box-shadow);
+    @include stdlib.box-shadow($_box-shadow);
+    border-radius: $_border-radius;
+}
+
+code {
+    @extend %_normalize;
+    background: map.get($_colors, "code");
 }
 
 kbd {
-    @include stdlib.normalize-font-size($font-size, $font-family);
-    @include stdlib.normalize-line-height;
-
-    // No border color by default, can be altered manually.
-    background: $fore-color;
-    color: $back-color;
-    border-radius: $border-radius;
-    // This could be a bit counterintuitive and burden the codebase a bit, look into it again?
-    padding: calc(#{$padding} / 4) calc(#{$padding} / 2);
-    @include stdlib.box-shadow($box-shadow);
+    @extend %_normalize;
+    background: map.get($_colors, "fore");
+    color: map.get($_colors, "back");
 }
 
 pre {
-    @include stdlib.normalize-font-size($font-size, $font-family);
+    @extend %_normalize-font-size;
+
     overflow: auto; // Responsiveness
-    background: $back-color;
-    padding: calc(1.5 * #{$padding});
-    margin: #{$margin};
-    border: var(--px) solid map.get($pre-colors, "border");
-    border-left: calc(4 * var(--px)) solid map.get($pre-colors, "sidebar");
-    border-radius: 0 $border-radius $border-radius 0;
-    @include stdlib.box-shadow($box-shadow);
+
+    padding: calc(1.5 * #{$_padding});
+    margin: #{$_margin};
+
+    background: map.get($_colors, "back");
+
+    @include stdlib.box-shadow($_box-shadow);
+    border-radius: 0 $_border-radius $_border-radius 0;
+    border: var(--px) solid map.get($_colors, "border");
+    border-left: calc(4 * var(--px)) solid map.get($_colors, "sidebar");
 }
 
 samp {
-    @include stdlib.normalize-font-size($font-size, $font-family);
+    @extend %_normalize-font-size;
 }
