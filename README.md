@@ -49,7 +49,7 @@ For instructions on how to use, best practices, templates and other usage inform
 
 ## Test
 
-We generate the mini-default flavor each time. We compare this mini-default.css with the one generated from the [mini.css](https://github.com/Chalarangelo/mini.css) (version 2.3.7) to detect any regression.
+We generate the mini-default flavor each time. We compare this mini-default.css with the one generated from the [mini.css](https://github.com/Chalarangelo/mini.css) (version 3.0.1) to detect any regression.
 
 ## Contributing
 
