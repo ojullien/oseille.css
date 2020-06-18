@@ -1,38 +1,12 @@
 //
 //  Variables for responsive tables
-//  Author: Angelos Chalaris (chalarangelo@gmail.com)
-//  Maintainers: Angelos Chalaris
-//  mini.css version: v2.3.7
 //
-//  Variables for responsive tables
-$table-border-style: $_1px solid #c9c9c9; // Border style for <table> and children
-$table-border-radius: 0; // Border radius for <table> and children
-$table-margin: 0 auto; // Margin for <table>
-$table-box-shadow: none; // Box shadow for <table>
-$table-caption-font-size: 1.5rem; // Font size for <caption>
-$table-caption-margin: 0.5rem; // Margin for <caption>
-$table-row-padding: 0.5rem; // Padding for <tr> - both views
-$table-column-padding: 0.625rem; // Padding for <td> and <th> - desktop view
-$table-head-back-color: #e6e6e6; // Background color for <th>
-$table-head-fore-color: $fore-color; // Text color for <th>
-$table-body-back-color: #fafafa; // Background color for <td>
-$table-body-fore-color: $fore-color; // Text color for <td>
-$table-mobile-breakpoint: 767px; // Breakpoint for <table> mobile view
-$table-mobile-card-spacing: 0.625rem; // Space between <tr> cards - mobile view
-$table-mobile-card-label: 'data-label'; // Attribute used to replace column headers in mobile view [1]
-$table-mobile-label-font-weight:$bold-font-weight; // Font weight for mobile headers
-$include-horizontal-table: true; // Should horizontal <table> elements be included? (`true`/`false`) [2]
-$table-horizontal-name: 'horizontal'; // Class name for <table> horizontal view
-$include-scrollable-table: true; // Should scrollable <table> elements be included? (`true`/`false`) [3]
-$table-scrollable-name: 'scrollable'; // Class name for <table> scrollable view
-$table-scrollable-height: 400px; // Height for <table> scrolalble view.
-$table-not-responsive-name: 'preset'; // Class name for <table> non-responsive view
-$table-striped-name: 'striped'; // Class name for striped <table>
-$table-striped-alt-body-back-color: #e5e5e5; // Alternate background color for <td> in striped <table>
-//  Notes:
-// [1] - The attribute specified in $table-mobile-card-label must be added manually to each and every element in the table
-//  in order for their mobile headers to display properly.
-// [2] - If $include-horizontal-table is `true`, then the <table> horizontal view will be included in a class defined by
-//  $table-horizontal-name.
-// [3] - If $include-scrollable-table is `true`, then the <table> scrollable view will be included in a class defined by
-//  $table-scrollable-name and a height defined by $table-scrollable-height.
+$table-mobile-breakpoint: $mobile-breakpoint; // Breakpoint for <table> mobile view.
+$table-border-color: #aaa; // Border color for <table> elements.
+$table-border-separator-color: #666; // Border color for the border between <thead> and <tbody>.
+$table-th-back-color: #e6e6e6; // Background color for <th> elements.
+$table-th-fore-color: $fore-color; // Text color for <th> elements.
+$table-td-back-color: #f8f8f8; // Background color for <td> elements.
+$table-td-fore-color: $fore-color; // Text color for <td> elements.
+$table-td-alt-back-color: #eee; // Alternative background color for <td> elements in striped tables.
+$table-td-hover-back-color: #90caf9; // Hover background color for <td> elements in hoverable tables.

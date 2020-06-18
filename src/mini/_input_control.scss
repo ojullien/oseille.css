@@ -3,200 +3,154 @@
 */
 // Different elements are styled based on the same set of rules.
 $input-group-name:           'input-group' !default;  // Class name for input groups.
-$include-fluid-input-group:  true !default;           // Should fluid input groups be included? (`true`/`false`)
+$_include-fluid-input-group: true !default;           // [Hidden] Should fluid input groups be included? (boolean)
 $input-group-fluid-name:     'fluid' !default;        // Class name for fluid input groups.
-$include-vertical-input-group:true !default;          // Should vertical input groups be included? (`true`/`false`)
-$input-group-vertical-name:   'vertical' !default;    // Class name for vertical input groups.
-$button-class-name:           'button' !default;      // Class for custom button elements.
-$include-button-group:        true !default;          // [Hidden flag] Should button groups be enabled? (`true`/`false`)
-$button-group-name:           'button-group' !default;// Class for button groups.
-$apply-select-fix:            true !default;          // [Hidden flag] Should the styles that fix <select> styling be applied? (`true`/`false`)
-// The below option will use the legacy high specificity selectors for <input> element styling instead
-// of the less specific, yet less complicated and less bloated input selector. This only applies to
-// the pseudo-classes and states of the <input> controls and not the default styling of them.
-$input-high-specificity-selectors:  false !default;   // [Hidden flag] Use legacy selectors for <input> element styling (`true`/`false`).
-// The below option will use the legacy high specificity selectors for <button> and button-like elements
-// instead of the less specific, yet less complicated and less bloated generic selector. This only applies
-// to the styling of consecutive elements.
-$button-group-high-specificity-selectors: false !default; // [Hidden flag] Use legacy selectors for button-like elements inside button groups (`false`/ `true`).
-$hide-file-inputs:           true !default;           // Should `file` <input> elements be hidden? (`true`/`false`)
-$hide-check-and-radio:       true !default;           // [Hidden flag] Should checkboxes and radios be hidden? (`true`/`false`)
-$include-switch:             true !default;           // Should switch components be included? (`true`/`false`)
-$switch-name:                'switch' !default;       // Class name for switch components
-// External variables' defaults are used only if you import this module on its own, without the rest of the framework.
-$back-color:              white !default;             // [External variable - core] Background color for everything.
-$fore-color:              black !default;             // [External variable - core] Foreground color for everything.
-// Policy for below external flag is `ALWAYS_TRUE`. This is done due to links being underlined by default.
-$apply-link-underline:    true !default;              // [External flag - core] Should underlining be applied to <a> elements? (`true`/`false`)
-$style-link-active-state: false !default;             // [External flag - core] Should the :active state of <a> elements be stylized, same as the :hover state (`true`/`false`).
-// Necessary functions for certain elements (select)
-/// Courtesy of: https://css-tricks.com/snippets/sass/str-replace-function/
-/// -----------------------------------------------------------------------
-/// Replace `$search` with `$replace` in `$string`
-/// @author Hugo Giraudel
-/// @param {String} $string - Initial string
-/// @param {String} $search - Substring to replace
-/// @param {String} $replace ('') - New value
-/// @return {String} - Updated string
-@function str-replace($string, $search, $replace: '') {
-  $index: str-index($string, $search);
-  @if $index {
-    @return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
-  }
-  @return $string;
-}
-// Generate the arrow for the select element
-@function selectArrow() {
-  $_input_fore_color: str-replace(#{$input-fore-color}, '#', '%23'); // Make sure it's all encoded properly
-  @return 'data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1 1.5"><path fill="'+$_input_fore_color+'" d="M.25.75h.5L.5 1"/></svg>';
-}
-// [Obsolete as of v2.3.2] Generate the rest of the background for the select element
-@function selectBackground() {
-  $_input_back_color: str-replace(#{$input-back-color}, '#', '%23'); // Make sure it's all encoded properly
-  @return 'data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg" style="background:'+$_input-back-color+'"/>';
-}
-// [Obsolete as of v2.3.2] Generate the rest of the background for the select element when readonly
-@function selectReadonlyBackground() {
-  $_input-readonly-back-color: str-replace(#{$input-readonly-back-color}, '#', '%23'); // Make sure it's all encoded properly
-  @return 'data:image/svg+xml, <svg xmlns="http://www.w3.org/2000/svg" style="background:'+$_input-readonly-back-color+'"/>';
-}
+$input-group-vertical-name:  'vertical' !default;     // Class name for vertical input groups.
+$input-group-mobile-breakpoint:   767px !default;     // Breakpoint for fluid input group mobile view.
+$button-class-name:           'button' !default;      // Class name for elements styled as buttons.
+$input-disabled-opacity:      0.75 !default;          // Opacity for input elements when disabled.
+$button-group-name:         'button-group' !default;  // Class name for button groups.
+$button-group-mobile-breakpoint: 767px !default;      // Mobile breakpoint for button groups.
+$form-back-color:             #f0f0f0 !default;       // Background color for forms.
+$form-fore-color:             #111 !default;          // Text color for forms.
+$form-border-color:           #ddd !default;          // Border color for forms.
+$input-back-color:            #f8f8f8 !default;       // Background color for input elements.
+$input-fore-color:            #111 !default;          // Text color for input elements.
+$input-border-color:          #ddd !default;          // Border color for input elements.
+$input-focus-color:           #0288d1 !default;       // Border color for focused input elements.
+$input-invalid-color:         #d32f2f !default;       // Border color for invalid input elements.
+$button-back-color:           #e2e2e2 !default;       // Background color for buttons.
+$button-hover-back-color:     #dcdcdc !default;       // Background color for buttons (hover).
+$button-fore-color:           #212121 !default;       // Text color for buttons.
+$button-border-color:         transparent !default;   // Border color for buttons.
+$button-hover-border-color:   transparent !default;   // Border color for buttons (hover).
+$button-group-border-color:  rgba(124,124,124, 0.54) !default;  // Border color for button groups.
+// CSS variable name definitions [exercise caution if modifying these]
+$form-back-color-var:         '--form-back-color' !default;
+$form-fore-color-var:         '--form-fore-color' !default;
+$form-border-color-var:       '--form-border-color' !default;
+$input-back-color-var:        '--input-back-color' !default;
+$input-fore-color-var:        '--input-fore-color' !default;
+$input-border-color-var:      '--input-border-color' !default;
+$input-focus-color-var:       '--input-focus-color' !default;
+$input-invalid-color-var:     '--input-invalid-color' !default;
+$button-back-color-var:       '--button-back-color' !default;
+$button-hover-back-color-var: '--button-hover-back-color' !default;
+$button-fore-color-var:       '--button-fore-color' !default;
+$button-border-color-var:       '--button-border-color' !default;
+$button-hover-border-color-var: '--button-hover-border-color' !default;
+$button-group-border-color-var: '--button-group-border-color' !default;
+// == Uncomment below code if this module is used on its own ==
+//
+// $base-font-size:          1rem !default;        // Font sizing for all elements
+// $universal-margin:        0.5rem !default;      // Universal margin for the most elements
+// $universal-padding:       0.5rem !default;      // Universal padding for the most elements
+// $universal-border-radius: 0.125rem !default;    // Universal border-radius for most elements
+// $universal-box-shadow:    none !default;        // Universal box-shadow for most elements
+// $universal-margin-var:          '--universal-margin' !default;
+// $universal-padding-var:         '--universal-padding' !default;
+// $universal-border-radius-var:   '--universal-border-radius' !default;
+// $universal-box-shadow-var:      '--universal-box-shadow' !default;
+// :root {
+//  #{$universal-margin-var}: $universal-margin;
+//  #{$universal-padding-var}: $universal-padding;
+//  #{$universal-border-radius-var}: $universal-border-radius;
+//  @if $universal-box-shadow != none {
+//   #{$universal-box-shadow-var}: $universal-box-shadow;
+//  }
+// }
+//
+// ============================================================
 // Check the `_input_control_mixins.scss` file to find this module's mixins.
 @import 'input_control_mixins';
-// Base form styling.
-form {
-  @if $form-back-color != $back-color {
-    background: $form-back-color;
-  }
-  @if $form-fore-color != $fore-color {
-    color: $form-fore-color;
-  }
-  @if $form-border-style != 0 {
-    border: $form-border-style;
-  }
-  @if $form-border-radius != 0 {
-    border-radius: $form-border-radius;
-  }
-  @if $form-margin != 0 {
-    margin: $form-margin;
-  }
-  @if $form-padding != 0 {
-    padding: $form-padding;
-  }
-  @if $form-box-shadow != none {
-    box-shadow: $form-box-shadow;
+/* Input_control module CSS variable definitions */
+:root {
+  #{$form-back-color-var}: $form-back-color;
+  #{$form-fore-color-var}: $form-fore-color;
+  #{$form-border-color-var}: $form-border-color;
+  #{$input-back-color-var}: $input-back-color;
+  #{$input-fore-color-var}: $input-fore-color;
+  #{$input-border-color-var}: $input-border-color;
+  #{$input-focus-color-var}: $input-focus-color;
+  #{$input-invalid-color-var}: $input-invalid-color;
+  #{$button-back-color-var}: $button-back-color;
+  #{$button-hover-back-color-var}: $button-hover-back-color;
+  #{$button-fore-color-var}: $button-fore-color;
+  #{$button-border-color-var}: $button-border-color;
+  #{$button-hover-border-color-var}: $button-hover-border-color;
+  #{$button-group-border-color-var}: $button-group-border-color;
+}
+// Base form styling
+form {  // Text color is the default, this can be changed manually.
+  background: var(#{$form-back-color-var});
+  color: var(#{$form-fore-color-var});
+  border: $__1px solid var(#{$form-border-color-var});
+  border-radius: var(#{$universal-border-radius-var});
+  margin: var(#{$universal-margin-var});
+  padding: calc(2 * var(#{$universal-padding-var})) var(#{$universal-padding-var});
+  @if $universal-box-shadow != none {
+    box-shadow: var(#{$universal-box-shadow-var});
   }
 }
-// Fieldset styling.
+// Fieldset styling
 fieldset {
-  @if $fieldset-back-color != $form-back-color {
-    background: $fieldset-back-color;
-  }
   // Apply always to overwrite defaults for all of the below.
-  border: $fieldset-border-style;
-  border-radius: $fieldset-border-radius;
-  margin: $fieldset-margin;
-  padding: $fieldset-padding;
+  border: $__1px solid var(#{$form-border-color-var});
+  border-radius: var(#{$universal-border-radius-var});
+  margin: calc(var(#{$universal-margin-var}) / 4);
+  padding: var(#{$universal-padding-var});
 }
 // Legend styling.
 legend {
-  // IE and Edge fixes.
+  // Edge fixes.
   box-sizing: border-box;
   display: table;
   max-width: 100%;
   white-space: normal;
   // Actual styling.
-  font-weight: $legend-font-weight;
-  font-size: $legend-font-size;
-  @if $legend-fore-color != $fore-color {
-    color: $legend-fore-color;
-  }
-  @if $legend-padding != 0 {
-    padding: $legend-padding;
-  }
+  font-weight: $bold-font-weight;
+  padding: calc(var(#{$universal-padding-var}) / 2);
 }
-// Label syling.
-@if $label-padding != 0 {
-  label {
-    padding: $label-padding;  // Padding is all that seems to be needed for now, but more stuff could be added later.
-  }
+// Label syling. - Basically just padding, but there might be more in the future.
+label {
+  padding: calc(var(#{$universal-padding-var}) / 2) var(#{$universal-padding-var});
 }
-// Input group base naming.
+// Input group styling.
 .#{$input-group-name} {
   display: inline-block;
   // Fluid input groups
-  @if $include-fluid-input-group {
+  @if $_include-fluid-input-group {
     &.#{$input-group-fluid-name} {
-      // Old syntax
-      display: -webkit-box;
-      -webkit-box-pack: justify;
-      // New syntax
-      display:   -webkit-flex;
-      display:            flex;
-      -webkit-align-items: center;
-              align-items: center;
-      -webkit-justify-content: center;
-              justify-content: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       & > input {
-        // Old syntax
-        -webkit-box-flex: 1;
         max-width: 100%;
-        // New syntax
-        -webkit-flex-grow: 1;
-                flex-grow: 1;
-        -webkit-flex-basis: 0px;
-                flex-basis: 0px;
+        flex-grow: 1;
+        flex-basis: 0px;
+      }
+      // On mobile
+      @media screen and (max-width: #{$input-group-mobile-breakpoint}) {
+        align-items: stretch;
+        flex-direction: column;
       }
     }
-  }
-}
-// Responsiveness for fluid input groups
-@if $include-fluid-input-group {
-  @media screen and (max-width: #{$input-group-mobile-breakpoint}) {
-    .#{$input-group-name}.#{$input-group-fluid-name} {
-      // Old syntax
-      -webkit-box-orient: vertical;
-      // New syntax
-      -webkit-align-items: stretch;
-              align-items: stretch;
-      -webkit-flex-direction: column;
-              flex-direction: column;
-    }
-  }
-}
-@if $include-vertical-input-group {
-  .#{$input-group-name}.#{$input-group-vertical-name} {
-    // Old syntax
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-box-pack: justify;
-    // New syntax
-    display:   -webkit-flex;
-    display:            flex;
-    -webkit-flex-direction: column;
-            flex-direction: column;
-    -webkit-align-items: stretch;
-            align-items: stretch;
-    -webkit-justify-content: center;
-            justify-content: center;
-    & > input {
-      // Old syntax
-      -webkit-box-flex: 1;
-      max-width: 100%;
-      // New syntax
-      -webkit-flex-grow: 1;
-              flex-grow: 1;
-      -webkit-flex-basis: 0px;
-              flex-basis: 0px;
+    // Vertical input groups
+    &.#{$input-group-vertical-name} {
+      display: flex;
+      align-items: stretch;
+      flex-direction: column;
+      & > input {
+        max-width: 100%;
+        flex-grow: 1;
+        flex-basis: 0px;
+      }
     }
   }
 }
 // Correct the cursor style of increment and decrement buttons in Chrome.
 [type="number"]::-webkit-inner-spin-button, [type="number"]::-webkit-outer-spin-button {
   height: auto;
-}
-// Remove the default vertical scrollbar in IE.
-textarea {
-  overflow: auto;
 }
 // Correct style in Chrome and Safari.
 [type="search"] {
@@ -208,79 +162,33 @@ textarea {
 [type="search"]::-webkit-search-decoration {
   -webkit-appearance: none;
 }
-// Common textual input styling.
+// Common textual input styling. - Avoid using box-shadow with these.
 input:not([type]), [type="text"], [type="email"], [type="number"], [type="search"],
-[type="password"], [type="url"], [type="tel"], textarea, select {
+[type="password"], [type="url"], [type="tel"], [type="checkbox"], [type="radio"], textarea, select {
   box-sizing: border-box;
   // Background, color and border should not be unassigned, as the browser defaults will apply.
-  background: $input-back-color;
-  color: $input-fore-color;
-  border: $input-border-style;
-  @if $input-border-radius != 0 {
-    border-radius: $input-border-radius;
+  background: var(#{$input-back-color-var});
+  color: var(#{$input-fore-color-var});
+  border: $__1px solid var(#{$input-border-color-var});
+  border-radius: var(#{$universal-border-radius-var});
+  margin: calc(var(#{$universal-margin-var}) / 2);
+  padding: var(#{$universal-padding-var}) calc(1.5 * var(#{$universal-padding-var}));
+}
+// Hover, focus, disabled, readonly, invalid styling for common textual inputs.
+input:not([type="button"]):not([type="submit"]):not([type="reset"]), textarea, select {
+  &:hover, &:focus {
+    border-color: var(#{$input-focus-color-var});
+    box-shadow: none;
   }
-  @if $input-margin != 0 {
-    margin: $input-margin;
+  &:invalid, &:focus:invalid{
+    border-color: var(#{$input-invalid-color-var});
+    box-shadow: none;
   }
-  @if $input-padding != 0 {
-    padding: $input-padding;
-  }
-  @if $input-high-specificity-selectors {
-    &:hover, &:focus {
-      border-color: $input-focus-border-color;
-      box-shadow: none;
-    }
-    &:disabled, &[disabled] {
-      cursor: not-allowed;
-      opacity: $input-disabled-opacity;
-    }
-    &:invalid, &:focus:invalid{
-      border-color: $input-invalid-border-color;
-      box-shadow: none;
-    }
-    &[readonly]{
-      background: $input-readonly-back-color;
-      border-color: $input-readonly-border-color;
-    }
+  &[readonly]{
+    background: var(#{$secondary-back-color-var});
   }
 }
-@if not $input-high-specificity-selectors {
-  input:not([type="button"]):not([type="submit"]):not([type="reset"]), textarea, select {
-    &:hover, &:focus {
-      border-color: $input-focus-border-color;
-      box-shadow: none;
-    }
-    @if $input-high-specificity-selectors or $input-disabled-opacity != $button-disabled-opacity {
-      &:disabled, &[disabled] {
-        cursor: not-allowed;
-        opacity: $input-disabled-opacity;
-      }
-    }
-    &:invalid, &:focus:invalid{
-      border-color: $input-invalid-border-color;
-      box-shadow: none;
-    }
-    &[readonly]{
-      background: $input-readonly-back-color;
-      border-color: $input-readonly-border-color;
-    }
-  }
-}
-// Correct background styling in Safari
-@if $apply-select-fix {
-  select:not([multiple]):not([size]) {
-    padding-right: $select-padding-right;
-    background: url(selectArrow()) no-repeat right;
-    background-color: $input-back-color;
-    -webkit-appearance: none;
-       -moz-appearance: none;
-            appearance: none;
-    &[readonly]{
-      background-color: $input-readonly-back-color;
-    }
-  }
-}
-// Make select respect parent width, stylize options
+// Fix for select and option elements overflowing their parent container.
 select {
   max-width: 100%;
 }
@@ -288,22 +196,50 @@ option {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-// Placeholder styling (keep browser-specific definitions separated, they do not play well together).
-::-webkit-input-placeholder {
-  opacity: 1;
-  color: $input-placeholder-fore-color;
+// Styling for checkboxes and radio buttons.
+[type="checkbox"], [type="radio"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: relative;
+  height: calc(#{$base-font-size} + var(#{$universal-padding-var}) / 2);
+  width: calc(#{$base-font-size} + var(#{$universal-padding-var}) / 2);
+  vertical-align: text-bottom;
+  padding: 0; // Remove padding added from previous styles.
+  flex-basis: calc(#{$base-font-size} + var(#{$universal-padding-var}) / 2) !important; // Override fluid input-group styling.
+  flex-grow: 0 !important;  // Using with fluid input-groups is not recommended.
+  &:checked:before {
+    position: absolute;
+  }
 }
-::-moz-placeholder {
-  opacity: 1;
-  color: $input-placeholder-fore-color;
+[type="checkbox"] {
+  &:checked:before {
+    content: '\2713';
+    font-family: sans-serif;
+    font-size: calc(#{$base-font-size} + var(#{$universal-padding-var}) / 2);
+    top: calc(0rem - var(#{$universal-padding-var}));
+    left: calc(var(#{$universal-padding-var}) / 4);
+  }
+}
+[type="radio"] {
+  border-radius: 100%;
+  &:checked:before {
+    border-radius: 100%;
+    content: '';
+    top: calc(#{$__1px} + var(#{$universal-padding-var}) / 2);
+    left: calc(#{$__1px} + var(#{$universal-padding-var}) / 2);
+    background: var(#{$input-fore-color-var});
+    width: 0.5rem;
+    height: 0.5rem;
+  }
+}
+// Placeholder styling (keep browser-specific definitions separated, they do not play well together).
+:placeholder-shown {
+  color: var(#{$input-fore-color-var});
 }
 ::-ms-placeholder {
-  opacity: 1;
-  color: $input-placeholder-fore-color;
-}
-::placeholder {
-  opacity: 1;
-  color: $input-placeholder-fore-color;
+  color: var(#{$input-fore-color-var});
+  opacity: 0.54;
 }
 // Definitions for the button and button-like elements.
 // Different elements are styled based on the same set of rules.
@@ -326,352 +262,56 @@ button, [type="button"], [type="submit"], [type="reset"],
 a.#{$button-class-name}, label.#{$button-class-name}, .#{$button-class-name},
 a[role="button"], label[role="button"], [role="button"] {
   display: inline-block;
-  background: rgba($button-back-color, $button-back-opacity);
-  color: $button-fore-color;
-  border: $button-border-style;
-  @if $button-border-radius != 0 {
-    border-radius: $button-border-radius;
-  }
-  @if $button-padding != 0 {
-    padding: $button-padding;
-  }
-  @if $button-margin != 0 {
-    margin: $button-margin;
-  }
-  @if $button-box-shadow != none {
-    box-shadow: $button-box-shadow;
-  }
-  @if $apply-link-underline {    // Override for links if underline is enabled.
-    text-decoration: none;
-  }
-  transition: background 0.3s;
+  background: var(#{$button-back-color-var});
+  color: var(#{$button-fore-color-var});
+  border: $__1px solid var(#{$button-border-color-var});
+  border-radius: var(#{$universal-border-radius-var});
+  padding: var(#{$universal-padding-var}) calc(1.5 * var(#{$universal-padding-var}));
+  margin: var(#{$universal-margin-var});
+  text-decoration: none;
   cursor: pointer;
+  transition: background 0.3s;
   &:hover, &:focus {
-    background: rgba($button-back-color, $button-hover-back-opacity);
-    @if $apply-link-hover-fade {  // Override for links if hover-fade is enabled.
-      opacity: 1;
-    }
-  }
-  @if $input-high-specificity-selectors or $input-disabled-opacity != $button-disabled-opacity {
-    &:disabled, &[disabled] {
-      cursor: not-allowed;
-      opacity: $button-disabled-opacity;
-    }
+    background: var(#{$button-hover-back-color-var});
+    border-color: var(#{$button-hover-border-color-var});
   }
 }
-@if not $input-high-specificity-selectors {
-  @if $input-disabled-opacity == $button-disabled-opacity {
-    input, textarea, select, button, .#{$button-class-name}, [role="button"] { // .button[disabled] is actually higher specificity than a.button, so no need for more than that
-      &:disabled, &[disabled] {
-        cursor: not-allowed;
-        opacity: $button-disabled-opacity;
-      }
-    }
+// Disabled styling for input and button elements.
+input, textarea, select, button, .#{$button-class-name}, [role="button"] {
+  // .button[disabled] is actually higher specificity than a.button, so no need for more than that
+  &:disabled, &[disabled] {
+    cursor: not-allowed;
+    opacity: $input-disabled-opacity;
   }
 }
-@if $style-link-active-state {
-  a.#{$button-class-name}:active, a[role="button"]:active {
-    background: rgba($button-back-color, $button-hover-back-opacity);
-    @if $apply-link-hover-fade {  // Override for links if hover-fade is enabled.
-      opacity: 1;
-    }
+// Button group styling.
+.#{$button-group-name} {
+  display: flex;
+  border: $__1px solid var(#{$button-group-border-color-var});
+  border-radius: var(#{$universal-border-radius-var});
+  margin: var(#{$universal-margin-var});
+  @if $universal-box-shadow != none {
+    box-shadow: var(#{$universal-box-shadow-var});
   }
-}
-// Styling for file inputs
-@if $hide-file-inputs {
-  input[type="file"] { // Hide, use labels instead. Hidden inputs like this are still accessible.
+  & > button, [type="button"], & > [type="submit"], & > [type="reset"],
+  & > .#{$button-class-name}, & > [role="button"] {
+    margin: 0;
+    max-width: 100%;
+    flex: 1 1 auto;
+    text-align: center;
     border: 0;
-    height: 1px;
-    width: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    clip: rect(0 0 0 0);
-    -webkit-clip-path: inset(100%);
-            clip-path: inset(100%);
+    border-radius: 0;
+    box-shadow: none;
   }
-}
-@else {
-  ::-webkit-file-upload-button {
-    -webkit-appearance: button;   // Correct inability to style in iOS and Safari.
-    font: inherit;                 // Change font propery to `inherit` in Safari.
-  }
-}
-@if $include-button-group {
-  // Button group definition
-  .#{$button-group-name} {
-    // Old syntax
-    display: -webkit-box;
-    // New syntax
-    display:   -webkit-flex;
-    display:            flex;
-    border: $button-group-border-style;
-    @if $button-border-radius != 0 {
-      border-radius: $button-border-radius;
-    }
-    @if $button-group-margin != 0 {
-      margin: $button-group-margin;
-    }
-    @if $button-group-box-shadow != none {
-      box-shadow: $button-group-box-shadow;
-    }
-    &> button, [type="button"], & > [type="submit"], & > [type="reset"],
-    & > .#{$button-class-name}, & > [role="button"] {
-      margin: 0;
-      // Old syntax
-      -webkit-box-flex: 1;
-      max-width: 100%;
-      // New syntax
-      -webkit-flex: 1 1 auto;
-              flex: 1 1 auto;
-      text-align: center;
-      border: 0;
-      @if $button-border-radius != 0 {
-        border-radius: 0;
-      }
-      @if $button-group-high-specificity-selectors {
-        @if $button-group-border-style != 0 {
-          + button, + [type="button"], + [type="submit"], + [type="reset"],
-          + .#{$button-class-name}, + [role="button"] {
-            border-left: $button-group-border-style;
-          }
-        }
-      }
-      @if $button-box-shadow != none {
-        box-shadow: none;
-      }
-    }
-    @if not $button-group-high-specificity-selectors {
-      @if $button-group-border-style != 0 {
-        & > :not(:first-child) {
-          border-left: $button-group-border-style;
-        }
-      }
-    }
+  & > :not(:first-child) {
+    border-left: $__1px solid var(#{$button-group-border-color-var});
   }
   // Responsiveness for button groups
   @media screen and (max-width: #{$button-group-mobile-breakpoint}) {
-    .#{$button-group-name} {
-      // Old syntax
-      -webkit-box-orient: vertical;
-      // New syntax
-      -webkit-flex-direction: column;
-              flex-direction: column;
-      @if $button-group-high-specificity-selectors {
-        @if $button-group-border-style !=0 {
-          button, [type="button"], [type="submit"], [type="reset"],
-          .#{$button-class-name}, [role="button"] {
-            + button, + [type="button"], + [type="submit"], + [type="reset"],
-            + .#{$button-class-name}, + [role="button"] {
-              border: 0;
-              border-top: $button-group-border-style;
-            }
-          }
-        }
-      }
-      @else {
-        @if $button-group-border-style !=0 {
-          & > :not(:first-child) {
-            border: 0;
-            border-top: $button-group-border-style;
-          }
-        }
-      }
-    }
-  }
-}
-// Definitions for checkboxes and radio button elements.
-// Note: both elements are hidden by default and use labels to show their input state.
-// Hide both input types - accessible (element is not visible, but screen readers read it normally).
-@if $hide-check-and-radio {    // If you want to make these two <input>s visible by default, turn this on.
-  [type="checkbox"], [type="radio"] {
-    height: 1px;
-    width: 1px;
-    margin: -1px;
-    overflow: hidden;
-    position: absolute;
-    clip: rect(0 0 0 0);
-    -webkit-clip-path: inset(100%);
-            clip-path: inset(100%);
-  }
-}
-// Use input-group to setup the style for labels.
-.#{$input-group-name} {
-  // Label styling based on the specifics of the checkbox/radio variables.
-  [type="checkbox"] + label, [type="radio"] + label {
-    position: relative;
-    display: inline-block;
-    $_unit: $checkbox-size*0 +1;    // Used to check if the unit is `px` or `rem/em`
-    @if $_unit == 1px {
-      margin-left: floor($checkbox-size + floor($checkbox-size * 0.25));
-    }
-    @else {
-      margin-left: $checkbox-size * 1.25;
-    }
-    cursor: pointer;
-    // Styling for checkbox/radio box part.
-    &:before {
-      display: inline-block;
-      position: absolute;
-      top: $checkbox-bottom-spacing;
-      left: 0;
-      width: $checkbox-size;
-      height: $checkbox-size;
-      content: '';
-      border: $checkbox-border-thickness solid $checkbox-border-color;
-      @if $checkbox-border-radius != 0 {
-        border-radius:  $checkbox-border-radius;
-      }
-      background: $checkbox-back-color;
-      color: $checkbox-fore-color;
-      $_unit: $checkbox-size*0 +1;    // Used to check if the unit is `px` or `rem/em`
-      @if $_unit == 1px {
-        margin-left: - floor($checkbox-size + floor($checkbox-size * 0.25));
-      }
-      @else {
-        margin-left: - $checkbox-size * 1.25;
-      }
-      @if $checkbox-box-shadow != none {
-        box-shadow: $checkbox-box-shadow;
-      }
-    }
-    // Hover, focus styling.
-    &:hover, &:focus {
-      &:before {
-        border-color: $checkbox-focus-border-color;
-      }
-    }
-  }
-  [type="checkbox"]:focus + label:before, [type="radio"]:focus + label:before {
-    border-color: $checkbox-focus-border-color;
-  }
-  // Make radio button box and fill circular.
-  [type="radio"] + label {
-    &:before, &:after {
-      border-radius: 50%;
-    }
-  }
-  // Disabled and readonly styles.
-  [type="checkbox"][disabled] + label, [type="radio"][disabled] + label,
-  [type="checkbox"]:disabled + label, [type="radio"]:disabled + label {
-    cursor: not-allowed;
-    &:before, &:after {
-      opacity: $checkbox-disabled-opacity;
-    }
-  }
-  // Fill for checked checkbox/radio elements.
-  [type="checkbox"]:checked + label, [type="radio"]:checked + label{
-    &:after {
-      position: absolute;
-      background: $checkbox-fore-color;
-      content: '';
-      $_unit: $checkbox-size*0 +1;    // Used to check if the unit is `px` or `rem/em`
-      @if $_unit == 1px {
-        margin-left: - floor($checkbox-size + floor($checkbox-size * 0.25));
-        top: floor($checkbox-size * 0.25) + $checkbox-bottom-spacing;
-        left: floor($checkbox-size * 0.25);
-        width: floor($checkbox-size * 0.5) + floor($checkbox-border-thickness * 2);
-        height: floor($checkbox-size * 0.5) + floor($checkbox-border-thickness * 2);
-      }
-      @else {
-        margin-left: - ($checkbox-size * 1.25);
-        top: $checkbox-size * 0.25 + $checkbox-bottom-spacing;
-        left: $checkbox-size * 0.25;
-        width: $checkbox-size * 0.5 + $checkbox-border-thickness * 2;
-        height: $checkbox-size * 0.5 + $checkbox-border-thickness * 2;
-      }
-    }
-  }
-}
-// Definitions for switch components.
-@if $include-switch {
-  .#{$input-group-name} {
-    // Label styling based on the specifics of the switch variables.
-    [type="checkbox"] + label.#{$switch-name}, [type="radio"] + label.#{$switch-name} {
-      // Styling for the bar part of the switch
-      &:before {
-        @if $switch-bottom-spacing != $checkbox-bottom-spacing {
-          top: $switch-bottom-spacing;
-        }
-        width: $switch-bar-width;
-        height: $switch-bar-height;
-        border: $switch-bar-border-style;
-        @if $switch-bar-border-radius != 0 {
-          border-radius: $switch-bar-border-radius;
-        }
-        background: $switch-bar-back-color;
-        $_unit: $switch-bar-width*0 +1;    // Used to check if the unit is `px` or `rem/em`
-        @if $_unit == 1px {
-          margin-left: - floor($switch-bar-width + floor($switch-knob-width/2));
-        }
-        @else {
-          margin-left: - ($switch-bar-width + $switch-knob-width/2);
-        }
-        @if $switch-bar-box-shadow != none {
-          box-shadow: $switch-bar-box-shadow;
-        }
-      }
-      // Styling for the knob part of the switch
-      &:after {
-        display: inline-block;
-        content: '';
-        position: absolute;
-        left: 0;
-        width: $switch-knob-width;
-        height: $switch-knob-height;
-        background: $switch-knob-back-color;
-        @if $switch-knob-border-style != 0 {
-          border: $switch-knob-border-style;
-          box-sizing: border-box;
-        }
-        @if $switch-knob-border-radius != 0 {
-          border-radius: $switch-knob-border-radius;
-        }
-        $_unit: $switch-bar-width*0 +1;    // Used to check if the unit is `px` or `rem/em`
-        @if $_unit == 1px {
-          top: floor((2*$switch-bottom-spacing + $switch-bar-height - $switch-knob-height)/2);
-          margin-left: - floor($switch-bar-width + $switch-knob-width);
-        }
-        @else {
-          top: (2*$switch-bottom-spacing + $switch-bar-height - $switch-knob-height)/2;
-          margin-left: - ($switch-bar-width + $switch-knob-width);
-        }
-        @if $switch-knob-box-shadow != none {
-          box-shadow: $switch-knob-box-shadow;
-        }
-        transition: left 0.3s;
-      }
-      // Hover and focus styles are absent for switches, as they are mainly intended for mobile, but you can add them in manually.
-    }
-    // [type="checkbox"]:focus + label:before, [type="radio"]:focus + label:before {
-      // border-color: $checkbox-focus-border-color;
-    // }
-    // Fill for checked checkbox/radio elements.
-    [type="checkbox"]:checked + label.#{$switch-name}, [type="radio"]:checked + label.#{$switch-name}{
-      &:before {
-        @if $switch-on-bar-back-color != $switch-bar-back-color {
-          background: $switch-on-bar-back-color;
-        }
-      }
-      &:after {
-        left: $switch-bar-width;
-        // Some values need to be re-applied to avoid overwriting by the default checkbox ones.
-        width: $switch-knob-width;
-        height: $switch-knob-height;
-        $_unit: $switch-bar-width*0 +1;    // Used to check if the unit is `px` or `rem/em`
-        @if $_unit == 1px {
-          top: floor((2*$switch-bottom-spacing + $switch-bar-height - $switch-knob-height)/2);
-          margin-left: - floor($switch-bar-width + $switch-knob-width);
-        }
-        @else {
-          top: (2*$switch-bottom-spacing + $switch-bar-height - $switch-knob-height)/2;
-          margin-left: - ($switch-bar-width + $switch-knob-width);
-        }
-        @if $switch-on-knob-back-color != $switch-knob-back-color {
-          background: $switch-on-knob-back-color;
-        }
-      }
+    flex-direction: column;
+    & > :not(:first-child) {
+      border: 0;    // Reapply to remove the left border from elements.
+      border-top: $__1px solid var(#{$button-group-border-color-var});
     }
   }
 }

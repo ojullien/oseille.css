@@ -1,0 +1,31 @@
+//
+// Use HTML text content elements to organize blocks or sections of content placed between the opening <body>
+// and closing </body> tags. Important for accessibility and SEO, these elements identify the purpose or
+// structure of that content.
+//
+
+// Public variables.
+// May be overrided using @use <url> with (<variable>: <value>, <variable>: <value>)
+
+$margin: 0.5rem !default; // Universal margin for the most elements
+$horizontal-rule-line-height: 1.25em !default; // <hr> line height
+$border-color: #aaa !default; // Border color
+
+// Private variables
+
+// paragraph-level elements styling
+
+hr {
+    // Fixes and defaults for styling
+    box-sizing: content-box;
+    border: 0;
+    // Actual styling using variables
+    line-height: $horizontal-rule-line-height;
+    margin: $margin;
+    height: var(--px);
+    background: linear-gradient(to right, transparent, $border-color 20%, $border-color 80%, transparent);
+}
+
+p {
+    margin: $margin;
+}

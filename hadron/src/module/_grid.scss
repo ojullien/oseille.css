@@ -1,0 +1,128 @@
+//
+// Definitions for the grid system and containers.
+// The grid system uses the flexbox module, meaning it might be incompatible with certain browsers.
+//
+
+// Public variables.
+// May be overrided using @use <url> with (<variable>: <value>, <variable>: <value>)
+
+$padding: 0.5rem !default; // Universal padding for the most elements
+$medium-breakpoint: 768px !default; // Medium screen breakpoint for grid.
+$large-breakpoint: 1280px !default; // Large screen breakpoint for grid.
+
+// Private variables
+$_include-parent-layout: true !default; // Flag for rows defining column layouts (`true`/`false`).
+$_column-prefix: "col" !default; // Class name prefix for the grid's columns.
+$_column-offset-suffix: "offset" !default; // Class name suffix for the grid's offsets.
+$_row-parent-layout-prefix: "cols" !default; // Class name prefix for the grid's row parents.
+$_row-name: "row" !default; // Class name for the grid system rows.
+$_column-count: 12 !default; // Number of columns in the grid (integer value only).
+$_order-normal-suffix: "normal" !default; // Class name suffix for grid columns with normal priority.
+$_order-first-suffix: "first" !default; // Class name suffix for grid columns with highest priority.
+$_order-last-suffix: "last" !default; // Class name suffix for grid columns with lowest priorty.
+$_container-name: "container" !default; // Class name for the grid system container.
+$_small-prefix: "sm" !default; // Small screen class prefix for grid.
+$_medium-prefix: "md" !default; // Medium screen class prefix for grid.
+$_large-prefix: "lg" !default; // Large screen class prefix for grid.
+
+// Inline mixin, used to generate class definitions for each grid step.
+@mixin generate-grid-size($size-prefix) {
+    @if $_include-parent-layout {
+        .#{$_column-prefix}-#{$size-prefix},
+        [class^="#{$_column-prefix}-#{$size-prefix}-"],
+        [class^="#{$_column-prefix}-#{$size-prefix}-#{$_column-offset-suffix}-"],
+        .#{$_row-name}[class*="#{$_row-parent-layout-prefix}-#{$size-prefix}-"] > * {
+            box-sizing: border-box;
+            flex: 0 0 auto;
+            padding: 0 calc(#{$padding} / 2);
+        }
+
+        // Grid column specific definition for flexible column.
+        .#{$_column-prefix}-#{$size-prefix},
+        .#{$_row-name}.#{$_row-parent-layout-prefix}-#{$size-prefix} > * {
+            max-width: 100%;
+            flex-grow: 1;
+            flex-basis: 0;
+        }
+    } @else {
+        // Grid column generic definitions.
+        .#{$_column-prefix}-#{$size-prefix},
+        [class^="#{$_column-prefix}-#{$size-prefix}-"],
+        [class^="#{$_column-prefix}-#{$size-prefix}-#{$_column-offset-suffix}-"] {
+            flex: 0 0 auto;
+            padding: 0 calc(#{$padding} / 2);
+        }
+
+        // Grid column specific definition for flexible column.
+        .#{$_column-prefix}-#{$size-prefix} {
+            max-width: 100%;
+            flex-grow: 1;
+            flex-basis: 0;
+        }
+    }
+
+    // Grid column specific definitions for predefined columns.
+    @for $i from 1 through $_column-count {
+        @if $_include-parent-layout {
+            .#{$_column-prefix}-#{$size-prefix}-#{$i},
+            .#{$_row-name}.#{$_row-parent-layout-prefix}-#{$size-prefix}-#{$i} > * {
+                max-width: #{($i * 100% / $_column-count)};
+                flex-basis: #{($i * 100% / $_column-count)};
+            }
+        } @else {
+            .#{$_column-prefix}-#{$size-prefix}-#{$i} {
+                max-width: #{($i * 100% / $_column-count)};
+                flex-basis: #{($i * 100% / $_column-count)};
+            }
+        }
+
+        // Offest definitions.
+        .#{$_column-prefix}-#{$size-prefix}-#{$_column-offset-suffix}-#{($i - 1)} {
+            @if ($i - 1) == 0 {
+                margin-left: 0;
+            } @else {
+                margin-left: #{(($i - 1) * 100% / $_column-count)};
+            }
+        }
+    }
+
+    // Reordering definitions.
+    .#{$_column-prefix}-#{$size-prefix}-#{$_order-normal-suffix} {
+        order: initial;
+    }
+
+    .#{$_column-prefix}-#{$size-prefix}-#{$_order-first-suffix} {
+        order: -999;
+    }
+
+    .#{$_column-prefix}-#{$size-prefix}-#{$_order-last-suffix} {
+        order: 999;
+    }
+}
+
+/* Fluid grid system container styling */
+
+.#{$_container-name} {
+    margin: 0 auto;
+    padding: 0 calc(1.5 * #{$padding});
+}
+
+.#{$_row-name} {
+    box-sizing: border-box;
+    display: flex;
+    flex: 0 1 auto;
+    flex-flow: row wrap;
+}
+
+// Definitions for smaller screens.
+@include generate-grid-size($_small-prefix);
+
+// Definitions for medium screens.
+@media screen and (min-width: #{$medium-breakpoint}) {
+    @include generate-grid-size($_medium-prefix);
+}
+
+// Definitions for large screens.
+@media screen and (min-width: #{$large-breakpoint}) {
+    @include generate-grid-size($_large-prefix);
+}

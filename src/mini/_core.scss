@@ -1,53 +1,95 @@
 /*
   Browsers resets and base typography.
 */
-$apply-defaults-to-all:        true !default;        // Should default values be applied to all elements? (`true`/`false`).
-$base-root-font-size:          16px !default;        // Root font sizing for all elements - Should only be specified in `px` units!
-$_1px:  (1px/$base-root-font-size) * 1rem !default;  // Calculated rem value of 1px.
-$use-fluid-typography:         false !default;       // Should fluid typography be used at the root element? (`true`/`false`)
-$fluid-type-start-breakpoint:  320px !default;       // Breakpoint where fluid typography scaling starts.
-$fluid-type-end-breakpoint:    1600px !default;      // Breakpoint where fluid typography scaling ends.
-$fluid-type-small-type:        14px !default;        // Smallest root font size for fluid typography.
-$fluid-type-large-type:        18px !default;        // Largest root font size for fluid typography.
-$include-dfn-fix:              true !default;        // Fix display of <dfn> element in older versions of Android.
-$make-heading-smalltext-block: false !default;       // Should <small> elements in headings be displayed as blocks (`true`/`false`).
-$horizontal-rule-fancy-style:  false !default;       // Should a fancy styling be applied for the <hr> element (`true`/`false`).
-$add-pre-element-sidebar:      false !default;       // Should a fancy sidebar be added to the left side of <pre> (`true`/`false`).
-$apply-link-underline:         true !default;        // Should an underline be applied to all <a> elements? (`true`/`false`).
-$apply-link-hover-fade:        true !default;        // Should the :hover and :focus state of <a> elements use fade-out instead of a different color (`true`/`false`).
-$style-link-active-state:      false !default;       // [Hidden flag] Should the :active state of <a> elements be stylized, same as the :hover state (`true`/`false`).
-// Base typography rules
-@if $use-fluid-typography {
-  // Calculation of local variables (unitless values needed for the calculation of fluid typography)
-  $_fluid-type-unitless-size-change:  ($fluid-type-large-type - $fluid-type-small-type)/($fluid-type-small-type * 0 + 1);
-  $_fluid-type-unitless-distance:  ($fluid-type-end-breakpoint - $fluid-type-start-breakpoint)/($fluid-type-start-breakpoint * 0 + 1);
-  html {
-    font-size: #{$fluid-type-small-type};
-  }
-  @media screen and (min-width: #{$fluid-type-start-breakpoint}) {
-    html {
-      font-size: $base-root-font-size; // If the below calculation does not work, this is the fallback.
-      font-size: calc(#{$fluid-type-small-type} + #{$_fluid-type-unitless-size-change} * ((100vw - #{$fluid-type-start-breakpoint}) / #{$_fluid-type-unitless-distance}));
-    }
-  }
-  @media screen and (min-width: #{$fluid-type-end-breakpoint}) {
-    html {
-      font-size: #{$fluid-type-large-type};
-    }
+@function rempx ($size) { @return 1px/$size;}   // Keep this, the generator breaks otherwise
+// TODO: Add fluid type and test thoroughly
+$base-root-font-size:     16px !default;        // Root font sizing for all elements (`px` only)
+$_apply-defaults-to-all:  true !default;        // [Hidden] Apply defaults to all elements? (boolean)
+$__1px: rempx($base-root-font-size) * 1rem !default;  // [Calculated] Calculated rem value of `1px`
+$base-font-family: '-apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, Ubuntu, \"Helvetica Neue\", Helvetica, sans-serif' !default;                           // Font stack for all elements
+$base-line-height:        1.5 !default;         // Line height for most elements
+$base-font-size:          1rem !default;        // Font sizing for all elements
+$_body-margin:            0 !default;           // [Hidden] Margin for body
+$fore-color:              #111 !default;        // Text & foreground color
+$secondary-fore-color:    #444 !default;        // Secondary text & foreground color
+$back-color:              #f8f8f8 !default;     // Background color
+$secondary-back-color:    #f0f0f0 !default;     // Secondary background color
+$blockquote-color:        #f57c00 !default;     // <blockquote> sidebar and quotation color
+$pre-color:               #1565c0 !default;     // <pre> sidebar color
+$border-color:            #aaa !default;        // Border color
+$secondary-border-color:  #ddd !default;        // Secondary border color
+$heading-line-height:     1.2 !default;         // Line height for headings
+$heading-ratio:           1.19 !default;        // Ratio for headings (strictly unitless)
+$subheading-font-size:    0.75em !default;      // Font sizing for <small> elements in headings
+$subheading-top-margin:   -0.25rem !default;    // Top margin of <small> elements in headings
+$universal-margin:        0.5rem !default;      // Universal margin for the most elements
+$universal-padding:       0.5rem !default;      // Universal padding for the most elements
+$universal-border-radius: 0.125rem !default;    // Universal border-radius for most elements
+$universal-box-shadow:    none !default;        // Universal box-shadow for most elements
+$small-font-size:         0.75em !default;      // Font sizing for <small> elements
+$heading-font-weight:     500 !default;         // Font weight for headings
+$bold-font-weight:        700 !default;         // Font weight for <b> and <strong>
+$horizontal-rule-line-height:  1.25em !default; // <hr> line height
+$blockquote-quotation-size:    3rem !default;   // Font size for the quotation of <blockquote>
+$blockquote-cite-size:         0.75em !default; // Font size for the [cite] of <blockquote>
+$code-font-family: 'Menlo, Consolas, monospace' !default; // Font stack for code elements
+$code-font-size:           0.85em !default;     // Font size for <code>, <kbd>
+$small-element-font-size:     0.75em !default;  // Font size for <small>, <sub>, <sup>
+$sup-top:                  -0.5em !default;     // <sup> top
+$sub-bottom:               -0.25em !default;    // <sub> bottom
+$a-link-color:             #0277bd !default;    // Color for <a>:link
+$a-visited-color:          #01579b !default;    // Color for <a>:visited
+// CSS variable name definitions [exercise caution if modifying these]
+$fore-color-var:                '--fore-color' !default;
+$secondary-fore-color-var:      '--secondary-fore-color' !default;
+$back-color-var:                '--back-color' !default;
+$secondary-back-color-var:      '--secondary-back-color' !default;
+$blockquote-color-var:          '--blockquote-color' !default;
+$pre-color-var:                 '--pre-color' !default;
+$border-color-var:              '--border-color' !default;
+$secondary-border-color-var:    '--secondary-border-color' !default;
+$heading-ratio-var:             '--heading-ratio' !default;
+$universal-margin-var:          '--universal-margin' !default;
+$universal-padding-var:         '--universal-padding' !default;
+$universal-border-radius-var:   '--universal-border-radius' !default;
+$universal-box-shadow-var:      '--universal-box-shadow' !default;
+$a-link-color-var:              '--a-link-color' !default;
+$a-visited-color-var:           '--a-visited-color' !default;
+/* Core module CSS variable definitions */
+:root {
+  #{$fore-color-var}: $fore-color;
+  #{$secondary-fore-color-var}: $secondary-fore-color;
+  #{$back-color-var}: $back-color;
+  #{$secondary-back-color-var}: $secondary-back-color;
+  #{$blockquote-color-var}: $blockquote-color;
+  #{$pre-color-var}: $pre-color;
+  #{$border-color-var}: $border-color;
+  #{$secondary-border-color-var}: $secondary-border-color;
+  #{$heading-ratio-var}: $heading-ratio;
+  #{$universal-margin-var}: $universal-margin;
+  #{$universal-padding-var}: $universal-padding;
+  #{$universal-border-radius-var}: $universal-border-radius;
+  #{$a-link-color-var} : $a-link-color;
+  #{$a-visited-color-var} : $a-visited-color;
+  @if $universal-box-shadow != none {
+    #{$universal-box-shadow-var}: $universal-box-shadow;
   }
 }
-@else {
-  html {
-    font-size: $base-root-font-size;  // Set root's font sizing.
-  }
+html {
+  scroll-behavior: smooth; // Added by La boite à bouillon
+  font-size: $base-root-font-size;  // Set root's font sizing.
+}
+a, b, del, em, i, ins, q, span, strong, u {
+  font-size: 1em; // Fix for elements inside headings not displaying properly.
 }
 
-@if $apply-defaults-to-all {
+@if $_apply-defaults-to-all {
   html, * {
     font-family: #{$base-font-family};
     line-height: $base-line-height;
     // Prevent adjustments of font size after orientation changes in mobile.
     -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
   * {
     font-size: $base-font-size;
@@ -55,21 +97,22 @@ $style-link-active-state:      false !default;       // [Hidden flag] Should the
 }
 @else {
   html {
-    font-family: #{$base-font-family};
+    font-family:  #{$base-font-family};
     line-height: $base-line-height;
     // Prevent adjustments of font size after orientation changes in mobile.
     -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
 }
 
 body {
-  margin: $body-margin;
-  color: $fore-color;
-  background: $back-color;
+  margin: $_body-margin;
+  color: var(#{$fore-color-var});
+  background: var(#{$back-color-var});
 }
 
-// Correct display for older versions of IE. Fix display of some elements in other browsers as well.
-article, aside, section, figcaption, figure, main, details, menu {
+// Correct display for Edge & Firefox.
+details {
   display: block;
 }
 
@@ -81,20 +124,10 @@ summary {
 // Abbreviations
 abbr[title] {
   border-bottom: none;           // Remove bottom border in Firefox 39-.
-  text-decoration: underline;   // Opinionated style-fix for all browsers.
+  text-decoration: underline dotted;  // Opinionated style-fix for all browsers.
 }
 
-// Correct display for older versions of IE.
-audio, video {
-  display: inline-block;
-}
-
-// Hide overflow in IE.
-svg:not(:root) {
-  overflow: hidden;
-}
-
-// Show overflow in IE.
+// Show overflow in Edge.
 input {
   overflow: visible;
 }
@@ -102,60 +135,51 @@ input {
 // Make images responsive by default.
 img {
   max-width: 100%;
-   height: auto;
-}
-
-// Fix display of <dfn> element in older versions of Android.
-@if $include-dfn-fix {
-  dfn {
-    font-style: italic;
-  }
+  height: auto;
 }
 
 h1, h2, h3, h4, h5, h6 {
   line-height: $heading-line-height;
-  margin: $heading-margin;
+  margin: calc(1.5 * var(#{$universal-margin-var})) var(#{$universal-margin-var});
   font-weight: $heading-font-weight;
   small {
-    color: $heading-smalltext-fore-color;
-    @if $make-heading-smalltext-block {
-      display: block;
-      @if $heading-smalltext-b-top-margin != 0 {
-        margin-top: $heading-smalltext-b-top-margin;
-      }
-      @if $heading-smalltext-b-font-size != $small-font-size {
-        font-size: $heading-smalltext-b-font-size;
-      }
+    color: var(#{$secondary-fore-color-var});
+    display: block;
+    @if $subheading-top-margin != 0 {
+      margin-top: $subheading-top-margin;
+    }
+    @if $subheading-font-size != $small-font-size {
+      font-size: $subheading-font-size;
     }
   }
 }
 
 h1 {
-  font-size: $h1-font-size;
+  font-size: calc(1rem * var(#{$heading-ratio-var}) * var(#{$heading-ratio-var}) * var(#{$heading-ratio-var}) * var(#{$heading-ratio-var}));
 }
 h2 {
-  font-size: $h2-font-size;
+  font-size: calc(1rem * var(#{$heading-ratio-var}) * var(#{$heading-ratio-var}) * var(#{$heading-ratio-var}));
 }
 h3 {
-  font-size: $h3-font-size;
+  font-size: calc(1rem * var(#{$heading-ratio-var}) * var(#{$heading-ratio-var}));
 }
 h4 {
-  font-size: $h4-font-size;
+  font-size: calc(1rem * var(#{$heading-ratio-var}));
 }
 h5 {
-  font-size: $h5-font-size;
+  font-size: 1rem;
 }
 h6 {
-  font-size: $h6-font-size;
+  font-size: calc(1rem / var(#{$heading-ratio-var}));
 }
 
 p {
-  margin: $paragraph-margin;
+  margin: var(#{$universal-margin-var});
 }
 
 ol, ul {
-  margin: $list-margin;
-  padding-left: $list-left-padding;
+  margin: var(#{$universal-margin-var});
+  padding-left: calc(2 * var(#{$universal-margin-var}));
 }
 
 b, strong {
@@ -166,301 +190,125 @@ hr {
   // Fixes and defaults for styling
   box-sizing: content-box;
   border: 0;
-  overflow: visible;
   // Actual styling using variables
   line-height: $horizontal-rule-line-height;
-  margin: $horizontal-rule-margin;
-  @if $horizontal-rule-fancy-style {
-    height: $_1px;
-    background: linear-gradient(#{$horizontal-rule-fancy-gradient});
-  }
-  @else {
-    height: 0;
-    border-top: $horizontal-rule-border-style;
-  }
+  margin: var(#{$universal-margin-var});
+  height: $__1px;
+  background: linear-gradient(to right, transparent, var(#{$border-color-var}) 20%, var(#{$border-color-var}) 80%, transparent);
 }
 
-blockquote {
+blockquote {  // Doesn't have a back color by default, can be added manually.
   display: block;
   position: relative;
   font-style: italic;
-  @if $blockquote-back-color != $back-color {
-    background: $blockquote-back-color;
+  color: var(#{$secondary-fore-color-var});
+  margin: var(#{$universal-margin-var});
+  padding: calc(3 * var(#{$universal-padding-var}));
+  border: $__1px solid var(#{$secondary-border-color-var});
+  border-left: 6*$__1px solid var(#{$blockquote-color-var});
+  border-radius: 0 var(#{$universal-border-radius-var}) var(#{$universal-border-radius-var}) 0;
+  @if $universal-box-shadow != none {
+    box-shadow: var(#{$universal-box-shadow-var});
   }
-  @if $blockquote-fore-color != $fore-color {
-    color: $blockquote-fore-color;
-  }
-  // Overwrite defaults
-  margin: $blockquote-margin;
-  padding: $blockquote-padding;
-  @if $blockquote-border-style != 0 {
-    border: $blockquote-border-style;
-  }
-  @if $blockquote-sidebar-style != 0 {
-    border-left: $blockquote-sidebar-style;
-  }
-  @if $blockquote-border-radius != 0 {
-    border-radius: $blockquote-border-radius;
-  }
-  @if $blockquote-box-shadow != none {
-    box-shadow: $blockquote-box-shadow;
-  }
-  &:after {
+  &:before {
     position: absolute;
+    top: calc(0rem - var(#{$universal-padding-var}));
+    left: 0;
+    font-family: sans-serif;
+    font-size: $blockquote-quotation-size;
+    font-weight: 700;
+    content: "\201c";
+    color: var(#{$blockquote-color-var});
+  }
+  &[cite]:after{
     font-style: normal;
-    font-size: $blockquote-cite-font-size;
-    @if $blockquote-cite-fore-color != $blockquote-fore-color {
-      color: $blockquote-cite-fore-color;
-    }
-    left: $blockquote-cite-left-position;
-    bottom: $blockquote-cite-bottom-position;
-    content: '\2014 \2009'attr(cite);
+    font-size: $blockquote-cite-size;
+    font-weight: 700;
+    content: "\a—  " attr(cite);
+    white-space: pre;
   }
 }
 
-$use-default-code-fonts: true !default;
-@if $use-default-code-fonts {
-  code, kbd, pre, samp{
-    font-family: monospace, monospace;  // Applies display fix for all code elements
-  }
+code, kbd, pre, samp {
+  font-family: #{$code-font-family};     // Display fix should be applied manually!
+  font-size: $code-font-size;
 }
-@else {
-  code, kbd, pre, samp{
-    font-family: $code-font-family;     // Display fix should be applied manually!
+
+code { // No border color by default and fore color is the default for text, can be altered manually.
+  background: var(#{$secondary-back-color-var});
+  border-radius: var(#{$universal-border-radius-var});
+  // This could be a bit counterintuitive and burden the codebase a bit, look into it again?
+  padding: calc(var(#{$universal-padding-var}) / 4) calc(var(#{$universal-padding-var}) / 2);
+  @if $universal-box-shadow != none {
+    box-shadow: var(#{$universal-box-shadow-var});
   }
 }
 
-code {
-  @if $code-element-border-style != 0{
-    border: $code-element-border-style;
-  }
-  @if $code-element-border-radius != 0 {
-    border-radius: $code-element-border-radius;
-  }
-  @if $code-element-back-color != $back-color {
-    background: $code-element-back-color;
-  }
-  @if $code-element-fore-color != $fore-color {
-    color: $code-element-fore-color;
-  }
-  @if $code-element-padding != 0 {
-    padding: $code-element-padding;
-  }
-  @if $code-element-box-shadow != none {
-    box-shadow: $code-element-box-shadow;
+kbd { // No border color by default, can be altered manually.
+  background: var(#{$fore-color-var});
+  color: var(#{$back-color-var});
+  border-radius: var(#{$universal-border-radius-var});
+  // This could be a bit counterintuitive and burden the codebase a bit, look into it again?
+  padding: calc(var(#{$universal-padding-var}) / 4) calc(var(#{$universal-padding-var}) / 2);
+  @if $universal-box-shadow != none {
+    box-shadow: var(#{$universal-box-shadow-var});
   }
 }
 
-pre {
+pre { // Fore color is the default, can be altered manually.
   overflow: auto; // Responsiveness
-  @if $pre-element-border-style != 0 {
-    border: $pre-element-border-style;
-  }
-  @if $pre-element-border-radius != 0 {
-    border-radius: $pre-element-border-radius;
-  }
-  @if $pre-element-back-color != $back-color {
-    background: $pre-element-back-color;
-  }
-  @if $pre-element-fore-color != $fore-color {
-    color: $pre-element-fore-color;
-  }
-  @if $pre-element-padding != 0 {
-    padding: $pre-element-padding;
-  }
-  @if $pre-element-margin != 0 {
-    margin: $pre-element-margin;
-  }
-  @if $add-pre-element-sidebar {
-    border-left: $pre-element-sidebar-style;
-  }
-  @if $pre-element-box-shadow != none {
-    box-shadow: $pre-element-box-shadow;
+  background: var(#{$secondary-back-color-var});
+  padding: calc(1.5 * var(#{$universal-padding-var}));
+  margin: var(#{$universal-margin-var});
+  border: $__1px solid var(#{$secondary-border-color-var});
+  border-left: 4*$__1px solid var(#{$pre-color-var});
+  border-radius: 0 var(#{$universal-border-radius-var}) var(#{$universal-border-radius-var}) 0;
+  @if $universal-box-shadow != none {
+    box-shadow: var(#{$universal-box-shadow-var});
   }
 }
 
-kbd {
-  @if $kbd-element-border-style != 0 {
-    border: $kbd-element-border-style;
-  }
-  @if $kbd-element-border-radius != 0 {
-    border-radius: $kbd-element-border-radius;
-  }
-  @if $kbd-element-back-color != $back-color {
-    background: $kbd-element-back-color;
-  }
-  @if $kbd-element-fore-color != $fore-color {
-    color: $kbd-element-fore-color;
-  }
-  @if $kbd-element-padding != 0 {
-    padding: $kbd-element-padding;
-  }
-  @if $kbd-element-box-shadow != none {
-    box-shadow: $kbd-element-box-shadow;
-  }
+// Prevent elements from affecting the line height in all browsers.
+sup, sub, code, kbd {
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
 }
 
-$style-samp-element: false !default;
-@if $style-samp-element {
-  samp{
-    @if $samp-element-border-style != 0 {
-      border: $samp-element-border-style;
-    }
-    @if $samp-element-border-radius != 0 {
-      border-radius: $samp-element-border-radius;
-    }
-    @if $samp-element-back-color != $back-color {
-      background: $samp-element-back-color;
-    }
-    @if $samp-element-fore-color != $fore-color {
-      color: $samp-element-fore-color;
-    }
-    @if $samp-element-padding != 0 {
-      padding: $samp-element-padding;
-    }
-    @if $samp-element-box-shadow != none {
-      box-shadow: $samp-element-box-shadow;
-    }
-  }
+small, sup, sub, figcaption {
+  font-size: $small-element-font-size;
 }
 
-@if $small-font-size == $sub-font-size and $small-font-size == $sup-font-size {
-  small, sup, sub {
-    font-size: $small-font-size;
-  }
-  sup {
-    top: $sup-top;
-  }
-  sub{
-    bottom: $sub-bottom;
-  }
-  sup, sub {
-    line-height: 0;
-    position: relative;
-    vertical-align: baseline;
-  }
+sup {
+  top: $sup-top;
 }
-@else if $small-font-size == $sub-font-size {
-  small, sub {
-    font-size: $small-font-size;
-  }
-  sup {
-    font-size: $sup-font-size;
-    top: $sup-top;
-  }
-  sub {
-    bottom: $sub-bottom;
-  }
-  sup, sub {
-    line-height: 0;
-    position: relative;
-    vertical-align: baseline;
-  }
-}
-@else if $small-font-size == $sup-font-size {
-  small, sup {
-    font-size: $small-font-size;
-  }
-  sup {
-    top: $sup-top;
-  }
-  sub {
-    font-size: $sub-font-size;
-    bottom: $sub-bottom;
-  }
-  sup, sub {
-    line-height: 0;
-    position: relative;
-    vertical-align: baseline;
-  }
-}
-@else if $sup-font-size == $sub-font-size {
-  small {
-    font-size: $small-font-size;
-  }
-  sup, sub {
-    font-size: $sup-font-size;
-    line-height: 0;
-    position: relative;
-    vertical-align: baseline;
-  }
-  sup {
-    top: $sup-top;
-  }
-  sub{
-    bottom: $sub-bottom;
-  }
-}
-@else {
-  small {
-     font-size: $small-font-size;
-  }
-  sup {
-    font-size: $sup-font-size;
-    top: $sup-top;
-  }
-  sub{
-    font-size: $sub-font-size;
-    bottom: $sub-bottom;
-  }
-  sup, sub {
-    line-height: 0;
-    position: relative;
-    vertical-align: baseline;
-  }
+sub {
+  bottom: $sub-bottom;
 }
 
-// Link styling
-a{
-  color: $link-fore-color;
-  @if $apply-link-underline {
-    text-decoration: underline;
-  }
-  @else {
-    text-decoration: none;
-  }
-  @if $link-font-weight != 500 {
-    font-weight: $link-font-weight;
-  }
-  @if $apply-link-hover-fade {
-    opacity: 1;
-    transition: opacity 0.3s;
+figure {
+  margin: var(#{$universal-margin-var});
+}
+figcaption {
+    color: var(#{$secondary-fore-color-var});
+}
+
+a {
+  font-family: inherit;
+  font-size: inherit;
+  text-decoration: none;
+  &:link{
+    color: var(#{$a-link-color-var});
   }
   &:visited {
-    color: $link-visited-fore-color;
+    color: var(#{$a-visited-color-var});
   }
-  @if $apply-link-hover-fade {
-    @if $style-link-active-state {
-      &:hover, &:focus, &:active {
-        opacity: 0.75;
-      }
-    }
-    @else {
-      &:hover, &:focus {
-        opacity: 0.75;
-      }
-    }
-  }
-  @else {
-    @if $style-link-active-state {
-      &:hover, &:focus, &:active {
-        color: $link-hover-fore-color;
-      }
-    }
-    @else {
-      &:hover, &:focus {
-        color: $link-hover-fore-color;
-      }
-    }
-  }
-}
-
-// Captions for figures
-figcaption {
-  @if $figcaption-font-size != 100% {
-    font-size: $figcaption-font-size;
-  }
-  @if $figcaption-fore-color != $fore-color {
-    color: $figcaption-fore-color;
+  &:not(.button):hover, &:not(.button):focus {
+      // La boite à bouillons
+      //  1. Comment: text-decoration...
+      //  2. Add: box-shadow...
+      //  3. Add: :not(.button) property
+    // text-decoration: underline;
+    box-shadow: 0 2px;
   }
 }

@@ -1,7 +1,5 @@
 //
 // La boîte à bouillons sendinblue specific
-// Author: Olivier Jullien (https://github.com/ojullien)
-// version: v1.0.0
 //
 .iframe-container {
     position: relative;
@@ -12,7 +10,7 @@
 
 .iframe-container iframe {
     position: absolute;
-    top:0;
+    top: 0;
     left: 0;
     width: 100%;
     height: 100%;

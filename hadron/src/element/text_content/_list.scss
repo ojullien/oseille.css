@@ -1,0 +1,20 @@
+//
+// Use HTML text content elements to organize blocks or sections of content placed between the opening <body>
+// and closing </body> tags. Important for accessibility and SEO, these elements identify the purpose or
+// structure of that content.
+//
+
+// Public variables.
+// May be overrided using @use <url> with (<variable>: <value>, <variable>: <value>)
+
+$margin: 0.5rem !default; // Universal margin for the most elements
+
+// Private variables
+
+// List styling
+// <li>
+
+ol, ul {
+    margin: $margin;
+    padding-left: calc(2 * #{$margin});
+}

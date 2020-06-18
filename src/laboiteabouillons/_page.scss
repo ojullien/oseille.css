@@ -1,25 +1,18 @@
 //
 // La boîte à bouillons page featured image and heading specific.
-// Author: Olivier Jullien (https://github.com/ojullien)
-// version: v1.0.0
 //
 #top-image img {
     position: relative;
     background-size: cover;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
     background-position: center;
     height: -webkit-calc(100vh - 0px);
     height: calc(100vh - 0px);
     overflow: hidden;
     width: 100%;
-    -o-object-fit: cover;
     object-fit: cover;
 }
 
-@media screen and (min-width: #{$grid-medium-breakpoint}){
-
+@media screen and (min-width: #{$grid-medium-breakpoint}) {
     #top-image img {
         height: -webkit-calc(100vh - 60px);
         height: calc(100vh - 60px);
@@ -52,43 +45,42 @@
 .bounce {
     //-webkit-animation: bounce 2s infinite;
     //animation: bounce 2s infinite;
-	-webkit-animation: bounce 1.5s linear infinite;
-	animation: bounce 1.5s linear infinite;
+    -webkit-animation: bounce 1.5s linear infinite;
+    animation: bounce 1.5s linear infinite;
 }
 
 @-webkit-keyframes bounce {
-	25% {
+    25% {
         -webkit-transform: translateY(5px);
-		transform: translateY(5px)
+        transform: translateY(5px);
     }
-	50%{
+    50% {
         -webkit-transform: translateY(0px);
-		transform: translateY(0px)
+        transform: translateY(0px);
     }
-	75%{
+    75% {
         -webkit-transform: translateY(-5px);
-		transform: translateY(-5px)
+        transform: translateY(-5px);
     }
 }
 @keyframes bounce {
-	25% {
+    25% {
         -webkit-transform: translateY(5px);
-		transform: translateY(5px)
+        transform: translateY(5px);
     }
-	50%{
+    50% {
         -webkit-transform: translateY(0px);
-		transform: translateY(0px)
+        transform: translateY(0px);
     }
-	75%{
+    75% {
         -webkit-transform: translateY(-5px);
-		transform: translateY(-5px)
+        transform: translateY(-5px);
     }
 }
 
 // Arrows
 
 #top-arrows {
-
     position: absolute;
     margin: 0;
     top: 75vh;
@@ -101,5 +93,8 @@
         color: #f5f5f5;
         font-size: 300%;
         font-weight: 900;
+        &:hover, &:focus {
+            box-shadow: none;
+            }
     }
 }

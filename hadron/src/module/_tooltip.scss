@@ -1,0 +1,111 @@
+//
+// Tooltips
+//
+// Display explanatory text for different elements.
+//
+@use 'sass:map';
+@use '../common/stdlib';
+
+// Public variables.
+// May be overrided using @use <url> with (<variable>: <value>, <variable>: <value>)
+
+$border-radius: 0.125rem !default; // Universal border-radius for most elements
+$margin: 0.5rem !default; // Universal margin for the most elements
+$padding: 0.5rem !default; // Universal padding for the most elements
+$box-shadow: none !default; // Universal box-shadow for most elements
+$colors: (
+    // Background color for tooltip component
+        "back": #212121,
+    // Text color for tooltip component
+        "fore": #fafafa
+) !default;
+
+// Private variables
+$_tooltip-name: "tooltip" !default; // Class name for tooltip component
+$_bottom-name: "bottom" !default; // Bottom tooltip class name
+
+/* Tooltip styling */
+
+.#{$_tooltip-name} {
+    position: relative;
+    display: inline-block;
+
+    &:before,
+    &:after {
+        position: absolute;
+        opacity: 0;
+        clip: rect(0 0 0 0);
+        -webkit-clip-path: inset(100%);
+        clip-path: inset(100%);
+        transition: all 0.3s;
+        // Remember to keep this index a lower value than the one used for stickies.
+        z-index: 1010; // Deals with certain problems when combined with cards and tables.
+        left: 50%;
+    }
+
+    &:not(.#{$_bottom-name}):before,
+    &:not(.#{$_bottom-name}):after {
+        // Top (default) tooltip styling
+        bottom: 75%;
+    }
+
+    &.#{$_bottom-name}:before,
+    &.#{$_bottom-name}:after {
+        // Bottom tooltip styling
+        top: 75%;
+    }
+
+    &:hover,
+    &:focus {
+        &:before,
+        &:after {
+            opacity: 1;
+            clip: auto;
+            -webkit-clip-path: inset(0%);
+            clip-path: inset(0%);
+        }
+    }
+
+    &:before {
+        // This is the little tooltip triangle
+        content: "";
+        background: transparent;
+        border: $margin solid transparent;
+        // Newer browsers will center the tail properly
+        left: calc(50% - #{$margin});
+    }
+
+    &:not(.#{$_bottom-name}):before {
+        // Top (default) tooltip styling
+        border-top-color: map.get($colors, "back");
+    }
+
+    &.#{$_bottom-name}:before {
+        // Bottom tooltip styling
+        border-bottom-color: map.get($colors, "back");
+    }
+
+    &:after {
+        // This is the actual tooltip's text block
+        content: attr(aria-label);
+        color: map.get($colors, "fore");
+        background: map.get($colors, "back");
+        border-radius: $border-radius;
+        padding: $padding;
+
+        @include stdlib.box-shadow($box-shadow);
+
+        white-space: nowrap;
+        transform: translateX(-50%);
+    }
+
+    &:not(.#{$_bottom-name}):after {
+        // Top (default) tooltip styling
+        margin-bottom: calc(2 * #{$margin});
+    }
+
+    &.#{$_bottom-name}:after {
+        // Bottom tooltip styling
+        margin-top: calc(2 * #{$margin});
+    }
+}

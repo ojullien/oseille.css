@@ -1,0 +1,40 @@
+//
+// Toasts
+//
+// Display native-looking notifications on mobile devices.
+//
+@use 'sass:map';
+@use '../common/stdlib';
+
+// Public variables.
+// May be overrided using @use <url> with (<variable>: <value>, <variable>: <value>)
+
+$border-radius: 0.125rem !default; // Universal border-radius for most elements
+$margin: 0.5rem !default; // Universal margin for the most elements
+$padding: 0.5rem !default; // Universal padding for the most elements
+$box-shadow: none !default; // Universal box-shadow for most elements
+$colors: (
+    // Background color for toast component
+        "back": #424242,
+    // Text color for toast component
+        "fore": #fafafa
+) !default;
+
+// Private variables
+$_toast-name: "toast" !default; // Class name for toast component
+
+/* Toast styling */
+
+.#{$_toast-name} {
+    position: fixed;
+    bottom: calc(#{$margin} * 3);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1111;
+    color: map.get($colors, "fore");
+    background: map.get($colors, "back");
+    border-radius: calc(#{$border-radius} * 16);
+    padding: $padding calc(#{$padding} * 3);
+
+    @include stdlib.box-shadow($box-shadow);
+}

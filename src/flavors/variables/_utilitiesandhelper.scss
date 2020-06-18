@@ -1,48 +1,9 @@
 //
-//  Variables for cards
-//  Author: Angelos Chalaris (chalarangelo@gmail.com)
-//  Maintainers: Angelos Chalaris
-//  mini.css version: v2.3.7
+//  Variables for utilities and helper classes.
 //
-//  Variables for utilities and helper classes
-$hidden-name: 'hidden'; // Class name for hidden elements
-$visually-hidden-name: 'visually-hidden'; // Class name for visually hidden elements
-$breadcrumbs-name: 'breadcrumbs'; // Class name for breadcrumbs
-$breadcrumbs-back-color: #e6e6e6; // Background color for breadcrumbs
-$breadcrumbs-margin: 0.5rem; // Margin for breadcrumbs
-$breadcrumbs-height: 2rem; // Height of the breadcrumbs
-$breadcrumbs-separator-width: 0.125rem; // Width of the breadcrumbs' separator
-$breadcrumbs-border-style: 0; // Border style for breadcrumbs
-$breadcrumbs-border-radius: 0; // Border radius for breadcrumbs
-$breadcrumbs-box-shadow: none; // Box shadow for breadcrumbs
-$close-icon-name: 'close'; // Class name for close icon
-$close-icon-size: 1.5rem; // Size of the close icon
-$close-icon-back-color: #e6e6e6; // Background color for the close icon
-$close-icon-fore-color: #212121; // Foreground color for the close icon
-$border-generic-name: 'bordered'; // Class name for generic border style
-$border-radial-style1-name: 'rounded'; // Class name for radial border style 1
-$border-radial-style1-radius: 2*$_1px; // Border radius for radial border style 1
-$border-radial-style2-name: 'circular'; // Class name for radial border style 2
-$border-radial-style2-radius: 50%; // Border radius for radial border style 2
-$box-shadow-style1-name: 'shadowed'; // Class name for generic box-shadow style 1
-$box-shadow-style1-value: 0 4*$_1px 4*$_1px 0 rgba(0, 0, 0, 0.125),  0 2*$_1px 2*$_1px -2*$_1px rgba(0, 0, 0, 0.25); // Box shadow value for generic box-shadow style 1
-$responsive-margin-name: 'responsive-margin'; // Class name for responsive margin
-$responsive-margin-small-value: 0.25rem; // Margin value for responsive margin on small screens
-$responsive-margin-medium-value: 0.375rem; // Margin value for responsive margin on medium screens
-$responsive-margin-large-value: 0.5rem; // Margin value for responsive margin on large screens
-$responsive-padding-name: 'responsive-padding'; // Class name for responsive padding
-$responsive-padding-small-value: 0.125rem 0.25rem;// Padding value for responsive padding on small screens
-$responsive-padding-medium-value: 0.25rem 0.375rem;// Padding value for responsive padding on medium screens
-$responsive-padding-large-value: 0.375rem 0.5rem; // Padding value for responsive padding on large screens
-$responsive-hidden-prefix: 'hidden'; // Class name prefix for responsive hidden elements
-$responsive-visually-hidden-prefix: 'visually-hidden'; // Class name prefix for responsive visually hidden elements
-$include-floats: false; // Should floats be included? (`true`/`false`) [1]
-$include-clearfix: false; // Should clearfix be included? (`true`/`false`) [2]
-$include-center-block-name: false; // Should center block be included? (`true`/`false`) [3]
-//   Notes:
-// [1] - If the value of $include-floats is `true`, float classes will be created using the value of $float-prefix to determine the class
-//  names that will be used.
-// [2] - If the value of $include-clearfix is true, a clearfix class will be created using the value of $clearfix-name to determine the
-//  class name of the clearfix component.
-// [3] - If the value of $include-center-block is true, a center block class will be created using the value of $center-block-name to
-//  determine the class name of the center block class.
+$box-shadow-generic: 0 4 * $__1px 4 * $__1px 0 rgba(0, 0, 0, 0.125), 0 2 * $__1px 2 * $__1px -2 * $__1px rgba(0, 0, 0, 0.125);
+$border-generic-color: rgba( 0, 0, 0, 0.3); // Border color for bordered elements.
+$responsive-margin-medium-breakpoint: $mobile-breakpoint;
+$responsive-padding-medium-breakpoint: $mobile-breakpoint;
+$hidden-medium-breakpoint: $mobile-breakpoint;
+$visually-hidden-medium-breakpoint: $mobile-breakpoint;

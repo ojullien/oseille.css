@@ -1,0 +1,30 @@
+//
+// Embedded content such as <embed> <iframe> <object> <param> <source> <picture>
+//
+
+// Public variables
+
+$padding-bottom: 26.875rem !default; // bottom padding
+
+// Private variables
+
+$_container-name: "iframe-container"; // Class name for <iframe> container.
+
+/* Embedded content styling */
+
+.#{$_container-name} {
+    position: relative;
+    height: 0;
+    overflow: hidden;
+    padding-bottom: $padding-bottom;
+
+    iframe {
+        position: absolute;
+        //object-fit: fill;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        border-style: none;
+    }
+}

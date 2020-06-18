@@ -1,0 +1,21 @@
+//
+// La boite à bouillons navigation specific.
+//
+#nav-drawer {
+    
+    h3 {
+    text-align: center;
+    }
+
+    a {
+        &:hover, &:focus {
+        box-shadow: none;
+        background: var(#{$header-back-color-var});
+        color: var(#{$header-fore-color-var});
+        }
+    }
+}
+
+[type="checkbox"].drawer + * .drawer-close:hover, [type="checkbox"].drawer + * .drawer-close:focus {
+    background: var(#{$header-hover-back-color-var});
+}
