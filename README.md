@@ -17,8 +17,8 @@ Forked from the [Angelos Chalaris](https://github.com/Chalarangelo) [mini.css](h
 
 Requires:
 
-- npm v5.6.0
-- node-sass v4.5.2
+- npm v6.14.5
+- node-sass v4.14.1
 
 1. Install **mini.css** framework, the 'La boîte à bouillons' flavors and de dependencies using `npm install`
 2. Build the flavors using `npm run build`

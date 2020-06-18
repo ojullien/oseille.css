@@ -22,7 +22,7 @@
 	--universal-margin: 0.5rem;
 	--universal-padding: 0.5rem;
 	--universal-border-radius: 0.125rem;
-	--a-link-color: inherit;
+	--a-link-color: currentColor;
 	--a-visited-color: #bc596a;
 }
 
@@ -39,6 +39,7 @@ html, * {
 	font-family: "Athiti", Arial, sans-serif;
 	line-height: 1.5;
 	-webkit-text-size-adjust: 100%;
+	text-size-adjust: 100%;
 }
 
 * {
@@ -230,7 +231,7 @@ a:visited {
 	color: var(--a-visited-color);
 }
 
-a:hover, a:focus {
+a:not(.button):hover, a:not(.button):focus {
 	box-shadow: 0 2px;
 }
 
@@ -397,7 +398,7 @@ a:hover, a:focus {
 	order: 999;
 }
 
-@media screen and (min-width: 810px) {
+@media screen and (min-width: 914px) {
 	.col-md,
 	[class^='col-md-'],
 	[class^='col-md-offset-'],
@@ -758,7 +759,7 @@ label {
 	flex-basis: 0px;
 }
 
-@media screen and (max-width: 809px) {
+@media screen and (max-width: 913px) {
 	.input-group.fluid {
 		align-items: stretch;
 		flex-direction: column;
@@ -938,7 +939,7 @@ input:disabled, input[disabled], textarea:disabled, textarea[disabled], select:d
 	border-left: 0.0625rem solid var(--button-group-border-color);
 }
 
-@media screen and (max-width: 809px) {
+@media screen and (max-width: 913px) {
 	.button-group {
 		flex-direction: column;
 	}
@@ -1147,7 +1148,7 @@ footer.sticky {
 	font-size: 1.5em;
 }
 
-@media screen and (min-width: 810px) {
+@media screen and (min-width: 914px) {
 	.drawer-toggle:not(.persistent) {
 		display: none;
 	}
@@ -1220,7 +1221,7 @@ footer.sticky {
 	right: 0;
 }
 
-@media screen and (min-width: 810px) {
+@media screen and (min-width: 914px) {
 	[type="checkbox"].drawer:not(.persistent) + * {
 		position: static;
 		height: 100%;
@@ -1254,163 +1255,6 @@ mark.inline-block {
 	font-size: 1em;
 	line-height: 1.5;
 	padding: calc(var(--universal-padding) / 2) var(--universal-padding);
-}
-
-:root {
-	--toast-back-color: #424242;
-	--toast-fore-color: #fafafa;
-}
-
-.toast {
-	position: fixed;
-	bottom: calc(var(--universal-margin) * 3);
-	left: 50%;
-	transform: translate(-50%, -50%);
-	z-index: 1111;
-	color: var(--toast-fore-color);
-	background: var(--toast-back-color);
-	border-radius: calc(var(--universal-border-radius) * 16);
-	padding: var(--universal-padding) calc(var(--universal-padding) * 3);
-}
-
-:root {
-	--tooltip-back-color: #212121;
-	--tooltip-fore-color: #fafafa;
-}
-
-.tooltip {
-	position: relative;
-	display: inline-block;
-}
-
-.tooltip:before, .tooltip:after {
-	position: absolute;
-	opacity: 0;
-	clip: rect(0 0 0 0);
-	-webkit-clip-path: inset(100%);
-	clip-path: inset(100%);
-	transition: all 0.3s;
-	z-index: 1010;
-	left: 50%;
-}
-
-.tooltip:not(.bottom):before, .tooltip:not(.bottom):after {
-	bottom: 75%;
-}
-
-.tooltip.bottom:before, .tooltip.bottom:after {
-	top: 75%;
-}
-
-.tooltip:hover:before, .tooltip:hover:after, .tooltip:focus:before, .tooltip:focus:after {
-	opacity: 1;
-	clip: auto;
-	-webkit-clip-path: inset(0%);
-	clip-path: inset(0%);
-}
-
-.tooltip:before {
-	content: '';
-	background: transparent;
-	border: var(--universal-margin) solid transparent;
-	left: calc(50% - var(--universal-margin));
-}
-
-.tooltip:not(.bottom):before {
-	border-top-color: var(--tooltip-back-color);
-}
-
-.tooltip.bottom:before {
-	border-bottom-color: var(--tooltip-back-color);
-}
-
-.tooltip:after {
-	content: attr(aria-label);
-	color: var(--tooltip-fore-color);
-	background: var(--tooltip-back-color);
-	border-radius: var(--universal-border-radius);
-	padding: var(--universal-padding);
-	white-space: nowrap;
-	transform: translateX(-50%);
-}
-
-.tooltip:not(.bottom):after {
-	margin-bottom: calc(2 * var(--universal-margin));
-}
-
-.tooltip.bottom:after {
-	margin-top: calc(2 * var(--universal-margin));
-}
-
-:root {
-	--modal-overlay-color: rgba(0, 0, 0, 0.45);
-	--modal-close-color: #444;
-	--modal-close-hover-color: #f0f0f0;
-}
-
-[type="checkbox"].modal {
-	height: 1px;
-	width: 1px;
-	margin: -1px;
-	overflow: hidden;
-	position: absolute;
-	clip: rect(0 0 0 0);
-	-webkit-clip-path: inset(100%);
-	clip-path: inset(100%);
-}
-
-[type="checkbox"].modal + div {
-	position: fixed;
-	top: 0;
-	left: 0;
-	display: none;
-	width: 100vw;
-	height: 100vh;
-	background: var(--modal-overlay-color);
-}
-
-[type="checkbox"].modal + div .card {
-	margin: 0 auto;
-	max-height: 50vh;
-	overflow: auto;
-}
-
-[type="checkbox"].modal + div .card .modal-close {
-	position: absolute;
-	top: 0;
-	right: 0;
-	width: 1.75rem;
-	height: 1.75rem;
-	border-radius: var(--universal-border-radius);
-	padding: var(--universal-padding);
-	margin: 0;
-	cursor: pointer;
-	transition: background 0.3s;
-}
-
-[type="checkbox"].modal + div .card .modal-close:before {
-	display: block;
-	content: '\00D7';
-	color: var(--modal-close-color);
-	position: relative;
-	font-family: sans-serif;
-	font-size: 1.75rem;
-	line-height: 1;
-	text-align: center;
-}
-
-[type="checkbox"].modal + div .card .modal-close:hover, [type="checkbox"].modal + div .card .modal-close:focus {
-	background: var(--modal-close-hover-color);
-}
-
-[type="checkbox"].modal:checked + div {
-	display: flex;
-	flex: 0 1 auto;
-	z-index: 1200;
-}
-
-[type="checkbox"].modal:checked + div .card .modal-close {
-	z-index: 1211;
 }
 
 :root {
@@ -1460,6 +1304,7 @@ mark.inline-block {
 }
 
 .collapse > label + div {
+	flex-basis: -webkit-auto;
 	flex-basis: auto;
 	height: 1px;
 	width: 1px;
@@ -1528,7 +1373,7 @@ mark.tertiary {
 }
 
 mark.tag {
-	padding: calc(var(--universal-padding)/2) var(--universal-padding);
+	padding: calc(var(--universal-padding) / 2) var(--universal-padding);
 	border-radius: 1em;
 }
 
@@ -1603,18 +1448,20 @@ footer li {
 }
 
 footer li:not(:first-child):before {
-	content: "\B7\A0";
+	content: "\A0";
+	/* \b7 is a middot, \a0 is a space */
 }
 
 footer li:after {
 	content: "\2009";
+	/* insecable space */
 }
 
 footer a.button {
-	color: #F5F5F5;
+	color: #f5f5f5;
 }
 
-footer .icon {
+footer img {
 	vertical-align: top;
 }
 
@@ -1622,13 +1469,14 @@ footer .alignedTextFooter {
 	text-align: center;
 }
 
-@media screen and (max-width: 810px - 1px) {
-	footer li, footer .floatedImage {
+@media screen and (max-width: 913px) {
+	footer li,
+	footer .floatedImage {
 		float: inherit;
 	}
 }
 
-@media screen and (min-width: 810px) {
+@media screen and (min-width: 914px) {
 	footer .alignedTextFooter {
 		text-align: inherit;
 	}
@@ -1637,19 +1485,15 @@ footer .alignedTextFooter {
 #top-image img {
 	position: relative;
 	background-size: cover;
-	-webkit-background-size: cover;
-	-moz-background-size: cover;
-	-o-background-size: cover;
 	background-position: center;
 	height: -webkit-calc(100vh - 0px);
 	height: calc(100vh - 0px);
 	overflow: hidden;
 	width: 100%;
-	-o-object-fit: cover;
 	object-fit: cover;
 }
 
-@media screen and (min-width: 810px) {
+@media screen and (min-width: 914px) {
 	#top-image img {
 		height: -webkit-calc(100vh - 60px);
 		height: calc(100vh - 60px);
@@ -1725,4 +1569,8 @@ footer .alignedTextFooter {
 	color: #f5f5f5;
 	font-size: 300%;
 	font-weight: 900;
+}
+
+#top-arrows a:hover, #top-arrows a:focus {
+	box-shadow: none;
 }
