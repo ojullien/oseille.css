@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>tooltip</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="tooltip&toast.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+    <header>
+        <h1>TOOLTIP</h1>
+    </header>
+
+    <main>
+        <p>
+            <span class="tooltip" aria-label="Tooltip text">Hover over text to see tooltip</span><br />
+            <span class="tooltip bottom" aria-label="Tooltip text">Hover over text to see bottom tooltip</span>
+            <span class="toast">This is a toast message!</span>
+        </p>
+    </main>
+
+</body>
+<script type="text/javascript">
+    document.body.onload = () => {
+        var sFontSize = window.getComputedStyle(document.body, null).getPropertyValue("font-size");
+        var iRatio = 1 / sFontSize.substring(0, sFontSize.length - 2);
+        document.documentElement.style.setProperty('--px', iRatio + "rem");
+    }
+</script>
+
+</html>

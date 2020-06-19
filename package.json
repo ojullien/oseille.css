@@ -29,6 +29,6 @@
     ],
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
-        "build": "./node_modules/.bin/sass src/flavors:dist --style=expanded --charset --no-error-css --color --unicode --no-source-map"
+        "build": "./node_modules/.bin/sass src/flavor:dist --style=expanded --charset --no-error-css --color --unicode --no-source-map"
     }
 }

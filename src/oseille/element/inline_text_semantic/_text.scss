@@ -6,80 +6,86 @@
 @use '../../common/stdlib';
 
 // Variables.
-// May be overrided using @use <url> with (<variable>: <value>, <variable>: <value>)
+//
+// To load this module with configuration, use @use <url> with (<variable>: <value>, <variable>: <value>).
+// The configured values will override the variables’ default values.
+// @link: https://sass-lang.com/documentation/variables
 
-$_bold-font-weight: 700 !default; // Font weight for <b> and <strong>
-$_small-font-size: 0.75em !default; // Font size for <small>, <sub>, <sup>
+// Font sizes
+$_font-sizes: (
+    // Font size for small element: <small>, <sub>, <sup>
+        "small": 0.75em
+) !default;
 
-$_sup-top: -0.5em !default; // <sup> top
-$_sub-bottom: -0.25em !default; // <sub> bottom
-
+// Link colors
 $_colors: (
     // Color for <a>:link
         "link": #0277bd,
     // Color for <a>:visited
-        "visited": #01579b
+        "visited": #004c8c
 ) !default;
+
+// Box model
+$_box-model: (
+    // <sup> top
+        "top": -0.5em,
+    // <sub> bottom
+        "bottom": -0.25em
+);
+
+$_bold-font-weight: 700; // Font weight for <b> and <strong>
 
 /* Inline text semantic styling */
 
 // Fix for elements inside headings not displaying properly.
-%_normalize-font-family {
-    font-family: inherit;
-}
-
-// Fix for elements inside headings not displaying properly.
-%_normalize-small-font-size {
-    font-size: var(--smaller, #{$_small-font-size});
-}
-
-%_normalize-font-size {
-    font-size: 1em;
-}
-
-// Correct the inheritance and scaling of font size in all browsers.
-%_normalize {
-    @extend %_normalize-font-family;
-    @extend %_normalize-font-size;
-}
-
 %_normalize_small {
-    @extend %_normalize-font-family;
-    @extend %_normalize-small-font-size;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: inherit;
+    font-size: var(--smaller, #{map.get($_font-sizes, "small")});
+}
+
+%_normalize {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 1em;
 }
 
 a {
     @extend %_normalize;
-
+    font-family: inherit; // Fix for elements inside headings not displaying properly.
     text-decoration: none;
 
     &:link {
-        color: map.get($_colors, "link");
+        color: var(--link-color, map.get($_colors, "link")); // Allows link color tunning
     }
 
     &:visited {
-        color: map.get($_colors, "visited");
+        color: var(--visited-link-color, map.get($_colors, "visited")); // Allows link color tunning
     }
 
     &:not(.button):hover,
     &:not(.button):focus {
-        box-shadow: 0 2px;
+        box-shadow: 0 2px; // Accessibility
     }
 }
 
 abbr[title] {
+    @extend %_normalize;
     border-bottom: none; // Remove bottom border in Firefox 39-.
     text-decoration: underline dotted; // Opinionated style-fix for all browsers.
 }
 
 b,
 strong {
+    @extend %_normalize;
     font-weight: $_bold-font-weight;
-    @extend %_normalize-font-size;
 }
 
 data {
-    @extend %_normalize-font-size;
+    @extend %_normalize;
     &:hover:after {
         content: " (ID " attr(value) ")";
         font-size: 0.7em;
@@ -94,11 +100,11 @@ i,
 ins,
 span,
 u {
-    @extend %_normalize-font-size;
+    @extend %_normalize;
 }
 
 s {
-    @extend %_normalize-font-size;
+    @extend %_normalize;
 
     // The presence of the s element is not announced by most screen reading technology
     // in its default configuration. It can be made to be announced by using the CSS
@@ -130,11 +136,11 @@ small {
 sub {
     @extend %_normalize_small;
     @extend %normalize-line-height;
-    bottom: $_sub-bottom;
+    bottom: map.get($_box-model, "bottom");
 }
 
 sup {
     @extend %_normalize_small;
     @extend %normalize-line-height;
-    top: $_sup-top;
+    top: map.get($_box-model, "top");
 }

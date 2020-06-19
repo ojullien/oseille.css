@@ -5,6 +5,7 @@ sub, sup, code, kbd {
   vertical-align: baseline;
 }
 
+/* Top level styling */
 html {
   scroll-behavior: smooth;
   font-size: 100%;
@@ -17,11 +18,15 @@ html {
 
 body {
   margin: 0;
-  color: #111;
+  padding: 0;
+  border: 0;
+  color: #151515;
   background: #f8f8f8;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, sans-serif;
   font-size: 1rem;
   --smaller: 0.75em;
+  --fore-color: #151515;
+  --back-color: #f8f8f8;
 }
 
 /* Content sectioning styling */
@@ -251,22 +256,58 @@ figure {
   margin: 0.5rem;
 }
 
-ol, ul {
-  margin: 0.5rem;
+/* List styling */
+ol,
+ul {
+  padding: 0;
+  border: 0;
+  margin: 0.5rem 0 0.5rem;
   padding-left: calc(2 * 0.5rem);
+}
+ol ul,
+ol ol,
+ul ul,
+ul ol {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+li,
+dt,
+dd {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+dl {
+  border: 0;
+  margin: 0.5rem 0 0.5rem;
+  padding: 0;
+  padding-left: calc(2 * 0.5rem);
+}
+
+dd {
+  padding-left: calc(2 * 0.5rem);
+}
+
+dt::after {
+  content: ": ";
 }
 
 hr {
   box-sizing: content-box;
   border: 0;
+  padding: 0;
   line-height: 1.25em;
-  margin: 0.5rem;
+  margin: 0.5rem 0 0.5rem;
   height: var(--px);
   background: linear-gradient(to right, transparent, #aaa 20%, #aaa 80%, transparent);
 }
 
 p {
-  margin: 0.5rem;
+  padding: 0;
+  margin: 0.5rem 0 0.5rem;
 }
 
 /* Code styling */
@@ -300,11 +341,11 @@ pre {
 }
 
 /* Inline text semantic styling */
-sup, sub, small, a {
-  font-family: inherit;
-}
-
 sup, sub, small {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: inherit;
   font-size: var(--smaller, 0.75em);
 }
 
@@ -315,18 +356,22 @@ i,
 ins,
 span,
 u, data, b,
-strong, a {
+strong, abbr[title], a {
+  margin: 0;
+  padding: 0;
+  border: 0;
   font-size: 1em;
 }
 
 a {
+  font-family: inherit;
   text-decoration: none;
 }
 a:link {
-  color: #0277bd;
+  color: var(--link-color, #0277bd);
 }
 a:visited {
-  color: #01579b;
+  color: var(--visited-link-color, #004c8c);
 }
 a:not(.button):hover, a:not(.button):focus {
   box-shadow: 0 2px;
@@ -373,12 +418,14 @@ sup {
 
 /* Mark styling*/
 mark {
+  margin: 0;
+  padding: calc(0.5rem / 4) calc(0.5rem / 2);
+  border: 0;
+  border-radius: 0.125rem;
   background: #0277bd;
-  color: #fafafa;
+  color: #f8f8f8;
   font-size: 0.95em;
   line-height: 1em;
-  border-radius: 0.125rem;
-  padding: calc(0.5rem / 4) calc(0.5rem / 2);
 }
 mark.inline-block {
   display: inline-block;
@@ -841,8 +888,8 @@ input[type=checkbox]:checked:before {
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 1111;
-  color: #fafafa;
-  background: #424242;
+  color: var(--back-color, #f8f8f8);
+  background: var(--fore-color, #151515);
   border-radius: calc(0.125rem * 16);
   padding: 0.5rem calc(0.5rem * 3);
 }
@@ -881,15 +928,15 @@ input[type=checkbox]:checked:before {
   left: calc(50% - 0.5rem);
 }
 .tooltip:not(.bottom):before {
-  border-top-color: #212121;
+  border-top-color: var(--fore-color, #151515);
 }
 .tooltip.bottom:before {
-  border-bottom-color: #212121;
+  border-bottom-color: var(--fore-color, #151515);
 }
 .tooltip:after {
   content: attr(aria-label);
-  color: #fafafa;
-  background: #212121;
+  color: var(--back-color, #f8f8f8);
+  background: var(--fore-color, #151515);
   border-radius: 0.125rem;
   padding: 0.5rem;
   white-space: nowrap;

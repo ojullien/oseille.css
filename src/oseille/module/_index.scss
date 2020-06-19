@@ -1,6 +1,8 @@
 // Loads shared variables
 // using @forward to make its mixins, functions, and variables available to the main stylesheet flavor.
 //@forward 'variables' as ev-*;
+//
+@use 'sass:map';
 @use '../common/variables' as v;
 
 // Loads all modules
@@ -11,16 +13,20 @@
     $box-shadow: v.$universal-box-shadow
     );
 @use 'toast' with (
-    $border-radius: v.$universal-border-radius,
-    $margin: v.$universal-margin,
-    $padding: v.$universal-padding,
-    $box-shadow: v.$universal-box-shadow
+    $_box-model: v.$box-model,
+    $_borders: v.$borders,
+    $_colors: (
+        "back": map.get(v.$colors,"fore"),
+        "fore":map.get(v.$colors,"back")
+        )
     );
 @use 'tooltip' with (
-    $border-radius: v.$universal-border-radius,
-    $margin: v.$universal-margin,
-    $padding: v.$universal-padding,
-    $box-shadow: v.$universal-box-shadow
+    $_box-model: v.$box-model,
+    $_borders: v.$borders,
+    $_colors: (
+        "back": map.get(v.$colors,"fore"),
+        "fore":map.get(v.$colors,"back")
+        )
     );
 @use 'modal' with (
         $border-radius: v.$universal-border-radius,

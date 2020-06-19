@@ -3,15 +3,24 @@
 // and closing </body> tags. Important for accessibility and SEO, these elements identify the purpose or
 // structure of that content.
 //
+@use 'sass:map';
 
-// Public variables.
-// May be overrided using @use <url> with (<variable>: <value>, <variable>: <value>)
+// Variables.
+//
+// To load this module with configuration, use @use <url> with (<variable>: <value>, <variable>: <value>).
+// The configured values will override the variables’ default values.
+// @link: https://sass-lang.com/documentation/variables
 
-$margin: 0.5rem !default; // Universal margin for the most elements
-$horizontal-rule-line-height: 1.25em !default; // <hr> line height
-$border-color: #aaa !default; // Border color
+// Basic box model
+$_box-model: (
+    // Padding: creates extra space within an element.
+        "padding": 0.5rem,
+    // Margins: create extra space around an element.
+        "margin": 0.5rem
+) !default;
 
-// Private variables
+$_hr-color: #aaa !default; // Border color
+$_hr-line-height: 1.25em; // <hr> line height
 
 // paragraph-level elements styling
 
@@ -19,13 +28,15 @@ hr {
     // Fixes and defaults for styling
     box-sizing: content-box;
     border: 0;
+    padding: 0;
     // Actual styling using variables
-    line-height: $horizontal-rule-line-height;
-    margin: $margin;
+    line-height: $_hr-line-height;
+    margin: map.get($_box-model, "margin") 0 map.get($_box-model, "margin");
     height: var(--px);
-    background: linear-gradient(to right, transparent, $border-color 20%, $border-color 80%, transparent);
+    background: linear-gradient(to right, transparent, $_hr-color 20%, $_hr-color 80%, transparent);
 }
 
 p {
-    margin: $margin;
+    padding: 0;
+    margin: map.get($_box-model, "margin") 0 map.get($_box-model, "margin"); // oseille
 }

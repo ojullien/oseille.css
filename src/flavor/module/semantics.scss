@@ -1,0 +1,52 @@
+//
+@use 'sass:map';
+@use 'sass:color';
+@use '../../oseille/common/variables' as v;
+//
+$colors: (
+    // Text & foreground color
+        "back": #222740,
+    // Background color
+        "fore": #dad5bc
+);
+//
+@use '../../oseille/element/root/root' with (
+    $_colors: $colors,
+    $_font-sizes: v.$font-sizes,
+    $_font-stack: map.get(v.$font-stacks,"base"),
+    $_line-height: v.$line-height,
+);
+
+@use '../../oseille/element/text_content/paragraph' with (
+    $_box-model: v.$box-model 
+);
+
+@use '../../oseille/element/text_content/list' with (
+        $_box-model: v.$box-model 
+);
+
+@use '../../oseille/element/inline_text_semantic/text' with (
+    $_font-sizes: v.$font-sizes,
+    $_colors: (
+    // Color for <a>:link
+        "link": #f7e7be,
+    // Color for <a>:visited
+        "visited": #aa9a71
+)
+);
+
+@use '../../oseille/element/inline_text_semantic/mark' with (
+    $_box-model: v.$box-model,
+    $_borders: v.$borders,
+    $_default-line-height: v.$line-height,
+    $_colors: (
+        // Text color for <mark>
+            "fore": map.get(v.$colors,"back"), // Invert
+        // Background colors for <mark>
+            "primary": #0277bd,
+        // Background colors for <mark>
+            "secondary": #d32f2f,
+        // Background colors for <mark>
+            "tertiary": #308732
+    )
+);

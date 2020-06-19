@@ -1,46 +1,62 @@
 //
 // Sectioning root using top-level elements
 //
-@use "sass:meta";
 @use 'sass:map';
+@use "sass:string";
 @use '../../common/stdlib';
 
 // Variables.
-// May be overrided using @use <url> with (<variable>: <value>, <variable>: <value>)
+//
+// To load this module with configuration, use @use <url> with (<variable>: <value>, <variable>: <value>).
+// The configured values will override the variables’ default values.
+// @link: https://sass-lang.com/documentation/variables
 
-$_font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, sans-serif !default; // Font stack for all elements
-$_root-font-size: 16px !default; // Root font sizing for all elements (`px` only)
-$_font-size: 1rem !default; // Font sizing for all elements
-$_small-font-size: 0.75em !default; // Font size for  small element
-$_line-height: 1.5 !default; // Line height for most elements
-
+// Colors
 $_colors: (
     // Background color
         "back": #f8f8f8,
     // Text & foreground color
-        "fore": #111
+        "fore": #151515
 ) !default;
 
-$__1px: stdlib.rempx($_root-font-size) * 1rem; // Calculated rem value of `1px`
+// Font sizes
+$_font-sizes: (
+    // Accessible root font size for all elements
+        "accessible": 100%,
+    // Root font sizing for all elements (`px` only)
+        "root": 16px,
+    // Font sizing for all elements
+        "body": 1rem,
+    // Font size for small element
+        "small": 0.75em
+) !default;
 
-// Top level styling
+$_font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, sans-serif !default; // Font stack for all elements
+$_line-height: 1.5 !default; // Line height for most elements
+$__1px: stdlib.rempx(map.get($_font-sizes, "root")) * 1rem; // Calculated rem value of `1px`
+
+/* Top level styling */
 
 html {
     scroll-behavior: smooth;
-    font-size: 100%;
+    font-size: map.get($_font-sizes, "accessible");
     line-height: $_line-height;
     // Prevent adjustments of font size after orientation changes in mobile.
     -webkit-text-size-adjust: 100%;
     -moz-text-size-adjust: 100%;
     text-size-adjust: 100%;
-    --px: #{$__1px}; // You may use javascript to update this value according to the font size the browser use.
+    --px: #{$__1px}; // You may use javascript to update this value according to the font size the browser is using.
 }
 
 body {
     margin: 0;
+    padding: 0;
+    border: 0;
     color: map.get($_colors, "fore");
     background: map.get($_colors, "back");
-    font-family: #{meta.inspect($_font-family)};
-    font-size: $_font-size;
-    --smaller: #{$_small-font-size};
+    font-family: string.unquote($_font-stack);
+    font-size: map.get($_font-sizes, "body");
+    --smaller: #{map.get($_font-sizes, "small")};
+    --fore-color: #{map.get($_colors, "fore")};
+    --back-color: #{map.get($_colors, "back")};
 }

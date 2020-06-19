@@ -1,10 +1,17 @@
 // Loads shared variables
 // using @forward to make its mixins, functions, and variables available to the main stylesheet flavor.
+//
+@use 'sass:map';
 @use 'sass:color';
 @use '../common/variables' as v;
 
 // Loads all elements
-@use 'root/root';
+@use 'root/root' with (
+    $_colors: v.$colors,
+    $_font-sizes: v.$font-sizes,
+    $_font-stack: map.get(v.$font-stacks,"base"),
+    $_line-height: v.$line-height,
+    );
 @use 'content_sectioning/sectioning';
 @use 'content_sectioning/heading' with (
     $margin: v.$universal-margin,
@@ -13,7 +20,7 @@
 @use 'content_sectioning/header' with (
     $padding: v.$universal-padding
     );
-@use 'content_sectioning/navigation'with (
+@use 'content_sectioning/navigation' with (
     $border-radius: v.$universal-border-radius,
     $margin: v.$universal-margin,
     $box-shadow: v.$universal-box-shadow,
@@ -31,11 +38,37 @@
     );
 @use 'text_content/figure';
 @use 'text_content/definition';
-@use 'text_content/list';
-@use 'text_content/paragraph';
+
+@use 'text_content/list' with (
+    $_box-model: v.$box-model 
+    );
+
+@use 'text_content/paragraph' with (
+    $_box-model: v.$box-model 
+    );
+
 @use 'inline_text_semantic/code';
-@use 'inline_text_semantic/text';
-@use 'inline_text_semantic/mark';
+
+@use 'inline_text_semantic/text' with (
+    $_font-sizes: v.$font-sizes
+    );
+
+@use 'inline_text_semantic/mark' with (
+    $_box-model: v.$box-model,
+    $_borders: v.$borders,
+    $_default-line-height: v.$line-height,
+    $_colors: (
+        // Text color for <mark>
+            "fore": map.get(v.$colors,"back"), // Invert
+        // Background colors for <mark>
+            "primary": #0277bd,
+        // Background colors for <mark>
+            "secondary": #d32f2f,
+        // Background colors for <mark>
+            "tertiary": #308732
+    )
+);
+
 @use 'image_and_multimedia/image';
 @use 'embedded/embedded';
 @use 'table/table' with (

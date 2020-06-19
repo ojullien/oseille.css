@@ -1,20 +1,57 @@
 //
-// Use HTML text content elements to organize blocks or sections of content placed between the opening <body>
-// and closing </body> tags. Important for accessibility and SEO, these elements identify the purpose or
-// structure of that content.
+// HTML lists allow web developers to group a set of related items in lists.
 //
+@use 'sass:map';
 
-// Public variables.
-// May be overrided using @use <url> with (<variable>: <value>, <variable>: <value>)
+// Variables.
+//
+// To load this module with configuration, use @use <url> with (<variable>: <value>, <variable>: <value>).
+// The configured values will override the variables’ default values.
+// @link: https://sass-lang.com/documentation/variables
 
-$margin: 0.5rem !default; // Universal margin for the most elements
+// Basic box model
+$_box-model: (
+    // Padding: creates extra space within an element.
+        "padding": 0.5rem,
+    // Margins: create extra space around an element.
+        "margin": 0.5rem
+) !default;
 
-// Private variables
+/* List styling */
 
-// List styling
-// <li>
+ol,
+ul {
+    padding: 0;
+    border: 0;
+    margin: map.get($_box-model, "margin") 0 map.get($_box-model, "margin");
+    padding-left: calc(2 * #{map.get($_box-model, "margin")});
 
-ol, ul {
-    margin: $margin;
-    padding-left: calc(2 * #{$margin});
+    ul,
+    ol {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+}
+
+li,
+dt,
+dd {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+dl {
+    border: 0;
+    margin: map.get($_box-model, "margin") 0 map.get($_box-model, "margin");
+    padding: 0;
+    padding-left: calc(2 * #{map.get($_box-model, "margin")});
+}
+
+dd {
+    padding-left: calc(2 * #{map.get($_box-model, "margin")});
+}
+
+dt::after {
+    content: ": ";
 }

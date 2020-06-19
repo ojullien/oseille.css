@@ -88,5 +88,12 @@
         </section>
     </main>
 </body>
+<script type="text/javascript">
+    document.body.onload = () => {
+        var sFontSize = window.getComputedStyle(document.body, null).getPropertyValue("font-size");
+        var iRatio = 1 / sFontSize.substring(0, sFontSize.length - 2);
+        document.documentElement.style.setProperty('--px', iRatio + "rem");
+    }
+</script>
 
 </html>

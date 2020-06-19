@@ -1,65 +1,95 @@
 //
-// Use the HTML inline text semantic to define the meaning, structure, or style of a word, line, or
-// any arbitrary piece of text.
+// The HTML Mark Text element (<mark>) represents text which is marked or highlighted for reference or notation
+// purposes, due to the marked passage's relevance or importance in the enclosing context.
 //
 @use "sass:map";
 @use '../../common/stdlib';
 
 // Variables.
-// May be overrided using @use <url> with (<variable>: <value>, <variable>: <value>)
+//
+// To load this module with configuration, use @use <url> with (<variable>: <value>, <variable>: <value>).
+// The configured values will override the variables’ default values.
+// @link: https://sass-lang.com/documentation/variables
 
-$_back-colors: (
-    "primary": #0277bd,
-    "secondary": #d32f2f,
-    "tertiary": #308732,
-) !default; // Background colors for <mark>
-$_fore-color: #fafafa !default; // Text color for <mark>
+$_colors: (
+    // Text color for <mark>
+        "fore": #f8f8f8,
+    // Background colors for <mark>
+        "primary": #0277bd,
+    // Background colors for <mark>
+        "secondary": #d32f2f,
+    // Background colors for <mark>
+        "tertiary": #308732
+) !default;
 
-$_font-size: 0.95em !default; // Font size for <mark>
-$_line-height: 1em !default; // Line height for <mark>
+// Basic box model
+$_box-model: (
+    // Padding: creates extra space within an element.
+        "padding": 0.5rem,
+    // Margins: create extra space around an element.
+        "margin": 0.5rem
+) !default;
+
+// Borders
+$_borders: (
+    // border-radius: rounds the corners of an element's outer border edge.
+        "radius": 0.125rem,
+    // box-shadow: adds shadow effects around an element's frame.
+        "shadow": none
+) !default;
+
 $_default-line-height: 1.5 !default; // Line height for most elements
 
-$_padding: 0.5rem !default; // Universal padding for the most elements
-
-$_box-shadow: none !default; // Universal box-shadow for most elements
-$_border-radius: 0.125rem !default; // Universal border-radius for most elements
-
-$_inline-block-name: "inline-block" !default; // Class name for inline-block <mark>
-$_secondary-name: "secondary"; // Class name for secondary <mark> color variant.
-$_tertiary-name: "tertiary"; // Class name for tertiary <mark> color variant.
-$_tag-name: "tag"; // Class name, padding and border radius for tag <mark> size variant.
+$_font-size: 0.95em; // Font size for <mark>
+$_line-height: 1em; // Line height for <mark>
+$_class-name: (
+    // Class name for inline-block <mark>
+        "mark": "inline-block",
+    // Class name for secondary <mark> color variant.
+        "secondary": "secondary",
+    // Class name for tertiary <mark> color variant.
+        "tertiary": "tertiary",
+    // Class name, padding and border radius for tag <mark> size variant.
+        "tag": "tag"
+);
 
 /* Mark styling*/
 
 mark {
-    background: map.get($_back-colors, "primary");
-    color: $_fore-color;
+    margin: 0;
+    padding: calc(#{map.get($_box-model, "padding")} / 4) calc(#{map.get($_box-model, "padding")} / 2);
+
+    border: 0;
+    border-radius: map.get($_borders, "radius");
+
+    @include stdlib.box-shadow(map.get($_borders, "shadow"));
+
+    background: map.get($_colors, "primary");
+    color: map.get($_colors, "fore");
+
     font-size: $_font-size;
     line-height: $_line-height;
-    border-radius: $_border-radius;
-    padding: calc(#{$_padding} / 4) calc(#{$_padding} / 2);
-    @include stdlib.box-shadow($_box-shadow);
 
-    &.#{$_inline-block-name} {
+    &.#{map.get($_class-name, "mark")} {
         display: inline-block;
         // This is hardcoded, as we want inline-block <mark> elements to be styled as normal pieces of text, instead of look small and weird.
         font-size: 1em;
         // Line height is reset to the normal line-height from `core`. Also hardcoded for same reasons.
         line-height: $_default-line-height;
-        padding: calc(#{$_padding} / 2) #{$_padding};
+        padding: calc(#{map.get($_box-model, "padding")} / 2) #{map.get($_box-model, "padding")};
     }
 
-    &.#{$_tag-name} {
-        padding: calc(#{$_padding} / 2) #{$_padding};
+    &.#{map.get($_class-name, "tag")} {
+        padding: calc(#{map.get($_box-model, "padding")} / 2) #{map.get($_box-model, "padding")};
         border-radius: 1em;
     }
 
-    &.#{$_secondary-name} {
-        background: map.get($_back-colors, "secondary");
+    &.#{map.get($_class-name, "secondary")} {
+        background: map.get($_colors, "secondary");
     }
 
-    &.#{$_tertiary-name} {
-        background: map.get($_back-colors, "tertiary");
+    &.#{map.get($_class-name, "tertiary")} {
+        background: map.get($_colors, "tertiary");
     }
 
     // The presence of the mark element is not announced by most screen reading technology
