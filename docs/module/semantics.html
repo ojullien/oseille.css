@@ -23,11 +23,22 @@
         <header>
             <h1>SEMANTICS</h1>
         </header>
-        
+
         <main>
+
+            <section>
+                <h2 id="heading">Heading</h2>
+                <h1>Heading <strong>1</strong> <small>Subheading</small></h1>
+                <h2>Heading 2 <small>Subheading</small></h2>
+                <h3>Heading 3 <small>Subheading</small></h3>
+                <h4>Heading 4 <small>Subheading</small></h4>
+                <h5>Heading 5 <small>Subheading</small></h5>
+                <h6>Heading 6 <small>Subheading</small></h6>
+                <hr>
+            </section>
         
             <section>
-                <h2 id="semantics">Inline texts</h2>
+                <h2 id="inline">Inline texts</h2>
                 <p>
                     I am <a href="?abc123">the a tag</a> example<br>
                     I am <abbr title="test">the abbr tag</abbr> example<br>
@@ -39,7 +50,7 @@
                     I am <em>the em tag</em> example<br>
                     I am <i>the i tag</i> example<br>
                     I am <ins>the ins tag</ins> example<br>
-                    I am <kbd>the kbd tag</kbd> example<br>
+                    I am <kbd>the</kbd> + <kbd>kbd</kbd> + <kbd>tag</kbd> example<br>
                     I am <q>the q tag</q> example<br>
                     I am <samp>the samp tag</samp> example<br>
                     I am <small>the small tag</small> example<br>
@@ -47,7 +58,7 @@
                     I am <strong>the strong tag</strong> example<br>
                     I am <sub>the sub tag</sub> example<br>
                     I am <sup>the sup tag</sup> example<br>
-                    I am <var>the var tag</var> example<br>
+                    A simple var tag equation: <var>x</var> = <var>y</var> + 2<br>
                     I am <mark>the mark tag</mark> example<br>
                     This is a <mark class="secondary">secondary highlight</mark> and this is a <mark class="tertiary">tertiary highlight</mark><br>
                     This is a highlight styled as a <mark class="tag">tag</mark><br>
@@ -58,7 +69,7 @@
             </section>
 
             <section>
-                <h2 id="semantics">paragraphs</h2>
+                <h2 id="paragraphs">paragraphs</h2>
                 <p>Separating paragraphs with blank lines is easiest
                 for readers to scan, but they can also be separated
                 by indenting their first lines. This is often used
@@ -76,6 +87,28 @@
                 is considered claustrophobic and hard to read.</p>
             </section>
 
+            <section>
+                <h2 id="code">Code</h2>
+                <p>This is some text with some inline <code>source code</code> and some keyboard <kbd>input</kbd>.</p>
+
+                <code>function mul(num1, num2){ return num1 * num2;} </code><br>
+
+                <pre>
+function sum(num1, num2){
+    return num1 + num2;
+}</pre>
+
+                <pre><code>
+function sum(num1, num2){
+    return num1 + num2;
+}</code></pre>
+
+                <pre>
+                    <samp>
+<span class="prompt">mike@interwebz:~$</span> <kbd>md5 -s "Hello world"</kbd>
+MD5 ("Hello world") = 3e25960a79dbc69b674cd4ec67a72c62
+<span class="prompt">mike@interwebz:~$</span> <span class="cursor">█</span></samp></pre>
+            </section>
 
         </main>
 
