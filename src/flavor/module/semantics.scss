@@ -17,12 +17,19 @@ $colors: (
     $_line-height: v.$line-height,
 );
 
+@use '../../oseille/element/content_sectioning/heading' with (
+    $_font-stacks: v.$font-stacks,
+    $_font-sizes: v.$font-sizes,
+    $_box-model: v.$box-model,
+    $_line-heights:  (
+        // Line height for headings
+            "heading": 1.2,
+        // Line height for subheading
+            "subheading": v.$line-height)
+    );
+
 @use '../../oseille/element/text_content/paragraph' with (
     $_box-model: v.$box-model 
-);
-
-@use '../../oseille/element/text_content/list' with (
-        $_box-model: v.$box-model 
 );
 
 @use '../../oseille/element/inline_text_semantic/text' with (
@@ -33,6 +40,23 @@ $colors: (
     // Color for <a>:visited
         "visited": #aa9a71
 )
+);
+
+@use '../../oseille/element/inline_text_semantic/code' with (
+    $_font-stacks: v.$font-stacks,
+    $_font-sizes: v.$font-sizes,
+    $_box-model: v.$box-model,
+    $_borders: v.$borders,
+    $_colors: (
+        // Text color for <mark>
+            "fore": map.get($colors,"back"), // Invert
+        // Background colors for <mark>
+            "back": map.get($colors,"fore"), // Invert
+        // <pre> border color
+            "border": #ddd,
+        // <pre> sidebar color
+            "sidebar": #1565c0
+    )
 );
 
 @use '../../oseille/element/inline_text_semantic/mark' with (
@@ -49,4 +73,8 @@ $colors: (
         // Background colors for <mark>
             "tertiary": #308732
     )
+);
+
+@use '../../oseille/element/text_content/list' with (
+        $_box-model: v.$box-model 
 );

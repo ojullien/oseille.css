@@ -59,11 +59,11 @@ a {
     text-decoration: none;
 
     &:link {
-        color: var(--link-color, map.get($_colors, "link")); // Allows link color tunning
+        color: var(--link-color, map.get($_colors, "link")); // Allows live color tunning
     }
 
     &:visited {
-        color: var(--visited-link-color, map.get($_colors, "visited")); // Allows link color tunning
+        color: var(--visited-link-color, map.get($_colors, "visited")); // Allows live color tunning
     }
 
     &:not(.button):hover,

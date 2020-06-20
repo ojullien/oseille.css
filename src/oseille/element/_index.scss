@@ -13,10 +13,18 @@
     $_line-height: v.$line-height,
     );
 @use 'content_sectioning/sectioning';
+
 @use 'content_sectioning/heading' with (
-    $margin: v.$universal-margin,
-    $fore-color: color.scale(v.$default-fore-color, $lightness: 21.5%)
+    $_font-stacks: v.$font-stacks,
+    $_font-sizes: v.$font-sizes,
+    $_box-model: v.$box-model,
+    $_line-heights:  (
+        // Line height for headings
+            "heading": 1.2,
+        // Line height for subheading
+            "subheading": v.$line-height)
     );
+
 @use 'content_sectioning/header' with (
     $padding: v.$universal-padding
     );
@@ -47,11 +55,26 @@
     $_box-model: v.$box-model 
     );
 
-@use 'inline_text_semantic/code';
-
 @use 'inline_text_semantic/text' with (
     $_font-sizes: v.$font-sizes
     );
+
+@use 'inline_text_semantic/code' with (
+    $_font-stacks: v.$font-stacks,
+    $_font-sizes: v.$font-sizes,
+    $_box-model: v.$box-model,
+    $_borders: v.$borders,
+    $_colors:(
+        // Text color for <mark>
+            "fore": map.get(v.$colors,"back"), // Invert
+        // Background colors for <mark>
+            "back": map.get(v.$colors,"fore"), // Invert
+        // <pre> border color
+            "border": #ddd,
+        // <pre> sidebar color
+            "sidebar": #1565c0
+    )
+);
 
 @use 'inline_text_semantic/mark' with (
     $_box-model: v.$box-model,

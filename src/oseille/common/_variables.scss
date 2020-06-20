@@ -59,7 +59,9 @@ $font-sizes: (
     // Font sizing for all elements
         "body": 1rem,
     // Font size for small element  ( <small>, <sub>, <sup> )
-        "small": 0.75em
+        "small": 0.75em,
+    // Font size for monospace element like <code>, <kbd>, ...
+        "code": 0.85em
 );
 
 $line-height: 1.5 !default; // Line height for most elements. Use a minimum value of 1.5 for line-height for main paragraph content.
