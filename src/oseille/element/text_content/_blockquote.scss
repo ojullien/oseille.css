@@ -1,26 +1,64 @@
 //
-// Use HTML text content elements to organize blocks or sections of content placed between the opening <body>
-// and closing </body> tags. Important for accessibility and SEO, these elements identify the purpose or
-// structure of that content.
+// The HTML <blockquote> Element (or HTML Block Quotation Element) indicates that the enclosed text is an extended
+// quotation. Usually, this is rendered visually by indentation (see Notes for how to change it).
+// A URL for the source of the quotation may be given using the cite attribute, while a text representation of
+// the source can be given using the <cite> element.
 //
+@use 'sass:map';
 @use '../../common/stdlib';
 
-// Public variables.
-// May be overrided using @use <url> with (<variable>: <value>, <variable>: <value>)
-$font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, sans-serif !default; // Font stack for quote elements
-$fore-color: #444 !default; // Text & foreground color
-$margin: 0.5rem !default; // Universal margin for the most elements
-$padding: 0.5rem !default; // Universal padding for the most elements
-$border-color: #ddd !default; // Border color for the <blockquote> element.
-$sidebar-color: #f57c00 !default; // <blockquote> sidebar and quotation color
-$border-radius: 0.125rem !default; // Universal border-radius for most elements
-$quotation-size: 3rem !default; // Font size for the quotation of <blockquote>
+// Variables.
+//
+// To load this module with configuration, use @use <url> with (<variable>: <value>, <variable>: <value>).
+// The configured values will override the variables’ default values.
+// @link: https://sass-lang.com/documentation/variables
+
+// Font stacks
+$font-stacks: (
+    //  Font stack 'for <q> <figcaption> <blockquote>
+        "caption":
+        (-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, sans-serif)
+) !default;
+
+// Main colors. WCAG Grading AAA.
+$colors: (
+    // Text & foreground color
+        "fore": #151515,
+    // Background color
+        "back": #f8f8f8,
+    // <blockquote> sidebar and quotation color
+        "sidebar": #f57c00,
+    // Border color for the <blockquote> element.
+        "border": #ddd
+) !default;
+
+// Basic box model
+$box-model: (
+    // Padding: creates extra space within an element.
+        "padding": 0.5rem,
+    // Margins: create extra space around an element.
+        "margin": 0.5rem
+) !default;
+
+// Borders
+$borders: (
+    // radius: rounds the corners of an element's outer border edge.
+        "radius": 0.125rem,
+    // shadow: adds shadow effects around an element's frame.
+        "shadow": none
+) !default;
+
+// Font sizes
+$font-sizes: (
+    // Font size for the [cite] of <blockquote>
+        "cite": 1em,
+    // Font size for the quotation of <blockquote>
+        "quotation": 3rem
+) !default;
+
 $cite-size: 0.75em !default; // Font size for the [cite] of <blockquote>
-$box-shadow: none !default; // Universal box-shadow for most elements
 
-// Private variables
-
-// Blockquote styling
+/* Blockquote styling */
 
 blockquote {
     // Doesn't have a back color by default, can be added manually.

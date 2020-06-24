@@ -11,19 +11,11 @@ $colors: (
 );
 //
 @use '../../oseille/element/root/root' with (
-    $_colors: $colors
+    $_colors: $colors,
 );
-
-@use '../../oseille/element/content_sectioning/heading' with (
-    $_line-heights:  (
-        // Line height for headings
-            "heading": 1.2,
-        // Line height for subheading
-            "subheading": v.$line-height)
-    );
-
+//
 @use '../../oseille/element/text_content/paragraph';
-
+//
 @use '../../oseille/element/inline_text_semantic/text' with (
     $_colors: (
     // Color for <a>:link
@@ -32,7 +24,7 @@ $colors: (
         "visited": #aa9a71
 )
 );
-
+//
 @use '../../oseille/element/inline_text_semantic/code' with (
     $_colors: (
         // Text color for <mark>
@@ -45,18 +37,9 @@ $colors: (
             "sidebar": #1565c0
     )
 );
-
-@use '../../oseille/element/inline_text_semantic/mark' with (
-    $_colors: (
-        // Text color for <mark>
-            "fore": map.get(v.$colors,"back"), // Invert
-        // Background colors for <mark>
-            "primary": #0277bd,
-        // Background colors for <mark>
-            "secondary": #d32f2f,
-        // Background colors for <mark>
-            "tertiary": #308732
-    )
+//
+@use '../../oseille/element/text_content/figure' with (
+    $_colors: $colors
 );
-
-@use '../../oseille/element/text_content/list';
+//
+@use '../../oseille/element/image_and_multimedia/_image';

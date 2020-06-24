@@ -32,9 +32,9 @@ $_box-model: (
 
 // Borders
 $_borders: (
-    // border-radius: rounds the corners of an element's outer border edge.
+    // radius: rounds the corners of an element's outer border edge.
         "radius": 0.125rem,
-    // box-shadow: adds shadow effects around an element's frame.
+    // shadow: adds shadow effects around an element's frame.
         "shadow": none
 ) !default;
 

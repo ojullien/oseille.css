@@ -2,10 +2,6 @@
   Browsers resets and base typography.
 */
 
-$border-color: #aaa !default; // Border color
-$main-padding: 0.5rem !default; // Universal padding for the most elements
-$code-font-family: "Menlo, Consolas, monospace" !default; // Font stack for code elements
-
 /* Core module CSS variable definitions */
 
 // Correct display for Edge & Firefox.
@@ -42,8 +38,8 @@ div,
 //dt,
 //em,
 fieldset,
-figcaption,
-figure,
+//figcaption,
+//figure,
 footer,
 form,
 //h1,
@@ -58,7 +54,7 @@ hgroup,
 html,
 //i,
 iframe,
-img,
+//img,
 //ins,
 //kbd,
 label,
@@ -105,4 +101,12 @@ th,
 //var {
     font-style: inherit;
     font-weight: inherit;
+}
+
+blockquote, cite, q, figcaption {
+    font-family: "Caveat", cursive;
+}
+
+cite, q {
+    font-size: 1.25rem;
 }

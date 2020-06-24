@@ -26,14 +26,14 @@ $_box-model: (
 
 // Font stacks
 $_font-stacks: (
-    // Font stack for heading
-        "heading":
-        '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, sans-serif'
+    // Heading font stack
+        "heading": 
+        (-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, sans-serif)
 ) !default;
 
 // Font sizes
 $_font-sizes: (
-    // Font size for small element  ( <small>, <sub>, <sup> )
+    // Font size for small element  ( <small>, <sub>, <sup>, <figcaption>)
         "small": 0.75em
 ) !default;
 
@@ -54,7 +54,7 @@ $_heading-ratio: 1.19; // Ratio for headings (strictly unitless)
 %_normalize {
     padding: 0;
     border: 0;
-    font-family: string.unquote(map.get($_font-stacks, "heading"));
+    font-family: map.get($_font-stacks, "heading");
     font-weight: $_font-weight;
     line-height: map.get($_line-heights, "heading");
     margin: calc(1.5 * #{map.get($_box-model, "margin")}) map.get($_box-model, "margin");
@@ -63,7 +63,6 @@ $_heading-ratio: 1.19; // Ratio for headings (strictly unitless)
         @if $_subheading-margin-top != 0 {
             margin-top: $_subheading-margin-top;
         }
-        font-size: map.get($_font-sizes, "small");
         line-height: map.get($_line-heights, "subheading");
     }
 }

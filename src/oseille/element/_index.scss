@@ -6,18 +6,9 @@
 @use '../common/variables' as v;
 
 // Loads all elements
-@use 'root/root' with (
-    $_colors: v.$colors,
-    $_font-sizes: v.$font-sizes,
-    $_font-stack: map.get(v.$font-stacks,"base"),
-    $_line-height: v.$line-height,
-    );
+@use 'root/root';
 @use 'content_sectioning/sectioning';
-
 @use 'content_sectioning/heading' with (
-    $_font-stacks: v.$font-stacks,
-    $_font-sizes: v.$font-sizes,
-    $_box-model: v.$box-model,
     $_line-heights:  (
         // Line height for headings
             "heading": 1.2,
@@ -60,10 +51,6 @@
     );
 
 @use 'inline_text_semantic/code' with (
-    $_font-stacks: v.$font-stacks,
-    $_font-sizes: v.$font-sizes,
-    $_box-model: v.$box-model,
-    $_borders: v.$borders,
     $_colors:(
         // Text color for <mark>
             "fore": map.get(v.$colors,"back"), // Invert

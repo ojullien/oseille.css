@@ -1,25 +1,65 @@
 //
-// Use HTML text content elements to organize blocks or sections of content placed between the opening <body>
-// and closing </body> tags. Important for accessibility and SEO, these elements identify the purpose or
-// structure of that content.
+// The HTML <figure> (Figure With Optional Caption) element represents self-contained content, potentially with an
+// optional caption, which is specified using the (<figcaption>) element. The figure, its caption, and its contents
+// are referenced as a single unit.
 //
+@use 'sass:map';
 
-// Public variables.
-// May be overrided using @use <url> with (<variable>: <value>, <variable>: <value>)
+// Variables.
+//
+// To load this module with configuration, use @use <url> with (<variable>: <value>, <variable>: <value>).
+// The configured values will override the variables’ default values.
+// @link: https://sass-lang.com/documentation/variables
 
-$fore-color: #444 !default; // Text & foreground color
-$margin: 0.5rem !default; // Universal margin for the most elements
-$font-size: 0.75em !default; // Font sizing for <figcaption> elements
+// Font sizes
+$_font-sizes: (
+    // Font size for caption
+        "caption": 1em
+) !default;
 
-// Private variables
+// Font stacks
+$_font-stacks: (
+    //  Font stack 'for <q> <figcaption> <blockquote>
+        "caption":
+        (-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, sans-serif)
+) !default;
 
-// Figure styling
+// Main colors. WCAG Grading AAA.
+$_colors: (
+    // Text & foreground color
+        "fore": #151515,
+    // Background color
+        "back": #f8f8f8
+) !default;
+
+// Basic box model
+$_box-model: (
+    // Padding: creates extra space within an element.
+        "padding": 0.5rem,
+    // Margins: create extra space around an element.
+        "margin": 0.5rem
+) !default;
+
+$_text-align: left !default;
+
+/* Figure styling */
 
 figcaption {
-    font-size: $font-size;
-    color: $fore-color;
+    margin: 0;
+    padding: 0;
+    border: 0;
+
+    font-family: map.get($_font-stacks, "caption");
+    font-size: map.get($_font-sizes, "caption");
+
+    text-align: $_text-align;
+
+    background: var(--caption-back-color, #{map.get($_colors, "back")}); // Allows live color tunning
+    color: var(--caption-fore-color, #{map.get($_colors, "fore")}); // Allows live color tunning
 }
 
 figure {
-    margin: $margin;
+    padding: 0;
+    border: 0;
+    margin: map.get($_box-model, "margin");
 }

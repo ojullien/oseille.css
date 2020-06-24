@@ -22,7 +22,7 @@ $_box-model: (
 $_hr-color: #aaa !default; // Border color
 $_hr-line-height: 1.25em; // <hr> line height
 
-// paragraph-level elements styling
+/* paragraph-level elements styling */
 
 hr {
     // Fixes and defaults for styling
@@ -31,7 +31,6 @@ hr {
     padding: 0;
     // Actual styling using variables
     line-height: $_hr-line-height;
-    //margin: map.get($_box-model, "margin") auto map.get($_box-model, "margin");
     margin: map.get($_box-model, "margin");
     height: var(--px);
     background: linear-gradient(to right, transparent, $_hr-color 20%, $_hr-color 80%, transparent);
@@ -39,6 +38,5 @@ hr {
 
 p {
     padding: 0;
-    //margin: map.get($_box-model, "margin") auto map.get($_box-model, "margin"); // oseille
     margin: map.get($_box-model, "margin");
 }

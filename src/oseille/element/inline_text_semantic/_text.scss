@@ -13,8 +13,8 @@
 
 // Font sizes
 $_font-sizes: (
-    // Font size for small element: <small>, <sub>, <sup>
-        "small": 0.75em
+    // Font size for small element  ( <small>, <sub>, <sup>, <figcaption>)
+    "small": 0.75em,
 ) !default;
 
 // Link colors
