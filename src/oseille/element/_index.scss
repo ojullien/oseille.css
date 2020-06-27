@@ -29,56 +29,14 @@
     $padding: v.$universal-padding
     );
 
-@use 'text_content/blockquote' with (
-    $border-radius: v.$universal-border-radius,
-    $box-shadow: v.$universal-box-shadow,
-    $margin: v.$universal-margin,
-    $padding: v.$universal-padding
-    );
+@use 'text_content/blockquote';
 @use 'text_content/figure';
 @use 'text_content/definition';
-
-@use 'text_content/list' with (
-    $_box-model: v.$box-model 
-    );
-
-@use 'text_content/paragraph' with (
-    $_box-model: v.$box-model 
-    );
-
-@use 'inline_text_semantic/text' with (
-    $_font-sizes: v.$font-sizes
-    );
-
-@use 'inline_text_semantic/code' with (
-    $_colors:(
-        // Text color for <mark>
-            "fore": map.get(v.$colors,"back"), // Invert
-        // Background colors for <mark>
-            "back": map.get(v.$colors,"fore"), // Invert
-        // <pre> border color
-            "border": #ddd,
-        // <pre> sidebar color
-            "sidebar": #1565c0
-    )
-);
-
-@use 'inline_text_semantic/mark' with (
-    $_box-model: v.$box-model,
-    $_borders: v.$borders,
-    $_default-line-height: v.$line-height,
-    $_colors: (
-        // Text color for <mark>
-            "fore": map.get(v.$colors,"back"), // Invert
-        // Background colors for <mark>
-            "primary": #0277bd,
-        // Background colors for <mark>
-            "secondary": #d32f2f,
-        // Background colors for <mark>
-            "tertiary": #308732
-    )
-);
-
+@use 'text_content/list';
+@use 'text_content/paragraph';
+@use 'inline_text_semantic/text';
+@use 'inline_text_semantic/code';
+@use 'inline_text_semantic/mark';
 @use 'image_and_multimedia/image';
 @use 'embedded/embedded';
 @use 'table/table' with (

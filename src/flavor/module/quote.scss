@@ -38,10 +38,6 @@ $colors: (
     )
 );
 //
-@use '../../oseille/element/text_content/figure' with (
-    $_colors: $colors
-);
-//
 @use '../../oseille/element/text_content/blockquote' with (
     $_colors: (
         // Text color for <mark>
@@ -60,5 +56,3 @@ $colors: (
             "quotation": 3rem
     )    
 );
-//
-@use '../../oseille/element/image_and_multimedia/image';

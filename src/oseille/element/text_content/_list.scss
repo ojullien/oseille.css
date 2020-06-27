@@ -23,7 +23,6 @@ ol,
 ul {
     padding: 0;
     border: 0;
-    //margin: map.get($_box-model, "margin") 0 map.get($_box-model, "margin");
     margin: map.get($_box-model, "margin");
     padding-left: calc(2 * #{map.get($_box-model, "margin")});
 

@@ -14,14 +14,14 @@
 // @link: https://sass-lang.com/documentation/variables
 
 // Font stacks
-$font-stacks: (
+$_font-stacks: (
     //  Font stack 'for <q> <figcaption> <blockquote>
         "caption":
         (-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, sans-serif)
 ) !default;
 
 // Main colors. WCAG Grading AAA.
-$colors: (
+$_colors: (
     // Text & foreground color
         "fore": #151515,
     // Background color
@@ -33,7 +33,7 @@ $colors: (
 ) !default;
 
 // Basic box model
-$box-model: (
+$_box-model: (
     // Padding: creates extra space within an element.
         "padding": 0.5rem,
     // Margins: create extra space around an element.
@@ -41,7 +41,7 @@ $box-model: (
 ) !default;
 
 // Borders
-$borders: (
+$_borders: (
     // radius: rounds the corners of an element's outer border edge.
         "radius": 0.125rem,
     // shadow: adds shadow effects around an element's frame.
@@ -49,45 +49,53 @@ $borders: (
 ) !default;
 
 // Font sizes
-$font-sizes: (
+$_font-sizes: (
     // Font size for the [cite] of <blockquote>
         "cite": 1em,
     // Font size for the quotation of <blockquote>
         "quotation": 3rem
 ) !default;
 
-$cite-size: 0.75em !default; // Font size for the [cite] of <blockquote>
-
 /* Blockquote styling */
 
+%normalize {
+    font-family: map.get($_font-stacks, "caption");
+    font-style: italic;
+
+    background: var(--caption-back-color, #{map.get($_colors, "back")}); // Allows live color tunning
+    color: var(--caption-fore-color, #{map.get($_colors, "fore")}); // Allows live color tunning
+}
+
 blockquote {
-    // Doesn't have a back color by default, can be added manually.
     display: block;
     position: relative;
-    font-style: italic;
-    color: $fore-color;
-    margin: $margin;
-    padding: calc(3 * #{$padding});
-    border: var(--px) solid $border-color;
-    border-left: calc(6 * var(--px)) solid $sidebar-color;
-    border-radius: 0 $border-radius $border-radius 0;
 
-    @include stdlib.box-shadow($box-shadow);
+    margin: map.get($_box-model, "margin");
+    padding: calc(3 * #{map.get($_box-model, "padding")});
+
+    border: var(--px) solid map.get($_colors, "border");
+    border-left: calc(6 * var(--px)) solid var(--caption-sidebar-color, map.get($_colors, "sidebar"));
+    border-radius: 0 map.get($_borders, "radius") map.get($_borders, "radius") 0;
+
+    @extend %normalize;
+    font-size: 1em;
+
+    @include stdlib.box-shadow(map.get($_borders, "shadow"));
 
     &:before {
         position: absolute;
-        top: calc(0rem - #{$padding});
+        top: calc(0rem - #{map.get($_box-model, "padding")});
         left: 0;
         font-family: sans-serif;
-        font-size: $quotation-size;
+        font-size: map.get($_font-sizes, "quotation");
         font-weight: 700;
         content: "\201c";
-        color: $sidebar-color;
+        color: var(--caption-sidebar-color, map.get($_colors, "sidebar"));
     }
 
     &[cite]:after {
         font-style: normal;
-        font-size: $cite-size;
+        font-size: map.get($_font-sizes, "cite");
         font-weight: 700;
         content: "\a—  "attr(cite);
         white-space: pre;
@@ -96,5 +104,11 @@ blockquote {
 
 // Fix for elements inside headings not displaying properly.
 q {
-    font-size: 1em;
+    @extend %normalize;
+    font-size: map.get($_font-sizes, "cite");
+}
+
+cite {
+    @extend %normalize;
+    font-size: map.get($_font-sizes, "cite");
 }
