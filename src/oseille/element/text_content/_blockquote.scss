@@ -61,6 +61,7 @@ $_font-sizes: (
 %normalize {
     font-family: map.get($_font-stacks, "caption");
     font-style: italic;
+    font-size: map.get($_font-sizes, "cite");
 
     background: var(--caption-back-color, #{map.get($_colors, "back")}); // Allows live color tunning
     color: var(--caption-fore-color, #{map.get($_colors, "fore")}); // Allows live color tunning
@@ -77,8 +78,12 @@ blockquote {
     border-left: calc(6 * var(--px)) solid var(--caption-sidebar-color, map.get($_colors, "sidebar"));
     border-radius: 0 map.get($_borders, "radius") map.get($_borders, "radius") 0;
 
-    @extend %normalize;
+    font-family: map.get($_font-stacks, "caption");
+    font-style: italic;
     font-size: 1em;
+
+    background: var(--blockquote-back-color, #{map.get($_colors, "back")}); // Allows live color tunning
+    color: var(--blockquote-fore-color, #{map.get($_colors, "fore")}); // Allows live color tunning
 
     @include stdlib.box-shadow(map.get($_borders, "shadow"));
 
@@ -105,10 +110,8 @@ blockquote {
 // Fix for elements inside headings not displaying properly.
 q {
     @extend %normalize;
-    font-size: map.get($_font-sizes, "cite");
 }
 
 cite {
     @extend %normalize;
-    font-size: map.get($_font-sizes, "cite");
 }
