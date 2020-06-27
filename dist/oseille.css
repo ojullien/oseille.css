@@ -47,11 +47,15 @@ h6, h5, h4, h3, h2, h1 {
   font-weight: 500;
   line-height: 1.2;
   margin: calc(1.5 * 0.5rem) 0.5rem;
+  background: var(--heading-back-color, #f8f8f8);
+  color: var(--heading-fore-color, #151515);
 }
 h6 small, h5 small, h4 small, h3 small, h2 small, h1 small {
   display: block;
   margin-top: -0.25rem;
   line-height: 1.5;
+  background: var(--subheading-back-color, #f8f8f8);
+  color: var(--subheading-fore-color, #151515);
 }
 
 h1 {
@@ -206,11 +210,16 @@ footer .sticky {
 }
 
 /* Blockquote styling */
-cite, q, blockquote {
+cite, q {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, sans-serif;
-  font-style: italic;
+  font-style: inherit;
+  font-weight: inherit;
+  font-size: 1em;
   background: var(--caption-back-color, #f8f8f8);
   color: var(--caption-fore-color, #151515);
+  margin: 0;
+  padding: 0;
+  border: 0;
 }
 
 blockquote {
@@ -221,7 +230,11 @@ blockquote {
   border: var(--px) solid #ddd;
   border-left: calc(6 * var(--px)) solid var(--caption-sidebar-color, #f57c00);
   border-radius: 0 0.125rem 0.125rem 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, sans-serif;
+  font-style: italic;
   font-size: 1em;
+  background: var(--blockquote-back-color, #f8f8f8);
+  color: var(--blockquote-fore-color, #151515);
 }
 blockquote:before {
   position: absolute;
@@ -241,14 +254,6 @@ blockquote[cite]:after {
   white-space: pre;
 }
 
-q {
-  font-size: 1em;
-}
-
-cite {
-  font-size: 1em;
-}
-
 /* Figure styling */
 figcaption {
   margin: 0;
@@ -265,6 +270,11 @@ figure {
   padding: 0;
   border: 0;
   margin: 0.5rem;
+}
+
+dfn {
+  font-style: inherit;
+  font-weight: inherit;
 }
 
 /* List styling */
@@ -538,6 +548,8 @@ table {
   padding-top: 0;
 }
 table caption {
+  font-style: inherit;
+  font-weight: inherit;
   font-size: 1.5rem;
   margin: calc(2 * 0.5rem) 0;
   max-width: 100%;
@@ -568,6 +580,8 @@ table td {
   padding: calc(2 * 0.5rem);
 }
 table th {
+  font-style: inherit;
+  font-weight: inherit;
   text-align: left;
   background: #e6e6e6;
   color: #111;

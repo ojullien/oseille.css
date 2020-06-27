@@ -1,5 +1,4 @@
-// Loads shared variables
-// using @forward to make its mixins, functions, and variables available to the main stylesheet flavor.
+// Loads elements with default modules' values
 //
 @use 'sass:map';
 @use 'sass:color';

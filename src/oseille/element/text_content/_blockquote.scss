@@ -1,8 +1,16 @@
 //
 // The HTML <blockquote> Element (or HTML Block Quotation Element) indicates that the enclosed text is an extended
-// quotation. Usually, this is rendered visually by indentation (see Notes for how to change it).
+// quotation. Usually, this is rendered visually by indentation.
 // A URL for the source of the quotation may be given using the cite attribute, while a text representation of
 // the source can be given using the <cite> element.
+//
+// The HTML <q> element indicates that the enclosed text is a short inline quotation. Most modern browsers implement
+// this by surrounding the text in quotation marks. This element is intended for short quotations that don't require
+// paragraph breaks; for long quotations use the <blockquote> element.
+//
+// The HTML Citation element (<cite>) is used to describe a reference to a cited creative work, and must include the
+// title of that work. The reference may be in an abbreviated form according to context-appropriate conventions
+// related to citation metadata.
 //
 @use 'sass:map';
 @use '../../common/stdlib';
@@ -60,11 +68,16 @@ $_font-sizes: (
 
 %normalize {
     font-family: map.get($_font-stacks, "caption");
-    font-style: italic;
+    font-style: inherit;
+    font-weight: inherit;
     font-size: map.get($_font-sizes, "cite");
 
     background: var(--caption-back-color, #{map.get($_colors, "back")}); // Allows live color tunning
     color: var(--caption-fore-color, #{map.get($_colors, "fore")}); // Allows live color tunning
+
+    margin: 0;
+    padding: 0;
+    border: 0;
 }
 
 blockquote {

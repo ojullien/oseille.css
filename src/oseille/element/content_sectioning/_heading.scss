@@ -27,7 +27,7 @@ $_box-model: (
 // Font stacks
 $_font-stacks: (
     // Heading font stack
-        "heading": 
+        "heading":
         (-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, sans-serif)
 ) !default;
 
@@ -45,6 +45,18 @@ $_line-heights: (
         "subheading": 1.5
 ) !default;
 
+// Main colors. WCAG Grading AAA.
+$_colors: (
+    // Text & foreground color
+        "fore": #151515,
+    // Background color
+        "back": #f8f8f8,
+    // Subheading foreground color
+        "subheading-fore": #151515,
+    // Subheading background color
+        "subheading-back": #f8f8f8
+) !default;
+
 $_font-weight: 500 !default; // Font weight for headings
 $_subheading-margin-top: -0.25rem; // Top margin of <small> elements in headings
 $_heading-ratio: 1.19; // Ratio for headings (strictly unitless)
@@ -58,12 +70,19 @@ $_heading-ratio: 1.19; // Ratio for headings (strictly unitless)
     font-weight: $_font-weight;
     line-height: map.get($_line-heights, "heading");
     margin: calc(1.5 * #{map.get($_box-model, "margin")}) map.get($_box-model, "margin");
+
+    background: var(--heading-back-color, #{map.get($_colors, "back")}); // Allows live color tunning
+    color: var(--heading-fore-color, #{map.get($_colors, "fore")}); // Allows live color tunning
+
     small {
         display: block;
         @if $_subheading-margin-top != 0 {
             margin-top: $_subheading-margin-top;
         }
         line-height: map.get($_line-heights, "subheading");
+
+        background: var(--subheading-back-color, #{map.get($_colors, "subheading-back")}); // Allows live color tunning
+        color: var(--subheading-fore-color, #{map.get($_colors, "subheading-fore")}); // Allows live color tunning
     }
 }
 

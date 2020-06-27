@@ -68,4 +68,12 @@ $font-sizes: (
         "code": 0.85em
 );
 
+// Breakpoints
+$breakpoints: (
+    // Medium/mobile screen breakpoint for grid.
+        "medium": 768px,
+    // Large screen breakpoint for grid.
+        "large": 1280px 
+);
+
 $line-height: 1.5; // Line height for most elements. Use a minimum value of 1.5 for line-height for main paragraph content.

@@ -63,6 +63,8 @@ table {
     }
 
     caption {
+        font-style: inherit;
+        font-weight: inherit;
         font-size: $font-size;
         margin: calc(2 * #{$margin}) 0;
         max-width: 100%;
@@ -116,6 +118,8 @@ table {
     }
 
     th {
+        font-style: inherit;
+        font-weight: inherit;
         text-align: left;
         background: map.get($colors, "th-back");
         color: map.get($colors, "th-fore");

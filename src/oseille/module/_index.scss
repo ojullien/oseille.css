@@ -1,6 +1,4 @@
-// Loads shared variables
-// using @forward to make its mixins, functions, and variables available to the main stylesheet flavor.
-//@forward 'variables' as ev-*;
+// Loads modules with default modules' values
 //
 @use 'sass:map';
 @use '../common/variables' as v;
@@ -32,10 +30,7 @@
         $border-radius: v.$universal-border-radius,
         $padding: v.$universal-padding
         );
-@use 'grid' with (
-        $padding: v.$universal-padding,
-        $medium-breakpoint: v.$mobile-breakpoint
-    );
+@use 'grid';
 @use 'card' with (
         $border-radius: v.$universal-border-radius,
         $margin: v.$universal-margin,
