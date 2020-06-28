@@ -15,9 +15,7 @@
             "subheading": v.$line-height)
     );
 
-@use 'content_sectioning/header' with (
-    $padding: v.$universal-padding
-    );
+@use 'content_sectioning/header';
 @use 'content_sectioning/navigation' with (
     $border-radius: v.$universal-border-radius,
     $margin: v.$universal-margin,
