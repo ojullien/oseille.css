@@ -48,13 +48,13 @@ $_line-heights: (
 // Main colors. WCAG Grading AAA.
 $_colors: (
     // Text & foreground color
-        "fore": #151515,
+        "fore": inherit,
     // Background color
-        "back": #f8f8f8,
+        "back": inherit,
     // Subheading foreground color
-        "subheading-fore": #151515,
+        "subheading-fore": inherit,
     // Subheading background color
-        "subheading-back": #f8f8f8
+        "subheading-back": inherit
 ) !default;
 
 $_font-weight: 500 !default; // Font weight for headings

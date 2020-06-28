@@ -1,33 +1,67 @@
 //
 // Card
 //
-// Display native-looking notifications on mobile devices.
-//
 @use 'sass:map';
 @use '../common/stdlib';
 
-// Public variables.
-// May be overrided using @use <url> with (<variable>: <value>, <variable>: <value>)
+// Variables.
+//
+// To load this module with configuration, use @use <url> with (<variable>: <value>, <variable>: <value>).
+// The configured values will override the variables’ default values.
+// @link: https://sass-lang.com/documentation/variables
 
-$border-radius: 0.125rem !default; // Universal border-radius for most elements
-$margin: 0.5rem !default; // Universal margin for the most elements
-$padding: 0.5rem !default; // Universal padding for the most elements
-$box-shadow: none !default; // Universal box-shadow for most elements
-$colors: (
-    // Background color for the cards.
-        "back": #f8f8f8,
-    // Text color for the cards.
-        "fore": #111,
-    // Border color for the cards.
-        "border": #ddd
+// Basic box model
+$_box-model: (
+    // Padding: creates extra space within an element.
+        "padding": 0.5rem,
+    // Margins: create extra space around an element.
+        "margin": 0.5rem
 ) !default;
 
-// Private variables
-$_card-name: "card" !default; // Class name for the cards.
-$_normal-width: 320px !default; // Width for normal cards.
-$_section-media-height: 200px !default; // Height for cards' media sections.
-$_section-name: "section" !default; // Class name for the cards' sections.
-$_section-media-name: "media" !default; // Class name for the cards' sections (media cotent).
+// Borders
+$_borders: (
+    // radius: rounds the corners of an element's outer border edge.
+        "radius": 0.125rem,
+    // shadow: adds shadow effects around an element's frame.
+        "shadow": none
+) !default;
+
+// Main colors. WCAG Grading AAA.
+$_colors: (
+    // Text & foreground color
+        "fore": #151515,
+    // Background color
+        "back": #f8f8f8,
+    // Border color for the cards.
+        "border": #ddd,
+    // Text & foreground color
+        "error-fore": #f8f8f8,
+    // Background color
+        "error-back": #b71c1c,
+    // Border color for the cards.
+        "error-border": #a71a1a,
+    // Text & foreground color
+        "warning-fore": #151515,
+    // Background color
+        "warning-back": #ffca28,
+    // Border color for the cards.
+        "warning-border": #e8b825,
+    // Alternative Background color
+        "alt-back": #e0e0e0
+) !default;
+
+// Class names
+$_classnames: (
+    // Class name for the cards.
+        "card": "card",
+    // Class name for the cards' sections.
+        "section": "section",
+    // Class name for the cards' sections (media cotent).
+        "media": "media"
+);
+
+$_normal-width: 320px; // Width for normal cards.
+$_section-media-height: 200px; // Height for cards' media sections.
 
 // Mixin for alternate card (card size variants):
 //  $alt-size: The width of the alternate size card.
@@ -47,7 +81,7 @@ $_section-media-name: "media" !default; // Class name for the cards' sections (m
 
 /* Card styling */
 
-.#{$_card-name} {
+.#{map.get($_classnames, "card")} {
     // New syntax
     display: flex;
     flex-direction: column;
@@ -57,36 +91,36 @@ $_section-media-name: "media" !default; // Class name for the cards' sections (m
     width: 100%;
 
     // Actual styling for the cards
-    --fore-color: #{map.get($colors, "fore")};
-    --back-color: #{map.get($colors, "back")};
-    --border-color: #{map.get($colors, "border")};
+    --card-fore-color: #{map.get($_colors, "fore")};
+    --card-back-color: #{map.get($_colors, "back")};
+    --card-border-color: #{map.get($_colors, "border")};
 
-    background: var(--back-color);
-    color: var(--fore-color);
+    background: var(--card-back-color, #{map.get($_colors, "back")}); // Allows live color tunning
+    color: var(--card-fore-color, #{map.get($_colors, "fore")}); // Allows live color tunning
 
-    border: var(--px) solid var(--border-color);
-    border-radius: $border-radius;
-    margin: $margin;
+    border: var(--px) solid var(--card-border-color, #{map.get($_colors, "border")});
+    border-radius: map.get($_borders, "radius");
+    margin: map.get($_box-model, "margin");
 
-    @include stdlib.box-shadow($box-shadow);
+    @include stdlib.box-shadow(map.get($_borders, "shadow"));
 
     overflow: hidden; // Hide overflow from section borders
 
     // Card sections
-    & > .#{$_section-name} {
+    & > .#{map.get($_classnames, "section")} {
         // Reapply background and foreground colors, so that mixins can be applied properly.
-        background: var(--back-color);
-        color: var(--fore-color);
+        background: var(--card-back-color, #{map.get($_colors, "back")}); // Allows live color tunning
+        color: var(--card-fore-color, #{map.get($_colors, "fore")}); // Allows live color tunning
         box-sizing: border-box;
         margin: 0;
         border: 0; // Clean borders and radiuses for any element-based sections
         border-radius: 0; // Clean borders and radiuses for any element-based sections
-        border-bottom: var(--px) solid var(--border-color);
-        padding: $padding;
+        border-bottom: var(--px) solid var(--card-border-color, #{map.get($_colors, "border")});
+        padding: map.get($_box-model, "padding");
         width: 100%;
 
         // Media sections
-        &.#{$_section-media-name} {
+        &.#{map.get($_classnames, "media")} {
             height: $_section-media-height;
             padding: 0;
             -o-object-fit: cover;
@@ -97,13 +131,13 @@ $_section-media-name: "media" !default; // Class name for the cards' sections (m
         &.dark {
             @include make-card-alt-color(
                 (
-                    "--back-color": #e0e0e0,
+                    "--card-back-color": #{map.get($_colors, "alt-back")},
                 )
             );
         }
 
         &.double-padded {
-            padding: calc(1.5 * #{$padding});
+            padding: calc(1.5 * #{map.get($_box-model, "padding")});
         }
 
         &:last-child {
@@ -114,8 +148,8 @@ $_section-media-name: "media" !default; // Class name for the cards' sections (m
     &.warning {
         @include make-card-alt-color(
             (
-                "--back-color": #ffca28,
-                "--border-color": #e8b825,
+                "--card-back-color": #{map.get($_colors, "warning-back")},
+                "--card-border-color": #{map.get($_colors, "warning-border")},
             )
         );
     }
@@ -123,9 +157,9 @@ $_section-media-name: "media" !default; // Class name for the cards' sections (m
     &.error {
         @include make-card-alt-color(
             (
-                "--back-color": #b71c1c,
-                "--fore-color": #f8f8f8,
-                "--border-color": #a71a1a,
+                "--card-back-color": #{map.get($_colors, "error-back")},
+                "--card-fore-color": #{map.get($_colors, "error-fore")},
+                "--card-border-color": #{map.get($_colors, "error-border")},
             )
         );
     }

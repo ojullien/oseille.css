@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Grid</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="grid.css" rel="stylesheet" type="text/css" />
+</head>
+<style>
+    .wrapper {
+        margin: 0 auto;
+        padding: 0 calc(0.5rem * 2);
+        max-width: 80vw;
+    }
+
+    .box-colored {
+        background: #0277bd;
+        border-radius: 0.125rem;
+        padding: 0.875rem;
+        margin-bottom: 0.5rem;
+        min-height: 0.875rem;
+        color: #f8f8f8;
+    }
+</style>
+
+<body>
+
+    <div class="wrapper">
+
+        <header>
+            <h1>Grid</h1>
+        </header>
+
+        <main>
+
+            <section>
+                <h2>Un</h2>
+                <div class="container" style="padding: 0.25rem">
+                    <div class="row">
+                        <div class="col-sm-1">
+                            <div class="box-colored">1</div>
+                        </div>
+                        <div class="col-sm-11">
+                            <div class="box-colored">11</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-2">
+                            <div class="box-colored">2</div>
+                        </div>
+                        <div class="col-sm-10">
+                            <div class="box-colored">10</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="box-colored">3</div>
+                        </div>
+                        <div class="col-sm-9">
+                            <div class="box-colored">9</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <div class="box-colored">4</div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="box-colored">8</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-5">
+                            <div class="box-colored">5</div>
+                        </div>
+                        <div class="col-sm-7">
+                            <div class="box-colored">7</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="box-colored">6</div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="box-colored">6</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="box-colored">12</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm">
+                            <div class="box-colored">fluid</div>
+                        </div>
+                        <div class="col-sm">
+                            <div class="box-colored">fluid</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Deux</h2>
+                <div class="container" style="padding: 0.25rem">
+                    <div class="row">
+                        <div class="col-sm-12 col-md">
+                            <div class="row">
+                                <div class="col-sm">
+                                    <h6 style="text-align:center">Small screen layout</h6>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm">
+                                    <div class="box-colored">sm-12</div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="box-colored" style="height: 3.75rem">sm-12 md-8</div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="box-colored" style="height: 2rem">sm-12 md-4</div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm">
+                                    <div class="box-colored">sm-12</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md">
+                            <div class="row">
+                                <div class="col-sm">
+                                    <h6 style="text-align:center">Medium/Large screen layout</h6>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm">
+                                    <div class="box-colored">sm-12</div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-8">
+                                    <div class="box-colored" style="height: 8rem">sm-12 md-8</div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="box-colored" style="height: 8rem">sm-12 md-4</div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm">
+                                    <div class="box-colored">sm-12</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Trois</h2>
+                <div class="container" style="padding: 0.25rem">
+                    <div class="row">
+                        <div class="col-sm col-sm-offset-11">
+                            <div class="box-colored">11</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm col-sm-offset-10">
+                            <div class="box-colored">10</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm col-sm-offset-9">
+                            <div class="box-colored">9</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm col-sm-offset-8">
+                            <div class="box-colored">8</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm col-sm-offset-7">
+                            <div class="box-colored">7</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm col-sm-offset-6">
+                            <div class="box-colored">6</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm col-sm-offset-5">
+                            <div class="box-colored">5</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm col-sm-offset-4">
+                            <div class="box-colored">4</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm col-sm-offset-3">
+                            <div class="box-colored">3</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm col-sm-offset-2">
+                            <div class="box-colored">2</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm col-sm-offset-1">
+                            <div class="box-colored">1</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm col-sm-offset-0">
+                            <div class="box-colored">0</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+    </div>
+
+</body>
+
+<script type="text/javascript">
+    document.body.onload = () => {
+        var sFontSize = window.getComputedStyle(document.body, null).getPropertyValue("font-size");
+        var iRatio = 1 / sFontSize.substring(0, sFontSize.length - 2);
+        document.documentElement.style.setProperty('--px', iRatio + "rem");
+    }
+</script>
+
+</html>

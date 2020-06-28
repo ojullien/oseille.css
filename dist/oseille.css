@@ -47,15 +47,15 @@ h6, h5, h4, h3, h2, h1 {
   font-weight: 500;
   line-height: 1.2;
   margin: calc(1.5 * 0.5rem) 0.5rem;
-  background: var(--heading-back-color, #f8f8f8);
-  color: var(--heading-fore-color, #151515);
+  background: var(--heading-back-color, inherit);
+  color: var(--heading-fore-color, inherit);
 }
 h6 small, h5 small, h4 small, h3 small, h2 small, h1 small {
   display: block;
   margin-top: -0.25rem;
   line-height: 1.5;
-  background: var(--subheading-back-color, #f8f8f8);
-  color: var(--subheading-fore-color, #151515);
+  background: var(--subheading-back-color, inherit);
+  color: var(--subheading-fore-color, inherit);
 }
 
 h1 {
@@ -1070,6 +1070,7 @@ input[type=checkbox]:checked:before {
 
 /* Fluid grid system container styling */
 .container {
+  flex-wrap: wrap;
   margin: 0 auto;
   padding: 0 calc(1.5 * 0.5rem);
 }
@@ -1086,7 +1087,7 @@ input[type=checkbox]:checked:before {
 [class^=col-sm-offset-],
 .row[class*=cols-sm-] > * {
   box-sizing: border-box;
-  flex: 0 0 auto;
+  flex: 1 1 auto;
   padding: 0 calc(0.5rem / 2);
 }
 
@@ -1235,7 +1236,7 @@ input[type=checkbox]:checked:before {
 [class^=col-md-offset-],
 .row[class*=cols-md-] > * {
     box-sizing: border-box;
-    flex: 0 0 auto;
+    flex: 1 1 auto;
     padding: 0 calc(0.5rem / 2);
   }
 
@@ -1384,7 +1385,7 @@ input[type=checkbox]:checked:before {
 [class^=col-lg-offset-],
 .row[class*=cols-lg-] > * {
     box-sizing: border-box;
-    flex: 0 0 auto;
+    flex: 1 1 auto;
     padding: 0 calc(0.5rem / 2);
   }
 
@@ -1535,24 +1536,24 @@ input[type=checkbox]:checked:before {
   align-self: center;
   position: relative;
   width: 100%;
-  --fore-color: #111;
-  --back-color: #f8f8f8;
-  --border-color: #ddd;
-  background: var(--back-color);
-  color: var(--fore-color);
-  border: var(--px) solid var(--border-color);
+  --card-fore-color: #151515;
+  --card-back-color: #f8f8f8;
+  --card-border-color: #ddd;
+  background: var(--card-back-color, #f8f8f8);
+  color: var(--card-fore-color, #151515);
+  border: var(--px) solid var(--card-border-color, #ddd);
   border-radius: 0.125rem;
   margin: 0.5rem;
   overflow: hidden;
 }
 .card > .section {
-  background: var(--back-color);
-  color: var(--fore-color);
+  background: var(--card-back-color, #f8f8f8);
+  color: var(--card-fore-color, #151515);
   box-sizing: border-box;
   margin: 0;
   border: 0;
   border-radius: 0;
-  border-bottom: var(--px) solid var(--border-color);
+  border-bottom: var(--px) solid var(--card-border-color, #ddd);
   padding: 0.5rem;
   width: 100%;
 }
@@ -1563,7 +1564,7 @@ input[type=checkbox]:checked:before {
   object-fit: cover;
 }
 .card > .section.dark {
-  --back-color: #e0e0e0;
+  --card-back-color:#e0e0e0;
 }
 .card > .section.double-padded {
   padding: calc(1.5 * 0.5rem);
@@ -1572,13 +1573,13 @@ input[type=checkbox]:checked:before {
   border-bottom: 0;
 }
 .card.warning {
-  --back-color: #ffca28;
-  --border-color: #e8b825;
+  --card-back-color:#ffca28;
+  --card-border-color:#e8b825;
 }
 .card.error {
-  --back-color: #b71c1c;
-  --fore-color: #f8f8f8;
-  --border-color: #a71a1a;
+  --card-back-color:#b71c1c;
+  --card-fore-color:#f8f8f8;
+  --card-border-color:#a71a1a;
 }
 .card.fluid {
   max-width: 100%;

@@ -20,7 +20,9 @@ $colors: (
     // Text & foreground color
         "fore": #151515,
     // Background color
-        "back": #f8f8f8
+        "back": #f8f8f8,
+    // Border color
+        "border": #ddd
 );
 
 // Basic box model
@@ -42,16 +44,24 @@ $borders: (
 // Font stacks
 $font-stacks: (
     // Font stack for all elements
-        "base":
-        (-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Ubuntu, 'Helvetica Neue', Helvetica, sans-serif),
+        "base": (
+            -apple-system,
+            BlinkMacSystemFont,
+            "Segoe UI",
+            Roboto,
+            Ubuntu,
+            "Helvetica Neue",
+            Helvetica,
+            sans-serif
+        ),
     // Code font stack
         "code": (Menlo, Consolas, monospace),
     //  Font stack 'for <q> <figcaption> <blockquote>
         "caption":
-        (-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Ubuntu, 'Helvetica Neue', Helvetica, sans-serif),
+        (-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, sans-serif),
     // Heading font stack
         "heading":
-        (-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Ubuntu, 'Helvetica Neue', Helvetica, sans-serif)
+        (-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, sans-serif)
 );
 
 // Font sizes
@@ -73,7 +83,7 @@ $breakpoints: (
     // Medium/mobile screen breakpoint for grid.
         "medium": 768px,
     // Large screen breakpoint for grid.
-        "large": 1280px 
+        "large": 1280px
 );
 
 $line-height: 1.5; // Line height for most elements. Use a minimum value of 1.5 for line-height for main paragraph content.

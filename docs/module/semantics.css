@@ -40,7 +40,6 @@ h6, h5, h4, h3, h2, h1 {
 h6 small, h5 small, h4 small, h3 small, h2 small, h1 small {
   display: block;
   margin-top: -0.25rem;
-  font-size: 0.75em;
   line-height: 1.5;
 }
 

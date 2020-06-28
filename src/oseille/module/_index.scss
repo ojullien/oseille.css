@@ -31,9 +31,4 @@
         $padding: v.$universal-padding
         );
 @use 'grid';
-@use 'card' with (
-        $border-radius: v.$universal-border-radius,
-        $margin: v.$universal-margin,
-        $padding: v.$universal-padding,
-        $box-shadow: v.$universal-box-shadow
-    );
+@use 'card';

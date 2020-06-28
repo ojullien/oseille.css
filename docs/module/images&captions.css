@@ -1,3 +1,4 @@
+@charset "UTF-8";
 sub, sup {
   line-height: 0;
   position: relative;
@@ -26,49 +27,6 @@ body {
   --smaller: 0.75em;
   --fore-color: #dad5bc;
   --back-color: #222740;
-}
-
-/* Heading styling */
-h6, h5, h4, h3, h2, h1 {
-  padding: 0;
-  border: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, sans-serif;
-  font-weight: 500;
-  line-height: 1.2;
-  margin: calc(1.5 * 0.5rem) 0.5rem;
-  background: var(--heading-back-color, inherit);
-  color: var(--heading-fore-color, inherit);
-}
-h6 small, h5 small, h4 small, h3 small, h2 small, h1 small {
-  display: block;
-  margin-top: -0.25rem;
-  line-height: 1.5;
-  background: var(--subheading-back-color, inherit);
-  color: var(--subheading-fore-color, inherit);
-}
-
-h1 {
-  font-size: calc(1rem * 1.19 * 1.19 * 1.19 * 1.19);
-}
-
-h2 {
-  font-size: calc(1rem * 1.19 * 1.19 * 1.19);
-}
-
-h3 {
-  font-size: calc(1rem * 1.19 * 1.19);
-}
-
-h4 {
-  font-size: calc(1rem * 1.19);
-}
-
-h5 {
-  font-size: 1rem;
-}
-
-h6 {
-  font-size: calc(1rem / 1.19);
 }
 
 /* paragraph-level elements styling */
@@ -217,84 +175,81 @@ var {
   font-style: italic;
 }
 
-/* Mark styling*/
-mark {
+/* Figure styling */
+figcaption {
   margin: 0;
-  padding: calc(0.5rem / 4) calc(0.5rem / 2);
+  padding: 0;
   border: 0;
-  border-radius: 0.125rem;
-  background: #0277bd;
-  color: #f8f8f8;
-  font-size: 0.95em;
-  line-height: 1em;
-}
-mark.inline-block {
-  display: inline-block;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, sans-serif;
   font-size: 1em;
-  line-height: 1.5;
-  padding: calc(0.5rem / 2) 0.5rem;
-}
-mark.tag {
-  padding: calc(0.5rem / 2) 0.5rem;
-  border-radius: 1em;
-}
-mark.secondary {
-  background: #d32f2f;
-}
-mark.tertiary {
-  background: #308732;
-}
-mark:before, mark:after {
-  clip-path: inset(100%);
-  clip: rect(1px, 1px, 1px, 1px);
-  height: 1px;
-  overflow: hidden;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-mark:before {
-  content: " [highlight start] ";
-}
-mark:after {
-  content: " [highlight end] ";
+  text-align: left;
+  background: var(--caption-back-color, #222740);
+  color: var(--caption-fore-color, #dad5bc);
 }
 
-/* List styling */
-ol,
-ul {
+figure {
   padding: 0;
   border: 0;
   margin: 0.5rem;
-  padding-left: calc(2 * 0.5rem);
-}
-ol ul,
-ol ol,
-ul ul,
-ul ol {
-  margin-top: 0;
-  margin-bottom: 0;
 }
 
-li,
-dt,
-dd {
+/* Blockquote styling */
+cite, q {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, sans-serif;
+  font-style: inherit;
+  font-weight: inherit;
+  font-size: 1.25rem;
+  background: var(--caption-back-color, #222740);
+  color: var(--caption-fore-color, #dad5bc);
   margin: 0;
   padding: 0;
   border: 0;
 }
 
-dl {
-  border: 0;
-  margin: 0.5rem 0 0.5rem;
+blockquote {
+  display: block;
+  position: relative;
+  margin: 0.5rem;
+  padding: calc(3 * 0.5rem);
+  border: var(--px) solid #ddd;
+  border-left: calc(6 * var(--px)) solid var(--caption-sidebar-color, #f57c00);
+  border-radius: 0 0.125rem 0.125rem 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, sans-serif;
+  font-style: italic;
+  font-size: 1em;
+  background: var(--blockquote-back-color, #222740);
+  color: var(--blockquote-fore-color, #dad5bc);
+}
+blockquote:before {
+  position: absolute;
+  top: calc(0rem - 0.5rem);
+  left: 0;
+  font-family: sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  content: "“";
+  color: var(--caption-sidebar-color, #f57c00);
+}
+blockquote[cite]:after {
+  font-style: normal;
+  font-size: 1.25rem;
+  font-weight: 700;
+  content: "\a—  " attr(cite);
+  white-space: pre;
+}
+
+/* Multimedia resources styling */
+img {
+  margin: 0;
   padding: 0;
-  padding-left: calc(2 * 0.5rem);
+  border: 0;
 }
 
-dd {
-  padding-left: calc(2 * 0.5rem);
+img, picture {
+  max-width: 100%;
+  height: auto;
 }
 
-dt::after {
-  content: ": ";
+img {
+  border-style: none;
 }

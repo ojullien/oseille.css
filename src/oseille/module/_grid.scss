@@ -28,7 +28,7 @@ $_breakpoints: (
 $_include-parent-layout: true; // Flag for rows defining column layouts (`true`/`false`).
 $_column-count: 12; // Number of columns in the grid (integer value only).
 
-// Prefixes
+// Class names
 $_classnames: (
     // Class name for the grid system container.
         "container": "container",
@@ -62,7 +62,8 @@ $_classnames: (
         [class^="#{map.get($_classnames, "column")}-#{$size-prefix}-#{map.get($_classnames, "offset")}-"],
         .#{map.get($_classnames, "row")}[class*="#{map.get($_classnames, "row-parent")}-#{$size-prefix}-"] > * {
             box-sizing: border-box;
-            flex: 0 0 auto;
+            //flex: 0 0 auto;
+            flex: 1 1 auto;
             padding: 0 calc(#{map.get($_box-model, "padding")} / 2);
         }
 
@@ -78,7 +79,8 @@ $_classnames: (
         .#{map.get($_classnames, "column")}-#{$size-prefix},
         [class^="#{map.get($_classnames, "column")}-#{$size-prefix}-"],
         [class^="#{map.get($_classnames, "column")}-#{$size-prefix}-#{map.get($_classnames, "offset")}-"] {
-            flex: 0 0 auto;
+            //flex: 0 0 auto;
+            flex: 1 1 auto;
             padding: 0 calc(#{map.get($_box-model, "padding")} / 2);
         }
 
@@ -132,6 +134,7 @@ $_classnames: (
 /* Fluid grid system container styling */
 
 .#{map.get($_classnames, "container")} {
+    flex-wrap: wrap;
     margin: 0 auto;
     padding: 0 calc(1.5 * #{map.get($_box-model, "padding")});
 }

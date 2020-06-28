@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Images & captions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="images&captions.css" rel="stylesheet" type="text/css" />
+</head>
+<style>
+    .container, .container-fluid {
+        margin: 0 auto;
+        padding: 0 calc(0.5rem * 2);
+    }
+    .container {
+        max-width: 80vw;
+    }
+</style>
+<body>
+
+    <div class="container">
+
+        <header>
+            <h1>IMAGES & CAPTIONS</h1>
+        </header>
+
+        <main>
+
+            <section>
+                <h2>Images & captions</h2>
+                <figure>
+                    <img src="https://placehold.it/800x600" alt="placeholder">
+                    <figcaption class="doc">Image caption</figcaption>
+                </figure>
+            </section>
+
+            <section>
+                <h2>Code snippets</h2>
+<figure>
+  <figcaption>Get browser details using <code>navigator</code>.</figcaption>
+  <pre>
+function NavigatorExample() {
+  var txt;
+  txt = "Browser CodeName: " + navigator.appCodeName + "; ";
+  txt+= "Browser Name: " + navigator.appName + "; ";
+  txt+= "Browser Version: " + navigator.appVersion  + "; ";
+  txt+= "Cookies Enabled: " + navigator.cookieEnabled  + "; ";
+  txt+= "Platform: " + navigator.platform  + "; ";
+  txt+= "User-agent header: " + navigator.userAgent  + "; ";
+  console.log("NavigatorExample", txt);
+}
+  </pre>
+</figure>
+            </section>
+
+            <section>
+                <h2>Quotations</h2>
+                <figure>
+                    <figcaption><cite>Edsger Dijkstra:</cite></figcaption>
+                    <blockquote>If debugging is the process of removing software bugs,
+                    then programming must be the process of putting them in.</blockquote>
+                </figure>
+            </section>
+            
+            <section>
+                <h2>Poems</h2>
+                <figure>
+                  <p style="white-space:pre">
+                Bid me discourse, I will enchant thine ear,
+                  Or like a fairy trip upon the green,
+                Or, like a nymph, with long dishevell'd hair,
+                  Dance on the sands, and yet no footing seen:
+                Love is a spirit all compact of fire,
+                  Not gross to sink, but light, and will aspire.</p>
+                  <figcaption><cite>Venus and Adonis</cite>,
+                    by William Shakespeare</figcaption>
+                </figure>
+            </section>
+            
+        </main>
+
+     </div>
+
+</body>
+
+<script type="text/javascript">
+    document.body.onload = () => {
+        var sFontSize = window.getComputedStyle(document.body, null).getPropertyValue("font-size");
+        var iRatio = 1 / sFontSize.substring(0, sFontSize.length - 2);
+        document.documentElement.style.setProperty('--px', iRatio + "rem");
+    }
+</script>
+
+</html>
