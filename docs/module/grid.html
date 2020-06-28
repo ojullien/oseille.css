@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Grid</title>
+    <title>Grid system</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="grid.css" rel="stylesheet" type="text/css" />
 </head>
@@ -11,7 +11,7 @@
     .wrapper {
         margin: 0 auto;
         padding: 0 calc(0.5rem * 2);
-        max-width: 80vw;
+        max-width: 95vw;
     }
 
     .box-colored {
@@ -29,13 +29,13 @@
     <div class="wrapper">
 
         <header>
-            <h1>Grid</h1>
+            <h1>Grid system</h1>
         </header>
 
         <main>
 
             <section>
-                <h2>Un</h2>
+                <h2>Grid system</h2>
                 <div class="container" style="padding: 0.25rem">
                     <div class="row">
                         <div class="col-sm-1">
@@ -102,7 +102,7 @@
             </section>
 
             <section>
-                <h2>Deux</h2>
+                <h2>Screen sizes and width</h2>
                 <div class="container" style="padding: 0.25rem">
                     <div class="row">
                         <div class="col-sm-12 col-md">
@@ -160,7 +160,7 @@
             </section>
 
             <section>
-                <h2>Trois</h2>
+                <h2>Column offsets</h2>
                 <div class="container" style="padding: 0.25rem">
                     <div class="row">
                         <div class="col-sm col-sm-offset-11">
@@ -220,6 +220,50 @@
                     <div class="row">
                         <div class="col-sm col-sm-offset-0">
                             <div class="box-colored">0</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Column reordering</h2>
+                <div class="container" style="padding: 0.25rem">
+                    <div class="row">
+                        <div class="col-sm-12 col-md">
+                            <div class="row">
+                                <div class="col-sm">
+                                    <h6 style="text-align:center">Small screen layout</h6>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="box-colored">md-last</div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="box-colored">&nbsp;</div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="box-colored">md-first</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md">
+                            <div class="row">
+                                <div class="col-sm">
+                                    <h6 style="text-align:center">Medium/Large screen layout</h6>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="box-colored">md-first</div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="box-colored">&nbsp;</div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="box-colored">md-last</div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

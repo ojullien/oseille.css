@@ -36,11 +36,15 @@ h6, h5, h4, h3, h2, h1 {
   font-weight: 500;
   line-height: 1.2;
   margin: calc(1.5 * 0.5rem) 0.5rem;
+  background: var(--heading-back-color, inherit);
+  color: var(--heading-fore-color, inherit);
 }
 h6 small, h5 small, h4 small, h3 small, h2 small, h1 small {
   display: block;
   margin-top: -0.25rem;
   line-height: 1.5;
+  background: var(--subheading-back-color, inherit);
+  color: var(--subheading-fore-color, inherit);
 }
 
 h1 {
@@ -67,6 +71,7 @@ h6 {
   font-size: calc(1rem / 1.19);
 }
 
+/* paragraph-level elements styling */
 hr {
   box-sizing: content-box;
   border: 0;

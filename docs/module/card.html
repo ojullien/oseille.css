@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Cards</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="card.css" rel="stylesheet" type="text/css" />
+</head>
+<style>
+    .wrapper {
+        margin: 0 auto;
+        padding: 0 calc(0.5rem * 2);
+        max-width: 95vw;
+    }
+</style>
+
+<body>
+
+    <div class="wrapper">
+
+        <header>
+            <h1>Cards</h1>
+        </header>
+
+        <main>
+
+            <section>
+                <h2>Card</h2>
+                <div class="container" style="padding: 0.25rem">
+                    <div class="row">
+                        <div class="card">
+                            <div class="section">
+                                <h3 class="doc">Card 1</h3>
+                                <p class="doc">This is a basic card with some sample content.</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="section">
+                                <h3 class="doc">Card 2</h3>
+                                <p class="doc">This is another card with some sample content.</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="section">
+                                <h3 class="doc">Card 3</h3>
+                                <p class="doc">This is one more card with some sample content.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Cards Modifiers</h2>
+                <div class="container" style="padding: 0.25rem">
+                    <div class="row">
+                        <div class="card small">
+                            <div class="section">
+                                <h3 class="doc">Small Card</h3>
+                                <p class="doc">Small cards are <code>240px</code> wide.</p>
+                            </div>
+                        </div>
+                        <div class="card large">
+                            <div class="section">
+                                <h3 class="doc">Large Card</h3>
+                                <p class="doc">Large cards are <code>480px</code> wide.</p>
+                            </div>
+                        </div>
+                        <div class="col-sm-12 col-md-10 col-lg-8">
+                            <div class="card fluid" style="margin: 0.5rem 0.25rem;">
+                                <div class="section">
+                                    <h3 class="doc">Fluid Card</h3>
+                                    <p class="doc">Fluid cards scale their width based on the column that contains them.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Color variants</h2>
+                <div class="container" style="padding: 0.25rem">
+                    <div class="row">
+                        <div class="card warning">
+                            <div class="section">
+                                <h3 class="doc">Warning Card</h3>
+                                <p class="doc">Warning cards are used to display important information to users.</p>
+                            </div>
+                        </div>
+                        <div class="card error">
+                            <div class="section">
+                                <h3 class="doc">Error Card</h3>
+                                <p class="doc">Error cards are used to display error messages to users.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Card sections</h2>
+                <div class="container" style="padding: 0.25rem">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="card fluid" style="margin: 0.5rem 0.25rem">
+                                <h3 class="doc section">Title section</h3>
+                                <p class="doc section">This is a section with some textual content.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Card Media sections</h2>
+                <div class="container" style="padding: 0.25rem;">
+                    <div class="row">
+                        <div class="card">
+                            <div class="section">
+                                <h3 class="doc">Card with image</h3>
+                            </div><img class="section media" src="https://placehold.it/800x600" alt="placeholder">
+                        </div>
+                        <div class="card">
+                            <div class="section">
+                                <h3 class="doc">Card with video</h3>
+                            </div><iframe class="section media" width="1280" height="720" src="https://www.youtube.com/embed/ScMzIvxBSi4"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Card Color variants</h2>
+                <div class="container" style="padding: 0.25rem;">
+                    <div class="row">
+                        <div class="card">
+                            <div class="section">
+                                <h3 class="doc">Normal section</h3>
+                            </div>
+                            <div class="section dark">
+                                <h3 class="doc">Dark section</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>Card Additional spacing</h2>
+                <div class="container" style="padding: 0.25rem;">
+                    <div class="row">
+                        <div class="card">
+                            <div class="section">
+                                <h3 class="doc">Normal spacing</h3>
+                            </div>
+                            <div class="section double-padded">
+                                <h3 class="doc">Additional spacing</h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+
+        </main>
+
+    </div>
+
+</body>
+
+<script type="text/javascript">
+    document.body.onload = () => {
+        var sFontSize = window.getComputedStyle(document.body, null).getPropertyValue("font-size");
+        var iRatio = 1 / sFontSize.substring(0, sFontSize.length - 2);
+        document.documentElement.style.setProperty('--px', iRatio + "rem");
+    }
+</script>
+
+</html>
