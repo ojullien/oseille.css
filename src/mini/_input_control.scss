@@ -7,22 +7,14 @@ $_include-fluid-input-group: true !default; // [Hidden] Should fluid input group
 $input-group-fluid-name: "fluid" !default; // Class name for fluid input groups.
 $input-group-vertical-name: "vertical" !default; // Class name for vertical input groups.
 $input-group-mobile-breakpoint: 767px !default; // Breakpoint for fluid input group mobile view.
-$button-class-name: "button" !default; // Class name for elements styled as buttons.
+
 $input-disabled-opacity: 0.75 !default; // Opacity for input elements when disabled.
-$button-group-name: "button-group" !default; // Class name for button groups.
-$button-group-mobile-breakpoint: 767px !default; // Mobile breakpoint for button groups.
 
 $input-back-color: #f8f8f8 !default; // Background color for input elements.
 $input-fore-color: #111 !default; // Text color for input elements.
 $input-border-color: #ddd !default; // Border color for input elements.
 $input-focus-color: #0288d1 !default; // Border color for focused input elements.
 $input-invalid-color: #d32f2f !default; // Border color for invalid input elements.
-$button-back-color: #e2e2e2 !default; // Background color for buttons.
-$button-hover-back-color: #dcdcdc !default; // Background color for buttons (hover).
-$button-fore-color: #212121 !default; // Text color for buttons.
-$button-border-color: transparent !default; // Border color for buttons.
-$button-hover-border-color: transparent !default; // Border color for buttons (hover).
-$button-group-border-color: rgba(124, 124, 124, 0.54) !default; // Border color for button groups.
 
 // == Uncomment below code if this module is used on its own ==
 //
@@ -193,62 +185,12 @@ option {
     opacity: 0.54;
 }
 // Definitions for the button and button-like elements.
-// Different elements are styled based on the same set of rules.
-// Reset for Firefox focusing on button elements.
-button::-moz-focus-inner,
-[type="button"]::-moz-focus-inner,
-[type="reset"]::-moz-focus-inner,
-[type="submit"]::-moz-focus-inner {
-    border-style: none;
-    padding: 0;
-}
-// Fixes for Android 4, iOS and Safari.
-button,
-html [type="button"],
-[type="reset"],
-[type="submit"] {
-    -webkit-appearance: button;
-}
-// Other fixes.
-button {
-    overflow: visible; // Show the overflow in IE.
-    text-transform: none; // Remove inheritance of text-transform in Edge, Firefox, and IE.
-}
-// Default styling
-button,
-[type="button"],
-[type="submit"],
-[type="reset"],
-a.#{$button-class-name},
-label.#{$button-class-name},
-.#{$button-class-name},
-a[role="button"],
-label[role="button"],
-[role="button"] {
-    display: inline-block;
-    background: var(#{$button-back-color-var});
-    color: var(#{$button-fore-color-var});
-    border: $__1px solid var(#{$button-border-color-var});
-    border-radius: var(#{$universal-border-radius-var});
-    padding: var(#{$universal-padding-var}) calc(1.5 * var(#{$universal-padding-var}));
-    margin: var(#{$universal-margin-var});
-    text-decoration: none;
-    cursor: pointer;
-    transition: background 0.3s;
-    &:hover,
-    &:focus {
-        background: var(#{$button-hover-back-color-var});
-        border-color: var(#{$button-hover-border-color-var});
-    }
-}
+
 
 // Disabled styling for input and button elements.
 input,
 textarea,
-select,
-button,
-.#{$button-class-name},
-[role="button"] {
+select {
     // .button[disabled] is actually higher specificity than a.button, so no need for more than that
     &:disabled,
     &[disabled] {
@@ -256,38 +198,4 @@ button,
         opacity: $input-disabled-opacity;
     }
 }
-// Button group styling.
-.#{$button-group-name} {
-    display: flex;
-    border: $__1px solid var(#{$button-group-border-color-var});
-    border-radius: var(#{$universal-border-radius-var});
-    margin: var(#{$universal-margin-var});
-    @if $universal-box-shadow != none {
-        box-shadow: var(#{$universal-box-shadow-var});
-    }
-    & > button,
-    [type="button"],
-    & > [type="submit"],
-    & > [type="reset"],
-    & > .#{$button-class-name},
-    & > [role="button"] {
-        margin: 0;
-        max-width: 100%;
-        flex: 1 1 auto;
-        text-align: center;
-        border: 0;
-        border-radius: 0;
-        box-shadow: none;
-    }
-    & > :not(:first-child) {
-        border-left: $__1px solid var(#{$button-group-border-color-var});
-    }
-    // Responsiveness for button groups
-    @media screen and (max-width: #{$button-group-mobile-breakpoint}) {
-        flex-direction: column;
-        & > :not(:first-child) {
-            border: 0; // Reapply to remove the left border from elements.
-            border-top: $__1px solid var(#{$button-group-border-color-var});
-        }
-    }
-}
+

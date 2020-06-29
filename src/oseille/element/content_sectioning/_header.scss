@@ -78,6 +78,14 @@ header {
     overflow-x: auto;
     overflow-y: hidden;
 
+    // Fix for responsive header, using the grid system's row and column alignment.
+    &.#{map.get($_classnames, "row")} {
+        box-sizing: content-box;
+        & .#{map.get($_classnames, "logo")} {
+            line-height: 1;
+        }
+    }
+
     // Header logo styling.
     .#{map.get($_classnames, "logo")} {
         color: map.get($_colors, "fore");
@@ -98,13 +106,18 @@ header {
             0rem - #{map.get($_box-model, "padding")} / 4
         ); // Use universal-padding to offset the padding of the header.
         height: calc(#{$_height} + #{map.get($_box-model, "padding")} / 2); // Fill header.
-        background: map.get($_colors, "back"); // Apply color regardless to override styling from other things.
+
         line-height: calc(#{$_height} - #{map.get($_box-model, "padding")} * 1.5);
+
         text-align: center;
-        color: map.get($_colors, "fore");
+
+        background: inherit; // Apply color regardless to override styling from other things.
+        color: inherit;
+
         border: 0;
         border-radius: 0;
         margin: 0;
+
         @if $_links-uppercase {
             text-transform: uppercase;
         }
@@ -117,6 +130,7 @@ header {
         &:hover,
         &:focus {
             background: map.get($_colors, "hover-back");
+            font-weight: bolder; // Accessibility
         }
     }
 

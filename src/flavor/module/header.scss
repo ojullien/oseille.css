@@ -1,5 +1,6 @@
 //
 @use 'sass:map';
+@use 'sass:color';
 @use '../../oseille/common/variables' as v;
 //
 $colors: (
@@ -15,4 +16,24 @@ $colors: (
 //
 @use '../../oseille/module/grid';
 //
-@use '../../oseille/element/content_sectioning/header';
+@use '../../oseille/element/inline_text_semantic/text' with (
+    $_colors: (
+    // Color for <a>:link
+        "link": #f7e7be,
+    // Color for <a>:visited
+        "visited": #aa9a71
+)
+);
+//
+@use '../../oseille/element/content_sectioning/header' with (
+    $_colors: (
+        // Text & foreground color
+            "back": #222740,
+        // Background color
+            "fore": #dad5bc,
+        // Background color for the header element (hover).
+            "hover-back": color.adjust(#222740, $red: -8, $blue: -8, $green: -8),
+        // Border color for the header element.
+            "border": #ddd
+    )
+);

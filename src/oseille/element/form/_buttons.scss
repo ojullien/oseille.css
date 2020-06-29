@@ -1,11 +1,169 @@
 //
-// HTML provides a number of elements which can be used together to create forms which the user can fill out and
-// submit to the Web site or application.
+// The HTML <button> element represents a clickable button, used to submit forms or anywhere in a document for
+// accessible, standard button functionality. By default, HTML buttons are presented in a style resembling the
+// platform the user agent runs on, but you can change buttons’ appearance with CSS.
 //
+@use 'sass:map';
+@use '../common/stdlib';
 
-// Public variables
+// Variables.
+//
+// To load this module with configuration, use @use <url> with (<variable>: <value>, <variable>: <value>).
+// The configured values will override the variables’ default values.
+// @link: https://sass-lang.com/documentation/variables
 
-// Private variables
+// Basic box model
+$_box-model: (
+    // Padding: creates extra space within an element.
+        "padding": 0.5rem,
+    // Margins: create extra space around an element.
+        "margin": 0.5rem
+) !default;
 
-// Button styling
+// Borders
+$_borders: (
+    // radius: rounds the corners of an element's outer border edge.
+        "radius": 0.125rem,
+    // shadow: adds shadow effects around an element's frame.
+        "shadow": none
+) !default;
 
+$_colors: (
+    // Text color for buttons.
+        "fore": #151515,
+    // Background color for buttons.
+        "back": #e2e2e2,
+    // Background color for buttons (hover).
+        "hover-back": #dcdcdc,
+    // Border color for buttons.
+        "border": transparent,
+    // Border color for buttons (hover).
+        "hover-border": transparent,
+    // Border color for button groups.
+        "group-border": rgba(124, 124, 124, 0.54)
+) !default;
+
+// Classes names
+$_classnames: (
+    // Class name for elements styled as buttons.
+        "button": "button",
+    // Class name for button groups.
+        "group": "button-group"
+);
+
+$_mobile-breakpoint: 767px !default; // Mobile breakpoint for button groups.
+$_disabled-opacity: 0.75; // Opacity for input elements when disabled.
+
+/* Button and button-like styling */
+
+// Different elements are styled based on the same set of rules.
+// Reset for Firefox focusing on button elements.
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="file"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+    border-style: none;
+    padding: 0;
+}
+
+// Fixes for Android 4, iOS and Safari.
+button,
+html [type="button"],
+[type="reset"],
+[type="file"],
+[type="submit"] {
+    -webkit-appearance: button;
+}
+
+// Other fixes.
+button {
+    overflow: visible; // Show the overflow in IE.
+    text-transform: none; // Remove inheritance of text-transform in Edge, Firefox, and IE.
+}
+
+button,
+[type="button"],
+[type="submit"],
+[type="file"],
+[type="reset"],
+a.#{map.get($_classnames, "button")},
+label.#{map.get($_classnames, "button")},
+.#{map.get($_classnames, "button")},
+a[role="button"],
+label[role="button"],
+[role="button"] {
+    display: inline-block;
+
+    background: var(--button-back-color, #{map.get($_colors, "back")}); // Allows live color tunning
+    color: var(--button-fore-color, #{map.get($_colors, "fore")}); // Allows live color tunning
+
+    border: var(--px) solid var(--button-border-color, #{map.get($_colors, "border")});
+    border-radius: map.get($_borders, "radius");
+
+    padding: #{map.get($_box-model, "padding")} calc(1.5 * #{map.get($_box-model, "padding")});
+    margin: map.get($_box-model, "margin");
+
+    text-decoration: none;
+    cursor: pointer;
+    transition: background 0.3s;
+
+    &:hover,
+    &:focus {
+        background: var(--button-hover-back-color, #{map.get($_colors, "hover-back")});
+        border-color: var(--button-hover-border-color, #{map.get($_colors, "hover-border")});
+    }
+}
+
+// Disabled styling button elements.
+button,
+.#{map.get($_classnames, "button")},
+[role="button"] {
+    // .button[disabled] is actually higher specificity than a.button, so no need for more than that
+    &:disabled,
+    &[disabled] {
+        cursor: not-allowed;
+        opacity: $_disabled-opacity;
+    }
+}
+
+// Button group styling.
+.#{map.get($_classnames, "group")} {
+    display: flex;
+
+    border: var(--px) solid var(--button-group-border-color, #{map.get($_colors, "group-border")});
+    border-radius: map.get($_borders, "radius");
+
+    margin: map.get($_box-model, "margin");
+
+    @include stdlib.box-shadow(map.get($_borders, "shadow"));
+
+    & > button,
+    [type="button"],
+    & > [type="submit"],
+    & > [type="reset"],
+    & > [type="file"],
+    & > .#{map.get($_classnames, "button")},
+    & > [role="button"] {
+        margin: 0;
+        max-width: 100%;
+        flex: 1 1 auto;
+        text-align: center;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    & > :not(:first-child) {
+        border-left: var(--px) solid var(--button-group-border-color, #{map.get($_colors, "group-border")});
+    }
+
+    // Responsiveness for button groups
+    @media screen and (max-width: #{$_mobile-breakpoint}) {
+        flex-direction: column;
+        & > :not(:first-child) {
+            border: 0; // Reapply to remove the left border from elements.
+            border-top: var(--px) solid var(--button-group-border-color, #{map.get($_colors, "group-border")});
+        }
+    }
+}

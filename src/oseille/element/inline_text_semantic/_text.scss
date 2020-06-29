@@ -14,7 +14,7 @@
 // Font sizes
 $_font-sizes: (
     // Font size for small element  ( <small>, <sub>, <sup>, <figcaption>)
-    "small": 0.75em,
+        "small": 0.75em
 ) !default;
 
 // Link colors
@@ -51,6 +51,13 @@ $_bold-font-weight: 700; // Font weight for <b> and <strong>
     padding: 0;
     border: 0;
     font-size: 1em;
+}
+
+// Prevent element from affecting the line height in all browsers.
+%_normalize-line-height {
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
 }
 
 a {
@@ -135,12 +142,12 @@ small {
 
 sub {
     @extend %_normalize_small;
-    @extend %normalize-line-height;
+    @extend %_normalize-line-height;
     bottom: map.get($_box-model, "bottom");
 }
 
 sup {
     @extend %_normalize_small;
-    @extend %normalize-line-height;
+    @extend %_normalize-line-height;
     top: map.get($_box-model, "top");
 }

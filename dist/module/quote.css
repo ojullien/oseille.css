@@ -1,10 +1,4 @@
 @charset "UTF-8";
-sub, sup {
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-
 /* Top level styling */
 html {
   scroll-behavior: smooth;
@@ -66,6 +60,12 @@ strong, abbr[title], a {
   padding: 0;
   border: 0;
   font-size: 1em;
+}
+
+sup, sub {
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
 }
 
 a {

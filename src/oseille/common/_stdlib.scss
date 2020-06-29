@@ -22,13 +22,6 @@
     @return "calc(#{$base}#{$sCalc})";
 }
 
-// Prevent element from affecting the line height in all browsers.
-%normalize-line-height {
-    line-height: 0;
-    position: relative;
-    vertical-align: baseline;
-}
-
 // @todo Add comment
 @mixin box-shadow($box-shadow: none) {
     @if $box-shadow != none {
