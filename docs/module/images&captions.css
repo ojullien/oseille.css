@@ -1,10 +1,4 @@
 @charset "UTF-8";
-sub, sup {
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-
 /* Top level styling */
 html {
   scroll-behavior: smooth;
@@ -68,6 +62,12 @@ strong, abbr[title], a {
   font-size: 1em;
 }
 
+sup, sub {
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
 a {
   font-family: inherit;
   text-decoration: none;
@@ -80,6 +80,7 @@ a:visited {
 }
 a:not(.button):hover, a:not(.button):focus {
   box-shadow: 0 2px;
+  font-weight: bolder;
 }
 
 abbr[title] {

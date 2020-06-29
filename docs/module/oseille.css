@@ -1,10 +1,4 @@
 @charset "UTF-8";
-sub, sup {
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-
 /* Top level styling */
 html {
   scroll-behavior: smooth;
@@ -99,6 +93,12 @@ header {
   overflow-x: auto;
   overflow-y: hidden;
 }
+.page-header.row {
+  box-sizing: content-box;
+}
+.page-header.row .logo {
+  line-height: 1;
+}
 .page-header .logo {
   color: #151515;
   font-size: 1.75rem;
@@ -114,10 +114,10 @@ header {
   position: relative;
   top: calc( 0rem - 0.5rem / 4 );
   height: calc(3.1875rem + 0.5rem / 2);
-  background: #f8f8f8;
   line-height: calc(3.1875rem - 0.5rem * 1.5);
   text-align: center;
-  color: #151515;
+  background: inherit;
+  color: inherit;
   border: 0;
   border-radius: 0;
   margin: 0;
@@ -131,6 +131,7 @@ header {
 .page-header [role=button]:hover,
 .page-header [role=button]:focus {
   background: #f0f0f0;
+  font-weight: bolder;
 }
 .page-header.sticky {
   position: -webkit-sticky;
@@ -359,6 +360,12 @@ strong, abbr[title], a {
   padding: 0;
   border: 0;
   font-size: 1em;
+}
+
+sup, sub {
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
 }
 
 a {

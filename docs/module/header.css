@@ -482,6 +482,88 @@ body {
     order: 999;
   }
 }
+/* Inline text semantic styling */
+sup, sub, small {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-family: inherit;
+  font-size: var(--smaller, 0.75em);
+}
+
+s, dfn,
+del,
+em,
+i,
+ins,
+span,
+u, data, b,
+strong, abbr[title], a {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 1em;
+}
+
+sup, sub {
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+a {
+  font-family: inherit;
+  text-decoration: none;
+}
+a:link {
+  color: var(--link-color, #f7e7be);
+}
+a:visited {
+  color: var(--visited-link-color, #aa9a71);
+}
+a:not(.button):hover, a:not(.button):focus {
+  box-shadow: 0 2px;
+}
+
+abbr[title] {
+  border-bottom: none;
+  text-decoration: underline dotted;
+}
+
+b,
+strong {
+  font-weight: 700;
+}
+
+data:hover:after {
+  content: " (ID " attr(value) ")";
+  font-size: 0.7em;
+}
+
+s:before, s:after {
+  clip-path: inset(100%);
+  clip: rect(1px, 1px, 1px, 1px);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+s:before {
+  content: " [start of stricken text] ";
+}
+s:after {
+  content: " [end of stricken text] ";
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
 /* Header styling */
 header {
   margin: 0;
@@ -491,16 +573,22 @@ header {
 
 .page-header {
   height: 3.1875rem;
-  background: #f8f8f8;
-  color: #151515;
+  background: #222740;
+  color: #dad5bc;
   border-bottom: var(--px) solid #ddd;
   padding: calc(0.5rem / 4) 0;
   white-space: nowrap;
   overflow-x: auto;
   overflow-y: hidden;
 }
+.page-header.row {
+  box-sizing: content-box;
+}
+.page-header.row .logo {
+  line-height: 1;
+}
 .page-header .logo {
-  color: #151515;
+  color: #dad5bc;
   font-size: 1.75rem;
   padding: 0.5rem calc(2 * 0.5rem);
   text-decoration: none;
@@ -514,10 +602,10 @@ header {
   position: relative;
   top: calc( 0rem - 0.5rem / 4 );
   height: calc(3.1875rem + 0.5rem / 2);
-  background: #f8f8f8;
   line-height: calc(3.1875rem - 0.5rem * 1.5);
   text-align: center;
-  color: #151515;
+  background: inherit;
+  color: inherit;
   border: 0;
   border-radius: 0;
   margin: 0;
@@ -530,7 +618,8 @@ header {
 .page-header .button:focus,
 .page-header [role=button]:hover,
 .page-header [role=button]:focus {
-  background: #f0f0f0;
+  background: #1a1f38;
+  font-weight: bolder;
 }
 .page-header.sticky {
   position: -webkit-sticky;
