@@ -5,21 +5,29 @@
     <meta charset="utf-8">
     <title>semantics</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="semantics.css" rel="stylesheet" type="text/css" />
-</head>
+    <link href="semantics.css" rel="stylesheet" type="text/css" id="local-css" />
+    <link href="oseille.css" rel="stylesheet" type="text/css" id="oseille-css" disabled />
+</head> 
 <style>
-    .container, .container-fluid {
+    .wrapper {
         margin: 0 auto;
         padding: 0 calc(0.5rem * 2);
-    }
-    .container {
         max-width: 95vw;
     }
 </style>
 <body>
 
-    <div class="container">
+    <div class="wrapper">
 
+        <div style="min-height: 100%; display: flex; flex-direction: row-reverse; justify-content: center; align-items: center; text-align: center; position: sticky; top: 10px;">
+            <input style="" type="radio" id="radio-local-css" name="css" value="1" onchange="switchToLocal();" checked />
+            <label style="" for="radio-local-css">Local</label>
+            <input style="" type="radio" id="radio-oseille-css" name="css" value="2" onchange="switchToOseille();" />
+            <label style="" for="radio-oseille-css">Oseille</label>
+            <input style="" type="radio" id="radio-nosheet-css" name="css" value="3" onchange="switchToNoSheet();" />
+            <label style="" for="radio-nosheet-css">No Sheet</label>
+        </div>
+        
         <header>
             <h1>SEMANTICS</h1>
         </header>
@@ -36,7 +44,7 @@
                 <h6>Heading 6 <small>Subheading</small></h6>
                 <hr>
             </section>
-        
+
             <section>
                 <h2 id="inline">Inline texts</h2>
                 <p>
@@ -121,7 +129,19 @@ MD5 ("Hello world") = 3e25960a79dbc69b674cd4ec67a72c62
         var sFontSize = window.getComputedStyle(document.body, null).getPropertyValue("font-size");
         var iRatio = 1 / sFontSize.substring(0, sFontSize.length - 2);
         document.documentElement.style.setProperty('--px', iRatio + "rem");
-    }
+    };
+    function switchToLocal() {
+        document.querySelector("#oseille-css").disabled=true;
+        document.querySelector("#local-css").removeAttribute('disabled');
+    };
+    function switchToOseille() {
+        document.querySelector("#local-css").disabled=true;
+        document.querySelector("#oseille-css").removeAttribute('disabled');            
+    };
+    function switchToNoSheet() {
+        document.querySelector("#oseille-css").disabled=true;
+        document.querySelector("#local-css").disabled=true;
+    };    
 </script>
 
 </html>

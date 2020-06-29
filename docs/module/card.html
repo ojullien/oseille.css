@@ -5,7 +5,8 @@
     <meta charset="utf-8">
     <title>Cards</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="card.css" rel="stylesheet" type="text/css" />
+    <link href="card.css" rel="stylesheet" type="text/css" id="local-css" />
+    <link href="oseille.css" rel="stylesheet" type="text/css" id="oseille-css" disabled />
 </head>
 <style>
     .wrapper {
@@ -18,6 +19,15 @@
 <body>
 
     <div class="wrapper">
+
+        <div style="min-height: 100%; display: flex; flex-direction: row-reverse; justify-content: center; align-items: center; text-align: center; position: sticky; top: 10px;">
+            <input style="" type="radio" id="radio-local-css" name="css" value="1" onchange="switchToLocal();" checked />
+            <label style="" for="radio-local-css">Local</label>
+            <input style="" type="radio" id="radio-oseille-css" name="css" value="2" onchange="switchToOseille();" />
+            <label style="" for="radio-oseille-css">Oseille</label>
+            <input style="" type="radio" id="radio-nosheet-css" name="css" value="3" onchange="switchToNoSheet();" />
+            <label style="" for="radio-nosheet-css">No Sheet</label>
+        </div>
 
         <header>
             <h1>Cards</h1>
@@ -176,7 +186,19 @@
         var sFontSize = window.getComputedStyle(document.body, null).getPropertyValue("font-size");
         var iRatio = 1 / sFontSize.substring(0, sFontSize.length - 2);
         document.documentElement.style.setProperty('--px', iRatio + "rem");
-    }
+    };
+    function switchToLocal() {
+        document.querySelector("#oseille-css").disabled=true;
+        document.querySelector("#local-css").removeAttribute('disabled');
+    };
+    function switchToOseille() {
+        document.querySelector("#local-css").disabled=true;
+        document.querySelector("#oseille-css").removeAttribute('disabled');
+    };
+    function switchToNoSheet() {
+        document.querySelector("#oseille-css").disabled=true;
+        document.querySelector("#local-css").disabled=true;
+    };
 </script>
 
 </html>
