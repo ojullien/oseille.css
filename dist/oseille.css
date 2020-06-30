@@ -43,6 +43,7 @@ h6, h5, h4, h3, h2, h1 {
   margin: calc(1.5 * 0.5rem) 0.5rem;
   background: var(--heading-back-color, inherit);
   color: var(--heading-fore-color, inherit);
+  text-rendering: optimizeLegibility;
 }
 h6 small, h5 small, h4 small, h3 small, h2 small, h1 small {
   display: block;
@@ -337,6 +338,7 @@ hr {
 p {
   padding: 0;
   margin: 0.5rem;
+  text-rendering: optimizeLegibility;
 }
 
 /* Inline text semantic styling */

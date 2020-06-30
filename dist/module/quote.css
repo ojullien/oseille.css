@@ -37,6 +37,7 @@ hr {
 p {
   padding: 0;
   margin: 0.5rem;
+  text-rendering: optimizeLegibility;
 }
 
 /* Inline text semantic styling */

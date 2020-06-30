@@ -39,4 +39,5 @@ hr {
 p {
     padding: 0;
     margin: map.get($_box-model, "margin");
+    text-rendering: optimizeLegibility;
 }

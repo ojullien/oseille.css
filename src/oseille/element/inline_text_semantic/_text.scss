@@ -63,7 +63,8 @@ $_bold-font-weight: 700; // Font weight for <b> and <strong>
 a {
     @extend %_normalize;
     font-family: inherit; // Fix for elements inside headings not displaying properly.
-    text-decoration: none;
+
+    text-decoration: none; // We remove it but we provide alternative styling.
 
     &:link {
         color: var(--link-color, map.get($_colors, "link")); // Allows live color tunning
