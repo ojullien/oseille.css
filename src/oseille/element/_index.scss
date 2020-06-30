@@ -42,6 +42,7 @@
     $padding: v.$universal-padding,
     $mobile-breakpoint: v.$mobile-breakpoint
     );
+@use 'form/buttons';
 @use 'form/form' with (
     $border-radius: v.$universal-border-radius,
     $box-shadow: v.$universal-box-shadow,

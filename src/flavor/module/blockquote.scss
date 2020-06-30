@@ -1,0 +1,29 @@
+//
+@use 'sass:map';
+@use '../../oseille/common/variables' as v;
+//
+$colors: (
+    // Text & foreground color
+        "back": #222740,
+    // Background color
+        "fore": #dad5bc
+);
+//
+@use '../../oseille/element/text_content/blockquote' with (
+    $_colors: (
+        // Text color for <mark>
+            "fore": map.get($colors,"fore"),
+        // Background colors for <mark>
+            "back": map.get($colors,"back"),
+        // <blockquote> sidebar and quotation color
+            "sidebar": #f57c00,
+        // Border color for the <blockquote> element.
+            "border": #ddd
+    ),
+    $_font-sizes: (
+        // Font size for the [cite] of <blockquote>
+            "cite": 1.25rem,
+        // Font size for the quotation of <blockquote>
+            "quotation": 3rem
+    )    
+);

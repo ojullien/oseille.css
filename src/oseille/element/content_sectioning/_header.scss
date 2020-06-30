@@ -140,11 +140,4 @@ header {
         z-index: 1101; // Deals with certain problems when combined with cards and tables.
         top: 0;
     }
-
-    &.#{map.get($_classnames, "row")} {
-        box-sizing: content-box;
-        & .#{map.get($_classnames, "logo")} {
-            line-height: 1;
-        }
-    }
 }
