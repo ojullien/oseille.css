@@ -1,27 +1,3 @@
-/* Top level styling */
-html {
-  scroll-behavior: smooth;
-  font-size: 100%;
-  line-height: 1.5;
-  -webkit-text-size-adjust: 100%;
-  -moz-text-size-adjust: 100%;
-  text-size-adjust: 100%;
-  --px: 0.0625rem;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  color: #dad5bc;
-  background: #222740;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, sans-serif;
-  font-size: 1rem;
-  --smaller: 0.75em;
-  --fore-color: #dad5bc;
-  --back-color: #222740;
-}
-
 /* Fluid grid system container styling */
 .container {
   flex-wrap: wrap;

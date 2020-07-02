@@ -1,0 +1,16 @@
+/* paragraph-level elements styling */
+hr {
+  box-sizing: content-box;
+  border: 0;
+  padding: 0;
+  line-height: 1.25em;
+  margin: 0.5rem;
+  height: var(--px);
+  background: linear-gradient(to right, transparent, #aaa 20%, #aaa 80%, transparent);
+}
+
+p {
+  padding: 0;
+  margin: 0.5rem;
+  text-rendering: optimizeLegibility;
+}

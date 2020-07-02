@@ -1,0 +1,63 @@
+/* Header styling */
+header {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.page-header {
+  height: 3.1875rem;
+  background: #f8f8f8;
+  color: #151515;
+  border-bottom: var(--px) solid #ddd;
+  padding: calc(0.5rem / 4) 0;
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+.page-header.row {
+  box-sizing: content-box;
+}
+.page-header.row .logo {
+  line-height: 1;
+}
+.page-header .logo {
+  color: #151515;
+  font-size: 1.75rem;
+  padding: 0.5rem calc(2 * 0.5rem);
+  text-decoration: none;
+}
+.page-header span,
+.page-header button,
+.page-header [type=button],
+.page-header .button,
+.page-header [role=button] {
+  box-sizing: border-box;
+  position: relative;
+  top: calc( 0rem - 0.5rem / 4 );
+  height: calc(3.1875rem + 0.5rem / 2);
+  line-height: calc(3.1875rem - 0.5rem * 1.5);
+  text-align: center;
+  background: inherit;
+  color: inherit;
+  border: 0;
+  border-radius: 0;
+  margin: 0;
+  text-transform: uppercase;
+}
+.page-header button:hover, .page-header button:focus,
+.page-header [type=button]:hover,
+.page-header [type=button]:focus,
+.page-header .button:hover,
+.page-header .button:focus,
+.page-header [role=button]:hover,
+.page-header [role=button]:focus {
+  background: #f0f0f0;
+  font-weight: bolder;
+}
+.page-header.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  z-index: 1101;
+  top: 0;
+}

@@ -1,0 +1,53 @@
+/* Inline code semantic styling */
+var, samp, kbd, code {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+  font-family: Menlo, Consolas, monospace;
+  font-size: 0.85em;
+  font-weight: inherit;
+}
+
+pre {
+  overflow: auto;
+  padding: calc(1.5 * 0.5rem);
+  margin: 0.5rem;
+  font-family: Menlo, Consolas, monospace;
+  font-size: 0.85em;
+  font-weight: normal;
+  background: var(--pre-back-color, #dad5bc);
+  color: var(--pre-fore-color, #222740);
+  border: var(--px) solid #ddd;
+  border-left: calc(4 * var(--px)) solid #1565c0;
+  border-radius: 0 0.125rem 0.125rem 0;
+  word-break: normal;
+  overflow-wrap: break-word;
+}
+pre code {
+  font-size: 1em;
+}
+
+code {
+  padding: calc(0.5rem / 4) calc(0.5rem / 2);
+  border-radius: 0.125rem;
+  background: var(--code-back-color, #dad5bc);
+  color: var(--code-fore-color, #222740);
+}
+
+kbd {
+  padding: calc(0.5rem / 4) calc(0.5rem / 2);
+  border-radius: 0.125rem;
+  background: var(--kbd-back-color, #dad5bc);
+  color: var(--kbd-fore-color, #222740);
+}
+
+samp {
+  font-style: inherit;
+}
+
+var {
+  font-style: italic;
+}
