@@ -1,15 +1,25 @@
 //
-// Content sectioning elements allow you to organize the document content into logical pieces.
-// Use the sectioning elements to create a broad outline for your page content, including header and footer navigation,
-// and heading elements to identify sections of content.
+// The HTML <footer> element represents a footer for its nearest sectioning content or sectioning root element.
+// A footer typically contains information about the author of the section, copyright data or links to related documents.
 //
 @use 'sass:map';
 
-// Public variables.
-// May be overrided using @use <url> with (<variable>: <value>, <variable>: <value>)
+// Variables.
+//
+// To load this module with configuration, use @use <url> with (<variable>: <value>, <variable>: <value>).
+// The configured values will override the variables’ default values.
+// @link: https://sass-lang.com/documentation/variables
 
-$padding: 0.5rem !default; // Universal padding for the most elements
+// Basic box model
+$_box-model: (
+    // Padding: creates extra space within an element.
+        "padding": 0.5rem,
+    // Margins: create extra space around an element.
+        "margin": 0.5rem
+) !default;
+
 $font-size: 0.875rem !default; // Font size for text in footer element.
+
 $colors: (
     // Background color for footer nav element.
         "back": #f8f8f8,

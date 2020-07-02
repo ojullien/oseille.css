@@ -1,7 +1,7 @@
 // Loads modules with default modules' values
 //
 @use 'sass:map';
-@use '../common/variables' as v;
+@use '../common/default' as v;
 
 // Loads all modules
 @use 'collapse' with (
