@@ -1,6 +1,8 @@
 //
 // Some usefull functions and mixins.
 //
+@use 'sass:map';
+@use 'sass:color';
 
 // @todo Add comment
 @function rempx($size) {
@@ -27,4 +29,26 @@
     @if $box-shadow != none {
         box-shadow: $box-shadow;
     }
+}
+
+// Dumping the content of a Sass map
+@mixin dumpConfiguration($declarations) {
+    @each $property, $value in $declarations {
+        #{$property}: $value;
+    }
+}
+
+// Mixes a color with white.
+@function tint($color, $weight) {
+    @return mix(white, $color, $weight);
+}
+
+// Mixes a color with black.
+@function shade($color, $weight) {
+    @return mix(black, $color, $weight);
+}
+
+// Mixes a color with grey.
+@function tone($color, $weight) {
+    @return mix(grey, $color, $weight);
 }
