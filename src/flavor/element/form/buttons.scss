@@ -1,8 +1,4 @@
 //
-@use 'sass:map';
-@use 'sass:color';
-@use '../../oseille/common/variables' as v;
-//
 $colors: (
     // Text & foreground color
         "back": #222740,
@@ -10,7 +6,7 @@ $colors: (
         "fore": #dad5bc
 );
 //
-@use '../../oseille/element/form/buttons' with (
+@use '../../../oseille/element/form/buttons' with (
     $_colors: (
         // Text color for buttons.
         "fore": #151515,

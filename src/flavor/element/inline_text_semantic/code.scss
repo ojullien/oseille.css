@@ -1,6 +1,5 @@
 //
 @use 'sass:map';
-@use '../../oseille/common/variables' as v;
 //
 $colors: (
     // Text & foreground color
@@ -9,7 +8,7 @@ $colors: (
         "fore": #dad5bc
 );
 //
-@use '../../oseille/element/inline_text_semantic/code' with (
+@use '../../../oseille/element/inline_text_semantic/code' with (
     $_colors: (
         // Text color for <mark>
             "fore": map.get($colors,"back"), // Invert
