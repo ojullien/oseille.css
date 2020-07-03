@@ -19,33 +19,37 @@ $mobile-breakpoint: 768px; // Breakpoint between small and medium screens (px)
 // Main colors. WCAG Grading AAA.
 $primary-colors: (
     // Text & foreground color
-        "fore": #151515,
+        "fore": #121212,
     // Background color
         "back": #f8f8f8,
     // Border color
-        //"border": #ddd
-        "border": coral
+        "border": #222222
 );
 
-// Primary color palette
+// Primary color palette. 
+// Please, pay attention to accessibilty. 
+// Please use WCAG Grading tool to find the best shade/tone/tint with your fore / background combinaison
 $primary-palette-colors: (
     // Text & foreground color
         "fore-darkest": stdlib.shade(map.get($primary-colors, "fore"), 20%),
-        "fore-darker": stdlib.tone(map.get($primary-colors, "border"), 20%),
+        "fore-darker": stdlib.tone(map.get($primary-colors, "fore"), 20%),
         "fore-lighter": stdlib.tint(map.get($primary-colors, "fore"), 20%),
-        "fore-lightest": stdlib.tint(map.get($primary-colors, "fore"), 80%),
-    // 50% // WCAG Grading AA Large
-        // Background colors
+        "fore-lightest": stdlib.tint(map.get($primary-colors, "fore"), 50%),
+    // Background colors
         "back-darkest": stdlib.shade(map.get($primary-colors, "back"), 20%),
-        "back-darker": stdlib.tone(map.get($primary-colors, "border"), 20%),
+        "back-darker": stdlib.tone(map.get($primary-colors, "back"), 20%),
         "back-lighter": stdlib.tint(map.get($primary-colors, "back"), 20%),
-        "back-lightest": stdlib.tint(map.get($primary-colors, "back"), 80%),
+        "back-lightest": stdlib.tint(map.get($primary-colors, "back"), 50%),
     // Border colors
         "border-darkest": stdlib.shade(map.get($primary-colors, "border"), 20%),
         "border-darker": stdlib.tone(map.get($primary-colors, "border"), 20%),
         "border-lighter": stdlib.tint(map.get($primary-colors, "border"), 20%),
-        "border-lightest": stdlib.tint(map.get($primary-colors, "border"), 80%)
+        "border-lightest": stdlib.tint(map.get($primary-colors, "border"), 50%)
 );
+
+@each $property, $value in $primary-palette-colors {
+@debug $property $value;
+}
 
 // Basic box model
 $box-model: (
