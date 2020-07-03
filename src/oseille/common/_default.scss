@@ -54,7 +54,7 @@ $primary-palette: (
 // Accessibility:
 //   - An inactive space should be provided around actionable elements
 //   - Add borders or margins around touch targets to add at least 1px of inactive space.
-$spacing: (
+$box-spacing: (
     // Padding: creates extra space within an element.
         "padding": 0.5rem,
         "padding-alt": 1.5em 0.5rem,
