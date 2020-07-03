@@ -57,10 +57,10 @@ $primary-palette: (
 $spacing: (
     // Padding: creates extra space within an element.
         "padding": 0.5rem,
-        "padding-block": 1.5em 0.5rem,
+        "padding-alt": 1.5em 0.5rem,
     // Margins: create extra space around an element.
         "margin": 0.5rem,
-        "margin-block": 1.5em 0.5rem,
+        "margin-alt": 1.5em 0.5rem,
 );
 
 // Borders
@@ -108,4 +108,9 @@ $breakpoints: (
         "large": 1280px
 );
 
-$line-height: 1.5; // Line height for most elements. Use a minimum value of 1.5 for line-height for main paragraph content.
+$line-height: (
+    // Line height for heading.
+    "heading": 1.2,
+    // Line height for most elements. Use a minimum value of 1.5 for line-height for main paragraph content.
+    "main": 1.5
+); 
