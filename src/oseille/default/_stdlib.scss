@@ -24,12 +24,6 @@
     @return "calc(#{$base}#{$sCalc})";
 }
 
-// @todo Add comment
-@mixin box-shadow($box-shadow: none) {
-    @if $box-shadow != none {
-        box-shadow: $box-shadow;
-    }
-}
 
 // Dumping the content of a Sass map
 @mixin dumpConfiguration($declarations) {
@@ -38,17 +32,4 @@
     }
 }
 
-// Mixes a color with white.
-@function tint($color, $weight) {
-    @return mix(#fff, $color, $weight);
-}
 
-// Mixes a color with black.
-@function shade($color, $weight) {
-    @return mix(#000, $color, $weight);
-}
-
-// Mixes a color with grey.
-@function tone($color, $weight) {
-    @return mix(#808080, $color, $weight);
-}

@@ -1,8 +1,27 @@
 //
 // Default main colors.
 //
+// Note: all oseille/element and oseille/module libraries have those default values for variables.
+// Note: The default oseille flavor (flavor/oseille.scss) does not use this file.
+//       It uses the variables’ default values of each modules.
+//
 @use 'sass:map';
-@use './stdlib';
+@use 'sass:color';
+
+// Mixes a color with white.
+@function tint($color, $weight) {
+    @return mix(#fff, $color, $weight);
+}
+
+// Mixes a color with black.
+@function shade($color, $weight) {
+    @return mix(#000, $color, $weight);
+}
+
+// Mixes a color with grey.
+@function tone($color, $weight) {
+    @return mix(#808080, $color, $weight);
+}
 
 // Main colors.
 // Accessibility:
