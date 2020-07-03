@@ -57,8 +57,10 @@ $primary-palette: (
 $spacing: (
     // Padding: creates extra space within an element.
         "padding": 0.5rem,
+        "padding-block": 0.5rem,
     // Margins: create extra space around an element.
-        "margin": 0.5rem
+        "margin": 0.5rem,
+        "margin-block": 1.5em 0.5rem,
 );
 
 // Borders
