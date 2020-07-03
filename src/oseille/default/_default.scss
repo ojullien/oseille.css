@@ -108,9 +108,11 @@ $breakpoints: (
         "large": 1280px
 );
 
-$line-height: (
+$line-spacing: (
     // Line height for heading.
     "heading": 1.2,
     // Line height for most elements. Use a minimum value of 1.5 for line-height for main paragraph content.
-    "main": 1.5
+    "main": 1.5,
+    // Line height for thematic break
+    "hr": 1.25
 ); 

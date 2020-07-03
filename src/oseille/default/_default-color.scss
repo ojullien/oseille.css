@@ -1,0 +1,39 @@
+//
+// Default main colors.
+//
+@use 'sass:map';
+@use './stdlib';
+
+// Main colors.
+// Accessibility:
+//  - The colour of text and background content must have sufficient contrast.
+$primary-colors: (
+    // Text & foreground color
+        "fore": #121212,
+    // Background color
+        "back": #f8f8f8,
+    // Border color
+        "border": #222222
+);
+
+// Primary colors palette.
+// Accessibility:
+//  - The colour of text and background content must have sufficient contrast
+//  - Use WCAG Grading tool to find the best shade/tone/tint with your fore / background combinaison
+$primary-palette: (
+    // Text & foreground color
+        "fore-darkest": stdlib.shade(map.get($primary-colors, "fore"), 20%),
+        "fore-darker": stdlib.tone(map.get($primary-colors, "fore"), 20%),
+        "fore-lighter": stdlib.tint(map.get($primary-colors, "fore"), 20%),
+        "fore-lightest": stdlib.tint(map.get($primary-colors, "fore"), 50%),
+    // Background colors
+        "back-darkest": stdlib.shade(map.get($primary-colors, "back"), 20%),
+        "back-darker": stdlib.tone(map.get($primary-colors, "back"), 20%),
+        "back-lighter": stdlib.tint(map.get($primary-colors, "back"), 20%),
+        "back-lightest": stdlib.tint(map.get($primary-colors, "back"), 50%),
+    // Border colors
+        "border-darkest": stdlib.shade(map.get($primary-colors, "border"), 20%),
+        "border-darker": stdlib.tone(map.get($primary-colors, "border"), 20%),
+        "border-lighter": stdlib.tint(map.get($primary-colors, "border"), 20%),
+        "border-lightest": stdlib.tint(map.get($primary-colors, "border"), 50%)
+);

@@ -12,16 +12,20 @@
 // @link: https://sass-lang.com/documentation/variables
 
 // Basic box model
-$_box-model: (
-    // Padding: creates extra space within an element.
-        "padding": 0.5rem,
+// Accessibility:
+//   - An inactive space should be provided around actionable elements
+//   - Add borders or margins around touch targets to add at least 1px of inactive space.
+$_box-spacing: (
     // Margins: create extra space around an element.
-        "margin": 0.5rem
+        "margin": 0.5rem,
+        "margin-alt": 1.5em 0.5rem,
 ) !default;
 
 $_hr-color: #aaa !default; // Border color
+
 $_hr-line-height: 1.25em; // <hr> line height
-$_
+
+$_paragraph_width: 70ch;
 
 /* paragraph-level elements styling */
 
@@ -32,13 +36,14 @@ hr {
     padding: 0;
     // Actual styling using variables
     line-height: $_hr-line-height;
-    margin: map.get($_box-model, "margin");
+    margin: map.get($_box-model, "margin-alt");
     height: var(--px);
     background: linear-gradient(to right, transparent, $_hr-color 20%, $_hr-color 80%, transparent);
 }
 
 p {
     padding: 0;
-    margin: map.get($_box-model, "margin");
+    margin: map.get($_box-spacing, "margin-alt");
+    max-width: $_paragraph_width;
     text-rendering: optimizeLegibility;
 }
