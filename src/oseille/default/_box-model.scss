@@ -1,0 +1,51 @@
+//
+// Default properties' values for most elements.
+//
+// Note: all oseille/element and oseille/module libraries have those default values for variables.
+// Note: The default oseille flavor (flavor/oseille.scss) does not use this file.
+//       It uses the variables’ default values of each modules.
+//
+
+//$main-font-size: 1.03rem; // Font sizing for all elements
+$default-fore-color: #111; // Text & foreground color
+$universal-margin: 0.5rem !default; // Universal margin for the most elements
+$universal-padding: 0.5rem !default; // Universal padding for the most elements
+$universal-border-radius: 0.125rem !default; // Universal border-radius for most elements
+$universal-box-shadow: none !default; // Universal box-shadow for most elements
+$mobile-breakpoint: 768px; // Breakpoint between small and medium screens (px)
+
+// box-shadow mixin
+@mixin box-shadow($box-shadow: none) {
+    @if $box-shadow != none {
+        box-shadow: $box-shadow;
+    }
+}
+
+// Basic box model
+// Accessibility:
+//   - An inactive space should be provided around actionable elements
+//   - Add borders or margins around touch targets to add at least 1px of inactive space.
+$box-spacing: (
+    // Padding: creates extra space within an element.
+        "padding": 0.5rem,
+        "padding-alt": 1.5em 0.5rem,
+    // Margins: create extra space around an element.
+        "margin": 0.5rem,
+        "margin-alt": 1.5em 0.5rem,
+);
+
+// Borders
+$borders: (
+    // radius: rounds the corners of an element's outer border edge.
+        "radius": 0.125rem,
+    // shadow: adds shadow effects around an element's frame.
+        "shadow": none
+);
+
+// Breakpoints
+$breakpoints: (
+    // Medium/mobile screen breakpoint for grid.
+        "medium": 768px,
+    // Large screen breakpoint for grid.
+        "large": 1280px
+);
