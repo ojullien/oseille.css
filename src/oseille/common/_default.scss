@@ -16,7 +16,9 @@ $universal-border-radius: 0.125rem !default; // Universal border-radius for most
 $universal-box-shadow: none !default; // Universal box-shadow for most elements
 $mobile-breakpoint: 768px; // Breakpoint between small and medium screens (px)
 
-// Main colors. WCAG Grading AAA.
+// Main colors.
+// Accessibility:
+//  - The colour of text and background content must have sufficient contrast.
 $primary-colors: (
     // Text & foreground color
         "fore": #121212,
@@ -26,9 +28,10 @@ $primary-colors: (
         "border": #222222
 );
 
-// Primary color palette. 
-// Please, pay attention to accessibilty. 
-// Please use WCAG Grading tool to find the best shade/tone/tint with your fore / background combinaison
+// Primary colors palette.
+// Accessibility:
+//  - The colour of text and background content must have sufficient contrast
+//  - Use WCAG Grading tool to find the best shade/tone/tint with your fore / background combinaison
 $primary-palette-colors: (
     // Text & foreground color
         "fore-darkest": stdlib.shade(map.get($primary-colors, "fore"), 20%),
@@ -47,11 +50,10 @@ $primary-palette-colors: (
         "border-lightest": stdlib.tint(map.get($primary-colors, "border"), 50%)
 );
 
-@each $property, $value in $primary-palette-colors {
-@debug $property $value;
-}
-
 // Basic box model
+// Accessibility:
+//   - An inactive space should be provided around actionable elements
+//   - Add borders or margins around touch targets to add at least 1px of inactive space.
 $box-model: (
     // Padding: creates extra space within an element.
         "padding": 0.5rem,
@@ -70,17 +72,16 @@ $borders: (
 // Font stacks
 $font-stacks: (
     // Font stack for all elements
-        "base": (
-            -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Ubuntu, 'Helvetica Neue', Helvetica, sans-serif
-        ),
+        "base": 
+        ( -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, sans-serif),
     // Code font stack
         "code": (Menlo, Consolas, monospace),
     //  Font stack 'for <q> <figcaption> <blockquote>
         "caption":
-        (-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Ubuntu, 'Helvetica Neue', Helvetica, sans-serif),
+        (-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, sans-serif),
     // Heading font stack
         "heading":
-        (-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Ubuntu, 'Helvetica Neue', Helvetica, sans-serif)
+        (-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, sans-serif)
 );
 
 // Font sizes
