@@ -32,7 +32,7 @@ $primary-colors: (
 // Accessibility:
 //  - The colour of text and background content must have sufficient contrast
 //  - Use WCAG Grading tool to find the best shade/tone/tint with your fore / background combinaison
-$primary-palette-colors: (
+$primary-palette: (
     // Text & foreground color
         "fore-darkest": stdlib.shade(map.get($primary-colors, "fore"), 20%),
         "fore-darker": stdlib.tone(map.get($primary-colors, "fore"), 20%),
@@ -54,7 +54,7 @@ $primary-palette-colors: (
 // Accessibility:
 //   - An inactive space should be provided around actionable elements
 //   - Add borders or margins around touch targets to add at least 1px of inactive space.
-$box-model: (
+$spacing: (
     // Padding: creates extra space within an element.
         "padding": 0.5rem,
     // Margins: create extra space around an element.
