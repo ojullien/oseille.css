@@ -15,9 +15,7 @@
 // Basic box model
 $_box-model: (
     // Padding: creates extra space within an element.
-        "padding": 0.5rem,
-    // Margins: create extra space around an element.
-        "margin": 0.5rem
+        "padding": 0.5rem
 ) !default;
 
 $_colors: (
@@ -26,10 +24,15 @@ $_colors: (
     // Background color
         "back": #f8f8f8,
     // Background color for the header element (hover).
-        "hover-back": #f0f0f0,
+        "hover-back": #909090, // WCAG Grading AA
     // Border color for the header element.
-        "border": #222222
+        "border": #909090 
 ) !default;
+
+$line-spacing: (
+    // Line height for most elements.
+    "main": 1.5
+); 
 
 $_height: 3.1875rem !default; // Height of the header element.
 $_logo-font-size: 1.75rem !default; // Font size for the header logo element.
@@ -66,9 +69,9 @@ header {
     color: map.get($_colors, "fore");
 
     @if $_only-bottom-border {
-        border-bottom: var(--px) solid map.get($_colors, "border");
+        border-bottom: 1px solid map.get($_colors, "border");
     } @else {
-        border: var(--px) solid map.get($_colors, "border");
+        border: 1px solid map.get($_colors, "border");
     }
 
     padding: calc(#{map.get($_box-model, "padding")} / 4) 0;
@@ -102,12 +105,12 @@ header {
     [role="button"] {
         box-sizing: border-box;
         position: relative;
-        top: calc(
-            0rem - #{map.get($_box-model, "padding")} / 4
-        ); // Use universal-padding to offset the padding of the header.
+
+        top: calc(0rem - #{map.get($_box-model, "padding")} / 4); // Use universal-padding to offset the padding of the header.
+
         height: calc(#{$_height} + #{map.get($_box-model, "padding")} / 2); // Fill header.
 
-        line-height: calc(#{$_height} - #{map.get($_box-model, "padding")} * 1.5);
+        line-height: calc(#{$_height} - #{map.get($_box-model, "padding")} * #{map.get($line-spacing, "main")});
 
         text-align: center;
 

@@ -41,18 +41,22 @@ $primary-colors: (
 //  - Use WCAG Grading tool to find the best shade/tone/tint with your fore / background combinaison
 $primary-palette: (
     // Text & foreground color
-        "fore-darkest": stdlib.shade(map.get($primary-colors, "fore"), 20%),
-        "fore-darker": stdlib.tone(map.get($primary-colors, "fore"), 20%),
-        "fore-lighter": stdlib.tint(map.get($primary-colors, "fore"), 20%),
-        "fore-lightest": stdlib.tint(map.get($primary-colors, "fore"), 50%),
+        "fore-darkest": shade(map.get($primary-colors, "fore"), 20%),
+        "fore-darker": tone(map.get($primary-colors, "fore"), 20%),
+        "fore-lighter": tint(map.get($primary-colors, "fore"), 20%),
+        "fore-lightest": tint(map.get($primary-colors, "fore"), 50%),
     // Background colors
-        "back-darkest": stdlib.shade(map.get($primary-colors, "back"), 20%),
-        "back-darker": stdlib.tone(map.get($primary-colors, "back"), 20%),
-        "back-lighter": stdlib.tint(map.get($primary-colors, "back"), 20%),
-        "back-lightest": stdlib.tint(map.get($primary-colors, "back"), 50%),
+        "back-darkest": shade(map.get($primary-colors, "back"), 20%),
+        "back-darker": tone(map.get($primary-colors, "back"), 20%),
+        "back-lighter": tint(map.get($primary-colors, "back"), 20%),
+        "back-lightest": tint(map.get($primary-colors, "back"), 50%),
     // Border colors
-        "border-darkest": stdlib.shade(map.get($primary-colors, "border"), 20%),
-        "border-darker": stdlib.tone(map.get($primary-colors, "border"), 20%),
-        "border-lighter": stdlib.tint(map.get($primary-colors, "border"), 20%),
-        "border-lightest": stdlib.tint(map.get($primary-colors, "border"), 50%)
+        "border-darkest": shade(map.get($primary-colors, "border"), 20%),
+        "border-darker": tone(map.get($primary-colors, "border"), 20%),
+        "border-lighter": tint(map.get($primary-colors, "border"), 20%),
+        "border-lightest": tint(map.get($primary-colors, "border"), 50%)
 );
+
+//@each $property, $value in $primary-palette {
+//    @debug $property $value;
+//}

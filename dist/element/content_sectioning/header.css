@@ -9,7 +9,7 @@ header {
   height: 3.1875rem;
   background: #f8f8f8;
   color: #121212;
-  border-bottom: var(--px) solid #222222;
+  border-bottom: 1px solid #909090;
   padding: calc(0.5rem / 4) 0;
   white-space: nowrap;
   overflow-x: auto;
@@ -34,7 +34,7 @@ header {
 .page-header [role=button] {
   box-sizing: border-box;
   position: relative;
-  top: calc( 0rem - 0.5rem / 4 );
+  top: calc(0rem - 0.5rem / 4);
   height: calc(3.1875rem + 0.5rem / 2);
   line-height: calc(3.1875rem - 0.5rem * 1.5);
   text-align: center;
@@ -52,7 +52,7 @@ header {
 .page-header .button:focus,
 .page-header [role=button]:hover,
 .page-header [role=button]:focus {
-  background: #f0f0f0;
+  background: #909090;
   font-weight: bolder;
 }
 .page-header.sticky {
