@@ -25,10 +25,10 @@ $font-stacks: (
 $font-sizes: (
     // Accessible root font size for all elements
         "accessible": 100%,
-    // Root font sizing for all elements (`px` only)
-        "root": 16px,
-    // Font sizing for all elements
-        "body": 1rem,
+    // Not accessible root font size for all elements (`px` only)
+        "not-accessible": 16px,
+    // Relative font-sizing everywhere else on the page,
+        "body": medium,
     // Font size for small element ( <small>, <sub>, <sup>)
         "small": 0.75em,
     // Font size for monospace element like <code>, <kbd>, ...
@@ -36,10 +36,12 @@ $font-sizes: (
 );
 
 $line-spacing: (
-    // Line height for heading.
+    // Line height for larger font sizes.
     "heading": 1.2,
-    // Line height for most elements. Use a minimum value of 1.5 for line-height for main paragraph content.
+    // Line height for most elements.
     "main": 1.5,
     // Line height for thematic break
-    "hr": 1.25
+    "hr": 1.25,
+    // Line height for smaller text sizes
+    "small": 1.5625
 ); 
