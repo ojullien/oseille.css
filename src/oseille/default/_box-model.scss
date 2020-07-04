@@ -7,12 +7,12 @@
 //
 
 //$main-font-size: 1.03rem; // Font sizing for all elements
-$default-fore-color: #111; // Text & foreground color
-$universal-margin: 0.5rem !default; // Universal margin for the most elements
-$universal-padding: 0.5rem !default; // Universal padding for the most elements
-$universal-border-radius: 0.125rem !default; // Universal border-radius for most elements
-$universal-box-shadow: none !default; // Universal box-shadow for most elements
-$mobile-breakpoint: 768px; // Breakpoint between small and medium screens (px)
+//$default-fore-color: #111; // Text & foreground color
+//$universal-margin: 0.5rem !default; // Universal margin for the most elements
+//$universal-padding: 0.5rem !default; // Universal padding for the most elements
+//$universal-border-radius: 0.125rem !default; // Universal border-radius for most elements
+//$universal-box-shadow: none !default; // Universal box-shadow for most elements
+//$mobile-breakpoint: 768px; // Breakpoint between small and medium screens (px)
 
 // box-shadow mixin
 @mixin box-shadow($box-shadow: none) {
@@ -32,6 +32,7 @@ $box-spacing: (
     // Margins: create extra space around an element.
         "margin": 0.5rem,
         "margin-alt": 1.5em 0.5rem,
+        "margin-center": 0.5rem auto,
 );
 
 // Borders
