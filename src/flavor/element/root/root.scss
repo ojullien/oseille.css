@@ -1,11 +1,2 @@
 //
-$colors: (
-    // Text & foreground color
-        "back": #222740,
-    // Background color
-        "fore": #dad5bc
-);
-//
-@use '../../../oseille/element/root/root' with (
-    $_colors: $colors,
-);
+@use '../../../oseille/element/root/root';
