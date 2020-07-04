@@ -23,16 +23,19 @@ $_colors: (
         "fore": #121212,
     // Background color
         "back": #f8f8f8,
-    // Background color for the header element (hover).
-        "hover-back": #909090, // WCAG Grading AA
-    // Border color for the header element.
+    // Hover color for the header element.
+        "hover-back": #898989,
+    // See $primary-palette.fore-lightest in default/color.scss
+        "hover-fore": #fcfcfc,
+    // See $primary-palette.back-lightest in default/color.scss
+        // Border color for the header element.
         "border": #909090 // See $primary-palette.border-lightest in default/color.scss
 ) !default;
 
 $line-spacing: (
     // Line height for most elements.
-    "main": 1.5
-); 
+        "main": 1.5
+);
 
 $_height: 3.1875rem !default; // Height of the header element.
 $_logo-font-size: 1.75rem !default; // Font size for the header logo element.
@@ -106,7 +109,9 @@ header {
         box-sizing: border-box;
         position: relative;
 
-        top: calc(0rem - #{map.get($_box-model, "padding")} / 4); // Use universal-padding to offset the padding of the header.
+        top: calc(
+            0rem - #{map.get($_box-model, "padding")} / 4
+        ); // Use universal-padding to offset the padding of the header.
 
         height: calc(#{$_height} + #{map.get($_box-model, "padding")} / 2); // Fill header.
 
@@ -133,6 +138,7 @@ header {
         &:hover,
         &:focus {
             background: map.get($_colors, "hover-back");
+            color: map.get($_colors, "hover-fore");
             font-weight: bolder; // Accessibility
         }
     }
