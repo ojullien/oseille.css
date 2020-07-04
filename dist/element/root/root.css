@@ -6,18 +6,17 @@ html {
   -webkit-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   text-size-adjust: 100%;
-  --px: 0.0625rem;
 }
 
 body {
   margin: 0;
   padding: 0;
   border: 0;
-  color: #dad5bc;
-  background: #222740;
+  color: #121212;
+  background: #f8f8f8;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, sans-serif;
-  font-size: 1rem;
+  font-size: medium;
   --smaller: 0.75em;
-  --fore-color: #dad5bc;
-  --back-color: #222740;
+  --fore-color: #121212;
+  --back-color: #f8f8f8;
 }
