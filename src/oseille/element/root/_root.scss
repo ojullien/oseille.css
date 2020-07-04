@@ -2,7 +2,6 @@
 // Sectioning root using top-level elements
 //
 @use 'sass:map';
-@use '../../common/stdlib';
 
 // Variables.
 //
@@ -13,7 +12,7 @@
 // Colors
 $_colors: (
     // Text & foreground color
-        "fore": #151515,
+        "fore": #121212,
     // Background color
         "back": #f8f8f8
 ) !default;
@@ -22,37 +21,34 @@ $_colors: (
 $_font-sizes: (
     // Accessible root font size for all elements
         "accessible": 100%,
-    // Root font sizing for all elements (`px` only)
-        "root": 16px,
-    // Font sizing for all elements
-        "body": 1rem,
-    // Font size for small element  ( <small>, <sub>, <sup>, <figcaption>)
+    // Relative font-sizing everywhere else on the page,
+        "body": medium,
+    // Font size for small element ( <small>, <sub>, <sup>)
         "small": 0.75em,
-    // Font size for monospace element like <code>, <kbd>, ...
-        "code": 0.85em
 ) !default;
 
 // Font stack for all elements
 $_font-stacks: (
     // Font stack for all elements
-    base:
-    (-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Ubuntu, 'Helvetica Neue', Helvetica, sans-serif),
+    "base": 
+    ( -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, sans-serif),
 ) !default;
 
-$_line-height: 1.5 !default; // Line height for most elements
-$__1px: stdlib.rempx(map.get($_font-sizes, "root")) * 1rem; // Calculated rem value of `1px`
+$_line-spacing: (
+    // Line height for most elements.
+    "main": 1.5
+) !default; 
 
 /* Top level styling */
 
 html {
     scroll-behavior: smooth;
     font-size: map.get($_font-sizes, "accessible");
-    line-height: $_line-height;
+    line-height: map.get($_line-spacing, "main");
     // Prevent adjustments of font size after orientation changes in mobile.
     -webkit-text-size-adjust: 100%;
     -moz-text-size-adjust: 100%;
     text-size-adjust: 100%;
-    --px: #{$__1px}; // You may use javascript to update this value according to the font size the browser is using.
 }
 
 body {
