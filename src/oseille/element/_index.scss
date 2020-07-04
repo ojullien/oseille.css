@@ -2,7 +2,7 @@
 //
 @use 'sass:map';
 @use 'sass:color';
-@use '../common/default' as v;
+@use '../default/default' as v;
 
 // Loads all elements
 @use 'root/root';

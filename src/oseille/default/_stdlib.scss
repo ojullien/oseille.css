@@ -4,6 +4,13 @@
 @use 'sass:map';
 @use 'sass:color';
 
+// box-shadow mixin
+@mixin box-shadow($box-shadow: none) {
+    @if $box-shadow != none {
+        box-shadow: $box-shadow;
+    }
+}
+
 // @todo Add comment
 @function rempx($size) {
     @return 1px / $size;

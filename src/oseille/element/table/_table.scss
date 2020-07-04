@@ -2,7 +2,7 @@
 // The elements here are used to create and handle tabular data.
 //
 @use "sass:map";
-@use '../../common/stdlib';
+@use '../../default/stdlib';
 
 // Public variables.
 // May be overrided using @use <url> with (<variable>: <value>, <variable>: <value>)

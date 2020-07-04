@@ -8,8 +8,8 @@ header {
 .page-header {
   height: 3.1875rem;
   background: #f8f8f8;
-  color: #151515;
-  border-bottom: var(--px) solid #ddd;
+  color: #121212;
+  border-bottom: var(--px) solid #222222;
   padding: calc(0.5rem / 4) 0;
   white-space: nowrap;
   overflow-x: auto;
@@ -22,7 +22,7 @@ header {
   line-height: 1;
 }
 .page-header .logo {
-  color: #151515;
+  color: #121212;
   font-size: 1.75rem;
   padding: 0.5rem calc(2 * 0.5rem);
   text-decoration: none;

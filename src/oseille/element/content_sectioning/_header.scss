@@ -22,13 +22,13 @@ $_box-model: (
 
 $_colors: (
     // Text & foreground color
-        "fore": #151515,
+        "fore": #121212,
     // Background color
         "back": #f8f8f8,
     // Background color for the header element (hover).
         "hover-back": #f0f0f0,
     // Border color for the header element.
-        "border": #ddd
+        "border": #222222
 ) !default;
 
 $_height: 3.1875rem !default; // Height of the header element.
@@ -48,7 +48,7 @@ $_classnames: (
 );
 
 $_only-bottom-border: true; // Apply styling only to the bottom border of header? (boolean)
-$_links-uppercase: true; // [Should header links and buttons be uppercase? (boolean)
+$_links-uppercase: true; // Should header links and buttons be uppercase? (boolean)
 
 /* Header styling */
 

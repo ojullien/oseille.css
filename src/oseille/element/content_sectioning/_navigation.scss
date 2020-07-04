@@ -4,7 +4,7 @@
 // and heading elements to identify sections of content.
 //
 @use 'sass:map';
-@use '../../common/stdlib';
+@use '../../default/stdlib';
 
 // Public variables.
 // May be overrided using @use <url> with (<variable>: <value>, <variable>: <value>)
