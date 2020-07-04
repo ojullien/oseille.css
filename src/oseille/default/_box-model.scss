@@ -14,13 +14,6 @@
 //$universal-box-shadow: none !default; // Universal box-shadow for most elements
 //$mobile-breakpoint: 768px; // Breakpoint between small and medium screens (px)
 
-// box-shadow mixin
-@mixin box-shadow($box-shadow: none) {
-    @if $box-shadow != none {
-        box-shadow: $box-shadow;
-    }
-}
-
 // Basic box model
 // Accessibility:
 //   - An inactive space should be provided around actionable elements
