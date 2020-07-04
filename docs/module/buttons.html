@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Buttons</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="buttons.css" rel="stylesheet" type="text/css" id="local-css" />
+    <link href="oseille.css" rel="stylesheet" type="text/css" id="oseille-css" disabled />
+</head>
+<style>
+    .wrapper {
+        margin: 0 auto;
+        padding: 0 calc(0.5rem * 2);
+        max-width: 95vw;
+    }
+</style>
+<body>
+
+    <div class="wrapper">
+
+        <div style="min-height: 100%; display: flex; flex-direction: row-reverse; justify-content: center; align-items: center; text-align: center; position: sticky; top: 10px;">
+            <input style="" type="radio" id="radio-local-css" name="css" value="1" onchange="switchToLocal();" checked />
+            <label style="" for="radio-local-css">Local</label>
+            <input style="" type="radio" id="radio-oseille-css" name="css" value="2" onchange="switchToOseille();" />
+            <label style="" for="radio-oseille-css">Oseille</label>
+            <input style="" type="radio" id="radio-nosheet-css" name="css" value="3" onchange="switchToNoSheet();" />
+            <label style="" for="radio-nosheet-css">No Sheet</label>
+        </div>
+
+        <header>
+            <h1>BUTTONS</h1>
+        </header>
+
+        <main>
+
+            <section>
+                <h2>Buttons</h2>
+                <button>Button</button><br>
+                <input type="button" value="Button" /><br>
+                <input type="reset" value="Button" /><br>
+                <input type="submit" value="Button" /><br>
+                <a href="#" class="button">Link</a><br>
+                <a href="#" role="button">Link</a><br>
+                <label class="button">Label</label><br>
+                <label role="button">Label</label>
+            </section>
+
+            <section>
+                <h2>Color variants</h2>
+                <button class="primary">Primary</button>
+                <button class="secondary">Secondary</button>
+                <button class="tertiary">Tertiary</button>
+                <button class="inverse">Inverse</button>
+            </section>
+
+            <section>
+                <h2>Size variants</h2>
+                <button class="small">Small</button>
+                <button class="large">Large</button>
+            </section>
+            
+        </main>
+
+     </div>
+
+</body>
+
+<script type="text/javascript">
+    document.body.onload = () => {
+        var sFontSize = window.getComputedStyle(document.body, null).getPropertyValue("font-size");
+        var iRatio = 1 / sFontSize.substring(0, sFontSize.length - 2);
+        document.documentElement.style.setProperty('--px', iRatio + "rem");
+    };
+    function switchToLocal() {
+        document.querySelector("#oseille-css").disabled=true;
+        document.querySelector("#local-css").removeAttribute('disabled');
+    };
+    function switchToOseille() {
+        document.querySelector("#local-css").disabled=true;
+        document.querySelector("#oseille-css").removeAttribute('disabled');
+    };
+    function switchToNoSheet() {
+        document.querySelector("#oseille-css").disabled=true;
+        document.querySelector("#local-css").disabled=true;
+    };
+</script>
+
+</html>

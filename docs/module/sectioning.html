@@ -5,7 +5,12 @@
     <meta charset="utf-8">
     <title>Header</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="header.css" rel="stylesheet" type="text/css" id="local-css" />
+    <link href="element/root/root.css" rel="stylesheet" type="text/css" id="root-css" />
+    <link href="module/grid.css" rel="stylesheet" type="text/css" id="grid-css" />
+    <link href="element/inline_text_semantic/text.css" rel="stylesheet" type="text/css" id="text-css" />
+    <link href="element/form/buttons.css" rel="stylesheet" type="text/css" id="buttons-css" />
+    <link href="element/content_sectioning/header.css" rel="stylesheet" type="text/css" id="header-css" />
+    <link href="element/content_sectioning/footer.css" rel="stylesheet" type="text/css" id="footer-css" />
     <link href="oseille.css" rel="stylesheet" type="text/css" id="oseille-css" disabled />
 </head>
 <style>
@@ -46,14 +51,16 @@
 
     <main class="wrapper">
 
-        <div style="min-height: 100%; display: flex; flex-direction: row-reverse; justify-content: center; align-items: center; text-align: center; position: sticky; top: 10px;">
-            <input style="" type="radio" id="radio-local-css" name="css" value="1" onchange="switchToLocal();" checked />
-            <label style="" for="radio-local-css">Local</label>
-            <input style="" type="radio" id="radio-oseille-css" name="css" value="2" onchange="switchToOseille();" />
-            <label style="" for="radio-oseille-css">Oseille</label>
-            <input style="" type="radio" id="radio-nosheet-css" name="css" value="3" onchange="switchToNoSheet();" />
-            <label style="" for="radio-nosheet-css">No Sheet</label>
+        <div style="min-height: 100%; display: flex; flex-direction: row-reverse; justify-content: space-evenly; align-items: center; text-align: center; align-self: flex-start;position: sticky; top: 100px;">
+            <label style="" for="root"><input style="" type="checkbox" id="checkbox-root" name="checkbox-root" value="root" onclick="switchToLocal(this);" checked />Root</label>
+            <label style="" for="grid"><input style="" type="checkbox" id="checkbox-grid" name="checkbox-grid" value="grid" onclick="switchToLocal(this);" checked />Grid</label>
+            <label style="" for="text"><input style="" type="checkbox" id="checkbox-text" name="checkbox-text" value="text" onclick="switchToLocal(this);" checked />Text</label>
+            <label style="" for="buttons"><input style="" type="checkbox" id="checkbox-buttons" name="checkbox-buttons" value="buttons" onclick="switchToLocal(this);" checked />Buttons</label>
+            <label style="" for="header"><input style="" type="checkbox" id="checkbox-header" name="checkbox-header" value="header" onclick="switchToLocal(this);" checked />Header</label>
+            <label style="" for="footer"><input style="" type="checkbox" id="checkbox-footer" name="checkbox-footer" value="footer" onclick="switchToLocal(this);" checked />Footer</label>
+            <label style="" for="oseille"><input style="" type="checkbox" id="checkbox-oseille" name="checkbox-oseille" value="oseille" onclick="switchToOseille();" />Oseille</label>
         </div>
+
 
         <article>
             <header>
@@ -73,7 +80,7 @@
 <p>Praesent sit amet porta orci. Nunc ac ligula non nunc facilisis vestibulum. Morbi tincidunt commodo cursus. Interdum et malesuada fames ac ante ipsum primis in faucibus. In hac habitasse platea dictumst. In egestas nisi tincidunt lacus luctus, et fermentum enim vestibulum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla quis ullamcorper libero, at tincidunt sem. Vestibulum mollis fringilla congue.</p>
 <p>Etiam mollis dolor eget lacinia fermentum. Etiam tincidunt metus felis. Vestibulum at ex laoreet, eleifend lorem vitae, placerat neque. Proin hendrerit eleifend mauris, ut tincidunt enim egestas congue. Mauris orci lorem, tincidunt vitae enim et, porta vulputate turpis. Curabitur vel varius neque. Praesent venenatis semper massa vel commodo. Sed pulvinar felis neque, a lobortis leo eleifend eget. Duis placerat sapien dapibus rhoncus aliquam. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec eu ullamcorper ipsum. Suspendisse sit amet leo lacus. Sed tempor convallis nisl, et lacinia turpis vulputate lacinia. Sed rhoncus in velit faucibus cursus. </p>
             <footer>
-                <p>© 2018 Gandalf</p>
+                <p class="doc">© 2016-2017 Web Corporation | <a href="#" class="doc">About</a> | <a href="#" class="doc">Terms of use</a></p>
             </footer>
         </article>
     </main>
@@ -81,22 +88,38 @@
 </body>
 
 <script type="text/javascript">
-    document.body.onload = () => {
-        var sFontSize = window.getComputedStyle(document.body, null).getPropertyValue("font-size");
-        var iRatio = 1 / sFontSize.substring(0, sFontSize.length - 2);
-        document.documentElement.style.setProperty('--px', iRatio + "rem");
+
+    var myMap = new Map();
+    myMap.set('checkbox-root','#root-css');
+    myMap.set('checkbox-grid','#grid-css');
+    myMap.set('checkbox-buttons','#buttons-css');
+    myMap.set('checkbox-text','#text-css');
+    myMap.set('checkbox-header','#header-css');
+    myMap.set('checkbox-footer','#footer-css');
+
+    function switchToLocal(element) {
+        if (element.checked != true) {
+            document.querySelector(myMap.get(element.id)).disabled=true;
+        } else {
+            document.querySelector(myMap.get(element.id)).removeAttribute('disabled');
+        }
     };
-    function switchToLocal() {
-        document.querySelector("#oseille-css").disabled=true;
-        document.querySelector("#local-css").removeAttribute('disabled');
-    };
+
     function switchToOseille() {
-        document.querySelector("#local-css").disabled=true;
-        document.querySelector("#oseille-css").removeAttribute('disabled');
-    };
-    function switchToNoSheet() {
-        document.querySelector("#oseille-css").disabled=true;
-        document.querySelector("#local-css").disabled=true;
+        let checkbox = document.getElementById('checkbox-oseille');
+        if (checkbox.checked != true) {
+            for (let [theCheckbox,theLink] of myMap.entries()) {
+                document.getElementById(theCheckbox).checked = true;
+                document.querySelector(theLink).removeAttribute('disabled');
+            }
+            document.querySelector("#oseille-css").disabled=true;
+        } else {
+            for (let [theCheckbox,theLink] of myMap.entries()) {
+                document.getElementById(theCheckbox).checked = false;
+                document.querySelector(theLink).disabled=true;
+            }
+            document.querySelector("#oseille-css").removeAttribute('disabled');
+        }
     };
 </script>
 
