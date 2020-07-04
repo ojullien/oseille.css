@@ -26,7 +26,7 @@ $_colors: (
     // Background color for the header element (hover).
         "hover-back": #909090, // WCAG Grading AA
     // Border color for the header element.
-        "border": #909090 
+        "border": #909090 // See $primary-palette.border-lightest in default/color.scss
 ) !default;
 
 $line-spacing: (

@@ -54,7 +54,7 @@ $primary-palette: (
         "border-darkest": shade(map.get($primary-colors, "border"), 20%),
         "border-darker": tone(map.get($primary-colors, "border"), 20%),
         "border-lighter": tint(map.get($primary-colors, "border"), 20%),
-        "border-lightest": tint(map.get($primary-colors, "border"), 50%)
+        "border-lightest": tint(map.get($primary-colors, "border"), 49%)
 );
 
 //@each $property, $value in $primary-palette {

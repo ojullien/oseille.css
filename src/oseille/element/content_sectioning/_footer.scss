@@ -18,45 +18,56 @@ $_box-model: (
         "margin": 0.5rem
 ) !default;
 
-$font-size: 0.875rem !default; // Font size for text in footer element.
+$_font-sizes: (
+    // Font size for text in footer element.
+        "footer": 0.875rem
+) !default;
 
-$colors: (
+$_colors: (
+    // Text color for the footer element.t
+        "fore": #414141, // See $primary-palette.fore-lighter in default/color.scss
     // Background color for footer nav element.
         "back": #f8f8f8,
-    // Text color for the footer element.t
-        "fore": #444,
     // Color for link in the footer element.
         "link": #0277bd,
     // Border color for the footer element.
-        "border": #ddd
+        "border": #222222
 ) !default;
 
-// Private variables
+$_classnames: (
+    // Class name for the footer class.
+        "footer": "page-footer",
+    // Class name for sticky headers and footers.
+        "sticky": "sticky"
+);
 
 $_only-top-border: true !default; // Apply styling only to the top border of footer? (boolean)
-$_sticky-name: "sticky" !default; // Class name for sticky headers and footers.
 
 /* Footer styling */
 
 footer {
-    background: map.get($colors, "back"); // Always apply background color to avoid shine through
-    color: map.get($colors, "fore");
 
-    @if $_only-top-border {
-        border-top: var(--px) solid map.get($colors, "border");
-    } @else {
-        border: var(--px) solid map.get($colors, "border");
+    // Page footer styling.
+    .#{map.get($_classnames, "footer")} {
+        background: map.get($_colors, "back"); // Always apply background color to avoid shine through
+        color: map.get($_colors, "fore");
     }
 
-    padding: calc(2 * #{$padding}) $padding;
-    font-size: $font-size;
+    @if $_only-top-border {
+        border-top: 1px solid map.get($_colors, "border");
+    } @else {
+        border: 1px solid map.get($_colors, "border");
+    }
+
+    padding: calc(2 * #{map.get($_box-model, "padding")}) map.get($_box-model, "padding");
+    font-size: map.get($_font-sizes, "footer");
 
     a,
     a:visited {
-        color: map.get($colors, "link");
+        color: var(--link-color, map.get($_colors, "link")); // Allows live color tunning
     }
 
-    .#{$_sticky-name} {
+    &.#{map.get($_classnames, "sticky")} {
         position: -webkit-sticky; // One of the rare instances where prefixes are necessary.
         position: sticky;
         z-index: 1101; // Deals with certain problems when combined with cards and tables.
