@@ -1,6 +1,6 @@
 /* Footer styling */
 footer {
-  border-top: 1px solid #222222;
+  border-top: 1px solid #909090;
   padding: calc(2 * 0.5rem) 0.5rem;
   font-size: 0.875rem;
 }
@@ -10,7 +10,7 @@ footer .page-footer {
 }
 footer a,
 footer a:visited {
-  color: var(--link-color, #0277bd);
+  color: var(--link-color, #215cca);
 }
 footer.sticky {
   position: -webkit-sticky;

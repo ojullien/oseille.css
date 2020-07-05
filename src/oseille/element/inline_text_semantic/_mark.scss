@@ -2,7 +2,7 @@
 // The HTML Mark Text element (<mark>) represents text which is marked or highlighted for reference or notation
 // purposes, due to the marked passage's relevance or importance in the enclosing context.
 //
-@use "sass:map";
+@use 'sass:map';
 @use '../../default/stdlib';
 
 // Variables.
@@ -15,15 +15,15 @@ $_colors: (
     // Text color for <mark>
         "fore": #f8f8f8,
     // Background colors for <mark>
-        "primary": #0277bd,
+        "primary": #215cca,
     // Background colors for <mark>
-        "secondary": #d32f2f,
+        "secondary": #e00000,
     // Background colors for <mark>
-        "tertiary": #308732
+        "tertiary": #218003
 ) !default;
 
 // Basic box model
-$_box-model: (
+$_box-spacing: (
     // Padding: creates extra space within an element.
         "padding": 0.5rem,
     // Margins: create extra space around an element.
@@ -38,10 +38,19 @@ $_borders: (
         "shadow": none
 ) !default;
 
-$_default-line-height: 1.5 !default; // Line height for most elements
+$_line-spacing: (
+    // Line height for most elements.
+        "main": 1.5,
+    // Line height for <mark>
+        "mark": 1em
+) !default;
 
-$_font-size: 0.95em; // Font size for <mark>
-$_line-height: 1em; // Line height for <mark>
+// Font sizes
+$_font-sizes: (
+    // Font size for <mark>.
+        "mark": 0.95em
+) !default;
+
 $_class-name: (
     // Class name for inline-block <mark>
         "mark": "inline-block",
@@ -57,7 +66,7 @@ $_class-name: (
 
 mark {
     margin: 0;
-    padding: calc(#{map.get($_box-model, "padding")} / 4) calc(#{map.get($_box-model, "padding")} / 2);
+    padding: calc(#{map.get($_box-spacing, "padding")} / 4) calc(#{map.get($_box-spacing, "padding")} / 2);
 
     border: 0;
     border-radius: map.get($_borders, "radius");
@@ -67,20 +76,20 @@ mark {
     background: map.get($_colors, "primary");
     color: map.get($_colors, "fore");
 
-    font-size: $_font-size;
-    line-height: $_line-height;
+    font-size: map.get($_font-sizes, "mark");
+    line-height: map.get($_line-spacing, "mark");
 
     &.#{map.get($_class-name, "mark")} {
         display: inline-block;
         // This is hardcoded, as we want inline-block <mark> elements to be styled as normal pieces of text, instead of look small and weird.
         font-size: 1em;
         // Line height is reset to the normal line-height from `core`. Also hardcoded for same reasons.
-        line-height: $_default-line-height;
-        padding: calc(#{map.get($_box-model, "padding")} / 2) #{map.get($_box-model, "padding")};
+        line-height: map.get($_line-spacing, "main");
+        padding: calc(#{map.get($_box-spacing, "padding")} / 2) #{map.get($_box-spacing, "padding")};
     }
 
     &.#{map.get($_class-name, "tag")} {
-        padding: calc(#{map.get($_box-model, "padding")} / 2) #{map.get($_box-model, "padding")};
+        padding: calc(#{map.get($_box-spacing, "padding")} / 2) #{map.get($_box-spacing, "padding")};
         border-radius: 1em;
     }
 

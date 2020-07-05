@@ -11,27 +11,6 @@
     }
 }
 
-// @todo Add comment
-@function rempx($size) {
-    @return 1px / $size;
-}
-
-// @todo Add comment
-@function buildFontSize($exponent, $ratio, $base: "1rem") {
-    $sCalc: "";
-
-    @if $exponent < 0 {
-        $sCalc: " / #{$ratio}";
-    } @else {
-        @for $_ from 1 through $exponent {
-            $sCalc: "#{$sCalc} * #{$ratio}";
-        }
-    }
-
-    @return "calc(#{$base}#{$sCalc})";
-}
-
-
 // Dumping the content of a Sass map
 @mixin dumpConfiguration($declarations) {
     @each $property, $value in $declarations {

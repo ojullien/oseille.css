@@ -57,6 +57,33 @@ $primary-palette: (
         "border-lightest": tint(map.get($primary-colors, "border"), 49%)
 );
 
-//@each $property, $value in $primary-palette {
-//    @debug $property $value;
-//}
+// Other colors.
+// Accessibility:
+//  - The colour of text and background content must have sufficient contrast.
+$secondary-colors: (
+    // link color
+        "blue": #215cca,
+    // error color
+        "red": #e00000,
+    // success color
+        "green": #218003
+);
+
+// Secondary colors palette.
+$secondary-palette: (
+    // link colors
+        "blue-darkest": #0e1c43,
+        "blue-darker": #183889,
+        "blue-lighter": #4083ae,
+        "blue-lightest": #338fff,
+    // error color
+        "red-darkest": shade(map.get($secondary-colors, "red"), 20%),
+        "red-darker": tone(map.get($secondary-colors, "red"), 20%),
+        "red-lighter": tint(map.get($secondary-colors, "red"), 20%),
+        "red-lightest": tint(map.get($secondary-colors, "red"), 38%),
+    // success color
+        "green-darkest": shade(map.get($secondary-colors, "green"), 20%),
+        "green-darker": tone(map.get($secondary-colors, "green"), 20%),
+        "green-lighter": tint(map.get($secondary-colors, "green"), 20%),
+        "green-lightest": #619c4f,
+);

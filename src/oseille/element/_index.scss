@@ -1,31 +1,11 @@
 // Loads elements with default modules' values
 //
-@use 'sass:map';
-@use 'sass:color';
-@use '../default/default' as v;
-
-// Loads all elements
 @use 'root/root';
 @use 'content_sectioning/sectioning';
-@use 'content_sectioning/heading' with (
-    $_line-heights:  (
-        // Line height for headings
-            "heading": 1.2,
-        // Line height for subheading
-            "subheading": v.$line-height)
-    );
-
+@use 'content_sectioning/heading';
 @use 'content_sectioning/header';
-@use 'content_sectioning/navigation' with (
-    $border-radius: v.$universal-border-radius,
-    $margin: v.$universal-margin,
-    $box-shadow: v.$universal-box-shadow,
-    $padding: v.$universal-padding
-    );
-@use 'content_sectioning/footer' with (
-    $padding: v.$universal-padding
-    );
-
+@use 'content_sectioning/navigation';
+@use 'content_sectioning/footer';
 @use 'text_content/blockquote';
 @use 'text_content/figure';
 @use 'text_content/definition';
@@ -36,24 +16,8 @@
 @use 'inline_text_semantic/mark';
 @use 'image_and_multimedia/image';
 @use 'embedded/embedded';
-@use 'table/table' with (
-    $border-radius: v.$universal-border-radius,
-    $margin: v.$universal-margin,
-    $padding: v.$universal-padding,
-    $mobile-breakpoint: v.$mobile-breakpoint
-    );
+@use 'table/table';
 @use 'form/buttons';
-@use 'form/form' with (
-    $border-radius: v.$universal-border-radius,
-    $box-shadow: v.$universal-box-shadow,
-    $margin: v.$universal-margin,
-    $padding: v.$universal-padding
-    );
-@use 'form/fieldset' with (
-    $border-radius: v.$universal-border-radius,
-    $margin: v.$universal-margin,
-    $padding: v.$universal-padding
-    );
-@use 'form/input' with (
-        $padding: v.$universal-padding
-    );
+@use 'form/form';
+@use 'form/fieldset';
+@use 'form/input';

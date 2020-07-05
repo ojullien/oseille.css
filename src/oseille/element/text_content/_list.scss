@@ -10,9 +10,7 @@
 // @link: https://sass-lang.com/documentation/variables
 
 // Basic box model
-$_box-model: (
-    // Padding: creates extra space within an element.
-        "padding": 0.5rem,
+$_box-spacing: (
     // Margins: create extra space around an element.
         "margin": 0.5rem
 ) !default;
@@ -23,8 +21,8 @@ ol,
 ul {
     padding: 0;
     border: 0;
-    margin: map.get($_box-model, "margin");
-    padding-left: calc(2 * #{map.get($_box-model, "margin")});
+    margin: map.get($_box-spacing, "margin");
+    padding-left: calc(2 * #{map.get($_box-spacing, "margin")});
 
     ul,
     ol {
@@ -43,13 +41,13 @@ dd {
 
 dl {
     border: 0;
-    margin: map.get($_box-model, "margin") 0 map.get($_box-model, "margin");
+    margin: map.get($_box-spacing, "margin") 0 map.get($_box-spacing, "margin");
     padding: 0;
-    padding-left: calc(2 * #{map.get($_box-model, "margin")});
+    padding-left: calc(2 * #{map.get($_box-spacing, "margin")});
 }
 
 dd {
-    padding-left: calc(2 * #{map.get($_box-model, "margin")});
+    padding-left: calc(2 * #{map.get($_box-spacing, "margin")});
 }
 
 dt::after {

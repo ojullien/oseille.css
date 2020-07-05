@@ -8,7 +8,6 @@
 //
 @use 'sass:map';
 @use 'sass:string';
-@use '../../default/stdlib';
 
 // Variables.
 //
@@ -17,9 +16,7 @@
 // @link: https://sass-lang.com/documentation/variables
 
 // Basic box model
-$_box-model: (
-    // Padding: creates extra space within an element.
-        "padding": 0.5rem,
+$_box-spacing: (
     // Margins: create extra space around an element.
         "margin": 0.5rem
 ) !default;
@@ -38,8 +35,8 @@ $_font-sizes: (
 ) !default;
 
 // Line heights
-$_line-heights: (
-    // Line height for headings
+$_line-spacing: (
+    // Line height for larger font sizes.
         "heading": 1.2,
     // Line height for subheading
         "subheading": 1.5
@@ -58,8 +55,23 @@ $_colors: (
 ) !default;
 
 $_font-weight: 500 !default; // Font weight for headings
-$_subheading-margin-top: -0.25rem; // Top margin of <small> elements in headings
+$_subheading-margin-top: 0; // Top margin of <small> elements in headings
 $_heading-ratio: 1.19; // Ratio for headings (strictly unitless)
+
+// @todo Add comment
+@function buildFontSize($exponent, $ratio, $base: "1rem") {
+    $sCalc: "";
+
+    @if $exponent < 0 {
+        $sCalc: " / #{$ratio}";
+    } @else {
+        @for $_ from 1 through $exponent {
+            $sCalc: "#{$sCalc} * #{$ratio}";
+        }
+    }
+
+    @return "calc(#{$base}#{$sCalc})";
+}
 
 /* Heading styling */
 
@@ -69,9 +81,9 @@ $_heading-ratio: 1.19; // Ratio for headings (strictly unitless)
 
     font-family: map.get($_font-stacks, "heading");
     font-weight: $_font-weight;
-    line-height: map.get($_line-heights, "heading");
+    line-height: map.get($_line-spacing, "heading");
 
-    margin: calc(1.5 * #{map.get($_box-model, "margin")}) map.get($_box-model, "margin");
+    margin: calc(#{map.get($_line-spacing, "heading")} * #{map.get($_box-spacing, "margin")}) map.get($_box-spacing, "margin");
 
     background: var(--heading-back-color, #{map.get($_colors, "back")}); // Allows live color tunning
     color: var(--heading-fore-color, #{map.get($_colors, "fore")}); // Allows live color tunning
@@ -85,7 +97,7 @@ $_heading-ratio: 1.19; // Ratio for headings (strictly unitless)
             margin-top: $_subheading-margin-top;
         }
 
-        line-height: map.get($_line-heights, "subheading");
+        line-height: map.get($_line-spacing, "subheading");
 
         background: var(--subheading-back-color, #{map.get($_colors, "subheading-back")}); // Allows live color tunning
         color: var(--subheading-fore-color, #{map.get($_colors, "subheading-fore")}); // Allows live color tunning
@@ -94,19 +106,19 @@ $_heading-ratio: 1.19; // Ratio for headings (strictly unitless)
 
 h1 {
     @extend %_normalize;
-    font-size: string.unquote(stdlib.buildFontSize(4, $_heading-ratio));
+    font-size: string.unquote(buildFontSize(4, $_heading-ratio));
 }
 h2 {
     @extend %_normalize;
-    font-size: string.unquote(stdlib.buildFontSize(3, $_heading-ratio));
+    font-size: string.unquote(buildFontSize(3, $_heading-ratio));
 }
 h3 {
     @extend %_normalize;
-    font-size: string.unquote(stdlib.buildFontSize(2, $_heading-ratio));
+    font-size: string.unquote(buildFontSize(2, $_heading-ratio));
 }
 h4 {
     @extend %_normalize;
-    font-size: string.unquote(stdlib.buildFontSize(1, $_heading-ratio));
+    font-size: string.unquote(buildFontSize(1, $_heading-ratio));
 }
 h5 {
     @extend %_normalize;
@@ -114,5 +126,5 @@ h5 {
 }
 h6 {
     @extend %_normalize;
-    font-size: string.unquote(stdlib.buildFontSize(-1, $_heading-ratio));
+    font-size: string.unquote(buildFontSize(-1, $_heading-ratio));
 }

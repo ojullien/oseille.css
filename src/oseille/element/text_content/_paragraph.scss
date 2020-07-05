@@ -18,13 +18,17 @@
 $_box-spacing: (
     // Margins: create extra space around an element.
         "margin": 0.5rem,
-        "margin-alt": 1.5em 0.5rem,
+        "margin-center": 0.5rem auto
 ) !default;
 
-$_hr-color: #aaa !default; // Border color
+$_line-spacing: (
+    // Line height for most elements.
+        "main": 1.5,
+    // Line height for thematic break
+        "hr": 1.25
+) !default;
 
-$_hr-line-height: 1.25em; // <hr> line height
-
+$_hr-color: #909090 !default; // Border color. See $primary-palette.border-lightest in default/color.scss
 $_paragraph_width: 70ch;
 
 /* paragraph-level elements styling */
@@ -35,15 +39,15 @@ hr {
     border: 0;
     padding: 0;
     // Actual styling using variables
-    line-height: $_hr-line-height;
-    margin: map.get($_box-model, "margin-alt");
-    height: var(--px);
+    line-height: map.get($_line-spacing, "hr");
+    margin: map.get($_box-spacing, "margin");
+    height: 1px;
     background: linear-gradient(to right, transparent, $_hr-color 20%, $_hr-color 80%, transparent);
 }
 
 p {
     padding: 0;
-    margin: map.get($_box-spacing, "margin-alt");
+    margin: calc(#{map.get($_line-spacing, "main")} * #{map.get($_box-spacing, "margin")}) map.get($_box-spacing, "margin");
     max-width: $_paragraph_width;
     text-rendering: optimizeLegibility;
 }

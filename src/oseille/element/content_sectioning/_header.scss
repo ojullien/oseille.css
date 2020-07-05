@@ -13,7 +13,7 @@
 // @link: https://sass-lang.com/documentation/variables
 
 // Basic box model
-$_box-model: (
+$_box-spacing: (
     // Padding: creates extra space within an element.
         "padding": 0.5rem
 ) !default;
@@ -77,7 +77,7 @@ header {
         border: 1px solid map.get($_colors, "border");
     }
 
-    padding: calc(#{map.get($_box-model, "padding")} / 4) 0;
+    padding: calc(#{map.get($_box-spacing, "padding")} / 4) 0;
 
     // Responsiveness for smaller displays, scrolls horizontally.
     white-space: nowrap;
@@ -96,7 +96,7 @@ header {
     .#{map.get($_classnames, "logo")} {
         color: map.get($_colors, "fore");
         font-size: $_logo-font-size;
-        padding: map.get($_box-model, "padding") calc(2 * #{map.get($_box-model, "padding")});
+        padding: map.get($_box-spacing, "padding") calc(2 * #{map.get($_box-spacing, "padding")});
         text-decoration: none;
     }
 
@@ -110,12 +110,12 @@ header {
         position: relative;
 
         top: calc(
-            0rem - #{map.get($_box-model, "padding")} / 4
+            0rem - #{map.get($_box-spacing, "padding")} / 4
         ); // Use universal-padding to offset the padding of the header.
 
-        height: calc(#{$_height} + #{map.get($_box-model, "padding")} / 2); // Fill header.
+        height: calc(#{$_height} + #{map.get($_box-spacing, "padding")} / 2); // Fill header.
 
-        line-height: calc(#{$_height} - #{map.get($_box-model, "padding")} * #{map.get($line-spacing, "main")});
+        line-height: calc(#{$_height} - #{map.get($_box-spacing, "padding")} * #{map.get($line-spacing, "main")});
 
         text-align: center;
 

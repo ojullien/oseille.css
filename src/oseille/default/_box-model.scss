@@ -20,12 +20,10 @@
 //   - Add borders or margins around touch targets to add at least 1px of inactive space.
 $box-spacing: (
     // Padding: creates extra space within an element.
-        "padding": 0.5rem,
-        "padding-alt": 1.5em 0.5rem,
+        "padding": 0.5rem, 
     // Margins: create extra space around an element.
-        "margin": 0.5rem,
-        "margin-alt": 1.5em 0.5rem,
-        "margin-center": 0.5rem auto,
+        "margin": 0.5rem, // We reduce the default web browsers margin
+        "margin-center": 0.5rem auto // Center
 );
 
 // Borders

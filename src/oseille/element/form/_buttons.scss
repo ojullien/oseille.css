@@ -13,7 +13,10 @@
 // @link: https://sass-lang.com/documentation/variables
 
 // Basic box model
-$_box-model: (
+// Accessibility:
+//   - An inactive space should be provided around actionable elements
+//   - Add borders or margins around touch targets to add at least 1px of inactive space.
+$_box-spacing: (
     // Padding: creates extra space within an element.
         "padding": 0.5rem,
     // Margins: create extra space around an element.
@@ -28,9 +31,12 @@ $_borders: (
         "shadow": none
 ) !default;
 
+// Main colors.
+// Accessibility:
+//  - The colour of text and background content must have sufficient contrast.
 $_colors: (
     // Text color for buttons.
-        "fore": #151515,
+        "fore": #121212,
     // Background color for buttons.
         "back": #e2e2e2,
     // Background color for buttons (hover).
@@ -103,11 +109,11 @@ button,
     background: var(--button-back-color, #{map.get($_colors, "back")}); // Allows live color tunning
     color: var(--button-fore-color, #{map.get($_colors, "fore")}); // Allows live color tunning
 
-    border: var(--px) solid var(--button-border-color, #{map.get($_colors, "border")});
+    border: 1px solid var(--button-border-color, #{map.get($_colors, "border")});
     border-radius: map.get($_borders, "radius");
 
-    padding: #{map.get($_box-model, "padding")} calc(1.5 * #{map.get($_box-model, "padding")});
-    margin: map.get($_box-model, "margin");
+    padding: #{map.get($_box-spacing, "padding")} calc(1.5 * #{map.get($_box-spacing, "padding")});
+    margin: map.get($_box-spacing, "margin");
 
     font-size: 1em;
 
@@ -128,15 +134,15 @@ button,
 
     &.small {
         @include makeSizeVariants(
-            calc(0.5 * #{map.get($_box-model, "padding")}) calc(0.75 * #{map.get($_box-model, "padding")}),
-            map.get($_box-model, "margin")
+            calc(0.5 * #{map.get($_box-spacing, "padding")}) calc(0.75 * #{map.get($_box-spacing, "padding")}),
+            map.get($_box-spacing, "margin")
         );
     }
 
     &.large {
         @include makeSizeVariants(
-            calc(1.5 * #{map.get($_box-model, "padding")}) calc(2 * #{map.get($_box-model, "padding")}),
-            map.get($_box-model, "margin")
+            calc(1.5 * #{map.get($_box-spacing, "padding")}) calc(2 * #{map.get($_box-spacing, "padding")}),
+            map.get($_box-spacing, "margin")
         );
     }
 }
@@ -157,10 +163,10 @@ button,
 .#{map.get($_classnames, "group")} {
     display: flex;
 
-    border: var(--px) solid var(--button-group-border-color, #{map.get($_colors, "group-border")});
+    border: 1px solid var(--button-group-border-color, #{map.get($_colors, "group-border")});
     border-radius: map.get($_borders, "radius");
 
-    margin: map.get($_box-model, "margin");
+    margin: map.get($_box-spacing, "margin");
 
     @include stdlib.box-shadow(map.get($_borders, "shadow"));
 
@@ -181,7 +187,7 @@ button,
     }
 
     & > :not(:first-child) {
-        border-left: var(--px) solid var(--button-group-border-color, #{map.get($_colors, "group-border")});
+        border-left: 1px solid var(--button-group-border-color, #{map.get($_colors, "group-border")});
     }
 
     // Responsiveness for button groups
@@ -189,7 +195,7 @@ button,
         flex-direction: column;
         & > :not(:first-child) {
             border: 0; // Reapply to remove the left border from elements.
-            border-top: var(--px) solid var(--button-group-border-color, #{map.get($_colors, "group-border")});
+            border-top: 1px solid var(--button-group-border-color, #{map.get($_colors, "group-border")});
         }
     }
 }

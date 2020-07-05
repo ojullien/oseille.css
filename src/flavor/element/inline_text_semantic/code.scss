@@ -1,22 +1,2 @@
 //
-@use 'sass:map';
-//
-$colors: (
-    // Text & foreground color
-        "back": #222740,
-    // Background color
-        "fore": #dad5bc
-);
-//
-@use '../../../oseille/element/inline_text_semantic/code' with (
-    $_colors: (
-        // Text color for <mark>
-            "fore": map.get($colors,"back"), // Invert
-        // Background colors for <mark>
-            "back": map.get($colors,"fore"), // Invert
-        // <pre> border color
-            "border": #ddd,
-        // <pre> sidebar color
-            "sidebar": #1565c0
-    )
-);
+@use '../../../oseille/element/inline_text_semantic/code';

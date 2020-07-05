@@ -1,16 +1,3 @@
+
 //
-$colors: (
-    // Text & foreground color
-        "back": #222740,
-    // Background color
-        "fore": #dad5bc
-);
-//
-@use '../../../oseille/element/inline_text_semantic/text' with (
-    $_colors: (
-    // Color for <a>:link
-        "link": #f7e7be,
-    // Color for <a>:visited
-        "visited": #aa9a71
-)
-);
+@use '../../../oseille/element/inline_text_semantic/text';

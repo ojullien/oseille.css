@@ -27,17 +27,20 @@
 // Font stacks
 $_font-stacks: (
     // Code font stack
-    "code": (Menlo, Consolas, monospace),
+        "code": (Menlo, Consolas, monospace)
 ) !default;
 
 // Font sizes
 $_font-sizes: (
     // Font size for monospace element like <code>, <kbd>, ...
-    "code": 0.85em
+        "code": 0.85em
 ) !default;
 
 // Basic box model
-$_box-model: (
+// Accessibility:
+//   - An inactive space should be provided around actionable elements
+//   - Add borders or margins around touch targets to add at least 1px of inactive space.
+$_box-spacing: (
     // Padding: creates extra space within an element.
         "padding": 0.5rem,
     // Margins: create extra space around an element.
@@ -52,16 +55,18 @@ $_borders: (
         "shadow": none
 ) !default;
 
-// Main colors. WCAG Grading AAA.
+// Main colors.
+// Accessibility:
+//  - The colour of text and background content must have sufficient contrast.
 $_colors: (
     // Text & foreground color
         "fore": #f8f8f8,
     // Background color
-        "back": #151515,
+        "back": #121212,
     // <pre> border color
-        "border": #ddd,
+        "border": #222222,
     // <pre> sidebar color
-        "sidebar": #1565c0
+        "sidebar": #215cca
 ) !default; // Border colors
 
 /* Inline code semantic styling */
@@ -83,8 +88,8 @@ $_colors: (
 pre {
     overflow: auto; // Responsiveness
 
-    padding: calc(1.5 * #{map.get($_box-model, "padding")});
-    margin: map.get($_box-model, "margin");
+    padding: calc(1.5 * #{map.get($_box-spacing, "padding")});
+    margin: map.get($_box-spacing, "margin");
 
     font-family: map.get($_font-stacks, "code");
     font-size: map.get($_font-sizes, "code");
@@ -95,8 +100,8 @@ pre {
 
     @include stdlib.box-shadow(map.get($_borders, "shadow"));
 
-    border: var(--px) solid map.get($_colors, "border");
-    border-left: calc(4 * var(--px)) solid map.get($_colors, "sidebar");
+    border: 2px solid map.get($_colors, "border");
+    border-left: calc(4 * 1px) solid map.get($_colors, "sidebar");
     border-radius: 0 #{map.get($_borders, "radius")} #{map.get($_borders, "radius")} 0;
 
     word-break: normal;
@@ -111,7 +116,7 @@ code {
     @extend %_normalize;
 
     // This could be a bit counterintuitive and burden the codebase a bit, look into it again?
-    padding: calc(#{map.get($_box-model, "padding")} / 4) calc(#{map.get($_box-model, "padding")} / 2);
+    padding: calc(#{map.get($_box-spacing, "padding")} / 4) calc(#{map.get($_box-spacing, "padding")} / 2);
 
     // No border color by default and fore color is the default for text, can be altered manually.
     @include stdlib.box-shadow(map.get($_borders, "shadow"));
@@ -125,7 +130,7 @@ kbd {
     @extend %_normalize;
 
     // This could be a bit counterintuitive and burden the codebase a bit, look into it again?
-    padding: calc(#{map.get($_box-model, "padding")} / 4) calc(#{map.get($_box-model, "padding")} / 2);
+    padding: calc(#{map.get($_box-spacing, "padding")} / 4) calc(#{map.get($_box-spacing, "padding")} / 2);
 
     // No border color by default and fore color is the default for text, can be altered manually.
     @include stdlib.box-shadow(map.get($_borders, "shadow"));

@@ -1,6 +1,7 @@
 //
 // The HTML <footer> element represents a footer for its nearest sectioning content or sectioning root element.
-// A footer typically contains information about the author of the section, copyright data or links to related documents.
+// A footer typically contains information about the author of the section, copyright data or links to related
+// documents.
 //
 @use 'sass:map';
 
@@ -11,7 +12,7 @@
 // @link: https://sass-lang.com/documentation/variables
 
 // Basic box model
-$_box-model: (
+$_box-spacing: (
     // Padding: creates extra space within an element.
         "padding": 0.5rem,
     // Margins: create extra space around an element.
@@ -25,13 +26,14 @@ $_font-sizes: (
 
 $_colors: (
     // Text color for the footer element.t
-        "fore": #414141, // See $primary-palette.fore-lighter in default/color.scss
-    // Background color for footer nav element.
+        "fore": #414141,
+    // See $primary-palette.fore-lighter in default/color.scss
+        // Background color for footer nav element.
         "back": #f8f8f8,
     // Color for link in the footer element.
-        "link": #0277bd,
+        "link": #215cca,
     // Border color for the footer element.
-        "border": #222222
+        "border": #909090 // See $primary-palette.border-lightest in default/color.scss
 ) !default;
 
 $_classnames: (
@@ -46,7 +48,6 @@ $_only-top-border: true !default; // Apply styling only to the top border of foo
 /* Footer styling */
 
 footer {
-
     // Page footer styling.
     .#{map.get($_classnames, "footer")} {
         background: map.get($_colors, "back"); // Always apply background color to avoid shine through
@@ -59,7 +60,7 @@ footer {
         border: 1px solid map.get($_colors, "border");
     }
 
-    padding: calc(2 * #{map.get($_box-model, "padding")}) map.get($_box-model, "padding");
+    padding: calc(2 * #{map.get($_box-spacing, "padding")}) map.get($_box-spacing, "padding");
     font-size: map.get($_font-sizes, "footer");
 
     a,
