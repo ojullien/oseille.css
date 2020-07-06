@@ -5,9 +5,15 @@
     <meta charset="utf-8">
     <title>semantics</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="semantics.css" rel="stylesheet" type="text/css" id="local-css" />
+    <link href="element/root/root.css" rel="stylesheet" type="text/css" id="root-css" />
+    <link href="element/content_sectioning/heading.css" rel="stylesheet" type="text/css" id="heading-css" />
+    <link href="element/text_content/paragraph.css" rel="stylesheet" type="text/css" id="paragraph-css" />
+    <link href="element/inline_text_semantic/text.css" rel="stylesheet" type="text/css" id="text-css" />
+    <link href="element/inline_text_semantic/code.css" rel="stylesheet" type="text/css" id="code-css" />
+    <link href="element/inline_text_semantic/mark.css" rel="stylesheet" type="text/css" id="mark-css" />
     <link href="oseille.css" rel="stylesheet" type="text/css" id="oseille-css" disabled />
-</head> 
+</head>
+</head>
 <style>
     .wrapper {
         margin: 0 auto;
@@ -19,15 +25,16 @@
 
     <div class="wrapper">
 
-        <div style="min-height: 100%; display: flex; flex-direction: row-reverse; justify-content: center; align-items: center; text-align: center; position: sticky; top: 10px;">
-            <input style="" type="radio" id="radio-local-css" name="css" value="1" onchange="switchToLocal();" checked />
-            <label style="" for="radio-local-css">Local</label>
-            <input style="" type="radio" id="radio-oseille-css" name="css" value="2" onchange="switchToOseille();" />
-            <label style="" for="radio-oseille-css">Oseille</label>
-            <input style="" type="radio" id="radio-nosheet-css" name="css" value="3" onchange="switchToNoSheet();" />
-            <label style="" for="radio-nosheet-css">No Sheet</label>
+        <div style="min-height: 100%; display: flex; flex-direction: row-reverse; justify-content: space-evenly; align-items: center; text-align: center; align-self: flex-start;position: sticky; top: 10px;">
+            <label style="" for="root"><input style="" type="checkbox" id="checkbox-root" name="checkbox-root" value="root" onclick="switchToLocal(this);" checked />Root</label>
+            <label style="" for="heading"><input style="" type="checkbox" id="checkbox-heading" name="checkbox-heading" value="heading" onclick="switchToLocal(this);" checked />heading</label>
+            <label style="" for="paragraph"><input style="" type="checkbox" id="checkbox-paragraph" name="checkbox-paragraph" value="paragraph" onclick="switchToLocal(this);" checked />paragraph</label>
+            <label style="" for="text"><input style="" type="checkbox" id="checkbox-text" name="checkbox-text" value="text" onclick="switchToLocal(this);" checked />text</label>
+            <label style="" for="code"><input style="" type="checkbox" id="checkbox-code" name="checkbox-code" value="code" onclick="switchToLocal(this);" checked />code</label>
+            <label style="" for="mark"><input style="" type="checkbox" id="checkbox-mark" name="checkbox-mark" value="mark" onclick="switchToLocal(this);" checked />mark</label>
+            <label style="" for="oseille"><input style="" type="checkbox" id="checkbox-oseille" name="checkbox-oseille" value="oseille" onclick="switchToOseille();" />Oseille</label>
         </div>
-        
+
         <header>
             <h1>SEMANTICS</h1>
         </header>
@@ -125,23 +132,39 @@ MD5 ("Hello world") = 3e25960a79dbc69b674cd4ec67a72c62
 </body>
 
 <script type="text/javascript">
-    document.body.onload = () => {
-        var sFontSize = window.getComputedStyle(document.body, null).getPropertyValue("font-size");
-        var iRatio = 1 / sFontSize.substring(0, sFontSize.length - 2);
-        document.documentElement.style.setProperty('--px', iRatio + "rem");
+
+    var myMap = new Map();
+    myMap.set('checkbox-root','#root-css');
+    myMap.set('checkbox-heading','#heading-css');
+    myMap.set('checkbox-paragraph','#paragraph-css');
+    myMap.set('checkbox-text','#text-css');
+    myMap.set('checkbox-code','#code-css');
+    myMap.set('checkbox-mark','#mark-css');
+
+    function switchToLocal(element) {
+        if (element.checked != true) {
+            document.querySelector(myMap.get(element.id)).disabled=true;
+        } else {
+            document.querySelector(myMap.get(element.id)).removeAttribute('disabled');
+        }
     };
-    function switchToLocal() {
-        document.querySelector("#oseille-css").disabled=true;
-        document.querySelector("#local-css").removeAttribute('disabled');
-    };
+
     function switchToOseille() {
-        document.querySelector("#local-css").disabled=true;
-        document.querySelector("#oseille-css").removeAttribute('disabled');            
+        let checkbox = document.getElementById('checkbox-oseille');
+        if (checkbox.checked != true) {
+            for (let [theCheckbox,theLink] of myMap.entries()) {
+                document.getElementById(theCheckbox).checked = true;
+                document.querySelector(theLink).removeAttribute('disabled');
+            }
+            document.querySelector("#oseille-css").disabled=true;
+        } else {
+            for (let [theCheckbox,theLink] of myMap.entries()) {
+                document.getElementById(theCheckbox).checked = false;
+                document.querySelector(theLink).disabled=true;
+            }
+            document.querySelector("#oseille-css").removeAttribute('disabled');
+        }
     };
-    function switchToNoSheet() {
-        document.querySelector("#oseille-css").disabled=true;
-        document.querySelector("#local-css").disabled=true;
-    };    
 </script>
 
 </html>
