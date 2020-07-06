@@ -1,75 +1,109 @@
 //
-// Content sectioning elements allow you to organize the document content into logical pieces.
-// Use the sectioning elements to create a broad outline for your page content, including header and footer navigation,
-// and heading elements to identify sections of content.
+// The HTML <nav> element represents a section of a page whose purpose is to provide navigation links, either within
+// the current document or to other documents. Common examples of navigation sections are menus, tables of contents,
+// and indexes.
 //
 @use 'sass:map';
 @use '../../default/stdlib';
 
-// Public variables.
-// May be overrided using @use <url> with (<variable>: <value>, <variable>: <value>)
+// Variables.
+//
+// To load this module with configuration, use @use <url> with (<variable>: <value>, <variable>: <value>).
+// The configured values will override the variables’ default values.
+// @link: https://sass-lang.com/documentation/variables
 
-$border-radius: 0.125rem !default; // Universal border-radius for most elements
-$margin: 0.5rem !default; // Universal margin for the most elements
-$padding: 0.5rem !default; // Universal padding for the most elements
-$box-shadow: none !default; // Universal box-shadow for most elements
-$sublink-depth: 2 !default; // Amount of subcategory classes to add.
-$colors: (
-    // Background color for the nav element.
+// Basic box model
+$_box-spacing: (
+    // Padding: creates extra space within an element.
+        "padding": 0.5rem,
+    // Margins: create extra space around an element.
+        "margin": 0.5rem,
+    // We reduce the default web browsers margin
+        "margin-center": 0.5rem auto // Center
+) !default;
+
+// Borders
+$_borders: (
+    // radius: rounds the corners of an element's outer border edge.
+        "radius": 0.125rem,
+    // shadow: adds shadow effects around an element's frame.
+        "shadow": none
+) !default;
+
+$_line-spacing: (
+    // Line height for most elements.
+        "main": 1.5
+) !default;
+
+$_sublink-depth: 2 !default; // Amount of subcategory classes to add.
+
+$_colors: (
+    // Text & foreground color
+        "fore": #121212,
+    // Background color
         "back": #f8f8f8,
-    // Text color for the nav element.
-        "fore": #444,
-    // Color for link in the nav element.
-        "link": #0277bd,
-    // Background color for the nav element (hover).
-        "hover-back": #f0f0f0,
-    // Border color for the nav element.
-        "border": #ddd
+    // Color for link
+        "link": #215cca, // See $secondary-colors.blue in default/color.scss
+    // Hover color
+        "hover-back": #e0e0e0, // See $primary-palette.back-darker in default/color.scss
+        "hover-fore": #121212,
+    // Border color
+        "border": #909090 // See $primary-palette.border-lightest in default/color.scss
 ) !default;
 
 // Private variables
 
-$_sublink-prefix: "sublink" !default; // Prefix for the subcategory tabs in nav.
+$_sublink-prefix: "sublink"; // Prefix for the subcategory tabs in nav.
 
 /* Navigation styling. */
 nav {
-    background: map.get($colors, "back");
-    color: map.get($colors, "fore");
-    border: var(--px) solid map.get($colors, "border");
-    border-radius: $border-radius;
-    margin: $margin;
-    @include stdlib.box-shadow($box-shadow);
+    background: map.get($_colors, "back");
+    color: map.get($_colors, "fore");
+
+    border: 1px solid map.get($_colors, "border");
+    border-radius: map.get($_borders, "radius");
+
+    margin: map.get($_box-spacing, "margin");
+
+    @include stdlib.box-shadow(map.get($_borders, "shadow"));
 
     * {
-        padding: $padding calc(1.5 * #{$padding});
+        padding: map.get($_box-spacing, "padding")
+            calc(#{map.get($_line-spacing, "main")} * #{map.get($_box-spacing, "padding")});
     }
 
     a,
     a:visited {
         display: block;
-        color: map.get($colors, "link"); // Apply regardless to de-stylize visited links.
-        border-radius: $border-radius;
+
+        border-radius: map.get($_borders, "radius");
+
         transition: background 0.3s;
+
+        color: map.get($_colors, "link"); // Apply regardless to de-stylize visited links.
 
         &:hover,
         &:focus {
             text-decoration: none;
-            background: map.get($colors, "hover-back");
+            background: map.get($_colors, "hover-back");
+            font-weight: bolder; // Accessibility
         }
     }
 
     // Subcategories in navigation.
-    @for $i from 1 through $sublink-depth {
+    @for $i from 1 through $_sublink-depth {
         .#{$_sublink-prefix}-#{$i} {
             position: relative;
-            margin-left: calc(#{$i * 2} * #{$padding});
+            margin-left: calc(#{$i * 2} * #{map.get($_box-spacing, "padding")});
             &:before {
                 position: absolute;
-                left: calc(#{$padding} - #{1 + ($i - 1) * 2} * #{$padding});
-                top: calc(0 - var(--px));
+                left: calc(
+                    #{map.get($_box-spacing, "padding")} - #{1 + ($i - 1) * 2} * #{map.get($_box-spacing, "padding")}
+                );
+                top: calc(0 - 1px);
                 content: "";
                 height: 100%;
-                border: var(--px) solid map.get($colors, "border");
+                border: 1px solid map.get($_colors, "border");
                 border-left: 0;
             }
         }

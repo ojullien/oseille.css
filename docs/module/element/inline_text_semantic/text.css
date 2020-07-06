@@ -32,10 +32,10 @@ a {
   text-decoration: none;
 }
 a:link {
-  color: var(--link-color, #0277bd);
+  color: var(--link-color, #215cca);
 }
 a:visited {
-  color: var(--visited-link-color, #004c8c);
+  color: var(--visited-link-color, #0e1c43);
 }
 a:not(.button):hover, a:not(.button):focus {
   box-shadow: 0 2px;

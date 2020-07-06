@@ -20,9 +20,9 @@ $_font-sizes: (
 // Link colors
 $_colors: (
     // Color for <a>:link
-        "link": #0277bd,
+        "link": #215cca,
     // Color for <a>:visited
-        "visited": #004c8c
+        "visited": #0e1c43 // See $secondary-palette.blue-darkest in /default/colors.scss
 ) !default;
 
 // Box model

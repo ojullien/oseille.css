@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Header</title>
+    <title>Sectioning</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="element/root/root.css" rel="stylesheet" type="text/css" id="root-css" />
     <link href="module/grid.css" rel="stylesheet" type="text/css" id="grid-css" />
@@ -11,6 +11,7 @@
     <link href="element/form/buttons.css" rel="stylesheet" type="text/css" id="buttons-css" />
     <link href="element/content_sectioning/header.css" rel="stylesheet" type="text/css" id="header-css" />
     <link href="element/content_sectioning/footer.css" rel="stylesheet" type="text/css" id="footer-css" />
+    <link href="element/content_sectioning/navigation.css" rel="stylesheet" type="text/css" id="navigation-css" />
     <link href="oseille.css" rel="stylesheet" type="text/css" id="oseille-css" disabled />
 </head>
 <style>
@@ -58,6 +59,7 @@
             <label style="" for="buttons"><input style="" type="checkbox" id="checkbox-buttons" name="checkbox-buttons" value="buttons" onclick="switchToLocal(this);" checked />Buttons</label>
             <label style="" for="header"><input style="" type="checkbox" id="checkbox-header" name="checkbox-header" value="header" onclick="switchToLocal(this);" checked />Header</label>
             <label style="" for="footer"><input style="" type="checkbox" id="checkbox-footer" name="checkbox-footer" value="footer" onclick="switchToLocal(this);" checked />Footer</label>
+            <label style="" for="navigation"><input style="" type="checkbox" id="checkbox-navigation" name="checkbox-navigation" value="navigation" onclick="switchToLocal(this);" checked />Navigation</label>
             <label style="" for="oseille"><input style="" type="checkbox" id="checkbox-oseille" name="checkbox-oseille" value="oseille" onclick="switchToOseille();" />Oseille</label>
         </div>
 
@@ -80,6 +82,21 @@
 <p>Praesent sit amet porta orci. Nunc ac ligula non nunc facilisis vestibulum. Morbi tincidunt commodo cursus. Interdum et malesuada fames ac ante ipsum primis in faucibus. In hac habitasse platea dictumst. In egestas nisi tincidunt lacus luctus, et fermentum enim vestibulum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla quis ullamcorper libero, at tincidunt sem. Vestibulum mollis fringilla congue.</p>
 <p>Etiam mollis dolor eget lacinia fermentum. Etiam tincidunt metus felis. Vestibulum at ex laoreet, eleifend lorem vitae, placerat neque. Proin hendrerit eleifend mauris, ut tincidunt enim egestas congue. Mauris orci lorem, tincidunt vitae enim et, porta vulputate turpis. Curabitur vel varius neque. Praesent venenatis semper massa vel commodo. Sed pulvinar felis neque, a lobortis leo eleifend eget. Duis placerat sapien dapibus rhoncus aliquam. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec eu ullamcorper ipsum. Suspendisse sit amet leo lacus. Sed tempor convallis nisl, et lacinia turpis vulputate lacinia. Sed rhoncus in velit faucibus cursus. </p>
             <footer>© 2018 Gandalf</footer>
+            <aside>
+                <div class="section"><h3>Example</h3>
+                <nav>
+                    <a href="#" class="doc">Home</a>
+                    <span class="doc">News</span>
+                    <a href="#" class="sublink-1 doc">New Courses</a>
+                    <a href="#" class="sublink-1 doc">Certifications</a>
+                    <span class="sublink-1 doc">Events</span>
+                    <a href="#" class="sublink-2 doc">Course Showcase - 12th, Dec</a>
+                    <a href="#" class="sublink-2 doc">Staff AMA - 16th, Dec</a>
+                    <a href="#" class="sublink-1 doc">Policy Update</a>
+                    <a href="#" class="doc">About</a>
+                    <a href="#" class="doc">Contact</a>
+                </nav></div>
+            </aside>
         </article>
     </main>
     <footer class="page-footer">
@@ -96,6 +113,8 @@
     myMap.set('checkbox-text','#text-css');
     myMap.set('checkbox-header','#header-css');
     myMap.set('checkbox-footer','#footer-css');
+    myMap.set('checkbox-navigation','#navigation-css');
+
 
     function switchToLocal(element) {
         if (element.checked != true) {

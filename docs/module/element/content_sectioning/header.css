@@ -27,7 +27,6 @@ header {
   padding: 0.5rem calc(2 * 0.5rem);
   text-decoration: none;
 }
-.page-header span,
 .page-header button,
 .page-header [type=button],
 .page-header .button,
@@ -45,6 +44,15 @@ header {
   margin: 0;
   text-transform: uppercase;
 }
+.page-header span {
+  box-sizing: border-box;
+  position: relative;
+  top: calc( 0rem - 0.5rem / 4 );
+  height: calc(3.1875rem + 0.5rem / 2);
+  line-height: calc(3.1875rem - 0.5rem * 1.5);
+  text-align: center;
+  text-transform: uppercase;
+}
 .page-header button:hover, .page-header button:focus,
 .page-header [type=button]:hover,
 .page-header [type=button]:focus,
@@ -52,8 +60,8 @@ header {
 .page-header .button:focus,
 .page-header [role=button]:hover,
 .page-header [role=button]:focus {
-  background: #898989;
-  color: #fcfcfc;
+  background: #e0e0e0;
+  color: #121212;
   font-weight: bolder;
 }
 .page-header.sticky {
