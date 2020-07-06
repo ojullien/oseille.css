@@ -25,13 +25,12 @@ $_font-sizes: (
 ) !default;
 
 $_colors: (
-    // Text color for the footer element.t
-        "fore": #414141,
-    // See $primary-palette.fore-lighter in default/color.scss
-        // Background color for footer nav element.
+    // Text color for the footer element.
+        "fore": #121212,
+    // Background color for footer nav element.
         "back": #f8f8f8,
     // Color for link in the footer element.
-        "link": #215cca,
+        "link": #215cca, // See $secondary-colors.blue in default/color.scss
     // Border color for the footer element.
         "border": #909090 // See $primary-palette.border-lightest in default/color.scss
 ) !default;
@@ -49,7 +48,7 @@ $_only-top-border: true !default; // Apply styling only to the top border of foo
 
 footer {
     // Page footer styling.
-    .#{map.get($_classnames, "footer")} {
+    &.#{map.get($_classnames, "footer")} {
         background: map.get($_colors, "back"); // Always apply background color to avoid shine through
         color: map.get($_colors, "fore");
     }

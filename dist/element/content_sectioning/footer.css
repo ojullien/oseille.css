@@ -4,9 +4,9 @@ footer {
   padding: calc(2 * 0.5rem) 0.5rem;
   font-size: 0.875rem;
 }
-footer .page-footer {
+footer.page-footer {
   background: #f8f8f8;
-  color: #414141;
+  color: #121212;
 }
 footer a,
 footer a:visited {
