@@ -24,8 +24,8 @@ $_colors: (
     // Background color
         "back": #f8f8f8,
     // Hover color for the header element.
-        "hover-back": #898989, // See $primary-palette.fore-lightest in default/color.scss
-        "hover-fore": #fcfcfc, // See $primary-palette.back-lightest in default/color.scss
+        "hover-back": #e0e0e0,
+        "hover-fore": #121212,
     // Border color for the header element.
         "border": #909090 // See $primary-palette.border-lightest in default/color.scss
 ) !default;
@@ -144,6 +144,7 @@ header {
         }
     }
 
+    // Hover and focus
     button,
     [type="button"],
     .#{map.get($_classnames, "button")},
