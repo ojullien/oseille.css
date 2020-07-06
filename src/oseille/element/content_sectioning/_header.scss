@@ -24,11 +24,9 @@ $_colors: (
     // Background color
         "back": #f8f8f8,
     // Hover color for the header element.
-        "hover-back": #898989,
-    // See $primary-palette.fore-lightest in default/color.scss
-        "hover-fore": #fcfcfc,
-    // See $primary-palette.back-lightest in default/color.scss
-        // Border color for the header element.
+        "hover-back": #898989, // See $primary-palette.fore-lightest in default/color.scss
+        "hover-fore": #fcfcfc, // See $primary-palette.back-lightest in default/color.scss
+    // Border color for the header element.
         "border": #909090 // See $primary-palette.border-lightest in default/color.scss
 ) !default;
 
@@ -100,8 +98,7 @@ header {
         text-decoration: none;
     }
 
-    // Link and span styling.
-    span,
+    // Link styling.
     button,
     [type="button"],
     .#{map.get($_classnames, "button")},
@@ -109,9 +106,7 @@ header {
         box-sizing: border-box;
         position: relative;
 
-        top: calc(
-            0rem - #{map.get($_box-spacing, "padding")} / 4
-        ); // Use universal-padding to offset the padding of the header.
+        top: calc( 0rem - #{map.get($_box-spacing, "padding")} / 4 ); // Use universal-padding to offset the padding of the header.
 
         height: calc(#{$_height} + #{map.get($_box-spacing, "padding")} / 2); // Fill header.
 
@@ -125,6 +120,24 @@ header {
         border: 0;
         border-radius: 0;
         margin: 0;
+
+        @if $_links-uppercase {
+            text-transform: uppercase;
+        }
+    }
+
+    // Span styling.
+    span {
+        box-sizing: border-box;
+        position: relative;
+
+        top: calc( 0rem - #{map.get($_box-spacing, "padding")} / 4 ); // Use universal-padding to offset the padding of the header.
+
+        height: calc(#{$_height} + #{map.get($_box-spacing, "padding")} / 2); // Fill header.
+
+        line-height: calc(#{$_height} - #{map.get($_box-spacing, "padding")} * #{map.get($line-spacing, "main")});
+
+        text-align: center;
 
         @if $_links-uppercase {
             text-transform: uppercase;
