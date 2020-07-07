@@ -25,11 +25,30 @@ $_container-name: "iframe-container"; // Class name for <iframe> container.
 
     iframe {
         position: absolute;
-        //object-fit: fill;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
         border-style: none;
     }
+}
+
+.fill {
+    object-fit: fill;
+}
+
+.contain {
+    object-fit: contain;
+}
+
+.cover {
+    object-fit: cover;
+}
+
+.none {
+    object-fit: none;
+}
+
+.scale-down {
+    object-fit: scale-down;
 }
