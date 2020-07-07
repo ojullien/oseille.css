@@ -66,8 +66,8 @@ header {
 .#{map.get($_classnames, "header")} {
     height: $_height;
 
-    background: map.get($_colors, "back"); // Always apply background color to avoid shine through
-    color: map.get($_colors, "fore");
+    background: var(--header-back-color, map.get($_colors, "back")); // Always apply background color to avoid shine through
+    color: var(--header-fore-color, map.get($_colors, "fore"));
 
     @if $_only-bottom-border {
         border-bottom: 1px solid map.get($_colors, "border");
@@ -92,7 +92,7 @@ header {
 
     // Header logo styling.
     .#{map.get($_classnames, "logo")} {
-        color: map.get($_colors, "fore");
+        color: var(--header-fore-color, map.get($_colors, "fore"));
         font-size: $_logo-font-size;
         padding: map.get($_box-spacing, "padding") calc(2 * #{map.get($_box-spacing, "padding")});
         text-decoration: none;
@@ -151,8 +151,8 @@ header {
     [role="button"] {
         &:hover,
         &:focus {
-            background: map.get($_colors, "hover-back");
-            color: map.get($_colors, "hover-fore");
+            background: var(--header-hover-back-color, map.get($_colors, "hover-back"));
+            color: var(--header-hover-fore-color, map.get($_colors, "hover-fore"));
             font-weight: bolder; // Accessibility
         }
     }

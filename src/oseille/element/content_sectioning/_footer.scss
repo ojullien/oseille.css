@@ -49,8 +49,8 @@ $_only-top-border: true !default; // Apply styling only to the top border of foo
 footer {
     // Page footer styling.
     &.#{map.get($_classnames, "footer")} {
-        background: map.get($_colors, "back"); // Always apply background color to avoid shine through
-        color: map.get($_colors, "fore");
+        background: var(--footer-back-color, map.get($_colors, "back")); // Always apply background color to avoid shine through
+        color: var(--footer-fore-color, map.get($_colors, "fore"));
     }
 
     @if $_only-top-border {

@@ -57,8 +57,8 @@ $_sublink-prefix: "sublink"; // Prefix for the subcategory tabs in nav.
 
 /* Navigation styling. */
 nav {
-    background: map.get($_colors, "back");
-    color: map.get($_colors, "fore");
+    background: var(--back-color, map.get($_colors, "back"));
+    color: var(--fore-color, map.get($_colors, "fore"));
 
     border: 1px solid map.get($_colors, "border");
     border-radius: map.get($_borders, "radius");
