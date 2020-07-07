@@ -25,6 +25,12 @@ $_colors: (
         "visited": #0e1c43 // See $secondary-palette.blue-darkest in /default/colors.scss
 ) !default;
 
+// Borders
+$_borders: (
+    // Alternative shadow for more accesssibility concern
+        "shadow-alt": 0 2px
+) !default;
+
 // Box model
 $_box-model: (
     // <sup> top
@@ -76,7 +82,7 @@ a {
 
     &:not(.button):hover,
     &:not(.button):focus {
-        box-shadow: 0 2px; // Accessibility
+        @include stdlib.box-shadow(map.get($_borders, "shadow-alt")); // Accessibility
     }
 }
 

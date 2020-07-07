@@ -14,14 +14,15 @@ nav a:visited {
   display: block;
   border-radius: 0.125rem;
   transition: background 0.3s;
-  color: #215cca;
+  text-decoration: none;
+  color: var(--link-color, #215cca);
 }
 nav a:hover, nav a:focus,
 nav a:visited:hover,
 nav a:visited:focus {
-  text-decoration: none;
   background: #e0e0e0;
   font-weight: bolder;
+  box-shadow: none !important;
 }
 nav .sublink-1 {
   position: relative;

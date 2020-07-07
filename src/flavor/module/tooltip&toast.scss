@@ -1,26 +1,3 @@
 //
-@use 'sass:map';
-@use '../../oseille/common/default' as v;
-//
-$colors: (
-    // Text & foreground color
-        "fore": #222740,
-    // Background color
-        "back": #dad5bc
-);
-//
-@use '../../oseille/element/root/root' with (
-    $_colors: $colors
-    );
-@use '../../oseille/module/tooltip' with (
-    $_colors: (
-        "back": map.get($colors,"fore"),
-        "fore": map.get($colors,"back")
-        )
-    );
-@use '../../oseille/module/toast' with (
-        $_colors: (
-            "back": map.get($colors,"fore"),
-            "fore": map.get($colors,"back")
-        )
-    );
+@use '../../oseille/module/tooltip';
+@use '../../oseille/module/toast';

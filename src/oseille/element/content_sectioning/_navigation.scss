@@ -26,7 +26,7 @@ $_box-spacing: (
 $_borders: (
     // radius: rounds the corners of an element's outer border edge.
         "radius": 0.125rem,
-    // shadow: adds shadow effects around an element's frame.
+    // Default shadow value.
         "shadow": none
 ) !default;
 
@@ -75,18 +75,16 @@ nav {
     a,
     a:visited {
         display: block;
-
         border-radius: map.get($_borders, "radius");
-
         transition: background 0.3s;
-
-        color: map.get($_colors, "link"); // Apply regardless to de-stylize visited links.
+        text-decoration: none; // We remove it but we provide alternative styling.
+        color: var(--link-color, map.get($_colors, "link")); // Apply regardless to de-stylize visited links.
 
         &:hover,
         &:focus {
-            text-decoration: none;
             background: map.get($_colors, "hover-back");
-            font-weight: bolder; // Accessibility
+            font-weight: bolder;
+            @include stdlib.box-shadow(none !important);
         }
     }
 

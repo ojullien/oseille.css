@@ -22,7 +22,7 @@
     "author": "Olivier Jullien <https://github.com/ojullien>",
     "license": "MIT",
     "devDependencies": {
-        "sass": "^1.26.9"
+        "sass": "^1.26.10"
     },
     "browserslist": [
         "last 4 versions"

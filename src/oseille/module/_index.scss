@@ -1,34 +1,8 @@
 // Loads modules with default modules' values
 //
-@use 'sass:map';
-@use '../common/default' as v;
-
-// Loads all modules
-@use 'collapse' with (
-    $border-radius: v.$universal-border-radius,
-    $margin: v.$universal-margin,
-    $padding: v.$universal-padding,
-    $box-shadow: v.$universal-box-shadow
-    );
-@use 'toast' with (
-    $_box-model: v.$box-model,
-    $_borders: v.$borders,
-    $_colors: (
-        "back": map.get(v.$colors,"fore"),
-        "fore":map.get(v.$colors,"back")
-        )
-    );
-@use 'tooltip' with (
-    $_box-model: v.$box-model,
-    $_borders: v.$borders,
-    $_colors: (
-        "back": map.get(v.$colors,"fore"),
-        "fore":map.get(v.$colors,"back")
-        )
-    );
-@use 'modal' with (
-        $border-radius: v.$universal-border-radius,
-        $padding: v.$universal-padding
-        );
+@use 'collapse';
+@use 'toast';
+@use 'tooltip';
+@use 'modal';
 @use 'grid';
 @use 'card';

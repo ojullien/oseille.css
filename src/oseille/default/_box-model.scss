@@ -30,8 +30,10 @@ $box-spacing: (
 $borders: (
     // radius: rounds the corners of an element's outer border edge.
         "radius": 0.125rem,
-    // shadow: adds shadow effects around an element's frame.
-        "shadow": none
+    // Default shadow value.
+        "shadow": none,
+    // Alternative shadow for more accessibility
+        "shadow-alt": 0 2px
 );
 
 // Breakpoints
