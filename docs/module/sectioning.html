@@ -12,6 +12,7 @@
     <link href="element/content_sectioning/header.css" rel="stylesheet" type="text/css" id="header-css" />
     <link href="element/content_sectioning/footer.css" rel="stylesheet" type="text/css" id="footer-css" />
     <link href="element/content_sectioning/navigation.css" rel="stylesheet" type="text/css" id="navigation-css" />
+    <link href="element/content_sectioning/sectioning.css" rel="stylesheet" type="text/css" id="sectioning-css" />
     <link href="oseille.css" rel="stylesheet" type="text/css" id="oseille-css" disabled />
 </head>
 <style>
@@ -59,6 +60,7 @@
             <label style="" for="buttons"><input style="" type="checkbox" id="checkbox-buttons" name="checkbox-buttons" value="buttons" onclick="switchToLocal(this);" checked />Buttons</label>
             <label style="" for="header"><input style="" type="checkbox" id="checkbox-header" name="checkbox-header" value="header" onclick="switchToLocal(this);" checked />Header</label>
             <label style="" for="footer"><input style="" type="checkbox" id="checkbox-footer" name="checkbox-footer" value="footer" onclick="switchToLocal(this);" checked />Footer</label>
+            <label style="" for="sectioning"><input style="" type="checkbox" id="checkbox-sectioning" name="checkbox-sectioning" value="sectioning" onclick="switchToLocal(this);" checked />Sectioning</label>
             <label style="" for="navigation"><input style="" type="checkbox" id="checkbox-navigation" name="checkbox-navigation" value="navigation" onclick="switchToLocal(this);" checked />Navigation</label>
             <label style="" for="oseille"><input style="" type="checkbox" id="checkbox-oseille" name="checkbox-oseille" value="oseille" onclick="switchToOseille();" />Oseille</label>
         </div>
@@ -114,7 +116,7 @@
     myMap.set('checkbox-header','#header-css');
     myMap.set('checkbox-footer','#footer-css');
     myMap.set('checkbox-navigation','#navigation-css');
-
+    myMap.set('checkbox-sectioning','#sectioning-css');
 
     function switchToLocal(element) {
         if (element.checked != true) {

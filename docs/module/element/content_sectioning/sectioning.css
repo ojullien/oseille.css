@@ -1,0 +1,9 @@
+/* Content sectioning styling */
+address,
+article,
+aside,
+section,
+hgroup,
+main {
+  margin-bottom: 1rem;
+}

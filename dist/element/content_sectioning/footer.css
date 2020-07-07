@@ -5,8 +5,8 @@ footer {
   font-size: 0.875rem;
 }
 footer.page-footer {
-  background: #f8f8f8;
-  color: #121212;
+  background: var(--footer-back-color, #f8f8f8);
+  color: var(--footer-fore-color, #121212);
 }
 footer a,
 footer a:visited {

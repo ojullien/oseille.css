@@ -84,8 +84,8 @@ header {
 
 .page-header {
   height: 3.1875rem;
-  background: #f8f8f8;
-  color: #121212;
+  background: var(--header-back-color, #f8f8f8);
+  color: var(--header-fore-color, #121212);
   border-bottom: 1px solid #909090;
   padding: calc(0.5rem / 4) 0;
   white-space: nowrap;
@@ -99,7 +99,7 @@ header {
   line-height: 1;
 }
 .page-header .logo {
-  color: #121212;
+  color: var(--header-fore-color, #121212);
   font-size: 1.75rem;
   padding: 0.5rem calc(2 * 0.5rem);
   text-decoration: none;
@@ -137,8 +137,8 @@ header {
 .page-header .button:focus,
 .page-header [role=button]:hover,
 .page-header [role=button]:focus {
-  background: #e0e0e0;
-  color: #121212;
+  background: var(--header-hover-back-color, #e0e0e0);
+  color: var(--header-hover-fore-color, #121212);
   font-weight: bolder;
 }
 .page-header.sticky {
@@ -150,8 +150,8 @@ header {
 
 /* Navigation styling. */
 nav {
-  background: #f8f8f8;
-  color: #121212;
+  background: var(--back-color, #f8f8f8);
+  color: var(--fore-color, #121212);
   border: 1px solid #909090;
   border-radius: 0.125rem;
   margin: 0.5rem;
@@ -208,8 +208,8 @@ footer {
   font-size: 0.875rem;
 }
 footer.page-footer {
-  background: #f8f8f8;
-  color: #121212;
+  background: var(--footer-back-color, #f8f8f8);
+  color: var(--footer-fore-color, #121212);
 }
 footer a,
 footer a:visited {

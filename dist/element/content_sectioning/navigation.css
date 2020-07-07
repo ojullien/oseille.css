@@ -1,7 +1,7 @@
 /* Navigation styling. */
 nav {
-  background: #f8f8f8;
-  color: #121212;
+  background: var(--back-color, #f8f8f8);
+  color: var(--fore-color, #121212);
   border: 1px solid #909090;
   border-radius: 0.125rem;
   margin: 0.5rem;
