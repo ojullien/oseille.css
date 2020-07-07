@@ -5,6 +5,7 @@ nav {
   border: 1px solid #909090;
   border-radius: 0.125rem;
   margin: 0.5rem;
+  padding: 0;
 }
 nav * {
   padding: 0.5rem calc(1.5 * 0.5rem);

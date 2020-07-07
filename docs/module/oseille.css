@@ -7,19 +7,18 @@ html {
   -webkit-text-size-adjust: 100%;
   -moz-text-size-adjust: 100%;
   text-size-adjust: 100%;
-  --px: 0.0625rem;
 }
 
 body {
   margin: 0;
   padding: 0;
   border: 0;
-  color: #151515;
+  color: #121212;
   background: #f8f8f8;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, sans-serif;
-  font-size: 1rem;
+  font-size: medium;
   --smaller: 0.75em;
-  --fore-color: #151515;
+  --fore-color: #121212;
   --back-color: #f8f8f8;
 }
 
@@ -30,7 +29,9 @@ aside,
 section,
 hgroup,
 main {
-  margin-bottom: 1rem;
+  padding: 0;
+  border: 0;
+  margin-bottom: 0 0 1rem 0;
 }
 
 /* Heading styling */
@@ -40,14 +41,13 @@ h6, h5, h4, h3, h2, h1 {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, sans-serif;
   font-weight: 500;
   line-height: 1.2;
-  margin: calc(1.5 * 0.5rem) 0.5rem;
+  margin: calc(1.2 * 0.5rem) 0.5rem;
   background: var(--heading-back-color, inherit);
   color: var(--heading-fore-color, inherit);
   text-rendering: optimizeLegibility;
 }
 h6 small, h5 small, h4 small, h3 small, h2 small, h1 small {
   display: block;
-  margin-top: -0.25rem;
   line-height: 1.5;
   background: var(--subheading-back-color, inherit);
   color: var(--subheading-fore-color, inherit);
@@ -86,9 +86,9 @@ header {
 
 .page-header {
   height: 3.1875rem;
-  background: #f8f8f8;
-  color: #151515;
-  border-bottom: var(--px) solid #ddd;
+  background: var(--header-back-color, #f8f8f8);
+  color: var(--header-fore-color, #121212);
+  border-bottom: 1px solid #909090;
   padding: calc(0.5rem / 4) 0;
   white-space: nowrap;
   overflow-x: auto;
@@ -101,12 +101,11 @@ header {
   line-height: 1;
 }
 .page-header .logo {
-  color: #151515;
+  color: var(--header-fore-color, #121212);
   font-size: 1.75rem;
   padding: 0.5rem calc(2 * 0.5rem);
   text-decoration: none;
 }
-.page-header span,
 .page-header button,
 .page-header [type=button],
 .page-header .button,
@@ -124,6 +123,15 @@ header {
   margin: 0;
   text-transform: uppercase;
 }
+.page-header span {
+  box-sizing: border-box;
+  position: relative;
+  top: calc( 0rem - 0.5rem / 4 );
+  height: calc(3.1875rem + 0.5rem / 2);
+  line-height: calc(3.1875rem - 0.5rem * 1.5);
+  text-align: center;
+  text-transform: uppercase;
+}
 .page-header button:hover, .page-header button:focus,
 .page-header [type=button]:hover,
 .page-header [type=button]:focus,
@@ -131,7 +139,8 @@ header {
 .page-header .button:focus,
 .page-header [role=button]:hover,
 .page-header [role=button]:focus {
-  background: #f0f0f0;
+  background: var(--header-hover-back-color, #e0e0e0);
+  color: var(--header-hover-fore-color, #121212);
   font-weight: bolder;
 }
 .page-header.sticky {
@@ -143,11 +152,12 @@ header {
 
 /* Navigation styling. */
 nav {
-  background: #f8f8f8;
-  color: #444;
-  border: var(--px) solid #ddd;
+  background: var(--back-color, #f8f8f8);
+  color: var(--fore-color, #121212);
+  border: 1px solid #909090;
   border-radius: 0.125rem;
   margin: 0.5rem;
+  padding: 0;
 }
 nav * {
   padding: 0.5rem calc(1.5 * 0.5rem);
@@ -155,15 +165,17 @@ nav * {
 nav a,
 nav a:visited {
   display: block;
-  color: #0277bd;
   border-radius: 0.125rem;
   transition: background 0.3s;
+  text-decoration: none;
+  color: var(--link-color, #215cca);
 }
 nav a:hover, nav a:focus,
 nav a:visited:hover,
 nav a:visited:focus {
-  text-decoration: none;
-  background: #f0f0f0;
+  background: #e0e0e0;
+  font-weight: bolder;
+  box-shadow: none !important;
 }
 nav .sublink-1 {
   position: relative;
@@ -171,11 +183,11 @@ nav .sublink-1 {
 }
 nav .sublink-1:before {
   position: absolute;
-  left: calc(0.5rem - 1 * 0.5rem);
-  top: calc(0 - var(--px));
+  left: calc( 0.5rem - 1 * 0.5rem );
+  top: calc(0 - 1px);
   content: "";
   height: 100%;
-  border: var(--px) solid #ddd;
+  border: 1px solid #909090;
   border-left: 0;
 }
 nav .sublink-2 {
@@ -184,27 +196,29 @@ nav .sublink-2 {
 }
 nav .sublink-2:before {
   position: absolute;
-  left: calc(0.5rem - 3 * 0.5rem);
-  top: calc(0 - var(--px));
+  left: calc( 0.5rem - 3 * 0.5rem );
+  top: calc(0 - 1px);
   content: "";
   height: 100%;
-  border: var(--px) solid #ddd;
+  border: 1px solid #909090;
   border-left: 0;
 }
 
 /* Footer styling */
 footer {
-  background: #f8f8f8;
-  color: #444;
-  border-top: var(--px) solid #ddd;
+  border-top: 1px solid #909090;
   padding: calc(2 * 0.5rem) 0.5rem;
   font-size: 0.875rem;
 }
+footer.page-footer {
+  background: var(--footer-back-color, #f8f8f8);
+  color: var(--footer-fore-color, #121212);
+}
 footer a,
 footer a:visited {
-  color: #0277bd;
+  color: var(--link-color, #215cca);
 }
-footer .sticky {
+footer.sticky {
   position: -webkit-sticky;
   position: sticky;
   z-index: 1101;
@@ -323,15 +337,16 @@ hr {
   box-sizing: content-box;
   border: 0;
   padding: 0;
-  line-height: 1.25em;
+  line-height: 1.25;
   margin: 0.5rem;
-  height: var(--px);
-  background: linear-gradient(to right, transparent, #aaa 20%, #aaa 80%, transparent);
+  height: 1px;
+  background: linear-gradient(to right, transparent, #909090 20%, #909090 80%, transparent);
 }
 
 p {
   padding: 0;
-  margin: 0.5rem;
+  margin: calc(1.5 * 0.5rem) 0.5rem;
+  max-width: 70ch;
   text-rendering: optimizeLegibility;
 }
 
@@ -369,10 +384,10 @@ a {
   text-decoration: none;
 }
 a:link {
-  color: var(--link-color, #0277bd);
+  color: var(--link-color, #215cca);
 }
 a:visited {
-  color: var(--visited-link-color, #004c8c);
+  color: var(--visited-link-color, #0e1c43);
 }
 a:not(.button):hover, a:not(.button):focus {
   box-shadow: 0 2px;
@@ -437,10 +452,10 @@ pre {
   font-family: Menlo, Consolas, monospace;
   font-size: 0.85em;
   font-weight: normal;
-  background: var(--pre-back-color, #151515);
+  background: var(--pre-back-color, #121212);
   color: var(--pre-fore-color, #f8f8f8);
-  border: var(--px) solid #ddd;
-  border-left: calc(4 * var(--px)) solid #1565c0;
+  border: 2px solid #222222;
+  border-left: calc(4 * 1px) solid #215cca;
   border-radius: 0 0.125rem 0.125rem 0;
   word-break: normal;
   overflow-wrap: break-word;
@@ -452,14 +467,14 @@ pre code {
 code {
   padding: calc(0.5rem / 4) calc(0.5rem / 2);
   border-radius: 0.125rem;
-  background: var(--code-back-color, #151515);
+  background: var(--code-back-color, #121212);
   color: var(--code-fore-color, #f8f8f8);
 }
 
 kbd {
   padding: calc(0.5rem / 4) calc(0.5rem / 2);
   border-radius: 0.125rem;
-  background: var(--kbd-back-color, #151515);
+  background: var(--kbd-back-color, #121212);
   color: var(--kbd-fore-color, #f8f8f8);
 }
 
@@ -477,7 +492,7 @@ mark {
   padding: calc(0.5rem / 4) calc(0.5rem / 2);
   border: 0;
   border-radius: 0.125rem;
-  background: #0277bd;
+  background: #215cca;
   color: #f8f8f8;
   font-size: 0.95em;
   line-height: 1em;
@@ -493,10 +508,10 @@ mark.tag {
   border-radius: 1em;
 }
 mark.secondary {
-  background: #d32f2f;
+  background: #e00000;
 }
 mark.tertiary {
-  background: #308732;
+  background: #218003;
 }
 mark:before, mark:after {
   clip-path: inset(100%);
@@ -543,7 +558,30 @@ img {
   left: 0;
   width: 100%;
   height: 100%;
+  margin: 0;
+  padding: 0;
+  border: 0;
   border-style: none;
+}
+
+.fill {
+  object-fit: fill;
+}
+
+.contain {
+  object-fit: contain;
+}
+
+.cover {
+  object-fit: cover;
+}
+
+.none {
+  object-fit: none;
+}
+
+.scale-down {
+  object-fit: scale-down;
 }
 
 table {
@@ -815,9 +853,9 @@ a[role=button],
 label[role=button],
 [role=button] {
   display: inline-block;
-  background: var(--button-back-color, #e2e2e2);
-  color: var(--button-fore-color, #151515);
-  border: var(--px) solid var(--button-border-color, transparent);
+  background: var(--button-back-color, #e0e0e0);
+  color: var(--button-fore-color, #121212);
+  border: 1px solid var(--button-border-color, transparent);
   border-radius: 0.125rem;
   padding: 0.5rem calc(1.5 * 0.5rem);
   margin: 0.5rem;
@@ -845,8 +883,121 @@ label[role=button]:hover,
 label[role=button]:focus,
 [role=button]:hover,
 [role=button]:focus {
-  background: var(--button-hover-back-color, #dcdcdc);
-  border-color: var(--button-hover-border-color, transparent);
+  background: var(--button-hover-back-color, #c6c6c6);
+  border-color: var(--button-border-hover-color, transparent);
+}
+
+button.primary,
+[type=button].primary,
+[type=submit].primary,
+[type=reset].primary,
+.button.primary,
+[role=button].primary {
+  color: var(--button-fore-color, #121212);
+  background: var(--button-back-color, #e0e0e0);
+  border-color: var(--button-border-color, #4e4e4e);
+}
+button.primary:hover, button.primary:focus,
+[type=button].primary:hover,
+[type=button].primary:focus,
+[type=submit].primary:hover,
+[type=submit].primary:focus,
+[type=reset].primary:hover,
+[type=reset].primary:focus,
+.button.primary:hover,
+.button.primary:focus,
+[role=button].primary:hover,
+[role=button].primary:focus {
+  background: var(--button-hover-back-color, #c6c6c6);
+  border-color: var(--button-border-hover-color, #4e4e4e);
+}
+button.secondary,
+[type=button].secondary,
+[type=submit].secondary,
+[type=reset].secondary,
+.button.secondary,
+[role=button].secondary {
+  color: var(--button-fore-color, #121212);
+  background: var(--button-back-color, #f8f8f8);
+  border-color: var(--button-border-color, #4e4e4e);
+}
+button.secondary:hover, button.secondary:focus,
+[type=button].secondary:hover,
+[type=button].secondary:focus,
+[type=submit].secondary:hover,
+[type=submit].secondary:focus,
+[type=reset].secondary:hover,
+[type=reset].secondary:focus,
+.button.secondary:hover,
+.button.secondary:focus,
+[role=button].secondary:hover,
+[role=button].secondary:focus {
+  background: var(--button-hover-back-color, #e0e0e0);
+  border-color: var(--button-border-hover-color, #4e4e4e);
+}
+button.tertiary,
+[type=button].tertiary,
+[type=submit].tertiary,
+[type=reset].tertiary,
+.button.tertiary,
+[role=button].tertiary {
+  color: var(--button-fore-color, #121212);
+  background: var(--button-back-color, #f8f8f8);
+  border-color: var(--button-border-color, transparent);
+}
+button.tertiary:hover, button.tertiary:focus,
+[type=button].tertiary:hover,
+[type=button].tertiary:focus,
+[type=submit].tertiary:hover,
+[type=submit].tertiary:focus,
+[type=reset].tertiary:hover,
+[type=reset].tertiary:focus,
+.button.tertiary:hover,
+.button.tertiary:focus,
+[role=button].tertiary:hover,
+[role=button].tertiary:focus {
+  background: var(--button-hover-back-color, #e0e0e0);
+  border-color: var(--button-border-hover-color, transparent);
+}
+button.inverse,
+[type=button].inverse,
+[type=submit].inverse,
+[type=reset].inverse,
+.button.inverse,
+[role=button].inverse {
+  color: var(--button-fore-color, #e0e0e0);
+  background: var(--button-back-color, #121212);
+}
+button.inverse:hover, button.inverse:focus,
+[type=button].inverse:hover,
+[type=button].inverse:focus,
+[type=submit].inverse:hover,
+[type=submit].inverse:focus,
+[type=reset].inverse:hover,
+[type=reset].inverse:focus,
+.button.inverse:hover,
+.button.inverse:focus,
+[role=button].inverse:hover,
+[role=button].inverse:focus {
+  background: var(--button-hover-back-color, #898989);
+}
+button.small,
+[type=button].small,
+[type=submit].small,
+[type=reset].small,
+.button.small,
+[role=button].small {
+  padding: calc(0.5 * 0.5rem) calc(0.75 * 0.5rem);
+  margin: 0.5rem;
+}
+button.large,
+[type=button].large,
+[type=submit].large,
+[type=reset].large,
+.button.large,
+[role=button].large {
+  padding: calc(1.5 * 0.5rem) calc(2 * 0.5rem);
+  margin: 0.5rem;
 }
 
 button:disabled, button[disabled],
@@ -858,14 +1009,15 @@ button:disabled, button[disabled],
   opacity: 0.75;
 }
 
+/* Button group styling. */
 .button-group {
   display: flex;
-  border: var(--px) solid var(--button-group-border-color, rgba(124, 124, 124, 0.54));
+  border: 1px solid var(--button-group-border-color, #909090);
   border-radius: 0.125rem;
   margin: 0.5rem;
 }
 .button-group > button,
-.button-group [type=button], .button-group > [type=submit], .button-group > [type=reset], .button-group > [type=file], .button-group > .button, .button-group > [role=button] {
+.button-group [type=button], .button-group > [type=submit], .button-group > [type=reset], .button-group > .button, .button-group > [role=button] {
   margin: 0;
   max-width: 100%;
   flex: 1 1 auto;
@@ -875,7 +1027,7 @@ button:disabled, button[disabled],
   box-shadow: none;
 }
 .button-group > :not(:first-child) {
-  border-left: var(--px) solid var(--button-group-border-color, rgba(124, 124, 124, 0.54));
+  border-left: 1px solid var(--button-group-border-color, #909090);
 }
 @media screen and (max-width: 767px) {
   .button-group {
@@ -883,7 +1035,7 @@ button:disabled, button[disabled],
   }
   .button-group > :not(:first-child) {
     border: 0;
-    border-top: var(--px) solid var(--button-group-border-color, rgba(124, 124, 124, 0.54));
+    border-top: 1px solid var(--button-group-border-color, #909090);
   }
 }
 

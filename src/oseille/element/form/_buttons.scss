@@ -13,9 +13,6 @@
 // @link: https://sass-lang.com/documentation/variables
 
 // Basic box model
-// Accessibility:
-//   - An inactive space should be provided around actionable elements
-//   - Add borders or margins around touch targets to add at least 1px of inactive space.
 $_box-spacing: (
     // Padding: creates extra space within an element.
         "padding": 0.5rem,
@@ -32,22 +29,43 @@ $_borders: (
 ) !default;
 
 // Main colors.
-// Accessibility:
-//  - The colour of text and background content must have sufficient contrast.
 $_colors: (
     // Text color for buttons.
-        "fore": #121212,
+        "fore": #121212, 
     // Background color for buttons.
-        "back": #e2e2e2,
-    // Background color for buttons (hover).
-        "hover-back": #dcdcdc,
+        "back": #f8f8f8,
     // Border color for buttons.
         "border": transparent,
     // Border color for buttons (hover).
-        "hover-border": transparent,
+        "border-hover": transparent,
     // Border color for button groups.
-        "group-border": rgba(124, 124, 124, 0.54)
+        "group-border":  #909090
 ) !default;
+
+$_primary-palette: (
+    // Text & foreground color
+        "fore-darkest": #0e0e0e,
+        "fore-darker": #282828,
+        "fore-lighter": #414141,
+        "fore-lightest":#898989,
+    // Background colors
+        "back-darkest": #c6c6c6,
+        "back-darker":  #e0e0e0,
+        "back-lighter": #f9f9f9,
+        "back-lightest": #fcfcfc,
+    // Border colors
+        "border-darkest": #1b1b1b,
+        "border-darker": #353535,
+        "border-lighter": #4e4e4e,
+        "border-lightest": #909090
+) !default;
+
+$_line-spacing: (
+    // Line height for most elements.
+        "main": 1.5
+) !default;
+
+$_mobile-breakpoint: 767px !default; // Mobile breakpoint for button groups.
 
 // Classes names
 $_classnames: (
@@ -57,15 +75,35 @@ $_classnames: (
         "group": "button-group"
 );
 
-$_mobile-breakpoint: 767px !default; // Mobile breakpoint for button groups.
 $_disabled-opacity: 0.75; // Opacity for input elements when disabled.
 
 // Button size variant mixin:
 //  $padding: The padding of the button variant.
 //  $margin The margin of the button variant.
-@mixin makeSizeVariants($padding, $margin) {
+@mixin makeSizeVariant($padding, $margin) {
     padding: $padding;
     margin: $margin;
+}
+
+// Button color variant mixin:
+//  $fore: Text color for button variant.
+//  $back: Background color for button variant.
+//  $back-hover: Background color for button variant (hover).
+//  $border: Border color for button variant.
+//  $border-hover: Border color for button variant (hover).
+@mixin makeColorVariant($fore, $back, $border, $back-hover, $border-hover) {
+    color: var(--button-fore-color, #{$fore});
+    background: var(--button-back-color, #{$back});
+    @if $border != none {
+        border-color: var(--button-border-color, #{$border});
+    }
+    &:hover,
+    &:focus {
+        background: var(--button-hover-back-color, #{$back-hover});
+        @if $border-hover != none {
+            border-color: var(--button-border-hover-color, #{$border-hover});
+        }
+    }
 }
 
 /* Button and button-like styling */
@@ -98,21 +136,22 @@ button,
 [type="button"],
 [type="submit"],
 [type="reset"],
-//a.#{map.get($_classnames, "button")},
-//label.#{map.get($_classnames, "button")},
+a.#{map.get($_classnames, "button")},
+label.#{map.get($_classnames, "button")},
 .#{map.get($_classnames, "button")},
-//a[role="button"],
-//label[role="button"],
+a[role="button"],
+label[role="button"],
 [role="button"] {
     display: inline-block;
 
-    background: var(--button-back-color, #{map.get($_colors, "back")}); // Allows live color tunning
+    background: var(--button-back-color, #{map.get($_primary-palette, "back-darker")}); // Allows live color tunning
     color: var(--button-fore-color, #{map.get($_colors, "fore")}); // Allows live color tunning
 
     border: 1px solid var(--button-border-color, #{map.get($_colors, "border")});
     border-radius: map.get($_borders, "radius");
 
-    padding: #{map.get($_box-spacing, "padding")} calc(1.5 * #{map.get($_box-spacing, "padding")});
+    padding: #{map.get($_box-spacing, "padding")} calc(#{map.get($_line-spacing, "main")} * #{map.get(
+                    $_box-spacing, "padding")});
     margin: map.get($_box-spacing, "margin");
 
     font-size: 1em;
@@ -124,23 +163,65 @@ button,
 
     &:hover,
     &:focus {
-        background: var(--button-hover-back-color, #{map.get($_colors, "hover-back")});
-        border-color: var(--button-hover-border-color, #{map.get($_colors, "hover-border")});
+        background: var(--button-hover-back-color, #{map.get($_primary-palette, "back-darkest")});
+        border-color: var(--button-border-hover-color, #{map.get($_colors, "border-hover")});
     }
+}
+
+button,
+[type="button"],
+[type="submit"],
+[type="reset"],
+.#{map.get($_classnames, "button")},
+[role="button"] {
 
     // Color variants
+    &.primary {
+        @include makeColorVariant(
+            #{map.get($_colors, "fore")},
+            #{map.get($_primary-palette, "back-darker")},
+            #{map.get($_primary-palette, "border-lighter")},
+            #{map.get($_primary-palette, "back-darkest")},
+            #{map.get($_primary-palette, "border-lighter")});
+    }
+
+    &.secondary {
+        @include makeColorVariant(
+            #{map.get($_colors, "fore")},
+            #{map.get($_colors, "back")},
+            #{map.get($_primary-palette, "border-lighter")},
+            #{map.get($_primary-palette, "back-darker")},
+            #{map.get($_primary-palette, "border-lighter")});
+    }
+
+    &.tertiary {
+        @include makeColorVariant(
+            #{map.get($_colors, "fore")},
+            #{map.get($_colors, "back")},
+            #{map.get($_colors, "border")},
+            #{map.get($_primary-palette, "back-darker")},
+            #{map.get($_colors, "border-hover")});
+    }
+
+    &.inverse {
+        @include makeColorVariant(
+            #{map.get($_primary-palette, "back-darker")},
+            #{map.get($_colors, "fore")},
+            none,
+            #{map.get($_primary-palette, "fore-lightest")},
+            none);
+    }
 
     // Size variants
-
     &.small {
-        @include makeSizeVariants(
+        @include makeSizeVariant(
             calc(0.5 * #{map.get($_box-spacing, "padding")}) calc(0.75 * #{map.get($_box-spacing, "padding")}),
             map.get($_box-spacing, "margin")
         );
     }
 
     &.large {
-        @include makeSizeVariants(
+        @include makeSizeVariant(
             calc(1.5 * #{map.get($_box-spacing, "padding")}) calc(2 * #{map.get($_box-spacing, "padding")}),
             map.get($_box-spacing, "margin")
         );
@@ -148,6 +229,7 @@ button,
 }
 
 // Disabled styling button elements.
+
 button,
 .#{map.get($_classnames, "button")},
 [role="button"] {
@@ -160,6 +242,7 @@ button,
 }
 
 /* Button group styling. */
+
 .#{map.get($_classnames, "group")} {
     display: flex;
 
@@ -174,7 +257,6 @@ button,
     [type="button"],
     & > [type="submit"],
     & > [type="reset"],
-    & > [type="file"],
     & > .#{map.get($_classnames, "button")},
     & > [role="button"] {
         margin: 0;

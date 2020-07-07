@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="element/root/root.css" rel="stylesheet" type="text/css" id="root-css" />
+    <link href="element/inline_text_semantic/text.css" rel="stylesheet" type="text/css" id="text-css" />
+    <link href="element/form/buttons.css" rel="stylesheet" type="text/css" id="buttons-css" />
+    <link href="oseille.css" rel="stylesheet" type="text/css" id="oseille-css" disabled />
+</head>
+</head>
+<style>
+    .wrapper {
+        margin: 0 auto;
+        padding: 0 calc(0.5rem * 2);
+        max-width: 95vw;
+    }
+</style>
+<body>
+
+    <div class="wrapper">
+
+        <div style="min-height: 100%; display: flex; flex-direction: row-reverse; justify-content: space-evenly; align-items: center; text-align: center; align-self: flex-start;position: sticky; top: 10px;">
+            <label style="" for="root"><input style="" type="checkbox" id="checkbox-root" name="checkbox-root" value="root" onclick="switchToLocal(this);" checked />Root</label>
+            <label style="" for="text"><input style="" type="checkbox" id="checkbox-text" name="checkbox-text" value="text" onclick="switchToLocal(this);" checked />Text</label>
+            <label style="" for="buttons"><input style="" type="checkbox" id="checkbox-buttons" name="checkbox-buttons" value="buttons" onclick="switchToLocal(this);" checked />Buttons</label>
+            <label style="" for="oseille"><input style="" type="checkbox" id="checkbox-oseille" name="checkbox-oseille" value="oseille" onclick="switchToOseille();" />Oseille</label>
+        </div>
+
+        <header>
+            <h1>FORM</h1>
+        </header>
+
+        <main>
+
+            <section>
+                <h2>Buttons</h2>
+                <button>Button</button><br>
+                <input type="button" value="Button" /><br>
+                <input type="reset" value="Button" /><br>
+                <input type="submit" value="Button" /><br>
+                <a href="#" class="button">Link</a><br>
+                <a href="#" role="button">Link</a><br>
+                <label class="button">Label</label><br>
+                <label role="button">Label</label>
+            </section>
+
+            <section>
+                <h2>Color variants</h2>
+                <button class="primary">Primary</button>
+                <button class="secondary">Secondary</button>
+                <button class="tertiary">Tertiary</button>
+                <button class="inverse">Inverse</button><br>
+                <button style="--button-fore-color:#f8f8f8;--button-back-color:#215cca;--button-border-color:#0e1c43;--button-hover-back-color:#183889;--button-border-hover-color:#0e1c43;" class="primary">Primary</button>
+                <button style="--button-fore-color:#e00000;--button-back-color:#f8f8f8;--button-border-color:#e00000;--button-hover-back-color:#e0e0e0;--button-border-hover-color:#cd1a1a;"class="secondary">Secondary</button>
+            </section>
+
+            <section>
+                <h2>Size variants</h2>
+                <button class="small">Small</button>
+                <button class="large">Large</button>
+            </section>
+
+        </main>
+
+     </div>
+
+</body>
+
+<script type="text/javascript">
+
+    var myMap = new Map();
+    myMap.set('checkbox-root','#root-css');
+    myMap.set('checkbox-text','#text-css');
+    myMap.set('checkbox-buttons','#buttons-css');
+
+    function switchToLocal(element) {
+        if (element.checked != true) {
+            document.querySelector(myMap.get(element.id)).disabled=true;
+        } else {
+            document.querySelector(myMap.get(element.id)).removeAttribute('disabled');
+        }
+    };
+
+    function switchToOseille() {
+        let checkbox = document.getElementById('checkbox-oseille');
+        if (checkbox.checked != true) {
+            for (let [theCheckbox,theLink] of myMap.entries()) {
+                document.getElementById(theCheckbox).checked = true;
+                document.querySelector(theLink).removeAttribute('disabled');
+            }
+            document.querySelector("#oseille-css").disabled=true;
+        } else {
+            for (let [theCheckbox,theLink] of myMap.entries()) {
+                document.getElementById(theCheckbox).checked = false;
+                document.querySelector(theLink).disabled=true;
+            }
+            document.querySelector("#oseille-css").removeAttribute('disabled');
+        }
+    };
+</script>
+
+</html>

@@ -30,7 +30,7 @@ $_colors: (
         "border": #909090 // See $primary-palette.border-lightest in default/color.scss
 ) !default;
 
-$line-spacing: (
+$_line-spacing: (
     // Line height for most elements.
         "main": 1.5
 );
@@ -110,7 +110,7 @@ header {
 
         height: calc(#{$_height} + #{map.get($_box-spacing, "padding")} / 2); // Fill header.
 
-        line-height: calc(#{$_height} - #{map.get($_box-spacing, "padding")} * #{map.get($line-spacing, "main")});
+        line-height: calc(#{$_height} - #{map.get($_box-spacing, "padding")} * #{map.get($_line-spacing, "main")});
 
         text-align: center;
 
@@ -135,7 +135,7 @@ header {
 
         height: calc(#{$_height} + #{map.get($_box-spacing, "padding")} / 2); // Fill header.
 
-        line-height: calc(#{$_height} - #{map.get($_box-spacing, "padding")} * #{map.get($line-spacing, "main")});
+        line-height: calc(#{$_height} - #{map.get($_box-spacing, "padding")} * #{map.get($_line-spacing, "main")});
 
         text-align: center;
 

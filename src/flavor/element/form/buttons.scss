@@ -1,24 +1,2 @@
 //
-$colors: (
-    // Text & foreground color
-        "back": #222740,
-    // Background color
-        "fore": #dad5bc
-);
-//
-@use '../../../oseille/element/form/buttons' with (
-    $_colors: (
-        // Text color for buttons.
-        "fore": #151515,
-    // Background color for buttons.
-        "back": #e2e2e2,
-    // Background color for buttons (hover).
-        "hover-back": #dcdcdc,
-    // Border color for buttons.
-    "border": transparent,
-    // Border color for buttons (hover).
-        "hover-border": transparent,        
-    // Border color for button groups.
-        "group-border": rgba(124, 124, 124, 0.54)
-    )
-);
+@use '../../../oseille/element/form/buttons';

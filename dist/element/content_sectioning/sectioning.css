@@ -5,5 +5,7 @@ aside,
 section,
 hgroup,
 main {
-  margin-bottom: 1rem;
+  padding: 0;
+  border: 0;
+  margin-bottom: 0 0 1rem 0;
 }

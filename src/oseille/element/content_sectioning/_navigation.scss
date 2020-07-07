@@ -64,6 +64,7 @@ nav {
     border-radius: map.get($_borders, "radius");
 
     margin: map.get($_box-spacing, "margin");
+    padding: 0;
 
     @include stdlib.box-shadow(map.get($_borders, "shadow"));
 
