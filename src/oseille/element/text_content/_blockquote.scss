@@ -31,17 +31,17 @@ $_font-stacks: (
 // Main colors. WCAG Grading AAA.
 $_colors: (
     // Text & foreground color
-        "fore": #151515,
+        "fore": #121212,
     // Background color
         "back": #f8f8f8,
     // <blockquote> sidebar and quotation color
-        "sidebar": #f57c00,
+        "sidebar": #e07000,
     // Border color for the <blockquote> element.
-        "border": #ddd
+        "border": #909090
 ) !default;
 
 // Basic box model
-$_box-model: (
+$_box-spacing: (
     // Padding: creates extra space within an element.
         "padding": 0.5rem,
     // Margins: create extra space around an element.
@@ -84,11 +84,11 @@ blockquote {
     display: block;
     position: relative;
 
-    margin: map.get($_box-model, "margin");
-    padding: calc(3 * #{map.get($_box-model, "padding")});
+    margin: map.get($_box-spacing, "margin");
+    padding: calc(3 * #{map.get($_box-spacing, "padding")});
 
-    border: var(--px) solid map.get($_colors, "border");
-    border-left: calc(6 * var(--px)) solid var(--caption-sidebar-color, map.get($_colors, "sidebar"));
+    border: 1px solid map.get($_colors, "border");
+    border-left: calc(6 * 1px) solid var(--caption-sidebar-color, map.get($_colors, "sidebar"));
     border-radius: 0 map.get($_borders, "radius") map.get($_borders, "radius") 0;
 
     font-family: map.get($_font-stacks, "caption");
@@ -102,7 +102,7 @@ blockquote {
 
     &:before {
         position: absolute;
-        top: calc(0rem - #{map.get($_box-model, "padding")});
+        top: calc(0rem - #{map.get($_box-spacing, "padding")});
         left: 0;
         font-family: sans-serif;
         font-size: map.get($_font-sizes, "quotation");
