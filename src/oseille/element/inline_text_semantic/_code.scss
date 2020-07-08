@@ -124,6 +124,10 @@ code {
 
     background: var(--code-back-color, #{map.get($_colors, "back")}); // Allows live color tunning
     color: var(--code-fore-color, #{map.get($_colors, "fore")}); // Allows live color tunning
+
+    a:link, a:visited {
+        color: var(--link-color, #{map.get($_colors, "fore")}); // Allows live color tunning
+    }
 }
 
 kbd {

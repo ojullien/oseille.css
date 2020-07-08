@@ -7,8 +7,7 @@ sup, sub, small {
   font-size: var(--smaller, 0.75em);
 }
 
-s, dfn,
-del,
+s, del,
 em,
 i,
 ins,
@@ -44,6 +43,7 @@ a:not(.button):hover, a:not(.button):focus {
 abbr[title] {
   border-bottom: none;
   text-decoration: underline dotted;
+  cursor: help;
 }
 
 b,
@@ -51,6 +51,10 @@ strong {
   font-weight: 700;
 }
 
+data {
+  text-decoration: underline dotted;
+  cursor: help;
+}
 data:hover:after {
   content: " (ID " attr(value) ")";
   font-size: 0.7em;

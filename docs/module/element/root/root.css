@@ -1,5 +1,8 @@
 /* Top level styling */
 html {
+  margin: 0;
+  padding: 0;
+  border: 0;
   scroll-behavior: smooth;
   font-size: 100%;
   line-height: 1.5;

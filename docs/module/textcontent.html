@@ -10,6 +10,7 @@
     <link href="element/text_content/blockquote.css" rel="stylesheet" type="text/css" id="blockquote-css" />
     <link href="element/text_content/list.css" rel="stylesheet" type="text/css" id="list-css" />
     <link href="element/text_content/paragraph.css" rel="stylesheet" type="text/css" id="paragraph-css" />
+    <link href="element/text_content/definition.css" rel="stylesheet" type="text/css" id="definition-css" />
     <link href="oseille.css" rel="stylesheet" type="text/css" id="oseille-css" disabled />
 </head>
 <style>
@@ -29,11 +30,12 @@
             <label style="" for="blockquote"><input style="" type="checkbox" id="checkbox-blockquote" name="checkbox-blockquote" value="blockquote" onclick="switchToLocal(this);" checked />Blockquote</label>
             <label style="" for="list"><input style="" type="checkbox" id="checkbox-list" name="checkbox-list" value="list" onclick="switchToLocal(this);" checked />List</label>
             <label style="" for="paragraph"><input style="" type="checkbox" id="checkbox-paragraph" name="checkbox-paragraph" value="paragraph" onclick="switchToLocal(this);" checked />Paragraph</label>
+            <label style="" for="definition"><input style="" type="checkbox" id="checkbox-definition" name="checkbox-definition" value="definition" onclick="switchToLocal(this);" checked />Definition</label>
             <label style="" for="oseille"><input style="" type="checkbox" id="checkbox-oseille" name="checkbox-oseille" value="oseille" onclick="switchToOseille();" />Oseille</label>
         </div>
 
         <header>
-            <h1>QUOTES</h1>
+            <h1>TEXT CONTENT</h1>
         </header>
 
         <main>
@@ -53,6 +55,165 @@
                 </blockquote>
             </section>
 
+            <section>
+
+                <header>
+                    <h2><strong>Ordered</strong> Lists</h2>
+                </header>
+
+                <ol>
+                    <li>Wake up</li>
+                    <li>
+                        Make sure to style list items to:
+                        <ul>
+                            <li>Not forgetting child list items</li>
+                            <li>Not forgetting child list items</li>
+                        </ul>
+                    </li>
+                    <li>Eat breakfast</li>
+                    <li>
+                        Make sure to style list items to:
+                        <ol>
+                            <li>Not forgetting child list items</li>
+                            <li>
+                                Make sure to style list items to:
+                                <ol>
+                                    <li>Not forgetting child list items</li>
+                                    <li>Not forgetting child list items</li>
+                                </ol>
+                            </li>
+                        </ol>
+                    </li>
+                    <li>Go to work</li>
+                </ol>
+            </section>
+
+            <section>
+
+                <header>
+                    <h2><strong>Unordered</strong> Lists</h2>
+                </header>
+
+                <ul>
+                    <li>Apple</li>
+                    <li>Orange</li>
+                    <li>
+                        Make sure to style list items to:
+                        <ol>
+                            <li>Not forgetting child list items</li>
+                            <li>Not forgetting child list items</li>
+                        </ol>
+                    </li>
+                    <li>Strawberry</li>
+                    <li>
+                        Make sure to style list items to:
+                        <ul>
+                            <li>Not forgetting child list items</li>
+                            <li>
+                                Make sure to style list items to:
+                                <ul>
+                                    <li>Not forgetting child list items</li>
+                                    <li>Not forgetting child list items</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+
+                <header>
+                    <h2><strong>Description lists</strong> are also included.</h2>
+                </header>
+
+                <dl>
+                    <dt>Coffee</dt>
+                    <dd>- black hot drink</dd>
+                    <dt>Milk</dt>
+                    <dd>- white cold drink</dd>
+                </dl>
+
+            </section>
+
+            <section>
+
+                <header>
+                    <h2><strong>Inline text semantics</strong> tests.</h2>
+                </header>
+
+                <ul>
+                <li>I am <a href="?abc123">the a tag</a> example</li>
+                <li>I am <abbr title="test">the abbr tag</abbr> example</li>
+                <li>I am <b>the b tag</b> example</li>
+                <li>I am <cite>the cite tag</cite> example</li>
+                <li>I am <code>the code tag</code> example</li>
+                <li>I am <del>the del tag</del> example</li>
+                <li>I am <dfn>the dfn tag</dfn> example</li>
+                <li>I am <em>the em tag</em> example</li>
+                <li>I am <i>the i tag</i> example</li>
+                <li>I am <ins>the ins tag</ins> example</li>
+                <li>I am <kbd>the</kbd> + <kbd>kbd</kbd> + <kbd>tag</kbd> example</li>
+                <li>I am <q>the q tag</q> example</li>
+                <li>I am <samp>the samp tag</samp> example</li>
+                <li>I am <small>the small tag</small> example</li>
+                <li>I am <span>the span tag</span> example</li>
+                <li>I am <strong>the strong tag</strong> example</li>
+                <li>I am <sub>the sub tag</sub> example</li>
+                <li>I am <sup>the sup tag</sup> example</li>
+                <li>A simple var tag equation: <var>x</var> = <var>y</var> + 2<br></li>
+                <li>I am <mark>the mark tag</mark> example</li>
+                <li>This is a <mark class="secondary">secondary highlight</mark> and this is a <mark class="tertiary">tertiary highlight</mark></li>
+                <li>This is a highlight styled as a <mark class="tag">tag</mark></li>
+                <mark class="inline-block">This is some highlighted text that is displayed as an inline block.</mark></li>
+                <li>I am <s>the s tag</s> example</li>
+                <li>I am <data value="398">the data tag</data> example</li>
+                </ul>
+
+            </section>
+
+            <section>
+                <p>A <dfn id="def-validator">validator</dfn> is a program that checks for syntax errors in code or documents.</p>
+                <p>The <strong>HTML Definition element</strong>
+(<strong><dfn>&lt;dfn&gt;</dfn></strong>) is used to indicate the
+term being defined within the context of a definition phrase or
+sentence.</p>
+            </section>
+
+            <section>
+<p>The <strong>HTML Definition element</strong>
+(<strong><dfn id="definition-dfn">&lt;dfn&gt;</dfn></strong>) is
+used to indicate the term being defined within the context of a
+definition phrase or sentence.</p>
+
+<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Graece
+donan, Latine voluptatem vocant. Confecta res esset. Duo Reges:
+constructio interrete. Scrupulum, inquam, abeunti; </p>
+
+<p>Negare non possum. Dat enim intervalla et relaxat. Quonam modo?
+Equidem e Cn. Quid de Pythagora? In schola desinis. </p>
+
+<p>Ubi ut eam caperet aut quando? Cur iustitia laudatur? Aperiendum
+est igitur, quid sit voluptas; Quid enim? Non est igitur voluptas
+bonum. Urgent tamen et nihil remittunt. Quid enim possumus hoc
+agere divinius? </p>
+
+<p>Because of all of that, we decided to use the
+<code><a href="#definition-dfn">&lt;dfn&gt;</a></code> element for
+this project.</p>
+
+            </section>
+
+            <section>
+<p>The <dfn><abbr title="Hubble Space Telescope">HST</abbr></dfn>
+is among the most productive scientific instruments ever constructed.
+It has been in orbit for over 20 years, scanning the sky and
+returning data and photographs of unprecedented quality and
+detail.</p>
+
+<p>Indeed, the <abbr title="Hubble Space Telescope">HST</abbr> has
+arguably done more to advance science than any device ever built.</p>
+            </section>
         </main>
 
      </div>
@@ -67,6 +228,7 @@
     myMap.set('checkbox-blockquote','#blockquote-css');
     myMap.set('checkbox-list','#list-css');
     myMap.set('checkbox-paragraph','#paragraph-css');
+    myMap.set('checkbox-definition','#definition-css');
 
     function switchToLocal(element) {
         if (element.checked != true) {

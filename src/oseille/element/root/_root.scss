@@ -42,6 +42,9 @@ $_line-spacing: (
 /* Top level styling */
 
 html {
+    margin: 0;
+    padding: 0;
+    border: 0;
     scroll-behavior: smooth;
     font-size: map.get($_font-sizes, "accessible");
     line-height: map.get($_line-spacing, "main");

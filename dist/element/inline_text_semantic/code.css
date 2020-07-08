@@ -36,6 +36,9 @@ code {
   background: var(--code-back-color, #121212);
   color: var(--code-fore-color, #f8f8f8);
 }
+code a:link, code a:visited {
+  color: var(--link-color, #f8f8f8);
+}
 
 kbd {
   padding: calc(0.5rem / 4) calc(0.5rem / 2);

@@ -1,6 +1,9 @@
 @charset "UTF-8";
 /* Top level styling */
 html {
+  margin: 0;
+  padding: 0;
+  border: 0;
   scroll-behavior: smooth;
   font-size: 100%;
   line-height: 1.5;
@@ -23,7 +26,6 @@ body {
 }
 
 /* Content sectioning styling */
-address,
 article,
 aside,
 section,
@@ -32,6 +34,20 @@ main {
   padding: 0;
   border: 0;
   margin-bottom: 0 0 1rem 0;
+}
+
+address {
+  padding: 0;
+  border: 0;
+  margin-bottom: 0 0 1rem 0;
+  font-style: inherit;
+  font-weight: inherit;
+}
+
+div {
+  margin: 0;
+  padding: 0;
+  border: 0;
 }
 
 /* Inline text semantic styling */
@@ -43,8 +59,7 @@ sup, sub, small {
   font-size: var(--smaller, 0.75em);
 }
 
-s, dfn,
-del,
+s, del,
 em,
 i,
 ins,
@@ -80,6 +95,7 @@ a:not(.button):hover, a:not(.button):focus {
 abbr[title] {
   border-bottom: none;
   text-decoration: underline dotted;
+  cursor: help;
 }
 
 b,
@@ -87,6 +103,10 @@ strong {
   font-weight: 700;
 }
 
+data {
+  text-decoration: underline dotted;
+  cursor: help;
+}
 data:hover:after {
   content: " (ID " attr(value) ")";
   font-size: 0.7em;
@@ -197,6 +217,9 @@ code {
   background: var(--code-back-color, #121212);
   color: var(--code-fore-color, #f8f8f8);
 }
+code a:link, code a:visited {
+  color: var(--link-color, #f8f8f8);
+}
 
 kbd {
   padding: calc(0.5rem / 4) calc(0.5rem / 2);
@@ -234,7 +257,6 @@ p {
 /* Blockquote styling */
 cite, q {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, sans-serif;
-  font-style: inherit;
   font-weight: inherit;
   font-size: 1em;
   background: var(--caption-back-color, #f8f8f8);
@@ -276,6 +298,10 @@ blockquote[cite]:after {
   white-space: pre;
 }
 
+q {
+  font-style: inherit;
+}
+
 /* List styling */
 ol,
 ul {
@@ -315,8 +341,12 @@ dt::after {
   content: ": ";
 }
 
+/* Definition styling */
 dfn {
-  font-style: inherit;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 1em;
   font-weight: inherit;
 }
 

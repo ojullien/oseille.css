@@ -68,7 +68,6 @@ $_font-sizes: (
 
 %normalize {
     font-family: map.get($_font-stacks, "caption");
-    font-style: inherit;
     font-weight: inherit;
     font-size: map.get($_font-sizes, "cite");
 
@@ -123,6 +122,7 @@ blockquote {
 // Fix for elements inside headings not displaying properly.
 q {
     @extend %normalize;
+    font-style: inherit;
 }
 
 cite {

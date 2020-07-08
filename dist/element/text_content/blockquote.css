@@ -2,7 +2,6 @@
 /* Blockquote styling */
 cite, q {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, sans-serif;
-  font-style: inherit;
   font-weight: inherit;
   font-size: 1em;
   background: var(--caption-back-color, #f8f8f8);
@@ -42,4 +41,8 @@ blockquote[cite]:after {
   font-weight: 700;
   content: "\a—  " attr(cite);
   white-space: pre;
+}
+
+q {
+  font-style: inherit;
 }

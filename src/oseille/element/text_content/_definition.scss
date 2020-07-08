@@ -1,18 +1,16 @@
 //
-// Use HTML text content elements to organize blocks or sections of content placed between the opening <body>
-// and closing </body> tags. Important for accessibility and SEO, these elements identify the purpose or
-// structure of that content.
+// The HTML Definition element (<dfn>) is used to indicate the term being defined within the context of a definition
+// phrase or sentence. The <p> element, the <dt>/<dd> pairing, or the <section> element which is the nearest ancestor
+// of the <dfn> is considered to be the definition of the term.
 //
 
-// Public variables.
-// May be overrided using @use <url> with (<variable>: <value>, <variable>: <value>)
-
-// Private variables
-
-// Definition styling
+/* Definition styling */
 // <dl> <dt> <dd>
 
 dfn {
-    font-style: inherit;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 1em;
     font-weight: inherit;
 }
