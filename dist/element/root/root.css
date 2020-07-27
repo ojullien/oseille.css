@@ -3,12 +3,20 @@ html {
   margin: 0;
   padding: 0;
   border: 0;
-  scroll-behavior: smooth;
   font-size: 100%;
-  line-height: 1.5;
-  -webkit-text-size-adjust: 100%;
-  -moz-text-size-adjust: 100%;
-  text-size-adjust: 100%;
+  line-height: calc(1ex / 0.32);
+}
+@supports (text-size-adjust: 100%) or (-moz-text-size-adjust: 100%) or (-webkit-text-size-adjust: 100%) {
+  html {
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+}
+@supports (scroll-behavior: smooth) {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 body {
@@ -22,4 +30,9 @@ body {
   --smaller: 0.75em;
   --fore-color: #121212;
   --back-color: #f8f8f8;
+}
+@supports (font-size-adjust: 1) {
+  body {
+    font-size-adjust: 0.5;
+  }
 }

@@ -7,7 +7,7 @@
 // is the lowest.
 //
 @use 'sass:map';
-@use 'sass:string';
+@use 'sass:math';
 
 // Variables.
 //
@@ -30,6 +30,8 @@ $_font-stacks: (
 
 // Font sizes
 $_font-sizes: (
+    // Font size ratio for headings. ( h5 is 1em, h1 is 1em * ratio^4. See element/content_sectioning/heading.scss)
+        "ratio-heading": 1.25,
     // Font size for small element  ( <small>, <sub>, <sup>, <figcaption>)
         "small": 0.75em
 ) !default;
@@ -37,9 +39,14 @@ $_font-sizes: (
 // Line heights
 $_line-spacing: (
     // Line height for larger font sizes.
-        "heading": 1.2,
+        "h1": calc(1ex / 0.42),
+        "h2": calc(1ex / 0.42),
+        "h3": calc(1ex /0.38),
+        "h4":calc(1ex / 0.37),
+        "h5": calc(1ex / 0.32),
+        "h6": calc(1ex / 0.32),
     // Line height for subheading
-        "subheading": 1.5
+        "subheading": calc(1ex / 0.32),
 ) !default;
 
 // Main colors. WCAG Grading AAA.
@@ -56,22 +63,6 @@ $_colors: (
 
 $_font-weight: 500 !default; // Font weight for headings
 $_subheading-margin-top: 0; // Top margin of <small> elements in headings
-$_heading-ratio: 1.19; // Ratio for headings (strictly unitless)
-
-// @todo Add comment
-@function buildFontSize($exponent, $ratio, $base: "1rem") {
-    $sCalc: "";
-
-    @if $exponent < 0 {
-        $sCalc: " / #{$ratio}";
-    } @else {
-        @for $_ from 1 through $exponent {
-            $sCalc: "#{$sCalc} * #{$ratio}";
-        }
-    }
-
-    @return "calc(#{$base}#{$sCalc})";
-}
 
 /* Heading styling */
 
@@ -81,14 +72,13 @@ $_heading-ratio: 1.19; // Ratio for headings (strictly unitless)
 
     font-family: map.get($_font-stacks, "heading");
     font-weight: $_font-weight;
-    line-height: map.get($_line-spacing, "heading");
-
-    margin: calc(#{map.get($_line-spacing, "heading")} * #{map.get($_box-spacing, "margin")}) map.get($_box-spacing, "margin");
 
     background: var(--heading-back-color, #{map.get($_colors, "back")}); // Allows live color tunning
     color: var(--heading-fore-color, #{map.get($_colors, "fore")}); // Allows live color tunning
 
-    text-rendering: optimizeLegibility;
+    @supports (text-rendering: optimizeLegibility) {
+        text-rendering: optimizeLegibility;
+    }
 
     small {
         display: block;
@@ -106,25 +96,42 @@ $_heading-ratio: 1.19; // Ratio for headings (strictly unitless)
 
 h1 {
     @extend %_normalize;
-    font-size: string.unquote(buildFontSize(4, $_heading-ratio));
+    font-size: calc( 1em * #{math.pow( map.get($_font-sizes, "ratio-heading"), 4)});
+    line-height: map.get($_line-spacing, "h1");
+    margin: map.get($_line-spacing, "h1") map.get($_box-spacing, "margin");
 }
+
 h2 {
     @extend %_normalize;
-    font-size: string.unquote(buildFontSize(3, $_heading-ratio));
+    font-size: calc( 1em * #{math.pow( map.get($_font-sizes, "ratio-heading"), 3)});
+    line-height: map.get($_line-spacing, "h2");
+    margin: map.get($_line-spacing, "h2") map.get($_box-spacing, "margin");
 }
+
 h3 {
     @extend %_normalize;
-    font-size: string.unquote(buildFontSize(2, $_heading-ratio));
+    font-size: calc( 1em * #{math.pow( map.get($_font-sizes, "ratio-heading"), 2)});
+    line-height: map.get($_line-spacing, "h3");
+    margin: map.get($_line-spacing, "h3") map.get($_box-spacing, "margin");
 }
+
 h4 {
     @extend %_normalize;
-    font-size: string.unquote(buildFontSize(1, $_heading-ratio));
+    font-size: calc( 1em * #{map.get($_font-sizes, "ratio-heading")});
+    line-height: map.get($_line-spacing, "h4");
+    margin: map.get($_line-spacing, "h4") map.get($_box-spacing, "margin");
 }
+
 h5 {
     @extend %_normalize;
-    font-size: 1rem;
+    font-size: 1em;
+    line-height: map.get($_line-spacing, "h5");
+    margin: map.get($_line-spacing, "h5") map.get($_box-spacing, "margin");
 }
+
 h6 {
     @extend %_normalize;
-    font-size: string.unquote(buildFontSize(-1, $_heading-ratio));
+    font-size: calc( 1em / #{map.get($_font-sizes, "ratio-heading")});
+    line-height: map.get($_line-spacing, "h6");
+    margin: map.get($_line-spacing, "h6") map.get($_box-spacing, "margin");
 }

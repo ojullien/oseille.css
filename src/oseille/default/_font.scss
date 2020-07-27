@@ -29,8 +29,10 @@ $font-sizes: (
         "not-accessible": 16px,
     // Relative font-sizing everywhere else on the page,
         "body": medium,
+    // Font size ratio for headings. ( h5 is 1em, h1 is 1em * ratio^4. See element/content_sectioning/heading.scss)
+        "ratio-heading": 1.25,
     // Font size for text in footer element.
-        "footer": 0.875rem,
+        "footer": 0.875em,
     // Font size for <mark>.
         "mark": 0.95em,
     // Font size for small element ( <small>, <sub>, <sup>)
@@ -41,11 +43,16 @@ $font-sizes: (
 
 $line-spacing: (
     // Line height for larger font sizes.
-    "heading": 1.2,
+        "h1": calc(1ex / 0.42),
+        "h2": calc(1ex / 0.42),
+        "h3": calc(1ex /0.38),
+        "h4":calc(1ex / 0.37),
+        "h5": calc(1ex / 0.32),
+        "h6": calc(1ex / 0.32),
     // Line height for most elements.
-    "main": 1.5,
+        "main": calc(1ex / 0.32),
     // Line height for thematic break
-    "hr": 1.25,
+        "hr": 1.25,
     // Line height for smaller text sizes
-    "small": 1.5625
-); 
+        "small": 1.5625
+);

@@ -24,20 +24,19 @@ $_font-sizes: (
     // Relative font-sizing everywhere else on the page,
         "body": medium,
     // Font size for small element ( <small>, <sub>, <sup>)
-        "small": 0.75em,
+        "small": 0.75em
 ) !default;
 
 // Font stack for all elements
 $_font-stacks: (
     // Font stack for all elements
-    "base": 
-    ( -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, sans-serif),
+        "base": (-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, sans-serif)
 ) !default;
 
 $_line-spacing: (
     // Line height for most elements.
-    "main": 1.5
-) !default; 
+        "main": calc(1ex / 0.32)
+) !default;
 
 /* Top level styling */
 
@@ -45,13 +44,20 @@ html {
     margin: 0;
     padding: 0;
     border: 0;
-    scroll-behavior: smooth;
+
     font-size: map.get($_font-sizes, "accessible");
     line-height: map.get($_line-spacing, "main");
+
     // Prevent adjustments of font size after orientation changes in mobile.
-    -webkit-text-size-adjust: 100%;
-    -moz-text-size-adjust: 100%;
-    text-size-adjust: 100%;
+    @supports ( (text-size-adjust: 100%) or (-moz-text-size-adjust: 100%) or (-webkit-text-size-adjust: 100%) ) {
+        -webkit-text-size-adjust: 100%;
+        -moz-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+    }
+
+    @supports (scroll-behavior: smooth) {
+        scroll-behavior: smooth;
+    }
 }
 
 body {
@@ -65,4 +71,8 @@ body {
     --smaller: #{map.get($_font-sizes, "small")};
     --fore-color: #{map.get($_colors, "fore")};
     --back-color: #{map.get($_colors, "back")};
+
+    @supports (font-size-adjust: 1) {
+        font-size-adjust: 0.5;
+    }
 }
