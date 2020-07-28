@@ -22,35 +22,35 @@ h6 small, h5 small, h4 small, h3 small, h2 small, h1 small {
 h1 {
   font-size: calc( 1em * 2.44140625);
   line-height: calc(1ex / 0.42);
-  margin: calc(1ex / 0.42) 0.5rem;
+  margin: 0 0.5rem calc(1ex / 0.42);
 }
 
 h2 {
   font-size: calc( 1em * 1.953125);
   line-height: calc(1ex / 0.42);
-  margin: calc(1ex / 0.42) 0.5rem;
+  margin: 0 0.5rem calc(1ex / 0.42);
 }
 
 h3 {
   font-size: calc( 1em * 1.5625);
   line-height: calc(1ex /0.38);
-  margin: calc(1ex /0.38) 0.5rem;
+  margin: 0 0.5rem calc(1ex /0.38);
 }
 
 h4 {
   font-size: calc( 1em * 1.25);
   line-height: calc(1ex / 0.37);
-  margin: calc(1ex / 0.37) 0.5rem;
+  margin: 0 0.5rem calc(1ex / 0.37);
 }
 
 h5 {
   font-size: 1em;
   line-height: calc(1ex / 0.32);
-  margin: calc(1ex / 0.32) 0.5rem;
+  margin: 0 0.5rem calc(1ex / 0.32);
 }
 
 h6 {
   font-size: calc( 1em / 1.25);
   line-height: calc(1ex / 0.32);
-  margin: calc(1ex / 0.32) 0.5rem;
+  margin: 0 0.5rem calc(1ex / 0.32);
 }

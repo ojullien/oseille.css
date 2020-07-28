@@ -1,5 +1,5 @@
 //
-// Default font stacks.
+// Default fonts' properties.
 //
 // Note: all oseille/element and oseille/module libraries have those default values for variables.
 // Note: The default oseille flavor (flavor/oseille.scss) does not use this file.
@@ -41,18 +41,19 @@ $font-sizes: (
         "code": 0.85em
 );
 
+// The default line height in browsers is 1.2, which is the optimal value for Times New Roman but not for other fonts.
 $line-spacing: (
-    // Line height for larger font sizes.
+    // Line height for larger text sizes.
         "h1": calc(1ex / 0.42),
         "h2": calc(1ex / 0.42),
         "h3": calc(1ex /0.38),
         "h4":calc(1ex / 0.37),
         "h5": calc(1ex / 0.32),
         "h6": calc(1ex / 0.32),
-    // Line height for most elements.
-        "main": calc(1ex / 0.32),
-    // Line height for thematic break
-        "hr": 1.25,
+    // Line height for most elements. Accessibility concerns: Use a minimum value of 1.5 for line-height for main paragraph content.
+        "main": 1.5,
+    // Line height for main paragraph content
+        "p": calc(1ex / 0.29),
     // Line height for smaller text sizes
         "small": 1.5625
 );

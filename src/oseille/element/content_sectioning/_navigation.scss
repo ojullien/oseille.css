@@ -32,7 +32,7 @@ $_borders: (
 
 $_line-spacing: (
     // Line height for most elements.
-        "main": 1.5
+        "main": 1.5,
 ) !default;
 
 $_sublink-depth: 2 !default; // Amount of subcategory classes to add.
@@ -69,8 +69,7 @@ nav {
     @include stdlib.box-shadow(map.get($_borders, "shadow"));
 
     * {
-        padding: map.get($_box-spacing, "padding")
-            calc(#{map.get($_line-spacing, "main")} * #{map.get($_box-spacing, "padding")});
+        padding: map.get($_box-spacing, "padding") calc(#{map.get($_line-spacing, "main")} * #{map.get($_box-spacing, "padding")});
     }
 
     a,

@@ -13,6 +13,7 @@
     <link href="element/content_sectioning/footer.css" rel="stylesheet" type="text/css" id="footer-css" />
     <link href="element/content_sectioning/navigation.css" rel="stylesheet" type="text/css" id="navigation-css" />
     <link href="element/content_sectioning/sectioning.css" rel="stylesheet" type="text/css" id="sectioning-css" />
+    <link href="element/text_content/paragraph.css" rel="stylesheet" type="text/css" id="paragraph-css" />
     <link href="oseille.css" rel="stylesheet" type="text/css" id="oseille-css" disabled />
 </head>
 <style>
@@ -57,6 +58,7 @@
             <label style="" for="root"><input style="" type="checkbox" id="checkbox-root" name="checkbox-root" value="root" onclick="switchToLocal(this);" checked />Root</label>
             <label style="" for="grid"><input style="" type="checkbox" id="checkbox-grid" name="checkbox-grid" value="grid" onclick="switchToLocal(this);" checked />Grid</label>
             <label style="" for="text"><input style="" type="checkbox" id="checkbox-text" name="checkbox-text" value="text" onclick="switchToLocal(this);" checked />Text</label>
+            <label style="" for="paragraph"><input style="" type="checkbox" id="checkbox-paragraph" name="checkbox-paragraph" value="paragraph" onclick="switchToLocal(this);" checked />Paragraph</label>
             <label style="" for="buttons"><input style="" type="checkbox" id="checkbox-buttons" name="checkbox-buttons" value="buttons" onclick="switchToLocal(this);" checked />Buttons</label>
             <label style="" for="header"><input style="" type="checkbox" id="checkbox-header" name="checkbox-header" value="header" onclick="switchToLocal(this);" checked />Header</label>
             <label style="" for="footer"><input style="" type="checkbox" id="checkbox-footer" name="checkbox-footer" value="footer" onclick="switchToLocal(this);" checked />Footer</label>
@@ -117,6 +119,7 @@
     myMap.set('checkbox-footer','#footer-css');
     myMap.set('checkbox-navigation','#navigation-css');
     myMap.set('checkbox-sectioning','#sectioning-css');
+    myMap.set('checkbox-paragraph','#paragraph-css');
 
     function switchToLocal(element) {
         if (element.checked != true) {

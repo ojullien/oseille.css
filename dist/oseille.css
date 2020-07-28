@@ -5,7 +5,7 @@ html {
   padding: 0;
   border: 0;
   font-size: 100%;
-  line-height: calc(1ex / 0.32);
+  line-height: 1.5;
 }
 @supports (text-size-adjust: 100%) or (-moz-text-size-adjust: 100%) or (-webkit-text-size-adjust: 100%) {
   html {
@@ -158,7 +158,7 @@ mark {
   background: #215cca;
   color: #f8f8f8;
   font-size: 0.95em;
-  line-height: 1em;
+  line-height: 1.5;
 }
 mark.inline-block {
   display: inline-block;
@@ -261,10 +261,15 @@ hr {
 }
 
 p {
-  padding: 0;
-  margin: calc(1.5 * 0.5rem) 0.5rem;
   max-width: 70ch;
-  text-rendering: optimizeLegibility;
+  line-height: calc(1ex / 0.29);
+  padding: 0;
+  margin: 0 0.5rem calc(1ex / 0.29);
+}
+@supports (text-rendering: optimizeLegibility) {
+  p {
+    text-rendering: optimizeLegibility;
+  }
 }
 
 /* Blockquote styling */
@@ -1011,37 +1016,37 @@ h6 small, h5 small, h4 small, h3 small, h2 small, h1 small {
 h1 {
   font-size: calc( 1em * 2.44140625);
   line-height: calc(1ex / 0.42);
-  margin: calc(1ex / 0.42) 0.5rem;
+  margin: 0 0.5rem calc(1ex / 0.42);
 }
 
 h2 {
   font-size: calc( 1em * 1.953125);
   line-height: calc(1ex / 0.42);
-  margin: calc(1ex / 0.42) 0.5rem;
+  margin: 0 0.5rem calc(1ex / 0.42);
 }
 
 h3 {
   font-size: calc( 1em * 1.5625);
   line-height: calc(1ex /0.38);
-  margin: calc(1ex /0.38) 0.5rem;
+  margin: 0 0.5rem calc(1ex /0.38);
 }
 
 h4 {
   font-size: calc( 1em * 1.25);
   line-height: calc(1ex / 0.37);
-  margin: calc(1ex / 0.37) 0.5rem;
+  margin: 0 0.5rem calc(1ex / 0.37);
 }
 
 h5 {
   font-size: 1em;
   line-height: calc(1ex / 0.32);
-  margin: calc(1ex / 0.32) 0.5rem;
+  margin: 0 0.5rem calc(1ex / 0.32);
 }
 
 h6 {
   font-size: calc( 1em / 1.25);
   line-height: calc(1ex / 0.32);
-  margin: calc(1ex / 0.32) 0.5rem;
+  margin: 0 0.5rem calc(1ex / 0.32);
 }
 
 /* Footer styling */

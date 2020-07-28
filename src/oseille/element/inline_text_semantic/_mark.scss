@@ -42,7 +42,7 @@ $_line-spacing: (
     // Line height for most elements.
         "main": 1.5,
     // Line height for <mark>
-        "mark": 1em
+        "mark": 1.5
 ) !default;
 
 // Font sizes
@@ -83,7 +83,7 @@ mark {
         display: inline-block;
         // This is hardcoded, as we want inline-block <mark> elements to be styled as normal pieces of text, instead of look small and weird.
         font-size: 1em;
-        // Line height is reset to the normal line-height from `core`. Also hardcoded for same reasons.
+        // Line height is reset to the normal line-height.
         line-height: map.get($_line-spacing, "main");
         padding: calc(#{map.get($_box-spacing, "padding")} / 2) #{map.get($_box-spacing, "padding")};
     }

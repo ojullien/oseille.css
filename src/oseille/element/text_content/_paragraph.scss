@@ -22,8 +22,8 @@ $_box-spacing: (
 ) !default;
 
 $_line-spacing: (
-    // Line height for most elements.
-        "main": 1.5,
+    // Line height for main paragraph content
+        "p": calc(1ex / 0.29),
     // Line height for thematic break
         "hr": 1.25
 ) !default;
@@ -46,8 +46,13 @@ hr {
 }
 
 p {
-    padding: 0;
-    margin: calc(#{map.get($_line-spacing, "main")} * #{map.get($_box-spacing, "margin")}) map.get($_box-spacing, "margin");
     max-width: $_paragraph_width;
-    text-rendering: optimizeLegibility;
+    line-height: map.get($_line-spacing, "p");
+
+    padding: 0;
+    margin: 0 map.get($_box-spacing, "margin") map.get($_line-spacing, "p");
+
+    @supports (text-rendering: optimizeLegibility) {
+        text-rendering: optimizeLegibility;
+    }
 }

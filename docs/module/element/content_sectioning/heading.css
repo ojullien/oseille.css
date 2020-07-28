@@ -4,39 +4,53 @@ h6, h5, h4, h3, h2, h1 {
   border: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, sans-serif;
   font-weight: 500;
-  line-height: 1.2;
-  margin: calc(1.2 * 0.5rem) 0.5rem;
   background: var(--heading-back-color, inherit);
   color: var(--heading-fore-color, inherit);
-  text-rendering: optimizeLegibility;
+}
+@supports (text-rendering: optimizeLegibility) {
+  h6, h5, h4, h3, h2, h1 {
+    text-rendering: optimizeLegibility;
+  }
 }
 h6 small, h5 small, h4 small, h3 small, h2 small, h1 small {
   display: block;
-  line-height: 1.5;
+  line-height: calc(1ex / 0.32);
   background: var(--subheading-back-color, inherit);
   color: var(--subheading-fore-color, inherit);
 }
 
 h1 {
-  font-size: calc(1rem * 1.19 * 1.19 * 1.19 * 1.19);
+  font-size: calc( 1em * 2.44140625);
+  line-height: calc(1ex / 0.42);
+  margin: 0 0.5rem calc(1ex / 0.42);
 }
 
 h2 {
-  font-size: calc(1rem * 1.19 * 1.19 * 1.19);
+  font-size: calc( 1em * 1.953125);
+  line-height: calc(1ex / 0.42);
+  margin: 0 0.5rem calc(1ex / 0.42);
 }
 
 h3 {
-  font-size: calc(1rem * 1.19 * 1.19);
+  font-size: calc( 1em * 1.5625);
+  line-height: calc(1ex /0.38);
+  margin: 0 0.5rem calc(1ex /0.38);
 }
 
 h4 {
-  font-size: calc(1rem * 1.19);
+  font-size: calc( 1em * 1.25);
+  line-height: calc(1ex / 0.37);
+  margin: 0 0.5rem calc(1ex / 0.37);
 }
 
 h5 {
-  font-size: 1rem;
+  font-size: 1em;
+  line-height: calc(1ex / 0.32);
+  margin: 0 0.5rem calc(1ex / 0.32);
 }
 
 h6 {
-  font-size: calc(1rem / 1.19);
+  font-size: calc( 1em / 1.25);
+  line-height: calc(1ex / 0.32);
+  margin: 0 0.5rem calc(1ex / 0.32);
 }

@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="element/root/root.css" rel="stylesheet" type="text/css" id="root-css" />
     <link href="element/inline_text_semantic/text.css" rel="stylesheet" type="text/css" id="text-css" />
+    <link href="element/inline_text_semantic/code.css" rel="stylesheet" type="text/css" id="code-css" />
+    <link href="element/inline_text_semantic/mark.css" rel="stylesheet" type="text/css" id="mark-css" />
     <link href="element/text_content/blockquote.css" rel="stylesheet" type="text/css" id="blockquote-css" />
     <link href="element/text_content/list.css" rel="stylesheet" type="text/css" id="list-css" />
     <link href="element/text_content/paragraph.css" rel="stylesheet" type="text/css" id="paragraph-css" />
@@ -27,6 +29,8 @@
         <div style="min-height: 100%; display: flex; flex-direction: row-reverse; justify-content: space-evenly; align-items: center; text-align: center; align-self: flex-start;position: sticky; top: 10px;">
             <label style="" for="root"><input style="" type="checkbox" id="checkbox-root" name="checkbox-root" value="root" onclick="switchToLocal(this);" checked />Root</label>
             <label style="" for="text"><input style="" type="checkbox" id="checkbox-text" name="checkbox-text" value="text" onclick="switchToLocal(this);" checked />Text</label>
+            <label style="" for="code"><input style="" type="checkbox" id="checkbox-code" name="checkbox-code" value="code" onclick="switchToLocal(this);" checked />Code</label>
+            <label style="" for="mark"><input style="" type="checkbox" id="checkbox-mark" name="checkbox-mark" value="mark" onclick="switchToLocal(this);" checked />Mark</label>
             <label style="" for="blockquote"><input style="" type="checkbox" id="checkbox-blockquote" name="checkbox-blockquote" value="blockquote" onclick="switchToLocal(this);" checked />Blockquote</label>
             <label style="" for="list"><input style="" type="checkbox" id="checkbox-list" name="checkbox-list" value="list" onclick="switchToLocal(this);" checked />List</label>
             <label style="" for="paragraph"><input style="" type="checkbox" id="checkbox-paragraph" name="checkbox-paragraph" value="paragraph" onclick="switchToLocal(this);" checked />Paragraph</label>
@@ -225,6 +229,8 @@ arguably done more to advance science than any device ever built.</p>
     var myMap = new Map();
     myMap.set('checkbox-root','#root-css');
     myMap.set('checkbox-text','#text-css');
+    myMap.set('checkbox-code','#code-css');
+    myMap.set('checkbox-mark','#mark-css');
     myMap.set('checkbox-blockquote','#blockquote-css');
     myMap.set('checkbox-list','#list-css');
     myMap.set('checkbox-paragraph','#paragraph-css');
