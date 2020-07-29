@@ -270,7 +270,7 @@ p {
   -moz-hyphens: auto;
   hyphens: auto;
   padding: 0;
-  margin: calc(1ex / 0.29) 0.5rem 0;
+  margin: calc(1ex / 0.29) 0.5rem;
 }
 @supports (text-rendering: optimizeLegibility) {
   p {
@@ -324,6 +324,10 @@ blockquote[cite]:after {
 
 q {
   font-style: inherit;
+}
+
+blockquote > p {
+  margin: 0.5rem 0;
 }
 
 /* List styling */
