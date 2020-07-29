@@ -57,3 +57,11 @@ $line-spacing: (
     // Line height for smaller text sizes
         "small": 1.5625
 );
+
+// Hyphenation support for languages is not always optimal in the various browsers; avoid justified text in the absence of hyphenation.
+$hyphenation: (
+    // "text-align": left,
+    // "hyphens": none 
+    "text-align": justify,
+    "hyphens": auto 
+);

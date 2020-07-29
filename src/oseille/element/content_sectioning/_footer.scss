@@ -68,9 +68,13 @@ footer {
     }
 
     &.#{map.get($_classnames, "sticky")} {
-        position: -webkit-sticky; // One of the rare instances where prefixes are necessary.
-        position: sticky;
-        z-index: 1101; // Deals with certain problems when combined with cards and tables.
-        bottom: 0;
+
+        @supports ((position: sticky) or (position: -webkit-sticky)) {
+            z-index: 1101; // Deals with certain problems when combined with cards and tables.
+            bottom: 0;
+            position: -webkit-sticky; // One of the rare instances where prefixes are necessary.
+            position: sticky;
+        }
+
     }
 }

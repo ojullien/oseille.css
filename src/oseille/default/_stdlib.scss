@@ -1,8 +1,6 @@
 //
 // Some usefull functions and mixins.
 //
-@use 'sass:map';
-@use 'sass:color';
 
 // box-shadow mixin
 @mixin box-shadow($box-shadow: none) {

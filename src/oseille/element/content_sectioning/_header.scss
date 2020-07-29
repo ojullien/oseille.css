@@ -158,9 +158,13 @@ header {
     }
 
     &.#{map.get($_classnames, "sticky")} {
-        position: -webkit-sticky; // One of the rare instances where prefixes are necessary.
-        position: sticky;
-        z-index: 1101; // Deals with certain problems when combined with cards and tables.
-        top: 0;
+
+        @supports ((position: sticky) or (position: -webkit-sticky)) {
+            position: -webkit-sticky; // One of the rare instances where prefixes are necessary.
+            position: sticky;
+            z-index: 1101; // Deals with certain problems when combined with cards and tables.
+            top: 0;
+        }
+        
     }
 }

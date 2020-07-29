@@ -28,6 +28,10 @@ $_line-spacing: (
         "hr": 1.25
 ) !default;
 
+$_hyphenation: (
+    "text-align": justify,
+    "hyphens": auto
+) !default; 
 $_hr-color: #909090 !default; // Border color. See $primary-palette.border-lightest in default/color.scss
 $_paragraph_width: 70ch;
 
@@ -48,6 +52,12 @@ hr {
 p {
     max-width: $_paragraph_width;
     line-height: map.get($_line-spacing, "p");
+    text-align: map.get($_hyphenation, "text-align");
+
+    -ms-hyphens: map.get($_hyphenation, "hyphens");
+    -webkit-hyphens: map.get($_hyphenation, "hyphens");
+    -moz-hyphens: map.get($_hyphenation, "hyphens");
+    hyphens: map.get($_hyphenation, "hyphens");
 
     padding: 0;
     margin: 0 map.get($_box-spacing, "margin") map.get($_line-spacing, "p");
