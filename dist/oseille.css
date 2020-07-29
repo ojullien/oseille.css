@@ -108,7 +108,11 @@ a:not(.button):hover, a:not(.button):focus {
 abbr[title] {
   border-bottom: none;
   text-decoration: underline dotted;
-  cursor: help;
+}
+@supports (cursor: help) {
+  abbr[title] {
+    cursor: help;
+  }
 }
 
 b,
@@ -118,7 +122,11 @@ strong {
 
 data {
   text-decoration: underline dotted;
-  cursor: help;
+}
+@supports (cursor: help) {
+  data {
+    cursor: help;
+  }
 }
 data:hover:after {
   content: " (ID " attr(value) ")";

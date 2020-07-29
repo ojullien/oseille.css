@@ -90,7 +90,6 @@ abbr[title] {
     @extend %_normalize;
     border-bottom: none; // Remove bottom border in Firefox 39-.
     text-decoration: underline dotted; // Opinionated style-fix for all browsers.
-    cursor: help;
 }
 
 b,
@@ -102,11 +101,20 @@ strong {
 data {
     @extend %_normalize;
     text-decoration: underline dotted; // Opinionated style-fix for all browsers.
-    cursor: help;
+
     &:hover:after {
         content: " (ID " attr(value) ")";
         font-size: 0.7em;
     }
+}
+
+@supports (cursor: help) {
+    abbr[title] {
+      cursor: help;
+    }
+    data {
+        cursor: help;
+      }
 }
 
 // Fix for elements inside headings not displaying properly.
