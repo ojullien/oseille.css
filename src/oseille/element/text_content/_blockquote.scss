@@ -119,7 +119,8 @@ blockquote {
     }
 }
 
-// Fix for elements inside headings not displaying properly.
+// Fix for elements inside blockquote not displaying properly.
+
 q {
     @extend %normalize;
     font-style: inherit;
@@ -127,4 +128,8 @@ q {
 
 cite {
     @extend %normalize;
+}
+
+blockquote > p {
+    margin: map.get($_box-spacing, "margin") 0;
 }

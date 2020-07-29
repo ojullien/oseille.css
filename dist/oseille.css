@@ -261,10 +261,16 @@ hr {
 }
 
 p {
-  max-width: 70ch;
+  width: 70ch;
+  max-width: 100%;
   line-height: calc(1ex / 0.29);
+  text-align: justify;
+  -ms-hyphens: auto;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
   padding: 0;
-  margin: 0 0.5rem calc(1ex / 0.29);
+  margin: calc(1ex / 0.29) 0.5rem 0;
 }
 @supports (text-rendering: optimizeLegibility) {
   p {
@@ -1016,37 +1022,37 @@ h6 small, h5 small, h4 small, h3 small, h2 small, h1 small {
 h1 {
   font-size: calc( 1em * 2.44140625);
   line-height: calc(1ex / 0.42);
-  margin: 0 0.5rem calc(1ex / 0.42);
+  margin: calc(1ex / 0.42) 0.5rem 0;
 }
 
 h2 {
   font-size: calc( 1em * 1.953125);
   line-height: calc(1ex / 0.42);
-  margin: 0 0.5rem calc(1ex / 0.42);
+  margin: calc(1ex / 0.42) 0.5rem 0;
 }
 
 h3 {
   font-size: calc( 1em * 1.5625);
   line-height: calc(1ex /0.38);
-  margin: 0 0.5rem calc(1ex /0.38);
+  margin: calc(1ex /0.38) 0.5rem 0;
 }
 
 h4 {
   font-size: calc( 1em * 1.25);
   line-height: calc(1ex / 0.37);
-  margin: 0 0.5rem calc(1ex / 0.37);
+  margin: calc(1ex / 0.37) 0.5rem 0;
 }
 
 h5 {
   font-size: 1em;
   line-height: calc(1ex / 0.32);
-  margin: 0 0.5rem calc(1ex / 0.32);
+  margin: calc(1ex / 0.32) 0.5rem 0;
 }
 
 h6 {
   font-size: calc( 1em / 1.25);
   line-height: calc(1ex / 0.32);
-  margin: 0 0.5rem calc(1ex / 0.32);
+  margin: calc(1ex / 0.32) 0.5rem 0;
 }
 
 /* Footer styling */
@@ -1063,11 +1069,13 @@ footer a,
 footer a:visited {
   color: var(--link-color, #215cca);
 }
-footer.sticky {
-  position: -webkit-sticky;
-  position: sticky;
-  z-index: 1101;
-  bottom: 0;
+@supports (position: sticky) or (position: -webkit-sticky) {
+  footer.sticky {
+    z-index: 1101;
+    bottom: 0;
+    position: -webkit-sticky;
+    position: sticky;
+  }
 }
 
 /* Header styling */
@@ -1136,11 +1144,13 @@ header {
   color: var(--header-hover-fore-color, #121212);
   font-weight: bolder;
 }
-.page-header.sticky {
-  position: -webkit-sticky;
-  position: sticky;
-  z-index: 1101;
-  top: 0;
+@supports (position: sticky) or (position: -webkit-sticky) {
+  .page-header.sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    z-index: 1101;
+    top: 0;
+  }
 }
 
 /* Embedded content styling */

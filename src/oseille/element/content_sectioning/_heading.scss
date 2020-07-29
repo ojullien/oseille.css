@@ -98,40 +98,40 @@ h1 {
     @extend %_normalize;
     font-size: calc( 1em * #{math.pow( map.get($_font-sizes, "ratio-heading"), 4)});
     line-height: map.get($_line-spacing, "h1");
-    margin: 0 map.get($_box-spacing, "margin") map.get($_line-spacing, "h1");
+    margin: map.get($_line-spacing, "h1") map.get($_box-spacing, "margin") 0;
 }
 
 h2 {
     @extend %_normalize;
     font-size: calc( 1em * #{math.pow( map.get($_font-sizes, "ratio-heading"), 3)});
     line-height: map.get($_line-spacing, "h2");
-    margin: 0 map.get($_box-spacing, "margin") map.get($_line-spacing, "h2");
+    margin: map.get($_line-spacing, "h2") map.get($_box-spacing, "margin") 0;
 }
 
 h3 {
     @extend %_normalize;
     font-size: calc( 1em * #{math.pow( map.get($_font-sizes, "ratio-heading"), 2)});
     line-height: map.get($_line-spacing, "h3");
-    margin: 0 map.get($_box-spacing, "margin") map.get($_line-spacing, "h3");
+    margin: map.get($_line-spacing, "h3") map.get($_box-spacing, "margin") 0;
 }
 
 h4 {
     @extend %_normalize;
     font-size: calc( 1em * #{map.get($_font-sizes, "ratio-heading")});
     line-height: map.get($_line-spacing, "h4");
-    margin: 0 map.get($_box-spacing, "margin") map.get($_line-spacing, "h4");
+    margin: map.get($_line-spacing, "h4") map.get($_box-spacing, "margin") 0;
 }
 
 h5 {
     @extend %_normalize;
     font-size: 1em;
     line-height: map.get($_line-spacing, "h5");
-    margin: 0 map.get($_box-spacing, "margin") map.get($_line-spacing, "h5");
+    margin: map.get($_line-spacing, "h5") map.get($_box-spacing, "margin") 0;
 }
 
 h6 {
     @extend %_normalize;
     font-size: calc( 1em / #{map.get($_font-sizes, "ratio-heading")});
     line-height: map.get($_line-spacing, "h6");
-    margin: 0 map.get($_box-spacing, "margin") map.get($_line-spacing, "h6");
+    margin: map.get($_line-spacing, "h6") map.get($_box-spacing, "margin") 0;
 }

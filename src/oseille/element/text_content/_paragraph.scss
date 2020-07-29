@@ -50,7 +50,8 @@ hr {
 }
 
 p {
-    max-width: $_paragraph_width;
+    width: $_paragraph_width;
+    max-width: 100%;
     line-height: map.get($_line-spacing, "p");
     text-align: map.get($_hyphenation, "text-align");
 
@@ -60,7 +61,7 @@ p {
     hyphens: map.get($_hyphenation, "hyphens");
 
     padding: 0;
-    margin: 0 map.get($_box-spacing, "margin") map.get($_line-spacing, "p");
+    margin: map.get($_line-spacing, "p") map.get($_box-spacing, "margin");
 
     @supports (text-rendering: optimizeLegibility) {
         text-rendering: optimizeLegibility;
