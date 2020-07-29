@@ -123,8 +123,10 @@ $_section-media-height: 200px; // Height for cards' media sections.
         &.#{map.get($_classnames, "media")} {
             height: $_section-media-height;
             padding: 0;
-            -o-object-fit: cover;
-            object-fit: cover;
+            @supports ((object-fit: cover) or (-o-object-fit: cover)) {
+                -o-object-fit: cover;
+                object-fit: cover;
+            }
         }
 
         // Alternative sections

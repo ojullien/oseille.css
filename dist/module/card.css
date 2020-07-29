@@ -30,8 +30,12 @@
 .card > .section.media {
   height: 200px;
   padding: 0;
-  -o-object-fit: cover;
-  object-fit: cover;
+}
+@supports (object-fit: cover) or (-o-object-fit: cover) {
+  .card > .section.media {
+    -o-object-fit: cover;
+    object-fit: cover;
+  }
 }
 .card > .section.dark {
   --card-back-color:#e0e0e0;
