@@ -11,7 +11,7 @@
 // @link: https://sass-lang.com/documentation/variables
 
 // Basic box model
-$_box-model: (
+$_box-spacing: (
     // Padding: creates extra space within an element.
         "padding": 0.5rem,
     // Margins: create extra space around an element.
@@ -27,9 +27,9 @@ $_borders: (
 ) !default;
 
 // Main colors. WCAG Grading AAA.
-$_colors: (
+$_primary-colors: (
     // Text & foreground color
-        "fore": #151515,
+        "fore": #121212,
     // Background color
         "back": #f8f8f8,
     // Border color for the cards.
@@ -41,7 +41,7 @@ $_colors: (
     // Border color for the cards.
         "error-border": #a71a1a,
     // Text & foreground color
-        "warning-fore": #151515,
+        "warning-fore": #121212,
     // Background color
         "warning-back": #ffca28,
     // Border color for the cards.
@@ -91,16 +91,16 @@ $_section-media-height: 200px; // Height for cards' media sections.
     width: 100%;
 
     // Actual styling for the cards
-    --card-fore-color: #{map.get($_colors, "fore")};
-    --card-back-color: #{map.get($_colors, "back")};
-    --card-border-color: #{map.get($_colors, "border")};
+    --card-fore-color: #{map.get($_primary-colors, "fore")};
+    --card-back-color: #{map.get($_primary-colors, "back")};
+    --card-border-color: #{map.get($_primary-colors, "border")};
 
-    background: var(--card-back-color, #{map.get($_colors, "back")}); // Allows live color tunning
-    color: var(--card-fore-color, #{map.get($_colors, "fore")}); // Allows live color tunning
+    background: var(--card-back-color, #{map.get($_primary-colors, "back")}); // Allows live color tunning
+    color: var(--card-fore-color, #{map.get($_primary-colors, "fore")}); // Allows live color tunning
 
-    border: var(--px) solid var(--card-border-color, #{map.get($_colors, "border")});
+    border: var(--px) solid var(--card-border-color, #{map.get($_primary-colors, "border")});
     border-radius: map.get($_borders, "radius");
-    margin: map.get($_box-model, "margin");
+    margin: map.get($_box-spacing, "margin");
 
     @include stdlib.box-shadow(map.get($_borders, "shadow"));
 
@@ -109,14 +109,14 @@ $_section-media-height: 200px; // Height for cards' media sections.
     // Card sections
     & > .#{map.get($_classnames, "section")} {
         // Reapply background and foreground colors, so that mixins can be applied properly.
-        background: var(--card-back-color, #{map.get($_colors, "back")}); // Allows live color tunning
-        color: var(--card-fore-color, #{map.get($_colors, "fore")}); // Allows live color tunning
+        background: var(--card-back-color, #{map.get($_primary-colors, "back")}); // Allows live color tunning
+        color: var(--card-fore-color, #{map.get($_primary-colors, "fore")}); // Allows live color tunning
         box-sizing: border-box;
         margin: 0;
         border: 0; // Clean borders and radiuses for any element-based sections
         border-radius: 0; // Clean borders and radiuses for any element-based sections
-        border-bottom: var(--px) solid var(--card-border-color, #{map.get($_colors, "border")});
-        padding: map.get($_box-model, "padding");
+        border-bottom: var(--px) solid var(--card-border-color, #{map.get($_primary-colors, "border")});
+        padding: map.get($_box-spacing, "padding");
         width: 100%;
 
         // Media sections
@@ -133,13 +133,13 @@ $_section-media-height: 200px; // Height for cards' media sections.
         &.dark {
             @include make-card-alt-color(
                 (
-                    "--card-back-color": #{map.get($_colors, "alt-back")},
+                    "--card-back-color": #{map.get($_primary-colors, "alt-back")},
                 )
             );
         }
 
         &.double-padded {
-            padding: calc(1.5 * #{map.get($_box-model, "padding")});
+            padding: calc(1.5 * #{map.get($_box-spacing, "padding")});
         }
 
         &:last-child {
@@ -150,8 +150,8 @@ $_section-media-height: 200px; // Height for cards' media sections.
     &.warning {
         @include make-card-alt-color(
             (
-                "--card-back-color": #{map.get($_colors, "warning-back")},
-                "--card-border-color": #{map.get($_colors, "warning-border")},
+                "--card-back-color": #{map.get($_primary-colors, "warning-back")},
+                "--card-border-color": #{map.get($_primary-colors, "warning-border")},
             )
         );
     }
@@ -159,9 +159,9 @@ $_section-media-height: 200px; // Height for cards' media sections.
     &.error {
         @include make-card-alt-color(
             (
-                "--card-back-color": #{map.get($_colors, "error-back")},
-                "--card-fore-color": #{map.get($_colors, "error-fore")},
-                "--card-border-color": #{map.get($_colors, "error-border")},
+                "--card-back-color": #{map.get($_primary-colors, "error-back")},
+                "--card-fore-color": #{map.get($_primary-colors, "error-fore")},
+                "--card-border-color": #{map.get($_primary-colors, "error-border")},
             )
         );
     }

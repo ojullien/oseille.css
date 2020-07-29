@@ -12,7 +12,7 @@
 // @link: https://sass-lang.com/documentation/variables
 
 // Basic box model
-$_box-model: (
+$_box-spacing: (
     // Padding: creates extra space within an element.
         "padding": 0.5rem,
     // Margins: create extra space around an element.
@@ -27,9 +27,9 @@ $_borders: (
         "shadow": none
 ) !default;
 
-$_colors: (
+$_primary-colors: (
     // Background color for tooltip component
-        "back": #151515,
+        "back": #121212,
     // Text color for tooltip component
         "fore": #f8f8f8
 ) !default;
@@ -40,14 +40,14 @@ $_toast-name: "toast"; // Class name for toast component
 
 .#{$_toast-name} {
     position: fixed;
-    bottom: calc(#{map.get($_box-model, "margin")} * 3);
+    bottom: calc(#{map.get($_box-spacing, "margin")} * 3);
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 1111;
-    color: var(--back-color, map.get($_colors, "fore")); // Invert
-    background: var(--fore-color, map.get($_colors, "back")); // Invert
+    color: var(--back-color, map.get($_primary-colors, "fore")); // Invert
+    background: var(--fore-color, map.get($_primary-colors, "back")); // Invert
     border-radius: calc(#{map.get($_borders, "radius")} * 16);
-    padding: map.get($_box-model, "padding") calc(#{map.get($_box-model, "padding")} * 3);
+    padding: map.get($_box-spacing, "padding") calc(#{map.get($_box-spacing, "padding")} * 3);
 
     @include stdlib.box-shadow(map.get($_borders, "shadow"));
 }

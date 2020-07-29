@@ -7,7 +7,7 @@ figcaption {
   font-size: 1em;
   text-align: left;
   background: var(--caption-back-color, #f8f8f8);
-  color: var(--caption-fore-color, #151515);
+  color: var(--caption-fore-color, #121212);
 }
 
 figure {

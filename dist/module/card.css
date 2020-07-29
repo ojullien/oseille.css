@@ -6,11 +6,11 @@
   align-self: center;
   position: relative;
   width: 100%;
-  --card-fore-color: #151515;
+  --card-fore-color: #121212;
   --card-back-color: #f8f8f8;
   --card-border-color: #ddd;
   background: var(--card-back-color, #f8f8f8);
-  color: var(--card-fore-color, #151515);
+  color: var(--card-fore-color, #121212);
   border: var(--px) solid var(--card-border-color, #ddd);
   border-radius: 0.125rem;
   margin: 0.5rem;
@@ -18,7 +18,7 @@
 }
 .card > .section {
   background: var(--card-back-color, #f8f8f8);
-  color: var(--card-fore-color, #151515);
+  color: var(--card-fore-color, #121212);
   box-sizing: border-box;
   margin: 0;
   border: 0;

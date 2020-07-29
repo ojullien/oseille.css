@@ -32,15 +32,15 @@
   left: calc(50% - 0.5rem);
 }
 .tooltip:not(.bottom):before {
-  border-top-color: var(--fore-color, #151515);
+  border-top-color: var(--fore-color, #121212);
 }
 .tooltip.bottom:before {
-  border-bottom-color: var(--fore-color, #151515);
+  border-bottom-color: var(--fore-color, #121212);
 }
 .tooltip:after {
   content: attr(aria-label);
   color: var(--back-color, #f8f8f8);
-  background: var(--fore-color, #151515);
+  background: var(--fore-color, #121212);
   border-radius: 0.125rem;
   padding: 0.5rem;
   white-space: nowrap;
@@ -61,7 +61,7 @@
   transform: translate(-50%, -50%);
   z-index: 1111;
   color: var(--back-color, #f8f8f8);
-  background: var(--fore-color, #151515);
+  background: var(--fore-color, #121212);
   border-radius: calc(0.125rem * 16);
   padding: 0.5rem calc(0.5rem * 3);
 }

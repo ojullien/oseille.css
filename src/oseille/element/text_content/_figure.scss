@@ -25,15 +25,15 @@ $_font-stacks: (
 ) !default;
 
 // Main colors. WCAG Grading AAA.
-$_colors: (
+$_primary-colors: (
     // Text & foreground color
-        "fore": #151515,
+        "fore": #121212,
     // Background color
         "back": #f8f8f8
 ) !default;
 
 // Basic box model
-$_box-model: (
+$_box-spacing: (
     // Padding: creates extra space within an element.
         "padding": 0.5rem,
     // Margins: create extra space around an element.
@@ -54,12 +54,12 @@ figcaption {
 
     text-align: $_text-align;
 
-    background: var(--caption-back-color, #{map.get($_colors, "back")}); // Allows live color tunning
-    color: var(--caption-fore-color, #{map.get($_colors, "fore")}); // Allows live color tunning
+    background: var(--caption-back-color, #{map.get($_primary-colors, "back")}); // Allows live color tunning
+    color: var(--caption-fore-color, #{map.get($_primary-colors, "fore")}); // Allows live color tunning
 }
 
 figure {
     padding: 0;
     border: 0;
-    margin: map.get($_box-model, "margin");
+    margin: map.get($_box-spacing, "margin");
 }

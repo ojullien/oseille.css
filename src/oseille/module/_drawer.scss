@@ -1,0 +1,157 @@
+//
+// Menu drawer
+// The drawer component is a responsive navigation menus for web apps.
+//
+@use 'sass:map';
+@use '../default/stdlib';
+
+// Variables.
+//
+// To load this module with configuration, use @use <url> with (<variable>: <value>, <variable>: <value>).
+// The configured values will override the variables’ default values.
+// @link: https://sass-lang.com/documentation/variables
+
+// Basic box model
+$_box-spacing: (
+    // Padding: creates extra space within an element.
+        "padding": 0.5rem,
+    // Margins: create extra space around an element.
+        "margin": 0.5rem
+) !default;
+
+// Borders
+$_borders: (
+    // border-radius: rounds the corners of an element's outer border edge.
+        "radius": 0.125rem,
+    // box-shadow: adds shadow effects around an element's frame.
+        "shadow": none
+) !default;
+
+$_primary-colors: (
+    // Background color for tooltip component
+        "back": #121212,
+    // Text color for tooltip component
+        "fore": #f8f8f8
+) !default;
+
+$_class-name: (
+    // Class name for the drawer component.
+        "main": "drawer",
+    // Class name for the drawer component's toggle.
+        "toggle": "drawer-toggle",
+    // Class name for the persisten variant of the drawer component.
+        "persistent": "persistent",
+    // Class name of the close element for the drawer component.
+        "close": "drawer-close",
+);
+
+$drawer-back-color: #f8f8f8 !default; // Background color for the drawer component.
+$drawer-border-color: #ddd !default; // Border color for the drawer component.
+$drawer-hover-back-color: #f0f0f0 !default; // Background color for the drawer component's close (hover).
+$drawer-close-color: #444 !default; // Color of the close element for the drawer component.
+$drawer-toggle-font-size: 1.5em !default; // Font size for the drawer component's toggle. (prefer em units)
+$drawer-mobile-breakpoint: 768px !default; // Mobile breakpoint for the drawer component.
+$_drawer-right: true !default; // [Hidden] Should the drawer appear on the right side of the screen?
+$drawer-width: 320px !default; // Width of the drawer component.
+$drawer-close-size: 2rem !default; // Size of the close element for the drawer component.
+
+/* Drawer styling */
+
+.#{map.get($_class-name, "main")} {
+    &:before {
+        // No color specified, should use the color of its surroundings!
+        display: inline-block;
+        position: relative;
+        vertical-align: bottom;
+        content: "\00a0\2261\00a0"; // Spaces ensure compatibility with buttons that have text and that textless buttons will have some extra padding.
+        font-family: sans-serif;
+        font-size: $drawer-toggle-font-size; // Almost hardcoded, should be fully compatible with its surroundings.
+    }
+    @media screen and (min-width: #{$drawer-mobile-breakpoint}) {
+        &:not(.#{$drawer-persistent-name}) {
+            display: none;
+        }
+    }
+}
+[type="checkbox"].#{$drawer-name} {
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    overflow: hidden;
+    position: absolute;
+    clip: rect(0 0 0 0);
+    -webkit-clip-path: inset(100%);
+    clip-path: inset(100%);
+    + * {
+        display: block;
+        box-sizing: border-box;
+        position: fixed;
+        top: 0;
+        width: $drawer-width;
+        height: 100vh;
+        overflow-y: auto;
+        background: var(#{$drawer-back-color-var});
+        border: $__1px solid var(#{$drawer-border-color-var});
+        border-radius: 0; // Set to 0 to override the value from `nav`.
+        margin: 0; // Set to 0 to override the value from `nav`.
+        @if $universal-box-shadow != none {
+            box-shadow: var(#{$universal-box-shadow-var});
+        }
+        z-index: 1110;
+        @if $_drawer-right {
+            right: -$drawer-width;
+            transition: right 0.3s;
+        } @else {
+            left: -$drawer-width;
+            transition: left 0.3s;
+        }
+        & .#{$drawer-close-name} {
+            position: absolute;
+            top: var(#{$universal-margin-var});
+            right: var(#{$universal-margin-var});
+            z-index: 1111;
+            width: $drawer-close-size;
+            height: $drawer-close-size;
+            border-radius: var(#{$universal-border-radius-var});
+            padding: var(#{$universal-padding-var});
+            margin: 0; // Fixes the offset from label
+            cursor: pointer;
+            transition: background 0.3s;
+            &:before {
+                // Transparent background unless hovered over. Does not block text behind it.
+                display: block;
+                content: "\00D7";
+                color: var(#{$drawer-close-color-var});
+                position: relative;
+                font-family: sans-serif;
+                font-size: $drawer-close-size;
+                line-height: 1; // Setting to 1 seems to center the 'X' properly.
+                text-align: center;
+            }
+            &:hover,
+            &:focus {
+                background: var(#{$drawer-hover-back-color-var});
+            }
+        }
+        @media screen and (max-width: #{$drawer-width}) {
+            width: 100%;
+        }
+    }
+    &:checked + * {
+        @if $_drawer-right {
+            right: 0;
+        } @else {
+            left: 0;
+        }
+    }
+    @media screen and (min-width: #{$drawer-mobile-breakpoint}) {
+        &:not(.#{$drawer-persistent-name}) + * {
+            position: static;
+            height: 100%;
+            z-index: 1100;
+            & .#{$drawer-close-name} {
+                display: none;
+            }
+        }
+    }
+}

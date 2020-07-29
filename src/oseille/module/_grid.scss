@@ -11,7 +11,7 @@
 // @link: https://sass-lang.com/documentation/variables
 
 // Basic box model
-$_box-model: (
+$_box-spacing: (
     // Padding: creates extra space within an element.
         "padding": 0.5rem
 ) !default;
@@ -64,7 +64,7 @@ $_classnames: (
             box-sizing: border-box;
             //flex: 0 0 auto;
             flex: 1 1 auto;
-            padding: 0 calc(#{map.get($_box-model, "padding")} / 2);
+            padding: 0 calc(#{map.get($_box-spacing, "padding")} / 2);
         }
 
         // Grid column specific definition for flexible column.
@@ -81,7 +81,7 @@ $_classnames: (
         [class^="#{map.get($_classnames, "column")}-#{$size-prefix}-#{map.get($_classnames, "offset")}-"] {
             //flex: 0 0 auto;
             flex: 1 1 auto;
-            padding: 0 calc(#{map.get($_box-model, "padding")} / 2);
+            padding: 0 calc(#{map.get($_box-spacing, "padding")} / 2);
         }
 
         // Grid column specific definition for flexible column.
@@ -136,7 +136,7 @@ $_classnames: (
 .#{map.get($_classnames, "container")} {
     flex-wrap: wrap;
     margin: 0 auto;
-    padding: 0 calc(1.5 * #{map.get($_box-model, "padding")});
+    padding: 0 calc(1.5 * #{map.get($_box-spacing, "padding")});
 }
 
 .#{map.get($_classnames, "row")} {
