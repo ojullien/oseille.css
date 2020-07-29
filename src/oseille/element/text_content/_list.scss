@@ -34,7 +34,7 @@ ul {
 li,
 dt,
 dd {
-    margin: 0;
+    margin: map.get($_box-spacing, "margin") 0;
     padding: 0;
     border: 0;
 }
