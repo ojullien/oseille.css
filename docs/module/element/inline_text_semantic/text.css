@@ -43,7 +43,6 @@ a:not(.button):hover, a:not(.button):focus {
 abbr[title] {
   border-bottom: none;
   text-decoration: underline dotted;
-  cursor: help;
 }
 
 b,
@@ -53,13 +52,21 @@ strong {
 
 data {
   text-decoration: underline dotted;
-  cursor: help;
 }
 data:hover:after {
   content: " (ID " attr(value) ")";
   font-size: 0.7em;
 }
 
+@supports (cursor: help) {
+  abbr[title] {
+    cursor: help;
+  }
+
+  data {
+    cursor: help;
+  }
+}
 s:before, s:after {
   clip-path: inset(100%);
   clip: rect(1px, 1px, 1px, 1px);

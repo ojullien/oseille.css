@@ -1,27 +1,3 @@
-/* Top level styling */
-html {
-  scroll-behavior: smooth;
-  font-size: 100%;
-  line-height: 1.5;
-  -webkit-text-size-adjust: 100%;
-  -moz-text-size-adjust: 100%;
-  text-size-adjust: 100%;
-  --px: 0.0625rem;
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  color: #222740;
-  background: #dad5bc;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, sans-serif;
-  font-size: 1rem;
-  --smaller: 0.75em;
-  --fore-color: #222740;
-  --back-color: #dad5bc;
-}
-
 /* Tooltip styling */
 .tooltip {
   position: relative;
@@ -56,15 +32,15 @@ body {
   left: calc(50% - 0.5rem);
 }
 .tooltip:not(.bottom):before {
-  border-top-color: var(--fore-color, #222740);
+  border-top-color: var(--fore-color, #121212);
 }
 .tooltip.bottom:before {
-  border-bottom-color: var(--fore-color, #222740);
+  border-bottom-color: var(--fore-color, #121212);
 }
 .tooltip:after {
   content: attr(aria-label);
-  color: var(--back-color, #dad5bc);
-  background: var(--fore-color, #222740);
+  color: var(--back-color, #f8f8f8);
+  background: var(--fore-color, #121212);
   border-radius: 0.125rem;
   padding: 0.5rem;
   white-space: nowrap;
@@ -75,17 +51,4 @@ body {
 }
 .tooltip.bottom:after {
   margin-top: calc(2 * 0.5rem);
-}
-
-/* Toast styling */
-.toast {
-  position: fixed;
-  bottom: calc(0.5rem * 3);
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1111;
-  color: var(--back-color, #dad5bc);
-  background: var(--fore-color, #222740);
-  border-radius: calc(0.125rem * 16);
-  padding: 0.5rem calc(0.5rem * 3);
 }

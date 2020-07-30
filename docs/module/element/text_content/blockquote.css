@@ -46,3 +46,7 @@ blockquote[cite]:after {
 q {
   font-style: inherit;
 }
+
+blockquote > p {
+  margin: 0.5rem 0;
+}

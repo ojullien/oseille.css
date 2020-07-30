@@ -64,9 +64,11 @@ header {
   color: var(--header-hover-fore-color, #121212);
   font-weight: bolder;
 }
-.page-header.sticky {
-  position: -webkit-sticky;
-  position: sticky;
-  z-index: 1101;
-  top: 0;
+@supports (position: sticky) or (position: -webkit-sticky) {
+  .page-header.sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    z-index: 1101;
+    top: 0;
+  }
 }

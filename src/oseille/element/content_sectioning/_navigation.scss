@@ -37,6 +37,7 @@ $_line-spacing: (
 
 $_sublink-depth: 2 !default; // Amount of subcategory classes to add.
 
+// Palette
 $_colors: (
     // Text & foreground color
         "fore": #121212,
@@ -56,11 +57,12 @@ $_colors: (
 $_sublink-prefix: "sublink"; // Prefix for the subcategory tabs in nav.
 
 /* Navigation styling. */
+
 nav {
     background: var(--back-color, map.get($_colors, "back"));
     color: var(--fore-color, map.get($_colors, "fore"));
 
-    border: 1px solid map.get($_colors, "border");
+    border: 1px solid var(--border-color, map.get($_colors, "border"));
     border-radius: map.get($_borders, "radius");
 
     margin: map.get($_box-spacing, "margin");
@@ -82,7 +84,7 @@ nav {
 
         &:hover,
         &:focus {
-            background: map.get($_colors, "hover-back");
+            background: var(--back-hover-color, map.get($_colors, "hover-back"));
             font-weight: bolder;
             @include stdlib.box-shadow(none !important);
         }
@@ -101,7 +103,7 @@ nav {
                 top: calc(0 - 1px);
                 content: "";
                 height: 100%;
-                border: 1px solid map.get($_colors, "border");
+                border: 1px solid var(--border-color, map.get($_colors, "border"));;
                 border-left: 0;
             }
         }

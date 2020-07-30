@@ -13,32 +13,26 @@
 
 // Basic box model
 $_box-spacing: (
-    // Padding: creates extra space within an element.
-        "padding": 0.5rem,
-    // Margins: create extra space around an element.
-        "margin": 0.5rem
+    "padding": 0.5rem,
+    "margin": 0.5rem
 ) !default;
 
 // Borders
 $_borders: (
-    // border-radius: rounds the corners of an element's outer border edge.
-        "radius": 0.125rem,
-    // box-shadow: adds shadow effects around an element's frame.
-        "shadow": none
+    "radius": 0.125rem,
+    "shadow": none
 ) !default;
 
 $_primary-colors: (
-    // Background color for tooltip component
-        "back": #121212,
-    // Text color for tooltip component
-        "fore": #f8f8f8
+    "back": #121212,
+    "fore": #f8f8f8
 ) !default;
 
+// Private variables
+
 $_class-name: (
-    // Class name for tooltip component
-        "main": "tooltip",
-    // Bottom tooltip class name
-        "alternate": "bottom"
+    "main": "tooltip",
+    "alternate": "bottom"
 );
 
 /* Tooltip styling */
@@ -84,7 +78,7 @@ $_class-name: (
     }
 
     &:before {
-        // This is the little tooltip triangle
+        // Little tooltip triangle
         content: "";
         background: transparent;
         border: map.get($_box-spacing, "margin") solid transparent;
@@ -103,7 +97,7 @@ $_class-name: (
     }
 
     &:after {
-        // This is the actual tooltip's text block
+        // Tooltip's text block
         content: attr(aria-label);
         color: var(--back-color, map.get($_primary-colors, "fore")); // Invert
         background: var(--fore-color, map.get($_primary-colors, "back")); // Invert

@@ -13,30 +13,25 @@
 
 // Basic box model
 $_box-spacing: (
-    // Padding: creates extra space within an element.
-        "padding": 0.5rem,
-    // Margins: create extra space around an element.
-        "margin": 0.5rem
+    "padding": 0.5rem,
+    "margin": 0.5rem
 ) !default;
 
 // Borders
 $_borders: (
-    // border-radius: rounds the corners of an element's outer border edge.
-        "radius": 0.125rem,
-    // box-shadow: adds shadow effects around an element's frame.
-        "shadow": none
+    "radius": 0.125rem,
+    "shadow": none
 ) !default;
 
 $_primary-colors: (
-    // Background color for tooltip component
-        "back": #121212,
-    // Text color for tooltip component
-        "fore": #f8f8f8
+    "back": #121212,
+    "fore": #f8f8f8
 ) !default;
 
+// Private variables
+
 $_class-name: (
-    // Class name for toast component
-        "main": "toast"
+    "main": "toast"
 );
 
 /* Toast styling */

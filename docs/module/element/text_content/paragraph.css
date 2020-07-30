@@ -10,10 +10,16 @@ hr {
 }
 
 p {
-  max-width: 70ch;
+  width: 70ch;
+  max-width: 100%;
   line-height: calc(1ex / 0.29);
+  text-align: justify;
+  -ms-hyphens: auto;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
   padding: 0;
-  margin: 0 0.5rem calc(1ex / 0.29);
+  margin: calc(1ex / 0.29) 0.5rem;
 }
 @supports (text-rendering: optimizeLegibility) {
   p {

@@ -108,7 +108,6 @@ a:not(.button):hover, a:not(.button):focus {
 abbr[title] {
   border-bottom: none;
   text-decoration: underline dotted;
-  cursor: help;
 }
 
 b,
@@ -118,13 +117,21 @@ strong {
 
 data {
   text-decoration: underline dotted;
-  cursor: help;
 }
 data:hover:after {
   content: " (ID " attr(value) ")";
   font-size: 0.7em;
 }
 
+@supports (cursor: help) {
+  abbr[title] {
+    cursor: help;
+  }
+
+  data {
+    cursor: help;
+  }
+}
 s:before, s:after {
   clip-path: inset(100%);
   clip: rect(1px, 1px, 1px, 1px);
@@ -261,10 +268,16 @@ hr {
 }
 
 p {
-  max-width: 70ch;
+  width: 70ch;
+  max-width: 100%;
   line-height: calc(1ex / 0.29);
+  text-align: justify;
+  -ms-hyphens: auto;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
   padding: 0;
-  margin: 0 0.5rem calc(1ex / 0.29);
+  margin: calc(1ex / 0.29) 0.5rem;
 }
 @supports (text-rendering: optimizeLegibility) {
   p {
@@ -320,6 +333,10 @@ q {
   font-style: inherit;
 }
 
+blockquote > p {
+  margin: 0.5rem 0;
+}
+
 /* List styling */
 ol,
 ul {
@@ -339,7 +356,7 @@ ul ol {
 li,
 dt,
 dd {
-  margin: 0;
+  margin: 0.5rem 0;
   padding: 0;
   border: 0;
 }
@@ -377,7 +394,7 @@ figcaption {
   font-size: 1em;
   text-align: left;
   background: var(--caption-back-color, #f8f8f8);
-  color: var(--caption-fore-color, #151515);
+  color: var(--caption-fore-color, #121212);
 }
 
 figure {
@@ -942,7 +959,7 @@ img {
 nav {
   background: var(--back-color, #f8f8f8);
   color: var(--fore-color, #121212);
-  border: 1px solid #909090;
+  border: 1px solid var(--border-color, #909090);
   border-radius: 0.125rem;
   margin: 0.5rem;
   padding: 0;
@@ -961,7 +978,7 @@ nav a:visited {
 nav a:hover, nav a:focus,
 nav a:visited:hover,
 nav a:visited:focus {
-  background: #e0e0e0;
+  background: var(--back-hover-color, #e0e0e0);
   font-weight: bolder;
   box-shadow: none !important;
 }
@@ -975,7 +992,7 @@ nav .sublink-1:before {
   top: calc(0 - 1px);
   content: "";
   height: 100%;
-  border: 1px solid #909090;
+  border: 1px solid var(--border-color, #909090);
   border-left: 0;
 }
 nav .sublink-2 {
@@ -988,7 +1005,7 @@ nav .sublink-2:before {
   top: calc(0 - 1px);
   content: "";
   height: 100%;
-  border: 1px solid #909090;
+  border: 1px solid var(--border-color, #909090);
   border-left: 0;
 }
 
@@ -1016,37 +1033,37 @@ h6 small, h5 small, h4 small, h3 small, h2 small, h1 small {
 h1 {
   font-size: calc( 1em * 2.44140625);
   line-height: calc(1ex / 0.42);
-  margin: 0 0.5rem calc(1ex / 0.42);
+  margin: calc(1ex / 0.42) 0.5rem 0;
 }
 
 h2 {
   font-size: calc( 1em * 1.953125);
   line-height: calc(1ex / 0.42);
-  margin: 0 0.5rem calc(1ex / 0.42);
+  margin: calc(1ex / 0.42) 0.5rem 0;
 }
 
 h3 {
   font-size: calc( 1em * 1.5625);
   line-height: calc(1ex /0.38);
-  margin: 0 0.5rem calc(1ex /0.38);
+  margin: calc(1ex /0.38) 0.5rem 0;
 }
 
 h4 {
   font-size: calc( 1em * 1.25);
   line-height: calc(1ex / 0.37);
-  margin: 0 0.5rem calc(1ex / 0.37);
+  margin: calc(1ex / 0.37) 0.5rem 0;
 }
 
 h5 {
   font-size: 1em;
   line-height: calc(1ex / 0.32);
-  margin: 0 0.5rem calc(1ex / 0.32);
+  margin: calc(1ex / 0.32) 0.5rem 0;
 }
 
 h6 {
   font-size: calc( 1em / 1.25);
   line-height: calc(1ex / 0.32);
-  margin: 0 0.5rem calc(1ex / 0.32);
+  margin: calc(1ex / 0.32) 0.5rem 0;
 }
 
 /* Footer styling */
@@ -1063,11 +1080,13 @@ footer a,
 footer a:visited {
   color: var(--link-color, #215cca);
 }
-footer.sticky {
-  position: -webkit-sticky;
-  position: sticky;
-  z-index: 1101;
-  bottom: 0;
+@supports (position: sticky) or (position: -webkit-sticky) {
+  footer.sticky {
+    z-index: 1101;
+    bottom: 0;
+    position: -webkit-sticky;
+    position: sticky;
+  }
 }
 
 /* Header styling */
@@ -1136,11 +1155,13 @@ header {
   color: var(--header-hover-fore-color, #121212);
   font-weight: bolder;
 }
-.page-header.sticky {
-  position: -webkit-sticky;
-  position: sticky;
-  z-index: 1101;
-  top: 0;
+@supports (position: sticky) or (position: -webkit-sticky) {
+  .page-header.sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    z-index: 1101;
+    top: 0;
+  }
 }
 
 /* Embedded content styling */
@@ -1276,7 +1297,7 @@ header {
   transform: translate(-50%, -50%);
   z-index: 1111;
   color: var(--back-color, #f8f8f8);
-  background: var(--fore-color, #151515);
+  background: var(--fore-color, #121212);
   border-radius: calc(0.125rem * 16);
   padding: 0.5rem calc(0.5rem * 3);
 }
@@ -1315,15 +1336,15 @@ header {
   left: calc(50% - 0.5rem);
 }
 .tooltip:not(.bottom):before {
-  border-top-color: var(--fore-color, #151515);
+  border-top-color: var(--fore-color, #121212);
 }
 .tooltip.bottom:before {
-  border-bottom-color: var(--fore-color, #151515);
+  border-bottom-color: var(--fore-color, #121212);
 }
 .tooltip:after {
   content: attr(aria-label);
   color: var(--back-color, #f8f8f8);
-  background: var(--fore-color, #151515);
+  background: var(--fore-color, #121212);
   border-radius: 0.125rem;
   padding: 0.5rem;
   white-space: nowrap;
@@ -1334,65 +1355,6 @@ header {
 }
 .tooltip.bottom:after {
   margin-top: calc(2 * 0.5rem);
-}
-
-/* Styling for modal dialogs */
-[type=checkbox].modal {
-  height: 1px;
-  width: 1px;
-  margin: -1px;
-  overflow: hidden;
-  position: absolute;
-  clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(100%);
-  clip-path: inset(100%);
-}
-[type=checkbox].modal + div {
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: none;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.45);
-}
-[type=checkbox].modal + div .card {
-  margin: 0 auto;
-  max-height: 50vh;
-  overflow: auto;
-}
-[type=checkbox].modal + div .card .modal-close {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 1.75rem;
-  height: 1.75rem;
-  border-radius: 0.125rem;
-  padding: 0.5rem;
-  margin: 0;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-[type=checkbox].modal + div .card .modal-close:before {
-  display: block;
-  content: "×";
-  color: #444;
-  position: relative;
-  font-family: sans-serif;
-  font-size: 1.75rem;
-  line-height: 1;
-  text-align: center;
-}
-[type=checkbox].modal + div .card .modal-close:hover, [type=checkbox].modal + div .card .modal-close:focus {
-  background: #f0f0f0;
-}
-[type=checkbox].modal:checked + div {
-  display: flex;
-  flex: 0 1 auto;
-  z-index: 1200;
-}
-[type=checkbox].modal:checked + div .card .modal-close {
-  z-index: 1211;
 }
 
 /* Fluid grid system container styling */
@@ -1863,11 +1825,11 @@ header {
   align-self: center;
   position: relative;
   width: 100%;
-  --card-fore-color: #151515;
+  --card-fore-color: #121212;
   --card-back-color: #f8f8f8;
   --card-border-color: #ddd;
   background: var(--card-back-color, #f8f8f8);
-  color: var(--card-fore-color, #151515);
+  color: var(--card-fore-color, #121212);
   border: var(--px) solid var(--card-border-color, #ddd);
   border-radius: 0.125rem;
   margin: 0.5rem;
@@ -1875,7 +1837,7 @@ header {
 }
 .card > .section {
   background: var(--card-back-color, #f8f8f8);
-  color: var(--card-fore-color, #151515);
+  color: var(--card-fore-color, #121212);
   box-sizing: border-box;
   margin: 0;
   border: 0;
@@ -1887,8 +1849,12 @@ header {
 .card > .section.media {
   height: 200px;
   padding: 0;
-  -o-object-fit: cover;
-  object-fit: cover;
+}
+@supports (object-fit: cover) or (-o-object-fit: cover) {
+  .card > .section.media {
+    -o-object-fit: cover;
+    object-fit: cover;
+  }
 }
 .card > .section.dark {
   --card-back-color:#e0e0e0;
@@ -1925,5 +1891,158 @@ header {
 @media screen and (min-width: 480px) {
   .card.large {
     max-width: 480px;
+  }
+}
+
+/* Styling for modal dialogs */
+[type=checkbox].modal {
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  overflow: hidden;
+  position: absolute;
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(100%);
+  clip-path: inset(100%);
+}
+[type=checkbox].modal + div {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: none;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.45);
+}
+[type=checkbox].modal + div .card {
+  margin: 0 auto;
+  max-height: 50vh;
+  overflow: auto;
+}
+[type=checkbox].modal + div .card .modal-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 0.125rem;
+  padding: 0.5rem;
+  margin: 0;
+  transition: background 0.3s;
+}
+@supports (cursor: pointer) {
+  [type=checkbox].modal + div .card .modal-close {
+    cursor: pointer;
+  }
+}
+[type=checkbox].modal + div .card .modal-close:before {
+  display: block;
+  content: "×";
+  color: #444;
+  position: relative;
+  font-family: sans-serif;
+  font-size: 1.75rem;
+  line-height: 1;
+  text-align: center;
+}
+[type=checkbox].modal + div .card .modal-close:hover, [type=checkbox].modal + div .card .modal-close:focus {
+  background: #f0f0f0;
+}
+[type=checkbox].modal:checked + div {
+  display: flex;
+  flex: 0 1 auto;
+  z-index: 1200;
+}
+[type=checkbox].modal:checked + div .card .modal-close {
+  z-index: 1211;
+}
+
+/* Drawer styling */
+.drawer-toggle:before {
+  display: inline-block;
+  position: relative;
+  vertical-align: bottom;
+  content: " ≡ ";
+  font-family: sans-serif;
+  font-size: 1.5em;
+}
+@media screen and (min-width: 768px) {
+  .drawer-toggle:not(.persistent) {
+    display: none;
+  }
+}
+
+[type=checkbox].drawer {
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  overflow: hidden;
+  position: absolute;
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(100%);
+  clip-path: inset(100%);
+}
+[type=checkbox].drawer + * {
+  display: block;
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  width: 320px;
+  height: 100vh;
+  overflow-y: auto;
+  background: var(--back-color, #f8f8f8);
+  margin: 0;
+  border-radius: 0;
+  border: 1px solid var(--border-color, #909090);
+  z-index: 1110;
+  right: -320px;
+  transition: right 0.3s;
+}
+[type=checkbox].drawer + * .drawer-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  z-index: 1111;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.125rem;
+  padding: 0.5rem;
+  margin: 0;
+  transition: background 0.3s;
+}
+@supports (cursor: pointer) {
+  [type=checkbox].drawer + * .drawer-close {
+    cursor: pointer;
+  }
+}
+[type=checkbox].drawer + * .drawer-close:before {
+  display: block;
+  content: "×";
+  color: var(--drawer-close-color, #121212);
+  position: relative;
+  font-family: sans-serif;
+  font-size: 2rem;
+  line-height: 1;
+  text-align: center;
+}
+[type=checkbox].drawer + * .drawer-close:hover, [type=checkbox].drawer + * .drawer-close:focus {
+  background: var(--back-hover-color, #e0e0e0);
+}
+@media screen and (max-width: 320px) {
+  [type=checkbox].drawer + * {
+    width: 100%;
+  }
+}
+[type=checkbox].drawer:checked + * {
+  right: 0;
+}
+@media screen and (min-width: 768px) {
+  [type=checkbox].drawer:not(.persistent) + * {
+    position: static;
+    height: 100%;
+    z-index: 1100;
+  }
+  [type=checkbox].drawer:not(.persistent) + * .drawer-close {
+    display: none;
   }
 }

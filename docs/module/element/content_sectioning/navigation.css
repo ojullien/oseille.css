@@ -2,7 +2,7 @@
 nav {
   background: var(--back-color, #f8f8f8);
   color: var(--fore-color, #121212);
-  border: 1px solid #909090;
+  border: 1px solid var(--border-color, #909090);
   border-radius: 0.125rem;
   margin: 0.5rem;
   padding: 0;
@@ -21,7 +21,7 @@ nav a:visited {
 nav a:hover, nav a:focus,
 nav a:visited:hover,
 nav a:visited:focus {
-  background: #e0e0e0;
+  background: var(--back-hover-color, #e0e0e0);
   font-weight: bolder;
   box-shadow: none !important;
 }
@@ -35,7 +35,7 @@ nav .sublink-1:before {
   top: calc(0 - 1px);
   content: "";
   height: 100%;
-  border: 1px solid #909090;
+  border: 1px solid var(--border-color, #909090);
   border-left: 0;
 }
 nav .sublink-2 {
@@ -48,6 +48,6 @@ nav .sublink-2:before {
   top: calc(0 - 1px);
   content: "";
   height: 100%;
-  border: 1px solid #909090;
+  border: 1px solid var(--border-color, #909090);
   border-left: 0;
 }
