@@ -34,11 +34,14 @@ $_primary-colors: (
         "fore": #f8f8f8
 ) !default;
 
-$_toast-name: "toast"; // Class name for toast component
+$_class-name: (
+    // Class name for toast component
+        "main": "toast"
+);
 
 /* Toast styling */
 
-.#{$_toast-name} {
+.#{map.get($_class-name, "main")} {
     position: fixed;
     bottom: calc(#{map.get($_box-spacing, "margin")} * 3);
     left: 50%;

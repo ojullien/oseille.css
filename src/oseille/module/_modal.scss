@@ -1,17 +1,28 @@
 //
 // Modal dialogs
-//
 // Dialog component to display messages to users
 //
 @use 'sass:map';
 
-// Public variables.
-// May be overrided using @use <url> with (<variable>: <value>, <variable>: <value>)
+// Variables.
+//
+// To load this module with configuration, use @use <url> with (<variable>: <value>, <variable>: <value>).
+// The configured values will override the variables’ default values.
+// @link: https://sass-lang.com/documentation/variables
 
-$border-radius: 0.125rem !default; // Universal border-radius for most elements
-$padding: 0.5rem !default; // Universal padding for the most elements
-$close-size: 1.75rem !default; // Font size for the close button of the modal dialog
-$colors: (
+// Basic box model
+$_box-spacing: (
+    // Padding: creates extra space within an element.
+        "padding": 0.5rem
+) !default;
+
+// Borders
+$_borders: (
+    // radius: rounds the corners of an element's outer border edge.
+        "radius": 0.125rem
+) !default;
+
+$_colors: (
     // Overlay color for modal dialog component
         "overlay": rgba(0, 0, 0, 0.45),
     // Text color for the close button of the modal dialog component
@@ -20,13 +31,23 @@ $colors: (
         "close-hover-back": #f0f0f0
 ) !default;
 
-// Private variables
-$_modal-name: "modal" !default; // Class name for modal dialog component
-$_close-name: "modal-close" !default; // Class name for modal dialog close button
+// Font sizes
+$_font-sizes: (
+    // Font size for the close button of the modal dialog
+        "close": 1.75rem
+) !default;
+
+// Classes names
+$_class-name: (
+    // Class name for modal dialog component
+        "modal": "modal",
+    // Class name for modal dialog close button
+        "close": "modal-close"
+);
 
 /* Styling for modal dialogs */
 
-[type="checkbox"].#{$_modal-name} {
+[type="checkbox"].#{map.get($_class-name, "modal")} {
     height: 1px;
     width: 1px;
     margin: -1px;
@@ -35,6 +56,7 @@ $_close-name: "modal-close" !default; // Class name for modal dialog close butto
     clip: rect(0 0 0 0);
     -webkit-clip-path: inset(100%);
     clip-path: inset(100%);
+
     & + div {
         position: fixed;
         top: 0;
@@ -42,45 +64,53 @@ $_close-name: "modal-close" !default; // Class name for modal dialog close butto
         display: none;
         width: 100vw;
         height: 100vh;
-        background: map.get($colors, "overlay");
+        background: map.get($_colors, "overlay");
+
         & .card {
             margin: 0 auto;
             max-height: 50vh;
             overflow: auto;
-            & .#{$_close-name} {
+            & .#{map.get($_class-name, "close")} {
                 position: absolute;
                 top: 0;
                 right: 0;
-                width: $close-size;
-                height: $close-size;
-                border-radius: $border-radius;
-                padding: $padding;
+                width: map.get($_font-sizes, "close");
+                height: map.get($_font-sizes, "close");
+                border-radius: map.get($_borders, "radius");
+                padding: map.get($_box-spacing, "padding");
                 margin: 0;
-                cursor: pointer;
+
+                @supports (cursor: pointer) {
+                    cursor: pointer;
+                }
+
                 transition: background 0.3s;
+
                 &:before {
                     display: block;
                     content: "\00D7";
-                    color: map.get($colors, "close");
+                    color: map.get($_colors, "close");
                     position: relative;
                     font-family: sans-serif;
-                    font-size: $close-size;
+                    font-size: map.get($_font-sizes, "close");
                     line-height: 1;
                     text-align: center;
                 }
+
                 &:hover,
                 &:focus {
-                    background: map.get($colors, "close-hover-back");
+                    background: map.get($_colors, "close-hover-back");
                 }
             }
         }
     }
+
     &:checked + div {
         display: flex;
         flex: 0 1 auto;
         z-index: 1200;
         & .card {
-            & .#{$_close-name} {
+            & .#{map.get($_class-name, "close")} {
                 z-index: 1211;
             }
         }
