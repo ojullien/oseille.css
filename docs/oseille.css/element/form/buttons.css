@@ -7,13 +7,14 @@ button::-moz-focus-inner,
   padding: 0;
 }
 
-button,
+@supports (-webkit-appearance: button) {
+  button,
 html [type=button],
 [type=reset],
 [type=submit] {
-  -webkit-appearance: button;
+    -webkit-appearance: button;
+  }
 }
-
 button {
   overflow: visible;
   text-transform: none;
@@ -38,8 +39,21 @@ label[role=button],
   margin: 0.5rem;
   font-size: 1em;
   text-decoration: none;
-  cursor: pointer;
   transition: background 0.3s;
+}
+@supports (cursor: pointer) {
+  button,
+[type=button],
+[type=submit],
+[type=reset],
+a.button,
+label.button,
+.button,
+a[role=button],
+label[role=button],
+[role=button] {
+    cursor: pointer;
+  }
 }
 button:hover, button:focus,
 [type=button]:hover,
@@ -182,8 +196,16 @@ button:disabled, button[disabled],
 .button[disabled],
 [role=button]:disabled,
 [role=button][disabled] {
-  cursor: not-allowed;
   opacity: 0.75;
+}
+@supports (cursor: not-allowed) {
+  button:disabled, button[disabled],
+.button:disabled,
+.button[disabled],
+[role=button]:disabled,
+[role=button][disabled] {
+    cursor: not-allowed;
+  }
 }
 
 /* Button group styling. */

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Content Sectioning</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="element/root/root.css" rel="stylesheet" type="text/css" id="root-css" />
+    <link href="module/grid.css" rel="stylesheet" type="text/css" id="grid-css" />
+    <link href="module/drawer.css" rel="stylesheet" type="text/css" id="drawer-css" />
+    <link href="element/form/buttons.css" rel="stylesheet" type="text/css" id="buttons-css" />
+    <link href="element/content_sectioning/header.css" rel="stylesheet" type="text/css" id="header-css" />
+    <link href="element/content_sectioning/navigation.css" rel="stylesheet" type="text/css" id="navigation-css" />
+    <link href="oseille.css" rel="stylesheet" type="text/css" id="oseille-css" disabled />
+</head>
+<style>
+    .wrapper {
+        margin: 0 auto;
+        padding: 0 calc(0.5rem * 2);
+        max-width: 95vw;
+    }
+</style>
+
+<body>
+
+    <header class="page-header row sticky">
+        <span class="col-md-1 col-lg-2"></span>
+        <span class="logo col-sm-3 col-md">hadron.css</span>
+        <a class="button col-sm col-md" href="docs">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="height: 20px; vertical-align: text-top;">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+            <span>&nbsp;Docs</span></a>
+        <a class="button col-sm col-md" href="https://github.com/Chalarangelo/mini.css" target="_blank">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="height: 20px; vertical-align: text-top;">
+                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+            </svg>
+            <span>&nbsp;Github</span></a>
+        <a class="button col-sm col-md" href="flavors">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="height: 20px; vertical-align: text-top;">
+                <path d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34"></path>
+                <polygon points="18 2 22 6 12 16 8 16 8 12 18 2"></polygon>
+            </svg>
+            <span>&nbsp;Flavors</span></a>
+        <span class="col-md-1 col-lg-2"></span>
+
+        <label for="drawer-control" class="button drawer-toggle col-sm"></label>
+    </header>
+
+    <div class="row">
+        <input type="checkbox" id="drawer-control" class="drawer" value="on" />
+        <nav id="nav-drawer" class="hidden-md hidden-lg">
+            <h3>Menu</h3>
+            <label for="drawer-control" class="button drawer-close"></label><a href="/esprit/" rel="esprit">L&#39;esprit</a>
+
+
+            <a class="sublink-1" href="/fondatrice/" rel="author">La Fondatrice</a>
+            <a class="sublink-1" href="/votre-challenge/" rel="challenge">Votre Challenge</a><a href="/bouillon-strategique/" rel="communication">Le bouillon stratégique</a>
+            <a href="/bouillon-creatif/" rel="workshop">Le bouillon créatif</a>
+
+
+            <a class="sublink-1" href="/bouillon-evasion/" rel="activité">Le bouillon évasion</a><a href="/bouillon-festif/" rel="formation">Le bouillon festif</a>
+            <a href="/pepites/" rel="pépite">Les pépites</a>
+            <a href="/le-reseau/" rel="réseau">Le réseau</a>
+
+        </nav>
+    </div>
+
+    <main class="wrapper">
+
+        <div style="min-height: 100%; display: flex; flex-direction: row-reverse; justify-content: space-evenly; align-items: center; text-align: center; align-self: flex-start;position: sticky; top: 100px;">
+            <label style="" for="root"><input style="" type="checkbox" id="checkbox-root" name="checkbox-root" value="root" onclick="switchToLocal(this);" checked />Root</label>
+            <label style="" for="grid"><input style="" type="checkbox" id="checkbox-grid" name="checkbox-grid" value="grid" onclick="switchToLocal(this);" checked />Grid</label>
+            <label style="" for="drawer"><input style="" type="checkbox" id="checkbox-drawer" name="checkbox-drawer" value="drawer" onclick="switchToLocal(this);" checked />Drawer</label>
+            <label style="" for="buttons"><input style="" type="checkbox" id="checkbox-buttons" name="checkbox-buttons" value="buttons" onclick="switchToLocal(this);" checked />Buttons</label>
+            <label style="" for="header"><input style="" type="checkbox" id="checkbox-header" name="checkbox-header" value="header" onclick="switchToLocal(this);" checked />Header</label>
+            <label style="" for="navigation"><input style="" type="checkbox" id="checkbox-navigation" name="checkbox-navigation" value="navigation" onclick="switchToLocal(this);" checked />Navigation</label>
+            <label style="" for="oseille"><input style="" type="checkbox" id="checkbox-oseille" name="checkbox-oseille" value="oseille" onclick="switchToOseille();" />Oseille</label>
+        </div>
+
+    </main>
+
+</body>
+
+<script type="text/javascript">
+
+    var myMap = new Map();
+    myMap.set('checkbox-root','#root-css');
+    myMap.set('checkbox-grid','#grid-css');
+    myMap.set('checkbox-drawer','#drawer-css');
+    myMap.set('checkbox-buttons','#buttons-css');
+    myMap.set('checkbox-header','#header-css');
+    myMap.set('checkbox-navigation','#navigation-css');
+
+    function switchToLocal(element) {
+        if (element.checked != true) {
+            document.querySelector(myMap.get(element.id)).disabled=true;
+        } else {
+            document.querySelector(myMap.get(element.id)).removeAttribute('disabled');
+        }
+    };
+
+    function switchToOseille() {
+        let checkbox = document.getElementById('checkbox-oseille');
+        if (checkbox.checked != true) {
+            for (let [theCheckbox,theLink] of myMap.entries()) {
+                document.getElementById(theCheckbox).checked = true;
+                document.querySelector(theLink).removeAttribute('disabled');
+            }
+            document.querySelector("#oseille-css").disabled=true;
+        } else {
+            for (let [theCheckbox,theLink] of myMap.entries()) {
+                document.getElementById(theCheckbox).checked = false;
+                document.querySelector(theLink).disabled=true;
+            }
+            document.querySelector("#oseille-css").removeAttribute('disabled');
+        }
+    };
+</script>
+
+</html>

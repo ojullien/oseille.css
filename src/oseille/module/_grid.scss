@@ -12,19 +12,17 @@
 
 // Basic box model
 $_box-spacing: (
-    // Padding: creates extra space within an element.
-        "padding": 0.5rem
+    "padding": 0.5rem,
 ) !default;
 
 // Breakpoints
 $_breakpoints: (
-    // Medium/mobile screen breakpoint for grid.
-        "medium": 768px,
-    // Large screen breakpoint for grid.
-        "large": 1280px
+    "medium": 768px,
+    "large": 1280px,
 ) !default;
 
 // Private variables
+
 $_include-parent-layout: true; // Flag for rows defining column layouts (`true`/`false`).
 $_column-count: 12; // Number of columns in the grid (integer value only).
 
@@ -40,17 +38,17 @@ $_classnames: (
         "offset": "offset",
     // Class name for the grid system rows.
         "row": "row",
-    // Class name suffix for grid columns with normal priority.
+    // Class name suffix for columns with normal priority.
         "normal": "normal",
-    // Class name suffix for grid columns with highest priority.
+    // Class name suffix for columns with highest priority.
         "first": "first",
-    // Class name suffix for grid columns with lowest priorty.
+    // Class name suffix for columns with lowest priorty.
         "last": "last",
-    // Small screen class prefix for grid.
+    // Small screen class prefix.
         "small": "sm",
-    // Medium screen class prefix for grid.
+    // Medium screen class prefix.
         "medium": "md",
-    // Large screen class prefix for grid.
+    // Large screen class prefix.
         "large": "lg"
 ) !default;
 

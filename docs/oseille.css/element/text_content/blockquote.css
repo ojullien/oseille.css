@@ -30,7 +30,7 @@ blockquote:before {
   top: calc(0rem - 0.5rem);
   left: 0;
   font-family: sans-serif;
-  font-size: 3rem;
+  font-size: 3em;
   font-weight: 700;
   content: "“";
   color: var(--caption-sidebar-color, #e07000);

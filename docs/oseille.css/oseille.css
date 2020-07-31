@@ -214,7 +214,7 @@ var, samp, kbd, code {
 
 pre {
   overflow: auto;
-  padding: calc(1.5 * 0.5rem);
+  padding: calc(1.5625 * 0.5rem);
   margin: 0.5rem;
   font-family: Menlo, Consolas, monospace;
   font-size: 0.85em;
@@ -237,7 +237,8 @@ code {
   background: var(--code-back-color, #121212);
   color: var(--code-fore-color, #f8f8f8);
 }
-code a:link, code a:visited {
+code a:link,
+code a:visited {
   color: var(--link-color, #f8f8f8);
 }
 
@@ -316,7 +317,7 @@ blockquote:before {
   top: calc(0rem - 0.5rem);
   left: 0;
   font-family: sans-serif;
-  font-size: 3rem;
+  font-size: 3em;
   font-weight: 700;
   content: "“";
   color: var(--caption-sidebar-color, #e07000);
@@ -412,13 +413,14 @@ button::-moz-focus-inner,
   padding: 0;
 }
 
-button,
+@supports (-webkit-appearance: button) {
+  button,
 html [type=button],
 [type=reset],
 [type=submit] {
-  -webkit-appearance: button;
+    -webkit-appearance: button;
+  }
 }
-
 button {
   overflow: visible;
   text-transform: none;
@@ -443,8 +445,21 @@ label[role=button],
   margin: 0.5rem;
   font-size: 1em;
   text-decoration: none;
-  cursor: pointer;
   transition: background 0.3s;
+}
+@supports (cursor: pointer) {
+  button,
+[type=button],
+[type=submit],
+[type=reset],
+a.button,
+label.button,
+.button,
+a[role=button],
+label[role=button],
+[role=button] {
+    cursor: pointer;
+  }
 }
 button:hover, button:focus,
 [type=button]:hover,
@@ -587,8 +602,16 @@ button:disabled, button[disabled],
 .button[disabled],
 [role=button]:disabled,
 [role=button][disabled] {
-  cursor: not-allowed;
   opacity: 0.75;
+}
+@supports (cursor: not-allowed) {
+  button:disabled, button[disabled],
+.button:disabled,
+.button[disabled],
+[role=button]:disabled,
+[role=button][disabled] {
+    cursor: not-allowed;
+  }
 }
 
 /* Button group styling. */
@@ -1031,25 +1054,25 @@ h6 small, h5 small, h4 small, h3 small, h2 small, h1 small {
 }
 
 h1 {
-  font-size: calc( 1em * 2.44140625);
+  font-size: calc(1em * 2.44140625);
   line-height: calc(1ex / 0.42);
   margin: calc(1ex / 0.42) 0.5rem 0;
 }
 
 h2 {
-  font-size: calc( 1em * 1.953125);
+  font-size: calc(1em * 1.953125);
   line-height: calc(1ex / 0.42);
   margin: calc(1ex / 0.42) 0.5rem 0;
 }
 
 h3 {
-  font-size: calc( 1em * 1.5625);
-  line-height: calc(1ex /0.38);
-  margin: calc(1ex /0.38) 0.5rem 0;
+  font-size: calc(1em * 1.5625);
+  line-height: calc(1ex / 0.38);
+  margin: calc(1ex / 0.38) 0.5rem 0;
 }
 
 h4 {
-  font-size: calc( 1em * 1.25);
+  font-size: calc(1em * 1.25);
   line-height: calc(1ex / 0.37);
   margin: calc(1ex / 0.37) 0.5rem 0;
 }
@@ -1061,7 +1084,7 @@ h5 {
 }
 
 h6 {
-  font-size: calc( 1em / 1.25);
+  font-size: calc(1em / 1.25);
   line-height: calc(1ex / 0.32);
   margin: calc(1ex / 0.32) 0.5rem 0;
 }
@@ -1070,7 +1093,7 @@ h6 {
 footer {
   border-top: 1px solid #909090;
   padding: calc(2 * 0.5rem) 0.5rem;
-  font-size: 0.875rem;
+  font-size: 0.875em;
 }
 footer.page-footer {
   background: var(--footer-back-color, #f8f8f8);
@@ -1114,7 +1137,7 @@ header {
 }
 .page-header .logo {
   color: var(--header-fore-color, #121212);
-  font-size: 1.75rem;
+  font-size: 1.75em;
   padding: 0.5rem calc(2 * 0.5rem);
   text-decoration: none;
 }
@@ -1124,7 +1147,7 @@ header {
 .page-header [role=button] {
   box-sizing: border-box;
   position: relative;
-  top: calc( 0rem - 0.5rem / 4 );
+  top: calc(0rem - 0.5rem / 4);
   height: calc(3.1875rem + 0.5rem / 2);
   line-height: calc(3.1875rem - 0.5rem * 1.5);
   text-align: center;
@@ -1138,7 +1161,7 @@ header {
 .page-header span {
   box-sizing: border-box;
   position: relative;
-  top: calc( 0rem - 0.5rem / 4 );
+  top: calc(0rem - 0.5rem / 4);
   height: calc(3.1875rem + 0.5rem / 2);
   line-height: calc(3.1875rem - 0.5rem * 1.5);
   text-align: center;
@@ -1183,24 +1206,47 @@ header {
   border-style: none;
 }
 
-.fill {
-  object-fit: fill;
+@supports (object-fit: fill) or (-o-object-fit: fill) {
+  .fill {
+    -o-object-fit: fill;
+    object-fit: fill;
+  }
+
+  .contain {
+    -o-object-fit: contain;
+    object-fit: contain;
+  }
+
+  .cover {
+    -o-object-fit: cover;
+    object-fit: cover;
+  }
+
+  .none {
+    -o-object-fit: none;
+    object-fit: none;
+  }
+
+  .scale-down {
+    -o-object-fit: scale-down;
+    object-fit: scale-down;
+  }
+}
+/* Borders styling */
+.bordered {
+  border: 1px solid var(--border-color, #222222) !important;
 }
 
-.contain {
-  object-fit: contain;
+.rounded {
+  border-radius: 0.125rem !important;
 }
 
-.cover {
-  object-fit: cover;
+.circular {
+  border-radius: 50% !important;
 }
 
-.none {
-  object-fit: none;
-}
-
-.scale-down {
-  object-fit: scale-down;
+.shadowed {
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.125), 0 2px 2px -2px rgba(0, 0, 0, 0.25) !important;
 }
 
 /* Spoilers & Accordions styling */

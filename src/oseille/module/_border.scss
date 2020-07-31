@@ -1,0 +1,68 @@
+//
+// Border utilities and helper classes
+//
+@use 'sass:map';
+
+// Variables.
+//
+// To load this module with configuration, use @use <url> with (<variable>: <value>, <variable>: <value>).
+// The configured values will override the variables’ default values.
+// @link: https://sass-lang.com/documentation/variables
+
+// Palette.
+//
+// Keys:
+//   - border: border color
+$_colors: (
+    "border": #222222,
+) !default;
+
+// Borders.
+//
+// Keys:
+//   - radius: rounds the corners of an element's outer border edge.
+//   - shadow: shadow effects around an element's frame.
+$_borders: (
+    "radius": 0.125rem,
+    "shadow": none,
+) !default;
+
+// Private variables
+
+// Classnames
+//
+// Keys:
+//   - generic: bordered element
+//   - rounded:rounded-border element
+//   - circular: circular-border element
+//   - shadowed: box-shadow element
+$_classnames: (
+    "generic": "bordered",
+    "rounded": "rounded",
+    "circular": "circular",
+    "shadowed": "shadowed",
+);
+
+$_box-shadow-generic: 0 (4 * 1px) (4 * 1px) 0 rgba(0, 0, 0, 0.125), 0 (2 * 1px) (2 * 1px) (-2 * 1px) rgba(0, 0, 0, 0.25);
+
+/* Borders styling */
+
+// Generic bordered element class. NOTE: Uses !important.
+.#{map.get($_classnames, "generic")} {
+    border: 1px solid var(--border-color, map.get($_colors, "border")) !important;
+}
+
+// Generic rounded-border element class. NOTE: Uses !important.
+.#{map.get($_classnames, "rounded")} {
+    border-radius: map.get($_borders, "radius") !important;
+}
+
+// Generic circular-border element class. NOTE: Uses !important.
+.#{map.get($_classnames, "circular")} {
+    border-radius: 50% !important;
+}
+
+// Generic box-shadow element class. NOTE: Uses !important.
+.#{map.get($_classnames, "shadowed")} {
+    box-shadow: $_box-shadow-generic !important;
+}

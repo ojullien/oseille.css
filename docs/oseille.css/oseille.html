@@ -5,23 +5,38 @@
     <meta charset="utf-8">
     <title>Oseille</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <link href="element/content_sectioning/footer.css" rel="stylesheet" type="text/css" id="footer-css" />
     <link href="element/content_sectioning/header.css" rel="stylesheet" type="text/css" id="header-css" />
     <link href="element/content_sectioning/heading.css" rel="stylesheet" type="text/css" id="heading-css" />
     <link href="element/content_sectioning/navigation.css" rel="stylesheet" type="text/css" id="navigation-css" />
     <link href="element/content_sectioning/sectioning.css" rel="stylesheet" type="text/css" id="sectioning-css" />
+
     <link href="element/embedded/iframe.css" rel="stylesheet" type="text/css" id="iframe-css" />
+
+    <link href="element/form/buttons.css" rel="stylesheet" type="text/css" id="buttons-css" />
+
+    <link href="element/image_and_multimedia/image.css" rel="stylesheet" type="text/css" id="image-css" />
+
     <link href="element/inline_text_semantic/code.css" rel="stylesheet" type="text/css" id="code-css" />
     <link href="element/inline_text_semantic/mark.css" rel="stylesheet" type="text/css" id="mark-css" />
     <link href="element/inline_text_semantic/text.css" rel="stylesheet" type="text/css" id="text-css" />
-    <link href="element/form/buttons.css" rel="stylesheet" type="text/css" id="buttons-css" />
+
     <link href="element/root/root.css" rel="stylesheet" type="text/css" id="root-css" />
+
     <link href="element/text_content/blockquote.css" rel="stylesheet" type="text/css" id="blockquote-css" />
+    <link href="element/text_content/definition.css" rel="stylesheet" type="text/css" id="definition-css" />
+    <link href="element/text_content/figure.css" rel="stylesheet" type="text/css" id="figure-css" />
     <link href="element/text_content/list.css" rel="stylesheet" type="text/css" id="list-css" />
     <link href="element/text_content/paragraph.css" rel="stylesheet" type="text/css" id="paragraph-css" />
+
+    <link href="module/border.css" rel="stylesheet" type="text/css" id="border-css" />
     <link href="module/card.css" rel="stylesheet" type="text/css" id="card-css" />
+    <link href="module/drawer.css" rel="stylesheet" type="text/css" id="drawer-css" />
     <link href="module/grid.css" rel="stylesheet" type="text/css" id="grid-css" />
-    <link href="module/tooltip&toast.css" rel="stylesheet" type="text/css" id="tooltip-css" />
+    <link href="module/modal.css" rel="stylesheet" type="text/css" id="modal-css" />
+    <link href="module/tooltip.css" rel="stylesheet" type="text/css" id="tooltip-css" />
+    <link href="module/toast.css" rel="stylesheet" type="text/css" id="toast-css" />
     <link href="oseille.css" rel="stylesheet" type="text/css" id="oseille-css" disabled />
 </head>
 </head>
@@ -42,10 +57,8 @@
 </style>
 <body>
 
-    <div class="row padded">
-         <div style="min-height: 100%; display: flex; flex-direction: row-reverse; justify-content: space-evenly; align-items: center; text-align: center; align-self: flex-start;position: sticky; top: 10px;">
-            <label style="" for="root"><input style="" type="checkbox" id="checkbox-root" name="checkbox-root" value="root" onclick="switchToLocal(this);" checked />Root</label>
-            <label style="" for="grid"><input style="" type="checkbox" id="checkbox-grid" name="checkbox-grid" value="grid" onclick="switchToLocal(this);" checked />Grid</label>
+    <div style="min-height: 100%; display: flex; flex-direction: row-reverse; justify-content: space-evenly; align-items: center; text-align: center; align-self: flex-start;position: sticky; top: 10px;">
+        <div class="row padded">
             <label style="" for="footer"><input style="" type="checkbox" id="checkbox-footer" name="checkbox-footer" value="footer" onclick="switchToLocal(this);" checked />Footer</label>
             <label style="" for="header"><input style="" type="checkbox" id="checkbox-header" name="checkbox-header" value="header" onclick="switchToLocal(this);" checked />Header</label>
             <label style="" for="heading"><input style="" type="checkbox" id="checkbox-heading" name="checkbox-heading" value="heading" onclick="switchToLocal(this);" checked />Heading</label>
@@ -53,20 +66,30 @@
             <label style="" for="sectioning"><input style="" type="checkbox" id="checkbox-sectioning" name="checkbox-sectioning" value="sectioning" onclick="switchToLocal(this);" checked />Sectioning</label>
             <label style="" for="iframe"><input style="" type="checkbox" id="checkbox-iframe" name="checkbox-iframe" value="iframe" onclick="switchToLocal(this);" checked />Iframe</label>
             <label style="" for="buttons"><input style="" type="checkbox" id="checkbox-buttons" name="checkbox-buttons" value="buttons" onclick="switchToLocal(this);" checked />Buttons</label>
+            <label style="" for="image"><input style="" type="checkbox" id="checkbox-image" name="checkbox-image" value="image" onclick="switchToLocal(this);" checked />Image</label>
             <label style="" for="code"><input style="" type="checkbox" id="checkbox-code" name="checkbox-code" value="code" onclick="switchToLocal(this);" checked />Code</label>
             <label style="" for="mark"><input style="" type="checkbox" id="checkbox-mark" name="checkbox-mark" value="mark" onclick="switchToLocal(this);" checked />Mark</label>
             <label style="" for="text"><input style="" type="checkbox" id="checkbox-text" name="checkbox-text" value="text" onclick="switchToLocal(this);" checked />Text</label>
+            <label style="" for="root"><input style="" type="checkbox" id="checkbox-root" name="checkbox-root" value="root" onclick="switchToLocal(this);" checked />Root</label>
+            <label style="" for="grid"><input style="" type="checkbox" id="checkbox-grid" name="checkbox-grid" value="grid" onclick="switchToLocal(this);" checked />Grid</label>
+        </div>
+        <div class="row padded">
             <label style="" for="blockquote"><input style="" type="checkbox" id="checkbox-blockquote" name="checkbox-blockquote" value="blockquote" onclick="switchToLocal(this);" checked />Blockquote</label>
+            <label style="" for="definition"><input style="" type="checkbox" id="checkbox-definition" name="checkbox-definition" value="definition" onclick="switchToLocal(this);" checked />Definition</label>
+            <label style="" for="figure"><input style="" type="checkbox" id="checkbox-figure" name="checkbox-figure" value="figure" onclick="switchToLocal(this);" checked />Figure</label>
             <label style="" for="list"><input style="" type="checkbox" id="checkbox-list" name="checkbox-list" value="list" onclick="switchToLocal(this);" checked />List</label>
             <label style="" for="paragraph"><input style="" type="checkbox" id="checkbox-paragraph" name="checkbox-paragraph" value="paragraph" onclick="switchToLocal(this);" checked />Paragraph</label>
+            <label style="" for="border"><input style="" type="checkbox" id="checkbox-border" name="checkbox-border" value="border" onclick="switchToLocal(this);" checked />Border</label>
             <label style="" for="card"><input style="" type="checkbox" id="checkbox-card" name="checkbox-card" value="card" onclick="switchToLocal(this);" checked />Card</label>
-            <label style="" for="tooltip"><input style="" type="checkbox" id="checkbox-tooltip" name="checkbox-tooltip" value="tooltip" onclick="switchToLocal(this);" checked />tooltip</label>
+            <label style="" for="drawer"><input style="" type="checkbox" id="checkbox-drawer" name="checkbox-drawer" value="drawer" onclick="switchToLocal(this);" checked />Drawer</label>
+            <label style="" for="modal"><input style="" type="checkbox" id="checkbox-modal" name="checkbox-modal" value="modal" onclick="switchToLocal(this);" checked />Modal</label>
+            <label style="" for="toast"><input style="" type="checkbox" id="checkbox-toast" name="checkbox-toast" value="toast" onclick="switchToLocal(this);" checked />Toast</label>
+            <label style="" for="tooltip"><input style="" type="checkbox" id="checkbox-tooltip" name="checkbox-tooltip" value="tooltip" onclick="switchToLocal(this);" checked />Tooltip</label>
             <label style="" for="oseille"><input style="" type="checkbox" id="checkbox-oseille" name="checkbox-oseille" value="oseille" onclick="switchToOseille();" />Oseille</label>
         </div>
+    </div>
 
-
-
-
+    <div class="row padded">
         <section class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
             <h2 id="semantics">Semantics</h2>
             <p>
@@ -712,7 +735,7 @@
 
         <section class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
             <h2 id="header">Header</h2>
-            <header>
+            <header class="page-header">
                 <a href="#" class="logo">Logo</a> <button class="doc">Home</button>
                 <a href="#" class="button doc">News</a>
                 <button class="doc">About</button> <button class="doc">Contact</button>
@@ -1107,7 +1130,7 @@ function NavigatorExample() {
     </div>
 </main>
 
-<footer class="row">
+<footer class="row page-footer">
     <div class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
         <p style="text-align: justify;"><strong>hadron.css</strong> was designed and built by <a href="https://github.com/Chalarangelo" target="_blank">@Chalarangelo</a>. Source code licensed under the <a href="https://github.com/Chalarangelo/mini.css/blob/master/LICENSE">MIT License</a>.</p>
         <p>Icons provided by <a href="https://feathericons.com/" target="_blank">Feather</a>. Photo by <a href="https://unsplash.com/photos/vjMgqUkS8q8" target="_blank">Christopher Gower</a> on <a href="https://unsplash.com" target="_blank">Unsplash</a>.</p>
@@ -1118,17 +1141,24 @@ function NavigatorExample() {
 <script type="text/javascript">
 
     var myMap = new Map();
+    myMap.set('checkbox-toast','#toast-css');
     myMap.set('checkbox-tooltip','#tooltip-css');
+    myMap.set('checkbox-modal','#modal-css');
     myMap.set('checkbox-grid','#grid-css');
+    myMap.set('checkbox-drawer','#drawer-css');
     myMap.set('checkbox-card','#card-css');
+    myMap.set('checkbox-border','#border-css');
     myMap.set('checkbox-paragraph','#paragraph-css');
     myMap.set('checkbox-list','#list-css');
+    myMap.set('checkbox-figure','#figure-css');
+    myMap.set('checkbox-definition','#definition-css');
     myMap.set('checkbox-blockquote','#blockquote-css');
     myMap.set('checkbox-root','#root-css');
     myMap.set('checkbox-buttons','#buttons-css');
     myMap.set('checkbox-text','#text-css');
     myMap.set('checkbox-mark','#mark-css');
     myMap.set('checkbox-code','#code-css');
+    myMap.set('checkbox-image','#image-css');
     myMap.set('checkbox-iframe','#iframe-css');
     myMap.set('checkbox-sectioning','#sectioning-css');
     myMap.set('checkbox-navigation','#navigation-css');

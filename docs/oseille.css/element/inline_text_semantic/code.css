@@ -13,7 +13,7 @@ var, samp, kbd, code {
 
 pre {
   overflow: auto;
-  padding: calc(1.5 * 0.5rem);
+  padding: calc(1.5625 * 0.5rem);
   margin: 0.5rem;
   font-family: Menlo, Consolas, monospace;
   font-size: 0.85em;
@@ -36,7 +36,8 @@ code {
   background: var(--code-back-color, #121212);
   color: var(--code-fore-color, #f8f8f8);
 }
-code a:link, code a:visited {
+code a:link,
+code a:visited {
   color: var(--link-color, #f8f8f8);
 }
 
