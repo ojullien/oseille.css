@@ -7,61 +7,73 @@
 //
 
 // Font stacks
+//
+// Keys:
+//   - base: Font stack for all elements
+//   - code: Code font stack
+//   - caption: Font stack 'for <q> <figcaption> <blockquote>
+//   - heading: Heading font stack
 $font-stacks: (
-    // Font stack for all elements
-        "base": 
-        ( -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, sans-serif),
-    // Code font stack
-        "code": (Menlo, Consolas, monospace),
-    //  Font stack 'for <q> <figcaption> <blockquote>
-        "caption":
-        (-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, sans-serif),
-    // Heading font stack
-        "heading":
-        (-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, sans-serif)
+    "base": ( -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, sans-serif),
+    "code": (Menlo, Consolas, monospace),
+    "caption": (-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, sans-serif),
+    "heading": (-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, sans-serif),
 );
 
 // Font sizes
+//
+// Keys:
+//   - accessible: Accessible root font size for all elements
+//   - not-accessible: Not accessible root font size for all elements (`px` only)
+//   - body: Relative font-sizing everywhere else on the page
+//   - ratio-heading: Font size ratio for headings. ( h5 is 1em, h1 is 1em * ratio^4. See element/content_sectioning/heading.scss)
+//   - footer: Font size for text in footer element.
+//   - mark: Font size for <mark>.
+//   - small: Font size for small element ( <small>, <sub>, <sup>)
+//   - code: Font size for monospace element like <code>, <kbd>, ...
+//   - cite: Font size for the [cite] of <blockquote>
+//   - caption: Font size for the <figcaption>
+//   - quotation: Font size for the quotation of <blockquote>
 $font-sizes: (
-    // Accessible root font size for all elements
-        "accessible": 100%,
-    // Not accessible root font size for all elements (`px` only)
-        "not-accessible": 16px,
-    // Relative font-sizing everywhere else on the page,
-        "body": medium,
-    // Font size ratio for headings. ( h5 is 1em, h1 is 1em * ratio^4. See element/content_sectioning/heading.scss)
-        "ratio-heading": 1.25,
-    // Font size for text in footer element.
-        "footer": 0.875em,
-    // Font size for <mark>.
-        "mark": 0.95em,
-    // Font size for small element ( <small>, <sub>, <sup>)
-        "small": 0.75em,
-    // Font size for monospace element like <code>, <kbd>, ...
-        "code": 0.85em
+    "accessible": 100%,
+    "not-accessible": 16px,
+    "body": medium,
+    "ratio-heading": 1.25,
+    "small": 0.75em,
+    "code": 0.85em,
+    "footer": 0.875em,
+    "mark": 0.95em,
+    "cite": 1em,
+    "caption": 1em,
+    "quotation": 3em,
 );
 
+// Line height
+//
 // The default line height in browsers is 1.2, which is the optimal value for Times New Roman but not for other fonts.
+//
+// Keys:
+//   - h*: line height for larger text sizes.
+//   - main: line height for most elements. Accessibility concerns: Use a minimum value of 1.5 for line-height for main paragraph content.
+//   - p : line height for main paragraph content
+//   - small: line height for smaller text sizes
 $line-spacing: (
-    // Line height for larger text sizes.
-        "h1": calc(1ex / 0.42),
-        "h2": calc(1ex / 0.42),
-        "h3": calc(1ex /0.38),
-        "h4":calc(1ex / 0.37),
-        "h5": calc(1ex / 0.32),
-        "h6": calc(1ex / 0.32),
-    // Line height for most elements. Accessibility concerns: Use a minimum value of 1.5 for line-height for main paragraph content.
-        "main": 1.5,
-    // Line height for main paragraph content
-        "p": calc(1ex / 0.29),
-    // Line height for smaller text sizes
-        "small": 1.5625
+    "h1": calc(1ex / 0.42),
+    "h2": calc(1ex / 0.42),
+    "h3": calc(1ex / 0.38),
+    "h4": calc(1ex / 0.37),
+    "h5": calc(1ex / 0.32),
+    "h6": calc(1ex / 0.32),
+    "main": 1.5,
+    "p": calc(1ex / 0.29),
+    "small": 1.5625,
 );
 
-// Hyphenation support for languages is not always optimal in the various browsers; avoid justified text in the absence of hyphenation.
+// Hyphenation
+//
+// Hyphenation support for languages is not always optimal in the various browsers;
+// Avoid justified text in the absence of hyphenation: "text-align": left;zé "hyphens": none
 $hyphenation: (
-    // "text-align": left,
-    // "hyphens": none 
     "text-align": justify,
-    "hyphens": auto 
+    "hyphens": auto,
 );

@@ -12,44 +12,55 @@
 // The configured values will override the variables’ default values.
 // @link: https://sass-lang.com/documentation/variables
 
-// Basic box model
+// Basic box model.
+//
+// Keys:
+//   - padding: creates extra space within an element.
+//   - margin: create extra space around an element. We reduce the default web browsers margin.
+//   - margin-center: center the element.
 $_box-spacing: (
-    // Padding: creates extra space within an element.
-        "padding": 0.5rem,
-    // Margins: create extra space around an element.
-        "margin": 0.5rem,
-    // We reduce the default web browsers margin
-        "margin-center": 0.5rem auto // Center
+    "padding": 0.5rem,
+    "margin": 0.5rem,
+    "margin-center": 0.5rem auto,
 ) !default;
 
-// Borders
+// Borders.
+//
+// Keys:
+//   - radius: rounds the corners of an element's outer border edge.
+//   - shadow: shadow effects around an element's frame.
 $_borders: (
-    // radius: rounds the corners of an element's outer border edge.
-        "radius": 0.125rem,
-    // Default shadow value.
-        "shadow": none
+    "radius": 0.125rem,
+    "shadow": none,
 ) !default;
 
+// Line height
+//
+// Keys:
+//   - main: line height for most elements.
 $_line-spacing: (
-    // Line height for most elements.
-        "main": 1.5,
+    "main": 1.5,
 ) !default;
 
-$_sublink-depth: 2 !default; // Amount of subcategory classes to add.
+// Amount of subcategory classes to add.
+$_sublink-depth: 2 !default;
 
 // Palette
+//
+// Keys:
+//   - fore: text & foreground color
+//   - back: background color
+//   - border: border color. // See $primary-palette.border-lightest in default/color.scss
+//   - link: color for link. See $secondary-colors.blue in default/color.scss
+//   - hover-back: color when hover. See $primary-palette.back-darker in default/color.scss
+//   - hover-fore: color when hover. See $secondary-colors.blue in default/color.scss
 $_colors: (
-    // Text & foreground color
-        "fore": #121212,
-    // Background color
-        "back": #f8f8f8,
-    // Color for link
-        "link": #215cca, // See $secondary-colors.blue in default/color.scss
-    // Hover color
-        "hover-back": #e0e0e0, // See $primary-palette.back-darker in default/color.scss
-        "hover-fore": #121212,
-    // Border color
-        "border": #909090 // See $primary-palette.border-lightest in default/color.scss
+    "fore": #121212,
+    "back": #f8f8f8,
+    "link": #215cca,
+    "hover-back": #e0e0e0,
+    "hover-fore": #121212,
+    "border": #909090,
 ) !default;
 
 // Private variables
@@ -71,7 +82,8 @@ nav {
     @include stdlib.box-shadow(map.get($_borders, "shadow"));
 
     * {
-        padding: map.get($_box-spacing, "padding") calc(#{map.get($_line-spacing, "main")} * #{map.get($_box-spacing, "padding")});
+        padding: map.get($_box-spacing, "padding")
+            calc(#{map.get($_line-spacing, "main")} * #{map.get($_box-spacing, "padding")});
     }
 
     a,
@@ -103,7 +115,7 @@ nav {
                 top: calc(0 - 1px);
                 content: "";
                 height: 100%;
-                border: 1px solid var(--border-color, map.get($_colors, "border"));;
+                border: 1px solid var(--border-color, map.get($_colors, "border"));
                 border-left: 0;
             }
         }

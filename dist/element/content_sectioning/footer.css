@@ -2,7 +2,7 @@
 footer {
   border-top: 1px solid #909090;
   padding: calc(2 * 0.5rem) 0.5rem;
-  font-size: 0.875rem;
+  font-size: 0.875em;
 }
 footer.page-footer {
   background: var(--footer-back-color, #f8f8f8);

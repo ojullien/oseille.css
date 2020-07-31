@@ -11,28 +11,39 @@
 // The configured values will override the variables’ default values.
 // @link: https://sass-lang.com/documentation/variables
 
-// Basic box model
-// Accessibility:
-//   - An inactive space should be provided around actionable elements
-//   - Add borders or margins around touch targets to add at least 1px of inactive space.
+// Basic box model.
+//
+// Keys:
+//   - margin: create extra space around an element. We reduce the default web browsers margin.
+//   - margin-center: center the element.
 $_box-spacing: (
-    // Margins: create extra space around an element.
-        "margin": 0.5rem,
-        "margin-center": 0.5rem auto
+    "margin": 0.5rem,
+    "margin-center": 0.5rem auto,
 ) !default;
 
+// Line height
+//
+// Keys:
+//   - p : line height for main paragraph content
+//   - hr : line height for thematic break
 $_line-spacing: (
-    // Line height for main paragraph content
-        "p": calc(1ex / 0.29),
-    // Line height for thematic break
-        "hr": 1.25
+    "p": calc(1ex / 0.29),
+    "hr": 1.25,
 ) !default;
 
+// Hyphenation
+//
+// Hyphenation support for languages is not always optimal in the various browsers;
+// Avoid justified text in the absence of hyphenation: "text-align": left;zé "hyphens": none
 $_hyphenation: (
     "text-align": justify,
-    "hyphens": auto
-) !default; 
+    "hyphens": auto,
+) !default;
+
 $_hr-color: #909090 !default; // Border color. See $primary-palette.border-lightest in default/color.scss
+
+// Private variables
+
 $_paragraph_width: 70ch;
 
 /* paragraph-level elements styling */

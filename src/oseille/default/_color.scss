@@ -24,68 +24,79 @@
 }
 
 // Main colors.
+//
 // Accessibility:
 //  - The colour of text and background content must have sufficient contrast.
+//
+// Keys:
+//   - fore: text & foreground color
+//   - back: background color
+//   - border: border color
 $primary-colors: (
-    // Text & foreground color
-        "fore": #121212,
-    // Background color
-        "back": #f8f8f8,
-    // Border color
-        "border": #222222
+    "fore": #121212,
+    "back": #f8f8f8,
+    "border": #222222,
 );
 
 // Primary colors palette.
+//
 // Accessibility:
 //  - The colour of text and background content must have sufficient contrast
 //  - Use WCAG Grading tool to find the best shade/tone/tint with your fore / background combinaison
+//
+// Keys:
+//   - fore-*: text & foreground color
+//   - back-*: background color
+//   - border-*: border color
 $primary-palette: (
-    // Text & foreground color
-        "fore-darkest": shade(map.get($primary-colors, "fore"), 20%),
-        "fore-darker": tone(map.get($primary-colors, "fore"), 20%),
-        "fore-lighter": tint(map.get($primary-colors, "fore"), 20%),
-        "fore-lightest": tint(map.get($primary-colors, "fore"), 50%),
-    // Background colors
-        "back-darkest": shade(map.get($primary-colors, "back"), 20%),
-        "back-darker": tone(map.get($primary-colors, "back"), 20%),
-        "back-lighter": tint(map.get($primary-colors, "back"), 20%),
-        "back-lightest": tint(map.get($primary-colors, "back"), 50%),
-    // Border colors
-        "border-darkest": shade(map.get($primary-colors, "border"), 20%),
-        "border-darker": tone(map.get($primary-colors, "border"), 20%),
-        "border-lighter": tint(map.get($primary-colors, "border"), 20%),
-        "border-lightest": tint(map.get($primary-colors, "border"), 49%)
+    "fore-darkest": shade(map.get($primary-colors, "fore"), 20%),
+    "fore-darker": tone(map.get($primary-colors, "fore"), 20%),
+    "fore-lighter": tint(map.get($primary-colors, "fore"), 20%),
+    "fore-lightest": tint(map.get($primary-colors, "fore"), 50%),
+    "back-darkest": shade(map.get($primary-colors, "back"), 20%),
+    "back-darker": tone(map.get($primary-colors, "back"), 20%),
+    "back-lighter": tint(map.get($primary-colors, "back"), 20%),
+    "back-lightest": tint(map.get($primary-colors, "back"), 50%),
+    "border-darkest": shade(map.get($primary-colors, "border"), 20%),
+    "border-darker": tone(map.get($primary-colors, "border"), 20%),
+    "border-lighter": tint(map.get($primary-colors, "border"), 20%),
+    "border-lightest": tint(map.get($primary-colors, "border"), 49%),
 );
 
 // Other colors.
+//
 // Accessibility:
 //  - The colour of text and background content must have sufficient contrast.
+//
+// Keys:
+//   - blue: link color
+//   - red: error color
+//   - green: success color
+//   - orange: sidebar
 $secondary-colors: (
-    // link color
-        "blue": #215cca,
-    // error color
-        "red": #e00000,
-    // success color
-        "green": #218003,
-    // sidebar
-        "orange": #e07000
+    "blue": #215cca,
+    "red": #e00000,
+    "green": #218003,
+    "orange": #e07000,
 );
 
 // Secondary colors palette.
+//
+// Keys:
+//   - blue-*: link color
+//   - red-*: error color
+//   - green-*: success color
 $secondary-palette: (
-    // link colors
-        "blue-darkest": #0e1c43,
-        "blue-darker": #183889,
-        "blue-lighter": #4083ae,
-        "blue-lightest": #338fff,
-    // error color
-        "red-darkest": shade(map.get($secondary-colors, "red"), 20%),
-        "red-darker": tone(map.get($secondary-colors, "red"), 20%),
-        "red-lighter": tint(map.get($secondary-colors, "red"), 20%),
-        "red-lightest": tint(map.get($secondary-colors, "red"), 38%),
-    // success color
-        "green-darkest": shade(map.get($secondary-colors, "green"), 20%),
-        "green-darker": tone(map.get($secondary-colors, "green"), 20%),
-        "green-lighter": tint(map.get($secondary-colors, "green"), 20%),
-        "green-lightest": #619c4f,
+    "blue-darkest": #0e1c43,
+    "blue-darker": #183889,
+    "blue-lighter": #4083ae,
+    "blue-lightest": #338fff,
+    "red-darkest": shade(map.get($secondary-colors, "red"), 20%),
+    "red-darker": tone(map.get($secondary-colors, "red"), 20%),
+    "red-lighter": tint(map.get($secondary-colors, "red"), 20%),
+    "red-lightest": tint(map.get($secondary-colors, "red"), 38%),
+    "green-darkest": shade(map.get($secondary-colors, "green"), 20%),
+    "green-darker": tone(map.get($secondary-colors, "green"), 20%),
+    "green-lighter": tint(map.get($secondary-colors, "green"), 20%),
+    "green-lightest": #619c4f,
 );

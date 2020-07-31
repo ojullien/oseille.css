@@ -36,22 +36,29 @@ $_container-name: "iframe-container"; // Class name for <iframe> container.
     }
 }
 
-.fill {
-    object-fit: fill;
-}
+@supports (object-fit: fill) or (-o-object-fit: fill) {
+    .fill {
+        -o-object-fit: fill;
+        object-fit: fill;
+    }
 
-.contain {
-    object-fit: contain;
-}
+    .contain {
+        -o-object-fit: contain;
+        object-fit: contain;
+    }
 
-.cover {
-    object-fit: cover;
-}
+    .cover {
+        -o-object-fit: cover;
+        object-fit: cover;
+    }
 
-.none {
-    object-fit: none;
-}
+    .none {
+        -o-object-fit: none;
+        object-fit: none;
+    }
 
-.scale-down {
-    object-fit: scale-down;
+    .scale-down {
+        -o-object-fit: scale-down;
+        object-fit: scale-down;
+    }
 }

@@ -12,32 +12,42 @@
 // @link: https://sass-lang.com/documentation/variables
 
 // Font sizes
+//
+// Keys:
+//   - small: Font size for small element ( <small>, <sub>, <sup>)
 $_font-sizes: (
-    // Font size for small element  ( <small>, <sub>, <sup>, <figcaption>)
-        "small": 0.75em
+    "small": 0.75em,
 ) !default;
 
-// Link colors
+// Palette.
+//
+// Keys:
+//   - link: color for <a>:link
+//   - visited: color for <a>:visited. See $secondary-palette.blue-darkest in /default/colors.scss
 $_colors: (
-    // Color for <a>:link
-        "link": #215cca,
-    // Color for <a>:visited
-        "visited": #0e1c43 // See $secondary-palette.blue-darkest in /default/colors.scss
+    "link": #215cca,
+    "visited": #0e1c43,
 ) !default;
 
-// Borders
+// Borders.
+//
+// Keys:
+//   - shadow-alt: alternative shadow value for more accessibility.
 $_borders: (
-    // Alternative shadow for more accesssibility concern
-        "shadow-alt": 0 2px
+    "shadow-alt": 0 2px,
 ) !default;
 
 // Box model
+//
+// Keys:
+//   - top: <sup> top position
+//   - bottom: <sub> bottom position
 $_box-model: (
-    // <sup> top
-        "top": -0.5em,
-    // <sub> bottom
-        "bottom": -0.25em
+    "top": -0.5em,
+    "bottom": -0.25em,
 );
+
+// Private variables
 
 $_bold-font-weight: 700; // Font weight for <b> and <strong>
 
@@ -110,11 +120,11 @@ data {
 
 @supports (cursor: help) {
     abbr[title] {
-      cursor: help;
+        cursor: help;
     }
     data {
         cursor: help;
-      }
+    }
 }
 
 // Fix for elements inside headings not displaying properly.

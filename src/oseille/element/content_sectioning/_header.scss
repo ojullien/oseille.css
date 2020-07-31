@@ -12,47 +12,67 @@
 // The configured values will override the variables’ default values.
 // @link: https://sass-lang.com/documentation/variables
 
-// Basic box model
+// Basic box model.
+//
+// Keys:
+//   - padding: creates extra space within an element.
 $_box-spacing: (
-    // Padding: creates extra space within an element.
-        "padding": 0.5rem
+    "padding": 0.5rem,
 ) !default;
 
+// Palette.
+//
+// Keys:
+//   - fore: text & foreground color
+//   - back: background color
+//   - border: border color. See $primary-palette.border-lightest in default/color.scss
+//   - hover-back: color when hover. See $primary-palette.back-darker in default/color.scss
+//   - hover-fore: color when hover. See $secondary-colors.blue in default/color.scss
 $_colors: (
-    // Text & foreground color
-        "fore": #121212,
-    // Background color
-        "back": #f8f8f8,
-    // Hover color for the header element.
-        "hover-back": #e0e0e0, // See $primary-palette.back-darker in default/color.scss
-        "hover-fore": #121212,
-    // Border color for the header element.
-        "border": #909090 // See $primary-palette.border-lightest in default/color.scss
+    "fore": #121212,
+    "back": #f8f8f8,
+    "hover-back": #e0e0e0,
+    "hover-fore": #121212,
+    "border": #909090,
 ) !default;
 
+// Line height
+//
+// Keys:
+//   - main: line height for most elements.
 $_line-spacing: (
-    // Line height for most elements.
-        "main": 1.5,
+    "main": 1.5,
 );
 
-$_height: 3.1875rem !default; // Height of the header element.
-$_logo-font-size: 1.75rem !default; // Font size for the header logo element.
+// Height of the header element.
+$_height: 3.1875rem !default;
 
+// Font size for the header logo element.
+$_logo-font-size: 1.75em !default;
+
+// Private variables
+
+// Classnames
+//
+// Keys:
+//   - header: header class
+//   - logo: header logo element
+//   - button: elements styled as buttons
+//   - sticky: sticky header classe
+//   - row: grid system
 $_classnames: (
-    // Class name for the header class.
-        "header": "page-header",
-    // Class name for the header logo element.
-        "logo": "logo",
-    // Class name for elements styled as buttons.
-        "button": "button",
-    // Class name for sticky headers and footers.
-        "sticky": "sticky",
-    // Class name for the grid system rows
-        "row": "row"
+    "header": "page-header",
+    "logo": "logo",
+    "button": "button",
+    "sticky": "sticky",
+    "row": "row",
 );
 
-$_only-bottom-border: true; // Apply styling only to the bottom border of header? (boolean)
-$_links-uppercase: true; // Should header links and buttons be uppercase? (boolean)
+// Apply styling only to the bottom border of header? (boolean)
+$_only-bottom-border: true;
+
+// Should header links and buttons be uppercase? (boolean)
+$_links-uppercase: true;
 
 /* Header styling */
 
@@ -66,7 +86,8 @@ header {
 .#{map.get($_classnames, "header")} {
     height: $_height;
 
-    background: var(--header-back-color, map.get($_colors, "back")); // Always apply background color to avoid shine through
+    // Always apply background color to avoid shine through
+    background: var(--header-back-color, map.get($_colors, "back"));
     color: var(--header-fore-color, map.get($_colors, "fore"));
 
     @if $_only-bottom-border {
@@ -106,7 +127,8 @@ header {
         box-sizing: border-box;
         position: relative;
 
-        top: calc( 0rem - #{map.get($_box-spacing, "padding")} / 4 ); // Use universal-padding to offset the padding of the header.
+        // Use universal-padding to offset the padding of the header.
+        top: calc(0rem - #{map.get($_box-spacing, "padding")} / 4);
 
         height: calc(#{$_height} + #{map.get($_box-spacing, "padding")} / 2); // Fill header.
 
@@ -131,7 +153,8 @@ header {
         box-sizing: border-box;
         position: relative;
 
-        top: calc( 0rem - #{map.get($_box-spacing, "padding")} / 4 ); // Use universal-padding to offset the padding of the header.
+        // Use universal-padding to offset the padding of the header.
+        top: calc(0rem - #{map.get($_box-spacing, "padding")} / 4);
 
         height: calc(#{$_height} + #{map.get($_box-spacing, "padding")} / 2); // Fill header.
 
@@ -158,13 +181,11 @@ header {
     }
 
     &.#{map.get($_classnames, "sticky")} {
-
         @supports ((position: sticky) or (position: -webkit-sticky)) {
             position: -webkit-sticky; // One of the rare instances where prefixes are necessary.
             position: sticky;
             z-index: 1101; // Deals with certain problems when combined with cards and tables.
             top: 0;
         }
-        
     }
 }

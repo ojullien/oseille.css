@@ -6,40 +6,40 @@
 //       It uses the variables’ default values of each modules.
 //
 
-//$main-font-size: 1.03rem; // Font sizing for all elements
-//$default-fore-color: #111; // Text & foreground color
-//$universal-margin: 0.5rem !default; // Universal margin for the most elements
-//$universal-padding: 0.5rem !default; // Universal padding for the most elements
-//$universal-border-radius: 0.125rem !default; // Universal border-radius for most elements
-//$universal-box-shadow: none !default; // Universal box-shadow for most elements
-//$mobile-breakpoint: 768px; // Breakpoint between small and medium screens (px)
-
-// Basic box model
+// Basic box model.
+//
 // Accessibility:
 //   - An inactive space should be provided around actionable elements
 //   - Add borders or margins around touch targets to add at least 1px of inactive space.
+//
+// Keys:
+//   - padding: creates extra space within an element.
+//   - margin: create extra space around an element. We reduce the default web browsers margin.
+//   - margin-center: center the element.
 $box-spacing: (
-    // Padding: creates extra space within an element.
-        "padding": 0.5rem, 
-    // Margins: create extra space around an element.
-        "margin": 0.5rem, // We reduce the default web browsers margin
-        "margin-center": 0.5rem auto // Center
+    "padding": 0.5rem,
+    "margin": 0.5rem,
+    "margin-center": 0.5rem auto,
 );
 
-// Borders
+// Borders.
+//
+// Keys:
+//   - radius: rounds the corners of an element's outer border edge.
+//   - shadow: shadow effects around an element's frame.
+//   - shadow-alt: alternative shadow value for more accessibility.
 $borders: (
-    // radius: rounds the corners of an element's outer border edge.
-        "radius": 0.125rem,
-    // Default shadow value.
-        "shadow": none,
-    // Alternative shadow for more accessibility
-        "shadow-alt": 0 2px
+    "radius": 0.125rem,
+    "shadow": none,
+    "shadow-alt": 0 2px,
 );
 
 // Breakpoints
+//
+// Keys:
+//   - medium: medium/mobile screen breakpoint for grid
+//   - large: large screen breakpoint for grid
 $breakpoints: (
-    // Medium/mobile screen breakpoint for grid.
-        "medium": 768px,
-    // Large screen breakpoint for grid.
-        "large": 1280px
+    "medium": 768px,
+    "large": 1280px,
 );
