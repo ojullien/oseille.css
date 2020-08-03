@@ -4,15 +4,11 @@
 
 /* Core module CSS variable definitions */
 
-// Correct display for Edge & Firefox.
-details {
-    display: block;
-}
 
-// Correct display in all browsers.
-summary {
-    display: list-item;
-}
+
+
+
+
 
 // Abbreviations
 
@@ -31,7 +27,7 @@ caption,
 //code,
 //dd,
 //del,
-details,
+//details,
 //dfn,
 //div,
 //dl,
@@ -74,7 +70,7 @@ object,
 //span,
 //strong,
 //sub,
-summary,
+//summary,
 //sup,
 table,
 tbody,
