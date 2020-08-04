@@ -12,6 +12,16 @@
   border-radius: 0.125rem;
   margin: 0.5rem;
   overflow: hidden;
+  /*
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+          margin: map.get($_box-spacing, "margin");
+      }
+  */
 }
 .card > .section {
   background: var(--card-back-color, #f8f8f8);
@@ -70,4 +80,9 @@
   .card.large {
     max-width: 480px;
   }
+}
+.card p {
+  width: unset;
+  max-width: unset;
+  margin: auto;
 }

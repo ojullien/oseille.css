@@ -92,7 +92,6 @@ $_section-media-height: 200px; // Height for cards' media sections.
 /* Card styling */
 
 .#{map.get($_classnames, "card")} {
-    // New syntax
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -175,5 +174,26 @@ $_section-media-height: 200px; // Height for cards' media sections.
 
     &.large {
         @include make-card-alt-size(480px);
+    }
+
+    &__link {
+        // Push the link down. This will keep it positioned at the end regardless of the card height.
+        margin-top: auto !important;
+    }
+
+    // Normalize typo
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin: map.get($_box-spacing, "margin");
+    }
+
+    p {
+        width: unset;
+        max-width: unset;
+        margin: map.get($_box-spacing, "margin");
     }
 }

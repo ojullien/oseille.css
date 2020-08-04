@@ -34,7 +34,7 @@ $_line-spacing: (
 // Hyphenation
 //
 // Hyphenation support for languages is not always optimal in the various browsers;
-// Avoid justified text in the absence of hyphenation: "text-align": left;zé "hyphens": none
+// Avoid justified text in the absence of hyphenation: "text-align": left; "hyphens": none
 $_hyphenation: (
     "text-align": justify,
     "hyphens": auto,
