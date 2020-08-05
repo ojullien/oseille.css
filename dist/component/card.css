@@ -13,6 +13,11 @@
   margin: 0.5rem;
   overflow: hidden;
 }
+.card.hero {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
 .card > .section {
   background: var(--card-back-color, #f8f8f8);
   color: var(--card-fore-color, #121212);
@@ -77,4 +82,5 @@
 .card p {
   width: unset;
   max-width: unset;
+  text-align: unset;
 }

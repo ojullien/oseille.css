@@ -132,7 +132,6 @@ $_classnames: (
 /* Fluid grid system container styling */
 
 .#{map.get($_classnames, "container")} {
-    flex-wrap: wrap;
     margin: 0 auto;
     padding: 0 calc(1.5 * #{map.get($_box-spacing, "padding")});
 }

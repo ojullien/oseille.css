@@ -1424,7 +1424,6 @@ header {
 
 /* Fluid grid system container styling */
 .container {
-  flex-wrap: wrap;
   margin: 0 auto;
   padding: 0 calc(1.5 * 0.5rem);
 }
@@ -1897,6 +1896,11 @@ header {
   margin: 0.5rem;
   overflow: hidden;
 }
+.card.hero {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
 .card > .section {
   background: var(--card-back-color, #f8f8f8);
   color: var(--card-fore-color, #121212);
@@ -1961,6 +1965,7 @@ header {
 .card p {
   width: unset;
   max-width: unset;
+  text-align: unset;
 }
 
 /* Styling for modal dialogs */

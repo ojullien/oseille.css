@@ -112,6 +112,13 @@ $_section-media-height: 200px; // Height for cards' media sections.
     // Hide overflow from section borders
     overflow: hidden;
 
+    // Centering the content
+    &.hero {
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+    }
+
     // Card sections
     & > .#{map.get($_classnames, "section")} {
         // Reapply background and foreground colors, so that mixins can be applied properly.
@@ -185,5 +192,6 @@ $_section-media-height: 200px; // Height for cards' media sections.
     p {
         width: unset;
         max-width: unset;
+        text-align: unset;
     }
 }
