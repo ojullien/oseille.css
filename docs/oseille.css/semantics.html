@@ -11,6 +11,7 @@
     <link href="element/inline_text_semantic/text.css" rel="stylesheet" type="text/css" id="text-css" />
     <link href="element/inline_text_semantic/code.css" rel="stylesheet" type="text/css" id="code-css" />
     <link href="element/inline_text_semantic/mark.css" rel="stylesheet" type="text/css" id="mark-css" />
+    <link href="component/legibility.css" rel="stylesheet" type="text/css" id="legible-css" />        
     <link href="oseille.css" rel="stylesheet" type="text/css" id="oseille-css" disabled />
 </head>
 </head>
@@ -32,6 +33,7 @@
             <label style="" for="text"><input style="" type="checkbox" id="checkbox-text" name="checkbox-text" value="text" onclick="switchToLocal(this);" checked />text</label>
             <label style="" for="code"><input style="" type="checkbox" id="checkbox-code" name="checkbox-code" value="code" onclick="switchToLocal(this);" checked />code</label>
             <label style="" for="mark"><input style="" type="checkbox" id="checkbox-mark" name="checkbox-mark" value="mark" onclick="switchToLocal(this);" checked />mark</label>
+            <label style="" for="legible"><input style="" type="checkbox" id="checkbox-legible" name="checkbox-legible" value="legible" onclick="switchToLocal(this);" checked />Legible</label>            
             <label style="" for="oseille"><input style="" type="checkbox" id="checkbox-oseille" name="checkbox-oseille" value="oseille" onclick="switchToOseille();" />Oseille</label>
         </div>
 
@@ -39,7 +41,7 @@
             <h1>SEMANTICS</h1>
         </header>
 
-        <main>
+        <main class="legible">
 
             <section>
                 <h2 id="heading">Heading</h2>
@@ -140,6 +142,7 @@ MD5 ("Hello world") = 3e25960a79dbc69b674cd4ec67a72c62
     myMap.set('checkbox-text','#text-css');
     myMap.set('checkbox-code','#code-css');
     myMap.set('checkbox-mark','#mark-css');
+    myMap.set('checkbox-legible','#legible-css');
 
     function switchToLocal(element) {
         if (element.checked != true) {

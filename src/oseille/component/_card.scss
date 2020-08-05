@@ -182,18 +182,8 @@ $_section-media-height: 200px; // Height for cards' media sections.
     }
 
     // Normalize typo
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        margin: map.get($_box-spacing, "margin");
-    }
-
     p {
         width: unset;
         max-width: unset;
-        margin: map.get($_box-spacing, "margin");
     }
 }

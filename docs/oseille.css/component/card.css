@@ -6,12 +6,9 @@
   align-self: center;
   position: relative;
   width: 100%;
-  --card-fore-color: #121212;
-  --card-back-color: #f8f8f8;
-  --card-border-color: #ddd;
   background: var(--card-back-color, #f8f8f8);
   color: var(--card-fore-color, #121212);
-  border: var(--px) solid var(--card-border-color, #ddd);
+  border: 1px solid var(--card-border-color, #222222);
   border-radius: 0.125rem;
   margin: 0.5rem;
   overflow: hidden;
@@ -23,7 +20,7 @@
   margin: 0;
   border: 0;
   border-radius: 0;
-  border-bottom: var(--px) solid var(--card-border-color, #ddd);
+  border-bottom: 1px solid var(--card-border-color, #222222);
   padding: 0.5rem;
   width: 100%;
 }
@@ -38,22 +35,22 @@
   }
 }
 .card > .section.dark {
-  --card-back-color:#e0e0e0;
+  background: var(--card-back-color, #f8f8f8);
 }
 .card > .section.double-padded {
-  padding: calc(1.5 * 0.5rem);
+  padding: calc( * 0.5rem);
 }
 .card > .section:last-child {
   border-bottom: 0;
 }
 .card.warning {
-  --card-back-color:#ffca28;
-  --card-border-color:#e8b825;
+  background: var(--card-back-color, #ffd553);
+  border-color: var(--card-border-color, #ffca28);
 }
 .card.error {
-  --card-back-color:#b71c1c;
-  --card-fore-color:#f8f8f8;
-  --card-border-color:#a71a1a;
+  background: var(--card-back-color, #e63333);
+  color: var(--card-fore-color, #f8f8f8);
+  border-color: var(--card-border-color, #b30000);
 }
 .card.fluid {
   max-width: 100%;
@@ -73,4 +70,11 @@
   .card.large {
     max-width: 480px;
   }
+}
+.card__link {
+  margin-top: auto !important;
+}
+.card p {
+  width: unset;
+  max-width: unset;
 }

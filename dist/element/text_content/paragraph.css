@@ -19,7 +19,7 @@ p {
   -moz-hyphens: auto;
   hyphens: auto;
   padding: 0;
-  margin: calc(1ex / 0.29) 0.5rem;
+  margin: 0.5rem;
 }
 @supports (text-rendering: optimizeLegibility) {
   p {

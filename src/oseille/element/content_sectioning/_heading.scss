@@ -8,6 +8,7 @@
 //
 @use 'sass:map';
 @use 'sass:math';
+@use 'sass:meta';
 
 // Variables.
 //
@@ -28,7 +29,16 @@ $_box-spacing: (
 // Keys:
 //   - heading: Heading font stack
 $_font-stacks: (
-    "heading": (-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, sans-serif),
+    "heading": (
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Ubuntu,
+        "Helvetica Neue",
+        Helvetica,
+        sans-serif,
+    ),
 ) !default;
 
 // Font sizes
@@ -78,13 +88,14 @@ $_font-weight: 500 !default;
 // Private variables
 
 // Top margin of <small> elements in headings
-$_subheading-margin-top: 0;
+$_subheading-margin-top: -0.25rem;
 
 /* Heading styling */
 
 %_normalize {
     padding: 0;
     border: 0;
+    margin: map.get($_box-spacing, "margin");
 
     font-family: map.get($_font-stacks, "heading");
     font-weight: $_font-weight;
@@ -114,40 +125,34 @@ h1 {
     @extend %_normalize;
     font-size: calc(1em * #{math.pow(map.get($_font-sizes, "ratio-heading"), 4)});
     line-height: map.get($_line-spacing, "h1");
-    margin: map.get($_line-spacing, "h1") map.get($_box-spacing, "margin");
 }
 
 h2 {
     @extend %_normalize;
     font-size: calc(1em * #{math.pow(map.get($_font-sizes, "ratio-heading"), 3)});
     line-height: map.get($_line-spacing, "h2");
-    margin: map.get($_line-spacing, "h2") map.get($_box-spacing, "margin");
 }
 
 h3 {
     @extend %_normalize;
     font-size: calc(1em * #{math.pow(map.get($_font-sizes, "ratio-heading"), 2)});
     line-height: map.get($_line-spacing, "h3");
-    margin: map.get($_line-spacing, "h3") map.get($_box-spacing, "margin");
 }
 
 h4 {
     @extend %_normalize;
     font-size: calc(1em * #{map.get($_font-sizes, "ratio-heading")});
     line-height: map.get($_line-spacing, "h4");
-    margin: map.get($_line-spacing, "h4") map.get($_box-spacing, "margin");
 }
 
 h5 {
     @extend %_normalize;
     font-size: 1em;
     line-height: map.get($_line-spacing, "h5");
-    margin: map.get($_line-spacing, "h5") map.get($_box-spacing, "margin");
 }
 
 h6 {
     @extend %_normalize;
     font-size: calc(1em / #{map.get($_font-sizes, "ratio-heading")});
     line-height: map.get($_line-spacing, "h6");
-    margin: map.get($_line-spacing, "h6") map.get($_box-spacing, "margin");
 }

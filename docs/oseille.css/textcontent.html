@@ -9,10 +9,12 @@
     <link href="element/inline_text_semantic/text.css" rel="stylesheet" type="text/css" id="text-css" />
     <link href="element/inline_text_semantic/code.css" rel="stylesheet" type="text/css" id="code-css" />
     <link href="element/inline_text_semantic/mark.css" rel="stylesheet" type="text/css" id="mark-css" />
+    <link href="element/content_sectioning/heading.css" rel="stylesheet" type="text/css" id="heading-css" />    
     <link href="element/text_content/blockquote.css" rel="stylesheet" type="text/css" id="blockquote-css" />
     <link href="element/text_content/list.css" rel="stylesheet" type="text/css" id="list-css" />
     <link href="element/text_content/paragraph.css" rel="stylesheet" type="text/css" id="paragraph-css" />
     <link href="element/text_content/definition.css" rel="stylesheet" type="text/css" id="definition-css" />
+    <link href="component/legibility.css" rel="stylesheet" type="text/css" id="legible-css" />         
     <link href="oseille.css" rel="stylesheet" type="text/css" id="oseille-css" disabled />
 </head>
 <style>
@@ -28,6 +30,7 @@
 
         <div style="min-height: 100%; display: flex; flex-direction: row-reverse; justify-content: space-evenly; align-items: center; text-align: center; align-self: flex-start;position: sticky; top: 10px;">
             <label style="" for="root"><input style="" type="checkbox" id="checkbox-root" name="checkbox-root" value="root" onclick="switchToLocal(this);" checked />Root</label>
+            <label style="" for="heading"><input style="" type="checkbox" id="checkbox-heading" name="checkbox-heading" value="heading" onclick="switchToLocal(this);" checked />heading</label>            
             <label style="" for="text"><input style="" type="checkbox" id="checkbox-text" name="checkbox-text" value="text" onclick="switchToLocal(this);" checked />Text</label>
             <label style="" for="code"><input style="" type="checkbox" id="checkbox-code" name="checkbox-code" value="code" onclick="switchToLocal(this);" checked />Code</label>
             <label style="" for="mark"><input style="" type="checkbox" id="checkbox-mark" name="checkbox-mark" value="mark" onclick="switchToLocal(this);" checked />Mark</label>
@@ -35,6 +38,7 @@
             <label style="" for="list"><input style="" type="checkbox" id="checkbox-list" name="checkbox-list" value="list" onclick="switchToLocal(this);" checked />List</label>
             <label style="" for="paragraph"><input style="" type="checkbox" id="checkbox-paragraph" name="checkbox-paragraph" value="paragraph" onclick="switchToLocal(this);" checked />Paragraph</label>
             <label style="" for="definition"><input style="" type="checkbox" id="checkbox-definition" name="checkbox-definition" value="definition" onclick="switchToLocal(this);" checked />Definition</label>
+            <label style="" for="legible"><input style="" type="checkbox" id="checkbox-legible" name="checkbox-legible" value="legible" onclick="switchToLocal(this);" checked />Legible</label>                        
             <label style="" for="oseille"><input style="" type="checkbox" id="checkbox-oseille" name="checkbox-oseille" value="oseille" onclick="switchToOseille();" />Oseille</label>
         </div>
 
@@ -184,7 +188,7 @@ term being defined within the context of a definition phrase or
 sentence.</p>
             </section>
 
-            <section>
+            <section class="legible">
 <p>The <strong>HTML Definition element</strong>
 (<strong><dfn id="definition-dfn">&lt;dfn&gt;</dfn></strong>) is
 used to indicate the term being defined within the context of a
@@ -197,10 +201,14 @@ constructio interrete. Scrupulum, inquam, abeunti; </p>
 <p>Negare non possum. Dat enim intervalla et relaxat. Quonam modo?
 Equidem e Cn. Quid de Pythagora? In schola desinis. </p>
 
+<h3>Subsection</h3>
+
 <p>Ubi ut eam caperet aut quando? Cur iustitia laudatur? Aperiendum
 est igitur, quid sit voluptas; Quid enim? Non est igitur voluptas
 bonum. Urgent tamen et nihil remittunt. Quid enim possumus hoc
 agere divinius? </p>
+
+<h3>Another subsection</h3>
 
 <p>Because of all of that, we decided to use the
 <code><a href="#definition-dfn">&lt;dfn&gt;</a></code> element for
@@ -228,6 +236,7 @@ arguably done more to advance science than any device ever built.</p>
 
     var myMap = new Map();
     myMap.set('checkbox-root','#root-css');
+    myMap.set('checkbox-heading','#heading-css')
     myMap.set('checkbox-text','#text-css');
     myMap.set('checkbox-code','#code-css');
     myMap.set('checkbox-mark','#mark-css');
@@ -235,7 +244,8 @@ arguably done more to advance science than any device ever built.</p>
     myMap.set('checkbox-list','#list-css');
     myMap.set('checkbox-paragraph','#paragraph-css');
     myMap.set('checkbox-definition','#definition-css');
-
+    myMap.set('checkbox-legible','#legible-css');
+    
     function switchToLocal(element) {
         if (element.checked != true) {
             document.querySelector(myMap.get(element.id)).disabled=true;

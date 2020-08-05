@@ -72,7 +72,7 @@ p {
     hyphens: map.get($_hyphenation, "hyphens");
 
     padding: 0;
-    margin: map.get($_line-spacing, "p") map.get($_box-spacing, "margin");
+    margin: map.get($_box-spacing, "margin");
 
     @supports (text-rendering: optimizeLegibility) {
         text-rendering: optimizeLegibility;

@@ -6,10 +6,12 @@
     <title>Content Sectioning</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="element/root/root.css" rel="stylesheet" type="text/css" id="root-css" />
-    <link href="module/grid.css" rel="stylesheet" type="text/css" id="grid-css" />
-    <link href="module/drawer.css" rel="stylesheet" type="text/css" id="drawer-css" />
+    <link href="component/grid.css" rel="stylesheet" type="text/css" id="grid-css" />
+    <link href="component/drawer.css" rel="stylesheet" type="text/css" id="drawer-css" />
+    <link href="component/legibility.css" rel="stylesheet" type="text/css" id="legible-css" />
     <link href="element/inline_text_semantic/text.css" rel="stylesheet" type="text/css" id="text-css" />
     <link href="element/form/buttons.css" rel="stylesheet" type="text/css" id="buttons-css" />
+    <link href="element/content_sectioning/heading.css" rel="stylesheet" type="text/css" id="heading-css" />        
     <link href="element/content_sectioning/header.css" rel="stylesheet" type="text/css" id="header-css" />
     <link href="element/content_sectioning/footer.css" rel="stylesheet" type="text/css" id="footer-css" />
     <link href="element/content_sectioning/navigation.css" rel="stylesheet" type="text/css" id="navigation-css" />
@@ -80,9 +82,11 @@
             <label style="" for="root"><input style="" type="checkbox" id="checkbox-root" name="checkbox-root" value="root" onclick="switchToLocal(this);" checked />Root</label>
             <label style="" for="grid"><input style="" type="checkbox" id="checkbox-grid" name="checkbox-grid" value="grid" onclick="switchToLocal(this);" checked />Grid</label>
             <label style="" for="drawer"><input style="" type="checkbox" id="checkbox-drawer" name="checkbox-drawer" value="drawer" onclick="switchToLocal(this);" checked />Drawer</label>
+            <label style="" for="legible"><input style="" type="checkbox" id="checkbox-legible" name="checkbox-legible" value="legible" onclick="switchToLocal(this);" checked />Legible</label>
             <label style="" for="text"><input style="" type="checkbox" id="checkbox-text" name="checkbox-text" value="text" onclick="switchToLocal(this);" checked />Text</label>
             <label style="" for="paragraph"><input style="" type="checkbox" id="checkbox-paragraph" name="checkbox-paragraph" value="paragraph" onclick="switchToLocal(this);" checked />Paragraph</label>
             <label style="" for="buttons"><input style="" type="checkbox" id="checkbox-buttons" name="checkbox-buttons" value="buttons" onclick="switchToLocal(this);" checked />Buttons</label>
+            <label style="" for="heading"><input style="" type="checkbox" id="checkbox-heading" name="checkbox-heading" value="heading" onclick="switchToLocal(this);" checked />heading</label>
             <label style="" for="header"><input style="" type="checkbox" id="checkbox-header" name="checkbox-header" value="header" onclick="switchToLocal(this);" checked />Header</label>
             <label style="" for="footer"><input style="" type="checkbox" id="checkbox-footer" name="checkbox-footer" value="footer" onclick="switchToLocal(this);" checked />Footer</label>
             <label style="" for="sectioning"><input style="" type="checkbox" id="checkbox-sectioning" name="checkbox-sectioning" value="sectioning" onclick="switchToLocal(this);" checked />Sectioning</label>
@@ -91,7 +95,7 @@
         </div>
 
 
-        <article>
+        <article class="legible">
             <header>
                 <h2>The Planet Earth</h2>
                 <p>Posted on Wednesday, <time datetime="2017-10-04">4 October 2017</time> by Jane Smith</p>
@@ -100,9 +104,13 @@
             <p><a href="https://janesmith.com/the-planet-earth/">Continue reading....</a></p>
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In non ornare turpis. Nunc id bibendum diam. Integer luctus, metus ac ornare faucibus, tellus orci cursus urna, vitae ullamcorper diam augue faucibus tellus. Vivamus ultrices suscipit dignissim. Nulla vulputate, est vitae commodo sollicitudin, metus turpis gravida enim, ut tempus arcu urna ac lorem. Donec in dapibus lorem. Quisque pellentesque ante sit amet feugiat elementum. Nam odio libero, malesuada id finibus tincidunt, aliquam tristique lectus. Quisque fringilla consectetur molestie. Donec vulputate ex eget lobortis tincidunt. Sed malesuada metus id ultricies luctus. Sed ornare urna et massa volutpat, in tristique diam consectetur. Suspendisse potenti.</p>
 <p>Nulla at est vel quam vestibulum fringilla. Sed venenatis dolor nec massa feugiat, sed pharetra libero porttitor. Cras in laoreet nibh. Ut blandit lobortis dui, in ultrices urna semper at. Mauris rutrum sapien sed tristique iaculis. Etiam at nunc lacinia, ultrices augue id, ultricies lectus. Nunc consequat quam volutpat augue iaculis, ut euismod quam fringilla. Fusce feugiat consequat dui eget blandit. Nulla facilisi. Sed fringilla mauris sem, sit amet fringilla ipsum feugiat in. Curabitur et nisl sit amet libero commodo porta sed vel nisi.</p>
+<h3>Subsection</h3>
 <p>Duis non pretium ex. Integer fringilla lacus ipsum. Aenean nec aliquet tortor, ac molestie lectus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed ac turpis venenatis, fringilla odio vitae, dapibus lacus. Praesent feugiat ultricies diam, in sodales leo venenatis a. Nunc ac ligula mollis, iaculis leo id, dignissim lectus. Quisque eget nisi condimentum, convallis mauris sit amet, pellentesque arcu. Morbi tincidunt ante tristique, luctus orci ut, commodo risus. Integer vulputate congue imperdiet. Nam fringilla sem ac metus tempus tempus.</p>
 <p>Praesent sit amet porta orci. Nunc ac ligula non nunc facilisis vestibulum. Morbi tincidunt commodo cursus. Interdum et malesuada fames ac ante ipsum primis in faucibus. In hac habitasse platea dictumst. In egestas nisi tincidunt lacus luctus, et fermentum enim vestibulum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla quis ullamcorper libero, at tincidunt sem. Vestibulum mollis fringilla congue.</p>
+<h4>Subsection</h4>
 <p>Etiam mollis dolor eget lacinia fermentum. Etiam tincidunt metus felis. Vestibulum at ex laoreet, eleifend lorem vitae, placerat neque. Proin hendrerit eleifend mauris, ut tincidunt enim egestas congue. Mauris orci lorem, tincidunt vitae enim et, porta vulputate turpis. Curabitur vel varius neque. Praesent venenatis semper massa vel commodo. Sed pulvinar felis neque, a lobortis leo eleifend eget. Duis placerat sapien dapibus rhoncus aliquam. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec eu ullamcorper ipsum. Suspendisse sit amet leo lacus. Sed tempor convallis nisl, et lacinia turpis vulputate lacinia. Sed rhoncus in velit faucibus cursus. </p>
+<h3>Subsection</h3>
+<h4>Subsection</h4>
 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In non ornare turpis. Nunc id bibendum diam. Integer luctus, metus ac ornare faucibus, tellus orci cursus urna, vitae ullamcorper diam augue faucibus tellus. Vivamus ultrices suscipit dignissim. Nulla vulputate, est vitae commodo sollicitudin, metus turpis gravida enim, ut tempus arcu urna ac lorem. Donec in dapibus lorem. Quisque pellentesque ante sit amet feugiat elementum. Nam odio libero, malesuada id finibus tincidunt, aliquam tristique lectus. Quisque fringilla consectetur molestie. Donec vulputate ex eget lobortis tincidunt. Sed malesuada metus id ultricies luctus. Sed ornare urna et massa volutpat, in tristique diam consectetur. Suspendisse potenti.</p>
 <p>Nulla at est vel quam vestibulum fringilla. Sed venenatis dolor nec massa feugiat, sed pharetra libero porttitor. Cras in laoreet nibh. Ut blandit lobortis dui, in ultrices urna semper at. Mauris rutrum sapien sed tristique iaculis. Etiam at nunc lacinia, ultrices augue id, ultricies lectus. Nunc consequat quam volutpat augue iaculis, ut euismod quam fringilla. Fusce feugiat consequat dui eget blandit. Nulla facilisi. Sed fringilla mauris sem, sit amet fringilla ipsum feugiat in. Curabitur et nisl sit amet libero commodo porta sed vel nisi.</p>
 <p>Duis non pretium ex. Integer fringilla lacus ipsum. Aenean nec aliquet tortor, ac molestie lectus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed ac turpis venenatis, fringilla odio vitae, dapibus lacus. Praesent feugiat ultricies diam, in sodales leo venenatis a. Nunc ac ligula mollis, iaculis leo id, dignissim lectus. Quisque eget nisi condimentum, convallis mauris sit amet, pellentesque arcu. Morbi tincidunt ante tristique, luctus orci ut, commodo risus. Integer vulputate congue imperdiet. Nam fringilla sem ac metus tempus tempus.</p>
@@ -110,19 +118,21 @@
 <p>Etiam mollis dolor eget lacinia fermentum. Etiam tincidunt metus felis. Vestibulum at ex laoreet, eleifend lorem vitae, placerat neque. Proin hendrerit eleifend mauris, ut tincidunt enim egestas congue. Mauris orci lorem, tincidunt vitae enim et, porta vulputate turpis. Curabitur vel varius neque. Praesent venenatis semper massa vel commodo. Sed pulvinar felis neque, a lobortis leo eleifend eget. Duis placerat sapien dapibus rhoncus aliquam. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec eu ullamcorper ipsum. Suspendisse sit amet leo lacus. Sed tempor convallis nisl, et lacinia turpis vulputate lacinia. Sed rhoncus in velit faucibus cursus. </p>
             <footer>© 2018 Gandalf</footer>
             <aside>
-                <div class="section"><h3>Example</h3>
-                <nav>
-                    <a href="#" class="doc">Home</a>
-                    <span class="doc">News</span>
-                    <a href="#" class="sublink-1 doc">New Courses</a>
-                    <a href="#" class="sublink-1 doc">Certifications</a>
-                    <span class="sublink-1 doc">Events</span>
-                    <a href="#" class="sublink-2 doc">Course Showcase - 12th, Dec</a>
-                    <a href="#" class="sublink-2 doc">Staff AMA - 16th, Dec</a>
-                    <a href="#" class="sublink-1 doc">Policy Update</a>
-                    <a href="#" class="doc">About</a>
-                    <a href="#" class="doc">Contact</a>
-                </nav></div>
+                <div class="section">
+                    <h3>Example</h3>
+                    <nav>
+                        <a href="#" class="doc">Home</a>
+                        <span class="doc">News</span>
+                        <a href="#" class="sublink-1 doc">New Courses</a>
+                        <a href="#" class="sublink-1 doc">Certifications</a>
+                        <span class="sublink-1 doc">Events</span>
+                        <a href="#" class="sublink-2 doc">Course Showcase - 12th, Dec</a>
+                        <a href="#" class="sublink-2 doc">Staff AMA - 16th, Dec</a>
+                        <a href="#" class="sublink-1 doc">Policy Update</a>
+                        <a href="#" class="doc">About</a>
+                        <a href="#" class="doc">Contact</a>
+                    </nav>
+                </div>
             </aside>
         </article>
     </main>
@@ -137,6 +147,7 @@
     myMap.set('checkbox-root','#root-css');
     myMap.set('checkbox-grid','#grid-css');
     myMap.set('checkbox-drawer','#drawer-css');
+    myMap.set('checkbox-legible','#legible-css');
     myMap.set('checkbox-buttons','#buttons-css');
     myMap.set('checkbox-text','#text-css');
     myMap.set('checkbox-header','#header-css');
@@ -144,7 +155,8 @@
     myMap.set('checkbox-navigation','#navigation-css');
     myMap.set('checkbox-sectioning','#sectioning-css');
     myMap.set('checkbox-paragraph','#paragraph-css');
-
+    myMap.set('checkbox-heading','#heading-css');
+    
     function switchToLocal(element) {
         if (element.checked != true) {
             document.querySelector(myMap.get(element.id)).disabled=true;

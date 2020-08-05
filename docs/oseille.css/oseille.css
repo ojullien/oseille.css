@@ -278,7 +278,7 @@ p {
   -moz-hyphens: auto;
   hyphens: auto;
   padding: 0;
-  margin: calc(1ex / 0.29) 0.5rem;
+  margin: 0.5rem;
 }
 @supports (text-rendering: optimizeLegibility) {
   p {
@@ -1059,6 +1059,7 @@ nav .sublink-2:before {
 h6, h5, h4, h3, h2, h1 {
   padding: 0;
   border: 0;
+  margin: 0.5rem;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, sans-serif;
   font-weight: 500;
   background: var(--heading-back-color, inherit);
@@ -1071,6 +1072,7 @@ h6, h5, h4, h3, h2, h1 {
 }
 h6 small, h5 small, h4 small, h3 small, h2 small, h1 small {
   display: block;
+  margin-top: -0.25rem;
   line-height: calc(1ex / 0.32);
   background: var(--subheading-back-color, inherit);
   color: var(--subheading-fore-color, inherit);
@@ -1079,37 +1081,31 @@ h6 small, h5 small, h4 small, h3 small, h2 small, h1 small {
 h1 {
   font-size: calc(1em * 2.44140625);
   line-height: calc(1ex / 0.42);
-  margin: calc(1ex / 0.42) 0.5rem 0;
 }
 
 h2 {
   font-size: calc(1em * 1.953125);
   line-height: calc(1ex / 0.42);
-  margin: calc(1ex / 0.42) 0.5rem 0;
 }
 
 h3 {
   font-size: calc(1em * 1.5625);
   line-height: calc(1ex / 0.38);
-  margin: calc(1ex / 0.38) 0.5rem 0;
 }
 
 h4 {
   font-size: calc(1em * 1.25);
   line-height: calc(1ex / 0.37);
-  margin: calc(1ex / 0.37) 0.5rem 0;
 }
 
 h5 {
   font-size: 1em;
   line-height: calc(1ex / 0.32);
-  margin: calc(1ex / 0.32) 0.5rem 0;
 }
 
 h6 {
   font-size: calc(1em / 1.25);
   line-height: calc(1ex / 0.32);
-  margin: calc(1ex / 0.32) 0.5rem 0;
 }
 
 /* Footer styling */
@@ -1894,12 +1890,9 @@ header {
   align-self: center;
   position: relative;
   width: 100%;
-  --card-fore-color: #121212;
-  --card-back-color: #f8f8f8;
-  --card-border-color: #ddd;
   background: var(--card-back-color, #f8f8f8);
   color: var(--card-fore-color, #121212);
-  border: var(--px) solid var(--card-border-color, #ddd);
+  border: 1px solid var(--card-border-color, #222222);
   border-radius: 0.125rem;
   margin: 0.5rem;
   overflow: hidden;
@@ -1911,7 +1904,7 @@ header {
   margin: 0;
   border: 0;
   border-radius: 0;
-  border-bottom: var(--px) solid var(--card-border-color, #ddd);
+  border-bottom: 1px solid var(--card-border-color, #222222);
   padding: 0.5rem;
   width: 100%;
 }
@@ -1926,22 +1919,22 @@ header {
   }
 }
 .card > .section.dark {
-  --card-back-color:#e0e0e0;
+  background: var(--card-back-color, #f8f8f8);
 }
 .card > .section.double-padded {
-  padding: calc(1.5 * 0.5rem);
+  padding: calc( * 0.5rem);
 }
 .card > .section:last-child {
   border-bottom: 0;
 }
 .card.warning {
-  --card-back-color:#ffca28;
-  --card-border-color:#e8b825;
+  background: var(--card-back-color, #ffd553);
+  border-color: var(--card-border-color, #ffca28);
 }
 .card.error {
-  --card-back-color:#b71c1c;
-  --card-fore-color:#f8f8f8;
-  --card-border-color:#a71a1a;
+  background: var(--card-back-color, #e63333);
+  color: var(--card-fore-color, #f8f8f8);
+  border-color: var(--card-border-color, #b30000);
 }
 .card.fluid {
   max-width: 100%;
@@ -1961,6 +1954,13 @@ header {
   .card.large {
     max-width: 480px;
   }
+}
+.card__link {
+  margin-top: auto !important;
+}
+.card p {
+  width: unset;
+  max-width: unset;
 }
 
 /* Styling for modal dialogs */
@@ -2114,4 +2114,27 @@ header {
   [type=checkbox].drawer:not(.persistent) + * .drawer-close {
     display: none;
   }
+}
+
+/* Improve legibility */
+.legible h1 {
+  margin: calc(1ex / 0.42) 0.5rem;
+}
+.legible h2 {
+  margin: calc(1ex / 0.42) 0.5rem;
+}
+.legible h3 {
+  margin: calc(1ex / 0.38) 0.5rem;
+}
+.legible h4 {
+  margin: calc(1ex / 0.37) 0.5rem;
+}
+.legible h5 {
+  margin: calc(1ex / 0.32) 0.5rem;
+}
+.legible h6 {
+  margin: calc(1ex / 0.32) 0.5rem;
+}
+.legible p {
+  margin: calc(1ex / 0.29) 0.5rem;
 }

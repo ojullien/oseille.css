@@ -5,7 +5,21 @@
     <meta charset="utf-8">
     <title>Cards</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="card.css" rel="stylesheet" type="text/css" id="local-css" />
+
+    <link href="element/content_sectioning/heading.css" rel="stylesheet" type="text/css" id="heading-css" />
+    <link href="element/content_sectioning/sectioning.css" rel="stylesheet" type="text/css" id="sectioning-css" />
+
+    <link href="element/form/buttons.css" rel="stylesheet" type="text/css" id="buttons-css" />
+
+    <link href="element/root/root.css" rel="stylesheet" type="text/css" id="root-css" />
+
+    <link href="element/text_content/paragraph.css" rel="stylesheet" type="text/css" id="paragraph-css" />
+
+    <link href="component/border.css" rel="stylesheet" type="text/css" id="border-css" />
+    <link href="component/card.css" rel="stylesheet" type="text/css" id="card-css" />
+    <link href="component/grid.css" rel="stylesheet" type="text/css" id="grid-css" />
+    <link href="component/legibility.css" rel="stylesheet" type="text/css" id="legible-css" /> 
+    
     <link href="oseille.css" rel="stylesheet" type="text/css" id="oseille-css" disabled />
 </head>
 <style>
@@ -14,20 +28,52 @@
         padding: 0 calc(0.5rem * 2);
         max-width: 95vw;
     }
+
+.card2 {
+    display: flex; /* [1] */
+    flex-direction: column; /* [2] */
+      background: var(--card-back-color, #f8f8f8);
+  color: var(--card-fore-color, #121212);
+  border: 1px solid var(--card-border-color, #222222);
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.card__content {
+    flex-grow: 1; /* [3] */
+    display: flex; /* [4] */
+    flex-direction: column;
+      align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.card__link {
+    margin-top: auto; /* [5] */
+}
+
+
 </style>
 
 <body>
 
     <div class="wrapper">
 
-        <div style="min-height: 100%; display: flex; flex-direction: row-reverse; justify-content: center; align-items: center; text-align: center; position: sticky; top: 10px;">
-            <input style="" type="radio" id="radio-local-css" name="css" value="1" onchange="switchToLocal();" checked />
-            <label style="" for="radio-local-css">Local</label>
-            <input style="" type="radio" id="radio-oseille-css" name="css" value="2" onchange="switchToOseille();" />
-            <label style="" for="radio-oseille-css">Oseille</label>
-            <input style="" type="radio" id="radio-nosheet-css" name="css" value="3" onchange="switchToNoSheet();" />
-            <label style="" for="radio-nosheet-css">No Sheet</label>
+    <div style="min-height: 100%; display: flex; flex-direction: row-reverse; justify-content: space-evenly; align-items: center; text-align: center; align-self: flex-start;position: sticky; top: 10px;">
+        <div class="row padded">
+            <label style="" for="heading"><input style="" type="checkbox" id="checkbox-heading" name="checkbox-heading" value="heading" onclick="switchToLocal(this);" checked />Heading</label>
+            <label style="" for="sectioning"><input style="" type="checkbox" id="checkbox-sectioning" name="checkbox-sectioning" value="sectioning" onclick="switchToLocal(this);" checked />Sectioning</label>
+            <label style="" for="buttons"><input style="" type="checkbox" id="checkbox-buttons" name="checkbox-buttons" value="buttons" onclick="switchToLocal(this);" checked />Buttons</label>
+            <label style="" for="root"><input style="" type="checkbox" id="checkbox-root" name="checkbox-root" value="root" onclick="switchToLocal(this);" checked />Root</label>
+            <label style="" for="grid"><input style="" type="checkbox" id="checkbox-grid" name="checkbox-grid" value="grid" onclick="switchToLocal(this);" checked />Grid</label>
+            <label style="" for="paragraph"><input style="" type="checkbox" id="checkbox-paragraph" name="checkbox-paragraph" value="paragraph" onclick="switchToLocal(this);" checked />Paragraph</label>
+            <label style="" for="border"><input style="" type="checkbox" id="checkbox-border" name="checkbox-border" value="border" onclick="switchToLocal(this);" checked />Border</label>
+            <label style="" for="card"><input style="" type="checkbox" id="checkbox-card" name="checkbox-card" value="card" onclick="switchToLocal(this);" checked />Card</label>
+            <label style="" for="legible"><input style="" type="checkbox" id="checkbox-legible" name="checkbox-legible" value="legible" onclick="switchToLocal(this);" checked />Legible</label>                        
+            <label style="" for="oseille"><input style="" type="checkbox" id="checkbox-oseille" name="checkbox-oseille" value="oseille" onclick="switchToOseille();" />Oseille</label>
         </div>
+    </div>
 
         <header>
             <h1>Cards</h1>
@@ -57,6 +103,26 @@
                         <div class="card">
                             <div class="section">
                                 <h3 class="doc">Card 3 <small>Subhead</small></h3>
+                                <p class="doc">This is one more card with some sample content.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="card">
+                            <div class="section">
+                                <h3 class="doc">Card 1</h3>
+                                <p class="doc">This is a basic card with some sample content.</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="section">
+                                <h3 class="doc">Card 2</h3>
+                                <p class="doc">This is another card with some sample content.</p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="section">
+                                <h3 class="doc">Card 3</h3>
                                 <p class="doc">This is one more card with some sample content.</p>
                             </div>
                         </div>
@@ -176,7 +242,36 @@
                 </div>
             </section>
 
-
+            <section>
+                <div class="container" style="padding: 0.25rem;">
+                    <div class="row">                    
+                        <div class="card">
+                            <img src="https://placehold.it/80x60" alt="">
+                            <div class="card__content">
+                              <h2>The title</h2>
+                              <p>Making the card content as a flexbox wrapper.</p>
+                              <p class="card__link"><a href="#">Read more</a></p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img src="https://placehold.it/80x60" alt="">
+                            <div class="card__content">
+                              <h2>The title</h2>
+                              <p>Making the card content as a flexbox wrapper.</p>
+                              <p class="card__link"><a href="#">Read more</a></p>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <img src="https://placehold.it/80x60" alt="">
+                            <div class="card__content">
+                              <h2>The title</h2>
+                              <p>Making the card content as a flexbox wrapper.</p>
+                              <p class="card__link"><a href="#">Read more</a></p>
+                            </div>
+                        </div>
+                    </div>                        
+                </div>
+            </section>
 
         </main>
 
@@ -185,22 +280,41 @@
 </body>
 
 <script type="text/javascript">
-    document.body.onload = () => {
-        var sFontSize = window.getComputedStyle(document.body, null).getPropertyValue("font-size");
-        var iRatio = 1 / sFontSize.substring(0, sFontSize.length - 2);
-        document.documentElement.style.setProperty('--px', iRatio + "rem");
+
+    var myMap = new Map();
+    myMap.set('checkbox-grid','#grid-css');
+    myMap.set('checkbox-card','#card-css');
+    myMap.set('checkbox-border','#border-css');
+    myMap.set('checkbox-paragraph','#paragraph-css');
+    myMap.set('checkbox-root','#root-css');
+    myMap.set('checkbox-buttons','#buttons-css');
+    myMap.set('checkbox-sectioning','#sectioning-css');
+    myMap.set('checkbox-heading','#heading-css');
+    myMap.set('checkbox-legible','#legible-css');
+    
+    function switchToLocal(element) {
+        if (element.checked != true) {
+            document.querySelector(myMap.get(element.id)).disabled=true;
+        } else {
+            document.querySelector(myMap.get(element.id)).removeAttribute('disabled');
+        }
     };
-    function switchToLocal() {
-        document.querySelector("#oseille-css").disabled=true;
-        document.querySelector("#local-css").removeAttribute('disabled');
-    };
+
     function switchToOseille() {
-        document.querySelector("#local-css").disabled=true;
-        document.querySelector("#oseille-css").removeAttribute('disabled');
-    };
-    function switchToNoSheet() {
-        document.querySelector("#oseille-css").disabled=true;
-        document.querySelector("#local-css").disabled=true;
+        let checkbox = document.getElementById('checkbox-oseille');
+        if (checkbox.checked != true) {
+            for (let [theCheckbox,theLink] of myMap.entries()) {
+                document.getElementById(theCheckbox).checked = true;
+                document.querySelector(theLink).removeAttribute('disabled');
+            }
+            document.querySelector("#oseille-css").disabled=true;
+        } else {
+            for (let [theCheckbox,theLink] of myMap.entries()) {
+                document.getElementById(theCheckbox).checked = false;
+                document.querySelector(theLink).disabled=true;
+            }
+            document.querySelector("#oseille-css").removeAttribute('disabled');
+        }
     };
 </script>
 

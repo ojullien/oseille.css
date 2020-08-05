@@ -30,15 +30,17 @@
     <link href="element/text_content/list.css" rel="stylesheet" type="text/css" id="list-css" />
     <link href="element/text_content/paragraph.css" rel="stylesheet" type="text/css" id="paragraph-css" />
 
-    <link href="module/border.css" rel="stylesheet" type="text/css" id="border-css" />
-    <link href="module/card.css" rel="stylesheet" type="text/css" id="card-css" />
-    <link href="module/drawer.css" rel="stylesheet" type="text/css" id="drawer-css" />
-    <link href="module/grid.css" rel="stylesheet" type="text/css" id="grid-css" />
-    <link href="module/modal.css" rel="stylesheet" type="text/css" id="modal-css" />
-    <link href="module/tooltip.css" rel="stylesheet" type="text/css" id="tooltip-css" />
-    <link href="module/toast.css" rel="stylesheet" type="text/css" id="toast-css" />
+    <link href="component/border.css" rel="stylesheet" type="text/css" id="border-css" />
+    <link href="component/card.css" rel="stylesheet" type="text/css" id="card-css" />
+    <link href="component/drawer.css" rel="stylesheet" type="text/css" id="drawer-css" />
+    <link href="component/grid.css" rel="stylesheet" type="text/css" id="grid-css" />
+    <link href="component/modal.css" rel="stylesheet" type="text/css" id="modal-css" />
+    <link href="component/tooltip.css" rel="stylesheet" type="text/css" id="tooltip-css" />
+    <link href="component/toast.css" rel="stylesheet" type="text/css" id="toast-css" />
+
+    <link href="element/interactive/details.css" rel="stylesheet" type="text/css" id="details-css" />
+
     <link href="oseille.css" rel="stylesheet" type="text/css" id="oseille-css" disabled />
-</head>
 </head>
 <style>
     .wrapper {
@@ -85,6 +87,7 @@
             <label style="" for="modal"><input style="" type="checkbox" id="checkbox-modal" name="checkbox-modal" value="modal" onclick="switchToLocal(this);" checked />Modal</label>
             <label style="" for="toast"><input style="" type="checkbox" id="checkbox-toast" name="checkbox-toast" value="toast" onclick="switchToLocal(this);" checked />Toast</label>
             <label style="" for="tooltip"><input style="" type="checkbox" id="checkbox-tooltip" name="checkbox-tooltip" value="tooltip" onclick="switchToLocal(this);" checked />Tooltip</label>
+            <label style="" for="details"><input style="" type="checkbox" id="checkbox-details" name="checkbox-details" value="details" onclick="switchToLocal(this);" checked />Details</label>
             <label style="" for="oseille"><input style="" type="checkbox" id="checkbox-oseille" name="checkbox-oseille" value="oseille" onclick="switchToOseille();" />Oseille</label>
         </div>
     </div>
@@ -1127,6 +1130,34 @@ function NavigatorExample() {
                 </figure>
             </section>
 
+            <section class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+                <h2>A simple disclosure example</h2>
+                <details>
+                    <p>Requires a computer running an operating system. The computer
+                    must have some memory and ideally some kind of long-term storage.
+                    An input device as well as some form of output device is
+                    recommended.</p>
+                </details>
+
+                <h2>Providing a summary</h2>
+                <details>
+                    <summary>System Requirements</summary>
+                    <p>Requires a computer running an operating system. The computer
+                    must have some memory and ideally some kind of long-term storage.
+                    An input device as well as some form of output device is
+                    recommended.</p>
+                </details>
+
+                <h2>Creating an open disclosure box</h2>
+                <details open>
+                    <summary>System Requirements</summary>
+                    <p>Requires a computer running an operating system. The computer
+                    must have some memory and ideally some kind of long-term storage.
+                    An input device as well as some form of output device is
+                    recommended.</p>
+                </details>
+            </section>
+
     </div>
 </main>
 
@@ -1165,6 +1196,7 @@ function NavigatorExample() {
     myMap.set('checkbox-heading','#heading-css');
     myMap.set('checkbox-header','#header-css');
     myMap.set('checkbox-footer','#footer-css');
+    myMap.set('checkbox-details','#details-css');
 
     function switchToLocal(element) {
         if (element.checked != true) {

@@ -1,0 +1,54 @@
+//
+// Border utilities and helper classes
+//
+@use 'sass:map';
+
+// Variables.
+//
+// To load this module with configuration, use @use <url> with (<variable>: <value>, <variable>: <value>).
+// The configured values will override the variables’ default values.
+// @link: https://sass-lang.com/documentation/variables
+
+// Basic box model.
+//
+// Keys:
+//   - margin: create extra space around an element. We reduce the default web browsers margin.
+$_box-spacing: (
+    "margin": 0.5rem,
+) !default;
+
+// Line height
+//
+// Keys:
+//   - h*: line height for larger text sizes.
+//   - subheading: line height for subheading.
+//   - subheading: line height for subheading.
+//   - p : line height for main paragraph content
+$_line-spacing: (
+    "h1": calc(1ex / 0.42),
+    "h2": calc(1ex / 0.42),
+    "h3": calc(1ex / 0.38),
+    "h4": calc(1ex / 0.37),
+    "h5": calc(1ex / 0.32),
+    "h6": calc(1ex / 0.32),
+    "subheading": calc(1ex / 0.32),
+    "p": calc(1ex / 0.29),
+) !default;
+
+// Private variables
+
+$_classname: "legible";
+
+/* Improve legibility */
+
+@mixin _improveLegibility($args...) {
+    @each $element in $args {
+        #{$element} {
+            margin: map.get($_line-spacing, #{$element}) map.get($_box-spacing, "margin");
+        }
+    }
+}
+
+.#{$_classname} {
+    @include _improveLegibility(h1, h2, h3, h4, h5, h6, p);
+}
