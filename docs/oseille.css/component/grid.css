@@ -1,6 +1,5 @@
 /* Fluid grid system container styling */
 .container {
-  flex-wrap: wrap;
   margin: 0 auto;
   padding: 0 calc(1.5 * 0.5rem);
 }

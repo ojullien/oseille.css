@@ -17,18 +17,25 @@ $_box-spacing: (
     "margin": 0.5rem,
 ) !default;
 
-// Borders
+// Borders.
+//
+// Keys:
+//   - radius: rounds the corners of an element's outer border edge.
+//   - shadow: shadow effects around an element's frame.
+//   - width: thickness of the border.
 $_borders: (
     "radius": 0.125rem,
     "shadow": none,
+    "width": 1px,
 ) !default;
 
 // Palette
 $_colors: (
     "close": #121212,
     "back": #f8f8f8,
-    "hover-back": #e0e0e0, // See $primary-palette.back-darker in default/color.scss
-    "border": #909090 // See $primary-palette.border-lightest in default/color.scss,,,,,
+    "hover-back": #e0e0e0,
+    // See $primary-palette.back-darker in default/color.scss
+        "border": #909090 // See $primary-palette.border-lightest in default/color.scss,,,,,,
 ) !default;
 
 // Font sizes
@@ -105,7 +112,7 @@ $_class-name: (
         // Set to 0 to override the value from `nav`.
         margin: 0;
         border-radius: 0;
-        border: 1px solid var(--border-color, map.get($_colors, "border"));
+        border: map.get($_borders, "width") solid var(--border-color, map.get($_colors, "border"));
 
         @include stdlib.box-shadow(map.get($_borders, "shadow"));
 
@@ -176,7 +183,7 @@ $_class-name: (
             position: static;
             height: 100%;
             z-index: 1100;
-            
+
             & .#{map.get($_class-name, "close")} {
                 display: none;
             }

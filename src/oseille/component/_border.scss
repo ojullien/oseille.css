@@ -22,9 +22,11 @@ $_colors: (
 // Keys:
 //   - radius: rounds the corners of an element's outer border edge.
 //   - shadow: shadow effects around an element's frame.
+//   - width: thickness of the border.
 $_borders: (
     "radius": 0.125rem,
     "shadow": none,
+    "width": 1px,
 ) !default;
 
 // Private variables
@@ -49,7 +51,7 @@ $_box-shadow-generic: 0 (4 * 1px) (4 * 1px) 0 rgba(0, 0, 0, 0.125), 0 (2 * 1px) 
 
 // Generic bordered element class. NOTE: Uses !important.
 .#{map.get($_classnames, "generic")} {
-    border: 1px solid var(--border-color, map.get($_colors, "border")) !important;
+    border: map.get($_borders, "width") solid var(--border-color, map.get($_colors, "border")) !important;
 }
 
 // Generic rounded-border element class. NOTE: Uses !important.

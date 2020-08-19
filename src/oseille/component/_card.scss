@@ -25,9 +25,13 @@ $_box-spacing: (
 // Keys:
 //   - radius: rounds the corners of an element's outer border edge.
 //   - shadow: shadow effects around an element's frame.
+//   - width: thickness of the border.
+//   - width-alt: alternative thickness for more accessibility.
 $_borders: (
     "radius": 0.125rem,
     "shadow": none,
+    "width": 1px,
+    "width-alt": 3px,
 ) !default;
 
 // Palette.
@@ -60,7 +64,7 @@ $_primary-colors: (
 //
 // Keys:
 //   - main: line height for most elements. Accessibility concerns: Use a minimum value of 1.5 for line-height for main paragraph content.
-$-line-spacing: (
+$_line-spacing: (
     "main": 1.5,
 ) !default;
 
@@ -103,7 +107,7 @@ $_section-media-height: 200px; // Height for cards' media sections.
     background: var(--card-back-color, #{map.get($_primary-colors, "back")});
     color: var(--card-fore-color, #{map.get($_primary-colors, "fore")});
 
-    border: 1px solid var(--card-border-color, #{map.get($_primary-colors, "border")});
+    border: map.get($_borders, "width") solid var(--card-border-color, #{map.get($_primary-colors, "border")});
     border-radius: map.get($_borders, "radius");
     margin: map.get($_box-spacing, "margin");
 
@@ -121,14 +125,12 @@ $_section-media-height: 200px; // Height for cards' media sections.
 
     // Card sections
     & > .#{map.get($_classnames, "section")} {
-        // Reapply background and foreground colors, so that mixins can be applied properly.
-        background: var(--card-back-color, #{map.get($_primary-colors, "back")});
-        color: var(--card-fore-color, #{map.get($_primary-colors, "fore")});
         box-sizing: border-box;
         margin: 0;
         border: 0; // Clean borders and radiuses for any element-based sections
         border-radius: 0; // Clean borders and radiuses for any element-based sections
-        border-bottom: 1px solid var(--card-border-color, #{map.get($_primary-colors, "border")});
+        border-bottom: map.get($_borders, "width") solid
+            var(--card-border-color, #{map.get($_primary-colors, "border")});
         padding: map.get($_box-spacing, "padding");
         width: 100%;
 
@@ -144,11 +146,11 @@ $_section-media-height: 200px; // Height for cards' media sections.
 
         // Alternative sections
         &.dark {
-            background: var(--card-back-color, #{map.get($_primary-colors, "back")});
+            background: var(--card-back-color, #{map.get($_primary-colors, "alt-back")});
         }
 
         &.double-padded {
-            padding: calc(#{map.get($_line-spacing, "hr")} * #{map.get($_box-spacing, "padding")});
+            padding: calc(#{map.get($_line-spacing, "main")} * #{map.get($_box-spacing, "padding")});
         }
 
         &:last-child {
@@ -159,12 +161,14 @@ $_section-media-height: 200px; // Height for cards' media sections.
     &.warning {
         background: var(--card-back-color, #{map.get($_primary-colors, "warning-back")});
         border-color: var(--card-border-color, #{map.get($_primary-colors, "warning-border")});
+        border-width: map.get($_borders, "width-alt");
     }
 
     &.error {
         background: var(--card-back-color, #{map.get($_primary-colors, "error-back")});
         color: var(--card-fore-color, #{map.get($_primary-colors, "error-fore")});
         border-color: var(--card-border-color, #{map.get($_primary-colors, "error-border")});
+        border-width: map.get($_borders, "width-alt");
     }
 
     &.fluid {

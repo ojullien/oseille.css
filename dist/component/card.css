@@ -19,8 +19,6 @@
   text-align: center;
 }
 .card > .section {
-  background: var(--card-back-color, #f8f8f8);
-  color: var(--card-fore-color, #121212);
   box-sizing: border-box;
   margin: 0;
   border: 0;
@@ -40,10 +38,10 @@
   }
 }
 .card > .section.dark {
-  background: var(--card-back-color, #f8f8f8);
+  background: var(--card-back-color, #e0e0e0);
 }
 .card > .section.double-padded {
-  padding: calc( * 0.5rem);
+  padding: calc(1.5 * 0.5rem);
 }
 .card > .section:last-child {
   border-bottom: 0;
@@ -51,11 +49,13 @@
 .card.warning {
   background: var(--card-back-color, #ffd553);
   border-color: var(--card-border-color, #ffca28);
+  border-width: 3px;
 }
 .card.error {
   background: var(--card-back-color, #e63333);
   color: var(--card-fore-color, #f8f8f8);
   border-color: var(--card-border-color, #b30000);
+  border-width: 3px;
 }
 .card.fluid {
   max-width: 100%;

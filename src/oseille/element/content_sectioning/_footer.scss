@@ -43,6 +43,14 @@ $_colors: (
     "border": #909090,
 ) !default;
 
+// Borders.
+//
+// Keys:
+//   - width: thickness of the border.
+$_borders: (
+    "width": 1px,
+) !default;
+
 // Private variables
 
 // Classnames
@@ -64,14 +72,14 @@ footer {
     // Page footer styling.
     &.#{map.get($_classnames, "footer")} {
         // Always apply background color to avoid shine through
-        background: var(--footer-back-color, map.get($_colors, "back")); 
+        background: var(--footer-back-color, map.get($_colors, "back"));
         color: var(--footer-fore-color, map.get($_colors, "fore"));
     }
 
     @if $_only-top-border {
-        border-top: 1px solid map.get($_colors, "border");
+        border-top: map.get($_borders, "width") solid map.get($_colors, "border");
     } @else {
-        border: 1px solid map.get($_colors, "border");
+        border: map.get($_borders, "width") solid map.get($_colors, "border");
     }
 
     padding: calc(2 * #{map.get($_box-spacing, "padding")}) map.get($_box-spacing, "padding");

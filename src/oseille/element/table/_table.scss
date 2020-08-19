@@ -33,6 +33,18 @@ $colors: (
 ) !default; // Border colors
 $mobile-breakpoint: 768px !default; // Breakpoint for <table> mobile view.
 
+// Borders.
+//
+// Keys:
+//   - radius: rounds the corners of an element's outer border edge.
+//   - shadow: shadow effects around an element's frame.
+//   - width: thickness of the border.
+$_borders: (
+    "radius": 0.125rem,
+    "shadow": none,
+    "width": 1px,
+) !default;
+
 // Private variables
 
 $_include-horizontal-table: true !default; // Flag for horizontal tables (`true` \ `false`).
@@ -75,7 +87,7 @@ table {
     tbody {
         display: flex;
         flex-flow: row wrap;
-        border: var(--px) solid map.get($colors, "border");
+        border: map.get($_borders, "width") solid map.get($colors, "border");
         @if not($_include-horizontal-table) {
             max-width: 100%;
             flex: 0 0 100%;
@@ -85,7 +97,7 @@ table {
     thead {
         z-index: 999; // Fixes the visibility of the element.
         border-radius: #{$border-radius} #{$border-radius} 0 0;
-        border-bottom: var(--px) solid map.get($colors, "separator");
+        border-bottom: map.get($_borders, "width") solid map.get($colors, "separator");
         @if not($_include-horizontal-table) {
             position: sticky;
             top: 0;
@@ -128,7 +140,7 @@ table {
     td {
         background: map.get($colors, "td-back");
         color: map.get($colors, "td-fore");
-        border-top: var(--px) solid map.get($colors, "border");
+        border-top: map.get($_borders, "width") solid map.get($colors, "border");
     }
 
     @if not($_include-horizontal-table) {
@@ -219,7 +231,7 @@ table {
         td {
             width: auto;
             border: 0;
-            border-bottom: var(--px) solid map.get($colors, "border");
+            border-bottom: map.get($_borders, "width") solid map.get($colors, "border");
             &:not(:first-child) {
                 border-top: 0;
             }
@@ -227,8 +239,8 @@ table {
 
         th {
             text-align: right;
-            border-left: var(--px) solid map.get($colors, "border");
-            border-right: var(--px) solid map.get($colors, "separator");
+            border-left: map.get($_borders, "width") solid map.get($colors, "border");
+            border-right: map.get($_borders, "width") solid map.get($colors, "separator");
         }
 
         thead {
@@ -239,11 +251,11 @@ table {
 
         th:first-child,
         td:first-child {
-            border-top: var(--px) solid map.get($colors, "border");
+            border-top: map.get($_borders, "width") solid map.get($colors, "border");
         }
 
         tbody tr:last-child td {
-            border-right: var(--px) solid map.get($colors, "border");
+            border-right: map.get($_borders, "width") solid map.get($colors, "border");
 
             &:first-child {
                 border-top-right-radius: 0.25rem;
@@ -320,7 +332,7 @@ table {
 
             tr {
                 display: block;
-                border: var(--px) solid map.get($colors, "border");
+                border: map.get($_borders, "width") solid map.get($colors, "border");
                 border-radius: #{$border-radius};
 
                 @include stdlib.box-shadow($box-shadow);
@@ -386,7 +398,7 @@ table {
 
             tr {
                 display: block;
-                border: var(--px) solid map.get($colors, "border");
+                border: map.get($_borders, "width") solid map.get($colors, "border");
                 border-radius: #{$border-radius};
 
                 @include stdlib.box-shadow($box-shadow);

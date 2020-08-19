@@ -33,6 +33,18 @@ $colors: (
         "content-back-color": #fafafa
 ) !default;
 
+// Borders.
+//
+// Keys:
+//   - radius: rounds the corners of an element's outer border edge.
+//   - shadow: shadow effects around an element's frame.
+//   - width: thickness of the border.
+$_borders: (
+    "radius": 0.125rem,
+    "shadow": none,
+    "width": 1px,
+) !default;
+
 // Private variables
 $_collapse-name: "collapse" !default; // Class name for collapse component
 
@@ -67,7 +79,7 @@ $_collapse-name: "collapse" !default; // Class name for collapse component
         transition: background 0.3s;
         color: map.get($colors, "label-fore-color");
         background: map.get($colors, "label-back-color");
-        border: var(--px) solid map.get($colors, "border-color");
+        border: map.get($_borders, "width") solid map.get($colors, "border-color");
         padding: calc(1.5 * #{$padding});
         &:hover,
         &:focus {
@@ -99,7 +111,7 @@ $_collapse-name: "collapse" !default; // Class name for collapse component
             overflow: auto;
             margin: 0;
             background: map.get($colors, "content-back-color");
-            border: var(--px) solid map.get($colors, "border-color");
+            border: map.get($_borders, "width") solid map.get($colors, "border-color");
             border-top: 0;
             padding: $padding;
             clip: auto;

@@ -20,8 +20,8 @@ pre {
   font-weight: normal;
   background: var(--pre-back-color, #121212);
   color: var(--pre-fore-color, #f8f8f8);
-  border: 2px solid #222222;
-  border-left: calc(4 * 1px) solid #215cca;
+  border: medium solid #222222;
+  border-left: thick solid #215cca;
   border-radius: 0 0.125rem 0.125rem 0;
   word-break: normal;
   overflow-wrap: break-word;

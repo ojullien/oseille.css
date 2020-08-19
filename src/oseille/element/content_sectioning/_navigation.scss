@@ -29,9 +29,11 @@ $_box-spacing: (
 // Keys:
 //   - radius: rounds the corners of an element's outer border edge.
 //   - shadow: shadow effects around an element's frame.
+//   - width: thickness of the border.
 $_borders: (
     "radius": 0.125rem,
     "shadow": none,
+    "width": 1px,
 ) !default;
 
 // Line height
@@ -73,7 +75,7 @@ nav {
     background: var(--back-color, map.get($_colors, "back"));
     color: var(--fore-color, map.get($_colors, "fore"));
 
-    border: 1px solid var(--border-color, map.get($_colors, "border"));
+    border: map.get($_borders, "width") solid var(--border-color, map.get($_colors, "border"));
     border-radius: map.get($_borders, "radius");
 
     margin: map.get($_box-spacing, "margin");
@@ -115,7 +117,7 @@ nav {
                 top: calc(0 - 1px);
                 content: "";
                 height: 100%;
-                border: 1px solid var(--border-color, map.get($_colors, "border"));
+                border: map.get($_borders, "width") solid var(--border-color, map.get($_colors, "border"));
                 border-left: 0;
             }
         }

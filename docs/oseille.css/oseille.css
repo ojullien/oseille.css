@@ -221,8 +221,8 @@ pre {
   font-weight: normal;
   background: var(--pre-back-color, #121212);
   color: var(--pre-fore-color, #f8f8f8);
-  border: 2px solid #222222;
-  border-left: calc(4 * 1px) solid #215cca;
+  border: medium solid #222222;
+  border-left: thick solid #215cca;
   border-radius: 0 0.125rem 0.125rem 0;
   word-break: normal;
   overflow-wrap: break-word;
@@ -304,7 +304,7 @@ blockquote {
   margin: 0.5rem;
   padding: calc(3 * 0.5rem);
   border: 1px solid var(--border-color, #909090);
-  border-left: calc(6 * 1px) solid var(--caption-sidebar-color, #e07000);
+  border-left: 6px solid var(--caption-sidebar-color, #e07000);
   border-radius: 0 0.125rem 0.125rem 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, sans-serif;
   font-style: italic;
@@ -652,13 +652,13 @@ form {
   margin: 0.5rem;
   padding: calc(2 * 0.5rem) 0.5rem;
   --border-color: #ddd;
-  border: var(--px) solid var(--border-color);
+  border: 1px solid var(--border-color);
   border-radius: 0.125rem;
 }
 
 /* Styling for fieldset */
 fieldset {
-  border: var(--px) solid var(--border-color, #ddd);
+  border: 1px solid var(--border-color, #ddd);
   border-radius: 0.125rem;
   margin: calc(0.5rem / 4);
   padding: 0.5rem;
@@ -747,12 +747,12 @@ table thead,
 table tbody {
   display: flex;
   flex-flow: row wrap;
-  border: var(--px) solid #aaa;
+  border: 1px solid #aaa;
 }
 table thead {
   z-index: 999;
   border-radius: 0.125rem 0.125rem 0 0;
-  border-bottom: var(--px) solid #666;
+  border-bottom: 1px solid #666;
 }
 table tbody {
   border-top: 0;
@@ -777,7 +777,7 @@ table th {
 table td {
   background: #f8f8f8;
   color: #111;
-  border-top: var(--px) solid #aaa;
+  border-top: 1px solid #aaa;
 }
 
 table:not(.horizontal) {
@@ -843,7 +843,7 @@ table.horizontal th,
 table.horizontal td {
   width: auto;
   border: 0;
-  border-bottom: var(--px) solid #aaa;
+  border-bottom: 1px solid #aaa;
 }
 table.horizontal th:not(:first-child),
 table.horizontal td:not(:first-child) {
@@ -851,18 +851,18 @@ table.horizontal td:not(:first-child) {
 }
 table.horizontal th {
   text-align: right;
-  border-left: var(--px) solid #aaa;
-  border-right: var(--px) solid #666;
+  border-left: 1px solid #aaa;
+  border-right: 1px solid #666;
 }
 table.horizontal thead tr:first-child {
   padding-left: 0;
 }
 table.horizontal th:first-child,
 table.horizontal td:first-child {
-  border-top: var(--px) solid #aaa;
+  border-top: 1px solid #aaa;
 }
 table.horizontal tbody tr:last-child td {
-  border-right: var(--px) solid #aaa;
+  border-right: 1px solid #aaa;
 }
 table.horizontal tbody tr:last-child td:first-child {
   border-top-right-radius: 0.25rem;
@@ -908,7 +908,7 @@ table.horizontal tbody {
   table tr,
 table.horizontal tr {
     display: block;
-    border: var(--px) solid #aaa;
+    border: 1px solid #aaa;
     border-radius: 0.125rem;
     background: #fafafa;
     padding: 0.5rem;
@@ -1295,7 +1295,7 @@ header {
   transition: background 0.3s;
   color: #212121;
   background: #e8e8e8;
-  border: var(--px) solid #ddd;
+  border: 1px solid #ddd;
   padding: calc(1.5 * 0.5rem);
 }
 .collapse > label:hover, .collapse > label:focus {
@@ -1327,7 +1327,7 @@ header {
   overflow: auto;
   margin: 0;
   background: #fafafa;
-  border: var(--px) solid #ddd;
+  border: 1px solid #ddd;
   border-top: 0;
   padding: 0.5rem;
   clip: auto;
@@ -1424,7 +1424,6 @@ header {
 
 /* Fluid grid system container styling */
 .container {
-  flex-wrap: wrap;
   margin: 0 auto;
   padding: 0 calc(1.5 * 0.5rem);
 }
@@ -1897,9 +1896,12 @@ header {
   margin: 0.5rem;
   overflow: hidden;
 }
+.card.hero {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
 .card > .section {
-  background: var(--card-back-color, #f8f8f8);
-  color: var(--card-fore-color, #121212);
   box-sizing: border-box;
   margin: 0;
   border: 0;
@@ -1919,10 +1921,10 @@ header {
   }
 }
 .card > .section.dark {
-  background: var(--card-back-color, #f8f8f8);
+  background: var(--card-back-color, #e0e0e0);
 }
 .card > .section.double-padded {
-  padding: calc( * 0.5rem);
+  padding: calc(1.5 * 0.5rem);
 }
 .card > .section:last-child {
   border-bottom: 0;
@@ -1930,11 +1932,13 @@ header {
 .card.warning {
   background: var(--card-back-color, #ffd553);
   border-color: var(--card-border-color, #ffca28);
+  border-width: 3px;
 }
 .card.error {
   background: var(--card-back-color, #e63333);
   color: var(--card-fore-color, #f8f8f8);
   border-color: var(--card-border-color, #b30000);
+  border-width: 3px;
 }
 .card.fluid {
   max-width: 100%;
@@ -1961,6 +1965,7 @@ header {
 .card p {
   width: unset;
   max-width: unset;
+  text-align: unset;
 }
 
 /* Styling for modal dialogs */

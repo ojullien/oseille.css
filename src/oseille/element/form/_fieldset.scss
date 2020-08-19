@@ -15,11 +15,21 @@ $colors: (
         "border": #ddd
 ) !default;
 
+// Borders.
+//
+// Keys:
+//   - radius: rounds the corners of an element's outer border edge.
+//   - width: thickness of the border.
+$_borders: (
+    "radius": 0.125rem,
+    "width": 1px,
+) !default;
+
 /* Styling for fieldset */
 
 fieldset {
     // Apply always to overwrite defaults for all of the below.
-    border: var(--px) solid var(--border-color, map.get($colors, "border"));
+    border: map.get($_borders, "width") solid var(--border-color, map.get($colors, "border"));
     border-radius: $border-radius;
     margin: calc(#{$margin} / 4);
     padding: $padding;

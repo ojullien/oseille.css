@@ -28,8 +28,10 @@ $_box-spacing: (
 //
 // Keys:
 //   - radius: rounds the corners of an element's outer border edge.
+//   - width: thickness of the border.
 $_borders: (
     "radius": 0.125rem,
+    "width": 1px,
 ) !default;
 
 // Palette.
@@ -43,7 +45,7 @@ $_colors: (
 /* Details styling */
 
 details {
-    border: 1px solid var(--border-color, map.get($_colors, "border"));
+    border: map.get($_borders, "width") solid var(--border-color, map.get($_colors, "border"));
     border-radius: map.get($_borders, "radius");
     padding: map.get($_box-spacing, "padding");
     margin: map.get($_box-spacing, "margin");
@@ -54,7 +56,7 @@ details {
         padding: map.get($_box-spacing, "padding");
 
         summary {
-            border-bottom: 1px solid var(--border-color, map.get($_colors, "border"));
+            border-bottom: map.get($_borders, "width") solid var(--border-color, map.get($_colors, "border"));
             padding-bottom: map.get($_box-spacing, "margin");
         }
     }

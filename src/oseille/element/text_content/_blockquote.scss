@@ -26,7 +26,16 @@
 // Keys:
 //   - caption: Font stack 'for <q> <figcaption> <blockquote>
 $_font-stacks: (
-    "caption": (-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, sans-serif),
+    "caption": (
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Ubuntu,
+        "Helvetica Neue",
+        Helvetica,
+        sans-serif,
+    ),
 ) !default;
 
 // Font sizes
@@ -68,9 +77,11 @@ $_box-spacing: (
 // Keys:
 //   - radius: rounds the corners of an element's outer border edge.
 //   - shadow: shadow effects around an element's frame.
+//   - width: thickness of the border.
 $_borders: (
     "radius": 0.125rem,
     "shadow": none,
+    "width": 1px,
 ) !default;
 
 /* Blockquote styling */
@@ -95,8 +106,8 @@ blockquote {
     margin: map.get($_box-spacing, "margin");
     padding: calc(3 * #{map.get($_box-spacing, "padding")});
 
-    border: 1px solid var(--border-color, map.get($_colors, "border"));
-    border-left: calc(6 * 1px) solid var(--caption-sidebar-color, map.get($_colors, "sidebar"));
+    border: map.get($_borders, "width") solid var(--border-color, map.get($_colors, "border"));
+    border-left: 6px solid var(--caption-sidebar-color, map.get($_colors, "sidebar"));
     border-radius: 0 map.get($_borders, "radius") map.get($_borders, "radius") 0;
 
     font-family: map.get($_font-stacks, "caption");

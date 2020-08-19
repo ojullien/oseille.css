@@ -20,6 +20,18 @@ $colors: (
         "border": #ddd
 ) !default;
 
+// Borders.
+//
+// Keys:
+//   - radius: rounds the corners of an element's outer border edge.
+//   - shadow: shadow effects around an element's frame.
+//   - width: thickness of the border.
+$_borders: (
+    "radius": 0.125rem,
+    "shadow": none,
+    "width": 1px,
+) !default;
+
 /* Styling for form */
 
 form {
@@ -31,7 +43,7 @@ form {
     padding: calc(2 * #{$padding}) $padding;
 
     --border-color: #{map.get($colors, "border")};
-    border: var(--px) solid var(--border-color);
+    border: map.get($_borders, "width") solid var(--border-color);
     border-radius: $border-radius;
 
     @include stdlib.box-shadow($box-shadow);

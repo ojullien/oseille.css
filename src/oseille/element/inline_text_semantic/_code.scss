@@ -29,7 +29,11 @@
 // Keys:
 //   - code: Code font stack
 $_font-stacks: (
-    "code": (Menlo, Consolas, monospace),
+    "code": (
+        Menlo,
+        Consolas,
+        monospace,
+    ),
 ) !default;
 
 // Font sizes
@@ -63,9 +67,11 @@ $_line-spacing: (
 // Keys:
 //   - radius: rounds the corners of an element's outer border edge.
 //   - shadow: shadow effects around an element's frame.
+//   - width: thickness of the border.
 $_borders: (
     "radius": 0.125rem,
     "shadow": none,
+    "width": 1px,
 ) !default;
 
 // Main colors.
@@ -113,8 +119,8 @@ pre {
 
     @include stdlib.box-shadow(map.get($_borders, "shadow"));
 
-    border: 2px solid map.get($_colors, "border");
-    border-left: calc(4 * 1px) solid map.get($_colors, "sidebar");
+    border: medium solid map.get($_colors, "border");
+    border-left: thick solid map.get($_colors, "sidebar");
     border-radius: 0 #{map.get($_borders, "radius")} #{map.get($_borders, "radius")} 0;
 
     word-break: normal;

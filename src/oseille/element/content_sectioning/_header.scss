@@ -44,6 +44,14 @@ $_line-spacing: (
     "main": 1.5,
 );
 
+// Borders.
+//
+// Keys:
+//   - width: thickness of the border.
+$_borders: (
+    "width": 1px,
+) !default;
+
 // Height of the header element.
 $_height: 3.1875rem !default;
 
@@ -91,9 +99,9 @@ header {
     color: var(--header-fore-color, map.get($_colors, "fore"));
 
     @if $_only-bottom-border {
-        border-bottom: 1px solid map.get($_colors, "border");
+        border-bottom: map.get($_borders, "width") solid map.get($_colors, "border");
     } @else {
-        border: 1px solid map.get($_colors, "border");
+        border: map.get($_borders, "width") solid map.get($_colors, "border");
     }
 
     padding: calc(#{map.get($_box-spacing, "padding")} / 4) 0;

@@ -27,9 +27,13 @@ $_box-spacing: (
 // Keys:
 //   - radius: rounds the corners of an element's outer border edge.
 //   - shadow: shadow effects around an element's frame.
+//   - width: thickness of the border.
+//   - width-alt: alternative thickness for more accessibility.
 $_borders: (
     "radius": 0.125rem,
     "shadow": none,
+    "width": 1px,
+    "width-alt": 3px,
 ) !default;
 
 // Main colors
@@ -175,7 +179,7 @@ label[role="button"],
     background: var(--button-back-color, #{map.get($_primary-palette, "back-darker")}); // Allows live color tunning
     color: var(--button-fore-color, #{map.get($_colors, "fore")}); // Allows live color tunning
 
-    border: 1px solid var(--button-border-color, #{map.get($_colors, "border")});
+    border: map.get($_borders, "width") solid var(--button-border-color, #{map.get($_colors, "border")});
     border-radius: map.get($_borders, "radius");
 
     padding: #{map.get($_box-spacing, "padding")} calc(#{map.get($_line-spacing, "main")} * #{map.get(
@@ -284,7 +288,7 @@ button,
 .#{map.get($_classnames, "group")} {
     display: flex;
 
-    border: 1px solid var(--button-group-border-color, #{map.get($_colors, "group-border")});
+    border: map.get($_borders, "width") solid var(--button-group-border-color, #{map.get($_colors, "group-border")});
     border-radius: map.get($_borders, "radius");
 
     margin: map.get($_box-spacing, "margin");
@@ -307,7 +311,8 @@ button,
     }
 
     & > :not(:first-child) {
-        border-left: 1px solid var(--button-group-border-color, #{map.get($_colors, "group-border")});
+        border-left: map.get($_borders, "width") solid
+            var(--button-group-border-color, #{map.get($_colors, "group-border")});
     }
 
     // Responsiveness for button groups
@@ -315,7 +320,8 @@ button,
         flex-direction: column;
         & > :not(:first-child) {
             border: 0; // Reapply to remove the left border from elements.
-            border-top: 1px solid var(--button-group-border-color, #{map.get($_colors, "group-border")});
+            border-top: map.get($_borders, "width") solid
+                var(--button-group-border-color, #{map.get($_colors, "group-border")});
         }
     }
 }
