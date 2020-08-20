@@ -62,7 +62,7 @@ header {
 .page-header [role=button]:focus {
   background: var(--header-hover-back-color, #e0e0e0);
   color: var(--header-hover-fore-color, #121212);
-  font-weight: bolder;
+  transform: scale(1.05);
 }
 @supports (position: sticky) or (position: -webkit-sticky) {
   .page-header.sticky {

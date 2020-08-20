@@ -63,7 +63,9 @@ $font-stacks: (
 //   - small: Font size for small element ( <small>, <sub>, <sup>)
 //   - code: Font size for monospace element like <code>, <kbd>, ...
 //   - cite: Font size for the [cite] of <blockquote>
-//   - caption: Font size for the <figcaption>
+//   - caption: Font size for the <figcaption> element
+//   - legend: Font size for the <legend> element
+//   - label: Font size for the <label> element
 //   - quotation: Font size for the quotation of <blockquote>
 $font-sizes: (
     "accessible": 100%,
@@ -76,6 +78,8 @@ $font-sizes: (
     "mark": 0.95em,
     "cite": 1em,
     "caption": 1em,
+    "legend": 1em,
+    "label": 1em,
     "quotation": 3em,
 );
 

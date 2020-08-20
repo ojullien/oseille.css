@@ -33,7 +33,7 @@ label[role=button],
   display: inline-block;
   background: var(--button-back-color, #e0e0e0);
   color: var(--button-fore-color, #121212);
-  border: 1px solid var(--button-border-color, transparent);
+  border: 3px solid var(--button-border-color, #4e4e4e);
   border-radius: 0.125rem;
   padding: 0.5rem calc(1.5 * 0.5rem);
   margin: 0.5rem;
@@ -75,32 +75,33 @@ label[role=button]:focus,
 [role=button]:hover,
 [role=button]:focus {
   background: var(--button-hover-back-color, #c6c6c6);
-  border-color: var(--button-border-hover-color, transparent);
+  border-color: var(--button-border-hover-color, );
+  transform: scale(1.05);
 }
 
-button.primary,
-[type=button].primary,
-[type=submit].primary,
-[type=reset].primary,
-.button.primary,
-[role=button].primary {
+button.noborder,
+[type=button].noborder,
+[type=submit].noborder,
+[type=reset].noborder,
+.button.noborder,
+[role=button].noborder {
   color: var(--button-fore-color, #121212);
   background: var(--button-back-color, #e0e0e0);
-  border-color: var(--button-border-color, #4e4e4e);
+  border-color: var(--button-border-color, transparent);
 }
-button.primary:hover, button.primary:focus,
-[type=button].primary:hover,
-[type=button].primary:focus,
-[type=submit].primary:hover,
-[type=submit].primary:focus,
-[type=reset].primary:hover,
-[type=reset].primary:focus,
-.button.primary:hover,
-.button.primary:focus,
-[role=button].primary:hover,
-[role=button].primary:focus {
+button.noborder:hover, button.noborder:focus,
+[type=button].noborder:hover,
+[type=button].noborder:focus,
+[type=submit].noborder:hover,
+[type=submit].noborder:focus,
+[type=reset].noborder:hover,
+[type=reset].noborder:focus,
+.button.noborder:hover,
+.button.noborder:focus,
+[role=button].noborder:hover,
+[role=button].noborder:focus {
   background: var(--button-hover-back-color, #c6c6c6);
-  border-color: var(--button-border-hover-color, #4e4e4e);
+  border-color: var(--button-border-hover-color, transparent);
 }
 button.secondary,
 [type=button].secondary,

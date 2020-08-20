@@ -144,7 +144,8 @@ header {
 
         text-align: center;
 
-        background: inherit; // Apply color regardless to override styling from other things.
+        // Apply color regardless to override styling from other things.
+        background: inherit; 
         color: inherit;
 
         border: 0;
@@ -184,7 +185,7 @@ header {
         &:focus {
             background: var(--header-hover-back-color, map.get($_colors, "hover-back"));
             color: var(--header-hover-fore-color, map.get($_colors, "hover-fore"));
-            font-weight: bolder; // Accessibility
+            transform: scale(1.05); // Accessibility
         }
     }
 
