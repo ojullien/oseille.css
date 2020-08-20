@@ -33,7 +33,7 @@ label[role=button],
   display: inline-block;
   background: var(--button-back-color, #e0e0e0);
   color: var(--button-fore-color, #121212);
-  border: 3px solid var(--button-border-color, #4e4e4e);
+  border: 3px solid var(--button-border-color, #222222);
   border-radius: 0.125rem;
   padding: 0.5rem calc(1.5 * 0.5rem);
   margin: 0.5rem;
@@ -55,28 +55,32 @@ label[role=button],
     cursor: pointer;
   }
 }
-button:hover, button:focus,
+button:hover,
 [type=button]:hover,
-[type=button]:focus,
 [type=submit]:hover,
-[type=submit]:focus,
 [type=reset]:hover,
-[type=reset]:focus,
 a.button:hover,
-a.button:focus,
 label.button:hover,
-label.button:focus,
 .button:hover,
-.button:focus,
 a[role=button]:hover,
-a[role=button]:focus,
 label[role=button]:hover,
-label[role=button]:focus,
-[role=button]:hover,
-[role=button]:focus {
+[role=button]:hover {
+  outline: 0;
   background: var(--button-hover-back-color, #c6c6c6);
-  border-color: var(--button-border-hover-color, );
   transform: scale(1.05);
+}
+button:focus,
+[type=button]:focus,
+[type=submit]:focus,
+[type=reset]:focus,
+a.button:focus,
+label.button:focus,
+.button:focus,
+a[role=button]:focus,
+label[role=button]:focus,
+[role=button]:focus {
+  outline: 0;
+  box-shadow: 0 0 0 5px var(--button-border-focus-color, #909090);
 }
 
 button.noborder,
@@ -89,19 +93,22 @@ button.noborder,
   background: var(--button-back-color, #e0e0e0);
   border-color: var(--button-border-color, transparent);
 }
-button.noborder:hover, button.noborder:focus,
+button.noborder:hover,
 [type=button].noborder:hover,
-[type=button].noborder:focus,
 [type=submit].noborder:hover,
-[type=submit].noborder:focus,
 [type=reset].noborder:hover,
-[type=reset].noborder:focus,
 .button.noborder:hover,
-.button.noborder:focus,
-[role=button].noborder:hover,
-[role=button].noborder:focus {
+[role=button].noborder:hover {
   background: var(--button-hover-back-color, #c6c6c6);
   border-color: var(--button-border-hover-color, transparent);
+}
+button.noborder:focus,
+[type=button].noborder:focus,
+[type=submit].noborder:focus,
+[type=reset].noborder:focus,
+.button.noborder:focus,
+[role=button].noborder:focus {
+  box-shadow: 0 0 0 5px var(--button-border-focus-color, #909090);
 }
 button.secondary,
 [type=button].secondary,
@@ -111,21 +118,24 @@ button.secondary,
 [role=button].secondary {
   color: var(--button-fore-color, #121212);
   background: var(--button-back-color, #f8f8f8);
-  border-color: var(--button-border-color, #4e4e4e);
+  border-color: var(--button-border-color, #222222);
 }
-button.secondary:hover, button.secondary:focus,
+button.secondary:hover,
 [type=button].secondary:hover,
-[type=button].secondary:focus,
 [type=submit].secondary:hover,
-[type=submit].secondary:focus,
 [type=reset].secondary:hover,
-[type=reset].secondary:focus,
 .button.secondary:hover,
-.button.secondary:focus,
-[role=button].secondary:hover,
-[role=button].secondary:focus {
+[role=button].secondary:hover {
   background: var(--button-hover-back-color, #e0e0e0);
-  border-color: var(--button-border-hover-color, #4e4e4e);
+  border-color: var(--button-border-hover-color, #222222);
+}
+button.secondary:focus,
+[type=button].secondary:focus,
+[type=submit].secondary:focus,
+[type=reset].secondary:focus,
+.button.secondary:focus,
+[role=button].secondary:focus {
+  box-shadow: 0 0 0 5px var(--button-border-focus-color, #909090);
 }
 button.tertiary,
 [type=button].tertiary,
@@ -137,19 +147,22 @@ button.tertiary,
   background: var(--button-back-color, #f8f8f8);
   border-color: var(--button-border-color, transparent);
 }
-button.tertiary:hover, button.tertiary:focus,
+button.tertiary:hover,
 [type=button].tertiary:hover,
-[type=button].tertiary:focus,
 [type=submit].tertiary:hover,
-[type=submit].tertiary:focus,
 [type=reset].tertiary:hover,
-[type=reset].tertiary:focus,
 .button.tertiary:hover,
-.button.tertiary:focus,
-[role=button].tertiary:hover,
-[role=button].tertiary:focus {
+[role=button].tertiary:hover {
   background: var(--button-hover-back-color, #e0e0e0);
-  border-color: var(--button-border-hover-color, transparent);
+  border-color: var(--button-border-hover-color, #222222);
+}
+button.tertiary:focus,
+[type=button].tertiary:focus,
+[type=submit].tertiary:focus,
+[type=reset].tertiary:focus,
+.button.tertiary:focus,
+[role=button].tertiary:focus {
+  box-shadow: 0 0 0 5px var(--button-border-focus-color, #909090);
 }
 button.inverse,
 [type=button].inverse,
@@ -160,18 +173,21 @@ button.inverse,
   color: var(--button-fore-color, #e0e0e0);
   background: var(--button-back-color, #121212);
 }
-button.inverse:hover, button.inverse:focus,
+button.inverse:hover,
 [type=button].inverse:hover,
-[type=button].inverse:focus,
 [type=submit].inverse:hover,
-[type=submit].inverse:focus,
 [type=reset].inverse:hover,
-[type=reset].inverse:focus,
 .button.inverse:hover,
-.button.inverse:focus,
-[role=button].inverse:hover,
-[role=button].inverse:focus {
+[role=button].inverse:hover {
   background: var(--button-hover-back-color, #898989);
+}
+button.inverse:focus,
+[type=button].inverse:focus,
+[type=submit].inverse:focus,
+[type=reset].inverse:focus,
+.button.inverse:focus,
+[role=button].inverse:focus {
+  box-shadow: 0 0 0 5px var(--button-border-focus-color, #909090);
 }
 button.small,
 [type=button].small,
@@ -198,6 +214,7 @@ button:disabled, button[disabled],
 [role=button]:disabled,
 [role=button][disabled] {
   opacity: 0.75;
+  transform: none;
 }
 @supports (cursor: not-allowed) {
   button:disabled, button[disabled],
@@ -206,6 +223,15 @@ button:disabled, button[disabled],
 [role=button]:disabled,
 [role=button][disabled] {
     cursor: not-allowed;
+  }
+}
+@supports (filter: grayscale(60%)) {
+  button:disabled, button[disabled],
+.button:disabled,
+.button[disabled],
+[role=button]:disabled,
+[role=button][disabled] {
+    filter: grayscale(60%);
   }
 }
 

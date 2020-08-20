@@ -50,8 +50,8 @@ $_borders: (
 $_colors: (
     "fore": #121212,
     "back": #f8f8f8,
-    "border": transparent,
-    "border-hover": transparent,
+    "transparent": transparent,
+    "border": #222222,
     "group-border": #909090,
     "fore-darkest": #0e0e0e,
     "fore-darker": #282828,
@@ -115,17 +115,25 @@ $_disabled-opacity: 0.75;
 //  $back-hover: Background color for button variant (hover).
 //  $border: Border color for button variant.
 //  $border-hover: Border color for button variant (hover).
-@mixin makeColorVariant($fore, $back, $border, $back-hover, $border-hover) {
+//  $border-focus: Border color for button variant (focus).
+@mixin makeColorVariant($fore, $back, $border, $back-hover, $border-hover, $border-focus) {
     color: var(--button-fore-color, #{$fore});
     background: var(--button-back-color, #{$back});
+
     @if $border != none {
         border-color: var(--button-border-color, #{$border});
     }
-    &:hover,
-    &:focus {
+
+    &:hover {
         background: var(--button-hover-back-color, #{$back-hover});
         @if $border-hover != none {
             border-color: var(--button-border-hover-color, #{$border-hover});
+        }
+    }
+
+    &:focus {
+        @if $border-focus != none {
+            box-shadow: 0 0 0 5px var(--button-border-focus-color, #{$border-focus});
         }
     }
 }
@@ -173,7 +181,7 @@ label[role="button"],
     background: var(--button-back-color, #{map.get($_colors, "back-darker")});
     color: var(--button-fore-color, #{map.get($_colors, "fore")});
 
-    border: map.get($_borders, "width-alt") solid var(--button-border-color, #{map.get($_colors, "border-lighter")});
+    border: map.get($_borders, "width-alt") solid var(--button-border-color, #{map.get($_colors, "border")});
     border-radius: map.get($_borders, "radius");
 
     padding: #{map.get($_box-spacing, "padding")} calc(#{map.get($_line-spacing, "main")} * #{map.get(
@@ -192,11 +200,15 @@ label[role="button"],
 
     transition: background 0.3s;
 
-    &:hover,
-    &:focus {
+    &:hover {
+        outline: 0;
         background: var(--button-hover-back-color, #{map.get($_colors, "back-darkest")});
-        border-color: var(--button-border-hover-color, #{map.get($_colors, "border-lighte")});
         transform: scale(1.05); // Accessibility
+    }
+
+    &:focus {
+        outline: 0;
+        box-shadow: 0 0 0 5px var(--button-border-focus-color, map.get($_colors, "border-lightest"));
     }
 }
 
@@ -211,9 +223,10 @@ button,
         @include makeColorVariant(
             #{map.get($_colors, "fore")},
             #{map.get($_colors, "back-darker")},
-            #{map.get($_colors, "border")},
+            #{map.get($_colors, "transparent")},
             #{map.get($_colors, "back-darkest")},
-            #{map.get($_colors, "border-hover")}
+            #{map.get($_colors, "transparent")},
+            #{map.get($_colors, "border-lightest")}
         );
     }
 
@@ -221,9 +234,10 @@ button,
         @include makeColorVariant(
             #{map.get($_colors, "fore")},
             #{map.get($_colors, "back")},
-            #{map.get($_colors, "border-lighter")},
+            #{map.get($_colors, "border")},
             #{map.get($_colors, "back-darker")},
-            #{map.get($_colors, "border-lighter")}
+            #{map.get($_colors, "border")},
+            #{map.get($_colors, "border-lightest")}
         );
     }
 
@@ -231,9 +245,10 @@ button,
         @include makeColorVariant(
             #{map.get($_colors, "fore")},
             #{map.get($_colors, "back")},
-            #{map.get($_colors, "border")},
+            #{map.get($_colors, "transparent")},
             #{map.get($_colors, "back-darker")},
-            #{map.get($_colors, "border-hover")}
+            #{map.get($_colors, "border")},
+            #{map.get($_colors, "border-lightest")}
         );
     }
 
@@ -243,7 +258,8 @@ button,
             #{map.get($_colors, "fore")},
             none,
             #{map.get($_colors, "fore-lightest")},
-            none
+            none,
+            #{map.get($_colors, "border-lightest")}
         );
     }
 
@@ -274,7 +290,11 @@ button,
         @supports (cursor: not-allowed) {
             cursor: not-allowed;
         }
+        @supports (filter: grayscale(60%)) {
+            filter: grayscale(60%);
+        }
         opacity: $_disabled-opacity;
+        transform: none;
     }
 }
 
