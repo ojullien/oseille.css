@@ -16,13 +16,19 @@ $padding: 0.5rem !default; // Universal padding for the most elements
 $box-shadow: none !default; // Universal box-shadow for most elements
 $label-height: 1.5rem !default; // Height for the labels in the collapse component
 $content-max-height: 400px !default; // Max height for the content panes in the collapse component
-$colors: (
-    // Background color for labels in the collapse component
-        "label-back-color": #e8e8e8,
-    // Text color for labels in the collapse component
-        "label-fore-color": #212121,
-    // Background color for labels in the collapse component (hover)
-        "label-hover-back-color": #f0f0f0,
+
+// Palette.
+//
+// Keys:
+//   - fore: text & foreground color
+//   - back: background color
+//   - back-hover: background color on hover
+$_colors: (
+    "fore": #121212,
+    "back": #f8f8f8,
+    "back-hover": #e0e0e0,
+
+
     // Background color for selected labels in the collapse component
         "selected-label-back-color": #ececec,
     // Border color for collapse component
@@ -77,13 +83,13 @@ $_collapse-name: "collapse" !default; // Class name for collapse component
         height: $label-height;
         cursor: pointer;
         transition: background 0.3s;
-        color: map.get($colors, "label-fore-color");
-        background: map.get($colors, "label-back-color");
-        border: map.get($_borders, "width") solid map.get($colors, "border-color");
+        color: map.get($_colors, "fore");
+        background: map.get($_colors, "back");
+        border: map.get($_borders, "width") solid map.get($_colors, "border-color");
         padding: calc(1.5 * #{$padding});
         &:hover,
         &:focus {
-            background: map.get($colors, "label-hover-back-color");
+            background: map.get($_colors, "back-hover");
         }
         + div {
             flex-basis: -webkit-auto;
@@ -101,8 +107,8 @@ $_collapse-name: "collapse" !default; // Class name for collapse component
         }
     }
     > :checked + label {
-        background: map.get($colors, "selected-label-back-color");
-        border-bottom-color: map.get($colors, "selected-label-border-color");
+        background: map.get($_colors, "selected-label-back-color");
+        border-bottom-color: map.get($_colors, "selected-label-border-color");
         & + div {
             box-sizing: border-box;
             position: relative;
@@ -110,8 +116,8 @@ $_collapse-name: "collapse" !default; // Class name for collapse component
             height: auto;
             overflow: auto;
             margin: 0;
-            background: map.get($colors, "content-back-color");
-            border: map.get($_borders, "width") solid map.get($colors, "border-color");
+            background: map.get($_colors, "content-back-color");
+            border: map.get($_borders, "width") solid map.get($_colors, "border-color");
             border-top: 0;
             padding: $padding;
             clip: auto;
