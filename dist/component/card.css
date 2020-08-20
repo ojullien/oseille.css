@@ -8,7 +8,7 @@
   width: 100%;
   background: var(--card-back-color, #f8f8f8);
   color: var(--card-fore-color, #121212);
-  border: 1px solid var(--card-border-color, #222222);
+  border: 1px solid var(--card-border-color, #909090);
   border-radius: 0.125rem;
   margin: 0.5rem;
   overflow: hidden;
@@ -23,7 +23,7 @@
   margin: 0;
   border: 0;
   border-radius: 0;
-  border-bottom: 1px solid var(--card-border-color, #222222);
+  border-bottom: 1px solid var(--card-border-color, #909090);
   padding: 0.5rem;
   width: 100%;
 }
@@ -47,14 +47,14 @@
   border-bottom: 0;
 }
 .card.warning {
-  background: var(--card-back-color, #ffd553);
-  border-color: var(--card-border-color, #ffca28);
+  background: var(--warning-back-color, #ffdc00);
+  border-color: var(--warning-border-color, #ccb000);
   border-width: 3px;
 }
 .card.error {
-  background: var(--card-back-color, #e63333);
-  color: var(--card-fore-color, #f8f8f8);
-  border-color: var(--card-border-color, #b30000);
+  background: var(--error-back-color, #ad0000);
+  color: var(--error-fore-color, #f8f8f8);
+  border-color: var(--error-border-color, #8a0000);
   border-width: 3px;
 }
 .card.fluid {

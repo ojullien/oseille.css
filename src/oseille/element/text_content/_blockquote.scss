@@ -53,12 +53,12 @@ $_font-sizes: (
 // Keys:
 //   - fore: text & foreground color
 //   - back: background color
-//   - border: border color. See $secondary-colors.blue in default/color.scss
+//   - border: border color. See $primary-palette.border-lightest in default/color.scss
 //   - sidebar: <blockquote> sidebar and quotation color. See $secondary-colors.orange in default/color.scss
 $_colors: (
     "fore": #121212,
     "back": #f8f8f8,
-    "sidebar": #e07000,
+    "sidebar": #ff851b,
     "border": #909090,
 ) !default;
 

@@ -75,9 +75,10 @@ $primary-palette: (
 //   - orange: sidebar
 $secondary-colors: (
     "blue": #215cca,
-    "red": #e00000,
-    "green": #218003,
-    "orange": #e07000,
+    "red": #ad0000,
+    "green": #2ecc40,
+    "orange": #ff851b,
+    "yellow": #ffdc00,
 );
 
 // Secondary colors palette.
@@ -98,6 +99,13 @@ $secondary-palette: (
     "green-darkest": shade(map.get($secondary-colors, "green"), 20%),
     "green-darker": tone(map.get($secondary-colors, "green"), 20%),
     "green-lighter": tint(map.get($secondary-colors, "green"), 20%),
-    "green-lightest": #619c4f,
+    "green-lightest":tint(map.get($secondary-colors, "green"), 38%),
+    "orange-darkest": shade(map.get($secondary-colors, "orange"), 20%),
+    "orange-darker": tone(map.get($secondary-colors, "orange"), 20%),
+    "orange-lighter": tint(map.get($secondary-colors, "orange"), 20%),
+    "orange-lightest": tint(map.get($secondary-colors, "orange"), 38%),    
+    "yellow-darkest": shade(map.get($secondary-colors, "yellow"), 20%),
+    "yellow-darker": tone(map.get($secondary-colors, "yellow"), 20%),
+    "yellow-lighter": tint(map.get($secondary-colors, "yellow"), 20%),
+    "yellow-lightest": tint(map.get($secondary-colors, "yellow"), 38%),
 );
-

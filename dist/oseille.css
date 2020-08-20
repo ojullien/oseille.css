@@ -24,8 +24,8 @@ body {
   margin: 0;
   padding: 0;
   border: 0;
-  color: #121212;
-  background: #f8f8f8;
+  color: var(--fore-color, #121212);
+  background: var(--back-color, #f8f8f8);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, sans-serif;
   font-size: medium;
   --smaller: 0.75em;
@@ -162,8 +162,8 @@ mark {
   padding: calc(0.5rem / 4) calc(0.5rem / 2);
   border: 0;
   border-radius: 0.125rem;
-  background: #215cca;
-  color: #f8f8f8;
+  background: var(--primary-color, #215cca);
+  color: var(--back-color, #f8f8f8);
   font-size: 0.95em;
   line-height: 1.5;
 }
@@ -178,10 +178,11 @@ mark.tag {
   border-radius: 1em;
 }
 mark.secondary {
-  background: #e00000;
+  background: var(--secondary-color, #ad0000);
 }
 mark.tertiary {
-  background: #218003;
+  background: var(--tertiary-color, #2ecc40);
+  color: var(--fore-color, #121212);
 }
 mark:before, mark:after {
   clip-path: inset(100%);
@@ -304,7 +305,7 @@ blockquote {
   margin: 0.5rem;
   padding: calc(3 * 0.5rem);
   border: 1px solid var(--border-color, #909090);
-  border-left: 6px solid var(--caption-sidebar-color, #e07000);
+  border-left: 6px solid var(--caption-sidebar-color, #ff851b);
   border-radius: 0 0.125rem 0.125rem 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, sans-serif;
   font-style: italic;
@@ -320,7 +321,7 @@ blockquote:before {
   font-size: 3em;
   font-weight: 700;
   content: "“";
-  color: var(--caption-sidebar-color, #e07000);
+  color: var(--caption-sidebar-color, #ff851b);
 }
 blockquote[cite]:after {
   font-style: normal;
@@ -980,7 +981,7 @@ img {
 
 /* Details styling */
 details {
-  border: 1px solid var(--border-color, #222222);
+  border: 1px solid var(--border-color, #909090);
   border-radius: 0.125rem;
   padding: 0.5rem;
   margin: 0.5rem;
@@ -990,7 +991,7 @@ details[open] {
   padding: 0.5rem;
 }
 details[open] summary {
-  border-bottom: 1px solid var(--border-color, #222222);
+  border-bottom: 1px solid var(--border-color, #909090);
   padding-bottom: 0.5rem;
 }
 
@@ -1891,7 +1892,7 @@ header {
   width: 100%;
   background: var(--card-back-color, #f8f8f8);
   color: var(--card-fore-color, #121212);
-  border: 1px solid var(--card-border-color, #222222);
+  border: 1px solid var(--card-border-color, #909090);
   border-radius: 0.125rem;
   margin: 0.5rem;
   overflow: hidden;
@@ -1906,7 +1907,7 @@ header {
   margin: 0;
   border: 0;
   border-radius: 0;
-  border-bottom: 1px solid var(--card-border-color, #222222);
+  border-bottom: 1px solid var(--card-border-color, #909090);
   padding: 0.5rem;
   width: 100%;
 }
@@ -1930,14 +1931,14 @@ header {
   border-bottom: 0;
 }
 .card.warning {
-  background: var(--card-back-color, #ffd553);
-  border-color: var(--card-border-color, #ffca28);
+  background: var(--warning-back-color, #ffdc00);
+  border-color: var(--warning-border-color, #ccb000);
   border-width: 3px;
 }
 .card.error {
-  background: var(--card-back-color, #e63333);
-  color: var(--card-fore-color, #f8f8f8);
-  border-color: var(--card-border-color, #b30000);
+  background: var(--error-back-color, #ad0000);
+  color: var(--error-fore-color, #f8f8f8);
+  border-color: var(--error-border-color, #8a0000);
   border-width: 3px;
 }
 .card.fluid {

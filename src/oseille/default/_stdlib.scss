@@ -16,4 +16,9 @@
     }
 }
 
-
+// Dumping the content of a Sass map
+@mixin debugMap($declarations) {
+    @each $property, $value in $declarations {
+        @debug "#{$property}: #{$value}";
+    }
+}

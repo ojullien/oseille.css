@@ -75,8 +75,8 @@ body {
     margin: 0;
     padding: 0;
     border: 0;
-    color: map.get($_colors, "fore");
-    background: map.get($_colors, "back");
+    color: var(--fore-color, map.get($_colors, "fore"));
+    background: var(--back-color, map.get($_colors, "back"));
     font-family: map.get($_font-stacks, "base");
     font-size: map.get($_font-sizes, "body");
     --smaller: #{map.get($_font-sizes, "small")};

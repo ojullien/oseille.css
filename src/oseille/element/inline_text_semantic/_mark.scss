@@ -15,14 +15,16 @@
 //
 // Keys:
 //   - fore: text & foreground color
-//   - primary: background color variant
-//   - secondary: background color variant
-//   - tertiary: background color variant
+//   - fore-alt: alternative text & foreground color
+//   - primary: background color variant. See $secondary-colors in default/colors.scss
+//   - secondary: background color variant. See $secondary-colors in default/colors.scss
+//   - tertiary: background color variant. See $secondary-colors in default/colors.scss
 $_colors: (
     "fore": #f8f8f8,
+    "fore-alt": #121212,
     "primary": #215cca,
-    "secondary": #e00000,
-    "tertiary": #218003,
+    "secondary": #ad0000,
+    "tertiary": #2ecc40,
 ) !default;
 
 // Basic box model.
@@ -90,8 +92,8 @@ mark {
 
     @include stdlib.box-shadow(map.get($_borders, "shadow"));
 
-    background: map.get($_colors, "primary");
-    color: map.get($_colors, "fore");
+    background: var(--primary-color, map.get($_colors, "primary"));
+    color: var(--back-color, map.get($_colors, "fore"));
 
     font-size: map.get($_font-sizes, "mark");
     line-height: map.get($_line-spacing, "mark");
@@ -111,11 +113,12 @@ mark {
     }
 
     &.#{map.get($_classnames, "secondary")} {
-        background: map.get($_colors, "secondary");
+        background: var(--secondary-color, map.get($_colors, "secondary"));
     }
 
     &.#{map.get($_classnames, "tertiary")} {
-        background: map.get($_colors, "tertiary");
+        background: var(--tertiary-color, map.get($_colors, "tertiary"));
+        color: var(--fore-color, map.get($_colors, "fore-alt"));
     }
 
     // The presence of the mark element is not announced by most screen reading technology

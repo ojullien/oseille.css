@@ -39,25 +39,25 @@ $_borders: (
 // Keys:
 //   - fore: text & foreground color
 //   - back: background color
-//   - border: border color. See $secondary-colors.blue in default/color.scss
+//   - border: see $primary-palette.border-lightest in default/color.scss
 //   - error-fore: warning colors
-//   - error-back: See $secondary-palette.red-lighter in default/color.scss
+//   - error-back: See $secondary-colors.red in default/color.scss
 //   - error-border: See $secondary-palette.red-darkest in default/color.scss
 //   - warning-fore: warning colors
-//   - warning-back:
-//   - warning-border:
-//   - alt-back: alternative background color. See $secondary-palette.back-darker in default/color.scss
-$_primary-colors: (
+//   - warning-back: See $secondary-colors.yellow in default/color.scss
+//   - warning-border: See $secondary-palette.yellow-darkest in default/color.scss
+//   - back-alt: alternative background color. See $secondary-palette.back-darker in default/color.scss
+$_colors: (
     "fore": #121212,
     "back": #f8f8f8,
-    "border": #222222,
+    "border": #909090,
     "error-fore": #f8f8f8,
-    "error-back": #e63333,
-    "error-border": #b30000,
+    "error-back": #ad0000,
+    "error-border": #8a0000,
     "warning-fore": #121212,
-    "warning-back": #ffd553,
-    "warning-border": #ffca28,
-    "alt-back": #e0e0e0,
+    "warning-back": #ffdc00,
+    "warning-border": #ccb000,
+    "back-alt": #e0e0e0,
 ) !default;
 
 // Line height
@@ -104,10 +104,10 @@ $_section-media-height: 200px; // Height for cards' media sections.
     width: 100%;
 
     // Actual styling for the cards
-    background: var(--card-back-color, #{map.get($_primary-colors, "back")});
-    color: var(--card-fore-color, #{map.get($_primary-colors, "fore")});
+    background: var(--card-back-color, #{map.get($_colors, "back")});
+    color: var(--card-fore-color, #{map.get($_colors, "fore")});
 
-    border: map.get($_borders, "width") solid var(--card-border-color, #{map.get($_primary-colors, "border")});
+    border: map.get($_borders, "width") solid var(--card-border-color, #{map.get($_colors, "border")});
     border-radius: map.get($_borders, "radius");
     margin: map.get($_box-spacing, "margin");
 
@@ -130,7 +130,7 @@ $_section-media-height: 200px; // Height for cards' media sections.
         border: 0; // Clean borders and radiuses for any element-based sections
         border-radius: 0; // Clean borders and radiuses for any element-based sections
         border-bottom: map.get($_borders, "width") solid
-            var(--card-border-color, #{map.get($_primary-colors, "border")});
+            var(--card-border-color, #{map.get($_colors, "border")});
         padding: map.get($_box-spacing, "padding");
         width: 100%;
 
@@ -146,7 +146,7 @@ $_section-media-height: 200px; // Height for cards' media sections.
 
         // Alternative sections
         &.dark {
-            background: var(--card-back-color, #{map.get($_primary-colors, "alt-back")});
+            background: var(--card-back-color, #{map.get($_colors, "back-alt")});
         }
 
         &.double-padded {
@@ -159,15 +159,15 @@ $_section-media-height: 200px; // Height for cards' media sections.
     }
 
     &.warning {
-        background: var(--card-back-color, #{map.get($_primary-colors, "warning-back")});
-        border-color: var(--card-border-color, #{map.get($_primary-colors, "warning-border")});
+        background: var(--warning-back-color, #{map.get($_colors, "warning-back")});
+        border-color: var(--warning-border-color, #{map.get($_colors, "warning-border")});
         border-width: map.get($_borders, "width-alt");
     }
 
     &.error {
-        background: var(--card-back-color, #{map.get($_primary-colors, "error-back")});
-        color: var(--card-fore-color, #{map.get($_primary-colors, "error-fore")});
-        border-color: var(--card-border-color, #{map.get($_primary-colors, "error-border")});
+        background: var(--error-back-color, #{map.get($_colors, "error-back")});
+        color: var(--error-fore-color, #{map.get($_colors, "error-fore")});
+        border-color: var(--error-border-color, #{map.get($_colors, "error-border")});
         border-width: map.get($_borders, "width-alt");
     }
 

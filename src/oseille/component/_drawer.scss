@@ -29,13 +29,18 @@ $_borders: (
     "width": 1px,
 ) !default;
 
-// Palette
+// Palette.
+//
+// Keys:
+//   - close: text & foreground color
+//   - back: background color
+//   - hover-back: see $primary-palette.back-darker in default/color.scss
+//   - border: see $primary-palette.border-lightest in default/color.scss
 $_colors: (
     "close": #121212,
     "back": #f8f8f8,
     "hover-back": #e0e0e0,
-    // See $primary-palette.back-darker in default/color.scss
-        "border": #909090 // See $primary-palette.border-lightest in default/color.scss,,,,,,
+    "border": #909090,
 ) !default;
 
 // Font sizes
