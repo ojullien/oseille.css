@@ -649,12 +649,11 @@ button:disabled, button[disabled],
 /* Styling for form */
 form {
   width: 100%;
-  background: #f0f0f0;
-  color: #111;
+  background: #f8f8f8;
+  color: #121212;
   margin: 0.5rem;
   padding: calc(2 * 0.5rem) 0.5rem;
-  --border-color: #ddd;
-  border: 1px solid var(--border-color);
+  border: 1px solid var(--border-color, #909090);
   border-radius: 0.125rem;
 }
 

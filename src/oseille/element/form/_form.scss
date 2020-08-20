@@ -1,23 +1,24 @@
 //
-// HTML provides a number of elements which can be used together to create forms which the user can fill out and submit to the Web site or application.
+// HTML provides a number of elements which can be used together to create forms which the user can fill out and
+// submit to the Web site or application.
 //
 @use 'sass:map';
 @use '../../default/stdlib';
 
-// Public variables.
-// May be overrided using @use <url> with (<variable>: <value>, <variable>: <value>)
+// Variables.
+//
+// To load this module with configuration, use @use <url> with (<variable>: <value>, <variable>: <value>).
+// The configured values will override the variables’ default values.
+// @link: https://sass-lang.com/documentation/variables
 
-$padding: 0.5rem !default; // Universal padding for the most elements
-$margin: 0.5rem !default; // Universal margin for the most elements
-$box-shadow: none !default; // Universal box-shadow for most elements
-$border-radius: 0.125rem !default; // Universal border-radius for most elements
-$colors: (
-    // Background color for forms
-        "back": #f0f0f0,
-    // Text color for forms.
-        "fore": #111,
-    // Border color for forms.
-        "border": #ddd
+// Basic box model.
+//
+// Keys:
+//   - padding: creates extra space within an element.
+//   - margin: create extra space around an element. We reduce the default web browsers margin.
+$_box-spacing: (
+    "padding": 0.5rem,
+    "margin": 0.5rem,
 ) !default;
 
 // Borders.
@@ -25,26 +26,41 @@ $colors: (
 // Keys:
 //   - radius: rounds the corners of an element's outer border edge.
 //   - shadow: shadow effects around an element's frame.
+//   - shadow-alt: alternative shadow value for more accessibility.
 //   - width: thickness of the border.
+//   - width-alt: alternative thickness for more accessibility.
 $_borders: (
     "radius": 0.125rem,
     "shadow": none,
+    "shadow-alt": 0 2px,
     "width": 1px,
+    "width-alt": 3px,
+) !default;
+
+// Palette.
+//
+// Keys:
+//   - fore: text & foreground color
+//   - back: background color
+//   - border: border color. See $primary-palette.border-lightest in default/color.scss
+$_colors: (
+    "back": #f8f8f8,
+    "fore": #121212,
+    "border": #909090,
 ) !default;
 
 /* Styling for form */
 
 form {
     width: 100%;
-    background: map.get($colors, "back");
-    color: map.get($colors, "fore");
+    background: map.get($_colors, "back");
+    color: map.get($_colors, "fore");
 
-    margin: $margin;
-    padding: calc(2 * #{$padding}) $padding;
+    margin: map.get($_box-spacing, "margin");
+    padding: calc(2 * #{map.get($_box-spacing, "padding")}) map.get($_box-spacing, "padding");
 
-    --border-color: #{map.get($colors, "border")};
-    border: map.get($_borders, "width") solid var(--border-color);
-    border-radius: $border-radius;
+    border: map.get($_borders, "width") solid var(--border-color, map.get($_colors, "border"));
+    border-radius: map.get($_borders, "radius");
 
-    @include stdlib.box-shadow($box-shadow);
+    @include stdlib.box-shadow(map.get($_borders, "shadow"));
 }
