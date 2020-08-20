@@ -49,13 +49,13 @@
 .card.warning {
   background: var(--warning-back-color, #ffdc00);
   border-color: var(--warning-border-color, #ccb000);
-  border-width: 3px;
+  border-width: 2px;
 }
 .card.error {
   background: var(--error-back-color, #ad0000);
   color: var(--error-fore-color, #f8f8f8);
   border-color: var(--error-border-color, #8a0000);
-  border-width: 3px;
+  border-width: 2px;
 }
 .card.fluid {
   max-width: 100%;

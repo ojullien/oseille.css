@@ -67,6 +67,7 @@ $font-stacks: (
 //   - legend: Font size for the <legend> element
 //   - label: Font size for the <label> element
 //   - quotation: Font size for the quotation of <blockquote>
+//   - input: Font size for all inputs
 $font-sizes: (
     "accessible": 100%,
     "not-accessible": 16px,
@@ -81,6 +82,7 @@ $font-sizes: (
     "legend": 1em,
     "label": 1em,
     "quotation": 3em,
+    "input": 1rem,
 );
 
 // Line height
