@@ -706,7 +706,7 @@ label {
   font-size: 1em;
 }
 
-/* Styling for inputs */
+/* Styling for input */
 input {
   overflow: visible;
   background: var(--back-color, #f8f8f8);
@@ -714,11 +714,26 @@ input {
   border: 2px solid var(--border-color, #222222);
   font-family: inherit;
   font-size: 1rem;
-  line-height: 1;
+  line-height: normal;
   margin: 0;
 }
+input:disabled, input[disabled] {
+  opacity: 0.75;
+  transform: none;
+}
+@supports (cursor: not-allowed) {
+  input:disabled, input[disabled] {
+    cursor: not-allowed;
+  }
+}
+@supports (filter: grayscale(60%)) {
+  input:disabled, input[disabled] {
+    filter: grayscale(60%);
+  }
+}
 
-input[type=checkbox] {
+/* Styling for checkbox */
+[type=checkbox] {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -730,10 +745,10 @@ input[type=checkbox] {
   flex-basis: calc(1rem + 0.5rem / 2) !important;
   flex-grow: 0 !important;
 }
-input[type=checkbox]:checked:before {
+[type=checkbox]:checked:before {
   position: absolute;
 }
-input[type=checkbox]:checked:before {
+[type=checkbox]:checked:before {
   content: "✓";
   font-family: sans-serif;
   font-size: calc(1rem + 0.5rem / 2);
@@ -741,6 +756,7 @@ input[type=checkbox]:checked:before {
   left: calc(0.5rem / 4);
 }
 
+/* Styling for radio */
 [type=radio] {
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -765,6 +781,47 @@ input[type=checkbox]:checked:before {
   background: #121212;
   width: 0.5rem;
   height: 0.5rem;
+}
+
+/* Styling for textarea */
+textarea:disabled, textarea[disabled] {
+  opacity: 0.75;
+  transform: none;
+}
+@supports (cursor: not-allowed) {
+  textarea:disabled, textarea[disabled] {
+    cursor: not-allowed;
+  }
+}
+@supports (filter: grayscale(60%)) {
+  textarea:disabled, textarea[disabled] {
+    filter: grayscale(60%);
+  }
+}
+
+/* Styling for select */
+select:disabled, select[disabled] {
+  opacity: 0.75;
+  transform: none;
+}
+@supports (cursor: not-allowed) {
+  select:disabled, select[disabled] {
+    cursor: not-allowed;
+  }
+}
+@supports (filter: grayscale(60%)) {
+  select:disabled, select[disabled] {
+    filter: grayscale(60%);
+  }
+}
+
+:placeholder-shown {
+  color: var(--fore-color, #121212);
+}
+
+::-ms-placeholder {
+  color: var(--fore-color, #121212);
+  opacity: 0.54;
 }
 
 table {

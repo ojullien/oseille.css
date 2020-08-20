@@ -8,6 +8,9 @@
     <link href="element/root/root.css" rel="stylesheet" type="text/css" id="root-css" />
     <link href="element/inline_text_semantic/text.css" rel="stylesheet" type="text/css" id="text-css" />
     <link href="element/form/buttons.css" rel="stylesheet" type="text/css" id="buttons-css" />
+    <link href="element/form/fieldset.css" rel="stylesheet" type="text/css" id="fieldset-css" />
+    <link href="element/form/form.css" rel="stylesheet" type="text/css" id="form-css" />
+    <link href="element/form/input.css" rel="stylesheet" type="text/css" id="input-css" />
     <link href="oseille.css" rel="stylesheet" type="text/css" id="oseille-css" disabled />
 </head>
 </head>
@@ -26,6 +29,9 @@
             <label style="" for="root"><input style="" type="checkbox" id="checkbox-root" name="checkbox-root" value="root" onclick="switchToLocal(this);" checked />Root</label>
             <label style="" for="text"><input style="" type="checkbox" id="checkbox-text" name="checkbox-text" value="text" onclick="switchToLocal(this);" checked />Text</label>
             <label style="" for="buttons"><input style="" type="checkbox" id="checkbox-buttons" name="checkbox-buttons" value="buttons" onclick="switchToLocal(this);" checked />Buttons</label>
+            <label style="" for="fieldset"><input style="" type="checkbox" id="checkbox-fieldset" name="checkbox-fieldset" value="fieldset" onclick="switchToLocal(this);" checked />Fieldset</label>
+            <label style="" for="form"><input style="" type="checkbox" id="checkbox-form" name="checkbox-form" value="form" onclick="switchToLocal(this);" checked />Form</label>
+            <label style="" for="input"><input style="" type="checkbox" id="checkbox-input" name="checkbox-input" value="input" onclick="switchToLocal(this);" checked />Input</label>
             <label style="" for="oseille"><input style="" type="checkbox" id="checkbox-oseille" name="checkbox-oseille" value="oseille" onclick="switchToOseille();" />Oseille</label>
         </div>
 
@@ -37,30 +43,122 @@
 
             <section>
                 <h2>Buttons</h2>
-                <button>Button</button><br>
-                <input type="button" value="Button" /><br>
-                <input type="reset" value="Button" /><br>
-                <input type="submit" value="Button" /><br>
-                <a href="#" class="button">Link</a><br>
-                <a href="#" role="button">Link</a><br>
-                <label class="button">Label</label><br>
+                <button>Button</button>
+                <input type="button" value="Button" />
+                <input type="reset" value="Button" />
+                <input type="submit" value="Button" />
+                <a href="#" class="button">Link</a>
+                <a href="#" role="button">Link</a>
+                <label class="button">Label</label>
                 <label role="button">Label</label>
             </section>
 
             <section>
                 <h2>Color variants</h2>
-                <button class="primary">Primary</button>
+                <button>Default</button>
                 <button class="secondary">Secondary</button>
                 <button class="tertiary">Tertiary</button>
-                <button class="inverse">Inverse</button><br>
-                <button style="--button-fore-color:#f8f8f8;--button-back-color:#215cca;--button-border-color:#0e1c43;--button-hover-back-color:#183889;--button-border-hover-color:#0e1c43;" class="primary">Primary</button>
-                <button style="--button-fore-color:#e00000;--button-back-color:#f8f8f8;--button-border-color:#e00000;--button-hover-back-color:#e0e0e0;--button-border-hover-color:#cd1a1a;"class="secondary">Secondary</button>
+                <button class="inverse">Inverse</button>
+                <button class="noborder">No Border</button><br>
+                <button disabled>Default</button>
+                <button class="secondary" disabled>Secondary</button>
+                <button class="tertiary" disabled>Tertiary</button>
+                <button class="inverse" disabled>Inverse</button>
+                <button class="noborder" disabled>No Border</button><br>                
+                <button style="--button-fore-color:#f8f8f8;--button-back-color:#215cca;--button-border-color:#0e1c43;--button-hover-back-color:#183889;--button-border-hover-color:#0e1c43;">Primary</button>
+                <button style="--button-fore-color:#ad0000;--button-back-color:#f8f8f8;--button-border-color:#ad0000;--button-hover-back-color:#f8f8f8;--button-border-hover-color:#8a0000;--button-border-focus-color:#cc6161;" class="secondary">Secondary</button>
+                <button style="--button-fore-color:#25a333;--button-back-color:#f8f8f8;--button-border-color:transparent;--button-hover-back-color:#f8f8f8;--button-border-hover-color:transparent;--button-border-focus-color:#7ddf89;"class="tertiary">tertiary</button></br>
+                <button disabled style="--button-fore-color:#f8f8f8;--button-back-color:#215cca;--button-border-color:#0e1c43;--button-hover-back-color:#183889;--button-border-hover-color:#0e1c43;">Primary</button>
+                <button disabled style="--button-fore-color:#ad0000;--button-back-color:#f8f8f8;--button-border-color:#ad0000;--button-hover-back-color:#f8f8f8;--button-border-hover-color:#8a0000;--button-border-focus-color:#cc6161;" class="secondary">Secondary</button>
+                <button disabled style="--button-fore-color:#25a333;--button-back-color:#f8f8f8;--button-border-color:transparent;--button-hover-back-color:#f8f8f8;--button-border-hover-color:transparent;--button-border-focus-color:#7ddf89;"class="tertiary">tertiary</button>                
             </section>
 
             <section>
                 <h2>Size variants</h2>
                 <button class="small">Small</button>
                 <button class="large">Large</button>
+            </section>
+
+            <section style="display:flex;flex-flow:row wrap;">
+                <h2>Fieldset</h2>
+                <form action="#">
+                  <fieldset>
+                    <legend>Choose your favorite monster</legend>
+
+                    <input type="radio" id="kraken" name="monster">
+                    <label for="kraken">Kraken</label><br/>
+
+                    <input type="radio" id="sasquatch" name="monster">
+                    <label for="sasquatch">Sasquatch</label><br/>
+
+                    <input type="radio" id="mothman" name="monster">
+                    <label for="mothman">Mothman</label>
+                  </fieldset>
+                  <fieldset disabled>
+                    <legend>Disabled fieldset</legend>
+                    <div>
+                      <label for="name">Name: </label>
+                      <input type="text" id="name" value="Chris">
+                    </div>
+                    <div>
+                      <label for="pwd">Archetype: </label>
+                      <input type="password" id="pwd" value="Wookie">
+                    </div>
+                  </fieldset>
+                </form>
+            </section>
+
+            <section style="display:flex;flex-flow:row wrap;">
+                <h2>Fieldset & input</h2>
+                <form action="#">
+                    <fieldset>
+                        <legend class="doc">Sample form</legend>
+                        <div class="row responsive-label">
+                            <div class="col-sm-12 col-md-3"><label for="sf1-text" class="doc">Text</label></div>
+                            <div class="col-sm-12 col-md"><input type="text" placeholder="Text" id="sf1-text" style="width:85%;" class="doc"></div>
+                        </div>
+                        <div class="row responsive-label">
+                            <div class="col-sm-12 col-md-3"><label for="sf1-pwd" class="doc">Password</label></div>
+                            <div class="col-sm-12 col-md"><input type="password" placeholder="Password" id="sf1-pwd" style="width:85%;" class="doc"></div>
+                        </div>
+                        <div class="row responsive-label">
+                            <div class="col-sm-12 col-md-3"><label for="sf1-num" class="doc">Number</label></div>
+                            <div class="col-sm-12 col-md"><input type="number" value="42" id="sf1-num" style="width:85%;" class="doc"></div>
+                        </div>
+                        <div class="row responsive-label">
+                            <div class="col-sm-12 col-md-3"><label for="sf1-select" class="doc">Select</label></div>
+                            <div class="col-sm-12 col-md"><select id="sf1-select" style="width:85%;" class="doc">
+                                    <option class="doc">Apples</option>
+                                    <option class="doc">Oranges</option>
+                                </select></div>
+                        </div>
+                        <div class="row responsive-label">
+                            <div class="col-sm-12 col-md-3"><label for="sf1-check" class="doc">Checkbox</label></div>
+                            <div class="col-sm-12 col-md"><input type="checkbox" autocomplete="off" id="sf1-check" class="doc"></div>
+                        </div>
+                        <div class="row responsive-label">
+                            <div class="col-sm-12 col-md-3"><label for="sf1-radio" class="doc">Radio</label></div>
+                            <div class="col-sm-12 col-md"><input type="radio" autocomplete="off" id="sf1-radio" class="doc"></div>
+                        </div>
+                        <div class="row responsive-label">
+                            <div class="col-sm-12 col-md-3"><label for="sf1-textarea" class="doc">Textarea</label></div>
+                            <div class="col-sm-12 col-md"><textarea class="doc" style="width:85%;" placeholder="Textarea"></textarea></div>
+                        </div>
+                        <div class="row responsive-label">
+                            <div class="col-sm-12 col-md-3"><label for="sf1-invalid" class="doc">Invalid</label></div>
+                            <div class="col-sm-12 col-md"><input value="Invalid" id="sf1-invalid" style="width:85%;" class="doc"></div>
+                            <script>document.getElementById("sf1-invalid").setCustomValidity("This field is invalid");</script>
+                        </div>
+                        <div class="row responsive-label">
+                            <div class="col-sm-12 col-md-3"><label for="sf1-disabled" class="doc">Disabled</label></div>
+                            <div class="col-sm-12 col-md"><input disabled="" value="Disabled" id="sf1-disabled" style="width:85%;" class="doc"></div>
+                        </div>
+                        <div class="row responsive-label">
+                            <div class="col-sm-12 col-md-3"><label for="sf1-readonly" class="doc">Readonly</label></div>
+                            <div class="col-sm-12 col-md"><input readonly="" value="Readonly" id="sf1-readonly" style="width:85%;" class="doc"></div>
+                        </div>
+                    </fieldset>
+                </form>
             </section>
 
         </main>
@@ -75,6 +173,9 @@
     myMap.set('checkbox-root','#root-css');
     myMap.set('checkbox-text','#text-css');
     myMap.set('checkbox-buttons','#buttons-css');
+    myMap.set('checkbox-fieldset','#fieldset-css');
+    myMap.set('checkbox-form','#form-css');
+    myMap.set('checkbox-input','#input-css');
 
     function switchToLocal(element) {
         if (element.checked != true) {

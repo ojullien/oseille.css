@@ -1,0 +1,61 @@
+@charset "UTF-8";
+/* Styling for inputs */
+input {
+  overflow: visible;
+  background: var(--back-color, #f8f8f8);
+  color: var(--fore-color, #121212);
+  border: 2px solid var(--border-color, #222222);
+  font-family: inherit;
+  font-size: 1rem;
+  line-height: 1;
+  margin: 0;
+}
+
+input[type=checkbox] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: relative;
+  height: calc(1rem + 0.5rem / 2);
+  width: calc(1rem + 0.5rem / 2);
+  vertical-align: text-bottom;
+  padding: 0;
+  flex-basis: calc(1rem + 0.5rem / 2) !important;
+  flex-grow: 0 !important;
+}
+input[type=checkbox]:checked:before {
+  position: absolute;
+}
+input[type=checkbox]:checked:before {
+  content: "✓";
+  font-family: sans-serif;
+  font-size: calc(1rem + 0.5rem / 2);
+  top: calc(0rem - 0.5rem);
+  left: calc(0.5rem / 4);
+}
+
+[type=radio] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: relative;
+  height: calc(1rem + 0.5rem / 2);
+  width: calc(1rem + 0.5rem / 2);
+  vertical-align: text-bottom;
+  padding: 0;
+  flex-basis: calc(1rem + 0.5rem / 2) !important;
+  flex-grow: 0 !important;
+  border-radius: 100%;
+}
+[type=radio]:checked:before {
+  position: absolute;
+}
+[type=radio]:checked:before {
+  border-radius: 100%;
+  content: "";
+  top: calc(1px + 0.5rem / 2);
+  left: calc(1px + 0.5rem / 2);
+  background: #121212;
+  width: 0.5rem;
+  height: 0.5rem;
+}

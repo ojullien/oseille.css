@@ -15,6 +15,9 @@
     <link href="element/embedded/iframe.css" rel="stylesheet" type="text/css" id="iframe-css" />
 
     <link href="element/form/buttons.css" rel="stylesheet" type="text/css" id="buttons-css" />
+    <link href="element/form/form.css" rel="stylesheet" type="text/css" id="form-css" />
+    <link href="element/form/fieldset.css" rel="stylesheet" type="text/css" id="fieldset-css" />
+    <link href="element/form/input.css" rel="stylesheet" type="text/css" id="input-css" />
 
     <link href="element/image_and_multimedia/image.css" rel="stylesheet" type="text/css" id="image-css" />
 
@@ -67,13 +70,18 @@
             <label style="" for="navigation"><input style="" type="checkbox" id="checkbox-navigation" name="checkbox-navigation" value="navigation" onclick="switchToLocal(this);" checked />Navigation</label>
             <label style="" for="sectioning"><input style="" type="checkbox" id="checkbox-sectioning" name="checkbox-sectioning" value="sectioning" onclick="switchToLocal(this);" checked />Sectioning</label>
             <label style="" for="iframe"><input style="" type="checkbox" id="checkbox-iframe" name="checkbox-iframe" value="iframe" onclick="switchToLocal(this);" checked />Iframe</label>
-            <label style="" for="buttons"><input style="" type="checkbox" id="checkbox-buttons" name="checkbox-buttons" value="buttons" onclick="switchToLocal(this);" checked />Buttons</label>
             <label style="" for="image"><input style="" type="checkbox" id="checkbox-image" name="checkbox-image" value="image" onclick="switchToLocal(this);" checked />Image</label>
             <label style="" for="code"><input style="" type="checkbox" id="checkbox-code" name="checkbox-code" value="code" onclick="switchToLocal(this);" checked />Code</label>
             <label style="" for="mark"><input style="" type="checkbox" id="checkbox-mark" name="checkbox-mark" value="mark" onclick="switchToLocal(this);" checked />Mark</label>
             <label style="" for="text"><input style="" type="checkbox" id="checkbox-text" name="checkbox-text" value="text" onclick="switchToLocal(this);" checked />Text</label>
             <label style="" for="root"><input style="" type="checkbox" id="checkbox-root" name="checkbox-root" value="root" onclick="switchToLocal(this);" checked />Root</label>
             <label style="" for="grid"><input style="" type="checkbox" id="checkbox-grid" name="checkbox-grid" value="grid" onclick="switchToLocal(this);" checked />Grid</label>
+        </div>
+        <div class="row padded">
+            <label style="" for="fieldset"><input style="" type="checkbox" id="checkbox-fieldset" name="checkbox-fieldset" value="fieldset" onclick="switchToLocal(this);" checked />Fieldset</label>
+            <label style="" for="form"><input style="" type="checkbox" id="checkbox-form" name="checkbox-form" value="form" onclick="switchToLocal(this);" checked />Form</label>
+            <label style="" for="input"><input style="" type="checkbox" id="checkbox-input" name="checkbox-input" value="input" onclick="switchToLocal(this);" checked />Input</label>
+            <label style="" for="buttons"><input style="" type="checkbox" id="checkbox-buttons" name="checkbox-buttons" value="buttons" onclick="switchToLocal(this);" checked />Buttons</label>
         </div>
         <div class="row padded">
             <label style="" for="blockquote"><input style="" type="checkbox" id="checkbox-blockquote" name="checkbox-blockquote" value="blockquote" onclick="switchToLocal(this);" checked />Blockquote</label>
@@ -694,7 +702,7 @@
 
         <section class="col-sm-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
             <h2 id="buttonscolorvariants">Buttons Color variants</h2>
-            <button class="primary doc">Primary</button>
+            <button class="primary doc">Default</button>
             <button class="secondary doc">Secondary</button>
             <button class="tertiary doc">Tertiary</button>
             <button class="inverse doc">Inverse</button>
@@ -1197,6 +1205,9 @@ function NavigatorExample() {
     myMap.set('checkbox-header','#header-css');
     myMap.set('checkbox-footer','#footer-css');
     myMap.set('checkbox-details','#details-css');
+    myMap.set('checkbox-fieldset','#fieldset-css');
+    myMap.set('checkbox-form','#form-css');
+    myMap.set('checkbox-input','#input-css');
 
     function switchToLocal(element) {
         if (element.checked != true) {

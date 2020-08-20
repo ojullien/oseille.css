@@ -1,79 +1,173 @@
 //
-// HTML provides a number of elements which can be used together to create forms which the user can fill out and submit to the Web site or application.
+// The HTML <input> element is used to create interactive controls for web-based forms in order to accept
+// data from the user; a wide variety of types of input data and control widgets are available, depending
+// on the device and user agent. The <input> element is one of the most powerful and complex in all of HTML
+// due to the sheer number of combinations of input types and attributes.
 //
 @use 'sass:map';
-@use '../../default/stdlib';
 
-// Public variables.
-// May be overrided using @use <url> with (<variable>: <value>, <variable>: <value>)
+// Variables.
+//
+// To load this module with configuration, use @use <url> with (<variable>: <value>, <variable>: <value>).
+// The configured values will override the variables’ default values.
+// @link: https://sass-lang.com/documentation/variables
 
-$font-size: 1rem !default; // Font sizing for all elements
-$padding: 0.5rem !default; // Universal padding for the most elements
-$fore-color: #111 !default; // Text color for input elements.
+// Font sizes
+//
+// Keys:
+//   - input: Font size for all inputs
+$_font-sizes: (
+    "input": 1rem,
+) !default;
 
-/* Styling for inputs */
+// Basic box model.
+//
+// Keys:
+//   - padding: creates extra space within an element.
+$_box-spacing: (
+    "padding": 0.5rem,
+) !default;
 
-input {
-    overflow: visible; // Show overflow in Edge.
-    // => color: var(--font-color);
-    // => background-color: var(--background-color);
-    font-family: inherit;
-    font-size: $font-size;
-    line-height: 1;
-    margin: 0;
-}
+// Palette.
+//
+// Keys:
+//   - fore: text & foreground color
+//   - back: background color
+//   - border: border color.
+$_colors: (
+    "fore": #121212,
+    "back": #f8f8f8,
+    "border": #222222,
+) !default;
 
-// checkbox
+// Borders.
+//
+// Keys:
+//   - width: thickness of the border.
+//   - width-alt: alternative thickness for more accessibility.
+$_borders: (
+    "width": 1px,
+    "width-alt": 2px,
+) !default;
 
-input[type="checkbox"] {
+// Private variables
+
+// Opacity for input elements when disabled.
+$_disabled-opacity: 0.75;
+
+// Styling for checkboxes and radio buttons:
+@mixin normalizeRadioCheckbox {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
     position: relative;
-    height: calc(#{$font-size} + #{$padding} / 2);
-    width: calc(#{$font-size} + #{$padding} / 2);
+    height: calc(#{map.get($_font-sizes, "input")} + #{map.get($_box-spacing, "padding")} / 2);
+    width: calc(#{map.get($_font-sizes, "input")} + #{map.get($_box-spacing, "padding")} / 2);
     vertical-align: text-bottom;
-    padding: 0; // Remove padding added from previous styles.
-    flex-basis: calc(#{$font-size} + #{$padding} / 2) !important; // Override fluid input-group styling.
-    flex-grow: 0 !important; // Using with fluid input-groups is not recommended.
+    // Remove padding added from previous styles.
+    padding: 0;
+    // Override fluid input-group styling.
+    flex-basis: calc(#{map.get($_font-sizes, "input")} + #{map.get($_box-spacing, "padding")} / 2) !important;
+    // Using with fluid input-groups is not recommended.
+    flex-grow: 0 !important;
     &:checked:before {
         position: absolute;
-        content: "\2713";
-        font-family: sans-serif;
-        font-size: calc(#{$font-size} + #{$padding} / 2);
-        top: calc(0rem - #{$padding});
-        left: calc(#{$padding} / 4);
     }
 }
 
-// radio
-
-/*[type="checkbox"],
-[type="radio"] {
-//    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    position: relative;
-    height: calc(#{$font-size} + #{$padding} / 2);
-    width: calc(#{$font-size} + #{$padding} / 2);
-    vertical-align: text-bottom;
-    padding: 0; // Remove padding added from previous styles.
-    flex-basis: calc(#{$font-size} + #{$padding} / 2) !important; // Override fluid input-group styling.
-    flex-grow: 0 !important; // Using with fluid input-groups is not recommended.
-    &:checked:before {
-        position: absolute;
+// Disabled styling for input and button elements.
+@mixin styleDisable {
+    &:disabled,
+    &[disabled] {
+        @supports (cursor: not-allowed) {
+            cursor: not-allowed;
+        }
+        @supports (filter: grayscale(60%)) {
+            filter: grayscale(60%);
+        }
+        opacity: $_disabled-opacity;
+        transform: none;
     }
-}*/
+}
 
-//[type="radio"] {
-//    border-radius: 100%;
-//    &:checked:before {
-//        border-radius: 100%;
-//        content: "";
-//        top: calc(var(--px) + #{$padding} / 2);
-//        left: calc(var(--px) + #{$padding} / 2);
-//        background: $fore-color;
-//        width: 0.5rem;
-//        height: 0.5rem;
-//    }
-//}
+/* Styling for input */
+
+input {
+    overflow: visible; // Show overflow in Edge.
+
+    background: var(--back-color, #{map.get($_colors, "back")});
+    color: var(--fore-color, #{map.get($_colors, "fore")});
+    border: map.get($_borders, "width-alt") solid var(--border-color, #{map.get($_colors, "border")});
+
+    font-family: inherit;
+    font-size: map.get($_font-sizes, "input");
+    line-height: normal;
+    margin: 0;
+
+    @include styleDisable;
+}
+
+/* Styling for checkbox */
+
+[type="checkbox"] {
+    @include normalizeRadioCheckbox;
+
+    &:checked:before {
+        content: "\2713";
+        font-family: sans-serif;
+        font-size: calc(#{map.get($_font-sizes, "input")} + #{map.get($_box-spacing, "padding")} / 2);
+        top: calc(0rem - #{map.get($_box-spacing, "padding")});
+        left: calc(#{map.get($_box-spacing, "padding")} / 4);
+    }
+}
+
+/* Styling for radio */
+
+[type="radio"] {
+    @include normalizeRadioCheckbox;
+
+    border-radius: 100%;
+
+    &:checked:before {
+        border-radius: 100%;
+        content: "";
+        top: calc(1px + #{map.get($_box-spacing, "padding")} / 2);
+        left: calc(1px + #{map.get($_box-spacing, "padding")} / 2);
+        background: map.get($_colors, "fore");
+        width: 0.5rem;
+        height: 0.5rem;
+    }
+}
+
+/* Styling for textarea */
+
+textarea {
+    @include styleDisable;
+}
+
+/* Styling for select */
+
+select {
+    // Overflowing parent container.
+    max-width: 100%;
+
+    @include styleDisable;
+}
+
+/* Styling for option */
+
+option {
+    // Overflowing parent container.
+    max-width: 100%;
+}
+
+// Placeholder styling (keep browser-specific definitions separated, they do not play well together).
+
+:placeholder-shown {
+    color: var(--fore-color, #{map.get($_colors, "fore")});
+}
+
+::-ms-placeholder {
+    color: var(--fore-color, #{map.get($_colors, "fore")});
+    opacity: 0.54;
+}
