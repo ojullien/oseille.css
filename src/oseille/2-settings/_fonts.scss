@@ -1,10 +1,6 @@
 //
 // Default fonts' properties.
 //
-// Note: all oseille/element and oseille/module libraries have those default values for variables.
-// Note: The default oseille flavor (flavor/oseille.scss) does not use this file.
-//       It uses the variables’ default values of each modules.
-//
 
 // Font stacks
 //
@@ -51,6 +47,7 @@ $font-stacks: (
     ),
 );
 
+//
 // Font sizes
 //
 // Keys:
@@ -85,6 +82,7 @@ $font-sizes: (
     "input": 1rem,
 );
 
+//
 // Line height
 //
 // The default line height in browsers is 1.2, which is the optimal value for Times New Roman but not for other fonts.

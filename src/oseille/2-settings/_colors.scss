@@ -1,32 +1,15 @@
 //
 // Default main colors.
 //
-// Note: all oseille/element and oseille/module libraries have those default values for variables.
-// Note: The default oseille flavor (flavor/oseille.scss) does not use this file.
-//       It uses the variables’ default values of each modules.
+// Accessibility:
+//  - The colour of text and background content must have sufficient contrast
+//  - Use WCAG Grading tool to find the best shade/tone/tint with your fore / background combinaison
 //
 @use 'sass:map';
-@use 'sass:color';
+@use '../1-tools/color' as *;
 
-// Mixes a color with white.
-@function tint($color, $weight) {
-    @return mix(#fff, $color, $weight);
-}
-
-// Mixes a color with black.
-@function shade($color, $weight) {
-    @return mix(#000, $color, $weight);
-}
-
-// Mixes a color with grey.
-@function tone($color, $weight) {
-    @return mix(#808080, $color, $weight);
-}
-
-// Main colors.
 //
-// Accessibility:
-//  - The colour of text and background content must have sufficient contrast.
+// Main colors.
 //
 // Keys:
 //   - fore: text & foreground color
@@ -38,11 +21,8 @@ $primary-colors: (
     "border": #222222,
 );
 
-// Primary colors palette.
 //
-// Accessibility:
-//  - The colour of text and background content must have sufficient contrast
-//  - Use WCAG Grading tool to find the best shade/tone/tint with your fore / background combinaison
+// Primary colors palette.
 //
 // Keys:
 //   - fore-*: text & foreground color
@@ -63,10 +43,8 @@ $primary-palette: (
     "border-lightest": tint(map.get($primary-colors, "border"), 49%),
 );
 
-// Other colors.
 //
-// Accessibility:
-//  - The colour of text and background content must have sufficient contrast.
+// Other colors.
 //
 // Keys:
 //   - blue: link color
@@ -81,12 +59,15 @@ $secondary-colors: (
     "yellow": #ffdc00,
 );
 
+//
 // Secondary colors palette.
 //
 // Keys:
 //   - blue-*: link color
 //   - red-*: error color
 //   - green-*: success color
+//   - orange-*: more color
+//   - yellow-*: more color
 $secondary-palette: (
     "blue-darkest": #0e1c43,
     "blue-darker": #183889,
@@ -99,11 +80,11 @@ $secondary-palette: (
     "green-darkest": shade(map.get($secondary-colors, "green"), 20%),
     "green-darker": tone(map.get($secondary-colors, "green"), 20%),
     "green-lighter": tint(map.get($secondary-colors, "green"), 20%),
-    "green-lightest":tint(map.get($secondary-colors, "green"), 38%),
+    "green-lightest": tint(map.get($secondary-colors, "green"), 38%),
     "orange-darkest": shade(map.get($secondary-colors, "orange"), 20%),
     "orange-darker": tone(map.get($secondary-colors, "orange"), 20%),
     "orange-lighter": tint(map.get($secondary-colors, "orange"), 20%),
-    "orange-lightest": tint(map.get($secondary-colors, "orange"), 38%),    
+    "orange-lightest": tint(map.get($secondary-colors, "orange"), 38%),
     "yellow-darkest": shade(map.get($secondary-colors, "yellow"), 20%),
     "yellow-darker": tone(map.get($secondary-colors, "yellow"), 20%),
     "yellow-lighter": tint(map.get($secondary-colors, "yellow"), 20%),

@@ -1,0 +1,7 @@
+//
+// Debug color values.
+//
+@use '../../src/oseille/1-tools/' as *;
+@use '../../src/oseille/2-settings/color' as colors;
+
+@include map-debug(colors.$secondary-palette);

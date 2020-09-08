@@ -5,4 +5,4 @@ node_modules/
 *.sass.map
 *.scss.map
 /src/mini/
-test/
+test/dist/*

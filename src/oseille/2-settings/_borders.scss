@@ -1,0 +1,16 @@
+//
+// Borders.
+//
+// Keys:
+//   - radius: rounds the corners of an element's outer border edge.
+//   - shadow: shadow effects around an element's frame.
+//   - shadow-alt: alternative shadow value for more accessibility.
+//   - width: thickness of the border.
+//   - width-alt: alternative thickness for more accessibility.
+$borders: (
+    "radius": 0.125rem,
+    "shadow": none,
+    "shadow-alt": 0 2px,
+    "width": 1px,
+    "width-alt": 2px,
+);
