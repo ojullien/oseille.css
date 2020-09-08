@@ -1,0 +1,99 @@
+//
+// Sectioning root using top-level elements
+//
+@use 'sass:map';
+@use '../../1-tools/stdlib' as *;
+
+// Variables.
+//
+// To load this module with configuration, use @use <url> with (<variable>: <value>, <variable>: <value>).
+// The configured values will override the variables’ default values.
+// @link: https://sass-lang.com/documentation/variables
+
+// Palette.
+//
+// Keys:
+//   - fore: text & foreground color
+//   - back: background color
+$_colors: (
+    "fore": #121212,
+    "back": #f8f8f8,
+) !default;
+
+// Font sizes
+//
+// Keys:
+//   - accessible: Accessible root font size for all elements
+//   - body: Relative font-sizing everywhere else on the page
+//   - small: Font size for small element ( <small>, <sub>, <sup>)
+$_font-sizes: (
+    "accessible": 100%,
+    "body": medium,
+    "small": 0.75em,
+) !default;
+
+// Font stacks
+//
+// Keys:
+//   - base: Font stack for all elements
+$_font-stacks: (
+    "base": (
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Ubuntu,
+        "Helvetica Neue",
+        Helvetica,
+        sans-serif,
+    ),
+) !default;
+
+// Line height
+//
+// The default line height in browsers is 1.2, which is the optimal value for Times New Roman but not for other fonts.
+//
+// Keys:
+//   - main: line height for most elements.
+$_line-spacing: (
+    "main": 1.5,
+) !default;
+
+/* Top level styling */
+
+html {
+    margin: 0;
+    padding: 0;
+    border: 0;
+
+    font-size: map.get($_font-sizes, "accessible");
+    line-height: map.get($_line-spacing, "main");
+
+    // Prevent adjustments of font size after orientation changes in mobile.
+    @supports ((text-size-adjust: 100%) or (-moz-text-size-adjust: 100%) or (-webkit-text-size-adjust: 100%)) {
+        -webkit-text-size-adjust: 100%;
+        -moz-text-size-adjust: 100%;
+        text-size-adjust: 100%;
+    }
+
+    @supports (scroll-behavior: smooth) {
+        scroll-behavior: smooth;
+    }
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    color: var(--fore-color, get-color("fore", $_colors));
+    background: var(--back-color, get-color("back", $_colors));
+    font-family: get-font-stack("base", $_font-stacks);
+    font-size: map.get($_font-sizes, "body");
+    --smaller: #{map.get($_font-sizes, "small")};
+    --fore-color: #{get-color("fore", $_colors)};
+    --back-color: #{get-color("back", $_colors)};
+
+    @supports (font-size-adjust: 1) {
+        font-size-adjust: 0.5;
+    }
+}

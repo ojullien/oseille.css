@@ -1,0 +1,18 @@
+//
+// Debug stdlib.
+//
+@use '../../../src/oseille/1-tools/stdlib' as *;
+@use '../../../src/oseille/2-settings/colors' as colors;
+@use '../../../src/oseille/2-settings/fonts' as fonts;
+
+@debug 'get-color("fore")=>'
+    get-color("fore", colors.$secondary-palette, colors.$primary-colors, colors.$primary-palette);
+@debug 'get-color("fore-darkest")=>'
+    get-color("fore-darkest", colors.$secondary-palette, colors.$primary-colors, colors.$primary-palette);
+@debug 'get-color("orange-lighter")=>'
+    get-color("orange-lighter", colors.$secondary-palette, colors.$primary-colors, colors.$primary-palette);
+@debug 'get-color("orange")=>'
+    get-color("orange", colors.$secondary-palette, colors.$primary-colors, colors.$primary-palette);
+
+@debug 'get-font-stack("code")=>' get-font-stack("code", fonts.$font-stacks);
+@debug 'get-font-stack("doesnotexist")=>' get-font-stack("doesnotexist", fonts.$font-stacks);

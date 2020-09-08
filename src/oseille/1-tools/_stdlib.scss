@@ -1,6 +1,6 @@
 @use 'sass:map';
 //
-// Tries to match the passed $key with the $_colors map. Returns null if it can’t find a match.
+// Tries to match the passed $key with the color map list. Returns null if it can’t find a match.
 //
 // @param {string} $key - The color that you want to search for
 //
@@ -16,8 +16,32 @@
     }
 
     @if $color == null {
-        @warn #{'Color "' + $key + '" not found'};
+        @warn #{'Color "' + $key + '" not found!'};
     }
 
     @return $color;
+}
+
+//
+// Tries to match the passed $key with the font-stacks map. Returns null if it can’t find a match.
+//
+// @param {string} $key - The font-stack we are looking for
+//
+// @param {map} $maps - The font-stacks map we want to search in
+//
+@function get-font-stack($key, $map) {
+    $stack: null;
+
+    @if map.has-key($map, $key) {
+        $stack: map.get($map, $key);
+    } @else {
+        @warn #{'Font-stack "' + $key + '" not found! Use base font stack.'};
+        @if map.has-key($map, "base") {
+            $stack: map.get($map, "base");
+        } @else {
+            @warn #{'Font-stack "base" not found!'};
+        }
+    }
+
+    @return $stack;
 }

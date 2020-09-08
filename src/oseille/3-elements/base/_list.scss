@@ -1,0 +1,57 @@
+//
+// HTML lists allow web developers to group a set of related items in lists.
+//
+@use 'sass:map';
+
+// Variables.
+//
+// To load this module with configuration, use @use <url> with (<variable>: <value>, <variable>: <value>).
+// The configured values will override the variables’ default values.
+// @link: https://sass-lang.com/documentation/variables
+
+// Basic box model.
+//
+// Keys:
+//   - margin: create extra space around an element. We reduce the default web browsers margin.
+$_box-spacing: (
+    "margin": 0.5rem,
+) !default;
+
+/* List styling */
+
+ol,
+ul {
+    padding: 0;
+    border: 0;
+    margin: map.get($_box-spacing, "margin");
+    padding-left: calc(2 * #{map.get($_box-spacing, "margin")});
+
+    ul,
+    ol {
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+}
+
+li,
+dt,
+dd {
+    margin: map.get($_box-spacing, "margin") 0;
+    padding: 0;
+    border: 0;
+}
+
+dl {
+    border: 0;
+    margin: map.get($_box-spacing, "margin") 0 map.get($_box-spacing, "margin");
+    padding: 0;
+    padding-left: calc(2 * #{map.get($_box-spacing, "margin")});
+}
+
+dd {
+    padding-left: calc(2 * #{map.get($_box-spacing, "margin")});
+}
+
+dt::after {
+    content: ": ";
+}

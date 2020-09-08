@@ -1,0 +1,78 @@
+//
+// The HTML <fieldset> element is used to group several controls as well as labels (<label>) within a web form.
+// The HTML <legend> element represents a caption for the content of its parent <fieldset>.
+//
+@use 'sass:map';
+
+// Variables.
+//
+// To load this module with configuration, use @use <url> with (<variable>: <value>, <variable>: <value>).
+// The configured values will override the variables’ default values.
+// @link: https://sass-lang.com/documentation/variables
+
+// Basic box model.
+//
+// Keys:
+//   - padding: creates extra space within an element.
+//   - margin: create extra space around an element. We reduce the default web browsers margin.
+$_box-spacing: (
+    "padding": 0.5rem,
+    "margin": 0.5rem,
+) !default;
+
+// Borders.
+//
+// Keys:
+//   - radius: rounds the corners of an element's outer border edge.
+//   - width: thickness of the border.
+//   - width-alt: alternative thickness for more accessibility.
+$_borders: (
+    "radius": 0.125rem,
+    "width": 1px,
+    "width-alt": 2px,
+) !default;
+
+// Palette.
+//
+// Keys:
+//   - border: border color. See $primary-palette.border-lightest in default/color.scss
+$_colors: (
+    "border": #909090,
+) !default;
+
+// Font sizes
+//
+// Keys:
+//   - legend: Font size for the <legend> element
+//   - label: Font size for the <label> element
+$_font-sizes: (
+    "legend": 1em,
+    "label": 1em,
+) !default;
+
+/* Styling for fieldset */
+
+fieldset {
+    // Apply always to overwrite defaults for all of the below.
+    border: map.get($_borders, "width") solid var(--border-color, map.get($_colors, "border"));
+    border-radius: map.get($_borders, "radius");
+    margin: calc(#{map.get($_box-spacing, "margin")} / 4);
+    padding: map.get($_box-spacing, "padding");
+}
+
+legend {
+    // Edge fixes.
+    box-sizing: border-box;
+    display: table;
+    max-width: 100%;
+    white-space: normal;
+    // Actual styling.
+    font-weight: bolder;
+    font-size: map.get($_font-sizes, "legend");
+    padding: calc(#{map.get($_box-spacing, "padding")} / 2);
+}
+
+label {
+    padding: calc(#{map.get($_box-spacing, "padding")} / 2) map.get($_box-spacing, "padding");
+    font-size: map.get($_font-sizes, "label");
+}

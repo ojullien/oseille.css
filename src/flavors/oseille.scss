@@ -1,0 +1,9 @@
+//
+// Default Oseille.css flavor.
+//
+
+@use '../oseille/2-settings/colors' as default-colors;
+
+@use '../oseille/3-elements/base/root' with (
+    $_colors: default-colors.$primary-colors
+);

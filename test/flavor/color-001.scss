@@ -1,7 +1,0 @@
-//
-// Debug color values.
-//
-@use '../../src/oseille/1-tools/map-debug' as stdlib;
-@use '../../src/oseille/2-settings/colors' as colors;
-
-@include stdlib.map-debug(colors.$secondary-palette);

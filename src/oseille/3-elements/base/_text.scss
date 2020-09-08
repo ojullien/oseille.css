@@ -1,0 +1,180 @@
+//
+// Use the HTML inline text semantic to define the meaning, structure, or style of a word, line, or
+// any arbitrary piece of text.
+//
+@use 'sass:map';
+@use '../../default/stdlib';
+
+// Variables.
+//
+// To load this module with configuration, use @use <url> with (<variable>: <value>, <variable>: <value>).
+// The configured values will override the variables’ default values.
+// @link: https://sass-lang.com/documentation/variables
+
+// Font sizes
+//
+// Keys:
+//   - small: Font size for small element ( <small>, <sub>, <sup>)
+$_font-sizes: (
+    "small": 0.75em,
+) !default;
+
+// Palette.
+//
+// Keys:
+//   - link: color for <a>:link
+//   - visited: color for <a>:visited. See $secondary-palette.blue-darkest in /default/colors.scss
+$_colors: (
+    "link": #215cca,
+    "visited": #0e1c43,
+) !default;
+
+// Borders.
+//
+// Keys:
+//   - shadow-alt: alternative shadow value for more accessibility.
+$_borders: (
+    "shadow-alt": 0 2px,
+) !default;
+
+// Box model
+//
+// Keys:
+//   - top: <sup> top position
+//   - bottom: <sub> bottom position
+$_box-model: (
+    "top": -0.5em,
+    "bottom": -0.25em,
+);
+
+// Private variables
+
+$_bold-font-weight: 700; // Font weight for <b> and <strong>
+
+/* Inline text semantic styling */
+
+// Fix for elements inside headings not displaying properly.
+%_normalize_small {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: inherit;
+    font-size: var(--smaller, #{map.get($_font-sizes, "small")});
+}
+
+%_normalize {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 1em;
+}
+
+// Prevent element from affecting the line height in all browsers.
+%_normalize-line-height {
+    line-height: 0;
+    position: relative;
+    vertical-align: baseline;
+}
+
+a {
+    @extend %_normalize;
+    font-family: inherit; // Fix for elements inside headings not displaying properly.
+
+    text-decoration: none; // We remove it but we provide alternative styling.
+
+    &:link {
+        color: var(--link-color, map.get($_colors, "link")); // Allows live color tunning
+    }
+
+    &:visited {
+        color: var(--visited-link-color, map.get($_colors, "visited")); // Allows live color tunning
+    }
+
+    &:not(.button):hover,
+    &:not(.button):focus {
+        @include stdlib.box-shadow(map.get($_borders, "shadow-alt")); // Accessibility
+    }
+}
+
+abbr[title] {
+    @extend %_normalize;
+    border-bottom: none; // Remove bottom border in Firefox 39-.
+    text-decoration: underline dotted; // Opinionated style-fix for all browsers.
+}
+
+b,
+strong {
+    @extend %_normalize;
+    font-weight: $_bold-font-weight;
+}
+
+data {
+    @extend %_normalize;
+    text-decoration: underline dotted; // Opinionated style-fix for all browsers.
+
+    &:hover:after {
+        content: " (ID " attr(value) ")";
+        font-size: 0.7em;
+    }
+}
+
+@supports (cursor: help) {
+    abbr[title] {
+        cursor: help;
+    }
+    data {
+        cursor: help;
+    }
+}
+
+// Fix for elements inside headings not displaying properly.
+del,
+em,
+i,
+ins,
+span,
+u {
+    @extend %_normalize;
+}
+
+s {
+    @extend %_normalize;
+
+    // The presence of the s element is not announced by most screen reading technology
+    // in its default configuration. It can be made to be announced by using the CSS
+    // content property, along with the ::before and ::after pseudo-elements.
+    &:before,
+    &:after {
+        clip-path: inset(100%);
+        clip: rect(1px, 1px, 1px, 1px);
+        height: 1px;
+        overflow: hidden;
+        position: absolute;
+        white-space: nowrap;
+        width: 1px;
+    }
+
+    &:before {
+        content: " [start of stricken text] ";
+    }
+
+    &:after {
+        content: " [end of stricken text] ";
+    }
+}
+
+small {
+    @extend %_normalize_small;
+}
+
+sub {
+    @extend %_normalize_small;
+    @extend %_normalize-line-height;
+    bottom: map.get($_box-model, "bottom");
+}
+
+sup {
+    @extend %_normalize_small;
+    @extend %_normalize-line-height;
+    top: map.get($_box-model, "top");
+}
