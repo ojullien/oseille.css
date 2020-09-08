@@ -1,0 +1,23 @@
+@use 'sass:map';
+//
+// Tries to match the passed $key with the $_colors map. Returns null if it can’t find a match.
+//
+// @param {string} $key - The color that you want to search for
+//
+// @param {map} $maps - The color map that you want to search in
+//
+@function get-color($key, $maps...) {
+    $color: null;
+
+    @each $map in $maps {
+        @if map.has-key($map, $key) {
+            $color: map.get($map, $key);
+        }
+    }
+
+    @if $color == null {
+        @warn #{'Color "' + $key + '" not found'};
+    }
+
+    @return $color;
+}
