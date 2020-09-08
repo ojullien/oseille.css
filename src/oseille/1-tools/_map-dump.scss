@@ -1,0 +1,10 @@
+//
+// Dumps the content of a map.
+//
+// @param {map} $declarations - The map to dump
+//
+@mixin map-dump($declarations) {
+    @each $property, $value in $declarations {
+        #{$property}: $value;
+    }
+}

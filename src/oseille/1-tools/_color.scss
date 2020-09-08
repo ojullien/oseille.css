@@ -1,0 +1,36 @@
+@use 'sass:color';
+//
+// Mixes a color with white.
+//
+// @param {string} $color - The color to mix with
+//
+// @param {number} $weight - number between 0% and 100% (inclusive). A larger weight indicates that more of white
+//                           should be used, and a smaller weight indicates that more of $color should be used.
+//
+@function tint($color, $weight) {
+    @return mix(#fff, $color, $weight);
+}
+
+//
+// Mixes a color with black.
+//
+// @param {string} $color - The color to mix with
+//
+// @param {number} $weight - number between 0% and 100% (inclusive). A larger weight indicates that more of black
+//                           should be used, and a smaller weight indicates that more of $color should be used.
+//
+@function shade($color, $weight) {
+    @return mix(#000, $color, $weight);
+}
+
+//
+// Mixes a color with grey.
+//
+// @param {string} $color - The color to mix with
+//
+// @param {number} $weight - number between 0% and 100% (inclusive). A larger weight indicates that more of grey
+//                           should be used, and a smaller weight indicates that more of $color2should be used.
+//
+@function tone($color, $weight) {
+    @return mix(#808080, $color, $weight);
+}

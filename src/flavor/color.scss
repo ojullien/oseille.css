@@ -1,6 +1,0 @@
-// Debug color values.
-//
-@use '../oseille/default/color' as c;
-@use '../oseille/default/stdlib' as s;
-
-@include s.debugMap(c.$secondary-palette);

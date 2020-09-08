@@ -1,0 +1,10 @@
+//
+// Generates a box-shadow property.
+//
+// @param {string} $box-shadow - The box-shadow value.
+//
+@mixin box-shadow($box-shadow: none) {
+    @if $box-shadow != none {
+        box-shadow: $box-shadow;
+    }
+}

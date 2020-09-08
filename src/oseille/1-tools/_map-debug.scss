@@ -1,0 +1,10 @@
+//
+// Debug the content of a map.
+//
+// @param {map} $declarations - The map to debug
+//
+@mixin map-debug($declarations) {
+    @each $property, $value in $declarations {
+        @debug "#{$property}: #{$value}";
+    }
+}
