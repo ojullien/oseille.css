@@ -1,9 +1,16 @@
 //
-// Default Oseille.css flavor.
+// Oseille.css flavor.
 //
 
+// 1. Overrides the default variables if needed
+// @link: https://sass-lang.com/documentation/variables
 @use '../oseille/2-settings/colors' as default-colors;
+@use '../oseille/2-settings/fonts' as default-fonts;
 
+// 2. Build the css
 @use '../oseille/3-elements/base/root' with (
-    $_colors: default-colors.$primary-colors
+    $_colors: default-colors.$primary-colors,
+    $_font-stacks: default-fonts.$stacks,
+    $_font-sizes: default-fonts.$sizes,
+    $_line-spacing: default-fonts.$line-spacing
 );

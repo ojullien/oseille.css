@@ -1,0 +1,30 @@
+//
+// Content sectioning elements allow you to organize the document content into logical pieces.
+// Use the sectioning elements to create a broad outline for your page content, including header and footer navigation,
+// and heading elements to identify sections of content.
+//
+
+/* Content sectioning styling */
+article,
+aside,
+section,
+hgroup,
+main {
+    padding: 0;
+    border: 0;
+    margin-bottom: 0 0 1rem 0;
+}
+
+address {
+    padding: 0;
+    border: 0;
+    margin-bottom: 0 0 1rem 0;
+    font-style: inherit;
+    font-weight: inherit;
+}
+
+div {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}

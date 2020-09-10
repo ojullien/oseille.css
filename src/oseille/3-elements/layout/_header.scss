@@ -1,0 +1,200 @@
+//
+// The HTML <header> element represents introductory content, typically a group of introductory or navigational
+// aids. It may contain some heading elements but also a logo, a search form, an author name, and other elements.
+// If it is a child of <body> it defines the global header of a webpage, but if it's a child of an <article> or
+// <section> it defines a specific header for that section (try not to confuse this with titles and headings).
+//
+@use 'sass:map';
+
+// Variables.
+//
+// To load this module with configuration, use @use <url> with (<variable>: <value>, <variable>: <value>).
+// The configured values will override the variables’ default values.
+// @link: https://sass-lang.com/documentation/variables
+
+// Basic box model.
+//
+// Keys:
+//   - padding: creates extra space within an element.
+$_box-spacing: (
+    "padding": 0.5rem,
+) !default;
+
+// Palette.
+//
+// Keys:
+//   - fore: text & foreground color
+//   - back: background color
+//   - border: border color. See $primary-palette.border-lightest in default/color.scss
+//   - hover-back: color when hover. See $primary-palette.back-darker in default/color.scss
+//   - hover-fore: color when hover. See $secondary-colors.blue in default/color.scss
+$_colors: (
+    "fore": #121212,
+    "back": #f8f8f8,
+    "hover-back": #e0e0e0,
+    "hover-fore": #121212,
+    "border": #909090,
+) !default;
+
+// Line height
+//
+// Keys:
+//   - main: line height for most elements.
+$_line-spacing: (
+    "main": 1.5,
+);
+
+// Borders.
+//
+// Keys:
+//   - width: thickness of the border.
+$_borders: (
+    "width": 1px,
+) !default;
+
+// Height of the header element.
+$_height: 3.1875rem !default;
+
+// Font size for the header logo element.
+$_logo-font-size: 1.75em !default;
+
+// Private variables
+
+// Classnames
+//
+// Keys:
+//   - header: header class
+//   - logo: header logo element
+//   - button: elements styled as buttons
+//   - sticky: sticky header classe
+//   - row: grid system
+$_classnames: (
+    "header": "page-header",
+    "logo": "logo",
+    "button": "button",
+    "sticky": "sticky",
+    "row": "row",
+);
+
+// Apply styling only to the bottom border of header? (boolean)
+$_only-bottom-border: true;
+
+// Should header links and buttons be uppercase? (boolean)
+$_links-uppercase: true;
+
+/* Header styling */
+
+header {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+// No box-shadow as it causes lots of weird bugs in Chrome. No margin as it shouldn't have any.
+.#{map.get($_classnames, "header")} {
+    height: $_height;
+
+    // Always apply background color to avoid shine through
+    background: var(--header-back-color, map.get($_colors, "back"));
+    color: var(--header-fore-color, map.get($_colors, "fore"));
+
+    @if $_only-bottom-border {
+        border-bottom: map.get($_borders, "width") solid map.get($_colors, "border");
+    } @else {
+        border: map.get($_borders, "width") solid map.get($_colors, "border");
+    }
+
+    padding: calc(#{map.get($_box-spacing, "padding")} / 4) 0;
+
+    // Responsiveness for smaller displays, scrolls horizontally.
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    // Fix for responsive header, using the grid system's row and column alignment.
+    &.#{map.get($_classnames, "row")} {
+        box-sizing: content-box;
+        & .#{map.get($_classnames, "logo")} {
+            line-height: 1;
+        }
+    }
+
+    // Header logo styling.
+    .#{map.get($_classnames, "logo")} {
+        color: var(--header-fore-color, map.get($_colors, "fore"));
+        font-size: $_logo-font-size;
+        padding: map.get($_box-spacing, "padding") calc(2 * #{map.get($_box-spacing, "padding")});
+        text-decoration: none;
+    }
+
+    // Link styling.
+    button,
+    [type="button"],
+    .#{map.get($_classnames, "button")},
+    [role="button"] {
+        box-sizing: border-box;
+        position: relative;
+
+        // Use universal-padding to offset the padding of the header.
+        top: calc(0rem - #{map.get($_box-spacing, "padding")} / 4);
+
+        height: calc(#{$_height} + #{map.get($_box-spacing, "padding")} / 2); // Fill header.
+
+        line-height: calc(#{$_height} - #{map.get($_box-spacing, "padding")} * #{map.get($_line-spacing, "main")});
+
+        text-align: center;
+
+        // Apply color regardless to override styling from other things.
+        background: inherit; 
+        color: inherit;
+
+        border: 0;
+        border-radius: 0;
+        margin: 0;
+
+        @if $_links-uppercase {
+            text-transform: uppercase;
+        }
+    }
+
+    // Span styling.
+    span {
+        box-sizing: border-box;
+        position: relative;
+
+        // Use universal-padding to offset the padding of the header.
+        top: calc(0rem - #{map.get($_box-spacing, "padding")} / 4);
+
+        height: calc(#{$_height} + #{map.get($_box-spacing, "padding")} / 2); // Fill header.
+
+        line-height: calc(#{$_height} - #{map.get($_box-spacing, "padding")} * #{map.get($_line-spacing, "main")});
+
+        text-align: center;
+
+        @if $_links-uppercase {
+            text-transform: uppercase;
+        }
+    }
+
+    // Hover and focus
+    button,
+    [type="button"],
+    .#{map.get($_classnames, "button")},
+    [role="button"] {
+        &:hover,
+        &:focus {
+            background: var(--header-hover-back-color, map.get($_colors, "hover-back"));
+            color: var(--header-hover-fore-color, map.get($_colors, "hover-fore"));
+            transform: scale(1.05); // Accessibility
+        }
+    }
+
+    &.#{map.get($_classnames, "sticky")} {
+        @supports ((position: sticky) or (position: -webkit-sticky)) {
+            position: -webkit-sticky; // One of the rare instances where prefixes are necessary.
+            position: sticky;
+            z-index: 1101; // Deals with certain problems when combined with cards and tables.
+            top: 0;
+        }
+    }
+}

@@ -1,0 +1,158 @@
+//
+// Content sectioning elements allow you to organize the document content into logical pieces.
+// Use the sectioning elements to create a broad outline for your page content, including header and footer navigation,
+// and heading elements to identify sections of content.
+//
+// The HTML <h1>–<h6> elements represent six levels of section headings. <h1> is the highest section level and <h6>
+// is the lowest.
+//
+@use 'sass:map';
+@use 'sass:math';
+@use 'sass:meta';
+
+// Variables.
+//
+// To load this module with configuration, use @use <url> with (<variable>: <value>, <variable>: <value>).
+// The configured values will override the variables’ default values.
+// @link: https://sass-lang.com/documentation/variables
+
+// Basic box model.
+//
+// Keys:
+//   - margin: create extra space around an element. We reduce the default web browsers margin.
+$_box-spacing: (
+    "margin": 0.5rem,
+) !default;
+
+// Font stacks
+//
+// Keys:
+//   - heading: Heading font stack
+$_font-stack: (
+    "heading": (
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Ubuntu,
+        "Helvetica Neue",
+        Helvetica,
+        sans-serif,
+    ),
+) !default;
+
+// Font sizes
+//
+// Keys:
+//   - ratio-heading: h5 is 1em, h1 is 1em * ratio^4. See element/content_sectioning/heading.scss)
+//   - small: Font size for small element ( <small>, <sub>, <sup>)
+$_font-sizes: (
+    "ratio-heading": 1.25,
+    "small": 0.75em,
+) !default;
+
+// Line height
+//
+// The default line height in browsers is 1.2, which is the optimal value for Times New Roman but not for other fonts.
+//
+// Keys:
+//   - h*: line height for larger text sizes.
+//   - subheading: line height for subheading.
+$_line-spacing: (
+    "h1": calc(1ex / 0.42),
+    "h2": calc(1ex / 0.42),
+    "h3": calc(1ex / 0.38),
+    "h4": calc(1ex / 0.37),
+    "h5": calc(1ex / 0.32),
+    "h6": calc(1ex / 0.32),
+    "subheading": calc(1ex / 0.32),
+) !default;
+
+// Palette.
+//
+// Keys:
+//   - fore: text & foreground color
+//   - back: background color
+//   - subheading-fore: subheading foreground color
+//   - subheading-back: subheading background color
+$_colors: (
+    "fore": inherit,
+    "back": inherit,
+    "subheading-fore": inherit,
+    "subheading-back": inherit,
+) !default;
+
+// Font weight for headings
+$_font-weight: 500 !default;
+
+// Private variables
+
+// Top margin of <small> elements in headings
+$_subheading-margin-top: -0.25rem;
+
+/* Heading styling */
+
+%_normalize {
+    padding: 0;
+    border: 0;
+    margin: map.get($_box-spacing, "margin");
+
+    font-family: map.get($_font-stack, "heading");
+    font-weight: $_font-weight;
+
+    background: var(--heading-back-color, #{map.get($_colors, "back")}); // Allows live color tunning
+    color: var(--heading-fore-color, #{map.get($_colors, "fore")}); // Allows live color tunning
+
+    @supports (text-rendering: optimizeLegibility) {
+        text-rendering: optimizeLegibility;
+    }
+
+    small {
+        display: block;
+
+        @if $_subheading-margin-top != 0 {
+            margin-top: $_subheading-margin-top;
+        }
+
+        line-height: map.get($_line-spacing, "subheading");
+
+        background: var(--subheading-back-color, #{map.get($_colors, "subheading-back")}); // Allows live color tunning
+        color: var(--subheading-fore-color, #{map.get($_colors, "subheading-fore")}); // Allows live color tunning
+    }
+}
+
+h1 {
+    @extend %_normalize;
+    font-size: calc(1em * #{math.pow(map.get($_font-sizes, "ratio-heading"), 4)});
+    line-height: map.get($_line-spacing, "h1");
+}
+
+h2 {
+    @extend %_normalize;
+    font-size: calc(1em * #{math.pow(map.get($_font-sizes, "ratio-heading"), 3)});
+    line-height: map.get($_line-spacing, "h2");
+}
+
+h3 {
+    @extend %_normalize;
+    font-size: calc(1em * #{math.pow(map.get($_font-sizes, "ratio-heading"), 2)});
+    line-height: map.get($_line-spacing, "h3");
+}
+
+h4 {
+    @extend %_normalize;
+    font-size: calc(1em * #{map.get($_font-sizes, "ratio-heading")});
+    line-height: map.get($_line-spacing, "h4");
+}
+
+h5 {
+    @extend %_normalize;
+    font-size: 1em;
+    line-height: map.get($_line-spacing, "h5");
+}
+
+h6 {
+    @extend %_normalize;
+    font-size: calc(1em / #{map.get($_font-sizes, "ratio-heading")});
+    line-height: map.get($_line-spacing, "h6");
+}
