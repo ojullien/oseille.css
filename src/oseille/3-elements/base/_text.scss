@@ -3,39 +3,17 @@
 // any arbitrary piece of text.
 //
 @use 'sass:map';
-@use '../../default/stdlib';
+@use '../../1-tools/box-shadow' as shadow;
+@use '../../2-settings/colors' as colors;
+@use '../../2-settings/fonts' as fonts;
+@use '../../2-settings/borders' as borders;
 
 // Variables.
 //
+// Variables defined with !default can be configured when loading this module with the @use rule.
 // To load this module with configuration, use @use <url> with (<variable>: <value>, <variable>: <value>).
 // The configured values will override the variables’ default values.
 // @link: https://sass-lang.com/documentation/variables
-
-// Font sizes
-//
-// Keys:
-//   - small: Font size for small element ( <small>, <sub>, <sup>)
-$_font-sizes: (
-    "small": 0.75em,
-) !default;
-
-// Palette.
-//
-// Keys:
-//   - link: color for <a>:link
-//   - visited: color for <a>:visited. See $secondary-palette.blue-darkest in /default/colors.scss
-$_colors: (
-    "link": #215cca,
-    "visited": #0e1c43,
-) !default;
-
-// Borders.
-//
-// Keys:
-//   - shadow-alt: alternative shadow value for more accessibility.
-$_borders: (
-    "shadow-alt": 0 2px,
-) !default;
 
 // Box model
 //
@@ -45,11 +23,10 @@ $_borders: (
 $_box-model: (
     "top": -0.5em,
     "bottom": -0.25em,
-);
+) !default;
 
-// Private variables
-
-$_bold-font-weight: 700; // Font weight for <b> and <strong>
+// Font weight for <b> and <strong>
+$_bold-font-weight: 700 !default;
 
 /* Inline text semantic styling */
 
@@ -59,7 +36,7 @@ $_bold-font-weight: 700; // Font weight for <b> and <strong>
     padding: 0;
     border: 0;
     font-family: inherit;
-    font-size: var(--smaller, #{map.get($_font-sizes, "small")});
+    font-size: var(--smaller, #{fonts.get-size("small")});
 }
 
 %_normalize {
@@ -83,16 +60,16 @@ a {
     text-decoration: none; // We remove it but we provide alternative styling.
 
     &:link {
-        color: var(--link-color, map.get($_colors, "link")); // Allows live color tunning
+        color: var(--link-color, colors.get("link")); // Allows live color tunning
     }
 
     &:visited {
-        color: var(--visited-link-color, map.get($_colors, "visited")); // Allows live color tunning
+        color: var(--visited-link-color, colors.get("visited")); // Allows live color tunning
     }
 
     &:not(.button):hover,
     &:not(.button):focus {
-        @include stdlib.box-shadow(map.get($_borders, "shadow-alt")); // Accessibility
+        @include shadow.box-shadow(borders.get("shadow-alt")); // Accessibility
     }
 }
 
@@ -145,13 +122,15 @@ s {
     // content property, along with the ::before and ::after pseudo-elements.
     &:before,
     &:after {
-        clip-path: inset(100%);
         clip: rect(1px, 1px, 1px, 1px);
         height: 1px;
         overflow: hidden;
         position: absolute;
         white-space: nowrap;
         width: 1px;
+        @supports (clip-path: inset(100%)) {
+            clip-path: inset(100%);
+        }
     }
 
     &:before {
