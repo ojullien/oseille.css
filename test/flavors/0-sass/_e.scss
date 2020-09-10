@@ -1,0 +1,2 @@
+@use 'a' as a;
+@debug "a.get('key2')=>" a.get("key2");

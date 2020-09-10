@@ -1,47 +1,36 @@
 @use 'sass:map';
 //
-// Tries to match the passed $key with the color map list. Returns null if it can’t find a match.
+// Returns the value in the map list associated with the given key.
+// It returns null if any map doesn’t contain the key.
 //
-// @param {string} $key - The color that you want to search for
+// @param {string} $key - The key that you want to search for
+// @param {map} $maps - The map list that you want to search in
 //
-// @param {map} $maps - The color map that you want to search in
-//
-@function get-color($key, $maps...) {
-    $color: null;
+@function get-list($key, $maps...) {
+    $value: null;
 
     @each $map in $maps {
         @if map.has-key($map, $key) {
-            $color: map.get($map, $key);
+            $value: map.get($map, $key);
         }
     }
 
-    @if $color == null {
-        @warn #{'Color "' + $key + '" not found!'};
-    }
-
-    @return $color;
+    @return $value;
 }
 
 //
-// Tries to match the passed $key with the font-stacks map. Returns null if it can’t find a match.
+// Returns the value in the map associated with the given key.
+// It returns null if the map doesn’t contain the key.
 //
-// @param {string} $key - The font-stack we are looking for
+// @param {string} $key - The key that you want to search for
+// @param {map} $map - The map that you want to search in
 //
-// @param {map} $maps - The font-stacks map we want to search in
-//
-@function get-font-stack($key, $map) {
-    $stack: null;
+@function get($key, $map) {
+    $value: null;
 
     @if map.has-key($map, $key) {
-        $stack: map.get($map, $key);
-    } @else {
-        @warn #{'Font-stack "' + $key + '" not found! Use base font stack.'};
-        @if map.has-key($map, "base") {
-            $stack: map.get($map, "base");
-        } @else {
-            @warn #{'Font-stack "base" not found!'};
-        }
+        $value: map.get($map, $key);
     }
 
-    @return $stack;
+    @return $value;
 }
