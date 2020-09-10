@@ -1,9 +1,22 @@
 //
-// Basic box model.
+// Default box model' properties.
 //
 // Accessibility:
 //   - An inactive space should be provided around actionable elements
 //   - Add borders or margins around touch targets to add at least 1px of inactive space.
+//
+@use 'sass:map';
+@use '../1-tools/stdlib' as stdlib;
+
+// Variables.
+//
+// Variables defined with !default can be configured when loading this module with the @use rule.
+// To load this module with configuration, use @use <url> with (<variable>: <value>, <variable>: <value>).
+// The configured values will override the variables’ default values.
+// @link: https://sass-lang.com/documentation/variables
+
+//
+// Basic box model.
 //
 // Keys:
 //   - padding: creates extra space within an element.
@@ -13,4 +26,21 @@ $box-spacing: (
     "padding": 0.5rem,
     "margin": 0.5rem,
     "margin-center": 0.5rem auto,
-);
+) !default;
+
+// Functions.
+//
+// Returns the value in the spacing map associated with the given key.
+// It returns null if the map doesn’t contain the key.
+//
+// @param {string} $key - The property we are looking for
+//
+@function get($key) {
+    $value: stdlib.get($key, $box-spacing);
+
+    @if $value == null {
+        @warn #{'Box spacing "' + $key + '" not found!'};
+    }
+
+    @return $value;
+}

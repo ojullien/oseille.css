@@ -1,4 +1,17 @@
 //
+// Default responsive' properties.
+//
+@use 'sass:map';
+@use '../1-tools/stdlib' as stdlib;
+
+// Variables.
+//
+// Variables defined with !default can be configured when loading this module with the @use rule.
+// To load this module with configuration, use @use <url> with (<variable>: <value>, <variable>: <value>).
+// The configured values will override the variables’ default values.
+// @link: https://sass-lang.com/documentation/variables
+
+//
 // Breakpoints
 //
 // Keys:
@@ -8,3 +21,20 @@ $breakpoints: (
     "medium": 768px,
     "large": 1280px,
 );
+
+// Functions.
+//
+// Returns the value in the breakpoints map associated with the given key.
+// It returns null if the map doesn’t contain the key.
+//
+// @param {string} $key - The property we are looking for
+//
+@function get($key) {
+    $value: stdlib.get($key, $breakpoints);
+
+    @if $value == null {
+        @warn #{'Breakpoint "' + $key + '" not found!'};
+    }
+
+    @return $value;
+}

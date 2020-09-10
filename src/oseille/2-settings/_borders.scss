@@ -1,4 +1,17 @@
 //
+// Default borders' properties.
+//
+@use 'sass:map';
+@use '../1-tools/stdlib' as stdlib;
+
+// Variables.
+//
+// Variables defined with !default can be configured when loading this module with the @use rule.
+// To load this module with configuration, use @use <url> with (<variable>: <value>, <variable>: <value>).
+// The configured values will override the variables’ default values.
+// @link: https://sass-lang.com/documentation/variables
+
+//
 // Borders.
 //
 // Keys:
@@ -13,4 +26,21 @@ $borders: (
     "shadow-alt": 0 2px,
     "width": 1px,
     "width-alt": 2px,
-);
+) !default;
+
+// Functions.
+//
+// Returns the value in the borders map associated with the given key.
+// It returns null if the map doesn’t contain the key.
+//
+// @param {string} $key - The property we are looking for
+//
+@function get($key) {
+    $value: stdlib.get($key, $borders);
+
+    @if $value == null {
+        @warn #{'Border "' + $key + '" not found!'};
+    }
+
+    @return $value;
+}

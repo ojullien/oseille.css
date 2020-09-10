@@ -4,4 +4,10 @@
 @use '../../../src/oseille/1-tools/map-debug' as stdlib;
 @use '../../../src/oseille/2-settings/colors' as colors;
 
+@include stdlib.map-debug(colors.$primary);
+@include stdlib.map-debug(colors.$secondary);
+@include stdlib.map-debug(colors.$primary-palette);
 @include stdlib.map-debug(colors.$secondary-palette);
+
+@debug 'colors.get("orange")=>' colors.get("orange");
+@debug 'colors.get("color-notfound")=>' colors.get("color-notfound");

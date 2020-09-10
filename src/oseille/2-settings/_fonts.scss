@@ -1,6 +1,15 @@
 //
 // Default fonts' properties.
 //
+@use 'sass:map';
+@use '../1-tools/stdlib' as stdlib;
+
+// Variables.
+//
+// Variables defined with !default can be configured when loading this module with the @use rule.
+// To load this module with configuration, use @use <url> with (<variable>: <value>, <variable>: <value>).
+// The configured values will override the variables’ default values.
+// @link: https://sass-lang.com/documentation/variables
 
 // Font stack
 //
@@ -9,7 +18,7 @@
 //   - code: Code font stack
 //   - caption: Font stack 'for <q> <figcaption> <blockquote>
 //   - heading: Heading font stack
-$font-stacks: (
+$stacks: (
     "base": (
         -apple-system,
         BlinkMacSystemFont,
@@ -45,7 +54,7 @@ $font-stacks: (
         Helvetica,
         sans-serif,
     ),
-);
+) !default;
 
 //
 // Font sizes
@@ -65,7 +74,7 @@ $font-stacks: (
 //   - label: Font size for the <label> element
 //   - quotation: Font size for the quotation of <blockquote>
 //   - input: Font size for all inputs
-$font-sizes: (
+$sizes: (
     "accessible": 100%,
     "not-accessible": 16px,
     "body": medium,
@@ -80,7 +89,7 @@ $font-sizes: (
     "label": 1em,
     "quotation": 3em,
     "input": 1rem,
-);
+) !default;
 
 //
 // Line height
@@ -104,7 +113,7 @@ $line-spacing: (
     "main": 1.5,
     "p": calc(1ex / 0.29),
     "small": 1.5625,
-);
+) !default;
 
 // Hyphenation
 //
@@ -113,4 +122,60 @@ $line-spacing: (
 $hyphenation: (
     "text-align": justify,
     "hyphens": auto,
-);
+) !default;
+
+// Functions.
+//
+// Returns the value in the font-stacks map associated with the given key.
+// It returns the base value if the map doesn’t contain the key.
+// It returns null if the map doesn’t contain the key nor the base key.
+//
+// @param {string} $key - The property we are looking for
+//
+@function get-stack($key) {
+    $value: stdlib.get($key, $stacks);
+
+    @if $value == null {
+        @warn #{'Font-stack "' + $key + '" not found! Use base font stack.'};
+
+        $value: stdlib.get("base", $stacks);
+
+        @if $value == null {
+            @warn #{'Font-stack "base" not found!'};
+        }
+    }
+
+    @return $value;
+}
+
+//
+// Returns the value in the font-sizes map associated with the given key.
+// It returns null if the map doesn’t contain the key.
+//
+// @param {string} $key - The property we are looking for
+//
+@function get-size($key) {
+    $value: stdlib.get($key, $sizes);
+
+    @if $value == null {
+        @warn #{'Font size "' + $key + '" not found!'};
+    }
+
+    @return $value;
+}
+
+//
+// Returns the value in the line-spacing map associated with the given key.
+// It returns null if the map doesn’t contain the key.
+//
+// @param {string} $key - The property we are looking for
+//
+@function get-line-spacing($key) {
+    $value: stdlib.get($key, $line-spacing);
+
+    @if $value == null {
+        @warn #{'Line-spacing "' + $key + '" not found!'};
+    }
+
+    @return $value;
+}

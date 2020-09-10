@@ -4,9 +4,16 @@
 // Accessibility:
 //  - The colour of text and background content must have sufficient contrast
 //  - Use WCAG Grading tool to find the best shade/tone/tint with your fore / background combinaison
-//
 @use 'sass:map';
+@use '../1-tools/stdlib' as stdlib;
 @use '../1-tools/color' as *;
+
+// Variables.
+//
+// Variables defined with !default can be configured when loading this module with the @use rule.
+// To load this module with configuration, use @use <url> with (<variable>: <value>, <variable>: <value>).
+// The configured values will override the variables’ default values.
+// @link: https://sass-lang.com/documentation/variables
 
 //
 // Main colors.
@@ -15,33 +22,11 @@
 //   - fore: text & foreground color
 //   - back: background color
 //   - border: border color
-$primary-colors: (
+$primary: (
     "fore": #121212,
     "back": #f8f8f8,
     "border": #222222,
-);
-
-//
-// Primary colors palette.
-//
-// Keys:
-//   - fore-*: text & foreground color
-//   - back-*: background color
-//   - border-*: border color
-$primary-palette: (
-    "fore-darkest": shade(map.get($primary-colors, "fore"), 20%),
-    "fore-darker": tone(map.get($primary-colors, "fore"), 20%),
-    "fore-lighter": tint(map.get($primary-colors, "fore"), 20%),
-    "fore-lightest": tint(map.get($primary-colors, "fore"), 50%),
-    "back-darkest": shade(map.get($primary-colors, "back"), 20%),
-    "back-darker": tone(map.get($primary-colors, "back"), 20%),
-    "back-lighter": tint(map.get($primary-colors, "back"), 20%),
-    "back-lightest": tint(map.get($primary-colors, "back"), 50%),
-    "border-darkest": shade(map.get($primary-colors, "border"), 20%),
-    "border-darker": tone(map.get($primary-colors, "border"), 20%),
-    "border-lighter": tint(map.get($primary-colors, "border"), 20%),
-    "border-lightest": tint(map.get($primary-colors, "border"), 49%),
-);
+) !default;
 
 //
 // Other colors.
@@ -51,13 +36,35 @@ $primary-palette: (
 //   - red: error color
 //   - green: success color
 //   - orange: sidebar
-$secondary-colors: (
+$secondary: (
     "blue": #215cca,
     "red": #ad0000,
     "green": #2ecc40,
     "orange": #ff851b,
     "yellow": #ffdc00,
-);
+) !default;
+
+//
+// Primary colors palette.
+//
+// Keys:
+//   - fore-*: text & foreground color
+//   - back-*: background color
+//   - border-*: border color
+$primary-palette: (
+    "fore-darkest": shade(map.get($primary, "fore"), 20%),
+    "fore-darker": tone(map.get($primary, "fore"), 20%),
+    "fore-lighter": tint(map.get($primary, "fore"), 20%),
+    "fore-lightest": tint(map.get($primary, "fore"), 50%),
+    "back-darkest": shade(map.get($primary, "back"), 20%),
+    "back-darker": tone(map.get($primary, "back"), 20%),
+    "back-lighter": tint(map.get($primary, "back"), 20%),
+    "back-lightest": tint(map.get($primary, "back"), 50%),
+    "border-darkest": shade(map.get($primary, "border"), 20%),
+    "border-darker": tone(map.get($primary, "border"), 20%),
+    "border-lighter": tint(map.get($primary, "border"), 20%),
+    "border-lightest": tint(map.get($primary, "border"), 49%),
+) !default;
 
 //
 // Secondary colors palette.
@@ -73,20 +80,37 @@ $secondary-palette: (
     "blue-darker": #183889,
     "blue-lighter": #4083ae,
     "blue-lightest": #338fff,
-    "red-darkest": shade(map.get($secondary-colors, "red"), 20%),
-    "red-darker": tone(map.get($secondary-colors, "red"), 20%),
-    "red-lighter": tint(map.get($secondary-colors, "red"), 20%),
-    "red-lightest": tint(map.get($secondary-colors, "red"), 38%),
-    "green-darkest": shade(map.get($secondary-colors, "green"), 20%),
-    "green-darker": tone(map.get($secondary-colors, "green"), 20%),
-    "green-lighter": tint(map.get($secondary-colors, "green"), 20%),
-    "green-lightest": tint(map.get($secondary-colors, "green"), 38%),
-    "orange-darkest": shade(map.get($secondary-colors, "orange"), 20%),
-    "orange-darker": tone(map.get($secondary-colors, "orange"), 20%),
-    "orange-lighter": tint(map.get($secondary-colors, "orange"), 20%),
-    "orange-lightest": tint(map.get($secondary-colors, "orange"), 38%),
-    "yellow-darkest": shade(map.get($secondary-colors, "yellow"), 20%),
-    "yellow-darker": tone(map.get($secondary-colors, "yellow"), 20%),
-    "yellow-lighter": tint(map.get($secondary-colors, "yellow"), 20%),
-    "yellow-lightest": tint(map.get($secondary-colors, "yellow"), 38%),
-);
+    "red-darkest": shade(map.get($secondary, "red"), 20%),
+    "red-darker": tone(map.get($secondary, "red"), 20%),
+    "red-lighter": tint(map.get($secondary, "red"), 20%),
+    "red-lightest": tint(map.get($secondary, "red"), 38%),
+    "green-darkest": shade(map.get($secondary, "green"), 20%),
+    "green-darker": tone(map.get($secondary, "green"), 20%),
+    "green-lighter": tint(map.get($secondary, "green"), 20%),
+    "green-lightest": tint(map.get($secondary, "green"), 38%),
+    "orange-darkest": shade(map.get($secondary, "orange"), 20%),
+    "orange-darker": tone(map.get($secondary, "orange"), 20%),
+    "orange-lighter": tint(map.get($secondary, "orange"), 20%),
+    "orange-lightest": tint(map.get($secondary, "orange"), 38%),
+    "yellow-darkest": shade(map.get($secondary, "yellow"), 20%),
+    "yellow-darker": tone(map.get($secondary, "yellow"), 20%),
+    "yellow-lighter": tint(map.get($secondary, "yellow"), 20%),
+    "yellow-lightest": tint(map.get($secondary, "yellow"), 38%),
+) !default;
+
+// Functions.
+//
+// Returns the value in the color map associated with the given key.
+// It returns null if any map doesn’t contain the key.
+//
+// @param {string} $key - The color that you want to search for
+//
+@function get($key) {
+    $color: stdlib.get-list($key, $primary, $secondary, $primary-palette, $secondary-palette);
+
+    @if $color == null {
+        @warn #{'Color "' + $key + '" not found!'};
+    }
+
+    @return $color;
+}
