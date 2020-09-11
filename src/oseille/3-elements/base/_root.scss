@@ -1,6 +1,9 @@
 //
 // Sectioning root using top-level elements
 //
+// You may override the values of the colors and fonts variables, if needed, with the @use rule.
+// See flavors/oseille.scss and the 2-settings*.scss files.
+//
 @use '../../2-settings/colors' as colors;
 @use '../../2-settings/fonts' as fonts;
 

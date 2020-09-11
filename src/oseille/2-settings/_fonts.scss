@@ -99,7 +99,8 @@ $sizes: (
 // Keys:
 //   - h*: line height for larger text sizes.
 //   - subheading: line height for subheading.
-//   - main: line height for most elements. Accessibility concerns: Use a minimum value of 1.5 for line-height for main paragraph content.
+//   - main: line height for most elements.
+//   - mark: line height for <mark>Accessibility concerns: Use a minimum value of 1.5 for line-height for main paragraph content.
 //   - p : line height for main paragraph content
 //   - small: line height for smaller text sizes
 $line-spacing: (
@@ -111,6 +112,7 @@ $line-spacing: (
     "h6": calc(1ex / 0.32),
     "subheading": calc(1ex / 0.32),
     "main": 1.5,
+    "mark": 1.5,
     "p": calc(1ex / 0.29),
     "small": 1.5625,
 ) !default;
@@ -124,7 +126,7 @@ $hyphenation: (
     "hyphens": auto,
 ) !default;
 
-// Functions.
+// Accessors.
 //
 // Returns the value in the font-stacks map associated with the given key.
 // It returns the base value if the map doesn’t contain the key.

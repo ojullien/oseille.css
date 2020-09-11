@@ -20,9 +20,9 @@
 $breakpoints: (
     "medium": 768px,
     "large": 1280px,
-);
+) !default;
 
-// Functions.
+// Accessors.
 //
 // Returns the value in the breakpoints map associated with the given key.
 // It returns null if the map doesn’t contain the key.

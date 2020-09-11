@@ -64,7 +64,9 @@ div {
 }
 
 /* Inline text semantic styling */
-sup, sub, small {
+sup, 
+sub, 
+small {
   margin: 0;
   padding: 0;
   border: 0;
@@ -72,20 +74,26 @@ sup, sub, small {
   font-size: var(--smaller, 0.75em);
 }
 
-s, del,
+s, 
+del,
 em,
 i,
 ins,
 span,
-u, data, b,
-strong, abbr[title], a {
+u, 
+data, 
+b,
+strong, 
+abbr[title], 
+a {
   margin: 0;
   padding: 0;
   border: 0;
   font-size: 1em;
 }
 
-sup, sub {
+sup, 
+sub {
   line-height: 0;
   position: relative;
   vertical-align: baseline;
@@ -101,7 +109,8 @@ a:link {
 a:visited {
   color: var(--visited-link-color, #0e1c43);
 }
-a:not(.button):hover, a:not(.button):focus {
+a:not(.button):hover, 
+a:not(.button):focus {
   box-shadow: 0 2px;
 }
 
@@ -132,8 +141,8 @@ data:hover:after {
     cursor: help;
   }
 }
-s:before, s:after {
-  clip-path: inset(100%);
+s:before, 
+s:after {
   clip: rect(1px, 1px, 1px, 1px);
   height: 1px;
   overflow: hidden;
@@ -141,6 +150,12 @@ s:before, s:after {
   white-space: nowrap;
   width: 1px;
 }
+@supports (clip-path: inset(100%)) {
+    s:before, 
+    s:after {
+      clip-path: inset(100%);
+    }
+  }
 s:before {
   content: " [start of stricken text] ";
 }

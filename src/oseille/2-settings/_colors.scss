@@ -4,6 +4,7 @@
 // Accessibility:
 //  - The colour of text and background content must have sufficient contrast
 //  - Use WCAG Grading tool to find the best shade/tone/tint with your fore / background combinaison
+//
 @use 'sass:map';
 @use '../1-tools/stdlib' as stdlib;
 @use '../1-tools/color' as *;
@@ -99,14 +100,21 @@ $secondary-palette: (
 ) !default;
 
 //
-// Link colors.
+// Colors for elements.
 //
 // Keys:
 //   - link: color for <a>:link
-//   - visited: color for <a>:visited. See $secondary-palette.blue-darkest in /default/colors.scss
-$links: (
+//   - visited: color for <a>:visited.
+//   - primary: background color variant.
+//   - secondary: background color variant.
+//   - tertiary: background color variant.
+$elements: (
     "link": map.get($secondary, "blue"),
     "visited": map.get($secondary-palette, "blue-darkest"),
+    "primary": map.get($secondary, "blue"),
+    "secondary": map.get($secondary, "red"),
+    "tertiary": map.get($secondary, "green"),
+    "sidebar": map.get($secondary, "blue"),
 ) !default;
 
 // Functions.
@@ -117,7 +125,7 @@ $links: (
 // @param {string} $key - The color that you want to search for
 //
 @function get($key) {
-    $color: stdlib.get-list($key, $primary, $secondary, $primary-palette, $secondary-palette, $links);
+    $color: stdlib.get-list($key, $primary, $secondary, $primary-palette, $secondary-palette, $elements);
 
     @if $color == null {
         @warn #{'Color "' + $key + '" not found!'};
