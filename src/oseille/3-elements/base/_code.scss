@@ -15,7 +15,9 @@
 // context. It's typically presented using an italicized version of the current typeface, although that behavior is
 // browser-dependent.
 //
-//@use 'sass:map';
+// You may override the values of the colors, borders and fonts variables, if needed, with the @use rule.
+// See flavors/oseille.scss and the 2-settings*.scss files.
+//
 @use '../../1-tools/box-shadow' as boxshadow;
 @use '../../2-settings/colors' as colors;
 @use '../../2-settings/fonts' as fonts;
@@ -54,7 +56,7 @@ pre {
     @include boxshadow.box-shadow(borders.get("shadow"));
 
     border: medium solid colors.get("border");
-    border-left: thick solid colors.get("sidebar");
+    border-left: thick solid colors.get("sidebar-alt");
     border-radius: 0 #{borders.get("radius")} #{borders.get("radius")} 0;
 
     word-break: normal;

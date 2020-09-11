@@ -103,6 +103,7 @@ $sizes: (
 //   - mark: line height for <mark>Accessibility concerns: Use a minimum value of 1.5 for line-height for main paragraph content.
 //   - p : line height for main paragraph content
 //   - small: line height for smaller text sizes
+//   - hr : line height for thematic break
 $line-spacing: (
     "h1": calc(1ex / 0.42),
     "h2": calc(1ex / 0.42),
@@ -114,17 +115,26 @@ $line-spacing: (
     "main": 1.5,
     "mark": 1.5,
     "p": calc(1ex / 0.29),
+    "hr": 1.25,
     "small": 1.5625,
 ) !default;
 
 // Hyphenation
 //
-// Hyphenation support for languages is not always optimal in the various browsers;
-// Avoid justified text in the absence of hyphenation: "text-align": left; "hyphens": none
-$hyphenation: (
-    "text-align": justify,
-    "hyphens": auto,
+// Hyphenation support for languages is not always optimal in the various browsers.
+// Avoid justified text in the absence of hyphenation.
+$hyphenation: false !default;
+$hyphenations: (
+    "text-align": left,
+    "hyphens": none,
 ) !default;
+
+@if $hyphenation {
+    $hyphenations: (
+        "text-align": justify,
+        "hyphens": auto,
+    );
+}
 
 // Accessors.
 //
@@ -177,6 +187,22 @@ $hyphenation: (
 
     @if $value == null {
         @warn #{'Line-spacing "' + $key + '" not found!'};
+    }
+
+    @return $value;
+}
+
+//
+// Returns the value in the hyphenations map associated with the given key.
+// It returns null if the map doesn’t contain the key.
+//
+// @param {string} $key - The property we are looking for
+//
+@function get-hyphenation($key) {
+    $value: stdlib.get($key, $hyphenations);
+
+    @if $value == null {
+        @warn #{'Hyphenation "' + $key + '" not found!'};
     }
 
     @return $value;

@@ -15,12 +15,16 @@
 // Example, how to modify the primary colors:
 //
 //@use '../oseille/2-settings/colors' with (
-//    $primary: (
+//    $secondary: (
 //        "fore": #40e0d0,
 //        "back": #d3d3d3,
 //        "border": #222222,
 //    )
 //);
+
+@use '../oseille/2-settings/fonts' with (
+    $hyphenation: true,
+);
 
 // 2. Build the css
 @use '../oseille/3-elements/base/root';
@@ -28,3 +32,5 @@
 @use '../oseille/3-elements/base/text';
 @use '../oseille/3-elements/base/mark';
 @use '../oseille/3-elements/base/code';
+@use '../oseille/3-elements/base/paragraph';
+@use '../oseille/3-elements/base/quotation';
