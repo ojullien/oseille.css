@@ -23,10 +23,14 @@
 //   - fore: text & foreground color
 //   - back: background color
 //   - border: border color
+//   - fore-alt: alternative color for text & foreground.(Inverted)
+//   - back-alt: alternative color for background (Inverted)
 $primary: (
     "fore": #121212,
     "back": #f8f8f8,
     "border": #222222,
+    "back-alt": #121212,
+    "fore-alt": #f8f8f8,
 ) !default;
 
 //
