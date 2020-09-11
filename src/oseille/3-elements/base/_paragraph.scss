@@ -10,14 +10,14 @@
 @use '../../2-settings/fonts' as fonts;
 @use '../../2-settings/box-model' as boxmodel;
 
-// Variables.
+// Private variables.
 //
 // Variables defined with !default can be configured when loading this module with the @use rule.
 // To load this module with configuration, use @use <url> with (<variable>: <value>, <variable>: <value>).
 // The configured values will override the variables’ default values.
 // @link: https://sass-lang.com/documentation/variables
 
-$paragraph_width: 70ch !default;
+$_paragraph_width: 70ch !default;
 
 /* paragraph-level elements styling */
 
@@ -40,7 +40,7 @@ hr {
 }
 
 p {
-    width: $paragraph_width;
+    width: $_paragraph_width;
     max-width: 100%;
     line-height: fonts.get-line-spacing("p");
     text-align: fonts.get-hyphenation("text-align");
