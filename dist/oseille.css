@@ -385,3 +385,12 @@ dd {
 dt::after {
   content: ": ";
 }
+
+/* Definition styling */
+dfn {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 1em;
+  font-weight: inherit;
+}
