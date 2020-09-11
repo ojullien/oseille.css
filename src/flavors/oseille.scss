@@ -2,10 +2,18 @@
 // Oseille.css flavor.
 //
 
-// 1. Overrides the default variables if needed
-// @link: https://sass-lang.com/documentation/variables
+// 1. Overrides the default variables, if needed.
 //
-// Example:
+// Variables declared at the top level of this stylesheet are global. They can be accessed anywhere in the library
+// after they’ve been declared.
+//
+// Sass allow you to configure these variables before you use them to generate CSS.
+// Variables provided in all the 2-settings files are defined with `!default` and can be configured when loading
+// the file with the @use rule.
+// @see: https://sass-lang.com/documentation/variables
+//
+// Example, how to modify the primary colors:
+//
 //@use '../oseille/2-settings/colors' with (
 //    $primary: (
 //        "fore": #40e0d0,
@@ -16,4 +24,7 @@
 
 // 2. Build the css
 @use '../oseille/3-elements/base/root';
+@use '../oseille/3-elements/layout/sectioning';
 @use '../oseille/3-elements/base/text';
+@use '../oseille/3-elements/base/mark';
+@use '../oseille/3-elements/base/code';
