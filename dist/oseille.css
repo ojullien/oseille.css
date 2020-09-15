@@ -274,7 +274,7 @@ hr {
   line-height: 1.25;
   margin: 0.5rem;
   height: 1px;
-  background: linear-gradient(to right, transparent, #8e8e8e 20%, #8e8e8e 80%, transparent);
+  background: linear-gradient(to right, transparent, #909090 20%, #909090 80%, transparent);
 }
 
 p {
@@ -312,7 +312,7 @@ blockquote {
   position: relative;
   margin: 0.5rem;
   padding: calc(3 * 0.5rem);
-  border: 1px solid var(--border-color, #8e8e8e);
+  border: 1px solid var(--border-color, #909090);
   border-left: 6px solid var(--caption-sidebar-color, #ff851b);
   border-radius: 0 0.125rem 0.125rem 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, sans-serif;

@@ -34,6 +34,7 @@ $primary: (
     "yellow": #ffdc00,
     "black": #121212,
     "white": #f8f8f8,
+    "transparent": transparent,
 ) !default;
 
 //
@@ -104,7 +105,7 @@ $secondary-palette: (
     "border-darkest": shade(map.get($secondary, "border"), 20%),
     "border-darker": tone(map.get($secondary, "border"), 20%),
     "border-lighter": tint(map.get($secondary, "border"), 20%),
-    "border-lightest": tint(map.get($secondary, "border"), 49%),
+    "border-lightest": tint(map.get($secondary, "border"), 49.8%),
 ) !default;
 
 //

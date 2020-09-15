@@ -29,6 +29,6 @@
     ],
     "scripts": {
         "test": "./node_modules/.bin/sass test/flavors:test/dist --style=expanded --charset --no-error-css --color --unicode --no-source-map",
-        "build": "./node_modules/.bin/sass src/flavors:dist --style=expanded --charset --no-error-css --color --unicode --no-source-map"
+        "oseille": "./node_modules/.bin/sass src/flavors:dist --style=expanded --charset --no-error-css --color --unicode --no-source-map"
     }
 }
