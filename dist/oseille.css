@@ -690,3 +690,26 @@ form {
   border: 1px solid var(--border-color, #909090);
   border-radius: 0.125rem;
 }
+
+/* Styling for fieldset */
+fieldset {
+  border: 1px solid var(--border-color, #222222);
+  border-radius: 0.125rem;
+  margin: calc(0.5rem / 4);
+  padding: 0.5rem;
+}
+
+legend {
+  box-sizing: border-box;
+  display: table;
+  max-width: 100%;
+  white-space: normal;
+  font-weight: bolder;
+  font-size: 1em;
+  padding: calc(0.5rem / 2);
+}
+
+label {
+  padding: calc(0.5rem / 2) 0.5rem;
+  font-size: 1em;
+}
