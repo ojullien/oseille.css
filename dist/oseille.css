@@ -693,7 +693,7 @@ form {
 
 /* Styling for fieldset */
 fieldset {
-  border: 1px solid var(--border-color, #222222);
+  border: 1px solid var(--border-color, #909090);
   border-radius: 0.125rem;
   margin: calc(0.5rem / 4);
   padding: 0.5rem;
@@ -838,4 +838,248 @@ option {
 ::-ms-placeholder {
   color: var(--fore-color, #121212);
   opacity: 0.54;
+}
+
+/* Table styling */
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 0;
+  display: flex;
+  flex: 0 1 auto;
+  flex-flow: row wrap;
+  padding: 0.5rem;
+  padding-top: 0;
+}
+table caption {
+  font-style: inherit;
+  font-weight: inherit;
+  font-size: 1rem;
+  margin: calc(2 * 0.5rem) 0;
+  max-width: 100%;
+  flex: 0 0 100%;
+}
+table thead,
+table tbody {
+  display: flex;
+  flex-flow: row wrap;
+  border: 1px solid var(--border-color, #222222);
+}
+table thead {
+  z-index: 999;
+  border-radius: 0.125rem 0.125rem 0 0;
+  border-bottom: 1px solid var(--table-separator-color, #353535);
+}
+table tbody {
+  border-top: 0;
+  margin-top: calc(0 - 0.5rem);
+  border-radius: 0 0 0.125rem 0.125rem;
+}
+table tr {
+  display: flex;
+  padding: 0;
+}
+table th,
+table td {
+  padding: calc(2 * 0.5rem);
+}
+table th {
+  font-style: inherit;
+  font-weight: inherit;
+  text-align: left;
+  background: var(--th-back-color, #f8f8f8);
+  color: var(--th-fore-color, #121212);
+}
+table td {
+  background: var(--td-back-color, #f8f8f8);
+  color: var(--td-fore-color, #121212);
+  border-top: 1px solid var(--border-color, #222222);
+}
+
+table:not(.horizontal) {
+  overflow: auto;
+  max-height: 400px;
+}
+table:not(.horizontal) thead,
+table:not(.horizontal) tbody {
+  max-width: 100%;
+  flex: 0 0 100%;
+}
+table:not(.horizontal) tr {
+  flex-flow: row wrap;
+  flex: 0 0 100%;
+}
+table:not(.horizontal) th,
+table:not(.horizontal) td {
+  flex: 1 0 0%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+table:not(.horizontal) thead {
+  top: 0;
+}
+@supports (position: sticky) or (position: -webkit-sticky) {
+  table:not(.horizontal) thead {
+    position: -webkit-sticky;
+    position: sticky;
+  }
+}
+table:not(.horizontal) tbody tr:first-child td {
+  border-top: 0;
+}
+table:not(.horizontal) thead tr:first-child th:first-child {
+  border-top-left-radius: 0.125rem;
+}
+table:not(.horizontal) thead tr:first-child th:last-child {
+  border-top-right-radius: 0.125rem;
+}
+table:not(.horizontal) tbody tr:last-child td:first-child {
+  border-bottom-left-radius: 0.125rem;
+}
+table:not(.horizontal) tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 0.125rem;
+}
+
+table.horizontal {
+  border: 0;
+}
+table.horizontal thead,
+table.horizontal tbody {
+  border: 0;
+  flex: 0.2 0 0;
+  flex-flow: row nowrap;
+}
+table.horizontal tbody {
+  overflow: auto;
+  justify-content: space-between;
+  flex: 0.8 0 0;
+  margin-left: 0;
+  padding-bottom: calc(0.5rem / 4);
+}
+table.horizontal tr {
+  flex-direction: column;
+  flex: 1 0 auto;
+}
+table.horizontal th,
+table.horizontal td {
+  width: auto;
+  border: 0;
+  border-bottom: 1px solid var(--border-color, #222222);
+}
+table.horizontal th:not(:first-child),
+table.horizontal td:not(:first-child) {
+  border-top: 0;
+}
+table.horizontal th {
+  text-align: right;
+  border-left: 1px solid var(--border-color, #222222);
+  border-right: 1px solid var(--table-separator-color, #353535);
+}
+table.horizontal thead tr:first-child {
+  padding-left: 0;
+}
+table.horizontal th:first-child,
+table.horizontal td:first-child {
+  border-top: 1px solid var(--border-color, #222222);
+}
+table.horizontal tbody tr:last-child td {
+  border-right: 1px solid var(--border-color, #222222);
+}
+table.horizontal tbody tr:last-child td:first-child {
+  border-top-right-radius: 0.25rem;
+}
+table.horizontal tbody tr:last-child td:last-child {
+  border-bottom-right-radius: 0.25rem;
+}
+table.horizontal thead tr:first-child th:first-child {
+  border-top-left-radius: 0.25rem;
+}
+table.horizontal thead tr:first-child th:last-child {
+  border-bottom-left-radius: 0.25rem;
+}
+
+@media screen and (max-width: 767px) {
+  table,
+table.horizontal {
+    border-collapse: collapse;
+    border: 0;
+    width: 100%;
+    display: table;
+  }
+  table thead,
+table th,
+table.horizontal thead,
+table.horizontal th {
+    border: 0;
+    height: 1px;
+    width: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    clip: rect(0 0 0 0);
+    -webkit-clip-path: inset(100%);
+    clip-path: inset(100%);
+  }
+  table tbody,
+table.horizontal tbody {
+    border: 0;
+    display: table-row-group;
+  }
+  table tr,
+table.horizontal tr {
+    display: block;
+    border: 1px solid var(--border-color, #222222);
+    border-radius: 0.125rem;
+    background: var(--tr-back-color, #f8f8f8);
+    padding: 0.5rem;
+    margin: 0.5rem;
+    margin-bottom: calc(2 * 0.5rem);
+  }
+  table th,
+table td,
+table.horizontal th,
+table.horizontal td {
+    width: auto;
+  }
+  table td,
+table.horizontal td {
+    display: block;
+    border: 0;
+    text-align: right;
+  }
+  table td:before,
+table.horizontal td:before {
+    content: attr(data-label);
+    float: left;
+    font-weight: 600;
+  }
+  table th:first-child,
+table td:first-child,
+table.horizontal th:first-child,
+table.horizontal td:first-child {
+    border-top: 0;
+  }
+  table tbody tr:last-child td,
+table.horizontal tbody tr:last-child td {
+    border-right: 0;
+  }
+}
+table.striped tr:nth-of-type(2n) > td {
+  background: var(--tr-back-color, #f8f8f8);
+}
+
+@media screen and (max-width: 768px) {
+  table.striped tr:nth-of-type(2n) {
+    background: var(--tr-back-color, #f8f8f8);
+  }
+}
+table.hoverable tr:hover, table.hoverable tr:hover > td, table.hoverable tr:focus, table.hoverable tr:focus > td {
+  background: var(--table-back-hover-color, #c6c6c6);
+}
+
+@media screen and (max-width: 768px) {
+  table.hoverable tr:hover, table.hoverable tr:hover > td, table.hoverable tr:focus, table.hoverable tr:focus > td {
+    background: var(--table-back-hover-color, #c6c6c6);
+  }
 }

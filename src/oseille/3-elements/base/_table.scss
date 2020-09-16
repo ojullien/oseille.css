@@ -1,62 +1,49 @@
 //
 // The elements here are used to create and handle tabular data.
 //
-@use "sass:map";
-@use '../../default/stdlib';
-
-// Public variables.
-// May be overrided using @use <url> with (<variable>: <value>, <variable>: <value>)
-
-$margin: 0.5rem !default; // Universal margin for the most elements
-$padding: 0.5rem !default; // Universal padding for the most elements
-$box-shadow: none !default; // Universal box-shadow for most elements
-$border-radius: 0.125rem !default; // Universal border-radius for most elements
-$max-height: 400px !default; // Maximum height of <table> elements (non-horizontal).
-$font-size: 1.5rem !default; // Font size for <caption> elements.
-$colors: (
-    // Border color for <table> elements.
-        "border": #aaa,
-    // Border color for the border between <thead> and <tbody>.
-        "separator": #666,
-    // Background color for <th> elements.
-        "th-back": #e6e6e6,
-    // Text color for <th> elements.
-        "th-fore": #111,
-    // Background color for <td> elements.
-        "td-back": #f8f8f8,
-    // Text color for <td> elements.
-        "td-fore": #111,
-    // Hover background color for <td> elements in hoverable tables.
-        "td-hover": #90caf9,
-    // Alternative background color for <td> elements in striped tables.
-        "td-alt": #eee
-) !default; // Border colors
-$mobile-breakpoint: 768px !default; // Breakpoint for <table> mobile view.
-
-// Borders.
+// You may override the values of the colors, borders and fonts variables, if needed, with the @use rule.
+// See flavors/oseille.scss and the 2-settings*.scss files.
 //
-// Keys:
-//   - radius: rounds the corners of an element's outer border edge.
-//   - shadow: shadow effects around an element's frame.
-//   - width: thickness of the border.
-$_borders: (
-    "radius": 0.125rem,
-    "shadow": none,
-    "width": 1px,
-) !default;
+// Accessibility https://developer.mozilla.org/en-US/docs/Learn/HTML/Tables/Advanced
+//https://www.w3.org/WAI/tutorials/tables/
+//https://webaim.org/techniques/tables/data
+@use 'sass:map';
+@use '../../1-tools/box-shadow' as boxshadow;
+@use '../../2-settings/colors' as colors;
+@use '../../2-settings/fonts' as fonts;
+@use '../../2-settings/borders' as borders;
+@use '../../2-settings/box-model' as boxmodel;
+@use '../../2-settings/responsive' as breakpoints;
 
-// Private variables
+// Private variables.
+//
+// Variables defined with !default can be configured when loading this module with the @use rule.
+// To load this module with configuration, use @use <url> with (<variable>: <value>, <variable>: <value>).
+// The configured values will override the variables’ default values.
+// @link: https://sass-lang.com/documentation/variables
 
+$_mobile-breakpoint: breakpoints.get("medium") - 1px; // Breakpoint for <table> mobile view.
+$_max-height: 400px !default; // Maximum height of <table> elements (non-horizontal).
 $_include-horizontal-table: true !default; // Flag for horizontal tables (`true` \ `false`).
-$_horizontal-name: "horizontal" !default; // Class name for horizontal <table> elements.
-$_mobile-card-label: "data-label" !default; // Attribute used to replace column headers in mobile view.
-$_mobile-label-font-weight: 600 !default; // Font weight for column header labels in mobile view.
 $_include-striped-table: true !default; // Flag for striped tables.
 $_include-hoverable-table: true !default; // Flag for striped tables.
-$_hoverable-name: "hoverable" !default; // Class name for hoverable <table> elements.
-$_striped-name: "striped" !default; // Class name for striped <table> elements.
+$_mobile-label-font-weight: 600 !default; // Font weight for column header labels in mobile view.
 
-// Table styling
+// Classnames
+//
+// Keys:
+//   - horizontal: horizontal <table> elements
+//   - label: attribute used to replace column headers in mobile view
+//   - hover: hoverable <table> elements
+//   - strip: striped <table> elements
+$_classnames: (
+    "horizontal": "horizontal",
+    "label": "data-label",
+    "hover": "hoverable",
+    "strip": "striped",
+) !default;
+
+/* Table styling */
 
 // Desktop view (scrollable vertical tables).
 table {
@@ -66,19 +53,19 @@ table {
     display: flex;
     flex: 0 1 auto;
     flex-flow: row wrap;
-    padding: #{$padding};
+    padding: #{boxmodel.get("padding")};
     padding-top: 0;
 
     @if not($_include-horizontal-table) {
         overflow: auto;
-        max-height: $max-height;
+        max-height: $_max-height;
     }
 
     caption {
         font-style: inherit;
         font-weight: inherit;
-        font-size: $font-size;
-        margin: calc(2 * #{$margin}) 0;
+        font-size: fonts.get-size("input");
+        margin: calc(2 * #{boxmodel.get("margin")}) 0;
         max-width: 100%;
         flex: 0 0 100%;
     }
@@ -87,7 +74,7 @@ table {
     tbody {
         display: flex;
         flex-flow: row wrap;
-        border: map.get($_borders, "width") solid map.get($colors, "border");
+        border: borders.get("width") solid var(--border-color, #{colors.get("border")});
         @if not($_include-horizontal-table) {
             max-width: 100%;
             flex: 0 0 100%;
@@ -96,18 +83,21 @@ table {
 
     thead {
         z-index: 999; // Fixes the visibility of the element.
-        border-radius: #{$border-radius} #{$border-radius} 0 0;
-        border-bottom: map.get($_borders, "width") solid map.get($colors, "separator");
+        border-radius: #{borders.get("radius")} #{borders.get("radius")} 0 0;
+        border-bottom: borders.get("width") solid var(--table-separator-color, #{colors.get("border-darker")});
         @if not($_include-horizontal-table) {
-            position: sticky;
             top: 0;
+            @supports ((position: sticky) or (position: -webkit-sticky)) {
+                position: -webkit-sticky; // One of the rare instances where prefixes are necessary.
+                position: sticky;
+            }
         }
     }
 
     tbody {
         border-top: 0;
-        margin-top: calc(0 - #{$margin});
-        border-radius: 0 0 $border-radius $border-radius;
+        margin-top: calc(0 - #{boxmodel.get("margin")});
+        border-radius: 0 0 borders.get("radius") borders.get("radius");
     }
 
     tr {
@@ -121,7 +111,7 @@ table {
 
     th,
     td {
-        padding: calc(2 * #{$padding}); // Apply always to overwrite default.
+        padding: calc(2 * #{boxmodel.get("padding")}); // Apply always to overwrite default.
         @if not($_include-horizontal-table) {
             flex: 1 0 0%;
             overflow: hidden;
@@ -133,14 +123,14 @@ table {
         font-style: inherit;
         font-weight: inherit;
         text-align: left;
-        background: map.get($colors, "th-back");
-        color: map.get($colors, "th-fore");
+        background: var(--th-back-color, #{colors.get("back")});
+        color: var(--th-fore-color, #{colors.get("fore")});
     }
 
     td {
-        background: map.get($colors, "td-back");
-        color: map.get($colors, "td-fore");
-        border-top: map.get($_borders, "width") solid map.get($colors, "border");
+        background: var(--td-back-color, #{colors.get("back")});
+        color: var(--td-fore-color, #{colors.get("fore")});
+        border-top: borders.get("width") solid var(--border-color, #{colors.get("border")});
     }
 
     @if not($_include-horizontal-table) {
@@ -152,9 +142,9 @@ table {
 
 // Styling for horizontal tables
 @if $_include-horizontal-table {
-    table:not(.#{$_horizontal-name}) {
+    table:not(.#{map.get($_classnames, "horizontal")}) {
         overflow: auto;
-        max-height: $max-height;
+        max-height: $_max-height;
 
         thead,
         tbody {
@@ -175,7 +165,10 @@ table {
         }
 
         thead {
-            position: sticky;
+            @supports ((position: sticky) or (position: -webkit-sticky)) {
+                position: -webkit-sticky; // One of the rare instances where prefixes are necessary.
+                position: sticky;
+            }
             top: 0;
         }
 
@@ -185,26 +178,26 @@ table {
 
         thead tr:first-child th {
             &:first-child {
-                border-top-left-radius: $border-radius;
+                border-top-left-radius: borders.get("radius");
             }
 
             &:last-child {
-                border-top-right-radius: $border-radius;
+                border-top-right-radius: borders.get("radius");
             }
         }
 
         tbody tr:last-child td {
             &:first-child {
-                border-bottom-left-radius: $border-radius;
+                border-bottom-left-radius: borders.get("radius");
             }
 
             &:last-child {
-                border-bottom-right-radius: $border-radius;
+                border-bottom-right-radius: borders.get("radius");
             }
         }
     }
 
-    table.#{$_horizontal-name} {
+    table.#{map.get($_classnames, "horizontal")} {
         border: 0;
 
         thead,
@@ -219,7 +212,7 @@ table {
             justify-content: space-between;
             flex: 0.8 0 0;
             margin-left: 0;
-            padding-bottom: calc(#{$padding} / 4);
+            padding-bottom: calc(#{boxmodel.get("padding")} / 4);
         }
 
         tr {
@@ -231,7 +224,7 @@ table {
         td {
             width: auto;
             border: 0;
-            border-bottom: map.get($_borders, "width") solid map.get($colors, "border");
+            border-bottom: borders.get("width") solid var(--border-color, #{colors.get("border")});
             &:not(:first-child) {
                 border-top: 0;
             }
@@ -239,8 +232,8 @@ table {
 
         th {
             text-align: right;
-            border-left: map.get($_borders, "width") solid map.get($colors, "border");
-            border-right: map.get($_borders, "width") solid map.get($colors, "separator");
+            border-left: borders.get("width") solid var(--border-color, #{colors.get("border")});
+            border-right: borders.get("width") solid var(--table-separator-color, #{colors.get("border-darker")});
         }
 
         thead {
@@ -251,11 +244,11 @@ table {
 
         th:first-child,
         td:first-child {
-            border-top: map.get($_borders, "width") solid map.get($colors, "border");
+            border-top: borders.get("width") solid var(--border-color, #{colors.get("border")});
         }
 
         tbody tr:last-child td {
-            border-right: map.get($_borders, "width") solid map.get($colors, "border");
+            border-right: borders.get("width") solid var(--border-color, #{colors.get("border")});
 
             &:first-child {
                 border-top-right-radius: 0.25rem;
@@ -280,31 +273,31 @@ table {
     table {
         thead tr:first-child th {
             &:first-child {
-                border-top-left-radius: $border-radius;
+                border-top-left-radius: borders.get("radius");
             }
 
             &:last-child {
-                border-top-right-radius: $border-radius;
+                border-top-right-radius: borders.get("radius");
             }
         }
 
         tbody tr:last-child td {
             &:first-child {
-                border-bottom-left-radius: $border-radius;
+                border-bottom-left-radius: borders.get("radius");
             }
 
             &:last-child {
-                border-bottom-right-radius: $border-radius;
+                border-bottom-right-radius: borders.get("radius");
             }
         }
     }
 }
 
 // Mobile
-@media screen and (max-width: #{$mobile-breakpoint - 1px}) {
+@media screen and (max-width: #{$_mobile-breakpoint}) {
     @if $_include-horizontal-table {
         table,
-        table.#{$_horizontal-name} {
+        table.#{map.get($_classnames, "horizontal")} {
             border-collapse: collapse;
             border: 0;
             width: 100%;
@@ -332,15 +325,15 @@ table {
 
             tr {
                 display: block;
-                border: map.get($_borders, "width") solid map.get($colors, "border");
-                border-radius: #{$border-radius};
+                border: borders.get("width") solid var(--border-color, #{colors.get("border")});
+                border-radius: #{borders.get("radius")};
 
-                @include stdlib.box-shadow($box-shadow);
+                @include boxshadow.box-shadow(borders.get("shadow"));
 
-                background: #fafafa; // use variables, this is a test (body)
-                padding: #{$padding};
-                margin: #{$margin};
-                margin-bottom: calc(2 * #{$margin});
+                background: var(--tr-back-color, #{colors.get("back")});
+                padding: #{boxmodel.get("padding")};
+                margin: #{boxmodel.get("margin")};
+                margin-bottom: calc(2 * #{boxmodel.get("margin")});
             }
 
             th,
@@ -355,7 +348,7 @@ table {
             }
 
             td:before {
-                content: attr(#{$_mobile-card-label});
+                content: attr(#{map.get($_classnames, "label")});
                 float: left;
                 font-weight: $_mobile-label-font-weight;
             }
@@ -398,15 +391,15 @@ table {
 
             tr {
                 display: block;
-                border: map.get($_borders, "width") solid map.get($colors, "border");
-                border-radius: #{$border-radius};
+                border: borders.get("width") solid var(--border-color, #{colors.get("border")});
+                border-radius: #{borders.get("radius")};
 
-                @include stdlib.box-shadow($box-shadow);
+                @include boxshadow.box-shadow(borders.get("shadow"));
 
-                background: #fafafa; // use variables, this is a test (body)
-                padding: #{$padding};
-                margin: #{$margin};
-                margin-bottom: calc(2 * #{$margin});
+                background: var(--tr-back-color, #{colors.get("back")});
+                padding: #{boxmodel.get("padding")};
+                margin: #{boxmodel.get("margin")};
+                margin-bottom: calc(2 * #{boxmodel.get("margin")});
             }
 
             td {
@@ -416,7 +409,7 @@ table {
             }
 
             td:before {
-                content: attr(#{$_mobile-card-label});
+                content: attr(#{map.get($_classnames, "label")});
                 float: left;
                 font-weight: $_mobile-label-font-weight;
             }
@@ -426,43 +419,43 @@ table {
 
 // Striped tables.
 @if $_include-striped-table {
-    table.#{$_striped-name} {
+    table.#{map.get($_classnames, "strip")} {
         tr:nth-of-type(2n) > td {
-            background: map.get($colors, "td-alt");
+            background: var(--tr-back-color, #{colors.get("back")});
         }
     }
 
     // Responsiveness for striped tables.
-    @media screen and (max-width: #{$mobile-breakpoint}) {
-        table.#{$_striped-name} {
+    @media screen and (max-width: #{breakpoints.get("medium")}) {
+        table.#{map.get($_classnames, "strip")} {
             tr:nth-of-type(2n) {
-                background: map.get($colors, "td-alt");
+                background: var(--tr-back-color, #{colors.get("back")});
             }
         }
     }
 }
 // Hoverable tables.
 @if $_include-hoverable-table {
-    table.#{$_hoverable-name} {
+    table.#{map.get($_classnames, "hover")} {
         tr {
             &:hover,
             &:focus {
                 &,
                 & > td {
-                    background: map.get($colors, "td-hover");
+                    background: var(--table-back-hover-color, #{colors.get("back-darkest")});
                 }
             }
         }
     }
 
-    @media screen and (max-width: #{$mobile-breakpoint}) {
-        table.#{$_hoverable-name} {
+    @media screen and (max-width: #{breakpoints.get("medium")}) {
+        table.#{map.get($_classnames, "hover")} {
             tr {
                 &:hover,
                 &:focus {
                     &,
                     & > td {
-                        background: map.get($colors, "td-hover");
+                        background: var(--table-back-hover-color, #{colors.get("back-darkest")});
                     }
                 }
             }
