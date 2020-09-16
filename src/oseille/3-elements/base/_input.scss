@@ -4,56 +4,23 @@
 // on the device and user agent. The <input> element is one of the most powerful and complex in all of HTML
 // due to the sheer number of combinations of input types and attributes.
 //
-@use 'sass:map';
-
-// Variables.
+// You may override the values of the colors, borders and fonts variables, if needed, with the @use rule.
+// See flavors/oseille.scss and the 2-settings*.scss files.
 //
+@use '../../2-settings/colors' as colors;
+@use '../../2-settings/fonts' as fonts;
+@use '../../2-settings/borders' as borders;
+@use '../../2-settings/box-model' as boxmodel;
+
+// Private variables.
+//
+// Variables defined with !default can be configured when loading this module with the @use rule.
 // To load this module with configuration, use @use <url> with (<variable>: <value>, <variable>: <value>).
 // The configured values will override the variables’ default values.
 // @link: https://sass-lang.com/documentation/variables
 
-// Font sizes
-//
-// Keys:
-//   - input: Font size for all inputs
-$_font-sizes: (
-    "input": 1rem,
-) !default;
-
-// Basic box model.
-//
-// Keys:
-//   - padding: creates extra space within an element.
-$_box-spacing: (
-    "padding": 0.5rem,
-) !default;
-
-// Palette.
-//
-// Keys:
-//   - fore: text & foreground color
-//   - back: background color
-//   - border: border color.
-$_colors: (
-    "fore": #121212,
-    "back": #f8f8f8,
-    "border": #222222,
-) !default;
-
-// Borders.
-//
-// Keys:
-//   - width: thickness of the border.
-//   - width-alt: alternative thickness for more accessibility.
-$_borders: (
-    "width": 1px,
-    "width-alt": 2px,
-) !default;
-
-// Private variables
-
 // Opacity for input elements when disabled.
-$_disabled-opacity: 0.75;
+$_disabled-opacity: 0.75 !default;
 
 // Styling for checkboxes and radio buttons:
 @mixin normalizeRadioCheckbox {
@@ -61,13 +28,13 @@ $_disabled-opacity: 0.75;
     -moz-appearance: none;
     appearance: none;
     position: relative;
-    height: calc(#{map.get($_font-sizes, "input")} + #{map.get($_box-spacing, "padding")} / 2);
-    width: calc(#{map.get($_font-sizes, "input")} + #{map.get($_box-spacing, "padding")} / 2);
+    height: calc(#{fonts.get-size("input")} + #{boxmodel.get( "padding")} / 2);
+    width: calc(#{fonts.get-size("input")} + #{boxmodel.get( "padding")} / 2);
     vertical-align: text-bottom;
     // Remove padding added from previous styles.
     padding: 0;
     // Override fluid input-group styling.
-    flex-basis: calc(#{map.get($_font-sizes, "input")} + #{map.get($_box-spacing, "padding")} / 2) !important;
+    flex-basis: calc(#{fonts.get-size("input")} + #{boxmodel.get( "padding")} / 2) !important;
     // Using with fluid input-groups is not recommended.
     flex-grow: 0 !important;
     &:checked:before {
@@ -95,12 +62,12 @@ $_disabled-opacity: 0.75;
 input {
     overflow: visible; // Show overflow in Edge.
 
-    background: var(--back-color, #{map.get($_colors, "back")});
-    color: var(--fore-color, #{map.get($_colors, "fore")});
-    border: map.get($_borders, "width-alt") solid var(--border-color, #{map.get($_colors, "border")});
+    background: var(--back-color, #{colors.get("back")});
+    color: var(--fore-color, #{colors.get("fore")});
+    border: borders.get("width-alt") solid var(--border-color, #{colors.get("border")});
 
     font-family: inherit;
-    font-size: map.get($_font-sizes, "input");
+    font-size: fonts.get-size("input");
     line-height: normal;
     margin: 0;
 
@@ -115,9 +82,9 @@ input {
     &:checked:before {
         content: "\2713";
         font-family: sans-serif;
-        font-size: calc(#{map.get($_font-sizes, "input")} + #{map.get($_box-spacing, "padding")} / 2);
-        top: calc(0rem - #{map.get($_box-spacing, "padding")});
-        left: calc(#{map.get($_box-spacing, "padding")} / 4);
+        font-size: calc(#{fonts.get-size("input")} + #{boxmodel.get( "padding")} / 2);
+        top: calc(0rem - #{boxmodel.get( "padding")});
+        left: calc(#{boxmodel.get( "padding")} / 4);
     }
 }
 
@@ -131,9 +98,9 @@ input {
     &:checked:before {
         border-radius: 100%;
         content: "";
-        top: calc(1px + #{map.get($_box-spacing, "padding")} / 2);
-        left: calc(1px + #{map.get($_box-spacing, "padding")} / 2);
-        background: map.get($_colors, "fore");
+        top: calc(1px + #{boxmodel.get( "padding")} / 2);
+        left: calc(1px + #{boxmodel.get( "padding")} / 2);
+        background: colors.get("fore");
         width: 0.5rem;
         height: 0.5rem;
     }
@@ -164,10 +131,10 @@ option {
 // Placeholder styling (keep browser-specific definitions separated, they do not play well together).
 
 :placeholder-shown {
-    color: var(--fore-color, #{map.get($_colors, "fore")});
+    color: var(--fore-color, #{colors.get("fore")});
 }
 
 ::-ms-placeholder {
-    color: var(--fore-color, #{map.get($_colors, "fore")});
+    color: var(--fore-color, #{colors.get("fore")});
     opacity: 0.54;
 }
