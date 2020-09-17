@@ -1083,3 +1083,18 @@ table.hoverable tr:hover, table.hoverable tr:hover > td, table.hoverable tr:focu
     background: var(--table-back-hover-color, #c6c6c6);
   }
 }
+/* Multimedia resources styling */
+img {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+img, picture {
+  max-width: 100%;
+  height: auto;
+}
+
+img {
+  border-style: none;
+}
