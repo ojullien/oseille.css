@@ -4,6 +4,7 @@ node_modules/
 *.css.map
 *.sass.map
 *.scss.map
-/src/mini/
-test/dist/*
+/docs/mini/
+/docs/local/
+mini/
 local/
