@@ -1,16 +1,14 @@
 {
     "name": "oseille.css",
     "version": "1.0.0",
-    "description": "A minimal, responsive, style-agnostic CSS framework",
+    "description": "A minimal, responsive CSS framework",
     "main": "dist/oseille.min.css",
     "keywords": [
         "css",
         "sass",
         "minimal",
         "responsive",
-        "style-agnostic",
-        "framework",
-        "toolkit",
+        "css-framework",
         "oseille",
         "oseille.css"
     ],
@@ -22,13 +20,17 @@
     "author": "Olivier Jullien <https://github.com/ojullien>",
     "license": "MIT",
     "devDependencies": {
-        "sass": "^1.26.10"
+        "sass": "^1.26.10",
+        "stylelint": "^13.7.1",
+        "stylelint-config-sass-guidelines": "^7.1.0",
+        "stylelint-config-standard": "^20.0.0"
     },
     "browserslist": [
         "last 4 versions"
     ],
     "scripts": {
         "test": "./node_modules/.bin/sass test/flavors:test/dist --style=expanded --charset --no-error-css --color --unicode --no-source-map",
+        "lint-test": "./node_modules/.bin/stylelint test/**/*.css",
         "oseille": "./node_modules/.bin/sass src/flavors:dist --style=expanded --charset --no-error-css --color --unicode --no-source-map"
     }
 }

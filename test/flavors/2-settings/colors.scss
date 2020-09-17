@@ -9,6 +9,6 @@
 @include stdlib.map-debug(colors.$primary-palette);
 @include stdlib.map-debug(colors.$secondary-palette);
 
-@debug 'colors.get("orange")=>' colors.get("orange");
-@debug 'colors.get("color-notfound")=>' colors.get("color-notfound");
-@debug "-----------------------------------------------------------------------";
+@debug 'colors.get("orange")=>' colors.get('orange');
+@debug 'colors.get("color-notfound")=>' colors.get('color-notfound');
+@debug '-----------------------------------------------------------------------';

@@ -1,0 +1,8 @@
+{
+    "extends": "stylelint-config-sass-guidelines",
+    "rules": {
+        "at-rule-disallowed-list": ["import"],
+        "indentation": 4,
+        "string-quotes": "single"
+      }
+}
