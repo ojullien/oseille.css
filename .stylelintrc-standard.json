@@ -1,5 +1,5 @@
 {
-    "extends": "stylelint-config-sass-guidelines",
+    "extends": "stylelint-config-standard",
     "rules": {
         "at-rule-disallowed-list": ["import"],
         "indentation": 4,
