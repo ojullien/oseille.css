@@ -3,104 +3,56 @@
 // the current document or to other documents. Common examples of navigation sections are menus, tables of contents,
 // and indexes.
 //
-@use 'sass:map';
-@use '../../default/stdlib';
-
-// Variables.
+// You may override the values of the colors, borders and fonts variables, if needed, with the @use rule.
+// See flavors/oseille.scss and the 2-settings*.scss files.
 //
+@use '../../1-tools/box-shadow' as boxshadow;
+@use '../../2-settings/colors' as colors;
+@use '../../2-settings/fonts' as fonts;
+@use '../../2-settings/borders' as borders;
+@use '../../2-settings/box-model' as boxmodel;
+
+// Private variables.
+//
+// Variables defined with !default can be configured when loading this module with the @use rule.
 // To load this module with configuration, use @use <url> with (<variable>: <value>, <variable>: <value>).
 // The configured values will override the variables’ default values.
 // @link: https://sass-lang.com/documentation/variables
 
-// Basic box model.
-//
-// Keys:
-//   - padding: creates extra space within an element.
-//   - margin: create extra space around an element. We reduce the default web browsers margin.
-//   - margin-center: center the element.
-$_box-spacing: (
-    "padding": 0.5rem,
-    "margin": 0.5rem,
-    "margin-center": 0.5rem auto,
-) !default;
-
-// Borders.
-//
-// Keys:
-//   - radius: rounds the corners of an element's outer border edge.
-//   - shadow: shadow effects around an element's frame.
-//   - width: thickness of the border.
-$_borders: (
-    "radius": 0.125rem,
-    "shadow": none,
-    "width": 1px,
-) !default;
-
-// Line height
-//
-// Keys:
-//   - main: line height for most elements.
-$_line-spacing: (
-    "main": 1.5,
-) !default;
-
-// Amount of subcategory classes to add.
-$_sublink-depth: 2 !default;
-
-// Palette
-//
-// Keys:
-//   - fore: text & foreground color
-//   - back: background color
-//   - border: border color. // See $primary-palette.border-lightest in default/color.scss
-//   - link: color for link. See $secondary-colors.blue in default/color.scss
-//   - hover-back: color when hover. See $primary-palette.back-darker in default/color.scss
-//   - hover-fore: color when hover. See $secondary-colors.blue in default/color.scss
-$_colors: (
-    "fore": #121212,
-    "back": #f8f8f8,
-    "link": #215cca,
-    "hover-back": #e0e0e0,
-    "hover-fore": #121212,
-    "border": #909090,
-) !default;
-
-// Private variables
-
-$_sublink-prefix: "sublink"; // Prefix for the subcategory tabs in nav.
+$_sublink-depth: 2 !default; // Amount of subcategory classes to add.
+$_sublink-prefix: 'sublink' !default; // Prefix for the subcategory tabs in nav.
 
 /* Navigation styling. */
 
 nav {
-    background: var(--back-color, map.get($_colors, "back"));
-    color: var(--fore-color, map.get($_colors, "fore"));
+    background: var(--back-color, colors.get('back'));
+    color: var(--fore-color, colors.get('fore'));
 
-    border: map.get($_borders, "width") solid var(--border-color, map.get($_colors, "border"));
-    border-radius: map.get($_borders, "radius");
+    border: borders.get('width') solid var(--border-color, colors.get('border'));
+    border-radius: borders.get('radius');
 
-    margin: map.get($_box-spacing, "margin");
+    margin: boxmodel.get('margin');
     padding: 0;
 
-    @include stdlib.box-shadow(map.get($_borders, "shadow"));
+    @include boxshadow.box-shadow(borders.get('shadow'));
 
     * {
-        padding: map.get($_box-spacing, "padding")
-            calc(#{map.get($_line-spacing, "main")} * #{map.get($_box-spacing, "padding")});
+        padding: boxmodel.get('padding') calc(#{fonts.get-line-spacing('main')} * #{boxmodel.get('padding')});
     }
 
     a,
     a:visited {
         display: block;
-        border-radius: map.get($_borders, "radius");
+        border-radius: borders.get('radius');
         transition: background 0.3s;
         text-decoration: none; // We remove it but we provide alternative styling.
-        color: var(--link-color, map.get($_colors, "link")); // Apply regardless to de-stylize visited links.
+        color: var(--link-color, colors.get('link')); // Apply regardless to de-stylize visited links.
 
         &:hover,
         &:focus {
-            background: var(--back-hover-color, map.get($_colors, "hover-back"));
+            background: var(--back-hover-color, colors.get('back-hover'));
             font-weight: bolder;
-            @include stdlib.box-shadow(none !important);
+            @include boxshadow.box-shadow(none !important);
         }
     }
 
@@ -108,16 +60,14 @@ nav {
     @for $i from 1 through $_sublink-depth {
         .#{$_sublink-prefix}-#{$i} {
             position: relative;
-            margin-left: calc(#{$i * 2} * #{map.get($_box-spacing, "padding")});
+            margin-left: calc(#{$i * 2} * #{boxmodel.get('padding')});
             &:before {
                 position: absolute;
-                left: calc(
-                    #{map.get($_box-spacing, "padding")} - #{1 + ($i - 1) * 2} * #{map.get($_box-spacing, "padding")}
-                );
+                left: calc(#{boxmodel.get('padding')} - #{1 + ($i - 1) * 2} * #{boxmodel.get('padding')});
                 top: calc(0 - 1px);
-                content: "";
-                height: 100%;
-                border: map.get($_borders, "width") solid var(--border-color, map.get($_colors, "border"));
+                content: '';
+                //height: 100%;
+                border: borders.get('width') solid var(--border-color, colors.get('border'));
                 border-left: 0;
             }
         }

@@ -2,7 +2,7 @@
 nav {
   background: var(--back-color, #f8f8f8);
   color: var(--fore-color, #121212);
-  border: 1px solid var(--border-color, #909090);
+  border: 1px solid var(--border-color, #222222);
   border-radius: 0.125rem;
   margin: 0.5rem;
   padding: 0;
@@ -31,11 +31,10 @@ nav .sublink-1 {
 }
 nav .sublink-1:before {
   position: absolute;
-  left: calc( 0.5rem - 1 * 0.5rem );
+  left: calc(0.5rem - 1 * 0.5rem);
   top: calc(0 - 1px);
   content: "";
-  height: 100%;
-  border: 1px solid var(--border-color, #909090);
+  border: 1px solid var(--border-color, #222222);
   border-left: 0;
 }
 nav .sublink-2 {
@@ -44,10 +43,9 @@ nav .sublink-2 {
 }
 nav .sublink-2:before {
   position: absolute;
-  left: calc( 0.5rem - 3 * 0.5rem );
+  left: calc(0.5rem - 3 * 0.5rem);
   top: calc(0 - 1px);
   content: "";
-  height: 100%;
-  border: 1px solid var(--border-color, #909090);
+  border: 1px solid var(--border-color, #222222);
   border-left: 0;
 }
