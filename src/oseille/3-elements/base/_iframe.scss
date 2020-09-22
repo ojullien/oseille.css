@@ -2,16 +2,19 @@
 // The HTML Inline Frame element (<iframe>) represents a nested browsing context, embedding another HTML
 // page into the current one.
 //
-@use 'sass:map';
-
-// Variables.
+// You may override the values of the colors, borders and fonts variables, if needed, with the @use rule.
+// See flavors/oseille.scss and the 2-settings*.scss files.
 //
+
+// Private variables.
+//
+// Variables defined with !default can be configured when loading this module with the @use rule.
 // To load this module with configuration, use @use <url> with (<variable>: <value>, <variable>: <value>).
 // The configured values will override the variables’ default values.
 // @link: https://sass-lang.com/documentation/variables
 
 $_padding-bottom: 26.875rem !default; // bottom padding
-$_container-name: "iframe-container"; // Class name for <iframe> container.
+$_container-name: 'iframe-container' !default; // Class name for <iframe> container.
 
 /* Embedded content styling */
 // As a replaced element, the position, alignment, and scaling of the embedded document within the
@@ -19,9 +22,9 @@ $_container-name: "iframe-container"; // Class name for <iframe> container.
 
 .#{$_container-name} {
     position: relative;
-    height: 0;
     overflow: hidden;
     padding-bottom: $_padding-bottom;
+    //    height: 0;
 
     iframe {
         position: absolute;

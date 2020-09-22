@@ -1,7 +1,6 @@
 /* Embedded content styling */
 .iframe-container {
   position: relative;
-  height: 0;
   overflow: hidden;
   padding-bottom: 26.875rem;
 }
