@@ -2,55 +2,30 @@
 // Tooltips
 // Display explanatory text for different elements.
 //
-@use 'sass:map';
-@use '../default/stdlib';
-
-// Variables.
+// You may override the values of the colors, borders and fonts variables, if needed, with the @use rule.
+// See flavors/oseille.scss and the 2-settings*.scss files.
 //
+@use 'sass:map';
+@use '../1-tools/box-shadow' as boxshadow;
+@use '../2-settings/colors' as colors;
+@use '../2-settings/borders' as borders;
+@use '../2-settings/box-model' as boxmodel;
+
+// Private variables.
+//
+// Variables defined with !default can be configured when loading this module with the @use rule.
 // To load this module with configuration, use @use <url> with (<variable>: <value>, <variable>: <value>).
 // The configured values will override the variables’ default values.
 // @link: https://sass-lang.com/documentation/variables
 
-// Basic box model.
-//
-// Keys:
-//   - padding: creates extra space within an element.
-//   - margin: create extra space around an element. We reduce the default web browsers margin.
-$_box-spacing: (
-    'padding': 0.5rem,
-    'margin': 0.5rem,
-) !default;
-
-// Borders.
-//
-// Keys:
-//   - radius: rounds the corners of an element's outer border edge.
-//   - shadow: shadow effects around an element's frame.
-$_borders: (
-    'radius': 0.125rem,
-    'shadow': none,
-) !default;
-
-// Palette.
-//
-// Keys:
-//   - fore: text & foreground color
-//   - back: background color
-$_colors: (
-    'back': #121212,
-    'fore': #f8f8f8,
-) !default;
-
-// Private variables
-
-$_class-name: (
+$_classname: (
     'main': 'tooltip',
     'alternate': 'bottom',
 );
 
 /* Tooltip styling */
 
-.#{map.get($_class-name, 'main')} {
+.#{map.get($_classname, 'main')} {
     position: relative;
     display: inline-block;
 
@@ -69,14 +44,14 @@ $_class-name: (
         left: 50%;
     }
 
-    &:not(.#{map.get($_class-name, 'alternate')}):before,
-    &:not(.#{map.get($_class-name, 'alternate')}):after {
+    &:not(.#{map.get($_classname, 'alternate')}):before,
+    &:not(.#{map.get($_classname, 'alternate')}):after {
         // Top (default) tooltip styling
         bottom: 75%;
     }
 
-    &.#{map.get($_class-name, 'alternate')}:before,
-    &.#{map.get($_class-name, 'alternate')}:after {
+    &.#{map.get($_classname, 'alternate')}:before,
+    &.#{map.get($_classname, 'alternate')}:after {
         // Bottom tooltip styling
         top: 75%;
     }
@@ -87,8 +62,10 @@ $_class-name: (
         &:after {
             opacity: 1;
             clip: auto;
-            -webkit-clip-path: inset(0%);
-            clip-path: inset(0%);
+            @supports ((clip-path: inset(0%)) or (-webkit-clip-path: inset(0%))) {
+                -webkit-clip-path: inset(0%);
+                clip-path: inset(0%);
+            }
         }
     }
 
@@ -96,42 +73,42 @@ $_class-name: (
         // Little tooltip triangle
         content: '';
         background: transparent;
-        border: map.get($_box-spacing, 'margin') solid transparent;
+        border: boxmodel.get('margin') solid transparent;
         // Newer browsers will center the tail properly
-        left: calc(50% - #{map.get($_box-spacing, 'margin')});
+        left: calc(50% - #{boxmodel.get('margin')});
     }
 
-    &:not(.#{map.get($_class-name, 'alternate')}):before {
+    &:not(.#{map.get($_classname, 'alternate')}):before {
         // Top (default) tooltip styling
-        border-top-color: var(--fore-color, map.get($_colors, 'back')); // Invert
+        border-top-color: var(--tooltip-back-color, colors.get('back-alt'));
     }
 
-    &.#{map.get($_class-name, 'alternate')}:before {
+    &.#{map.get($_classname, 'alternate')}:before {
         // Bottom tooltip styling
-        border-bottom-color: var(--fore-color, map.get($_colors, 'back')); // Invert
+        border-bottom-color: var(--tooltip-back-color, colors.get('back-alt'));
     }
 
     &:after {
         // Tooltip's text block
         content: attr(aria-label);
-        color: var(--back-color, map.get($_colors, 'fore')); // Invert
-        background: var(--fore-color, map.get($_colors, 'back')); // Invert
-        border-radius: map.get($_borders, 'radius');
-        padding: map.get($_box-spacing, 'padding');
+        color: var(--tooltip-fore-color, colors.get('fore-alt'));
+        background: var(--tooltip-back-color, colors.get('back-alt'));
+        border-radius: borders.get('radius');
+        padding: boxmodel.get('padding');
 
-        @include stdlib.box-shadow(map.get($_borders, 'shadow'));
+        @include boxshadow.box-shadow(borders.get('shadow'));
 
         white-space: nowrap;
         transform: translateX(-50%);
     }
 
-    &:not(.#{map.get($_class-name, 'alternate')}):after {
+    &:not(.#{map.get($_classname, 'alternate')}):after {
         // Top (default) tooltip styling
-        margin-bottom: calc(2 * #{map.get($_box-spacing, 'margin')});
+        margin-bottom: calc(2 * #{boxmodel.get('margin')});
     }
 
-    &.#{map.get($_class-name, 'alternate')}:after {
+    &.#{map.get($_classname, 'alternate')}:after {
         // Bottom tooltip styling
-        margin-top: calc(2 * #{map.get($_box-spacing, 'margin')});
+        margin-top: calc(2 * #{boxmodel.get('margin')});
     }
 }

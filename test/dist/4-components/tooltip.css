@@ -7,11 +7,15 @@
   position: absolute;
   opacity: 0;
   clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(100%);
-  clip-path: inset(100%);
   transition: all 0.3s;
   z-index: 1010;
   left: 50%;
+}
+@supports (clip-path: inset(100%)) or (-webkit-clip-path: inset(100%)) {
+  .tooltip:before, .tooltip:after {
+    -webkit-clip-path: inset(100%);
+    clip-path: inset(100%);
+  }
 }
 .tooltip:not(.bottom):before, .tooltip:not(.bottom):after {
   bottom: 75%;
@@ -22,8 +26,12 @@
 .tooltip:hover:before, .tooltip:hover:after, .tooltip:focus:before, .tooltip:focus:after {
   opacity: 1;
   clip: auto;
-  -webkit-clip-path: inset(0%);
-  clip-path: inset(0%);
+}
+@supports (clip-path: inset(0%)) or (-webkit-clip-path: inset(0%)) {
+  .tooltip:hover:before, .tooltip:hover:after, .tooltip:focus:before, .tooltip:focus:after {
+    -webkit-clip-path: inset(0%);
+    clip-path: inset(0%);
+  }
 }
 .tooltip:before {
   content: "";
@@ -32,15 +40,15 @@
   left: calc(50% - 0.5rem);
 }
 .tooltip:not(.bottom):before {
-  border-top-color: var(--fore-color, #121212);
+  border-top-color: var(--tooltip-back-color, #121212);
 }
 .tooltip.bottom:before {
-  border-bottom-color: var(--fore-color, #121212);
+  border-bottom-color: var(--tooltip-back-color, #121212);
 }
 .tooltip:after {
   content: attr(aria-label);
-  color: var(--back-color, #f8f8f8);
-  background: var(--fore-color, #121212);
+  color: var(--tooltip-fore-color, #f8f8f8);
+  background: var(--tooltip-back-color, #121212);
   border-radius: 0.125rem;
   padding: 0.5rem;
   white-space: nowrap;
