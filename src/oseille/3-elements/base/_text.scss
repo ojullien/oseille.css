@@ -24,8 +24,8 @@
 //   - top: <sup> top position
 //   - bottom: <sub> bottom position
 $_box-model: (
-    "top": -0.5em,
-    "bottom": -0.25em,
+    'top': -0.5em,
+    'bottom': -0.25em,
 ) !default;
 
 // Font weight for <b> and <strong>
@@ -39,7 +39,7 @@ $_bold-font-weight: 700 !default;
     padding: 0;
     border: 0;
     font-family: inherit;
-    font-size: var(--smaller, #{fonts.get-size("small")});
+    font-size: var(--smaller, #{fonts.get-size('small')});
 }
 
 %_normalize {
@@ -63,16 +63,16 @@ a {
     text-decoration: none; // We remove it but we provide alternative styling.
 
     &:link {
-        color: var(--link-color, colors.get("link")); // Allows live color tunning
+        color: var(--link-color, colors.get('link')); // Allows live color tunning
     }
 
     &:visited {
-        color: var(--visited-link-color, colors.get("visited")); // Allows live color tunning
+        color: var(--visited-link-color, colors.get('visited')); // Allows live color tunning
     }
 
     &:not(.button):hover,
     &:not(.button):focus {
-        @include shadow.box-shadow(borders.get("shadow-alt")); // Accessibility
+        @include shadow.box-shadow(borders.get('shadow-alt')); // Accessibility
     }
 }
 
@@ -93,7 +93,7 @@ data {
     text-decoration: underline dotted; // Opinionated style-fix for all browsers.
 
     &:hover:after {
-        content: " (ID " attr(value) ")";
+        content: ' (ID ' attr(value) ')';
         font-size: 0.7em;
     }
 }
@@ -131,17 +131,18 @@ s {
         position: absolute;
         white-space: nowrap;
         width: 1px;
-        @supports (clip-path: inset(100%)) {
+        @supports ((clip-path: inset(100%)) or (-webkit-clip-path: inset(100%))) {
+            -webkit-clip-path: inset(100%);
             clip-path: inset(100%);
         }
     }
 
     &:before {
-        content: " [start of stricken text] ";
+        content: ' [start of stricken text] ';
     }
 
     &:after {
-        content: " [end of stricken text] ";
+        content: ' [end of stricken text] ';
     }
 }
 
@@ -152,11 +153,11 @@ small {
 sub {
     @extend %_normalize_small;
     @extend %_normalize-line-height;
-    bottom: map.get($_box-model, "bottom");
+    bottom: map.get($_box-model, 'bottom');
 }
 
 sup {
     @extend %_normalize_small;
     @extend %_normalize-line-height;
-    top: map.get($_box-model, "top");
+    top: map.get($_box-model, 'top');
 }

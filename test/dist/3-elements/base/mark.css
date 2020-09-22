@@ -34,8 +34,9 @@ mark:before, mark:after {
   white-space: nowrap;
   width: 1px;
 }
-@supports (clip-path: inset(100%)) {
+@supports (clip-path: inset(100%)) or (-webkit-clip-path: inset(100%)) {
   mark:before, mark:after {
+    -webkit-clip-path: inset(100%);
     clip-path: inset(100%);
   }
 }

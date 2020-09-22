@@ -176,8 +176,15 @@ table.horizontal th {
     padding: 0;
     position: absolute;
     clip: rect(0 0 0 0);
-    -webkit-clip-path: inset(100%);
-    clip-path: inset(100%);
+  }
+  @supports (clip-path: inset(100%)) or (-webkit-clip-path: inset(100%)) {
+    table thead,
+table th,
+table.horizontal thead,
+table.horizontal th {
+      -webkit-clip-path: inset(100%);
+      clip-path: inset(100%);
+    }
   }
   table tbody,
 table.horizontal tbody {

@@ -4,92 +4,63 @@
 // They are composed of three components - the wrapper, the toggle button and
 // the content container.
 //
-@use 'sass:map';
-@use '../default/stdlib';
-
-// Public variables.
-// May be overrided using @use <url> with (<variable>: <value>, <variable>: <value>)
-
-$border-radius: 0.125rem !default; // Universal border-radius for most elements
-$margin: 0.5rem !default; // Universal margin for the most elements
-$padding: 0.5rem !default; // Universal padding for the most elements
-$box-shadow: none !default; // Universal box-shadow for most elements
-$label-height: 1.5rem !default; // Height for the labels in the collapse component
-$content-max-height: 400px !default; // Max height for the content panes in the collapse component
-
-// Palette.
+// You may override the values of the colors, borders and fonts variables, if needed, with the @use rule.
+// See flavors/oseille.scss and the 2-settings*.scss files.
 //
-// Keys:
-//   - fore: text & foreground color
-//   - back: background color
-//   - back-hover: background color on hover
-$_colors: (
-    "fore": #121212,
-    "back": #f8f8f8,
-    "back-hover": #e0e0e0,
+@use '../1-tools/box-shadow' as boxshadow;
+@use '../2-settings/colors' as colors;
+@use '../2-settings/borders' as borders;
+@use '../2-settings/box-model' as boxmodel;
 
-
-    // Background color for selected labels in the collapse component
-        "selected-label-back-color": #ececec,
-    // Border color for collapse component
-        "border-color": #ddd,
-    // Border color for collapse component's selected labels
-        "selected-label-border-color": #0277bd,
-    // Background color for collapse component's content panes,
-        "content-back-color": #fafafa
-) !default;
-
-// Borders.
+// Private variables.
 //
-// Keys:
-//   - radius: rounds the corners of an element's outer border edge.
-//   - shadow: shadow effects around an element's frame.
-//   - width: thickness of the border.
-$_borders: (
-    "radius": 0.125rem,
-    "shadow": none,
-    "width": 1px,
-) !default;
+// Variables defined with !default can be configured when loading this module with the @use rule.
+// To load this module with configuration, use @use <url> with (<variable>: <value>, <variable>: <value>).
+// The configured values will override the variables’ default values.
+// @link: https://sass-lang.com/documentation/variables
 
-// Private variables
-$_collapse-name: "collapse" !default; // Class name for collapse component
+$_label-height: 1.5rem !default; // Height for the labels in the collapse component
+$_content-max-height: 400px !default; // Max height for the content panes in the collapse component
+$_collapse-name: 'collapse' !default; // Class name for collapse component
 
 /* Spoilers & Accordions styling */
 
 .#{$_collapse-name} {
-    width: calc(100% - 2 * #{$margin});
+    width: calc(100% - 2 * #{boxmodel.get('margin')});
     opacity: 1;
     display: flex;
     flex-direction: column;
-    margin: $margin;
-    border-radius: $border-radius;
+    margin: boxmodel.get('margin');
+    border-radius: borders.get('radius');
 
-    @include stdlib.box-shadow($box-shadow);
+    @include boxshadow.box-shadow(borders.get('shadow'));
 
-    & > [type="radio"],
-    & > [type="checkbox"] {
+    & > [type='radio'],
+    & > [type='checkbox'] {
         height: 1px;
         width: 1px;
         margin: -1px;
         overflow: hidden;
         position: absolute;
         clip: rect(0 0 0 0);
-        -webkit-clip-path: inset(100%);
-        clip-path: inset(100%);
+        @supports ((clip-path: inset(100%)) or (-webkit-clip-path: inset(100%))) {
+            -webkit-clip-path: inset(100%);
+            clip-path: inset(100%);
+        }
     }
     & > label {
         flex-grow: 1;
         display: inline-block;
-        height: $label-height;
+        //height: $_label-height;
         cursor: pointer;
         transition: background 0.3s;
-        color: map.get($_colors, "fore");
-        background: map.get($_colors, "back");
-        border: map.get($_borders, "width") solid map.get($_colors, "border-color");
-        padding: calc(1.5 * #{$padding});
+        color: var(--fore-color, colors.get('fore'));
+        background: var(--back-color, colors.get('back'));
+        border: borders.get('width') solid var(--border-color, colors.get('border-lightest'));
+        padding: calc(1.5 * #{boxmodel.get('padding')});
         &:hover,
         &:focus {
-            background: map.get($_colors, "back-hover");
+            background: var(--back-hover-color, colors.get('back-hover'));
         }
         + div {
             flex-basis: -webkit-auto;
@@ -100,15 +71,17 @@ $_collapse-name: "collapse" !default; // Class name for collapse component
             overflow: hidden;
             position: absolute;
             clip: rect(0 0 0 0);
-            -webkit-clip-path: inset(100%);
-            clip-path: inset(100%);
+            @supports ((clip-path: inset(100%)) or (-webkit-clip-path: inset(100%))) {
+                -webkit-clip-path: inset(100%);
+                clip-path: inset(100%);
+            }
             transition: max-height 0.3s;
             max-height: 1px; // for transition
         }
     }
     > :checked + label {
-        background: map.get($_colors, "selected-label-back-color");
-        border-bottom-color: map.get($_colors, "selected-label-border-color");
+        background: var(--back-color, colors.get('back'));
+        border-bottom-color: var(--border-color, colors.get('blue'));
         & + div {
             box-sizing: border-box;
             position: relative;
@@ -116,14 +89,16 @@ $_collapse-name: "collapse" !default; // Class name for collapse component
             height: auto;
             overflow: auto;
             margin: 0;
-            background: map.get($_colors, "content-back-color");
-            border: map.get($_borders, "width") solid map.get($_colors, "border-color");
+            background: var(--back-color, colors.get('back'));
+            border: borders.get('width') solid var(--border-color, colors.get('border-lightest'));
             border-top: 0;
-            padding: $padding;
+            padding: boxmodel.get('padding');
+            max-height: $_content-max-height;
             clip: auto;
-            -webkit-clip-path: inset(0%);
-            clip-path: inset(0%);
-            max-height: $content-max-height;
+            @supports ((clip-path: inset(0%)) or (-webkit-clip-path: inset(0%))) {
+                -webkit-clip-path: inset(0%);
+                clip-path: inset(0%);
+            }
         }
     }
     & > label:not(:first-of-type) {
@@ -131,18 +106,18 @@ $_collapse-name: "collapse" !default; // Class name for collapse component
         border-top: 0;
     }
     & > label:first-of-type {
-        border-radius: $border-radius $border-radius 0 0;
+        border-radius: borders.get('radius') borders.get('radius') 0 0;
     }
     & > label:last-of-type:not(:first-of-type) {
-        border-radius: 0 0 $border-radius $border-radius;
+        border-radius: 0 0 borders.get('radius') borders.get('radius');
     }
     & > label:last-of-type:first-of-type {
-        border-radius: $border-radius;
+        border-radius: borders.get('radius');
     }
     & > :checked:last-of-type:not(:first-of-type) + label {
         border-radius: 0;
     }
     & > :checked:last-of-type + label + div {
-        border-radius: 0 0 $border-radius $border-radius;
+        border-radius: 0 0 borders.get('radius') borders.get('radius');
     }
 }
