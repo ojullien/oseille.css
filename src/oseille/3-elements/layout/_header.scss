@@ -56,9 +56,9 @@ header {
     color: var(--header-fore-color, colors.get('fore'));
 
     @if $_only-bottom-border {
-        border-bottom: borders.get('width') solid colors.get('border');
+        border-bottom: borders.get('width') solid colors.get('border-lightest');
     } @else {
-        border: borders.get('width') solid colors.get('border');
+        border: borders.get('width') solid colors.get('border-lightest');
     }
 
     padding: calc(#{boxmodel.get('padding')} / 4) 0;
