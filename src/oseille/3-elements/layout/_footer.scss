@@ -3,55 +3,25 @@
 // A footer typically contains information about the author of the section, copyright data or links to related
 // documents.
 //
-@use 'sass:map';
-
-// Variables.
+// You may override the values of the colors, borders and fonts variables, if needed, with the @use rule.
+// See flavors/oseille.scss and the 2-settings*.scss files.
 //
+@use 'sass:map';
+//@use '../../1-tools/box-shadow' as boxshadow;
+@use '../../2-settings/colors' as colors;
+@use '../../2-settings/fonts' as fonts;
+@use '../../2-settings/borders' as borders;
+@use '../../2-settings/box-model' as boxmodel;
+
+// Private variables.
+//
+// Variables defined with !default can be configured when loading this module with the @use rule.
 // To load this module with configuration, use @use <url> with (<variable>: <value>, <variable>: <value>).
 // The configured values will override the variables’ default values.
 // @link: https://sass-lang.com/documentation/variables
 
-// Basic box model.
-//
-// Keys:
-//   - padding: creates extra space within an element.
-//   - margin: create extra space around an element. We reduce the default web browsers margin.
-$_box-spacing: (
-    "padding": 0.5rem,
-    "margin": 0.5rem,
-) !default;
-
-// Font sizes
-//
-// Keys:
-//   - footer: Font size for text in footer element.
-$_font-sizes: (
-    "footer": 0.875em,
-) !default;
-
-// Palette.
-//
-// Keys:
-//   - fore: text & foreground color
-//   - back: background color
-//   - border: border color. See $primary-palette.border-lightest in default/color.scss
-//   - link: color for link. See $secondary-colors.blue in default/color.scss
-$_colors: (
-    "fore": #121212,
-    "back": #f8f8f8,
-    "link": #215cca,
-    "border": #909090,
-) !default;
-
-// Borders.
-//
-// Keys:
-//   - width: thickness of the border.
-$_borders: (
-    "width": 1px,
-) !default;
-
-// Private variables
+// Apply styling only to the top border of footer? (boolean)
+$_only-top-border: true !default;
 
 // Classnames
 //
@@ -59,38 +29,35 @@ $_borders: (
 //   - footer: footer class
 //   - sticky: sticky footer classe
 $_classnames: (
-    "footer": "page-footer",
-    "sticky": "sticky",
-);
-
-// Apply styling only to the top border of footer? (boolean)
-$_only-top-border: true;
+    'footer': 'page-footer',
+    'sticky': 'sticky',
+) !default;
 
 /* Footer styling */
 
 footer {
     // Page footer styling.
-    &.#{map.get($_classnames, "footer")} {
+    &.#{map.get($_classnames, 'footer')} {
         // Always apply background color to avoid shine through
-        background: var(--footer-back-color, map.get($_colors, "back"));
-        color: var(--footer-fore-color, map.get($_colors, "fore"));
+        background: var(--footer-back-color, colors.get('back'));
+        color: var(--footer-fore-color, colors.get('fore'));
     }
 
     @if $_only-top-border {
-        border-top: map.get($_borders, "width") solid map.get($_colors, "border");
+        border-top: borders.get('width') solid colors.get('border-lightest');
     } @else {
-        border: map.get($_borders, "width") solid map.get($_colors, "border");
+        border: borders.get('width') solid colors.get('border-lightest');
     }
 
-    padding: calc(2 * #{map.get($_box-spacing, "padding")}) map.get($_box-spacing, "padding");
-    font-size: map.get($_font-sizes, "footer");
+    padding: calc(2 * #{boxmodel.get('padding')}) boxmodel.get('padding');
+    font-size: fonts.get-size('footer');
 
     a,
     a:visited {
-        color: var(--link-color, map.get($_colors, "link")); // Allows live color tunning
+        color: var(--link-color, colors.get('link')); // Allows live color tunning
     }
 
-    &.#{map.get($_classnames, "sticky")} {
+    &.#{map.get($_classnames, 'sticky')} {
         @supports ((position: sticky) or (position: -webkit-sticky)) {
             z-index: 1101; // Deals with certain problems when combined with cards and tables.
             bottom: 0;
