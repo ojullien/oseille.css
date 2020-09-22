@@ -1,0 +1,16 @@
+/* Borders styling */
+.bordered {
+  border: 1px solid var(--border-color, #222222) !important;
+}
+
+.rounded {
+  border-radius: 0.125rem !important;
+}
+
+.circular {
+  border-radius: 50% !important;
+}
+
+.shadowed {
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.125), 0 2px 2px -2px rgba(0, 0, 0, 0.25) !important;
+}
