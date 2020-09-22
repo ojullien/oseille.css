@@ -1422,13 +1422,13 @@ header {
   display: inline-block;
   cursor: pointer;
   transition: background 0.3s;
-  color: var(--fore-color, #121212);
-  background: var(--back-color, #f8f8f8);
+  color: var(--collapse-fore-color, #121212);
+  background: var(--collapse-back-color, #f8f8f8);
   border: 1px solid var(--border-color, #909090);
   padding: calc(1.5 * 0.5rem);
 }
 .collapse > label:hover, .collapse > label:focus {
-  background: var(--back-hover-color, #e0e0e0);
+  background: var(--collapse-back-hover-color, #e0e0e0);
 }
 .collapse > label + div {
   flex-basis: -webkit-auto;
@@ -1449,7 +1449,7 @@ header {
   }
 }
 .collapse > :checked + label {
-  background: var(--back-color, #f8f8f8);
+  background: var(--collapse-back-color, #f8f8f8);
   border-bottom-color: var(--border-color, #215cca);
 }
 .collapse > :checked + label + div {
@@ -1459,7 +1459,7 @@ header {
   height: auto;
   overflow: auto;
   margin: 0;
-  background: var(--back-color, #f8f8f8);
+  background: var(--collapse-back-color, #f8f8f8);
   border: 1px solid var(--border-color, #909090);
   border-top: 0;
   padding: 0.5rem;
@@ -1489,4 +1489,17 @@ header {
 }
 .collapse > :checked:last-of-type + label + div {
   border-radius: 0 0 0.125rem 0.125rem;
+}
+
+/* Toast styling */
+.toast {
+  position: fixed;
+  bottom: calc(0.5rem * 3);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1111;
+  color: var(--toast-fore-color, #f8f8f8);
+  background: var(--toast-back-color, #121212);
+  border-radius: calc(0.125rem * 16);
+  padding: 0.5rem calc(0.5rem * 3);
 }
