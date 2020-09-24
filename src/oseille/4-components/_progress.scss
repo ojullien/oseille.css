@@ -1,0 +1,150 @@
+//
+// Definitions for progress elements and spinners.
+//
+// You may override the values of the colors, borders and fonts variables, if needed, with the @use rule.
+// See flavors/oseille.scss and the 2-settings*.scss files.
+//
+@use 'sass:map';
+@use '../1-tools/box-shadow' as boxshadow;
+@use '../2-settings/colors' as colors;
+@use '../2-settings/borders' as borders;
+@use '../2-settings/box-model' as boxmodel;
+
+// Private variables.
+//
+// Variables defined with !default can be configured when loading this module with the @use rule.
+// To load this module with configuration, use @use <url> with (<variable>: <value>, <variable>: <value>).
+// The configured values will override the variables’ default values.
+// @link: https://sass-lang.com/documentation/variables
+
+// Classnames
+//
+// Keys:
+//   - inline: inline <progress> elements
+//   - spinner: spinner donuts
+$_classnames: (
+    'inline': 'inline',
+    'spinner': 'spinner',
+) !default;
+
+// Progess
+//
+// Keys:
+//   - width: Width of inline <progress> element
+//   - height: Height of <progress>
+//   - max: Arithmetic max value
+$_progress: (
+    'width': 60%,
+    'height': 0.75rem,
+    'max': 1000,
+) !default;
+
+// Donut
+//
+// Keys:
+//   - size:Size
+//   - thickness: Border thickness
+$_donut: (
+    'size': 1.25rem,
+    'thickness': 0.25rem,
+) !default;
+
+// Should spinner donuts be included? (boolean)
+$_include-spinner-donut: true !default;
+
+/* Default styling for progress. Use mixins for alternate styles */
+progress {
+    display: block;
+    vertical-align: baseline; // Correct vertical alignment in some browsers.
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    height: map.get($_progress, 'height');
+    width: calc(100% - 2 * #{boxmodel.get('margin')});
+    margin: boxmodel.get('margin');
+    border: 0; // Removes default border
+    border-radius: calc(2 * #{borders.get('radius')});
+
+    @include boxshadow.box-shadow(borders.get('shadow'));
+
+    background: var(--back-color, #{colors.get('back')});
+    color: var(--fore-color, #{colors.get('fore')});
+    // Foreground color on webkit browsers
+    &::-webkit-progress-value {
+        background: var(--fore-color, #{colors.get('fore')});
+        border-top-left-radius: calc(2 * #{borders.get('radius')});
+        border-bottom-left-radius: calc(2 * #{borders.get('radius')});
+    }
+    // Background color on webkit browser
+    &::-webkit-progress-bar {
+        background: var(--back-color, #{colors.get('back')});
+    }
+    // Foreground color on Firefox
+    &::-moz-progress-bar {
+        background: var(--fore-color, #{colors.get('fore')});
+        border-top-left-radius: calc(2 * #{borders.get('radius')});
+        border-bottom-left-radius: calc(2 * #{borders.get('radius')});
+    }
+
+    &[value='#{map.get($_progress, "max")}'] {
+        &::-webkit-progress-value {
+            border-radius: calc(2 * #{borders.get('radius')});
+        }
+        &::-moz-progress-bar {
+            border-radius: calc(2 * #{borders.get('radius')});
+        }
+    }
+
+    &.#{#{map.get($_classnames, 'inline')}} {
+        display: inline-block;
+        vertical-align: middle; // Align progress bar vertically to look better with text next to it.
+        width: map.get($_progress, 'width');
+    }
+
+    &.primary {
+        background: var(--primary-color, colors.get('primary'));
+    }
+
+    &.secondary {
+        background: var(--secondary-color, colors.get('secondary'));
+    }
+
+    &.tertiary {
+        background: var(--tertiary-color, colors.get('tertiary'));
+    }
+}
+
+// Style for donut spinner
+@if $_include-spinner-donut {
+    // Donut spinner animation
+    @keyframes spinner-donut-anim {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+    .#{map.get($_classnames, 'spinner')} {
+        display: inline-block;
+        margin: boxmodel.get('margin');
+        border: map.get($_donut, 'thickness') solid var(--back-color, #{colors.get('back')});
+        border-left: map.get($_donut, 'thickness') solid var(--fore-color, #{colors.get('fore')});
+        border-radius: 50%;
+        width: map.get($_donut, 'size');
+        height: map.get($_donut, 'size');
+        animation: spinner-donut-anim 1.2s linear infinite;
+
+        &.primary {
+            background: var(--primary-color, colors.get('primary'));
+        }
+
+        &.secondary {
+            background: var(--secondary-color, colors.get('secondary'));
+        }
+
+        &.tertiary {
+            background: var(--tertiary-color, colors.get('tertiary'));
+        }
+    }
+}
