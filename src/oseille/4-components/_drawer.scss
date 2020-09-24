@@ -23,6 +23,13 @@
 $_width: 320px !default;
 $_right: true !default; // Appears on the right side of the screen
 
+// Classnames
+//
+// Keys:
+//   - main:
+//   - toggle:
+//   - persistent:
+//   - close:
 $_classnames: (
     'main': 'drawer',
     'toggle': 'drawer-toggle',

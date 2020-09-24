@@ -1093,7 +1093,7 @@ table.hoverable tr:hover, table.hoverable tr:hover > td, table.hoverable tr:focu
   }
 }
 /* Multimedia resources styling */
-img {
+video, audio, img {
   margin: 0;
   padding: 0;
   border: 0;

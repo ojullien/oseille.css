@@ -1,0 +1,134 @@
+//
+// Definitions for utilities and helper classes.
+//
+// You may override the values of the colors, borders and fonts variables, if needed, with the @use rule.
+// See flavors/oseille.scss and the 2-settings*.scss files.
+//
+@use 'sass:map';
+//@use '../1-tools/box-shadow' as boxshadow;
+//@use '../2-settings/colors' as colors;
+//@use '../2-settings/borders' as borders;
+@use '../2-settings/box-model' as boxmodel;
+//@use '../2-settings/fonts' as fonts;
+@use '../2-settings/responsive' as breakpoints;
+
+// Private variables.
+//
+// Variables defined with !default can be configured when loading this module with the @use rule.
+// To load this module with configuration, use @use <url> with (<variable>: <value>, <variable>: <value>).
+// The configured values will override the variables’ default values.
+// @link: https://sass-lang.com/documentation/variables
+
+// Classnames
+//
+// Keys:
+//   - hidden: hidden element
+//   - visually-hidde: visually hidden element
+//   - margin: responsive margin
+//   - padding: responsive padding
+//   - small: small suffix
+//   - medium: medium suffix
+//   - large: large suffix
+$_classnames: (
+    'hidden': 'hidden',
+    'visually-hidden': 'visually-hidden',
+    'margin': 'responsive-margin',
+    'padding': 'responsive-padding',
+    'small': 'sm',
+    'medium': 'md',
+    'large': 'lg',
+) !default;
+
+// Medium screen breakpoint for responsive visually hidden elements.
+$_large-breakpoint: breakpoints.get('large') - 1px;
+
+// Medium screen breakpoint for responsive visually hidden elements.
+$_medium-breakpoint: breakpoints.get('medium') - 1px;
+
+/* Hidden elements styling */
+
+// Mixin
+@mixin hide {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    margin: -1px !important;
+    border: 0 !important;
+    padding: 0 !important;
+    clip: rect(0 0 0 0) !important;
+    @supports ((clip-path: inset(100%)) or (-webkit-clip-path: inset(100%))) {
+        -webkit-clip-path: inset(100%) !important;
+        clip-path: inset(100%) !important;
+    }
+    overflow: hidden !important;
+}
+
+// Hidden elements class. NOTE: Uses !important.
+.#{map.get($_classnames, 'hidden')} {
+    display: none !important;
+}
+
+// Visually hidden elements class. NOTE: Uses !important.
+.#{map.get($_classnames, 'visually-hidden')} {
+    @include hide;
+}
+
+// Responsive margin class. NOTE: Uses !important.
+.#{map.get($_classnames, 'margin')} {
+    margin: calc(#{boxmodel.get('margin')} / 4) !important;
+    @media screen and (min-width: #{breakpoints.get('medium')}) {
+        margin: calc(#{boxmodel.get('margin')} / 2) !important;
+    }
+    @media screen and (min-width: #{breakpoints.get('large')}) {
+        margin: #{boxmodel.get('margin')} !important;
+    }
+}
+
+// Responsive padding class. NOTE: Uses !important.
+.#{map.get($_classnames, 'padding')} {
+    padding: calc(#{boxmodel.get('padding')} / 4) !important;
+    @media screen and (min-width: #{breakpoints.get('medium')}) {
+        padding: calc(#{boxmodel.get('padding')} / 2) !important;
+    }
+    @media screen and (min-width: #{breakpoints.get('large')}) {
+        padding: #{boxmodel.get('padding')} !important;
+    }
+}
+
+// Responsive hidden element class. NOTE: Uses !important.
+@media screen and (max-width: $_medium-breakpoint) {
+    .#{map.get($_classnames, 'hidden')}-#{map.get($_classnames, 'small')} {
+        display: none !important;
+    }
+}
+
+@media screen and (min-width: #{breakpoints.get('medium')}) and (max-width: $_large-breakpoint) {
+    .#{map.get($_classnames, 'hidden')}-#{map.get($_classnames, 'medium')} {
+        display: none !important;
+    }
+}
+
+@media screen and (min-width: #{breakpoints.get('large')}) {
+    .#{map.get($_classnames, 'hidden')}-#{map.get($_classnames, 'large')} {
+        display: none !important;
+    }
+}
+
+// Responsive visually hidden element class. NOTE: Uses !important.
+@media screen and (max-width: $_medium-breakpoint) {
+    .#{map.get($_classnames, 'visually-hidden')}-#{map.get($_classnames, 'small')} {
+        @include hide;
+    }
+}
+
+@media screen and (min-width: #{breakpoints.get('medium')}) and (max-width: $_large-breakpoint) {
+    .#{map.get($_classnames, 'visually-hidden')}-#{map.get($_classnames, 'medium')} {
+        @include hide;
+    }
+}
+
+@media screen and (min-width: #{breakpoints.get('large') }) {
+    .#{map.get($_classnames, 'visually-hidden')}-#{map.get($_classnames, 'large')} {
+        @include hide;
+    }
+}
