@@ -2,74 +2,37 @@
 // Menu drawer
 // The drawer component is a responsive navigation menus for web apps.
 //
-@use 'sass:map';
-@use '../default/stdlib';
-
-// Variables.
+// You may override the values of the colors, borders and fonts variables, if needed, with the @use rule.
+// See flavors/oseille.scss and the 2-settings*.scss files.
 //
+@use 'sass:map';
+@use '../1-tools/box-shadow' as boxshadow;
+@use '../2-settings/colors' as colors;
+@use '../2-settings/borders' as borders;
+@use '../2-settings/box-model' as boxmodel;
+@use '../2-settings/fonts' as fonts;
+@use '../2-settings/responsive' as breakpoints;
+
+// Private variables.
+//
+// Variables defined with !default can be configured when loading this module with the @use rule.
 // To load this module with configuration, use @use <url> with (<variable>: <value>, <variable>: <value>).
 // The configured values will override the variables’ default values.
 // @link: https://sass-lang.com/documentation/variables
 
-// Basic box model
-$_box-spacing: (
-    "padding": 0.5rem,
-    "margin": 0.5rem,
-) !default;
-
-// Borders.
-//
-// Keys:
-//   - radius: rounds the corners of an element's outer border edge.
-//   - shadow: shadow effects around an element's frame.
-//   - width: thickness of the border.
-$_borders: (
-    "radius": 0.125rem,
-    "shadow": none,
-    "width": 1px,
-) !default;
-
-// Palette.
-//
-// Keys:
-//   - close: text & foreground color
-//   - back: background color
-//   - hover-back: see $primary-palette.back-darker in default/color.scss
-//   - border: see $primary-palette.border-lightest in default/color.scss
-$_colors: (
-    "close": #121212,
-    "back": #f8f8f8,
-    "hover-back": #e0e0e0,
-    "border": #909090,
-) !default;
-
-// Font sizes
-$_font-sizes: (
-    "toggle": 1.5em,
-    "close": 2rem,
-) !default;
-
-// Breakpoints
-$_breakpoints: (
-    "medium": 768px,
-) !default;
-
-// Others
 $_width: 320px !default;
 $_right: true !default; // Appears on the right side of the screen
 
-// Private variables
-
-$_class-name: (
-    "main": "drawer",
-    "toggle": "drawer-toggle",
-    "persistent": "persistent",
-    "close": "drawer-close",
-);
+$_classnames: (
+    'main': 'drawer',
+    'toggle': 'drawer-toggle',
+    'persistent': 'persistent',
+    'close': 'drawer-close',
+) !default;
 
 /* Drawer styling */
 
-.#{map.get($_class-name, "toggle")} {
+.#{map.get($_classnames, 'toggle')} {
     &:before {
         display: inline-block;
         position: relative;
@@ -77,20 +40,20 @@ $_class-name: (
 
         // Spaces ensure compatibility with buttons that have text and that textless
         // buttons will have some extra padding.
-        content: "\00a0\2261\00a0";
+        content: '\00a0\2261\00a0';
 
         font-family: sans-serif;
-        font-size: map.get($_font-sizes, "toggle");
+        font-size: fonts.get-size('toggle');
     }
 
-    @media screen and (min-width: #{map.get($_breakpoints, "medium")}) {
-        &:not(.#{map.get($_class-name, "persistent")}) {
+    @media screen and (min-width: #{breakpoints.get('medium')}) {
+        &:not(.#{map.get($_classnames, 'persistent')}) {
             display: none;
         }
     }
 }
 
-[type="checkbox"].#{map.get($_class-name, "main")} {
+[type='checkbox'].#{map.get($_classnames, 'main')} {
     height: 1px;
     width: 1px;
 
@@ -114,14 +77,14 @@ $_class-name: (
         height: 100vh;
         overflow-y: auto;
 
-        background: var(--back-color, map.get($_colors, "back"));
+        background: var(--back-color, colors.get('back'));
 
         // Set to 0 to override the value from `nav`.
         margin: 0;
         border-radius: 0;
-        border: map.get($_borders, "width") solid var(--border-color, map.get($_colors, "border"));
+        border: borders.get('width') solid var(--border-color, colors.get('border-lightest'));
 
-        @include stdlib.box-shadow(map.get($_borders, "shadow"));
+        @include boxshadow.box-shadow(borders.get('shadow'));
 
         z-index: 1110;
 
@@ -133,17 +96,17 @@ $_class-name: (
             transition: left 0.3s;
         }
 
-        & .#{map.get($_class-name, "close")} {
+        & .#{map.get($_classnames, 'close')} {
             position: absolute;
-            top: map.get($_box-spacing, "margin");
-            right: map.get($_box-spacing, "margin");
+            top: boxmodel.get('margin');
+            right: boxmodel.get('margin');
             z-index: 1111;
 
-            width: map.get($_font-sizes, "close");
-            height: map.get($_font-sizes, "close");
+            width: fonts.get-size('close');
+            height: fonts.get-size('close');
 
-            border-radius: map.get($_borders, "radius");
-            padding: map.get($_box-spacing, "padding");
+            border-radius: borders.get('radius');
+            padding: boxmodel.get('padding');
 
             // Fixes the offset from label
             margin: 0;
@@ -157,18 +120,18 @@ $_class-name: (
             &:before {
                 // Transparent background unless hovered over. Does not block text behind it.
                 display: block;
-                content: "\00D7";
-                color: var(--drawer-close-color, map.get($_colors, "close"));
+                content: '\00D7';
+                color: var(--drawer-close-color, colors.get('fore'));
                 position: relative;
                 font-family: sans-serif;
-                font-size: map.get($_font-sizes, "close");
+                font-size: fonts.get-size('close');
                 line-height: 1; // Setting to 1 seems to center the 'X' properly.
                 text-align: center;
             }
 
             &:hover,
             &:focus {
-                background: var(--back-hover-color, map.get($_colors, "hover-back"));
+                background: var(--back-hover-color, colors.get('back-hover'));
             }
         }
 
@@ -185,13 +148,13 @@ $_class-name: (
         }
     }
 
-    @media screen and (min-width: #{map.get($_breakpoints, "medium")}) {
-        &:not(.#{map.get($_class-name, "persistent")}) + * {
+    @media screen and (min-width: #{breakpoints.get('medium')}) {
+        &:not(.#{map.get($_classnames, 'persistent')}) + * {
             position: static;
             height: 100%;
             z-index: 1100;
 
-            & .#{map.get($_class-name, "close")} {
+            & .#{map.get($_classnames, 'close')} {
                 display: none;
             }
         }

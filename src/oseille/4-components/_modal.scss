@@ -50,7 +50,7 @@ $_classnames: (
         display: none;
         width: 100vw;
         height: 100vh;
-        background: colors.get('overlay');
+        background: var(--modal-back-color, #{colors.get('overlay')});
 
         & .card {
             margin: 0 auto;
@@ -75,7 +75,7 @@ $_classnames: (
                 &:before {
                     display: block;
                     content: '\00D7';
-                    color: colors.get('fore-lighter');
+                    color: var(--modal-fore-color, #{colors.get('fore-lighter')});
                     position: relative;
                     font-family: sans-serif;
                     font-size: fonts.get-size('close');
@@ -85,7 +85,7 @@ $_classnames: (
 
                 &:hover,
                 &:focus {
-                    background: colors.get('back');
+                    background: var(--modal-back-hover-color, #{colors.get('back')});
                 }
             }
         }
