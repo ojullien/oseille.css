@@ -31,6 +31,14 @@ audio {
     @extend %_normalize;
 }
 
+canvas {
+    @extend %_normalize;
+}
+
+object {
+    @extend %_normalize;
+}
+
 video {
     @extend %_normalize;
 }

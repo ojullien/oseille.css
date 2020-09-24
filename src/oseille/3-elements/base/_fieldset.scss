@@ -14,13 +14,15 @@
 
 fieldset {
     // Apply always to overwrite defaults for all of the below.
-    border: borders.get("width") solid var(--border-color, colors.get("border-lightest"));
-    border-radius: borders.get("radius");
-    margin: calc(#{boxmodel.get("margin")} / 4);
-    padding: boxmodel.get("padding");
+    border: borders.get('width') solid var(--border-color, colors.get('border-lightest'));
+    border-radius: borders.get('radius');
+    margin: calc(#{boxmodel.get('margin')} / 4);
+    padding: boxmodel.get('padding');
 }
 
 legend {
+    border: 0;
+    margin: 0;
     // Edge fixes.
     box-sizing: border-box;
     display: table;
@@ -28,11 +30,13 @@ legend {
     white-space: normal;
     // Actual styling.
     font-weight: bolder;
-    font-size: fonts.get-size("legend");
-    padding: calc(#{boxmodel.get("padding")} / 2);
+    font-size: fonts.get-size('legend');
+    padding: calc(#{boxmodel.get('padding')} / 2);
 }
 
 label {
-    padding: calc(#{boxmodel.get("padding")} / 2) boxmodel.get("padding");
-    font-size: fonts.get-size("label");
+    border: 0;
+    margin: 0;
+    padding: calc(#{boxmodel.get('padding')} / 2) boxmodel.get('padding');
+    font-size: fonts.get-size('label');
 }

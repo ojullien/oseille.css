@@ -1,5 +1,5 @@
 /* Multimedia resources styling */
-video, audio, img {
+video, object, canvas, audio, img {
   margin: 0;
   padding: 0;
   border: 0;

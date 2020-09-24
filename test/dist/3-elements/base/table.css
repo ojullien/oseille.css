@@ -10,6 +10,8 @@ table {
   padding-top: 0;
 }
 table caption {
+  border: 0;
+  padding: 0;
   font-style: inherit;
   font-weight: inherit;
   font-size: 1rem;

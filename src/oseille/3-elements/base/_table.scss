@@ -62,6 +62,8 @@ table {
     }
 
     caption {
+        border: 0;
+        padding: 0;
         font-style: inherit;
         font-weight: inherit;
         font-size: fonts.get-size('input');

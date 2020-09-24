@@ -49,6 +49,7 @@ footer {
         border: borders.get('width') solid colors.get('border-lightest');
     }
 
+    margin: 0;
     padding: calc(2 * #{boxmodel.get('padding')}) boxmodel.get('padding');
     font-size: fonts.get-size('footer');
 

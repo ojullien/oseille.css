@@ -1,6 +1,7 @@
 /* Footer styling */
 footer {
   border-top: 1px solid #909090;
+  margin: 0;
   padding: calc(2 * 0.5rem) 0.5rem;
   font-size: 0.875em;
 }

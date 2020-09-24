@@ -702,6 +702,8 @@ fieldset {
 }
 
 legend {
+  border: 0;
+  margin: 0;
   box-sizing: border-box;
   display: table;
   max-width: 100%;
@@ -712,6 +714,8 @@ legend {
 }
 
 label {
+  border: 0;
+  margin: 0;
   padding: calc(0.5rem / 2) 0.5rem;
   font-size: 1em;
 }
@@ -854,6 +858,8 @@ table {
   padding-top: 0;
 }
 table caption {
+  border: 0;
+  padding: 0;
   font-style: inherit;
   font-weight: inherit;
   font-size: 1rem;
@@ -1105,7 +1111,7 @@ table.hoverable tr:hover, table.hoverable tr:hover > td, table.hoverable tr:focu
   }
 }
 /* Multimedia resources styling */
-video, audio, img {
+video, object, canvas, audio, img {
   margin: 0;
   padding: 0;
   border: 0;
@@ -1197,6 +1203,12 @@ nav .sublink-2:before {
   border-left: 0;
 }
 
+menu {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
 /* Heading styling */
 h6, h5, h4, h3, h2, h1 {
   padding: 0;
@@ -1253,6 +1265,7 @@ h6 {
 /* Footer styling */
 footer {
   border-top: 1px solid #909090;
+  margin: 0;
   padding: calc(2 * 0.5rem) 0.5rem;
   font-size: 0.875em;
 }
