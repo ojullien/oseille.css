@@ -82,6 +82,8 @@ table {
     }
 
     thead {
+        margin: 0;
+        padding: 0;
         z-index: 999; // Fixes the visibility of the element.
         border-radius: #{borders.get('radius')} #{borders.get('radius')} 0 0;
         border-bottom: borders.get('width') solid var(--table-separator-color, #{colors.get('border-darker')});
@@ -94,13 +96,22 @@ table {
         }
     }
 
+    tfoot {
+        margin: 0;
+        padding: 0;
+        border: 0;
+    }
+
     tbody {
+        padding: 0;
         border-top: 0;
         margin-top: calc(0 - #{boxmodel.get('margin')});
         border-radius: 0 0 borders.get('radius') borders.get('radius');
     }
 
     tr {
+        margin: 0;
+        border: 0;
         display: flex;
         padding: 0; // Apply always to overwrite default.
         @if not($_include-horizontal-table) {
@@ -112,6 +123,7 @@ table {
     th,
     td {
         padding: calc(2 * #{boxmodel.get('padding')}); // Apply always to overwrite default.
+        margin: 0;
         @if not($_include-horizontal-table) {
             flex: 1 0 0%;
             overflow: hidden;
@@ -120,6 +132,7 @@ table {
     }
 
     th {
+        border: 0;
         font-style: inherit;
         font-weight: inherit;
         text-align: left;

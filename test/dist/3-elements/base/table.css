@@ -24,24 +24,36 @@ table tbody {
   border: 1px solid var(--border-color, #222222);
 }
 table thead {
+  margin: 0;
+  padding: 0;
   z-index: 999;
   border-radius: 0.125rem 0.125rem 0 0;
   border-bottom: 1px solid var(--table-separator-color, #353535);
 }
+table tfoot {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
 table tbody {
+  padding: 0;
   border-top: 0;
   margin-top: calc(0 - 0.5rem);
   border-radius: 0 0 0.125rem 0.125rem;
 }
 table tr {
+  margin: 0;
+  border: 0;
   display: flex;
   padding: 0;
 }
 table th,
 table td {
   padding: calc(2 * 0.5rem);
+  margin: 0;
 }
 table th {
+  border: 0;
   font-style: inherit;
   font-weight: inherit;
   text-align: left;
