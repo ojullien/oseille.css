@@ -26,3 +26,11 @@ img {
     @extend %_responsive;
     border-style: none;
 }
+
+audio {
+    @extend %_normalize;
+}
+
+video {
+    @extend %_normalize;
+}
