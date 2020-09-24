@@ -19,38 +19,38 @@
 //   - caption: Font stack 'for <q> <figcaption> <blockquote>
 //   - heading: Heading font stack
 $stacks: (
-    "base": (
+    'base': (
         -apple-system,
         BlinkMacSystemFont,
-        "Segoe UI",
+        'Segoe UI',
         Roboto,
         Ubuntu,
-        "Helvetica Neue",
+        'Helvetica Neue',
         Helvetica,
         sans-serif,
     ),
-    "code": (
+    'code': (
         Menlo,
         Consolas,
         monospace,
     ),
-    "quotation": (
+    'quotation': (
         -apple-system,
         BlinkMacSystemFont,
-        "Segoe UI",
+        'Segoe UI',
         Roboto,
         Ubuntu,
-        "Helvetica Neue",
+        'Helvetica Neue',
         Helvetica,
         sans-serif,
     ),
-    "heading": (
+    'heading': (
         -apple-system,
         BlinkMacSystemFont,
-        "Segoe UI",
+        'Segoe UI',
         Roboto,
         Ubuntu,
-        "Helvetica Neue",
+        'Helvetica Neue',
         Helvetica,
         sans-serif,
     ),
@@ -74,21 +74,23 @@ $stacks: (
 //   - label: Font size for the <label> element
 //   - quotation: Font size for the quotation of <blockquote>
 //   - input: Font size for all inputs
+//   - close: Font size for the close button of the modal dialog
 $sizes: (
-    "accessible": 100%,
-    "not-accessible": 16px,
-    "body": medium,
-    "ratio-heading": 1.25,
-    "small": 0.75em,
-    "code": 0.85em,
-    "footer": 0.875em,
-    "mark": 0.95em,
-    "cite": 1em,
-    "caption": 1em,
-    "legend": 1em,
-    "label": 1em,
-    "quotation": 3em,
-    "input": 1rem,
+    'accessible': 100%,
+    'not-accessible': 16px,
+    'body': medium,
+    'ratio-heading': 1.25,
+    'small': 0.75em,
+    'code': 0.85em,
+    'footer': 0.875em,
+    'mark': 0.95em,
+    'cite': 1em,
+    'caption': 1em,
+    'legend': 1em,
+    'label': 1em,
+    'quotation': 3em,
+    'input': 1rem,
+    'close': 1.75rem,
 ) !default;
 
 //
@@ -105,18 +107,18 @@ $sizes: (
 //   - small: line height for smaller text sizes
 //   - hr : line height for thematic break
 $line-spacing: (
-    "h1": calc(1ex / 0.42),
-    "h2": calc(1ex / 0.42),
-    "h3": calc(1ex / 0.38),
-    "h4": calc(1ex / 0.37),
-    "h5": calc(1ex / 0.32),
-    "h6": calc(1ex / 0.32),
-    "subheading": calc(1ex / 0.32),
-    "main": 1.5,
-    "mark": 1.5,
-    "p": calc(1ex / 0.29),
-    "hr": 1.25,
-    "small": 1.5625,
+    'h1': calc(1ex / 0.42),
+    'h2': calc(1ex / 0.42),
+    'h3': calc(1ex / 0.38),
+    'h4': calc(1ex / 0.37),
+    'h5': calc(1ex / 0.32),
+    'h6': calc(1ex / 0.32),
+    'subheading': calc(1ex / 0.32),
+    'main': 1.5,
+    'mark': 1.5,
+    'p': calc(1ex / 0.29),
+    'hr': 1.25,
+    'small': 1.5625,
 ) !default;
 
 // Hyphenation
@@ -125,14 +127,14 @@ $line-spacing: (
 // Avoid justified text in the absence of hyphenation.
 $hyphenation: false !default;
 $hyphenations: (
-    "text-align": left,
-    "hyphens": none,
+    'text-align': left,
+    'hyphens': none,
 ) !default;
 
 @if $hyphenation {
     $hyphenations: (
-        "text-align": justify,
-        "hyphens": auto,
+        'text-align': justify,
+        'hyphens': auto,
     );
 }
 
@@ -150,7 +152,7 @@ $hyphenations: (
     @if $value == null {
         @warn #{'Font-stack "' + $key + '" not found! Use base font stack.'};
 
-        $value: stdlib.get("base", $stacks);
+        $value: stdlib.get('base', $stacks);
 
         @if $value == null {
             @warn #{'Font-stack "base" not found!'};

@@ -117,6 +117,7 @@ $secondary-palette: (
 //   - primary: background color variant.
 //   - secondary: background color variant.
 //   - tertiary: background color variant.
+//   - overlay: modal dialog component
 $elements: (
     'back-hover': map.get($secondary-palette, 'back-darker'),
     'fore-hover': map.get($primary, 'black'),
@@ -127,6 +128,7 @@ $elements: (
     'sidebar': map.get($primary, 'orange'),
     'tertiary': map.get($primary, 'green'),
     'visited': map.get($primary-palette, 'blue-darkest'),
+    'overlay': rgba(0, 0, 0, 0.45),
 ) !default;
 
 // Functions.

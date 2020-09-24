@@ -7,8 +7,12 @@
   overflow: hidden;
   position: absolute;
   clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(100%);
-  clip-path: inset(100%);
+}
+@supports (clip-path: inset(100%)) or (-webkit-clip-path: inset(100%)) {
+  [type=checkbox].modal {
+    -webkit-clip-path: inset(100%);
+    clip-path: inset(100%);
+  }
 }
 [type=checkbox].modal + div {
   position: fixed;
@@ -43,7 +47,7 @@
 [type=checkbox].modal + div .card .modal-close:before {
   display: block;
   content: "×";
-  color: #444;
+  color: #414141;
   position: relative;
   font-family: sans-serif;
   font-size: 1.75rem;
@@ -51,7 +55,7 @@
   text-align: center;
 }
 [type=checkbox].modal + div .card .modal-close:hover, [type=checkbox].modal + div .card .modal-close:focus {
-  background: #f0f0f0;
+  background: #f8f8f8;
 }
 [type=checkbox].modal:checked + div {
   display: flex;
