@@ -1379,6 +1379,13 @@ header {
     object-fit: scale-down;
   }
 }
+/* Time styling */
+time {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
 /* Borders styling */
 .bordered {
   border: 1px solid var(--border-color, #222222) !important;
