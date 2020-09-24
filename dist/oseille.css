@@ -746,6 +746,28 @@ input:disabled, input[disabled] {
   }
 }
 
+/* Common textual input styling. */
+input:not([type]),
+[type=text],
+[type=email],
+[type=number],
+[type=search],
+[type=password],
+[type=url],
+[type=tel],
+[type=checkbox],
+[type=radio],
+textarea,
+select {
+  box-sizing: border-box;
+  background: var(--back-color, #f8f8f8);
+  color: var(--fore-color, #121212);
+  border: 2px solid var(--border-color, #222222);
+  border-radius: 0.125rem;
+  margin: calc(0.5rem / 2);
+  padding: 0.5rem calc(1.5 * 0.5rem);
+}
+
 /* Styling for checkbox */
 [type=checkbox] {
   -webkit-appearance: none;
@@ -797,6 +819,30 @@ input:disabled, input[disabled] {
   height: 0.5rem;
 }
 
+/* Styling for number */
+[type=number]::-webkit-inner-spin-button,
+[type=number]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/* Styling for search */
+@supports (-webkit-appearance: textfield) {
+  [type=search] {
+    -webkit-appearance: textfield;
+  }
+}
+@supports (outline-offset: -2px) {
+  [type=search] {
+    outline-offset: -2px;
+  }
+}
+
+@supports (-webkit-appearance: none) {
+  [type=search]::-webkit-search-cancel-button,
+[type=search]::-webkit-search-decoration {
+    -webkit-appearance: none;
+  }
+}
 /* Styling for textarea */
 textarea:disabled, textarea[disabled] {
   opacity: 0.75;
@@ -844,6 +890,67 @@ option {
 ::-ms-placeholder {
   color: var(--fore-color, #121212);
   opacity: 0.54;
+}
+
+/* Hover, focus, disabled, readonly, invalid styling for common textual inputs. */
+input:not([type=button]):not([type=submit]):not([type=reset]):hover, input:not([type=button]):not([type=submit]):not([type=reset]):focus,
+textarea:hover,
+textarea:focus,
+select:hover,
+select:focus {
+  border-color: var(--input-border-hover-color, #215cca);
+  box-shadow: none;
+}
+input:not([type=button]):not([type=submit]):not([type=reset]):invalid, input:not([type=button]):not([type=submit]):not([type=reset]):focus:invalid,
+textarea:invalid,
+textarea:focus:invalid,
+select:invalid,
+select:focus:invalid {
+  border-color: var(--input-border-hover-color, #ad0000);
+  box-shadow: none;
+}
+input:not([type=button]):not([type=submit]):not([type=reset])[readonly],
+textarea[readonly],
+select[readonly] {
+  opacity: 0.75;
+}
+@supports (filter: grayscale(60%)) {
+  input:not([type=button]):not([type=submit]):not([type=reset])[readonly],
+textarea[readonly],
+select[readonly] {
+    filter: grayscale(60%);
+  }
+}
+
+/* Input group styling. */
+.input-group {
+  display: inline-block;
+}
+.input-group.fluid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.input-group.fluid > input {
+  max-width: 100%;
+  flex-grow: 1;
+  flex-basis: 0;
+}
+@media screen and (max-width: 767px) {
+  .input-group.fluid {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}
+.input-group.vertical {
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+}
+.input-group.vertical > input {
+  max-width: 100%;
+  flex-grow: 1;
+  flex-basis: 0;
 }
 
 /* Table styling */
