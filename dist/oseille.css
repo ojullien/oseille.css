@@ -2026,3 +2026,88 @@ header {
     order: 999;
   }
 }
+/* Card styling */
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-self: center;
+  position: relative;
+  background: var(--card-back-color, #f8f8f8);
+  color: var(--card-fore-color, #121212);
+  border: 1px solid var(--card-border-color, #909090);
+  border-radius: 0.125rem;
+  margin: 0.5rem;
+  overflow: hidden;
+}
+.card.hero {
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.card > .section {
+  box-sizing: border-box;
+  margin: 0;
+  border: 0;
+  border-radius: 0;
+  border-bottom: 1px solid var(--card-border-color, #909090);
+  padding: 0.5rem;
+  width: 100%;
+}
+.card > .section.media {
+  height: 200px;
+  padding: 0;
+}
+@supports (object-fit: cover) or (-o-object-fit: cover) {
+  .card > .section.media {
+    -o-object-fit: cover;
+    object-fit: cover;
+  }
+}
+.card > .section.dark {
+  background: var(--card-back-color, #e0e0e0);
+}
+.card > .section.double-padded {
+  padding: calc(1.5 * 0.5rem);
+}
+.card > .section:last-child {
+  border-bottom: 0;
+}
+.card.warning {
+  background: var(--warning-back-color, #ffdc00);
+  border-color: var(--warning-border-color, #ccb000);
+  border-width: 2px;
+}
+.card.error {
+  background: var(--error-back-color, #ad0000);
+  color: var(--error-fore-color, #f8f8f8);
+  border-color: var(--error-border-color, #8a0000);
+  border-width: 2px;
+}
+.card.fluid {
+  max-width: 100%;
+  width: auto;
+}
+@media screen and (min-width: 240px) {
+  .card.small {
+    max-width: 240px;
+  }
+}
+@media screen and (min-width: 320px) {
+  .card {
+    max-width: 320px;
+  }
+}
+@media screen and (min-width: 480px) {
+  .card.large {
+    max-width: 480px;
+  }
+}
+.card__link {
+  margin-top: auto !important;
+}
+.card p {
+  width: unset;
+  max-width: unset;
+  text-align: unset;
+}
