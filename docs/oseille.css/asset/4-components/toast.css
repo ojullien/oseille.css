@@ -1,0 +1,12 @@
+/* Toast styling */
+.toast {
+  position: fixed;
+  bottom: calc(0.5rem * 3);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1111;
+  color: var(--toast-fore-color, #f8f8f8);
+  background: var(--toast-back-color, #121212);
+  border-radius: calc(0.125rem * 16);
+  padding: 0.5rem calc(0.5rem * 3);
+}

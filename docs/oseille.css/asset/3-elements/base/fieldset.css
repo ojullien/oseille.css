@@ -1,0 +1,26 @@
+/* Styling for fieldset */
+fieldset {
+  border: 1px solid var(--border-color, #909090);
+  border-radius: 0.125rem;
+  margin: calc(0.5rem / 4);
+  padding: 0.5rem;
+}
+
+legend {
+  border: 0;
+  margin: 0;
+  box-sizing: border-box;
+  display: table;
+  max-width: 100%;
+  white-space: normal;
+  font-weight: bolder;
+  font-size: 1em;
+  padding: calc(0.5rem / 2);
+}
+
+label {
+  border: 0;
+  margin: 0;
+  padding: calc(0.5rem / 2) 0.5rem;
+  font-size: 1em;
+}

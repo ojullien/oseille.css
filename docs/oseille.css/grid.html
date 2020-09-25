@@ -5,8 +5,9 @@
     <meta charset="utf-8">
     <title>Grid system</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="grid.css" rel="stylesheet" type="text/css" id="local-css" />
-    <link href="oseille.css" rel="stylesheet" type="text/css" id="oseille-css" disabled />
+    <link href="asset/3-elements/base/root.css" rel="stylesheet" type="text/css" id="root-css" />    
+    <link href="asset/4-components/grid.css" rel="stylesheet" type="text/css" id="grid-css" />
+    <link href="asset/oseille.css" rel="stylesheet" type="text/css" id="oseille-css" disabled />
 </head>
 <style>
     .wrapper {
@@ -29,13 +30,10 @@
 
     <div class="wrapper">
 
-        <div style="min-height: 100%; display: flex; flex-direction: row-reverse; justify-content: center; align-items: center; text-align: center; position: sticky; top: 10px;">
-            <input style="" type="radio" id="radio-local-css" name="css" value="1" onchange="switchToLocal();" checked />
-            <label style="" for="radio-local-css">Local</label>
-            <input style="" type="radio" id="radio-oseille-css" name="css" value="2" onchange="switchToOseille();" />
-            <label style="" for="radio-oseille-css">Oseille</label>
-            <input style="" type="radio" id="radio-nosheet-css" name="css" value="3" onchange="switchToNoSheet();" />
-            <label style="" for="radio-nosheet-css">No Sheet</label>
+        <div style="min-height: 100%; display: flex; flex-direction: row-reverse; justify-content: space-evenly; align-items: center; text-align: center; align-self: flex-start;position: sticky; top: 10px;">
+            <label style="" for="root"><input style="" type="checkbox" id="checkbox-root" name="checkbox-root" value="root" onclick="switchToLocal(this);" checked />Root</label>
+            <label style="" for="grid"><input style="" type="checkbox" id="checkbox-grid" name="checkbox-grid" value="grid" onclick="switchToLocal(this);" checked />Grid</label>
+            <label style="" for="oseille"><input style="" type="checkbox" id="checkbox-oseille" name="checkbox-oseille" value="oseille" onclick="switchToOseille();" />Oseille</label>
         </div>
 
 
@@ -287,22 +285,34 @@
 </body>
 
 <script type="text/javascript">
-    document.body.onload = () => {
-        var sFontSize = window.getComputedStyle(document.body, null).getPropertyValue("font-size");
-        var iRatio = 1 / sFontSize.substring(0, sFontSize.length - 2);
-        document.documentElement.style.setProperty('--px', iRatio + "rem");
+
+    var myMap = new Map();
+    myMap.set('checkbox-root','#root-css');
+    myMap.set('checkbox-grid','#grid-css');
+
+    function switchToLocal(element) {
+        if (element.checked != true) {
+            document.querySelector(myMap.get(element.id)).disabled=true;
+        } else {
+            document.querySelector(myMap.get(element.id)).removeAttribute('disabled');
+        }
     };
-    function switchToLocal() {
-        document.querySelector("#oseille-css").disabled=true;
-        document.querySelector("#local-css").removeAttribute('disabled');
-    };
+
     function switchToOseille() {
-        document.querySelector("#local-css").disabled=true;
-        document.querySelector("#oseille-css").removeAttribute('disabled');
-    };
-    function switchToNoSheet() {
-        document.querySelector("#oseille-css").disabled=true;
-        document.querySelector("#local-css").disabled=true;
+        let checkbox = document.getElementById('checkbox-oseille');
+        if (checkbox.checked != true) {
+            for (let [theCheckbox,theLink] of myMap.entries()) {
+                document.getElementById(theCheckbox).checked = true;
+                document.querySelector(theLink).removeAttribute('disabled');
+            }
+            document.querySelector("#oseille-css").disabled=true;
+        } else {
+            for (let [theCheckbox,theLink] of myMap.entries()) {
+                document.getElementById(theCheckbox).checked = false;
+                document.querySelector(theLink).disabled=true;
+            }
+            document.querySelector("#oseille-css").removeAttribute('disabled');
+        }
     };
 </script>
 

@@ -5,8 +5,14 @@
     <meta charset="utf-8">
     <title>Images & captions</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="images&captions.css" rel="stylesheet" type="text/css" id="local-css" />
-    <link href="oseille.css" rel="stylesheet" type="text/css" id="oseille-css" disabled />
+    <link href="asset/3-elements/base/root.css" rel="stylesheet" type="text/css" id="root-css" />
+    <link href="asset/3-elements/base/text.css" rel="stylesheet" type="text/css" id="text-css" />
+    <link href="asset/3-elements/base/paragraph.css" rel="stylesheet" type="text/css" id="paragraph-css" />
+    <link href="asset/3-elements/base/multimedia.css" rel="stylesheet" type="text/css" id="multimedia-css" />
+    <link href="asset/3-elements/base/figure.css" rel="stylesheet" type="text/css" id="figure-css" />
+    <link href="asset/3-elements/base/code.css" rel="stylesheet" type="text/css" id="code-css" />
+    <link href="asset/3-elements/base/quotation.css" rel="stylesheet" type="text/css" id="quotation-css" />
+    <link href="asset/oseille.css" rel="stylesheet" type="text/css" id="oseille-css" disabled />
 </head>
 <style>
     .wrapper {
@@ -19,13 +25,15 @@
 
     <div class="wrapper">
 
-        <div style="min-height: 100%; display: flex; flex-direction: row-reverse; justify-content: center; align-items: center; text-align: center; position: sticky; top: 10px;">
-            <input style="" type="radio" id="radio-local-css" name="css" value="1" onchange="switchToLocal();" checked />
-            <label style="" for="radio-local-css">Local</label>
-            <input style="" type="radio" id="radio-oseille-css" name="css" value="2" onchange="switchToOseille();" />
-            <label style="" for="radio-oseille-css">Oseille</label>
-            <input style="" type="radio" id="radio-nosheet-css" name="css" value="3" onchange="switchToNoSheet();" />
-            <label style="" for="radio-nosheet-css">No Sheet</label>
+        <div style="min-height: 100%; display: flex; flex-direction: row-reverse; justify-content: space-evenly; align-items: center; text-align: center; align-self: flex-start;position: sticky; top: 10px;">
+            <label style="" for="root"><input style="" type="checkbox" id="checkbox-root" name="checkbox-root" value="root" onclick="switchToLocal(this);" checked />Root</label>
+            <label style="" for="text"><input style="" type="checkbox" id="checkbox-text" name="checkbox-text" value="text" onclick="switchToLocal(this);" checked />Text</label>
+            <label style="" for="paragraph"><input style="" type="checkbox" id="checkbox-paragraph" name="checkbox-paragraph" value="paragraph" onclick="switchToLocal(this);" checked />Paragraph</label>
+            <label style="" for="multimedia"><input style="" type="checkbox" id="checkbox-multimedia" name="checkbox-multimedia" value="multimedia" onclick="switchToLocal(this);" checked />Multimedia</label>
+            <label style="" for="figure"><input style="" type="checkbox" id="checkbox-figure" name="checkbox-figure" value="figure" onclick="switchToLocal(this);" checked />Figure</label>
+            <label style="" for="code"><input style="" type="checkbox" id="checkbox-code" name="checkbox-code" value="code" onclick="switchToLocal(this);" checked />Code</label>
+            <label style="" for="quotation"><input style="" type="checkbox" id="checkbox-quotation" name="checkbox-quotation" value="quotation" onclick="switchToLocal(this);" checked />Quotation</label>
+            <label style="" for="oseille"><input style="" type="checkbox" id="checkbox-oseille" name="checkbox-oseille" value="oseille" onclick="switchToOseille();" />Oseille</label>
         </div>
 
         <header>
@@ -92,22 +100,39 @@ function NavigatorExample() {
 </body>
 
 <script type="text/javascript">
-    document.body.onload = () => {
-        var sFontSize = window.getComputedStyle(document.body, null).getPropertyValue("font-size");
-        var iRatio = 1 / sFontSize.substring(0, sFontSize.length - 2);
-        document.documentElement.style.setProperty('--px', iRatio + "rem");
+
+    var myMap = new Map();
+    myMap.set('checkbox-root','#root-css');
+    myMap.set('checkbox-text','#text-css');
+    myMap.set('checkbox-paragraph','#paragraph-css');
+    myMap.set('checkbox-multimedia','#multimedia-css');
+    myMap.set('checkbox-figure','#figure-css');
+    myMap.set('checkbox-code','#code-css');
+    myMap.set('checkbox-quotation','#quotation-css');
+
+    function switchToLocal(element) {
+        if (element.checked != true) {
+            document.querySelector(myMap.get(element.id)).disabled=true;
+        } else {
+            document.querySelector(myMap.get(element.id)).removeAttribute('disabled');
+        }
     };
-    function switchToLocal() {
-        document.querySelector("#oseille-css").disabled=true;
-        document.querySelector("#local-css").removeAttribute('disabled');
-    };
+
     function switchToOseille() {
-        document.querySelector("#local-css").disabled=true;
-        document.querySelector("#oseille-css").removeAttribute('disabled');
-    };
-    function switchToNoSheet() {
-        document.querySelector("#oseille-css").disabled=true;
-        document.querySelector("#local-css").disabled=true;
+        let checkbox = document.getElementById('checkbox-oseille');
+        if (checkbox.checked != true) {
+            for (let [theCheckbox,theLink] of myMap.entries()) {
+                document.getElementById(theCheckbox).checked = true;
+                document.querySelector(theLink).removeAttribute('disabled');
+            }
+            document.querySelector("#oseille-css").disabled=true;
+        } else {
+            for (let [theCheckbox,theLink] of myMap.entries()) {
+                document.getElementById(theCheckbox).checked = false;
+                document.querySelector(theLink).disabled=true;
+            }
+            document.querySelector("#oseille-css").removeAttribute('disabled');
+        }
     };
 </script>
 

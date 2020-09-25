@@ -1,0 +1,23 @@
+/* Footer styling */
+footer {
+  border-top: 1px solid #909090;
+  margin: 0;
+  padding: calc(2 * 0.5rem) 0.5rem;
+  font-size: 0.875em;
+}
+footer.page-footer {
+  background: var(--footer-back-color, #f8f8f8);
+  color: var(--footer-fore-color, #121212);
+}
+footer a,
+footer a:visited {
+  color: var(--link-color, #215cca);
+}
+@supports (position: sticky) or (position: -webkit-sticky) {
+  footer.sticky {
+    z-index: 1101;
+    bottom: 0;
+    position: -webkit-sticky;
+    position: sticky;
+  }
+}

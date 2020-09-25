@@ -1,0 +1,24 @@
+/* Content sectioning styling */
+article,
+aside,
+section,
+hgroup,
+main {
+  padding: 0;
+  border: 0;
+  margin-bottom: 0 0 1rem 0;
+}
+
+address {
+  padding: 0;
+  border: 0;
+  margin-bottom: 0 0 1rem 0;
+  font-style: inherit;
+  font-weight: inherit;
+}
+
+div {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
