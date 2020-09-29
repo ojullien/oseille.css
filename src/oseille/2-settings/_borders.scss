@@ -21,11 +21,11 @@
 //   - width: thickness of the border.
 //   - width-alt: alternative thickness for more accessibility.
 $borders: (
-    "radius": 0.125rem,
-    "shadow": none,
-    "shadow-alt": 0 2px,
-    "width": 1px,
-    "width-alt": 2px,
+    'radius': 4px,
+    'shadow': none,
+    'shadow-alt': 0 2px,
+    'width': 1px,
+    'width-alt': 2px,
 ) !default;
 
 // Functions.
