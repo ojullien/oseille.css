@@ -197,6 +197,8 @@ select {
 option {
     // Overflowing parent container.
     max-width: 100%;
+    overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 // Placeholder styling (keep browser-specific definitions separated, they do not play well together).

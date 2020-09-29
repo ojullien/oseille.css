@@ -15,14 +15,14 @@
 
 form {
     width: 100%;
-    background: colors.get("back");
-    color: colors.get("fore");
+    background: var(--form-back-color, colors.get('back'));
+    color: var(--form-fore-color, colors.get('fore'));
 
-    margin: boxmodel.get("margin");
-    padding: calc(2 * #{boxmodel.get("padding")}) boxmodel.get("padding");
+    margin: boxmodel.get('margin');
+    padding: calc(2 * #{boxmodel.get('padding')}) boxmodel.get('padding');
 
-    border: borders.get("width") solid var(--border-color, colors.get("border-lightest"));
-    border-radius: borders.get("radius");
+    border: borders.get('width') solid var(--border-color, colors.get('border-lightest'));
+    border-radius: borders.get('radius');
 
-    @include boxshadow.box-shadow(borders.get("shadow"));
+    @include boxshadow.box-shadow(borders.get('shadow'));
 }
