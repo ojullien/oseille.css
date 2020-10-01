@@ -56,9 +56,9 @@ header {
     color: var(--header-fore-color, colors.get('fore'));
 
     @if $_only-bottom-border {
-        border-bottom: borders.get('width') solid colors.get('border-lightest');
+        border-bottom: borders.get('width') solid var(--header-border-color, colors.get('border-lightest'));
     } @else {
-        border: borders.get('width') solid colors.get('border-lightest');
+        border: borders.get('width') solid var(--header-border-color, colors.get('border-lightest'));
     }
 
     padding: calc(#{boxmodel.get('padding')} / 4) 0;
@@ -103,8 +103,8 @@ header {
         text-align: center;
 
         // Apply color regardless to override styling from other things.
-        background: inherit;
-        color: inherit;
+        background: var(--header-back-color, inherit);
+        color: var(--header-fore-color, inherit);
 
         border: 0;
         border-radius: 0;

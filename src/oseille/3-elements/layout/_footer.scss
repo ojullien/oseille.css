@@ -44,9 +44,9 @@ footer {
     }
 
     @if $_only-top-border {
-        border-top: borders.get('width') solid colors.get('border-lightest');
+        border-top: borders.get('width') solid var(--footer-border-color, colors.get('border-lightest'));
     } @else {
-        border: borders.get('width') solid colors.get('border-lightest');
+        border: borders.get('width') solid var(--footer-border-color, colors.get('border-lightest'));
     }
 
     margin: 0;
@@ -55,7 +55,7 @@ footer {
 
     a,
     a:visited {
-        color: var(--link-color, colors.get('link')); // Allows live color tunning
+        color: var(--footer-link-color, colors.get('link')); // Allows live color tunning
     }
 
     &.#{map.get($_classnames, 'sticky')} {
