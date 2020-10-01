@@ -14,6 +14,30 @@ img {
   border-style: none;
 }
 
+.img-rounded {
+  border-radius: 50%;
+  width: 90px;
+  height: auto;
+}
+
+.img-rotate {
+  -ms-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.img-float {
+  float: left;
+  margin-right: 1em;
+  margin-bottom: 0;
+}
+
+.img-float:last-child {
+  margin-bottom: 0;
+}
+
 @supports (object-fit: fill) or (-o-object-fit: fill) {
   .fill {
     -o-object-fit: fill;

@@ -161,6 +161,22 @@ sup {
   top: -0.5em;
 }
 
+.text-align-center {
+  text-align: center;
+}
+
+.text-align-justify {
+  text-align: justify;
+}
+
+.text-align-left {
+  text-align: left;
+}
+
+.text-align-right {
+  text-align: right;
+}
+
 /* Mark styling*/
 mark {
   margin: 0;
@@ -413,6 +429,13 @@ figure {
   padding: 0;
   border: 0;
   margin: 0.5rem;
+}
+figure.fullWidth {
+  margin-left: 0;
+  margin-right: 0;
+}
+figure img {
+  width: 100%;
 }
 
 /* Button and button-like styling */
@@ -1234,6 +1257,30 @@ img, picture {
 
 img {
   border-style: none;
+}
+
+.img-rounded {
+  border-radius: 50%;
+  width: 90px;
+  height: auto;
+}
+
+.img-rotate {
+  -ms-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -o-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.img-float {
+  float: left;
+  margin-right: 1em;
+  margin-bottom: 0;
+}
+
+.img-float:last-child {
+  margin-bottom: 0;
 }
 
 @supports (object-fit: fill) or (-o-object-fit: fill) {

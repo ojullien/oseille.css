@@ -161,3 +161,19 @@ sup {
     @extend %_normalize-line-height;
     top: map.get($_box-model, 'top');
 }
+
+.text-align-center {
+    text-align: center;
+}
+
+.text-align-justify {
+    text-align: justify;
+}
+
+.text-align-left {
+    text-align: left;
+}
+
+.text-align-right {
+    text-align: right;
+}

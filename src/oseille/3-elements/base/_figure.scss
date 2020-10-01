@@ -26,17 +26,26 @@ figcaption {
     padding: 0;
     border: 0;
 
-    font-family: fonts.get-stack("quotation");
-    font-size: fonts.get-size("caption");
+    font-family: fonts.get-stack('quotation');
+    font-size: fonts.get-size('caption');
 
     text-align: $_text-align;
 
-    background: var(--caption-back-color, #{colors.get("back")}); // Allows live color tunning
-    color: var(--caption-fore-color, #{colors.get("fore")}); // Allows live color tunning
+    background: var(--caption-back-color, #{colors.get('back')}); // Allows live color tunning
+    color: var(--caption-fore-color, #{colors.get('fore')}); // Allows live color tunning
 }
 
 figure {
     padding: 0;
     border: 0;
-    margin: boxmodel.get("margin");
+    margin: boxmodel.get('margin');
+
+    &.fullWidth {
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    img {
+        width: 100%;
+    }
 }
