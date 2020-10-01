@@ -121,3 +121,14 @@ $_collapse-name: 'collapse' !default; // Class name for collapse component
         border-radius: 0 0 borders.get('radius') borders.get('radius');
     }
 }
+
+.symbol {
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.125em;
+    stroke: currentColor;
+    stroke-width: 2;
+    fill: none;
+    padding-left: 3px;
+}
