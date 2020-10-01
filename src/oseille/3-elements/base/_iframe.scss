@@ -5,6 +5,7 @@
 // You may override the values of the colors, borders and fonts variables, if needed, with the @use rule.
 // See flavors/oseille.scss and the 2-settings*.scss files.
 //
+@use 'sass:map';
 
 // Private variables.
 //
@@ -13,8 +14,23 @@
 // The configured values will override the variables’ default values.
 // @link: https://sass-lang.com/documentation/variables
 
-$_padding-bottom: 26.875rem !default; // bottom padding
 $_container-name: 'iframe-container' !default; // Class name for <iframe> container.
+
+// Aspect ratios
+//
+// Keys:
+//   - '16:9': universal for HD television and European digital television, and for YouTube videos
+//   - '4:3': universal video format of the 20th century
+//   - '3:2': classic 35 mm film cameras
+//   - '8:5': Widescreen computer monitor ratio
+//   - '1:1': Height and Width is Always Equal
+$_aspectratio: (
+    '16:9': 56.25%,
+    '4:3': 75%,
+    '3:2': 66.66%,
+    '8:5': 62.5%,
+    '1:1': 100%,
+);
 
 /* Embedded content styling */
 // As a replaced element, the position, alignment, and scaling of the embedded document within the
@@ -23,8 +39,26 @@ $_container-name: 'iframe-container' !default; // Class name for <iframe> contai
 .#{$_container-name} {
     position: relative;
     overflow: hidden;
-    padding-bottom: $_padding-bottom;
-    //    height: 0;
+
+    .aspect-ratio-16-9 {
+        padding-top: map.get($_aspectratio, '16:9');
+    }
+
+    .aspect-ratio-4-3 {
+        padding-top: map.get($_aspectratio, '4:3');
+    }
+
+    .aspect-ratio-3-2 {
+        padding-top: map.get($_aspectratio, '3:2');
+    }
+
+    .aspect-ratio-8-5 {
+        padding-top: map.get($_aspectratio, '8:5');
+    }
+
+    .aspect-ratio-1-1 {
+        padding-top: map.get($_aspectratio, '1:1');
+    }
 
     iframe {
         position: absolute;
@@ -36,32 +70,5 @@ $_container-name: 'iframe-container' !default; // Class name for <iframe> contai
         padding: 0;
         border: 0;
         border-style: none;
-    }
-}
-
-@supports (object-fit: fill) or (-o-object-fit: fill) {
-    .fill {
-        -o-object-fit: fill;
-        object-fit: fill;
-    }
-
-    .contain {
-        -o-object-fit: contain;
-        object-fit: contain;
-    }
-
-    .cover {
-        -o-object-fit: cover;
-        object-fit: cover;
-    }
-
-    .none {
-        -o-object-fit: none;
-        object-fit: none;
-    }
-
-    .scale-down {
-        -o-object-fit: scale-down;
-        object-fit: scale-down;
     }
 }

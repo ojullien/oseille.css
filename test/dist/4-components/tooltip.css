@@ -49,7 +49,7 @@
   content: attr(aria-label);
   color: var(--tooltip-fore-color, #f8f8f8);
   background: var(--tooltip-back-color, #121212);
-  border-radius: 0.125rem;
+  border-radius: 4px;
   padding: 0.5rem;
   white-space: nowrap;
   transform: translateX(-50%);

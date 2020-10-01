@@ -8,7 +8,7 @@ header {
 .page-header {
   background: var(--header-back-color, #f8f8f8);
   color: var(--header-fore-color, #121212);
-  border-bottom: 1px solid #909090;
+  border-bottom: 1px solid var(--header-border-color, #909090);
   padding: calc(0.5rem / 4) 0;
   white-space: nowrap;
   overflow-x: auto;
@@ -36,8 +36,8 @@ header {
   height: calc(3.1875rem + 0.5rem / 2);
   line-height: calc(3.1875rem - 0.5rem * 1.5);
   text-align: center;
-  background: inherit;
-  color: inherit;
+  background: var(--header-back-color, inherit);
+  color: var(--header-fore-color, inherit);
   border: 0;
   border-radius: 0;
   margin: 0;

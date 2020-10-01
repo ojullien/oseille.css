@@ -42,7 +42,7 @@ select {
   background: var(--back-color, #f8f8f8);
   color: var(--fore-color, #121212);
   border: 2px solid var(--border-color, #222222);
-  border-radius: 0.125rem;
+  border-radius: 4px;
   margin: calc(0.5rem / 2);
   padding: 0.5rem calc(1.5 * 0.5rem);
 }
@@ -160,6 +160,9 @@ select:disabled, select[disabled] {
 /* Styling for option */
 option {
   max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 :placeholder-shown {

@@ -9,28 +9,28 @@ progress {
   width: calc(100% - 2 * 0.5rem);
   margin: 0.5rem;
   border: 0;
-  border-radius: calc(2 * 0.125rem);
+  border-radius: calc(2 * 4px);
   background: var(--back-color, #f8f8f8);
   color: var(--fore-color, #121212);
 }
 progress::-webkit-progress-value {
   background: var(--fore-color, #121212);
-  border-top-left-radius: calc(2 * 0.125rem);
-  border-bottom-left-radius: calc(2 * 0.125rem);
+  border-top-left-radius: calc(2 * 4px);
+  border-bottom-left-radius: calc(2 * 4px);
 }
 progress::-webkit-progress-bar {
   background: var(--back-color, #f8f8f8);
 }
 progress::-moz-progress-bar {
   background: var(--fore-color, #121212);
-  border-top-left-radius: calc(2 * 0.125rem);
-  border-bottom-left-radius: calc(2 * 0.125rem);
+  border-top-left-radius: calc(2 * 4px);
+  border-bottom-left-radius: calc(2 * 4px);
 }
 progress[value="1000"]::-webkit-progress-value {
-  border-radius: calc(2 * 0.125rem);
+  border-radius: calc(2 * 4px);
 }
 progress[value="1000"]::-moz-progress-bar {
-  border-radius: calc(2 * 0.125rem);
+  border-radius: calc(2 * 4px);
 }
 progress.inline {
   display: inline-block;

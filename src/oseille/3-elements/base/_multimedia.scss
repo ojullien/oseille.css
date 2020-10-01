@@ -42,3 +42,30 @@ object {
 video {
     @extend %_normalize;
 }
+
+@supports (object-fit: fill) or (-o-object-fit: fill) {
+    .fill {
+        -o-object-fit: fill;
+        object-fit: fill;
+    }
+
+    .contain {
+        -o-object-fit: contain;
+        object-fit: contain;
+    }
+
+    .cover {
+        -o-object-fit: cover;
+        object-fit: cover;
+    }
+
+    .none {
+        -o-object-fit: none;
+        object-fit: none;
+    }
+
+    .scale-down {
+        -o-object-fit: scale-down;
+        object-fit: scale-down;
+    }
+}

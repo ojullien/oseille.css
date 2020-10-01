@@ -9,7 +9,7 @@
   background: var(--card-back-color, #f8f8f8);
   color: var(--card-fore-color, #121212);
   border: 1px solid var(--card-border-color, #909090);
-  border-radius: 0.125rem;
+  border-radius: 4px;
   margin: 0.5rem;
   overflow: hidden;
 }

@@ -51,7 +51,7 @@
   z-index: 1111;
   width: 2rem;
   height: 2rem;
-  border-radius: 0.125rem;
+  border-radius: 4px;
   padding: 0.5rem;
   margin: 0;
   transition: background 0.3s;
