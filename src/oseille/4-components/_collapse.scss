@@ -56,7 +56,7 @@ $_collapse-name: 'collapse' !default; // Class name for collapse component
         transition: background 0.3s;
         color: var(--collapse-fore-color, colors.get('fore'));
         background: var(--collapse-back-color, colors.get('back'));
-        border: borders.get('width') solid var(--border-color, colors.get('border-lightest'));
+        border: borders.get('width') solid var(--collapse-border-color, colors.get('border-lightest'));
         padding: calc(1.5 * #{boxmodel.get('padding')});
         &:hover,
         &:focus {
@@ -81,7 +81,7 @@ $_collapse-name: 'collapse' !default; // Class name for collapse component
     }
     > :checked + label {
         background: var(--collapse-back-color, colors.get('back'));
-        border-bottom-color: var(--border-color, colors.get('blue'));
+        border-bottom-color: var(--collapse-border-color, colors.get('blue'));
         & + div {
             box-sizing: border-box;
             position: relative;
@@ -90,7 +90,7 @@ $_collapse-name: 'collapse' !default; // Class name for collapse component
             overflow: auto;
             margin: 0;
             background: var(--collapse-back-color, colors.get('back'));
-            border: borders.get('width') solid var(--border-color, colors.get('border-lightest'));
+            border: borders.get('width') solid var(--collapse-border-color, colors.get('border-lightest'));
             border-top: 0;
             padding: boxmodel.get('padding');
             max-height: $_content-max-height;

@@ -82,9 +82,9 @@ $_classnames: (
 input {
     overflow: visible; // Show overflow in Edge.
 
-    background: var(--back-color, #{colors.get('back')});
-    color: var(--fore-color, #{colors.get('fore')});
-    border: borders.get('width-alt') solid var(--border-color, #{colors.get('border')});
+    background: var(--input-back-color, #{colors.get('back')});
+    color: var(--input-fore-color, #{colors.get('fore')});
+    border: borders.get('width-alt') solid var(--input-border-color, #{colors.get('border')});
 
     font-family: inherit;
     font-size: fonts.get-size('input');
@@ -110,9 +110,9 @@ textarea,
 select {
     box-sizing: border-box;
     // Background, color and border should not be unassigned, as the browser defaults will apply.
-    background: var(--back-color, #{colors.get('back')});
-    color: var(--fore-color, #{colors.get('fore')});
-    border: borders.get('width-alt') solid var(--border-color, #{colors.get('border')});
+    background: var(--input-back-color, #{colors.get('back')});
+    color: var(--input-fore-color, #{colors.get('fore')});
+    border: borders.get('width-alt') solid var(--input-border-color, #{colors.get('border')});
     border-radius: borders.get('radius');
     margin: calc(#{boxmodel.get('margin')} / 2);
     padding: boxmodel.get('padding') calc(#{fonts.get-line-spacing('main')} * #{boxmodel.get('padding')});
@@ -205,11 +205,11 @@ option {
 // Placeholder styling (keep browser-specific definitions separated, they do not play well together).
 
 :placeholder-shown {
-    color: var(--fore-color, #{colors.get('fore')});
+    color: var(--input-fore-color, #{colors.get('fore')});
 }
 
 ::-ms-placeholder {
-    color: var(--fore-color, #{colors.get('fore')});
+    color: var(--input-fore-color, #{colors.get('fore')});
     opacity: 0.54;
 }
 

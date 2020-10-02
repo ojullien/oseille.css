@@ -16,7 +16,7 @@
 /* Details styling */
 
 details {
-    border: borders.get('width') solid var(--border-color, colors.get('border'));
+    border: borders.get('width') solid var(--details-border-color, colors.get('border'));
     border-radius: borders.get('radius');
     padding: boxmodel.get('padding');
     margin: boxmodel.get('margin');
@@ -27,7 +27,7 @@ details {
         padding: boxmodel.get('padding');
 
         summary {
-            border-bottom: borders.get('width') solid var(--border-color, colors.get('border'));
+            border-bottom: borders.get('width') solid var(--details-border-color, colors.get('border'));
             padding-bottom: boxmodel.get('margin');
         }
     }

@@ -76,7 +76,7 @@ table {
     tbody {
         display: flex;
         flex-flow: row wrap;
-        border: borders.get('width') solid var(--border-color, #{colors.get('border')});
+        border: borders.get('width') solid var(--table-border-color, #{colors.get('border')});
         @if not($_include-horizontal-table) {
             max-width: 100%;
             flex: 0 0 100%;
@@ -145,7 +145,7 @@ table {
     td {
         background: var(--td-back-color, #{colors.get('back')});
         color: var(--td-fore-color, #{colors.get('fore')});
-        border-top: borders.get('width') solid var(--border-color, #{colors.get('border')});
+        border-top: borders.get('width') solid var(--table-border-color, #{colors.get('border')});
     }
 
     @if not($_include-horizontal-table) {
@@ -239,7 +239,7 @@ table {
         td {
             width: auto;
             border: 0;
-            border-bottom: borders.get('width') solid var(--border-color, #{colors.get('border')});
+            border-bottom: borders.get('width') solid var(--table-border-color, #{colors.get('border')});
             &:not(:first-child) {
                 border-top: 0;
             }
@@ -247,7 +247,7 @@ table {
 
         th {
             text-align: right;
-            border-left: borders.get('width') solid var(--border-color, #{colors.get('border')});
+            border-left: borders.get('width') solid var(--table-border-color, #{colors.get('border')});
             border-right: borders.get('width') solid var(--table-separator-color, #{colors.get('border-darker')});
         }
 
@@ -259,11 +259,11 @@ table {
 
         th:first-child,
         td:first-child {
-            border-top: borders.get('width') solid var(--border-color, #{colors.get('border')});
+            border-top: borders.get('width') solid var(--table-border-color, #{colors.get('border')});
         }
 
         tbody tr:last-child td {
-            border-right: borders.get('width') solid var(--border-color, #{colors.get('border')});
+            border-right: borders.get('width') solid var(--table-border-color, #{colors.get('border')});
 
             &:first-child {
                 border-top-right-radius: 0.25rem;
@@ -342,7 +342,7 @@ table {
 
             tr {
                 display: block;
-                border: borders.get('width') solid var(--border-color, #{colors.get('border')});
+                border: borders.get('width') solid var(--table-border-color, #{colors.get('border')});
                 border-radius: #{borders.get('radius')};
 
                 @include boxshadow.box-shadow(borders.get('shadow'));
@@ -410,7 +410,7 @@ table {
 
             tr {
                 display: block;
-                border: borders.get('width') solid var(--border-color, #{colors.get('border')});
+                border: borders.get('width') solid var(--table-border-color, #{colors.get('border')});
                 border-radius: #{borders.get('radius')};
 
                 @include boxshadow.box-shadow(borders.get('shadow'));

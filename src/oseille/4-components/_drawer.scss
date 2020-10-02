@@ -84,12 +84,12 @@ $_classnames: (
         height: 100vh;
         overflow-y: auto;
 
-        background: var(--back-color, colors.get('back'));
+        background: var(--drawer-back-color, colors.get('back'));
 
         // Set to 0 to override the value from `nav`.
         margin: 0;
         border-radius: 0;
-        border: borders.get('width') solid var(--border-color, colors.get('border-lightest'));
+        border: borders.get('width') solid var(--drawer-border-color, colors.get('border-lightest'));
 
         @include boxshadow.box-shadow(borders.get('shadow'));
 
@@ -138,7 +138,7 @@ $_classnames: (
 
             &:hover,
             &:focus {
-                background: var(--back-hover-color, colors.get('back-hover'));
+                background: var(--drawer-back-hover-color, colors.get('back-hover'));
             }
         }
 

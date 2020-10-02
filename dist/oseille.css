@@ -266,7 +266,7 @@ code {
 }
 code a:link,
 code a:visited {
-  color: var(--link-color, #f8f8f8);
+  color: var(--code-link-color, #f8f8f8);
 }
 
 kbd {
@@ -330,8 +330,8 @@ blockquote {
   position: relative;
   margin: 0.5rem;
   padding: calc(3 * 0.5rem);
-  border: 1px solid var(--border-color, #909090);
-  border-left: 6px solid var(--caption-sidebar-color, #ff851b);
+  border: 1px solid var(--blockquote-border-color, #909090);
+  border-left: 6px solid var(--blockquote-sidebar-color, #ff851b);
   border-radius: 0 4px 4px 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, sans-serif;
   font-style: italic;
@@ -347,7 +347,7 @@ blockquote:before {
   font-size: 3em;
   font-weight: 700;
   content: "“";
-  color: var(--caption-sidebar-color, #ff851b);
+  color: var(--blockquote-sidebar-color, #ff851b);
 }
 blockquote[cite]:after {
   font-style: normal;
@@ -712,13 +712,13 @@ form {
   color: var(--form-fore-color, #121212);
   margin: 0.5rem;
   padding: calc(2 * 0.5rem) 0.5rem;
-  border: 1px solid var(--border-color, #909090);
+  border: 1px solid var(--form-border-color, #909090);
   border-radius: 4px;
 }
 
 /* Styling for fieldset */
 fieldset {
-  border: 1px solid var(--border-color, #909090);
+  border: 1px solid var(--fieldset-border-color, #909090);
   border-radius: 4px;
   margin: calc(0.5rem / 4);
   padding: 0.5rem;
@@ -746,9 +746,9 @@ label {
 /* Styling for input */
 input {
   overflow: visible;
-  background: var(--back-color, #f8f8f8);
-  color: var(--fore-color, #121212);
-  border: 2px solid var(--border-color, #222222);
+  background: var(--input-back-color, #f8f8f8);
+  color: var(--input-fore-color, #121212);
+  border: 2px solid var(--input-border-color, #222222);
   font-family: inherit;
   font-size: 1rem;
   line-height: normal;
@@ -783,9 +783,9 @@ input:not([type]),
 textarea,
 select {
   box-sizing: border-box;
-  background: var(--back-color, #f8f8f8);
-  color: var(--fore-color, #121212);
-  border: 2px solid var(--border-color, #222222);
+  background: var(--input-back-color, #f8f8f8);
+  color: var(--input-fore-color, #121212);
+  border: 2px solid var(--input-border-color, #222222);
   border-radius: 4px;
   margin: calc(0.5rem / 2);
   padding: 0.5rem calc(1.5 * 0.5rem);
@@ -910,11 +910,11 @@ option {
 }
 
 :placeholder-shown {
-  color: var(--fore-color, #121212);
+  color: var(--input-fore-color, #121212);
 }
 
 ::-ms-placeholder {
-  color: var(--fore-color, #121212);
+  color: var(--input-fore-color, #121212);
   opacity: 0.54;
 }
 
@@ -1004,7 +1004,7 @@ table thead,
 table tbody {
   display: flex;
   flex-flow: row wrap;
-  border: 1px solid var(--border-color, #222222);
+  border: 1px solid var(--table-border-color, #222222);
 }
 table thead {
   margin: 0;
@@ -1046,7 +1046,7 @@ table th {
 table td {
   background: var(--td-back-color, #f8f8f8);
   color: var(--td-fore-color, #121212);
-  border-top: 1px solid var(--border-color, #222222);
+  border-top: 1px solid var(--table-border-color, #222222);
 }
 
 table:not(.horizontal) {
@@ -1117,7 +1117,7 @@ table.horizontal th,
 table.horizontal td {
   width: auto;
   border: 0;
-  border-bottom: 1px solid var(--border-color, #222222);
+  border-bottom: 1px solid var(--table-border-color, #222222);
 }
 table.horizontal th:not(:first-child),
 table.horizontal td:not(:first-child) {
@@ -1125,7 +1125,7 @@ table.horizontal td:not(:first-child) {
 }
 table.horizontal th {
   text-align: right;
-  border-left: 1px solid var(--border-color, #222222);
+  border-left: 1px solid var(--table-border-color, #222222);
   border-right: 1px solid var(--table-separator-color, #353535);
 }
 table.horizontal thead tr:first-child {
@@ -1133,10 +1133,10 @@ table.horizontal thead tr:first-child {
 }
 table.horizontal th:first-child,
 table.horizontal td:first-child {
-  border-top: 1px solid var(--border-color, #222222);
+  border-top: 1px solid var(--table-border-color, #222222);
 }
 table.horizontal tbody tr:last-child td {
-  border-right: 1px solid var(--border-color, #222222);
+  border-right: 1px solid var(--table-border-color, #222222);
 }
 table.horizontal tbody tr:last-child td:first-child {
   border-top-right-radius: 0.25rem;
@@ -1189,7 +1189,7 @@ table.horizontal tbody {
   table tr,
 table.horizontal tr {
     display: block;
-    border: 1px solid var(--border-color, #222222);
+    border: 1px solid var(--table-border-color, #222222);
     border-radius: 4px;
     background: var(--tr-back-color, #f8f8f8);
     padding: 0.5rem;
@@ -1311,7 +1311,7 @@ img {
 }
 /* Details styling */
 details {
-  border: 1px solid var(--border-color, #222222);
+  border: 1px solid var(--details-border-color, #222222);
   border-radius: 4px;
   padding: 0.5rem;
   margin: 0.5rem;
@@ -1321,7 +1321,7 @@ details[open] {
   padding: 0.5rem;
 }
 details[open] summary {
-  border-bottom: 1px solid var(--border-color, #222222);
+  border-bottom: 1px solid var(--details-border-color, #222222);
   padding-bottom: 0.5rem;
 }
 
@@ -1334,9 +1334,9 @@ summary {
 
 /* Navigation styling. */
 nav {
-  background: var(--back-color, #f8f8f8);
-  color: var(--fore-color, #121212);
-  border: 1px solid var(--border-color, #222222);
+  background: var(--nav-back-color, #f8f8f8);
+  color: var(--nav-fore-color, #121212);
+  border: 1px solid var(--nav-border-color, #222222);
   border-radius: 4px;
   margin: 0.5rem;
   padding: 0;
@@ -1350,12 +1350,12 @@ nav a:visited {
   border-radius: 4px;
   transition: background 0.3s;
   text-decoration: none;
-  color: var(--link-color, #215cca);
+  color: var(--nav-link-color, #215cca);
 }
 nav a:hover, nav a:focus,
 nav a:visited:hover,
 nav a:visited:focus {
-  background: var(--back-hover-color, #e0e0e0);
+  background: var(--nav-back-hover-color, #e0e0e0);
   font-weight: bolder;
   box-shadow: none !important;
 }
@@ -1369,7 +1369,7 @@ nav .sublink-1:before {
   top: calc(0 - 1px);
   content: "";
   height: 100%;
-  border: 1px solid var(--border-color, #222222);
+  border: 1px solid var(--nav-border-color, #222222);
   border-left: 0;
 }
 nav .sublink-2 {
@@ -1382,7 +1382,7 @@ nav .sublink-2:before {
   top: calc(0 - 1px);
   content: "";
   height: 100%;
-  border: 1px solid var(--border-color, #222222);
+  border: 1px solid var(--nav-border-color, #222222);
   border-left: 0;
 }
 
@@ -1652,7 +1652,7 @@ time {
   transition: background 0.3s;
   color: var(--collapse-fore-color, #121212);
   background: var(--collapse-back-color, #f8f8f8);
-  border: 1px solid var(--border-color, #909090);
+  border: 1px solid var(--collapse-border-color, #909090);
   padding: calc(1.5 * 0.5rem);
 }
 .collapse > label:hover, .collapse > label:focus {
@@ -1678,7 +1678,7 @@ time {
 }
 .collapse > :checked + label {
   background: var(--collapse-back-color, #f8f8f8);
-  border-bottom-color: var(--border-color, #215cca);
+  border-bottom-color: var(--collapse-border-color, #215cca);
 }
 .collapse > :checked + label + div {
   box-sizing: border-box;
@@ -1688,7 +1688,7 @@ time {
   overflow: auto;
   margin: 0;
   background: var(--collapse-back-color, #f8f8f8);
-  border: 1px solid var(--border-color, #909090);
+  border: 1px solid var(--collapse-border-color, #909090);
   border-top: 0;
   padding: 0.5rem;
   max-height: 400px;
@@ -1717,6 +1717,17 @@ time {
 }
 .collapse > :checked:last-of-type + label + div {
   border-radius: 0 0 4px 4px;
+}
+
+.symbol {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.125em;
+  stroke: currentColor;
+  stroke-width: 2;
+  fill: none;
+  padding-left: 3px;
 }
 
 /* Toast styling */
@@ -2295,6 +2306,7 @@ time {
 }
 .card > .section.dark {
   background: var(--card-back-color, #e0e0e0);
+  color: var(--card-fore-color, #121212);
 }
 .card > .section.double-padded {
   padding: calc(1.5 * 0.5rem);
@@ -2303,14 +2315,15 @@ time {
   border-bottom: 0;
 }
 .card.warning {
-  background: var(--warning-back-color, #ffdc00);
-  border-color: var(--warning-border-color, #ccb000);
+  --card-back-color: var(--warning-back-color, #ffdc00);
+  --card-border-color: var(--warning-border-color, #ccb000);
+  --card-fore-color: var(--warning-fore-color, #121212);
   border-width: 2px;
 }
 .card.error {
-  background: var(--error-back-color, #ad0000);
-  color: var(--error-fore-color, #f8f8f8);
-  border-color: var(--error-border-color, #8a0000);
+  --card-back-color: var(--error-back-color, #ad0000);
+  --card-border-color: var(--error-border-color, #8a0000);
+  --card-fore-color: var(--error-fore-color, #f8f8f8);
   border-width: 2px;
 }
 .card.fluid {
@@ -2445,10 +2458,10 @@ time {
   width: 320px;
   height: 100vh;
   overflow-y: auto;
-  background: var(--back-color, #f8f8f8);
+  background: var(--drawer-back-color, #f8f8f8);
   margin: 0;
   border-radius: 0;
-  border: 1px solid var(--border-color, #909090);
+  border: 1px solid var(--drawer-border-color, #909090);
   z-index: 1110;
   right: -320px;
   transition: right 0.3s;
@@ -2481,7 +2494,7 @@ time {
   text-align: center;
 }
 [type=checkbox].drawer + * .drawer-close:hover, [type=checkbox].drawer + * .drawer-close:focus {
-  background: var(--back-hover-color, #e0e0e0);
+  background: var(--drawer-back-hover-color, #e0e0e0);
 }
 @media screen and (max-width: 320px) {
   [type=checkbox].drawer + * {
@@ -2502,7 +2515,7 @@ time {
   }
 }
 
-/* Default styling for progress. Use mixins for alternate styles */
+/* Default styling for progress. */
 progress {
   display: block;
   vertical-align: baseline;
@@ -2514,19 +2527,19 @@ progress {
   margin: 0.5rem;
   border: 0;
   border-radius: calc(2 * 4px);
-  background: var(--back-color, #f8f8f8);
-  color: var(--fore-color, #121212);
+  background: var(--progress-back-color, #c6c6c6);
+  color: var(--progress-fore-color, #121212);
 }
 progress::-webkit-progress-value {
-  background: var(--fore-color, #121212);
+  background: var(--progress-fore-color, #121212);
   border-top-left-radius: calc(2 * 4px);
   border-bottom-left-radius: calc(2 * 4px);
 }
 progress::-webkit-progress-bar {
-  background: var(--back-color, #f8f8f8);
+  background: var(--progress-back-color, #c6c6c6);
 }
 progress::-moz-progress-bar {
-  background: var(--fore-color, #121212);
+  background: var(--progress-fore-color, #121212);
   border-top-left-radius: calc(2 * 4px);
   border-bottom-left-radius: calc(2 * 4px);
 }
@@ -2542,13 +2555,13 @@ progress.inline {
   width: 60%;
 }
 progress.primary {
-  background: var(--primary-color, #215cca);
+  --progress-fore-color: var(--primary-color, #215cca);
 }
 progress.secondary {
-  background: var(--secondary-color, #ad0000);
+  --progress-fore-color: var(--secondary-color, #ad0000);
 }
 progress.tertiary {
-  background: var(--tertiary-color, #2ecc40);
+  --progress-fore-color: var(--tertiary-color, #2ecc40);
 }
 
 @keyframes spinner-donut-anim {
@@ -2562,21 +2575,21 @@ progress.tertiary {
 .spinner {
   display: inline-block;
   margin: 0.5rem;
-  border: 0.25rem solid var(--back-color, #f8f8f8);
-  border-left: 0.25rem solid var(--fore-color, #121212);
+  border: 0.25rem solid var(--spinner-back-color, #c6c6c6);
+  border-left: 0.25rem solid var(--spinner-fore-color, #121212);
   border-radius: 50%;
   width: 1.25rem;
   height: 1.25rem;
   animation: spinner-donut-anim 1.2s linear infinite;
 }
 .spinner.primary {
-  background: var(--primary-color, #215cca);
+  --spinner-fore-color: var(--primary-color, #215cca);
 }
 .spinner.secondary {
-  background: var(--secondary-color, #ad0000);
+  --spinner-fore-color: var(--secondary-color, #ad0000);
 }
 .spinner.tertiary {
-  background: var(--tertiary-color, #2ecc40);
+  --spinner-fore-color: var(--tertiary-color, #2ecc40);
 }
 
 /* Hidden elements styling */

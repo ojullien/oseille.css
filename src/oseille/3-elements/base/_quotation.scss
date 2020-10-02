@@ -43,8 +43,8 @@ blockquote {
     margin: boxmodel.get("margin");
     padding: calc(3 * #{boxmodel.get("padding")});
 
-    border: borders.get("width") solid var(--border-color, colors.get("border-lightest"));
-    border-left: 6px solid var(--caption-sidebar-color, colors.get("sidebar"));
+    border: borders.get("width") solid var(--blockquote-border-color, colors.get("border-lightest"));
+    border-left: 6px solid var(--blockquote-sidebar-color, colors.get("sidebar"));
     border-radius: 0 borders.get("radius") borders.get("radius") 0;
 
     font-family: fonts.get-stack("quotation");
@@ -64,7 +64,7 @@ blockquote {
         font-size: fonts.get-size("quotation");
         font-weight: 700;
         content: "\201c";
-        color: var(--caption-sidebar-color, colors.get("sidebar"));
+        color: var(--blockquote-sidebar-color, colors.get("sidebar"));
     }
 
     &[cite]:after {

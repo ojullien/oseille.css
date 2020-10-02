@@ -94,6 +94,7 @@ $_section-media-height: 200px !default; // Height for cards' media sections.
         // Alternative sections
         &.dark {
             background: var(--card-back-color, #{colors.get('back-darker')});
+            color: var(--card-fore-color, #{colors.get('fore')});
         }
 
         &.double-padded {
@@ -106,15 +107,18 @@ $_section-media-height: 200px !default; // Height for cards' media sections.
     }
 
     &.warning {
-        background: var(--warning-back-color, #{colors.get('yellow')});
-        border-color: var(--warning-border-color, #{colors.get('yellow-darkest')});
+        --card-back-color: var(--warning-back-color, #{colors.get('yellow')});
+        --card-border-color: var(--warning-border-color, #{colors.get('yellow-darkest')});
+        --card-fore-color: var(--warning-fore-color, #{colors.get('fore')});
+
         border-width: borders.get('width-alt');
     }
 
     &.error {
-        background: var(--error-back-color, #{colors.get('red')});
-        color: var(--error-fore-color, #{colors.get('back')});
-        border-color: var(--error-border-color, #{colors.get('red-darkest')});
+        --card-back-color: var(--error-back-color, #{colors.get('red')});
+        --card-border-color: var(--error-border-color, #{colors.get('red-darkest')});
+        --card-fore-color: var(--error-fore-color, #{colors.get('back')});
+
         border-width: borders.get('width-alt');
     }
 

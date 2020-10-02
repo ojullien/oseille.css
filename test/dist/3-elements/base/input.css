@@ -2,9 +2,9 @@
 /* Styling for input */
 input {
   overflow: visible;
-  background: var(--back-color, #f8f8f8);
-  color: var(--fore-color, #121212);
-  border: 2px solid var(--border-color, #222222);
+  background: var(--input-back-color, #f8f8f8);
+  color: var(--input-fore-color, #121212);
+  border: 2px solid var(--input-border-color, #222222);
   font-family: inherit;
   font-size: 1rem;
   line-height: normal;
@@ -39,9 +39,9 @@ input:not([type]),
 textarea,
 select {
   box-sizing: border-box;
-  background: var(--back-color, #f8f8f8);
-  color: var(--fore-color, #121212);
-  border: 2px solid var(--border-color, #222222);
+  background: var(--input-back-color, #f8f8f8);
+  color: var(--input-fore-color, #121212);
+  border: 2px solid var(--input-border-color, #222222);
   border-radius: 4px;
   margin: calc(0.5rem / 2);
   padding: 0.5rem calc(1.5 * 0.5rem);
@@ -166,11 +166,11 @@ option {
 }
 
 :placeholder-shown {
-  color: var(--fore-color, #121212);
+  color: var(--input-fore-color, #121212);
 }
 
 ::-ms-placeholder {
-  color: var(--fore-color, #121212);
+  color: var(--input-fore-color, #121212);
   opacity: 0.54;
 }
 

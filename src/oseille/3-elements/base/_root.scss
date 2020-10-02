@@ -14,8 +14,8 @@ html {
     padding: 0;
     border: 0;
 
-    font-size: fonts.get-size("accessible");
-    line-height: fonts.get-line-spacing("main");
+    font-size: fonts.get-size('accessible');
+    line-height: fonts.get-line-spacing('main');
 
     // Prevent adjustments of font size after orientation changes in mobile.
     @supports ((text-size-adjust: 100%) or (-moz-text-size-adjust: 100%) or (-webkit-text-size-adjust: 100%)) {
@@ -33,13 +33,13 @@ body {
     margin: 0;
     padding: 0;
     border: 0;
-    color: var(--fore-color, colors.get("fore"));
-    background: var(--back-color, colors.get("back"));
-    font-family: fonts.get-stack("base");
-    font-size: fonts.get-size("body");
-    --smaller: #{fonts.get-size("small")};
-    --fore-color: #{colors.get("fore")};
-    --back-color: #{colors.get("back")};
+    color: var(--fore-color, colors.get('fore'));
+    background: var(--back-color, colors.get('back'));
+    font-family: fonts.get-stack('base');
+    font-size: fonts.get-size('body');
+    --smaller: #{fonts.get-size('small')};
+    --fore-color: #{colors.get('fore')};
+    --back-color: #{colors.get('back')};
 
     @supports (font-size-adjust: 1) {
         font-size-adjust: 0.5;

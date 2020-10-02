@@ -39,6 +39,7 @@
 }
 .card > .section.dark {
   background: var(--card-back-color, #e0e0e0);
+  color: var(--card-fore-color, #121212);
 }
 .card > .section.double-padded {
   padding: calc(1.5 * 0.5rem);
@@ -47,14 +48,15 @@
   border-bottom: 0;
 }
 .card.warning {
-  background: var(--warning-back-color, #ffdc00);
-  border-color: var(--warning-border-color, #ccb000);
+  --card-back-color: var(--warning-back-color, #ffdc00);
+  --card-border-color: var(--warning-border-color, #ccb000);
+  --card-fore-color: var(--warning-fore-color, #121212);
   border-width: 2px;
 }
 .card.error {
-  background: var(--error-back-color, #ad0000);
-  color: var(--error-fore-color, #f8f8f8);
-  border-color: var(--error-border-color, #8a0000);
+  --card-back-color: var(--error-back-color, #ad0000);
+  --card-border-color: var(--error-border-color, #8a0000);
+  --card-fore-color: var(--error-fore-color, #f8f8f8);
   border-width: 2px;
 }
 .card.fluid {

@@ -82,7 +82,7 @@ code {
 
     a:link,
     a:visited {
-        color: var(--link-color, #{colors.get("fore-alt")}); // Allows live color tunning
+        color: var(--code-link-color, #{colors.get("fore-alt")}); // Allows live color tunning
     }
 }
 

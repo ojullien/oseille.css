@@ -21,7 +21,7 @@ form {
     margin: boxmodel.get('margin');
     padding: calc(2 * #{boxmodel.get('padding')}) boxmodel.get('padding');
 
-    border: borders.get('width') solid var(--border-color, colors.get('border-lightest'));
+    border: borders.get('width') solid var(--form-border-color, colors.get('border-lightest'));
     border-radius: borders.get('radius');
 
     @include boxshadow.box-shadow(borders.get('shadow'));

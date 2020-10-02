@@ -38,7 +38,7 @@ code {
 }
 code a:link,
 code a:visited {
-  color: var(--link-color, #f8f8f8);
+  color: var(--code-link-color, #f8f8f8);
 }
 
 kbd {

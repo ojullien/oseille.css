@@ -25,10 +25,10 @@ $_sublink-prefix: 'sublink' !default; // Prefix for the subcategory tabs in nav.
 /* Navigation styling. */
 
 nav {
-    background: var(--back-color, colors.get('back'));
-    color: var(--fore-color, colors.get('fore'));
+    background: var(--nav-back-color, colors.get('back'));
+    color: var(--nav-fore-color, colors.get('fore'));
 
-    border: borders.get('width') solid var(--border-color, colors.get('border'));
+    border: borders.get('width') solid var(--nav-border-color, colors.get('border'));
     border-radius: borders.get('radius');
 
     margin: boxmodel.get('margin');
@@ -46,11 +46,11 @@ nav {
         border-radius: borders.get('radius');
         transition: background 0.3s;
         text-decoration: none; // We remove it but we provide alternative styling.
-        color: var(--link-color, colors.get('link')); // Apply regardless to de-stylize visited links.
+        color: var(--nav-link-color, colors.get('link')); // Apply regardless to de-stylize visited links.
 
         &:hover,
         &:focus {
-            background: var(--back-hover-color, colors.get('back-hover'));
+            background: var(--nav-back-hover-color, colors.get('back-hover'));
             font-weight: bolder;
             @include boxshadow.box-shadow(none !important);
         }
@@ -67,7 +67,7 @@ nav {
                 top: calc(0 - 1px);
                 content: '';
                 height: 100%;
-                border: borders.get('width') solid var(--border-color, colors.get('border'));
+                border: borders.get('width') solid var(--nav-border-color, colors.get('border'));
                 border-left: 0;
             }
         }

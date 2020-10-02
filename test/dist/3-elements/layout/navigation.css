@@ -1,8 +1,8 @@
 /* Navigation styling. */
 nav {
-  background: var(--back-color, #f8f8f8);
-  color: var(--fore-color, #121212);
-  border: 1px solid var(--border-color, #222222);
+  background: var(--nav-back-color, #f8f8f8);
+  color: var(--nav-fore-color, #121212);
+  border: 1px solid var(--nav-border-color, #222222);
   border-radius: 4px;
   margin: 0.5rem;
   padding: 0;
@@ -16,12 +16,12 @@ nav a:visited {
   border-radius: 4px;
   transition: background 0.3s;
   text-decoration: none;
-  color: var(--link-color, #215cca);
+  color: var(--nav-link-color, #215cca);
 }
 nav a:hover, nav a:focus,
 nav a:visited:hover,
 nav a:visited:focus {
-  background: var(--back-hover-color, #e0e0e0);
+  background: var(--nav-back-hover-color, #e0e0e0);
   font-weight: bolder;
   box-shadow: none !important;
 }
@@ -35,7 +35,7 @@ nav .sublink-1:before {
   top: calc(0 - 1px);
   content: "";
   height: 100%;
-  border: 1px solid var(--border-color, #222222);
+  border: 1px solid var(--nav-border-color, #222222);
   border-left: 0;
 }
 nav .sublink-2 {
@@ -48,7 +48,7 @@ nav .sublink-2:before {
   top: calc(0 - 1px);
   content: "";
   height: 100%;
-  border: 1px solid var(--border-color, #222222);
+  border: 1px solid var(--nav-border-color, #222222);
   border-left: 0;
 }
 
