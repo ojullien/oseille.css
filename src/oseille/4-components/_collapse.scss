@@ -4,7 +4,7 @@
 // They are composed of three components - the wrapper, the toggle button and
 // the content container.
 //
-// You may override the values of the colors, borders and fonts variables, if needed, with the @use rule.
+// You may override the default values of the settings' variables, if needed, with the @use rule.
 // See flavors/oseille.scss and the 2-settings*.scss files.
 //
 @use '../1-tools/box-shadow' as boxshadow;

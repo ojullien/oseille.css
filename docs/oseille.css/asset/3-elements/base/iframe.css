@@ -2,7 +2,21 @@
 .iframe-container {
   position: relative;
   overflow: hidden;
-  padding-bottom: 26.875rem;
+}
+.iframe-container .aspect-ratio-16-9 {
+  padding-top: 56.25%;
+}
+.iframe-container .aspect-ratio-4-3 {
+  padding-top: 75%;
+}
+.iframe-container .aspect-ratio-3-2 {
+  padding-top: 66.66%;
+}
+.iframe-container .aspect-ratio-8-5 {
+  padding-top: 62.5%;
+}
+.iframe-container .aspect-ratio-1-1 {
+  padding-top: 100%;
 }
 .iframe-container iframe {
   position: absolute;
@@ -14,31 +28,4 @@
   padding: 0;
   border: 0;
   border-style: none;
-}
-
-@supports (object-fit: fill) or (-o-object-fit: fill) {
-  .fill {
-    -o-object-fit: fill;
-    object-fit: fill;
-  }
-
-  .contain {
-    -o-object-fit: contain;
-    object-fit: contain;
-  }
-
-  .cover {
-    -o-object-fit: cover;
-    object-fit: cover;
-  }
-
-  .none {
-    -o-object-fit: none;
-    object-fit: none;
-  }
-
-  .scale-down {
-    -o-object-fit: scale-down;
-    object-fit: scale-down;
-  }
 }

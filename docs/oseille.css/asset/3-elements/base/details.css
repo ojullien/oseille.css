@@ -1,7 +1,7 @@
 /* Details styling */
 details {
-  border: 1px solid var(--border-color, #222222);
-  border-radius: 0.125rem;
+  border: 1px solid var(--details-border-color, #222222);
+  border-radius: 4px;
   padding: 0.5rem;
   margin: 0.5rem;
   display: block;
@@ -10,7 +10,7 @@ details[open] {
   padding: 0.5rem;
 }
 details[open] summary {
-  border-bottom: 1px solid var(--border-color, #222222);
+  border-bottom: 1px solid var(--details-border-color, #222222);
   padding-bottom: 0.5rem;
 }
 

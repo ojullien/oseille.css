@@ -22,7 +22,7 @@ pre {
   color: var(--pre-fore-color, #f8f8f8);
   border: medium solid #222222;
   border-left: thick solid #215cca;
-  border-radius: 0 0.125rem 0.125rem 0;
+  border-radius: 0 4px 4px 0;
   word-break: normal;
   overflow-wrap: break-word;
 }
@@ -32,18 +32,18 @@ pre code {
 
 code {
   padding: calc(0.5rem / 4) calc(0.5rem / 2);
-  border-radius: 0.125rem;
+  border-radius: 4px;
   background: var(--code-back-color, #121212);
   color: var(--code-fore-color, #f8f8f8);
 }
 code a:link,
 code a:visited {
-  color: var(--link-color, #f8f8f8);
+  color: var(--code-link-color, #f8f8f8);
 }
 
 kbd {
   padding: calc(0.5rem / 4) calc(0.5rem / 2);
-  border-radius: 0.125rem;
+  border-radius: 4px;
   background: var(--kbd-back-color, #121212);
   color: var(--kbd-fore-color, #f8f8f8);
 }

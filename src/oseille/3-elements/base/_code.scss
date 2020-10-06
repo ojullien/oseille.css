@@ -15,7 +15,7 @@
 // context. It's typically presented using an italicized version of the current typeface, although that behavior is
 // browser-dependent.
 //
-// You may override the values of the colors, borders and fonts variables, if needed, with the @use rule.
+// You may override the default values of the settings' variables, if needed, with the @use rule.
 // See flavors/oseille.scss and the 2-settings*.scss files.
 //
 @use '../../1-tools/box-shadow' as boxshadow;
@@ -35,29 +35,29 @@
     position: relative;
     vertical-align: baseline;
     // Correct the inheritance and scaling of font size in all browsers. By re-applying font-family and font-size
-    font-family: fonts.get-stack("code");
-    font-size: fonts.get-size("code");
+    font-family: fonts.get-stack('code');
+    font-size: fonts.get-size('code');
     font-weight: inherit;
 }
 
 pre {
     overflow: auto; // Responsiveness
 
-    padding: calc(#{fonts.get-line-spacing("small")} * #{boxmodel.get("padding")});
-    margin: boxmodel.get("margin");
+    padding: calc(#{fonts.get-line-spacing('small')} * #{boxmodel.get('padding')});
+    margin: boxmodel.get('margin');
 
-    font-family: fonts.get-stack("code");
-    font-size: fonts.get-size("code");
+    font-family: fonts.get-stack('code');
+    font-size: fonts.get-size('code');
     font-weight: normal;
 
-    background: var(--pre-back-color, #{colors.get("back-alt")}); // Allows live color tunning
-    color: var(--pre-fore-color, #{colors.get("fore-alt")}); // Allows live color tunning
+    background: var(--pre-back-color, #{colors.get('back-alt')}); // Allows live color tunning
+    color: var(--pre-fore-color, #{colors.get('fore-alt')}); // Allows live color tunning
 
-    @include boxshadow.box-shadow(borders.get("shadow"));
+    @include boxshadow.box-shadow(borders.get('shadow'));
 
-    border: medium solid colors.get("border");
-    border-left: thick solid colors.get("sidebar-alt");
-    border-radius: 0 #{borders.get("radius")} #{borders.get("radius")} 0;
+    border: medium solid colors.get('border');
+    border-left: thick solid colors.get('sidebar-alt');
+    border-radius: 0 #{borders.get('radius')} #{borders.get('radius')} 0;
 
     word-break: normal;
     overflow-wrap: break-word;
@@ -71,18 +71,18 @@ code {
     @extend %_normalize;
 
     // This could be a bit counterintuitive and burden the codebase a bit, look into it again?
-    padding: calc(#{boxmodel.get("padding")} / 4) calc(#{boxmodel.get("padding")} / 2);
+    padding: calc(#{boxmodel.get('padding')} / 4) calc(#{boxmodel.get('padding')} / 2);
 
     // No border color by default and fore color is the default for text, can be altered manually.
-    @include boxshadow.box-shadow(borders.get("shadow"));
-    border-radius: borders.get("radius");
+    @include boxshadow.box-shadow(borders.get('shadow'));
+    border-radius: borders.get('radius');
 
-    background: var(--code-back-color, #{colors.get("back-alt")}); // Allows live color tunning
-    color: var(--code-fore-color, #{colors.get("fore-alt")}); // Allows live color tunning
+    background: var(--code-back-color, #{colors.get('back-alt')}); // Allows live color tunning
+    color: var(--code-fore-color, #{colors.get('fore-alt')}); // Allows live color tunning
 
     a:link,
     a:visited {
-        color: var(--code-link-color, #{colors.get("fore-alt")}); // Allows live color tunning
+        color: var(--code-link-color, #{colors.get('fore-alt')}); // Allows live color tunning
     }
 }
 
@@ -90,14 +90,14 @@ kbd {
     @extend %_normalize;
 
     // This could be a bit counterintuitive and burden the codebase a bit, look into it again?
-    padding: calc(#{boxmodel.get("padding")} / 4) calc(#{boxmodel.get("padding")} / 2);
+    padding: calc(#{boxmodel.get('padding')} / 4) calc(#{boxmodel.get('padding')} / 2);
 
     // No border color by default and fore color is the default for text, can be altered manually.
-    @include boxshadow.box-shadow(borders.get("shadow"));
-    border-radius: borders.get("radius");
+    @include boxshadow.box-shadow(borders.get('shadow'));
+    border-radius: borders.get('radius');
 
-    background: var(--kbd-back-color, #{colors.get("back-alt")}); // Allows live color tunning
-    color: var(--kbd-fore-color, #{colors.get("fore-alt")}); // Allows live color tunning
+    background: var(--kbd-back-color, #{colors.get('back-alt')}); // Allows live color tunning
+    color: var(--kbd-fore-color, #{colors.get('fore-alt')}); // Allows live color tunning
 }
 
 samp {

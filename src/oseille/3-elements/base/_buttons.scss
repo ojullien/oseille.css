@@ -3,7 +3,7 @@
 // accessible, standard button functionality. By default, HTML buttons are presented in a style resembling the
 // platform the user agent runs on, but you can change buttons’ appearance with CSS.
 //
-// You may override the values of the colors, borders and fonts variables, if needed, with the @use rule.
+// You may override the default values of the settings' variables, if needed, with the @use rule.
 // See flavors/oseille.scss and the 2-settings*.scss files.
 //
 @use 'sass:map';
@@ -22,7 +22,7 @@
 // @link: https://sass-lang.com/documentation/variables
 
 // Mobile breakpoint for button groups.
-$_mobile-breakpoint: breakpoints.get("medium") - 1px;
+$_mobile-breakpoint: breakpoints.get('medium') - 1px;
 
 // Classnames
 //
@@ -30,8 +30,8 @@ $_mobile-breakpoint: breakpoints.get("medium") - 1px;
 //   - button: elements styled as buttons
 //   - group: button groups
 $_classnames: (
-    "button": "button",
-    "group": "button-group",
+    'button': 'button',
+    'group': 'button-group',
 ) !default;
 
 // Opacity for input elements when disabled.
@@ -79,9 +79,9 @@ $_disabled-opacity: 0.75 !default;
 // Different elements are styled based on the same set of rules.
 // Reset for Firefox focusing on button elements.
 button::-moz-focus-inner,
-[type="button"]::-moz-focus-inner,
-[type="reset"]::-moz-focus-inner,
-[type="submit"]::-moz-focus-inner {
+[type='button']::-moz-focus-inner,
+[type='reset']::-moz-focus-inner,
+[type='submit']::-moz-focus-inner {
     border-style: none;
     padding: 0;
 }
@@ -89,9 +89,9 @@ button::-moz-focus-inner,
 // Fixes for Android 4, iOS and Safari.
 @supports (-webkit-appearance: button) {
     button,
-    html [type="button"],
-    [type="reset"],
-    [type="submit"] {
+    html [type='button'],
+    [type='reset'],
+    [type='submit'] {
         -webkit-appearance: button;
     }
 }
@@ -103,25 +103,25 @@ button {
 }
 
 button,
-[type="button"],
-[type="submit"],
-[type="reset"],
-a.#{map.get($_classnames, "button")},
-label.#{map.get($_classnames, "button")},
-.#{map.get($_classnames, "button")},
-a[role="button"],
-label[role="button"],
-[role="button"] {
+[type='button'],
+[type='submit'],
+[type='reset'],
+a.#{map.get($_classnames, 'button')},
+label.#{map.get($_classnames, 'button')},
+.#{map.get($_classnames, 'button')},
+a[role='button'],
+label[role='button'],
+[role='button'] {
     display: inline-block;
 
-    background: var(--button-back-color, #{colors.get("back-darker")});
-    color: var(--button-fore-color, #{colors.get("fore")});
+    background: var(--button-back-color, #{colors.get('back-darker')});
+    color: var(--button-fore-color, #{colors.get('fore')});
 
-    border: borders.get("width-alt") solid var(--button-border-color, #{colors.get("border")});
-    border-radius: borders.get("radius");
+    border: borders.get('width-alt') solid var(--button-border-color, #{colors.get('border')});
+    border-radius: borders.get('radius');
 
-    padding: #{boxmodel.get("padding")} calc(#{fonts.get-line-spacing("main")} * #{boxmodel.get("padding")});
-    margin: boxmodel.get("margin");
+    padding: #{boxmodel.get('padding')} calc(#{fonts.get-line-spacing('main')} * #{boxmodel.get('padding')});
+    margin: boxmodel.get('margin');
 
     font-size: 1em;
 
@@ -135,79 +135,79 @@ label[role="button"],
 
     &:hover {
         outline: 0;
-        background: var(--button-hover-back-color, #{colors.get("back-darkest")});
+        background: var(--button-hover-back-color, #{colors.get('back-darkest')});
         transform: scale(1.05); // Accessibility
     }
 
     &:focus {
         outline: 0;
-        box-shadow: 0 0 0 5px var(--button-border-focus-color, colors.get("border-lightest"));
+        box-shadow: 0 0 0 5px var(--button-border-focus-color, colors.get('border-lightest'));
     }
 }
 
 button,
-[type="button"],
-[type="submit"],
-[type="reset"],
-.#{map.get($_classnames, "button")},
-[role="button"] {
+[type='button'],
+[type='submit'],
+[type='reset'],
+.#{map.get($_classnames, 'button')},
+[role='button'] {
     // Color variants
     &.noborder {
         @include makeColorVariant(
-            #{colors.get("fore")},
-            #{colors.get("back-darker")},
-            #{colors.get("transparent")},
-            #{colors.get("back-darkest")},
-            #{colors.get("transparent")},
-            #{colors.get("border-lightest")}
+            #{colors.get('fore')},
+            #{colors.get('back-darker')},
+            #{colors.get('transparent')},
+            #{colors.get('back-darkest')},
+            #{colors.get('transparent')},
+            #{colors.get('border-lightest')}
         );
     }
 
     &.secondary {
         @include makeColorVariant(
-            #{colors.get("fore")},
-            #{colors.get("back")},
-            #{colors.get("border")},
-            #{colors.get("back-darker")},
-            #{colors.get("border")},
-            #{colors.get("border-lightest")}
+            #{colors.get('fore')},
+            #{colors.get('back')},
+            #{colors.get('border')},
+            #{colors.get('back-darker')},
+            #{colors.get('border')},
+            #{colors.get('border-lightest')}
         );
     }
 
     &.tertiary {
         @include makeColorVariant(
-            #{colors.get("fore")},
-            #{colors.get("back")},
-            #{colors.get("transparent")},
-            #{colors.get("back-darker")},
-            #{colors.get("border")},
-            #{colors.get("border-lightest")}
+            #{colors.get('fore')},
+            #{colors.get('back')},
+            #{colors.get('transparent')},
+            #{colors.get('back-darker')},
+            #{colors.get('border')},
+            #{colors.get('border-lightest')}
         );
     }
 
     &.inverse {
         @include makeColorVariant(
-            #{colors.get("back-darker")},
-            #{colors.get("fore")},
+            #{colors.get('back-darker')},
+            #{colors.get('fore')},
             none,
-            #{colors.get("fore-lightest")},
+            #{colors.get('fore-lightest')},
             none,
-            #{colors.get("border-lightest")}
+            #{colors.get('border-lightest')}
         );
     }
 
     // Size variants
     &.small {
         @include makeSizeVariant(
-            calc(0.5 * #{boxmodel.get("padding")}) calc(0.75 * #{boxmodel.get("padding")}),
-            boxmodel.get("margin")
+            calc(0.5 * #{boxmodel.get('padding')}) calc(0.75 * #{boxmodel.get('padding')}),
+            boxmodel.get('margin')
         );
     }
 
     &.large {
         @include makeSizeVariant(
-            calc(1.5 * #{boxmodel.get("padding")}) calc(2 * #{boxmodel.get("padding")}),
-            boxmodel.get("margin")
+            calc(1.5 * #{boxmodel.get('padding')}) calc(2 * #{boxmodel.get('padding')}),
+            boxmodel.get('margin')
         );
     }
 }
@@ -215,8 +215,8 @@ button,
 // Disabled styling button elements.
 
 button,
-.#{map.get($_classnames, "button")},
-[role="button"] {
+.#{map.get($_classnames, 'button')},
+[role='button'] {
     // .button[disabled] is actually higher specificity than a.button, so no need for more than that
     &:disabled,
     &[disabled] {
@@ -233,22 +233,22 @@ button,
 
 /* Button group styling. */
 
-.#{map.get($_classnames, "group")} {
+.#{map.get($_classnames, 'group')} {
     display: flex;
 
-    border: borders.get("width") solid var(--button-group-border-color, #{colors.get("border-lightest")});
-    border-radius: borders.get("radius");
+    border: borders.get('width') solid var(--button-group-border-color, #{colors.get('border-lightest')});
+    border-radius: borders.get('radius');
 
-    margin: boxmodel.get("margin");
+    margin: boxmodel.get('margin');
 
-    @include boxshadow.box-shadow(borders.get("shadow"));
+    @include boxshadow.box-shadow(borders.get('shadow'));
 
     & > button,
-    [type="button"],
-    & > [type="submit"],
-    & > [type="reset"],
-    & > .#{map.get($_classnames, "button")},
-    & > [role="button"] {
+    [type='button'],
+    & > [type='submit'],
+    & > [type='reset'],
+    & > .#{map.get($_classnames, 'button')},
+    & > [role='button'] {
         margin: 0;
         max-width: 100%;
         flex: 1 1 auto;
@@ -259,7 +259,7 @@ button,
     }
 
     & > :not(:first-child) {
-        border-left: borders.get("width") solid var(--button-group-border-color, #{colors.get("border-lightest")});
+        border-left: borders.get('width') solid var(--button-group-border-color, #{colors.get('border-lightest')});
     }
 
     // Responsiveness for button groups
@@ -267,7 +267,7 @@ button,
         flex-direction: column;
         & > :not(:first-child) {
             border: 0; // Reapply to remove the left border from elements.
-            border-top: borders.get("width") solid var(--button-group-border-color, #{colors.get("border-lightest")});
+            border-top: borders.get('width') solid var(--button-group-border-color, #{colors.get('border-lightest')});
         }
     }
 }

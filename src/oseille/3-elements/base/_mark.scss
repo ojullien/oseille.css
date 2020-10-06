@@ -2,7 +2,7 @@
 // The HTML Mark Text element (<mark>) represents text which is marked or highlighted for reference or notation
 // purposes, due to the marked passage's relevance or importance in the enclosing context.
 //
-// You may override the values of the colors, borders and fonts variables, if needed, with the @use rule.
+// You may override the default values of the settings' variables, if needed, with the @use rule.
 // See flavors/oseille.scss and the 2-settings*.scss files.
 //
 @use 'sass:map';

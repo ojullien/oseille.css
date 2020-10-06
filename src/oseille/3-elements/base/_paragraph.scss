@@ -3,7 +3,7 @@
 // and closing </body> tags. Important for accessibility and SEO, these elements identify the purpose or
 // structure of that content.
 //
-// You may override the values of the colors, borders and fonts variables, if needed, with the @use rule.
+// You may override the default values of the settings' variables, if needed, with the @use rule.
 // See flavors/oseille.scss and the 2-settings*.scss files.
 //
 @use '../../2-settings/colors' as colors;
@@ -27,14 +27,14 @@ hr {
     border: 0;
     padding: 0;
     // Actual styling using variables
-    line-height: fonts.get-line-spacing("hr");
-    margin: boxmodel.get("margin");
+    line-height: fonts.get-line-spacing('hr');
+    margin: boxmodel.get('margin');
     height: 1px;
     background: linear-gradient(
         to right,
         transparent,
-        colors.get("border-lightest") 20%,
-        colors.get("border-lightest") 80%,
+        colors.get('border-lightest') 20%,
+        colors.get('border-lightest') 80%,
         transparent
     );
 }
@@ -42,16 +42,16 @@ hr {
 p {
     width: $_paragraph_width;
     max-width: 100%;
-    line-height: fonts.get-line-spacing("p");
-    text-align: fonts.get-hyphenation("text-align");
+    line-height: fonts.get-line-spacing('p');
+    text-align: fonts.get-hyphenation('text-align');
 
-    -ms-hyphens: fonts.get-hyphenation("hyphens");
-    -webkit-hyphens: fonts.get-hyphenation("hyphens");
-    -moz-hyphens: fonts.get-hyphenation("hyphens");
-    hyphens: fonts.get-hyphenation("hyphens");
+    -ms-hyphens: fonts.get-hyphenation('hyphens');
+    -webkit-hyphens: fonts.get-hyphenation('hyphens');
+    -moz-hyphens: fonts.get-hyphenation('hyphens');
+    hyphens: fonts.get-hyphenation('hyphens');
 
     padding: 0;
-    margin: boxmodel.get("margin");
+    margin: boxmodel.get('margin');
 
     @supports (text-rendering: optimizeLegibility) {
         text-rendering: optimizeLegibility;

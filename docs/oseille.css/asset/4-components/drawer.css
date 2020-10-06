@@ -36,10 +36,10 @@
   width: 320px;
   height: 100vh;
   overflow-y: auto;
-  background: var(--back-color, #f8f8f8);
+  background: var(--drawer-back-color, #f8f8f8);
   margin: 0;
   border-radius: 0;
-  border: 1px solid var(--border-color, #909090);
+  border: 1px solid var(--drawer-border-color, #909090);
   z-index: 1110;
   right: -320px;
   transition: right 0.3s;
@@ -51,7 +51,7 @@
   z-index: 1111;
   width: 2rem;
   height: 2rem;
-  border-radius: 0.125rem;
+  border-radius: 4px;
   padding: 0.5rem;
   margin: 0;
   transition: background 0.3s;
@@ -72,7 +72,7 @@
   text-align: center;
 }
 [type=checkbox].drawer + * .drawer-close:hover, [type=checkbox].drawer + * .drawer-close:focus {
-  background: var(--back-hover-color, #e0e0e0);
+  background: var(--drawer-back-hover-color, #e0e0e0);
 }
 @media screen and (max-width: 320px) {
   [type=checkbox].drawer + * {

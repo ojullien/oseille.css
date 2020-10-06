@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="asset/3-elements/base/root.css" rel="stylesheet" type="text/css" id="root-css" />
     <link href="asset/3-elements/base/iframe.css" rel="stylesheet" type="text/css" id="iframe-css" />
+    <link href="asset/3-elements/base/multimedia.css" rel="stylesheet" type="text/css" id="multimedia-css" />
     <link href="asset/oseille.css" rel="stylesheet" type="text/css" id="oseille-css" disabled />
 </head>
 <style>
@@ -24,6 +25,7 @@
         <div style="min-height: 100%; display: flex; flex-direction: row-reverse; justify-content: space-evenly; align-items: center; text-align: center; align-self: flex-start;position: sticky; top: 10px;">
             <label style="" for="root"><input style="" type="checkbox" id="checkbox-root" name="checkbox-root" value="root" onclick="switchToLocal(this);" checked />Root</label>
             <label style="" for="iframe"><input style="" type="checkbox" id="checkbox-iframe" name="checkbox-iframe" value="iframe" onclick="switchToLocal(this);" checked />Iframe</label>
+            <label style="" for="multimedia"><input style="" type="checkbox" id="checkbox-multimedia" name="checkbox-multimedia" value="multimedia" onclick="switchToLocal(this);" checked />Multimedia</label>
             <label style="" for="oseille"><input style="" type="checkbox" id="checkbox-oseille" name="checkbox-oseille" value="oseille" onclick="switchToOseille();" />Oseille</label>
         </div>
 
@@ -98,6 +100,7 @@ img {
     var myMap = new Map();
     myMap.set('checkbox-root','#root-css');
     myMap.set('checkbox-iframe','#iframe-css');
+    myMap.set('checkbox-multimedia','#multimedia-css');
 
     function switchToLocal(element) {
         if (element.checked != true) {
