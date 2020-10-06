@@ -31,15 +31,23 @@ a[role=button],
 label[role=button],
 [role=button] {
   display: inline-block;
-  background: var(--button-back-color, #e0e0e0);
+  background-color: var(--button-back-color, #e0e0e0);
   color: var(--button-fore-color, #121212);
   border: 2px solid var(--button-border-color, #222222);
   border-radius: 4px;
   padding: 0.5rem calc(1.5 * 0.5rem);
   margin: 0.5rem;
+  font: inherit;
   font-size: 1em;
   text-decoration: none;
   transition: background 0.3s;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 @supports (cursor: pointer) {
   button,
@@ -65,7 +73,7 @@ label.button:hover,
 a[role=button]:hover,
 label[role=button]:hover,
 [role=button]:hover {
-  outline: 0;
+  outline: solid transparent;
   background: var(--button-hover-back-color, #c6c6c6);
   transform: scale(1.05);
 }
@@ -79,8 +87,22 @@ label.button:focus,
 a[role=button]:focus,
 label[role=button]:focus,
 [role=button]:focus {
-  outline: 0;
+  outline: solid transparent;
   box-shadow: 0 0 0 5px var(--button-border-focus-color, #909090);
+}
+@media screen and (min-width: 768px) {
+  button,
+[type=button],
+[type=submit],
+[type=reset],
+a.button,
+label.button,
+.button,
+a[role=button],
+label[role=button],
+[role=button] {
+    width: auto;
+  }
 }
 
 button.noborder,

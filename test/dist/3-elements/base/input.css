@@ -123,6 +123,9 @@ select {
   }
 }
 /* Styling for textarea */
+textarea {
+  font: inherit;
+}
 textarea:disabled, textarea[disabled] {
   opacity: 0.75;
   transform: none;
@@ -140,6 +143,7 @@ textarea:disabled, textarea[disabled] {
 
 /* Styling for select */
 select {
+  font: inherit;
   max-width: 100%;
 }
 select:disabled, select[disabled] {
