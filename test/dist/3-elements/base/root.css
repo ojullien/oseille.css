@@ -41,3 +41,9 @@ body {
     font-size-adjust: 0.5;
   }
 }
+
+*,
+::after,
+::before {
+  box-sizing: inherit;
+}

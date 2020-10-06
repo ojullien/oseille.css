@@ -61,18 +61,28 @@ a {
     font-family: inherit; // Fix for elements inside headings not displaying properly.
 
     text-decoration: none; // We remove it but we provide alternative styling.
+    border-bottom: borders.get('width-relative') solid transparent;
+    transition: border-bottom-color 150ms ease-in-out;
 
+    // Same color for visited and not visited link.
+    // But Oseille allow live color tunning
     &:link {
-        color: var(--link-color, colors.get('link')); // Allows live color tunning
+        color: var(--link-color, colors.get('link'));
     }
 
     &:visited {
-        color: var(--visited-link-color, colors.get('visited')); // Allows live color tunning
+        color: var(--link-visited-color, colors.get('link'));
     }
 
-    &:hover,
+    &:hover {
+        outline: solid transparent; // We remove it but we provide alternative styling.
+        border-bottom-width: borders.get('width-relative-alt');
+        border-bottom-color: inherit;
+    }
+
     &:focus {
-        @include shadow.box-shadow(borders.get('shadow-alt')); // Accessibility
+        outline: var(--link-focus-color, colors.get('link')) dotted 0.125rem;
+        outline-offset: 0.0625em;
     }
 }
 
