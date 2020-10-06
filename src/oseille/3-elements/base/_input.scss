@@ -180,12 +180,15 @@ select {
 /* Styling for textarea */
 
 textarea {
+    font: inherit;
     @include styleDisable;
 }
 
 /* Styling for select */
 
 select {
+    font: inherit;
+
     // Overflowing parent container.
     max-width: 100%;
 

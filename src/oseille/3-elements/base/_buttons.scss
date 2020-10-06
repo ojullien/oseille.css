@@ -123,6 +123,7 @@ label[role='button'],
     padding: #{boxmodel.get('padding')} calc(#{fonts.get-line-spacing('main')} * #{boxmodel.get('padding')});
     margin: boxmodel.get('margin');
 
+    font: inherit;
     font-size: 1em;
 
     text-decoration: none;
@@ -133,15 +134,21 @@ label[role='button'],
 
     transition: background 0.3s;
 
+    width: 100%;
+
     &:hover {
-        outline: 0;
+        outline: solid transparent;
         background: var(--button-hover-back-color, #{colors.get('back-darkest')});
         transform: scale(1.05); // Accessibility
     }
 
     &:focus {
-        outline: 0;
+        outline: solid transparent;
         box-shadow: 0 0 0 5px var(--button-border-focus-color, colors.get('border-lightest'));
+    }
+
+    @media screen and (min-width: #{breakpoints.get('medium')}) {
+        width: auto;
     }
 }
 
