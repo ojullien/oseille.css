@@ -14,6 +14,11 @@ html {
     text-size-adjust: 100%;
   }
 }
+@supports (text-rendering: optimizeLegibility) {
+  html {
+    text-rendering: optimizeLegibility;
+  }
+}
 @supports (scroll-behavior: smooth) {
   html {
     scroll-behavior: smooth;
@@ -101,7 +106,7 @@ a:link {
 a:visited {
   color: var(--visited-link-color, #0e1c43);
 }
-a:not(.button):hover, a:not(.button):focus {
+a:hover, a:focus {
   box-shadow: 0 2px;
 }
 
@@ -306,11 +311,6 @@ p {
   hyphens: auto;
   padding: 0;
   margin: 0.5rem;
-}
-@supports (text-rendering: optimizeLegibility) {
-  p {
-    text-rendering: optimizeLegibility;
-  }
 }
 
 /* Blockquote styling */
@@ -1402,11 +1402,6 @@ h6, h5, h4, h3, h2, h1 {
   background: var(--heading-back-color, inherit);
   color: var(--heading-fore-color, inherit);
 }
-@supports (text-rendering: optimizeLegibility) {
-  h6, h5, h4, h3, h2, h1 {
-    text-rendering: optimizeLegibility;
-  }
-}
 h6 small, h5 small, h4 small, h3 small, h2 small, h1 small {
   display: block;
   margin-top: -0.25rem;
@@ -1496,6 +1491,7 @@ header {
   font-size: 1.75em;
   padding: 0.5rem calc(2 * 0.5rem);
   text-decoration: none;
+  box-shadow: none;
 }
 .page-header button,
 .page-header [type=button],

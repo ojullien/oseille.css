@@ -23,6 +23,10 @@ html {
         -moz-text-size-adjust: 100%;
         text-size-adjust: 100%;
     }
+    
+    @supports (text-rendering: optimizeLegibility) {
+        text-rendering: optimizeLegibility;
+    }
 
     @supports (scroll-behavior: smooth) {
         scroll-behavior: smooth;

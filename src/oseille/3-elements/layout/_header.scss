@@ -83,6 +83,8 @@ header {
         font-size: $_logo-font-size;
         padding: boxmodel.get('padding') calc(2 * #{boxmodel.get('padding')});
         text-decoration: none;
+        // Remove also our alternate style
+        box-shadow: none;
     }
 
     // Link styling.

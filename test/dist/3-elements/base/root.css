@@ -13,6 +13,11 @@ html {
     text-size-adjust: 100%;
   }
 }
+@supports (text-rendering: optimizeLegibility) {
+  html {
+    text-rendering: optimizeLegibility;
+  }
+}
 @supports (scroll-behavior: smooth) {
   html {
     scroll-behavior: smooth;

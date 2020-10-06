@@ -51,10 +51,6 @@ $_colors: (
     background: var(--heading-back-color, #{map.get($_colors, 'back')}); // Allows live color tunning
     color: var(--heading-fore-color, #{map.get($_colors, 'fore')}); // Allows live color tunning
 
-    @supports (text-rendering: optimizeLegibility) {
-        text-rendering: optimizeLegibility;
-    }
-
     small {
         display: block;
 

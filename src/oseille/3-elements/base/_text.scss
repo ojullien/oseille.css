@@ -70,8 +70,8 @@ a {
         color: var(--visited-link-color, colors.get('visited')); // Allows live color tunning
     }
 
-    &:not(.button):hover,
-    &:not(.button):focus {
+    &:hover,
+    &:focus {
         @include shadow.box-shadow(borders.get('shadow-alt')); // Accessibility
     }
 }

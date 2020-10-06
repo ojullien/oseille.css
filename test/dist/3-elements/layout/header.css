@@ -25,6 +25,7 @@ header {
   font-size: 1.75em;
   padding: 0.5rem calc(2 * 0.5rem);
   text-decoration: none;
+  box-shadow: none;
 }
 .page-header button,
 .page-header [type=button],

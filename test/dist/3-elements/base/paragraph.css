@@ -21,8 +21,3 @@ p {
   padding: 0;
   margin: 0.5rem;
 }
-@supports (text-rendering: optimizeLegibility) {
-  p {
-    text-rendering: optimizeLegibility;
-  }
-}
