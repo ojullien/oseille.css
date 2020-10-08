@@ -36,7 +36,7 @@
   width: 320px;
   height: 100vh;
   overflow-y: auto;
-  background: var(--drawer-back-color, #f8f8f8);
+  background-color: var(--drawer-back-color, #f8f8f8);
   margin: 0;
   border-radius: 0;
   border: 1px solid var(--drawer-border-color, #909090);
@@ -72,7 +72,7 @@
   text-align: center;
 }
 [type=checkbox].drawer + * .drawer-close:hover, [type=checkbox].drawer + * .drawer-close:focus {
-  background: var(--drawer-back-hover-color, #e0e0e0);
+  background-color: var(--drawer-back-hover-color, #e0e0e0);
 }
 @media screen and (max-width: 320px) {
   [type=checkbox].drawer + * {

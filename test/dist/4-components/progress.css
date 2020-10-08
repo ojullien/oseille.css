@@ -10,19 +10,19 @@ progress {
   margin: 0.5rem;
   border: 0;
   border-radius: calc(2 * 4px);
-  background: var(--progress-back-color, #c6c6c6);
+  background-color: var(--progress-back-color, #c6c6c6);
   color: var(--progress-fore-color, #121212);
 }
 progress::-webkit-progress-value {
-  background: var(--progress-fore-color, #121212);
+  background-color: var(--progress-fore-color, #121212);
   border-top-left-radius: calc(2 * 4px);
   border-bottom-left-radius: calc(2 * 4px);
 }
 progress::-webkit-progress-bar {
-  background: var(--progress-back-color, #c6c6c6);
+  background-color: var(--progress-back-color, #c6c6c6);
 }
 progress::-moz-progress-bar {
-  background: var(--progress-fore-color, #121212);
+  background-color: var(--progress-fore-color, #121212);
   border-top-left-radius: calc(2 * 4px);
   border-bottom-left-radius: calc(2 * 4px);
 }

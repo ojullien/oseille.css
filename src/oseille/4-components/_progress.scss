@@ -67,24 +67,24 @@ progress {
 
     @include boxshadow.box-shadow(borders.get('shadow'));
 
-    background: var(--progress-back-color, #{colors.get('back-darkest')});
+    background-color: var(--progress-back-color, #{colors.get('back-darkest')});
     color: var(--progress-fore-color, #{colors.get('fore')});
 
     // Foreground color on webkit browsers
     &::-webkit-progress-value {
-        background: var(--progress-fore-color, #{colors.get('fore')});
+        background-color: var(--progress-fore-color, #{colors.get('fore')});
         border-top-left-radius: calc(2 * #{borders.get('radius')});
         border-bottom-left-radius: calc(2 * #{borders.get('radius')});
     }
 
     // Background color on webkit browser
     &::-webkit-progress-bar {
-        background: var(--progress-back-color, #{colors.get('back-darkest')});
+        background-color: var(--progress-back-color, #{colors.get('back-darkest')});
     }
 
     // Foreground color on Firefox
     &::-moz-progress-bar {
-        background: var(--progress-fore-color, #{colors.get('fore')});
+        background-color: var(--progress-fore-color, #{colors.get('fore')});
         border-top-left-radius: calc(2 * #{borders.get('radius')});
         border-bottom-left-radius: calc(2 * #{borders.get('radius')});
     }

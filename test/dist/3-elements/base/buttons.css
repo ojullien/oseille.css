@@ -41,7 +41,7 @@ label[role=button],
   font: inherit;
   font-size: 1em;
   text-decoration: none;
-  transition: background 0.3s;
+  transition: background 0.3s ease-out;
   width: 100%;
   align-items: center;
   justify-content: center;
@@ -75,7 +75,7 @@ a[role=button]:hover,
 label[role=button]:hover,
 [role=button]:hover {
   outline: solid transparent;
-  background: var(--button-hover-back-color, #c6c6c6);
+  background-color: var(--button-hover-back-color, #c6c6c6);
   transform: scale(1.05);
 }
 button:focus,
@@ -113,7 +113,7 @@ button.noborder,
 .button.noborder,
 [role=button].noborder {
   color: var(--button-fore-color, #121212);
-  background: var(--button-back-color, #e0e0e0);
+  background-color: var(--button-back-color, #e0e0e0);
   border-color: var(--button-border-color, transparent);
 }
 button.noborder:hover,
@@ -122,7 +122,7 @@ button.noborder:hover,
 [type=reset].noborder:hover,
 .button.noborder:hover,
 [role=button].noborder:hover {
-  background: var(--button-hover-back-color, #c6c6c6);
+  background-color: var(--button-hover-back-color, #c6c6c6);
   border-color: var(--button-border-hover-color, transparent);
 }
 button.noborder:focus,
@@ -140,7 +140,7 @@ button.secondary,
 .button.secondary,
 [role=button].secondary {
   color: var(--button-fore-color, #121212);
-  background: var(--button-back-color, #f8f8f8);
+  background-color: var(--button-back-color, #f8f8f8);
   border-color: var(--button-border-color, #222222);
 }
 button.secondary:hover,
@@ -149,7 +149,7 @@ button.secondary:hover,
 [type=reset].secondary:hover,
 .button.secondary:hover,
 [role=button].secondary:hover {
-  background: var(--button-hover-back-color, #e0e0e0);
+  background-color: var(--button-hover-back-color, #e0e0e0);
   border-color: var(--button-border-hover-color, #222222);
 }
 button.secondary:focus,
@@ -167,7 +167,7 @@ button.tertiary,
 .button.tertiary,
 [role=button].tertiary {
   color: var(--button-fore-color, #121212);
-  background: var(--button-back-color, #f8f8f8);
+  background-color: var(--button-back-color, #f8f8f8);
   border-color: var(--button-border-color, transparent);
 }
 button.tertiary:hover,
@@ -176,7 +176,7 @@ button.tertiary:hover,
 [type=reset].tertiary:hover,
 .button.tertiary:hover,
 [role=button].tertiary:hover {
-  background: var(--button-hover-back-color, #e0e0e0);
+  background-color: var(--button-hover-back-color, #e0e0e0);
   border-color: var(--button-border-hover-color, #222222);
 }
 button.tertiary:focus,
@@ -194,7 +194,7 @@ button.inverse,
 .button.inverse,
 [role=button].inverse {
   color: var(--button-fore-color, #e0e0e0);
-  background: var(--button-back-color, #121212);
+  background-color: var(--button-back-color, #121212);
 }
 button.inverse:hover,
 [type=button].inverse:hover,
@@ -202,7 +202,7 @@ button.inverse:hover,
 [type=reset].inverse:hover,
 .button.inverse:hover,
 [role=button].inverse:hover {
-  background: var(--button-hover-back-color, #898989);
+  background-color: var(--button-hover-back-color, #898989);
 }
 button.inverse:focus,
 [type=button].inverse:focus,

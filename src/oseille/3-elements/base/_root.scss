@@ -38,7 +38,7 @@ body {
     padding: 0;
     border: 0;
     color: var(--fore-color, colors.get('fore'));
-    background: var(--back-color, colors.get('back'));
+    background-color: var(--back-color, colors.get('back'));
     font-family: fonts.get-stack('base');
     font-size: fonts.get-size('body');
     --smaller: #{fonts.get-size('small')};

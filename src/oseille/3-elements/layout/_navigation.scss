@@ -25,7 +25,7 @@ $_sublink-prefix: 'sublink' !default; // Prefix for the subcategory tabs in nav.
 /* Navigation styling. */
 
 nav {
-    background: var(--nav-back-color, colors.get('back'));
+    background-color: var(--nav-back-color, colors.get('back'));
     color: var(--nav-fore-color, colors.get('fore'));
 
     border: borders.get('width') solid var(--nav-border-color, colors.get('border'));
@@ -50,7 +50,7 @@ nav {
 
         &:hover,
         &:focus {
-            background: var(--nav-back-hover-color, colors.get('back-hover'));
+            background-color: var(--nav-back-hover-color, colors.get('back-hover'));
             font-weight: bolder;
             @include boxshadow.box-shadow(none !important);
         }

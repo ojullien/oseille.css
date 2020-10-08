@@ -44,7 +44,7 @@ mark {
 
     @include boxshadow.box-shadow(borders.get('shadow'));
 
-    background: var(--primary-color, colors.get('primary'));
+    background-color: var(--primary-color, colors.get('primary'));
     color: var(--back-color, colors.get('back'));
 
     font-size: fonts.get-size('mark');
@@ -65,11 +65,11 @@ mark {
     }
 
     &.#{map.get($_classnames, 'secondary')} {
-        background: var(--secondary-color, colors.get('secondary'));
+        background-color: var(--secondary-color, colors.get('secondary'));
     }
 
     &.#{map.get($_classnames, 'tertiary')} {
-        background: var(--tertiary-color, colors.get('tertiary'));
+        background-color: var(--tertiary-color, colors.get('tertiary'));
         color: var(--fore-color, colors.get('fore'));
     }
 

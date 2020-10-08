@@ -46,14 +46,14 @@ $_disabled-opacity: 0.75 !default;
 //  $border-focus: Border color for button variant (focus).
 @mixin makeColorVariant($fore, $back, $border, $back-hover, $border-hover, $border-focus) {
     color: var(--button-fore-color, #{$fore});
-    background: var(--button-back-color, #{$back});
+    background-color: var(--button-back-color, #{$back});
 
     @if $border != none {
         border-color: var(--button-border-color, #{$border});
     }
 
     &:hover {
-        background: var(--button-hover-back-color, #{$back-hover});
+        background-color: var(--button-hover-back-color, #{$back-hover});
         @if $border-hover != none {
             border-color: var(--button-border-hover-color, #{$border-hover});
         }
@@ -138,7 +138,7 @@ label[role='button'],
 
     &:hover {
         outline: solid transparent;
-        background: var(--button-hover-back-color, #{colors.get('back-darkest')});
+        background-color: var(--button-hover-back-color, #{colors.get('back-darkest')});
         transform: scale(1.05); // Accessibility
     }
 

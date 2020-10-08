@@ -2,7 +2,7 @@
 /* Styling for input */
 input {
   overflow: visible;
-  background: var(--input-back-color, #f8f8f8);
+  background-color: var(--input-back-color, #f8f8f8);
   color: var(--input-fore-color, #121212);
   border: 2px solid var(--input-border-color, #222222);
   font-family: inherit;
@@ -39,7 +39,7 @@ input:not([type]),
 textarea,
 select {
   box-sizing: border-box;
-  background: var(--input-back-color, #f8f8f8);
+  background-color: var(--input-back-color, #f8f8f8);
   color: var(--input-fore-color, #121212);
   border: 2px solid var(--input-border-color, #222222);
   border-radius: 4px;
@@ -93,7 +93,7 @@ select {
   content: "";
   top: calc(1px + 0.5rem / 2);
   left: calc(1px + 0.5rem / 2);
-  background: #121212;
+  background-color: #121212;
   width: 0.5rem;
   height: 0.5rem;
 }

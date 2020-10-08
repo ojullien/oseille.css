@@ -59,11 +59,11 @@ table th {
   font-style: inherit;
   font-weight: inherit;
   text-align: left;
-  background: var(--th-back-color, #f8f8f8);
+  background-color: var(--th-back-color, #f8f8f8);
   color: var(--th-fore-color, #121212);
 }
 table td {
-  background: var(--td-back-color, #f8f8f8);
+  background-color: var(--td-back-color, #f8f8f8);
   color: var(--td-fore-color, #121212);
   border-top: 1px solid var(--table-border-color, #222222);
 }
@@ -210,7 +210,7 @@ table.horizontal tr {
     display: block;
     border: 1px solid var(--table-border-color, #222222);
     border-radius: 4px;
-    background: var(--tr-back-color, #f8f8f8);
+    background-color: var(--tr-back-color, #f8f8f8);
     padding: 0.5rem;
     margin: 0.5rem;
     margin-bottom: calc(2 * 0.5rem);
@@ -245,20 +245,20 @@ table.horizontal tbody tr:last-child td {
   }
 }
 table.striped tr:nth-of-type(2n) > td {
-  background: var(--tr-back-color, #f8f8f8);
+  background-color: var(--tr-back-color, #f8f8f8);
 }
 
 @media screen and (max-width: 768px) {
   table.striped tr:nth-of-type(2n) {
-    background: var(--tr-back-color, #f8f8f8);
+    background-color: var(--tr-back-color, #f8f8f8);
   }
 }
 table.hoverable tr:hover, table.hoverable tr:hover > td, table.hoverable tr:focus, table.hoverable tr:focus > td {
-  background: var(--table-back-hover-color, #c6c6c6);
+  background-color: var(--table-back-hover-color, #c6c6c6);
 }
 
 @media screen and (max-width: 768px) {
   table.hoverable tr:hover, table.hoverable tr:hover > td, table.hoverable tr:focus, table.hoverable tr:focus > td {
-    background: var(--table-back-hover-color, #c6c6c6);
+    background-color: var(--table-back-hover-color, #c6c6c6);
   }
 }

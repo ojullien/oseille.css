@@ -50,7 +50,7 @@ pre {
     font-size: fonts.get-size('code');
     font-weight: normal;
 
-    background: var(--pre-back-color, #{colors.get('back-alt')}); // Allows live color tunning
+    background-color: var(--pre-back-color, #{colors.get('back-alt')}); // Allows live color tunning
     color: var(--pre-fore-color, #{colors.get('fore-alt')}); // Allows live color tunning
 
     @include boxshadow.box-shadow(borders.get('shadow'));
@@ -77,7 +77,7 @@ code {
     @include boxshadow.box-shadow(borders.get('shadow'));
     border-radius: borders.get('radius');
 
-    background: var(--code-back-color, #{colors.get('back-alt')}); // Allows live color tunning
+    background-color: var(--code-back-color, #{colors.get('back-alt')}); // Allows live color tunning
     color: var(--code-fore-color, #{colors.get('fore-alt')}); // Allows live color tunning
 
     a:link,
@@ -96,7 +96,7 @@ kbd {
     @include boxshadow.box-shadow(borders.get('shadow'));
     border-radius: borders.get('radius');
 
-    background: var(--kbd-back-color, #{colors.get('back-alt')}); // Allows live color tunning
+    background-color: var(--kbd-back-color, #{colors.get('back-alt')}); // Allows live color tunning
     color: var(--kbd-fore-color, #{colors.get('fore-alt')}); // Allows live color tunning
 }
 

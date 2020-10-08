@@ -52,7 +52,7 @@ header {
 // No box-shadow as it causes lots of weird bugs in Chrome. No margin as it shouldn't have any.
 .#{map.get($_classnames, 'header')} {
     // Always apply background color to avoid shine through
-    background: var(--header-back-color, colors.get('back'));
+    background-color: var(--header-back-color, colors.get('back'));
     color: var(--header-fore-color, colors.get('fore'));
 
     @if $_only-bottom-border {
@@ -105,7 +105,7 @@ header {
         text-align: center;
 
         // Apply color regardless to override styling from other things.
-        background: var(--header-back-color, inherit);
+        background-color: var(--header-back-color, inherit);
         color: var(--header-fore-color, inherit);
 
         border: 0;
@@ -143,7 +143,7 @@ header {
     [role='button'] {
         &:hover,
         &:focus {
-            background: var(--header-back-hover-color, colors.get('back-hover'));
+            background-color: var(--header-back-hover-color, colors.get('back-hover'));
             color: var(--header-fore-hover-color, colors.get('fore-hover'));
             transform: scale(1.05); // Accessibility
         }

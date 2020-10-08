@@ -82,7 +82,7 @@ $_classnames: (
 input {
     overflow: visible; // Show overflow in Edge.
 
-    background: var(--input-back-color, #{colors.get('back')});
+    background-color: var(--input-back-color, #{colors.get('back')});
     color: var(--input-fore-color, #{colors.get('fore')});
     border: borders.get('width-alt') solid var(--input-border-color, #{colors.get('border')});
 
@@ -110,7 +110,7 @@ textarea,
 select {
     box-sizing: border-box;
     // Background, color and border should not be unassigned, as the browser defaults will apply.
-    background: var(--input-back-color, #{colors.get('back')});
+    background-color: var(--input-back-color, #{colors.get('back')});
     color: var(--input-fore-color, #{colors.get('fore')});
     border: borders.get('width-alt') solid var(--input-border-color, #{colors.get('border')});
     border-radius: borders.get('radius');
@@ -144,7 +144,7 @@ select {
         content: '';
         top: calc(1px + #{boxmodel.get('padding')} / 2);
         left: calc(1px + #{boxmodel.get('padding')} / 2);
-        background: colors.get('back-alt');
+        background-color: colors.get('back-alt');
         width: 0.5rem;
         height: 0.5rem;
     }

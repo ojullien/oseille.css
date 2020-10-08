@@ -30,7 +30,7 @@ body {
   padding: 0;
   border: 0;
   color: var(--fore-color, #121212);
-  background: var(--back-color, #f8f8f8);
+  background-color: var(--back-color, #f8f8f8);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, sans-serif;
   font-size: medium;
   --smaller: 0.75em;
@@ -201,7 +201,7 @@ mark {
   padding: calc(0.5rem / 4) calc(0.5rem / 2);
   border: 0;
   border-radius: 4px;
-  background: var(--primary-color, #215cca);
+  background-color: var(--primary-color, #215cca);
   color: var(--back-color, #f8f8f8);
   font-size: 0.95em;
   line-height: 1.5;
@@ -217,10 +217,10 @@ mark.tag {
   border-radius: 1em;
 }
 mark.secondary {
-  background: var(--secondary-color, #ad0000);
+  background-color: var(--secondary-color, #ad0000);
 }
 mark.tertiary {
-  background: var(--tertiary-color, #2ecc40);
+  background-color: var(--tertiary-color, #2ecc40);
   color: var(--fore-color, #121212);
 }
 mark:before, mark:after {
@@ -264,7 +264,7 @@ pre {
   font-family: Menlo, Consolas, monospace;
   font-size: 0.85em;
   font-weight: normal;
-  background: var(--pre-back-color, #121212);
+  background-color: var(--pre-back-color, #121212);
   color: var(--pre-fore-color, #f8f8f8);
   border: medium solid #222222;
   border-left: thick solid #215cca;
@@ -279,7 +279,7 @@ pre code {
 code {
   padding: calc(0.5rem / 4) calc(0.5rem / 2);
   border-radius: 4px;
-  background: var(--code-back-color, #121212);
+  background-color: var(--code-back-color, #121212);
   color: var(--code-fore-color, #f8f8f8);
 }
 code a:link,
@@ -290,7 +290,7 @@ code a:visited {
 kbd {
   padding: calc(0.5rem / 4) calc(0.5rem / 2);
   border-radius: 4px;
-  background: var(--kbd-back-color, #121212);
+  background-color: var(--kbd-back-color, #121212);
   color: var(--kbd-fore-color, #f8f8f8);
 }
 
@@ -331,7 +331,7 @@ cite, q {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, sans-serif;
   font-weight: inherit;
   font-size: 1em;
-  background: var(--caption-back-color, #f8f8f8);
+  background-color: var(--caption-back-color, #f8f8f8);
   color: var(--caption-fore-color, #121212);
   margin: 0;
   padding: 0;
@@ -349,7 +349,7 @@ blockquote {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, sans-serif;
   font-style: italic;
   font-size: 1em;
-  background: var(--blockquote-back-color, #f8f8f8);
+  background-color: var(--blockquote-back-color, #f8f8f8);
   color: var(--blockquote-fore-color, #121212);
 }
 blockquote:before {
@@ -434,7 +434,7 @@ figcaption {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, sans-serif;
   font-size: 1em;
   text-align: left;
-  background: var(--caption-back-color, #f8f8f8);
+  background-color: var(--caption-back-color, #f8f8f8);
   color: var(--caption-fore-color, #121212);
 }
 
@@ -494,7 +494,7 @@ label[role=button],
   font: inherit;
   font-size: 1em;
   text-decoration: none;
-  transition: background 0.3s;
+  transition: background 0.3s ease-out;
   width: 100%;
   align-items: center;
   justify-content: center;
@@ -528,7 +528,7 @@ a[role=button]:hover,
 label[role=button]:hover,
 [role=button]:hover {
   outline: solid transparent;
-  background: var(--button-hover-back-color, #c6c6c6);
+  background-color: var(--button-hover-back-color, #c6c6c6);
   transform: scale(1.05);
 }
 button:focus,
@@ -566,7 +566,7 @@ button.noborder,
 .button.noborder,
 [role=button].noborder {
   color: var(--button-fore-color, #121212);
-  background: var(--button-back-color, #e0e0e0);
+  background-color: var(--button-back-color, #e0e0e0);
   border-color: var(--button-border-color, transparent);
 }
 button.noborder:hover,
@@ -575,7 +575,7 @@ button.noborder:hover,
 [type=reset].noborder:hover,
 .button.noborder:hover,
 [role=button].noborder:hover {
-  background: var(--button-hover-back-color, #c6c6c6);
+  background-color: var(--button-hover-back-color, #c6c6c6);
   border-color: var(--button-border-hover-color, transparent);
 }
 button.noborder:focus,
@@ -593,7 +593,7 @@ button.secondary,
 .button.secondary,
 [role=button].secondary {
   color: var(--button-fore-color, #121212);
-  background: var(--button-back-color, #f8f8f8);
+  background-color: var(--button-back-color, #f8f8f8);
   border-color: var(--button-border-color, #222222);
 }
 button.secondary:hover,
@@ -602,7 +602,7 @@ button.secondary:hover,
 [type=reset].secondary:hover,
 .button.secondary:hover,
 [role=button].secondary:hover {
-  background: var(--button-hover-back-color, #e0e0e0);
+  background-color: var(--button-hover-back-color, #e0e0e0);
   border-color: var(--button-border-hover-color, #222222);
 }
 button.secondary:focus,
@@ -620,7 +620,7 @@ button.tertiary,
 .button.tertiary,
 [role=button].tertiary {
   color: var(--button-fore-color, #121212);
-  background: var(--button-back-color, #f8f8f8);
+  background-color: var(--button-back-color, #f8f8f8);
   border-color: var(--button-border-color, transparent);
 }
 button.tertiary:hover,
@@ -629,7 +629,7 @@ button.tertiary:hover,
 [type=reset].tertiary:hover,
 .button.tertiary:hover,
 [role=button].tertiary:hover {
-  background: var(--button-hover-back-color, #e0e0e0);
+  background-color: var(--button-hover-back-color, #e0e0e0);
   border-color: var(--button-border-hover-color, #222222);
 }
 button.tertiary:focus,
@@ -647,7 +647,7 @@ button.inverse,
 .button.inverse,
 [role=button].inverse {
   color: var(--button-fore-color, #e0e0e0);
-  background: var(--button-back-color, #121212);
+  background-color: var(--button-back-color, #121212);
 }
 button.inverse:hover,
 [type=button].inverse:hover,
@@ -655,7 +655,7 @@ button.inverse:hover,
 [type=reset].inverse:hover,
 .button.inverse:hover,
 [role=button].inverse:hover {
-  background: var(--button-hover-back-color, #898989);
+  background-color: var(--button-hover-back-color, #898989);
 }
 button.inverse:focus,
 [type=button].inverse:focus,
@@ -742,7 +742,7 @@ button:disabled, button[disabled],
 /* Styling for form */
 form {
   width: 100%;
-  background: var(--form-back-color, #f8f8f8);
+  background-color: var(--form-back-color, #f8f8f8);
   color: var(--form-fore-color, #121212);
   margin: 0.5rem;
   padding: calc(2 * 0.5rem) 0.5rem;
@@ -780,7 +780,7 @@ label {
 /* Styling for input */
 input {
   overflow: visible;
-  background: var(--input-back-color, #f8f8f8);
+  background-color: var(--input-back-color, #f8f8f8);
   color: var(--input-fore-color, #121212);
   border: 2px solid var(--input-border-color, #222222);
   font-family: inherit;
@@ -817,7 +817,7 @@ input:not([type]),
 textarea,
 select {
   box-sizing: border-box;
-  background: var(--input-back-color, #f8f8f8);
+  background-color: var(--input-back-color, #f8f8f8);
   color: var(--input-fore-color, #121212);
   border: 2px solid var(--input-border-color, #222222);
   border-radius: 4px;
@@ -871,7 +871,7 @@ select {
   content: "";
   top: calc(1px + 0.5rem / 2);
   left: calc(1px + 0.5rem / 2);
-  background: #121212;
+  background-color: #121212;
   width: 0.5rem;
   height: 0.5rem;
 }
@@ -1078,11 +1078,11 @@ table th {
   font-style: inherit;
   font-weight: inherit;
   text-align: left;
-  background: var(--th-back-color, #f8f8f8);
+  background-color: var(--th-back-color, #f8f8f8);
   color: var(--th-fore-color, #121212);
 }
 table td {
-  background: var(--td-back-color, #f8f8f8);
+  background-color: var(--td-back-color, #f8f8f8);
   color: var(--td-fore-color, #121212);
   border-top: 1px solid var(--table-border-color, #222222);
 }
@@ -1229,7 +1229,7 @@ table.horizontal tr {
     display: block;
     border: 1px solid var(--table-border-color, #222222);
     border-radius: 4px;
-    background: var(--tr-back-color, #f8f8f8);
+    background-color: var(--tr-back-color, #f8f8f8);
     padding: 0.5rem;
     margin: 0.5rem;
     margin-bottom: calc(2 * 0.5rem);
@@ -1264,21 +1264,21 @@ table.horizontal tbody tr:last-child td {
   }
 }
 table.striped tr:nth-of-type(2n) > td {
-  background: var(--tr-back-color, #f8f8f8);
+  background-color: var(--tr-back-color, #f8f8f8);
 }
 
 @media screen and (max-width: 768px) {
   table.striped tr:nth-of-type(2n) {
-    background: var(--tr-back-color, #f8f8f8);
+    background-color: var(--tr-back-color, #f8f8f8);
   }
 }
 table.hoverable tr:hover, table.hoverable tr:hover > td, table.hoverable tr:focus, table.hoverable tr:focus > td {
-  background: var(--table-back-hover-color, #c6c6c6);
+  background-color: var(--table-back-hover-color, #c6c6c6);
 }
 
 @media screen and (max-width: 768px) {
   table.hoverable tr:hover, table.hoverable tr:hover > td, table.hoverable tr:focus, table.hoverable tr:focus > td {
-    background: var(--table-back-hover-color, #c6c6c6);
+    background-color: var(--table-back-hover-color, #c6c6c6);
   }
 }
 /* Multimedia resources styling */
@@ -1372,7 +1372,7 @@ summary {
 
 /* Navigation styling. */
 nav {
-  background: var(--nav-back-color, #f8f8f8);
+  background-color: var(--nav-back-color, #f8f8f8);
   color: var(--nav-fore-color, #121212);
   border: 1px solid var(--nav-border-color, #222222);
   border-radius: 4px;
@@ -1393,7 +1393,7 @@ nav a:visited {
 nav a:hover, nav a:focus,
 nav a:visited:hover,
 nav a:visited:focus {
-  background: var(--nav-back-hover-color, #e0e0e0);
+  background-color: var(--nav-back-hover-color, #e0e0e0);
   font-weight: bolder;
   box-shadow: none !important;
 }
@@ -1437,14 +1437,14 @@ h6, h5, h4, h3, h2, h1 {
   margin: 0.5rem;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, sans-serif;
   font-weight: 500;
-  background: var(--heading-back-color, inherit);
+  background-color: var(--heading-back-color, inherit);
   color: var(--heading-fore-color, inherit);
 }
 h6 small, h5 small, h4 small, h3 small, h2 small, h1 small {
   display: block;
   margin-top: -0.25rem;
   line-height: calc(1ex / 0.32);
-  background: var(--subheading-back-color, inherit);
+  background-color: var(--subheading-back-color, inherit);
   color: var(--subheading-fore-color, inherit);
 }
 
@@ -1486,7 +1486,7 @@ footer {
   font-size: 0.875em;
 }
 footer.page-footer {
-  background: var(--footer-back-color, #f8f8f8);
+  background-color: var(--footer-back-color, #f8f8f8);
   color: var(--footer-fore-color, #121212);
 }
 footer a,
@@ -1510,7 +1510,7 @@ header {
 }
 
 .page-header {
-  background: var(--header-back-color, #f8f8f8);
+  background-color: var(--header-back-color, #f8f8f8);
   color: var(--header-fore-color, #121212);
   border-bottom: 1px solid var(--header-border-color, #909090);
   padding: calc(0.5rem / 4) 0;
@@ -1541,7 +1541,7 @@ header {
   height: calc(3.1875rem + 0.5rem / 2);
   line-height: calc(3.1875rem - 0.5rem * 1.5);
   text-align: center;
-  background: var(--header-back-color, inherit);
+  background-color: var(--header-back-color, inherit);
   color: var(--header-fore-color, inherit);
   border: 0;
   border-radius: 0;
@@ -1564,7 +1564,7 @@ header {
 .page-header .button:focus,
 .page-header [role=button]:hover,
 .page-header [role=button]:focus {
-  background: var(--header-back-hover-color, #e0e0e0);
+  background-color: var(--header-back-hover-color, #e0e0e0);
   color: var(--header-fore-hover-color, #121212);
   transform: scale(1.05);
 }
@@ -1685,12 +1685,12 @@ time {
   cursor: pointer;
   transition: background 0.3s;
   color: var(--collapse-fore-color, #121212);
-  background: var(--collapse-back-color, #f8f8f8);
+  background-color: var(--collapse-back-color, #f8f8f8);
   border: 1px solid var(--collapse-border-color, #909090);
   padding: calc(1.5 * 0.5rem);
 }
 .collapse > label:hover, .collapse > label:focus {
-  background: var(--collapse-back-hover-color, #e0e0e0);
+  background-color: var(--collapse-back-hover-color, #e0e0e0);
 }
 .collapse > label + div {
   flex-basis: -webkit-auto;
@@ -1711,7 +1711,7 @@ time {
   }
 }
 .collapse > :checked + label {
-  background: var(--collapse-back-color, #f8f8f8);
+  background-color: var(--collapse-back-color, #f8f8f8);
   border-bottom-color: var(--collapse-border-color, #215cca);
 }
 .collapse > :checked + label + div {
@@ -1721,7 +1721,7 @@ time {
   height: auto;
   overflow: auto;
   margin: 0;
-  background: var(--collapse-back-color, #f8f8f8);
+  background-color: var(--collapse-back-color, #f8f8f8);
   border: 1px solid var(--collapse-border-color, #909090);
   border-top: 0;
   padding: 0.5rem;
@@ -1772,7 +1772,7 @@ time {
   transform: translate(-50%, -50%);
   z-index: 1111;
   color: var(--toast-fore-color, #f8f8f8);
-  background: var(--toast-back-color, #121212);
+  background-color: var(--toast-back-color, #121212);
   border-radius: calc(4px * 16);
   padding: 0.5rem calc(0.5rem * 3);
 }
@@ -1827,7 +1827,7 @@ time {
 .tooltip:after {
   content: attr(aria-label);
   color: var(--tooltip-fore-color, #f8f8f8);
-  background: var(--tooltip-back-color, #121212);
+  background-color: var(--tooltip-back-color, #121212);
   border-radius: 4px;
   padding: 0.5rem;
   white-space: nowrap;
@@ -2307,7 +2307,7 @@ time {
   align-self: center;
   position: relative;
   width: 100%;
-  background: var(--card-back-color, #f8f8f8);
+  background-color: var(--card-back-color, #f8f8f8);
   color: var(--card-fore-color, #121212);
   border: 1px solid var(--card-border-color, #909090);
   border-radius: 4px;
@@ -2339,7 +2339,7 @@ time {
   }
 }
 .card > .section.dark {
-  background: var(--card-back-color, #e0e0e0);
+  background-color: var(--card-back-color, #e0e0e0);
   color: var(--card-fore-color, #121212);
 }
 .card > .section.double-padded {
@@ -2410,7 +2410,7 @@ time {
   display: none;
   width: 100vw;
   height: 100vh;
-  background: var(--modal-back-color, rgba(0, 0, 0, 0.45));
+  background-color: var(--modal-back-color, rgba(0, 0, 0, 0.45));
 }
 [type=checkbox].modal + div .card {
   margin: 0 auto;
@@ -2444,7 +2444,7 @@ time {
   text-align: center;
 }
 [type=checkbox].modal + div .card .modal-close:hover, [type=checkbox].modal + div .card .modal-close:focus {
-  background: var(--modal-back-hover-color, #f8f8f8);
+  background-color: var(--modal-back-hover-color, #f8f8f8);
 }
 [type=checkbox].modal:checked + div {
   display: flex;
@@ -2492,7 +2492,7 @@ time {
   width: 320px;
   height: 100vh;
   overflow-y: auto;
-  background: var(--drawer-back-color, #f8f8f8);
+  background-color: var(--drawer-back-color, #f8f8f8);
   margin: 0;
   border-radius: 0;
   border: 1px solid var(--drawer-border-color, #909090);
@@ -2528,7 +2528,7 @@ time {
   text-align: center;
 }
 [type=checkbox].drawer + * .drawer-close:hover, [type=checkbox].drawer + * .drawer-close:focus {
-  background: var(--drawer-back-hover-color, #e0e0e0);
+  background-color: var(--drawer-back-hover-color, #e0e0e0);
 }
 @media screen and (max-width: 320px) {
   [type=checkbox].drawer + * {
@@ -2561,19 +2561,19 @@ progress {
   margin: 0.5rem;
   border: 0;
   border-radius: calc(2 * 4px);
-  background: var(--progress-back-color, #c6c6c6);
+  background-color: var(--progress-back-color, #c6c6c6);
   color: var(--progress-fore-color, #121212);
 }
 progress::-webkit-progress-value {
-  background: var(--progress-fore-color, #121212);
+  background-color: var(--progress-fore-color, #121212);
   border-top-left-radius: calc(2 * 4px);
   border-bottom-left-radius: calc(2 * 4px);
 }
 progress::-webkit-progress-bar {
-  background: var(--progress-back-color, #c6c6c6);
+  background-color: var(--progress-back-color, #c6c6c6);
 }
 progress::-moz-progress-bar {
-  background: var(--progress-fore-color, #121212);
+  background-color: var(--progress-fore-color, #121212);
   border-top-left-radius: calc(2 * 4px);
   border-bottom-left-radius: calc(2 * 4px);
 }

@@ -28,7 +28,7 @@
     font-weight: inherit;
     font-size: fonts.get-size('cite');
 
-    background: var(--caption-back-color, #{colors.get('back')}); // Allows live color tunning
+    background-color: var(--caption-back-color, #{colors.get('back')}); // Allows live color tunning
     color: var(--caption-fore-color, #{colors.get('fore')}); // Allows live color tunning
 
     margin: 0;
@@ -51,7 +51,7 @@ blockquote {
     font-style: italic;
     font-size: 1em;
 
-    background: var(--blockquote-back-color, #{colors.get('back')}); // Allows live color tunning
+    background-color: var(--blockquote-back-color, #{colors.get('back')}); // Allows live color tunning
     color: var(--blockquote-fore-color, #{colors.get('fore')}); // Allows live color tunning
 
     @include boxshadow.box-shadow(borders.get('shadow'));

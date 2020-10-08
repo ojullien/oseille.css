@@ -31,7 +31,7 @@ figcaption {
 
     text-align: $_text-align;
 
-    background: var(--caption-back-color, #{colors.get('back')}); // Allows live color tunning
+    background-color: var(--caption-back-color, #{colors.get('back')}); // Allows live color tunning
     color: var(--caption-fore-color, #{colors.get('fore')}); // Allows live color tunning
 }
 

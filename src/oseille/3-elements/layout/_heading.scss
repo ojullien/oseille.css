@@ -48,7 +48,7 @@ $_colors: (
     font-family: fonts.get-stack('heading');
     font-weight: $_font-weight;
 
-    background: var(--heading-back-color, #{map.get($_colors, 'back')}); // Allows live color tunning
+    background-color: var(--heading-back-color, #{map.get($_colors, 'back')}); // Allows live color tunning
     color: var(--heading-fore-color, #{map.get($_colors, 'fore')}); // Allows live color tunning
 
     small {
@@ -60,7 +60,7 @@ $_colors: (
 
         line-height: fonts.get-line-spacing('subheading');
 
-        background: var(--subheading-back-color, #{map.get($_colors, 'subheading-back')}); // Allows live color tunning
+        background-color: var(--subheading-back-color, #{map.get($_colors, 'subheading-back')}); // Allows live color tunning
         color: var(--subheading-fore-color, #{map.get($_colors, 'subheading-fore')}); // Allows live color tunning
     }
 }

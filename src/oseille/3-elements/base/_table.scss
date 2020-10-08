@@ -138,12 +138,12 @@ table {
         font-style: inherit;
         font-weight: inherit;
         text-align: left;
-        background: var(--th-back-color, #{colors.get('back')});
+        background-color: var(--th-back-color, #{colors.get('back')});
         color: var(--th-fore-color, #{colors.get('fore')});
     }
 
     td {
-        background: var(--td-back-color, #{colors.get('back')});
+        background-color: var(--td-back-color, #{colors.get('back')});
         color: var(--td-fore-color, #{colors.get('fore')});
         border-top: borders.get('width') solid var(--table-border-color, #{colors.get('border')});
     }
@@ -347,7 +347,7 @@ table {
 
                 @include boxshadow.box-shadow(borders.get('shadow'));
 
-                background: var(--tr-back-color, #{colors.get('back')});
+                background-color: var(--tr-back-color, #{colors.get('back')});
                 padding: #{boxmodel.get('padding')};
                 margin: #{boxmodel.get('margin')};
                 margin-bottom: calc(2 * #{boxmodel.get('margin')});
@@ -415,7 +415,7 @@ table {
 
                 @include boxshadow.box-shadow(borders.get('shadow'));
 
-                background: var(--tr-back-color, #{colors.get('back')});
+                background-color: var(--tr-back-color, #{colors.get('back')});
                 padding: #{boxmodel.get('padding')};
                 margin: #{boxmodel.get('margin')};
                 margin-bottom: calc(2 * #{boxmodel.get('margin')});
@@ -440,7 +440,7 @@ table {
 @if $_include-striped-table {
     table.#{map.get($_classnames, 'strip')} {
         tr:nth-of-type(2n) > td {
-            background: var(--tr-back-color, #{colors.get('back')});
+            background-color: var(--tr-back-color, #{colors.get('back')});
         }
     }
 
@@ -448,7 +448,7 @@ table {
     @media screen and (max-width: #{breakpoints.get("medium")}) {
         table.#{map.get($_classnames, 'strip')} {
             tr:nth-of-type(2n) {
-                background: var(--tr-back-color, #{colors.get('back')});
+                background-color: var(--tr-back-color, #{colors.get('back')});
             }
         }
     }
@@ -461,7 +461,7 @@ table {
             &:focus {
                 &,
                 & > td {
-                    background: var(--table-back-hover-color, #{colors.get('back-darkest')});
+                    background-color: var(--table-back-hover-color, #{colors.get('back-darkest')});
                 }
             }
         }
@@ -474,7 +474,7 @@ table {
                 &:focus {
                     &,
                     & > td {
-                        background: var(--table-back-hover-color, #{colors.get('back-darkest')});
+                        background-color: var(--table-back-hover-color, #{colors.get('back-darkest')});
                     }
                 }
             }

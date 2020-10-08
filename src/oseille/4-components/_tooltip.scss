@@ -92,7 +92,7 @@ $_classname: (
         // Tooltip's text block
         content: attr(aria-label);
         color: var(--tooltip-fore-color, colors.get('fore-alt'));
-        background: var(--tooltip-back-color, colors.get('back-alt'));
+        background-color: var(--tooltip-back-color, colors.get('back-alt'));
         border-radius: borders.get('radius');
         padding: boxmodel.get('padding');
 

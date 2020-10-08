@@ -6,7 +6,7 @@ footer {
   font-size: 0.875em;
 }
 footer.page-footer {
-  background: var(--footer-back-color, #f8f8f8);
+  background-color: var(--footer-back-color, #f8f8f8);
   color: var(--footer-fore-color, #121212);
 }
 footer a,

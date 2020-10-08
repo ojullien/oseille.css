@@ -50,7 +50,7 @@ $_classnames: (
         display: none;
         width: 100vw;
         height: 100vh;
-        background: var(--modal-back-color, #{colors.get('overlay')});
+        background-color: var(--modal-back-color, #{colors.get('overlay')});
 
         & .card {
             margin: 0 auto;
@@ -85,7 +85,7 @@ $_classnames: (
 
                 &:hover,
                 &:focus {
-                    background: var(--modal-back-hover-color, #{colors.get('back')});
+                    background-color: var(--modal-back-hover-color, #{colors.get('back')});
                 }
             }
         }

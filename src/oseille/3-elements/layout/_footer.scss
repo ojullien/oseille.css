@@ -39,7 +39,7 @@ footer {
     // Page footer styling.
     &.#{map.get($_classnames, 'footer')} {
         // Always apply background color to avoid shine through
-        background: var(--footer-back-color, colors.get('back'));
+        background-color: var(--footer-back-color, colors.get('back'));
         color: var(--footer-fore-color, colors.get('fore'));
     }
 

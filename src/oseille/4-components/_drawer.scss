@@ -84,7 +84,7 @@ $_classnames: (
         height: 100vh;
         overflow-y: auto;
 
-        background: var(--drawer-back-color, colors.get('back'));
+        background-color: var(--drawer-back-color, colors.get('back'));
 
         // Set to 0 to override the value from `nav`.
         margin: 0;
@@ -138,7 +138,7 @@ $_classnames: (
 
             &:hover,
             &:focus {
-                background: var(--drawer-back-hover-color, colors.get('back-hover'));
+                background-color: var(--drawer-back-hover-color, colors.get('back-hover'));
             }
         }
 

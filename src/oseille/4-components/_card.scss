@@ -52,7 +52,7 @@ $_section-media-height: 200px !default; // Height for cards' media sections.
     width: 100%;
 
     // Actual styling for the cards
-    background: var(--card-back-color, #{colors.get('back')});
+    background-color: var(--card-back-color, #{colors.get('back')});
     color: var(--card-fore-color, #{colors.get('fore')});
 
     border: borders.get('width') solid var(--card-border-color, #{colors.get('border-lightest')});
@@ -93,7 +93,7 @@ $_section-media-height: 200px !default; // Height for cards' media sections.
 
         // Alternative sections
         &.dark {
-            background: var(--card-back-color, #{colors.get('back-darker')});
+            background-color: var(--card-back-color, #{colors.get('back-darker')});
             color: var(--card-fore-color, #{colors.get('fore')});
         }
 

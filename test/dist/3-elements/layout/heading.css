@@ -5,14 +5,14 @@ h6, h5, h4, h3, h2, h1 {
   margin: 0.5rem;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, sans-serif;
   font-weight: 500;
-  background: var(--heading-back-color, inherit);
+  background-color: var(--heading-back-color, inherit);
   color: var(--heading-fore-color, inherit);
 }
 h6 small, h5 small, h4 small, h3 small, h2 small, h1 small {
   display: block;
   margin-top: -0.25rem;
   line-height: calc(1ex / 0.32);
-  background: var(--subheading-back-color, inherit);
+  background-color: var(--subheading-back-color, inherit);
   color: var(--subheading-fore-color, inherit);
 }
 

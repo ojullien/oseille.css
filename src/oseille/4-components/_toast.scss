@@ -31,7 +31,7 @@ $_classnames: (
     transform: translate(-50%, -50%);
     z-index: 1111;
     color: var(--toast-fore-color, colors.get('fore-alt'));
-    background: var(--toast-back-color, colors.get('back-alt'));
+    background-color: var(--toast-back-color, colors.get('back-alt'));
     border-radius: calc(#{borders.get('radius')} * 16);
     padding: boxmodel.get('padding') calc(#{boxmodel.get('padding')} * 3);
 
