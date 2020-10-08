@@ -37,14 +37,6 @@ $_classnames: (
 // Opacity for input elements when disabled.
 $_disabled-opacity: 0.75 !default;
 
-// Button size variant mixin:
-//  $padding: The padding of the button variant.
-//  $margin The margin of the button variant.
-@mixin makeSizeVariant($padding, $margin) {
-    padding: $padding;
-    margin: $margin;
-}
-
 // Button color variant mixin:
 //  $fore: Text color for button variant.
 //  $back: Background color for button variant.
@@ -120,7 +112,8 @@ label[role='button'],
     border: borders.get('width-alt') solid var(--button-border-color, #{colors.get('border')});
     border-radius: borders.get('radius');
 
-    padding: #{boxmodel.get('padding')} calc(#{fonts.get-line-spacing('main')} * #{boxmodel.get('padding')});
+    --button-padding: #{boxmodel.get('padding')} calc(#{fonts.get-line-spacing('main')} * #{boxmodel.get('padding')});
+    padding: var(--button-padding);
     margin: boxmodel.get('margin');
 
     font: inherit;
@@ -132,7 +125,7 @@ label[role='button'],
         cursor: pointer;
     }
 
-    transition: background 0.3s;
+    transition: background 0.3s ease-out;
 
     width: 100%;
     align-items: center;
@@ -212,17 +205,11 @@ button,
 
     // Size variants
     &.small {
-        @include makeSizeVariant(
-            calc(0.5 * #{boxmodel.get('padding')}) calc(0.75 * #{boxmodel.get('padding')}),
-            boxmodel.get('margin')
-        );
+        --button-padding: calc(0.5 * #{boxmodel.get('padding')}) calc(0.75 * #{boxmodel.get('padding')});
     }
 
     &.large {
-        @include makeSizeVariant(
-            calc(1.5 * #{boxmodel.get('padding')}) calc(2 * #{boxmodel.get('padding')}),
-            boxmodel.get('margin')
-        );
+        --button-padding: calc(1.5 * #{boxmodel.get('padding')}) calc(2 * #{boxmodel.get('padding')});
     }
 }
 

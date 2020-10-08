@@ -488,7 +488,8 @@ label[role=button],
   color: var(--button-fore-color, #121212);
   border: 2px solid var(--button-border-color, #222222);
   border-radius: 4px;
-  padding: 0.5rem calc(1.5 * 0.5rem);
+  --button-padding: 0.5rem calc(1.5 * 0.5rem);
+  padding: var(--button-padding);
   margin: 0.5rem;
   font: inherit;
   font-size: 1em;
@@ -670,8 +671,7 @@ button.small,
 [type=reset].small,
 .button.small,
 [role=button].small {
-  padding: calc(0.5 * 0.5rem) calc(0.75 * 0.5rem);
-  margin: 0.5rem;
+  --button-padding: calc(0.5 * 0.5rem) calc(0.75 * 0.5rem);
 }
 button.large,
 [type=button].large,
@@ -679,8 +679,7 @@ button.large,
 [type=reset].large,
 .button.large,
 [role=button].large {
-  padding: calc(1.5 * 0.5rem) calc(2 * 0.5rem);
-  margin: 0.5rem;
+  --button-padding: calc(1.5 * 0.5rem) calc(2 * 0.5rem);
 }
 
 button:disabled, button[disabled],
