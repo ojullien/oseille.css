@@ -216,11 +216,16 @@ button,
 // Disabled styling button elements.
 
 button,
+[type='button'],
+[type='submit'],
+[type='reset'],
 .#{map.get($_classnames, 'button')},
 [role='button'] {
     // .button[disabled] is actually higher specificity than a.button, so no need for more than that
     &:disabled,
+    &[aria-disabled='true'],
     &[disabled] {
+        //pointer-events: none;
         @supports (cursor: not-allowed) {
             cursor: not-allowed;
         }
@@ -228,7 +233,7 @@ button,
             filter: grayscale(60%);
         }
         opacity: $_disabled-opacity;
-        transform: none;
+        transform: none !important;
     }
 }
 

@@ -46,6 +46,8 @@ body {
 *,
 ::after,
 ::before {
+  -webkit-box-sizing: inherit;
+  -moz-box-sizing: inherit;
   box-sizing: inherit;
 }
 
@@ -682,28 +684,61 @@ button.large,
   --button-padding: calc(1.5 * 0.5rem) calc(2 * 0.5rem);
 }
 
-button:disabled, button[disabled],
+button:disabled, button[aria-disabled=true], button[disabled],
+[type=button]:disabled,
+[type=button][aria-disabled=true],
+[type=button][disabled],
+[type=submit]:disabled,
+[type=submit][aria-disabled=true],
+[type=submit][disabled],
+[type=reset]:disabled,
+[type=reset][aria-disabled=true],
+[type=reset][disabled],
 .button:disabled,
+.button[aria-disabled=true],
 .button[disabled],
 [role=button]:disabled,
+[role=button][aria-disabled=true],
 [role=button][disabled] {
   opacity: 0.75;
-  transform: none;
+  transform: none !important;
 }
 @supports (cursor: not-allowed) {
-  button:disabled, button[disabled],
+  button:disabled, button[aria-disabled=true], button[disabled],
+[type=button]:disabled,
+[type=button][aria-disabled=true],
+[type=button][disabled],
+[type=submit]:disabled,
+[type=submit][aria-disabled=true],
+[type=submit][disabled],
+[type=reset]:disabled,
+[type=reset][aria-disabled=true],
+[type=reset][disabled],
 .button:disabled,
+.button[aria-disabled=true],
 .button[disabled],
 [role=button]:disabled,
+[role=button][aria-disabled=true],
 [role=button][disabled] {
     cursor: not-allowed;
   }
 }
 @supports (filter: grayscale(60%)) {
-  button:disabled, button[disabled],
+  button:disabled, button[aria-disabled=true], button[disabled],
+[type=button]:disabled,
+[type=button][aria-disabled=true],
+[type=button][disabled],
+[type=submit]:disabled,
+[type=submit][aria-disabled=true],
+[type=submit][disabled],
+[type=reset]:disabled,
+[type=reset][aria-disabled=true],
+[type=reset][disabled],
 .button:disabled,
+.button[aria-disabled=true],
 .button[disabled],
 [role=button]:disabled,
+[role=button][aria-disabled=true],
 [role=button][disabled] {
     filter: grayscale(60%);
   }

@@ -31,6 +31,9 @@ $_box-model: (
 // Font weight for <b> and <strong>
 $_bold-font-weight: 700 !default;
 
+// Opacity for input elements when disabled.
+$_disabled-opacity: 0.75 !default;
+
 /* Inline text semantic styling */
 
 // Fix for elements inside headings not displaying properly.
