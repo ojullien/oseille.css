@@ -93,7 +93,7 @@ button::-moz-focus-inner,
 // Fixes for Android 4, iOS and Safari.
 @supports (-webkit-appearance: button) {
     button,
-    html [type='button'],
+    [type='button'],
     [type='reset'],
     [type='submit'] {
         -webkit-appearance: button;
@@ -102,11 +102,11 @@ button::-moz-focus-inner,
 
 // Other fixes.
 button {
-    font-family: inherit;
-    line-height: fonts.get-line-spacing('main');
     overflow: visible; // Show the overflow in IE.
     text-transform: none; // Remove inheritance of text-transform in Edge, Firefox, and IE.
 }
+
+// Main styling
 
 button,
 [type='button'],
@@ -120,15 +120,10 @@ label[role='button'],
 [role='button'] {
     display: inline-block;
 
-    background-color: var(--button-back-color, #{colors.get('back-darker')});
-    color: var(--button-fore-color, #{colors.get('fore')});
-
-    border: borders.get('width-alt') solid var(--button-border-color, #{colors.get('border')});
-    border-radius: borders.get('radius');
-
     --button-padding: #{boxmodel.get('padding')} calc(#{fonts.get-line-spacing('main')} * #{boxmodel.get('padding')});
     padding: var(--button-padding);
     margin: boxmodel.get('margin');
+    width: 100%;
 
     font: inherit;
     font-size: 1em;
@@ -139,9 +134,6 @@ label[role='button'],
         cursor: pointer;
     }
 
-    transition: background 0.3s ease-out;
-
-    width: 100%;
     align-items: center;
     justify-content: center;
 
@@ -149,6 +141,27 @@ label[role='button'],
     -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;
+
+    @media screen and (min-width: #{breakpoints.get('medium')}) {
+        width: auto;
+    }
+}
+
+// Color and border styling
+
+button,
+[type='button'],
+[type='submit'],
+[type='reset'],
+.#{map.get($_classnames, 'button')},
+[role='button'] {
+    background-color: var(--button-back-color, #{colors.get('back-darker')});
+    color: var(--button-fore-color, #{colors.get('fore')});
+
+    border: borders.get('width-alt') solid var(--button-border-color, #{colors.get('border')});
+    border-radius: borders.get('radius');
+
+    transition: background 0.3s ease-out;
 
     &:hover {
         outline: solid transparent;
@@ -159,10 +172,6 @@ label[role='button'],
     &:focus {
         outline: solid transparent;
         box-shadow: 0 0 0 5px var(--button-border-focus-color, colors.get('border-lightest'));
-    }
-
-    @media screen and (min-width: #{breakpoints.get('medium')}) {
-        width: auto;
     }
 }
 

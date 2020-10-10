@@ -18,15 +18,13 @@ button::-moz-focus-inner,
 
 @supports (-webkit-appearance: button) {
   button,
-html [type=button],
+[type=button],
 [type=reset],
 [type=submit] {
     -webkit-appearance: button;
   }
 }
 button {
-  font-family: inherit;
-  line-height: 1.5;
   overflow: visible;
   text-transform: none;
 }
@@ -42,18 +40,13 @@ a[role=button],
 label[role=button],
 [role=button] {
   display: inline-block;
-  background-color: var(--button-back-color, #fcfcfc);
-  color: var(--button-fore-color, #121212);
-  border: 2px solid var(--button-border-color, #222222);
-  border-radius: 4px;
   --button-padding: 0.5rem calc(1.5 * 0.5rem);
   padding: var(--button-padding);
   margin: 0.5rem;
+  width: 100%;
   font: inherit;
   font-size: 1em;
   text-decoration: none;
-  transition: background 0.3s ease-out;
-  width: 100%;
   align-items: center;
   justify-content: center;
   -moz-user-select: none;
@@ -74,6 +67,37 @@ label[role=button],
 [role=button] {
     cursor: pointer;
   }
+}
+@media screen and (min-width: 768px) {
+  button,
+[type=button],
+[type=submit],
+[type=reset],
+a.button,
+label.button,
+.button,
+a[role=button],
+label[role=button],
+[role=button] {
+    width: auto;
+  }
+}
+
+button,
+[type=button],
+[type=submit],
+[type=reset],
+a.button,
+label.button,
+.button,
+a[role=button],
+label[role=button],
+[role=button] {
+  background-color: var(--button-back-color, #e0e0e0);
+  color: var(--button-fore-color, #121212);
+  border: 2px solid var(--button-border-color, #222222);
+  border-radius: 4px;
+  transition: all 0.3s ease;
 }
 button:hover,
 [type=button]:hover,
@@ -101,20 +125,6 @@ label[role=button]:focus,
 [role=button]:focus {
   outline: solid transparent;
   box-shadow: 0 0 0 5px var(--button-border-focus-color, #909090);
-}
-@media screen and (min-width: 768px) {
-  button,
-[type=button],
-[type=submit],
-[type=reset],
-a.button,
-label.button,
-.button,
-a[role=button],
-label[role=button],
-[role=button] {
-    width: auto;
-  }
 }
 
 button.noborder,
