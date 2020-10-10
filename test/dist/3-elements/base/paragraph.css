@@ -6,7 +6,9 @@ hr {
   line-height: 1.25;
   margin: 0.5rem;
   height: 1px;
+  color: inherit;
   background: linear-gradient(to right, transparent, #909090 20%, #909090 80%, transparent);
+  overflow: visible;
 }
 
 p {

@@ -73,7 +73,6 @@ $_section-media-height: 200px !default; // Height for cards' media sections.
 
     // Card sections
     & > .#{map.get($_classnames, 'section')} {
-        box-sizing: border-box;
         margin: 0;
         border: 0; // Clean borders and radiuses for any element-based sections
         border-radius: 0; // Clean borders and radiuses for any element-based sections

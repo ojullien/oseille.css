@@ -83,7 +83,6 @@ $_collapse-name: 'collapse' !default; // Class name for collapse component
         background-color: var(--collapse-back-color, colors.get('back'));
         border-bottom-color: var(--collapse-border-color, colors.get('blue'));
         & + div {
-            box-sizing: border-box;
             position: relative;
             width: 100%;
             height: auto;

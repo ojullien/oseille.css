@@ -30,7 +30,6 @@
 }
 [type=checkbox].drawer + * {
   display: block;
-  box-sizing: border-box;
   position: fixed;
   top: 0;
   width: 320px;
@@ -46,6 +45,7 @@
 }
 [type=checkbox].drawer + * .drawer-close {
   position: absolute;
+  box-sizing: content-box;
   top: 0.5rem;
   right: 0.5rem;
   z-index: 1111;

@@ -92,7 +92,6 @@ header {
     [type='button'],
     .#{map.get($_classnames, 'button')},
     [role='button'] {
-        box-sizing: border-box;
         position: relative;
 
         // Use universal-padding to offset the padding of the header.
@@ -119,7 +118,6 @@ header {
 
     // Span styling.
     span {
-        box-sizing: border-box;
         position: relative;
 
         // Use universal-padding to offset the padding of the header.

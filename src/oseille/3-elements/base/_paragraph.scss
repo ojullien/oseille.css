@@ -22,7 +22,6 @@ $_paragraph_width: 70ch !default;
 /* paragraph-level elements styling */
 
 hr {
-    // Fixes and defaults for styling
     box-sizing: content-box;
     border: 0;
     padding: 0;
@@ -30,6 +29,7 @@ hr {
     line-height: fonts.get-line-spacing('hr');
     margin: boxmodel.get('margin');
     height: 1px;
+    color: inherit;
     background: linear-gradient(
         to right,
         transparent,
@@ -37,6 +37,7 @@ hr {
         colors.get('border-lightest') 80%,
         transparent
     );
+    overflow: visible;
 }
 
 p {
@@ -52,5 +53,4 @@ p {
 
     padding: 0;
     margin: boxmodel.get('margin');
-
 }

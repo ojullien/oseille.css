@@ -7,6 +7,15 @@ button::-moz-focus-inner,
   padding: 0;
 }
 
+:-moz-ui-invalid {
+  box-shadow: none;
+}
+
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  font: inherit;
+}
+
 @supports (-webkit-appearance: button) {
   button,
 html [type=button],
@@ -16,6 +25,8 @@ html [type=button],
   }
 }
 button {
+  font-family: inherit;
+  line-height: 1.5;
   overflow: visible;
   text-transform: none;
 }
@@ -31,7 +42,7 @@ a[role=button],
 label[role=button],
 [role=button] {
   display: inline-block;
-  background-color: var(--button-back-color, #e0e0e0);
+  background-color: var(--button-back-color, #fcfcfc);
   color: var(--button-fore-color, #121212);
   border: 2px solid var(--button-border-color, #222222);
   border-radius: 4px;

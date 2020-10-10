@@ -91,7 +91,7 @@ a {
 
 abbr[title] {
     @extend %_normalize;
-    border-bottom: none; // Remove bottom border in Firefox 39-.
+    border-bottom: none; // Remove bottom border in Firefox 39- & Chrome 57-
     text-decoration: underline dotted; // Opinionated style-fix for all browsers.
 }
 

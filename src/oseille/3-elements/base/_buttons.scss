@@ -78,6 +78,18 @@ button::-moz-focus-inner,
     padding: 0;
 }
 
+// Remove the additional ':invalid' styles in Firefox.
+// See: https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737
+
+:-moz-ui-invalid {
+    box-shadow: none;
+}
+
+::-webkit-file-upload-button {
+    -webkit-appearance: button; // Correct the inability to style clickable types in iOS and Safari.
+    font: inherit; // Change font properties to 'inherit' in Safari.
+}
+
 // Fixes for Android 4, iOS and Safari.
 @supports (-webkit-appearance: button) {
     button,
@@ -90,6 +102,8 @@ button::-moz-focus-inner,
 
 // Other fixes.
 button {
+    font-family: inherit;
+    line-height: fonts.get-line-spacing('main');
     overflow: visible; // Show the overflow in IE.
     text-transform: none; // Remove inheritance of text-transform in Edge, Firefox, and IE.
 }
@@ -214,6 +228,9 @@ button,
 }
 
 // Disabled styling button elements.
+// It is a bad practice to disable buttons. Disabling the button prevents our chance to tell the user what is wrong.
+// The user keeps clicking the button and is totally in the dark why nothing happens. Keep the button enabled.
+// Let the user click the button. Then show the message why it can’t proceed.
 
 button,
 [type='button'],

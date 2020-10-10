@@ -57,7 +57,6 @@
   border-bottom-color: var(--collapse-border-color, #215cca);
 }
 .collapse > :checked + label + div {
-  box-sizing: border-box;
   position: relative;
   width: 100%;
   height: auto;

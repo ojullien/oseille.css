@@ -8,6 +8,8 @@ table {
   flex-flow: row wrap;
   padding: 0 0.5rem 0.5rem 0.5rem;
   padding-top: 0;
+  text-indent: 0;
+  border-color: inherit;
 }
 table caption {
   border: 0;

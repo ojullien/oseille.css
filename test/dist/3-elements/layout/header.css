@@ -31,7 +31,6 @@ header {
 .page-header [type=button],
 .page-header .button,
 .page-header [role=button] {
-  box-sizing: border-box;
   position: relative;
   top: calc(0rem - 0.5rem / 4);
   height: calc(3.1875rem + 0.5rem / 2);
@@ -45,7 +44,6 @@ header {
   text-transform: uppercase;
 }
 .page-header span {
-  box-sizing: border-box;
   position: relative;
   top: calc(0rem - 0.5rem / 4);
   height: calc(3.1875rem + 0.5rem / 2);

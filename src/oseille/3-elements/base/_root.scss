@@ -9,6 +9,15 @@
 
 /* Top level styling */
 
+*,
+::after,
+::before {
+    // @see https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
 html {
     margin: 0;
     padding: 0;
@@ -45,15 +54,7 @@ body {
     --fore-color: #{colors.get('fore')};
     --back-color: #{colors.get('back')};
 
-    @supports (font-size-adjust: 1) {
+    @supports (font-size-adjust: 0.5) {
         font-size-adjust: 0.5;
     }
-}
-
-*,
-::after,
-::before {
-    -webkit-box-sizing: inherit;
-    -moz-box-sizing: inherit;
-    box-sizing: inherit;
 }
