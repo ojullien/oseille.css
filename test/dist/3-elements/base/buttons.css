@@ -1,132 +1,89 @@
 /* Button and button-like styling */
+/*
 button::-moz-focus-inner,
-[type=button]::-moz-focus-inner,
-[type=reset]::-moz-focus-inner,
-[type=submit]::-moz-focus-inner {
-  border-style: none;
-  padding: 0;
+[type='button']::-moz-focus-inner,
+[type='reset']::-moz-focus-inner,
+[type='submit']::-moz-focus-inner {
+    border-style: none;
+    padding: 0;
 }
-
+*/
 :-moz-ui-invalid {
   box-shadow: none;
 }
 
 ::-webkit-file-upload-button {
-  -webkit-appearance: button;
   font: inherit;
 }
 
-@supports (-webkit-appearance: button) {
+@supports (-webkit-appearance: button) or (-moz-appearance: button) {
   button,
 [type=button],
-[type=reset],
-[type=submit] {
+[type=submit],
+[type=reset] {
+    -moz-appearance: button;
     -webkit-appearance: button;
   }
 }
+/* Button styling */
+.button, [role=button], [type=button],
+[type=submit],
+[type=reset], button {
+  display: inline-block;
+  vertical-align: middle;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  --button-padding: 0.5rem calc(1.5 * 0.5rem);
+  padding: var(--button-padding);
+  margin: 0.5rem;
+  font: inherit;
+  font-size: 1em;
+  text-decoration: none;
+  cursor: pointer;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-color: var(--button-back-color, transparent);
+  color: var(--button-fore-color, #121212);
+  border: 2px solid var(--button-border-color, #121212);
+  border-radius: 0;
+}
+.button:hover, [role=button]:hover, [type=button]:hover,
+[type=submit]:hover,
+[type=reset]:hover, button:hover {
+  outline: solid transparent;
+  background-color: var(--button-back-hover-color, #121212);
+  color: var(--button-fore-hover-color, #f8f8f8);
+  border-color: var(--button-border-hover-color, #121212);
+}
+.button:focus, [role=button]:focus, [type=button]:focus,
+[type=submit]:focus,
+[type=reset]:focus, button:focus {
+  outline: 4px solid var(--button-outline-focus-color, #1b1b1b);
+  background-color: var(--button-back-hover-color, #121212);
+  color: var(--button-fore-hover-color, #f8f8f8);
+  border-color: var(--button-border-hover-color, #121212);
+}
+.button.small, .small[role=button], .small[type=button],
+.small[type=submit],
+.small[type=reset], button.small {
+  --button-padding: calc(0.5 * 0.5rem) calc(0.75 * 0.5rem);
+}
+.button.large, .large[role=button], .large[type=button],
+.large[type=submit],
+.large[type=reset], button.large {
+  --button-padding: calc(1.5 * 0.5rem) calc(2 * 0.5rem);
+}
+
 button {
   overflow: visible;
   text-transform: none;
 }
 
-button,
-[type=button],
-[type=submit],
-[type=reset],
-a.button,
-label.button,
-.button,
-a[role=button],
-label[role=button],
-[role=button] {
-  display: inline-block;
-  --button-padding: 0.5rem calc(1.5 * 0.5rem);
-  padding: var(--button-padding);
-  margin: 0.5rem;
-  width: 100%;
-  font: inherit;
-  font-size: 1em;
-  text-decoration: none;
-  align-items: center;
-  justify-content: center;
-  -moz-user-select: none;
-  -webkit-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-@supports (cursor: pointer) {
-  button,
-[type=button],
-[type=submit],
-[type=reset],
-a.button,
-label.button,
-.button,
-a[role=button],
-label[role=button],
-[role=button] {
-    cursor: pointer;
-  }
-}
-@media screen and (min-width: 768px) {
-  button,
-[type=button],
-[type=submit],
-[type=reset],
-a.button,
-label.button,
-.button,
-a[role=button],
-label[role=button],
-[role=button] {
-    width: auto;
-  }
-}
-
-button,
-[type=button],
-[type=submit],
-[type=reset],
-a.button,
-label.button,
-.button,
-a[role=button],
-label[role=button],
-[role=button] {
-  background-color: var(--button-back-color, #e0e0e0);
-  color: var(--button-fore-color, #121212);
-  border: 2px solid var(--button-border-color, #222222);
-  border-radius: 4px;
-  transition: all 0.3s ease;
-}
-button:hover,
-[type=button]:hover,
-[type=submit]:hover,
-[type=reset]:hover,
-a.button:hover,
-label.button:hover,
-.button:hover,
-a[role=button]:hover,
-label[role=button]:hover,
-[role=button]:hover {
-  outline: solid transparent;
-  background-color: var(--button-hover-back-color, #c6c6c6);
-  transform: scale(1.05);
-}
-button:focus,
-[type=button]:focus,
-[type=submit]:focus,
-[type=reset]:focus,
-a.button:focus,
-label.button:focus,
-.button:focus,
-a[role=button]:focus,
-label[role=button]:focus,
-[role=button]:focus {
-  outline: solid transparent;
-  box-shadow: 0 0 0 5px var(--button-border-focus-color, #909090);
-}
-
+/* Anchor button-like styling */
+/* Role button-like styling */
 button.noborder,
 [type=button].noborder,
 [type=submit].noborder,
@@ -233,22 +190,6 @@ button.inverse:focus,
 [role=button].inverse:focus {
   box-shadow: 0 0 0 5px var(--button-border-focus-color, #909090);
 }
-button.small,
-[type=button].small,
-[type=submit].small,
-[type=reset].small,
-.button.small,
-[role=button].small {
-  --button-padding: calc(0.5 * 0.5rem) calc(0.75 * 0.5rem);
-}
-button.large,
-[type=button].large,
-[type=submit].large,
-[type=reset].large,
-.button.large,
-[role=button].large {
-  --button-padding: calc(1.5 * 0.5rem) calc(2 * 0.5rem);
-}
 
 button:disabled, button[aria-disabled=true], button[disabled],
 [type=button]:disabled,
@@ -311,31 +252,43 @@ button:disabled, button[aria-disabled=true], button[disabled],
 }
 
 /* Button group styling. */
+/*
 .button-group {
-  display: flex;
-  border: 1px solid var(--button-group-border-color, #909090);
-  border-radius: 4px;
-  margin: 0.5rem;
+    display: flex;
+
+    border: borders.get('width') solid var(--button-group-border-color, #909090);
+    border-radius: borders.get('radius');
+
+    margin: boxmodel.get('margin');
+
+    @include boxshadow.box-shadow(borders.get('shadow'));
+
+    & > button,
+    [type='button'],
+    & > [type='submit'],
+    & > [type='reset'],
+    & > .button,
+    & > [role='button'] {
+        margin: 0;
+        max-width: 100%;
+        flex: 1 1 auto;
+        text-align: center;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    & > :not(:first-child) {
+        border-left: borders.get('width') solid var(--button-group-border-color, #909090);
+    }
+
+    // Responsiveness for button groups
+    @media screen and (max-width: 767px) {
+        flex-direction: column;
+        & > :not(:first-child) {
+            border: 0; // Reapply to remove the left border from elements.
+            border-top: borders.get('width') solid var(--button-group-border-color, #909090);
+        }
+    }
 }
-.button-group > button,
-.button-group [type=button], .button-group > [type=submit], .button-group > [type=reset], .button-group > .button, .button-group > [role=button] {
-  margin: 0;
-  max-width: 100%;
-  flex: 1 1 auto;
-  text-align: center;
-  border: 0;
-  border-radius: 0;
-  box-shadow: none;
-}
-.button-group > :not(:first-child) {
-  border-left: 1px solid var(--button-group-border-color, #909090);
-}
-@media screen and (max-width: 767px) {
-  .button-group {
-    flex-direction: column;
-  }
-  .button-group > :not(:first-child) {
-    border: 0;
-    border-top: 1px solid var(--button-group-border-color, #909090);
-  }
-}
+*/

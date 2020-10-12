@@ -70,6 +70,7 @@ $_disabled-opacity: 0.75 !default;
 
 // Different elements are styled based on the same set of rules.
 // Reset for Firefox focusing on button elements.
+/*
 button::-moz-focus-inner,
 [type='button']::-moz-focus-inner,
 [type='reset']::-moz-focus-inner,
@@ -77,153 +78,75 @@ button::-moz-focus-inner,
     border-style: none;
     padding: 0;
 }
+*/
 
 // Remove the additional ':invalid' styles in Firefox.
 // See: https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737
-
 :-moz-ui-invalid {
     box-shadow: none;
 }
 
+// Change font properties to 'inherit' in Safari.
 ::-webkit-file-upload-button {
-    -webkit-appearance: button; // Correct the inability to style clickable types in iOS and Safari.
-    font: inherit; // Change font properties to 'inherit' in Safari.
+    font: inherit;
 }
 
 // Fixes for Android 4, iOS and Safari.
-@supports (-webkit-appearance: button) {
+@supports ((-webkit-appearance: button) or (-moz-appearance: button)) {
     button,
     [type='button'],
-    [type='reset'],
-    [type='submit'] {
+    [type='submit'],
+    [type='reset'] {
+        -moz-appearance: button;
         -webkit-appearance: button;
     }
 }
 
-// Other fixes.
-button {
-    overflow: visible; // Show the overflow in IE.
-    text-transform: none; // Remove inheritance of text-transform in Edge, Firefox, and IE.
-}
+/* Button styling */
 
-// Main styling
-
-button,
-[type='button'],
-[type='submit'],
-[type='reset'],
-a.#{map.get($_classnames, 'button')},
-label.#{map.get($_classnames, 'button')},
-.#{map.get($_classnames, 'button')},
-a[role='button'],
-label[role='button'],
-[role='button'] {
+.button {
     display: inline-block;
+    vertical-align: middle;
+
+    text-align: center;
+    align-items: center; // If the container is flex or grid.
+    justify-content: center; // If the container is flex.
 
     --button-padding: #{boxmodel.get('padding')} calc(#{fonts.get-line-spacing('main')} * #{boxmodel.get('padding')});
     padding: var(--button-padding);
     margin: boxmodel.get('margin');
-    width: 100%;
 
     font: inherit;
     font-size: 1em;
 
     text-decoration: none;
 
-    @supports (cursor: pointer) {
-        cursor: pointer;
-    }
-
-    align-items: center;
-    justify-content: center;
+    cursor: pointer;
 
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;
 
-    @media screen and (min-width: #{breakpoints.get('medium')}) {
-        width: auto;
-    }
-}
-
-// Color and border styling
-
-button,
-[type='button'],
-[type='submit'],
-[type='reset'],
-.#{map.get($_classnames, 'button')},
-[role='button'] {
-    background-color: var(--button-back-color, #{colors.get('back-darker')});
+    background-color: var(--button-back-color, transparent);
     color: var(--button-fore-color, #{colors.get('fore')});
 
-    border: borders.get('width-alt') solid var(--button-border-color, #{colors.get('border')});
-    border-radius: borders.get('radius');
-
-    transition: background 0.3s ease-out;
+    border: borders.get('width-alt') solid var(--button-border-color, #{colors.get('fore')});
+    border-radius: 0;
 
     &:hover {
         outline: solid transparent;
-        background-color: var(--button-hover-back-color, #{colors.get('back-darkest')});
-        transform: scale(1.05); // Accessibility
+        background-color: var(--button-back-hover-color, #{colors.get('back-alt')});
+        color: var(--button-fore-hover-color, #{colors.get('fore-alt')});
+        border-color: var(--button-border-hover-color, #{colors.get('back-alt')});
+        //transform: scale(1.05); // Accessibility
     }
 
     &:focus {
-        outline: solid transparent;
-        box-shadow: 0 0 0 5px var(--button-border-focus-color, colors.get('border-lightest'));
-    }
-}
-
-button,
-[type='button'],
-[type='submit'],
-[type='reset'],
-.#{map.get($_classnames, 'button')},
-[role='button'] {
-    // Color variants
-    &.noborder {
-        @include makeColorVariant(
-            #{colors.get('fore')},
-            #{colors.get('back-darker')},
-            #{colors.get('transparent')},
-            #{colors.get('back-darkest')},
-            #{colors.get('transparent')},
-            #{colors.get('border-lightest')}
-        );
-    }
-
-    &.secondary {
-        @include makeColorVariant(
-            #{colors.get('fore')},
-            #{colors.get('back')},
-            #{colors.get('border')},
-            #{colors.get('back-darker')},
-            #{colors.get('border')},
-            #{colors.get('border-lightest')}
-        );
-    }
-
-    &.tertiary {
-        @include makeColorVariant(
-            #{colors.get('fore')},
-            #{colors.get('back')},
-            #{colors.get('transparent')},
-            #{colors.get('back-darker')},
-            #{colors.get('border')},
-            #{colors.get('border-lightest')}
-        );
-    }
-
-    &.inverse {
-        @include makeColorVariant(
-            #{colors.get('back-darker')},
-            #{colors.get('fore')},
-            none,
-            #{colors.get('fore-lightest')},
-            none,
-            #{colors.get('border-lightest')}
-        );
+        outline: 4px solid var(--button-outline-focus-color, #{colors.get('border-darkest')});
+        background-color: var(--button-back-hover-color, #{colors.get('back-alt')});
+        color: var(--button-fore-hover-color, #{colors.get('fore-alt')});
+        border-color: var(--button-border-hover-color, #{colors.get('back-alt')});
     }
 
     // Size variants
@@ -236,6 +159,36 @@ button,
     }
 }
 
+button {
+    @extend .button;
+
+    overflow: visible; // Show the overflow in IE.
+    text-transform: none; // Remove inheritance of text-transform in Edge, Firefox, and IE.
+}
+
+// Input button styling
+
+[type='button'],
+[type='submit'],
+[type='reset'] {
+    @extend .button;
+}
+
+// Anchor button-like styling
+
+//a.button,
+//a[role='button'] {
+//    @extend .button;
+//}
+
+// Role button-like styling
+
+[role='button'] {
+    @extend .button;
+}
+
+// Color and border styling
+
 // Disabled styling button elements.
 // It is a bad practice to disable buttons. Disabling the button prevents our chance to tell the user what is wrong.
 // The user keeps clicking the button and is totally in the dark why nothing happens. Keep the button enabled.
@@ -245,7 +198,7 @@ button,
 [type='button'],
 [type='submit'],
 [type='reset'],
-.#{map.get($_classnames, 'button')},
+.button,
 [role='button'] {
     // .button[disabled] is actually higher specificity than a.button, so no need for more than that
     &:disabled,
@@ -264,7 +217,7 @@ button,
 }
 
 /* Button group styling. */
-
+/*
 .#{map.get($_classnames, 'group')} {
     display: flex;
 
@@ -279,7 +232,7 @@ button,
     [type='button'],
     & > [type='submit'],
     & > [type='reset'],
-    & > .#{map.get($_classnames, 'button')},
+    & > .button,
     & > [role='button'] {
         margin: 0;
         max-width: 100%;
@@ -303,3 +256,4 @@ button,
         }
     }
 }
+*/
