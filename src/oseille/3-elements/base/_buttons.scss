@@ -32,53 +32,23 @@ $_mobile-breakpoint: breakpoints.get('medium') - 1px;
 $_classnames: (
     'button': 'button',
     'group': 'button-group',
+    'variant-1': 'scale-on-hover-variant',
+    'variant-2': 'shadowed-variant',
 ) !default;
 
 // Opacity for input elements when disabled.
 $_disabled-opacity: 0.75 !default;
 
-// Button color variant mixin:
-//  $fore: Text color for button variant.
-//  $back: Background color for button variant.
-//  $back-hover: Background color for button variant (hover).
-//  $border: Border color for button variant.
-//  $border-hover: Border color for button variant (hover).
-//  $border-focus: Border color for button variant (focus).
-@mixin makeColorVariant($fore, $back, $border, $back-hover, $border-hover, $border-focus) {
-    color: var(--button-fore-color, #{$fore});
-    background-color: var(--button-back-color, #{$back});
-
-    @if $border != none {
-        border-color: var(--button-border-color, #{$border});
-    }
-
-    &:hover {
-        background-color: var(--button-hover-back-color, #{$back-hover});
-        @if $border-hover != none {
-            border-color: var(--button-border-hover-color, #{$border-hover});
-        }
-    }
-
-    &:focus {
-        @if $border-focus != none {
-            box-shadow: 0 0 0 5px var(--button-border-focus-color, #{$border-focus});
-        }
-    }
-}
-
 /* Button and button-like styling */
 
-// Different elements are styled based on the same set of rules.
 // Reset for Firefox focusing on button elements.
-/*
 button::-moz-focus-inner,
-[type='button']::-moz-focus-inner,
-[type='reset']::-moz-focus-inner,
-[type='submit']::-moz-focus-inner {
+input[type='button']::-moz-focus-inner,
+input[type='reset']::-moz-focus-inner,
+input[type='submit']::-moz-focus-inner {
     border-style: none;
     padding: 0;
 }
-*/
 
 // Remove the additional ':invalid' styles in Firefox.
 // See: https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737
@@ -92,19 +62,19 @@ button::-moz-focus-inner,
 }
 
 // Fixes for Android 4, iOS and Safari.
-@supports ((-webkit-appearance: button) or (-moz-appearance: button)) {
+@supports (-webkit-appearance: button) or (-moz-appearance: button) {
     button,
-    [type='button'],
-    [type='submit'],
-    [type='reset'] {
+    input[type='button'],
+    input[type='submit'],
+    input[type='reset'] {
         -moz-appearance: button;
         -webkit-appearance: button;
     }
 }
 
-/* Button styling */
+// Button styling
 
-.button {
+.#{map.get($_classnames, 'button')} {
     display: inline-block;
     vertical-align: middle;
 
@@ -157,10 +127,22 @@ button::-moz-focus-inner,
     &.large {
         --button-padding: calc(1.5 * #{boxmodel.get('padding')}) calc(2 * #{boxmodel.get('padding')});
     }
+
+    // Disabled styling button elements.
+    // It is a bad practice to disable buttons. Disabling the button prevents our chance to tell the user what is wrong.
+    // The user keeps clicking the button and is totally in the dark why nothing happens. Keep the button enabled.
+    // Let the user click the button. Then show the message why it can’t proceed.
+    &:disabled,
+    &[aria-disabled='true'],
+    &[disabled] {
+        cursor: not-allowed;
+        filter: grayscale(60%);
+        opacity: $_disabled-opacity;
+    }
 }
 
 button {
-    @extend .button;
+    @extend .#{map.get($_classnames, 'button')};
 
     overflow: visible; // Show the overflow in IE.
     text-transform: none; // Remove inheritance of text-transform in Edge, Firefox, and IE.
@@ -168,56 +150,51 @@ button {
 
 // Input button styling
 
-[type='button'],
-[type='submit'],
-[type='reset'] {
-    @extend .button;
+input[type='button'],
+input[type='submit'],
+input[type='reset'] {
+    @extend .#{map.get($_classnames, 'button')};
 }
-
-// Anchor button-like styling
-
-//a.button,
-//a[role='button'] {
-//    @extend .button;
-//}
 
 // Role button-like styling
 
 [role='button'] {
-    @extend .button;
+    @extend .#{map.get($_classnames, 'button')};
 }
 
-// Color and border styling
+// Anchor button-like styling. Overrides a:link
 
-// Disabled styling button elements.
-// It is a bad practice to disable buttons. Disabling the button prevents our chance to tell the user what is wrong.
-// The user keeps clicking the button and is totally in the dark why nothing happens. Keep the button enabled.
-// Let the user click the button. Then show the message why it can’t proceed.
+a[role='button'],
+a.button {
+    color: var(--button-fore-color, #{colors.get('fore')});
 
-button,
-[type='button'],
-[type='submit'],
-[type='reset'],
-.button,
-[role='button'] {
+    &:focus {
+        outline-offset: unset;
+    }
+
     // .button[disabled] is actually higher specificity than a.button, so no need for more than that
-    &:disabled,
-    &[aria-disabled='true'],
-    &[disabled] {
-        //pointer-events: none;
-        @supports (cursor: not-allowed) {
-            cursor: not-allowed;
-        }
-        @supports (filter: grayscale(60%)) {
-            filter: grayscale(60%);
-        }
-        opacity: $_disabled-opacity;
-        transform: none !important;
+}
+
+// Variants
+
+.#{map.get($_classnames, 'variant-1')} {
+    &:hover {
+        transform: scale(1.05);
+    }
+}
+
+.#{map.get($_classnames, 'variant-2')} {
+    border-radius: borders.get('radius');
+
+    &:hover,
+    &:focus {
+        outline: solid transparent;
+        box-shadow: 0 0 0 borders.get('radius');
     }
 }
 
 /* Button group styling. */
-/*
+
 .#{map.get($_classnames, 'group')} {
     display: flex;
 
@@ -229,9 +206,9 @@ button,
     @include boxshadow.box-shadow(borders.get('shadow'));
 
     & > button,
-    [type='button'],
-    & > [type='submit'],
-    & > [type='reset'],
+    input[type='button'],
+    & > input[type='submit'],
+    & > input[type='reset'],
     & > .button,
     & > [role='button'] {
         margin: 0;
@@ -256,4 +233,3 @@ button,
         }
     }
 }
-*/
