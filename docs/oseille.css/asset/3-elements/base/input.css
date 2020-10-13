@@ -2,7 +2,7 @@
 /* Styling for input */
 input {
   overflow: visible;
-  background: var(--input-back-color, #f8f8f8);
+  background-color: var(--input-back-color, #f8f8f8);
   color: var(--input-fore-color, #121212);
   border: 2px solid var(--input-border-color, #222222);
   font-family: inherit;
@@ -38,8 +38,7 @@ input:not([type]),
 [type=radio],
 textarea,
 select {
-  box-sizing: border-box;
-  background: var(--input-back-color, #f8f8f8);
+  background-color: var(--input-back-color, #f8f8f8);
   color: var(--input-fore-color, #121212);
   border: 2px solid var(--input-border-color, #222222);
   border-radius: 4px;
@@ -93,14 +92,14 @@ select {
   content: "";
   top: calc(1px + 0.5rem / 2);
   left: calc(1px + 0.5rem / 2);
-  background: #121212;
+  background-color: #121212;
   width: 0.5rem;
   height: 0.5rem;
 }
 
 /* Styling for number */
-[type=number]::-webkit-inner-spin-button,
-[type=number]::-webkit-outer-spin-button {
+::-webkit-inner-spin-button,
+::-webkit-outer-spin-button {
   height: auto;
 }
 
@@ -123,6 +122,11 @@ select {
   }
 }
 /* Styling for textarea */
+textarea {
+  font: inherit;
+  font-size: 100%;
+  line-height: 1.5;
+}
 textarea:disabled, textarea[disabled] {
   opacity: 0.75;
   transform: none;
@@ -140,6 +144,9 @@ textarea:disabled, textarea[disabled] {
 
 /* Styling for select */
 select {
+  font: inherit;
+  line-height: 1.5;
+  text-transform: none;
   max-width: 100%;
 }
 select:disabled, select[disabled] {
@@ -155,6 +162,13 @@ select:disabled, select[disabled] {
   select:disabled, select[disabled] {
     filter: grayscale(60%);
   }
+}
+
+optgroup {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.5;
+  margin: 0;
 }
 
 /* Styling for option */

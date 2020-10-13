@@ -6,18 +6,17 @@ footer {
   font-size: 0.875em;
 }
 footer.page-footer {
-  background: var(--footer-back-color, #f8f8f8);
+  background-color: var(--footer-back-color, #f8f8f8);
   color: var(--footer-fore-color, #121212);
 }
-footer a,
-footer a:visited {
-  color: var(--footer-link-color, #215cca);
+footer.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 0;
+  z-index: 1101;
 }
-@supports (position: sticky) or (position: -webkit-sticky) {
-  footer.sticky {
-    z-index: 1101;
-    bottom: 0;
-    position: -webkit-sticky;
-    position: sticky;
+@media screen and (max-width: 767px) {
+  footer.sticky.unfix {
+    position: static;
   }
 }

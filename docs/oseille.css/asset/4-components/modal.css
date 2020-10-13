@@ -21,7 +21,7 @@
   display: none;
   width: 100vw;
   height: 100vh;
-  background: var(--modal-back-color, rgba(0, 0, 0, 0.45));
+  background-color: var(--modal-back-color, rgba(0, 0, 0, 0.45));
 }
 [type=checkbox].modal + div .card {
   margin: 0 auto;
@@ -55,7 +55,7 @@
   text-align: center;
 }
 [type=checkbox].modal + div .card .modal-close:hover, [type=checkbox].modal + div .card .modal-close:focus {
-  background: var(--modal-back-hover-color, #f8f8f8);
+  background-color: var(--modal-back-hover-color, #f8f8f8);
 }
 [type=checkbox].modal:checked + div {
   display: flex;

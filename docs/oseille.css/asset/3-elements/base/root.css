@@ -1,4 +1,12 @@
 /* Top level styling */
+*,
+::after,
+::before {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
 html {
   margin: 0;
   padding: 0;
@@ -13,6 +21,11 @@ html {
     text-size-adjust: 100%;
   }
 }
+@supports (text-rendering: optimizeLegibility) {
+  html {
+    text-rendering: optimizeLegibility;
+  }
+}
 @supports (scroll-behavior: smooth) {
   html {
     scroll-behavior: smooth;
@@ -24,14 +37,14 @@ body {
   padding: 0;
   border: 0;
   color: var(--fore-color, #121212);
-  background: var(--back-color, #f8f8f8);
+  background-color: var(--back-color, #f8f8f8);
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, sans-serif;
   font-size: medium;
   --smaller: 0.75em;
   --fore-color: #121212;
   --back-color: #f8f8f8;
 }
-@supports (font-size-adjust: 1) {
+@supports (font-size-adjust: 0.5) {
   body {
     font-size-adjust: 0.5;
   }

@@ -18,7 +18,7 @@ pre {
   font-family: Menlo, Consolas, monospace;
   font-size: 0.85em;
   font-weight: normal;
-  background: var(--pre-back-color, #121212);
+  background-color: var(--pre-back-color, #121212);
   color: var(--pre-fore-color, #f8f8f8);
   border: medium solid #222222;
   border-left: thick solid #215cca;
@@ -33,7 +33,7 @@ pre code {
 code {
   padding: calc(0.5rem / 4) calc(0.5rem / 2);
   border-radius: 4px;
-  background: var(--code-back-color, #121212);
+  background-color: var(--code-back-color, #121212);
   color: var(--code-fore-color, #f8f8f8);
 }
 code a:link,
@@ -44,7 +44,7 @@ code a:visited {
 kbd {
   padding: calc(0.5rem / 4) calc(0.5rem / 2);
   border-radius: 4px;
-  background: var(--kbd-back-color, #121212);
+  background-color: var(--kbd-back-color, #121212);
   color: var(--kbd-fore-color, #f8f8f8);
 }
 

@@ -8,6 +8,7 @@
     <link href="asset/3-elements/base/root.css" rel="stylesheet" type="text/css" id="root-css" />
     <link href="asset/3-elements/base/paragraph.css" rel="stylesheet" type="text/css" id="paragraph-css" />
     <link href="asset/3-elements/base/details.css" rel="stylesheet" type="text/css" id="details-css" />
+    <link href="asset/4-components/collapse.css" rel="stylesheet" type="text/css" id="collapse-css" />
     <link href="asset/oseille.css" rel="stylesheet" type="text/css" id="oseille-css" disabled />
 </head>
 <style>
@@ -25,6 +26,7 @@
             <label style="" for="root"><input style="" type="checkbox" id="checkbox-root" name="checkbox-root" value="root" onclick="switchToLocal(this);" checked />Root</label>
             <label style="" for="paragraph"><input style="" type="checkbox" id="checkbox-paragraph" name="checkbox-paragraph" value="paragraph" onclick="switchToLocal(this);" checked />Paragraph</label>
             <label style="" for="details"><input style="" type="checkbox" id="checkbox-details" name="checkbox-details" value="details" onclick="switchToLocal(this);" checked />Details</label>
+            <label style="" for="collapse"><input style="" type="checkbox" id="checkbox-collapse" name="checkbox-collapse" value="collapse" onclick="switchToLocal(this);" checked />Collapse</label>
             <label style="" for="oseille"><input style="" type="checkbox" id="checkbox-oseille" name="checkbox-oseille" value="oseille" onclick="switchToOseille();" />Oseille</label>
         </div>
 
@@ -59,6 +61,32 @@
                 recommended.</p>
             </details>
 
+            <h2 id="accordions">Spoilers & accordions</h2>
+            <div class="collapse">
+                <input type="checkbox" id="collapse-section1" checked aria-hidden="true">
+                <label for="collapse-section1" aria-hidden="true">Collapse section 1</label>
+                <div>
+                    <p>This is the first section of the collapse</p>
+                </div>
+                <input type="checkbox" id="collapse-section2" aria-hidden="true">
+                <label for="collapse-section2" aria-hidden="true">Collapse section 2</label>
+                <div>
+                    <p>This is the second section of the collapse</p>
+                </div>
+            </div>
+            <div class="collapse">
+                <input type="radio" id="accordion-section1" checked aria-hidden="true" name="accordion">
+                <label for="accordion-section1" aria-hidden="true">Accordion section 1</label>
+                <div>
+                    <p>This is the first section of the accordion</p>
+                </div>
+                <input type="radio" id="accordion-section2" aria-hidden="true" name="accordion">
+                <label for="accordion-section2" aria-hidden="true">Accordion section 2</label>
+                <div>
+                    <p>This is the second section of the accordion</p>
+                </div>
+            </div>
+
             <h2>Dialog Simple example</h2>
             <button onclick="window.dialog.showModal();">open dialog</button>
             <dialog id="dialog">
@@ -74,6 +102,7 @@
     myMap.set('checkbox-root','#root-css');
     myMap.set('checkbox-paragraph','#paragraph-css');
     myMap.set('checkbox-details','#details-css');
+    myMap.set('checkbox-collapse','#collapse-css');
 
     function switchToLocal(element) {
         if (element.checked != true) {

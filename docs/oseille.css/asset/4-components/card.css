@@ -6,7 +6,7 @@
   align-self: center;
   position: relative;
   width: 100%;
-  background: var(--card-back-color, #f8f8f8);
+  background-color: var(--card-back-color, #f8f8f8);
   color: var(--card-fore-color, #121212);
   border: 1px solid var(--card-border-color, #909090);
   border-radius: 4px;
@@ -19,7 +19,6 @@
   text-align: center;
 }
 .card > .section {
-  box-sizing: border-box;
   margin: 0;
   border: 0;
   border-radius: 0;
@@ -38,7 +37,7 @@
   }
 }
 .card > .section.dark {
-  background: var(--card-back-color, #e0e0e0);
+  background-color: var(--card-back-color, #e0e0e0);
   color: var(--card-fore-color, #121212);
 }
 .card > .section.double-padded {

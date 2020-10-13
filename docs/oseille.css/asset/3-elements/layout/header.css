@@ -6,7 +6,7 @@ header {
 }
 
 .page-header {
-  background: var(--header-back-color, #f8f8f8);
+  background-color: var(--header-back-color, #f8f8f8);
   color: var(--header-fore-color, #121212);
   border-bottom: 1px solid var(--header-border-color, #909090);
   padding: calc(0.5rem / 4) 0;
@@ -14,60 +14,35 @@ header {
   overflow-x: auto;
   overflow-y: hidden;
 }
-.page-header.row {
-  box-sizing: content-box;
-}
-.page-header.row .logo {
-  line-height: 1;
-}
 .page-header .logo {
   color: var(--header-fore-color, #121212);
   font-size: 1.75em;
   padding: 0.5rem calc(2 * 0.5rem);
   text-decoration: none;
+  box-shadow: none;
 }
 .page-header button,
 .page-header [type=button],
 .page-header .button,
 .page-header [role=button] {
-  box-sizing: border-box;
-  position: relative;
-  top: calc(0rem - 0.5rem / 4);
-  height: calc(3.1875rem + 0.5rem / 2);
-  line-height: calc(3.1875rem - 0.5rem * 1.5);
-  text-align: center;
-  background: var(--header-back-color, inherit);
-  color: var(--header-fore-color, inherit);
   border: 0;
-  border-radius: 0;
-  margin: 0;
   text-transform: uppercase;
 }
 .page-header span {
-  box-sizing: border-box;
   position: relative;
   top: calc(0rem - 0.5rem / 4);
-  height: calc(3.1875rem + 0.5rem / 2);
   line-height: calc(3.1875rem - 0.5rem * 1.5);
   text-align: center;
   text-transform: uppercase;
 }
-.page-header button:hover, .page-header button:focus,
-.page-header [type=button]:hover,
-.page-header [type=button]:focus,
-.page-header .button:hover,
-.page-header .button:focus,
-.page-header [role=button]:hover,
-.page-header [role=button]:focus {
-  background: var(--header-back-hover-color, #e0e0e0);
-  color: var(--header-fore-hover-color, #121212);
-  transform: scale(1.05);
+.page-header.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1101;
 }
-@supports (position: sticky) or (position: -webkit-sticky) {
-  .page-header.sticky {
-    position: -webkit-sticky;
-    position: sticky;
-    z-index: 1101;
-    top: 0;
+@media screen and (max-width: 767px) {
+  .page-header.sticky.unfix {
+    position: static;
   }
 }

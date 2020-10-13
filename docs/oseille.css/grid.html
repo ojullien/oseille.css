@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="asset/3-elements/base/root.css" rel="stylesheet" type="text/css" id="root-css" />    
     <link href="asset/4-components/grid.css" rel="stylesheet" type="text/css" id="grid-css" />
+    <link href="asset/5-utilities/hidden.css" rel="stylesheet" type="text/css" id="utility-css" />
     <link href="asset/oseille.css" rel="stylesheet" type="text/css" id="oseille-css" disabled />
 </head>
 <style>
@@ -33,6 +34,7 @@
         <div style="min-height: 100%; display: flex; flex-direction: row-reverse; justify-content: space-evenly; align-items: center; text-align: center; align-self: flex-start;position: sticky; top: 10px;">
             <label style="" for="root"><input style="" type="checkbox" id="checkbox-root" name="checkbox-root" value="root" onclick="switchToLocal(this);" checked />Root</label>
             <label style="" for="grid"><input style="" type="checkbox" id="checkbox-grid" name="checkbox-grid" value="grid" onclick="switchToLocal(this);" checked />Grid</label>
+            <label style="" for="utility"><input style="" type="checkbox" id="checkbox-utility" name="checkbox-utility" value="utility" onclick="switchToLocal(this);" checked />Utility</label>            
             <label style="" for="oseille"><input style="" type="checkbox" id="checkbox-oseille" name="checkbox-oseille" value="oseille" onclick="switchToOseille();" />Oseille</label>
         </div>
 
@@ -289,7 +291,8 @@
     var myMap = new Map();
     myMap.set('checkbox-root','#root-css');
     myMap.set('checkbox-grid','#grid-css');
-
+    myMap.set('checkbox-utility','#utility-css');
+    
     function switchToLocal(element) {
         if (element.checked != true) {
             document.querySelector(myMap.get(element.id)).disabled=true;
