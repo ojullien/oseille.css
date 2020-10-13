@@ -119,6 +119,10 @@ input[type='submit']::-moz-focus-inner {
         border-color: var(--button-border-hover-color, #{colors.get('back-alt')});
     }
 
+    &:active {
+        transform: scale(0.9);
+    }
+
     // Size variants
     &.small {
         --button-padding: calc(0.5 * #{boxmodel.get('padding')}) calc(0.75 * #{boxmodel.get('padding')});
