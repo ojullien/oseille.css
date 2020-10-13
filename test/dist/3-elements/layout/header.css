@@ -14,12 +14,6 @@ header {
   overflow-x: auto;
   overflow-y: hidden;
 }
-.page-header.row {
-  box-sizing: content-box;
-}
-.page-header.row .logo {
-  line-height: 1;
-}
 .page-header .logo {
   color: var(--header-fore-color, #121212);
   font-size: 1.75em;
@@ -31,22 +25,12 @@ header {
 .page-header [type=button],
 .page-header .button,
 .page-header [role=button] {
-  position: relative;
-  top: calc(0rem - 0.5rem / 4);
-  height: calc(3.1875rem + 0.5rem / 2);
-  line-height: calc(3.1875rem - 0.5rem * 1.5);
-  text-align: center;
-  background-color: var(--header-back-color, inherit);
-  color: var(--header-fore-color, inherit);
   border: 0;
-  border-radius: 0;
-  margin: 0;
   text-transform: uppercase;
 }
 .page-header span {
   position: relative;
   top: calc(0rem - 0.5rem / 4);
-  height: calc(3.1875rem + 0.5rem / 2);
   line-height: calc(3.1875rem - 0.5rem * 1.5);
   text-align: center;
   text-transform: uppercase;

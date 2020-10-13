@@ -73,7 +73,6 @@ header {
     }
 
     padding: calc(#{boxmodel.get('padding')} / 4) 0;
-    //height: $_height;
 
     // Responsiveness for smaller displays, scrolls horizontally.
     white-space: nowrap;
@@ -81,12 +80,12 @@ header {
     overflow-y: hidden;
 
     // Fix for responsive header, using the grid system's row and column alignment.
-    &.#{map.get($_classnames, 'row')} {
-        box-sizing: content-box;
-        & .#{map.get($_classnames, 'logo')} {
-            line-height: 1;
-        }
-    }
+    //&.#{map.get($_classnames, 'row')} {
+    //    box-sizing: content-box;
+    //    & .#{map.get($_classnames, 'logo')} {
+    //        line-height: 1;
+    //    }
+    //}
 
     // Header logo styling.
     .#{map.get($_classnames, 'logo')} {
@@ -103,24 +102,7 @@ header {
     [type='button'],
     .#{map.get($_classnames, 'button')},
     [role='button'] {
-        position: relative;
-
-        // Use universal-padding to offset the padding of the header.
-        top: calc(0rem - #{boxmodel.get('padding')} / 4);
-
-        height: calc(#{$_height} + #{boxmodel.get('padding')} / 2); // Fill header.
-
-        line-height: calc(#{$_height} - #{boxmodel.get('padding')} * #{fonts.get-line-spacing('main')});
-
-        text-align: center;
-
-        // Apply color regardless to override styling from other things.
-        background-color: var(--header-back-color, inherit);
-        color: var(--header-fore-color, inherit);
-
         border: 0;
-        border-radius: 0;
-        margin: 0;
 
         @if $_links-uppercase {
             text-transform: uppercase;
@@ -134,8 +116,6 @@ header {
         // Use universal-padding to offset the padding of the header.
         top: calc(0rem - #{boxmodel.get('padding')} / 4);
 
-        height: calc(#{$_height} + #{boxmodel.get('padding')} / 2); // Fill header.
-
         line-height: calc(#{$_height} - #{boxmodel.get('padding')} * #{fonts.get-line-spacing('main')});
 
         text-align: center;
@@ -144,19 +124,6 @@ header {
             text-transform: uppercase;
         }
     }
-
-    // Hover and focus
-    //    button,
-    //    [type='button'],
-    //    .#{map.get($_classnames, 'button')},
-    //    [role='button'] {
-    //        &:hover,
-    //        &:focus {
-    //            background-color: var(--header-back-hover-color, colors.get('back-hover'));
-    //            color: var(--header-fore-hover-color, colors.get('fore-hover'));
-    //            transform: scale(1.05); // Accessibility
-    //        }
-    //    }
 
     &.#{map.get($_classnames, 'sticky')} {
         position: -webkit-sticky;
