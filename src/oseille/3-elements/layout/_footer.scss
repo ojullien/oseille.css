@@ -56,11 +56,6 @@ footer {
     padding: calc(2 * #{boxmodel.get('padding')}) boxmodel.get('padding');
     font-size: fonts.get-size('footer');
 
-    a,
-    a:visited {
-        color: var(--footer-link-color, colors.get('link')); // Allows live color tunning
-    }
-
     &.#{map.get($_classnames, 'sticky')} {
         position: -webkit-sticky;
         position: sticky;

@@ -78,13 +78,13 @@ a {
     }
 
     &:hover {
-        outline: solid transparent; // We remove it but we provide alternative styling.
+        outline: transparent solid; // We remove it but we provide alternative styling.
         border-bottom-width: borders.get('width-relative-alt');
         border-bottom-color: inherit;
     }
 
     &:focus {
-        outline: var(--link-focus-color, colors.get('link')) dotted 0.125rem;
+        outline: var(--link-focus-color, colors.get('link')) solid 0.125rem;
         outline-offset: 0.0625em;
     }
 }

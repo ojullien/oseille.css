@@ -9,10 +9,6 @@ footer.page-footer {
   background-color: var(--footer-back-color, #f8f8f8);
   color: var(--footer-fore-color, #121212);
 }
-footer a,
-footer a:visited {
-  color: var(--footer-link-color, #215cca);
-}
 footer.sticky {
   position: -webkit-sticky;
   position: sticky;

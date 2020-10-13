@@ -105,7 +105,7 @@ input[type='submit']::-moz-focus-inner {
     border-radius: 0;
 
     &:hover {
-        outline: solid transparent;
+        outline: transparent solid;
         background-color: var(--button-back-hover-color, #{colors.get('back-alt')});
         color: var(--button-fore-hover-color, #{colors.get('fore-alt')});
         border-color: var(--button-border-hover-color, #{colors.get('back-alt')});
@@ -113,7 +113,7 @@ input[type='submit']::-moz-focus-inner {
     }
 
     &:focus {
-        outline: 4px solid var(--button-outline-focus-color, #{colors.get('border-darkest')});
+        outline: var(--button-outline-focus-color, #{colors.get('border-darkest')}) solid 4px;
         background-color: var(--button-back-hover-color, #{colors.get('back-alt')});
         color: var(--button-fore-hover-color, #{colors.get('fore-alt')});
         border-color: var(--button-border-hover-color, #{colors.get('back-alt')});
@@ -188,7 +188,7 @@ a.button {
 
     &:hover,
     &:focus {
-        outline: solid transparent;
+        outline: transparent solid;
         box-shadow: 0 0 0 borders.get('radius');
     }
 }

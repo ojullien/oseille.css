@@ -39,12 +39,12 @@ a:visited {
   color: var(--link-visited-color, #215cca);
 }
 a:hover {
-  outline: solid transparent;
+  outline: transparent solid;
   border-bottom-width: 0.125rem;
   border-bottom-color: inherit;
 }
 a:focus {
-  outline: var(--link-focus-color, #215cca) dotted 0.125rem;
+  outline: var(--link-focus-color, #215cca) solid 0.125rem;
   outline-offset: 0.0625em;
 }
 

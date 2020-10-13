@@ -51,17 +51,6 @@ header {
   text-align: center;
   text-transform: uppercase;
 }
-.page-header button:hover, .page-header button:focus,
-.page-header [type=button]:hover,
-.page-header [type=button]:focus,
-.page-header .button:hover,
-.page-header .button:focus,
-.page-header [role=button]:hover,
-.page-header [role=button]:focus {
-  background-color: var(--header-back-hover-color, #e0e0e0);
-  color: var(--header-fore-hover-color, #121212);
-  transform: scale(1.05);
-}
 .page-header.sticky {
   position: -webkit-sticky;
   position: sticky;

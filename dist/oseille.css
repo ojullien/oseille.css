@@ -116,12 +116,12 @@ a:visited {
   color: var(--link-visited-color, #215cca);
 }
 a:hover {
-  outline: solid transparent;
+  outline: transparent solid;
   border-bottom-width: 0.125rem;
   border-bottom-color: inherit;
 }
 a:focus {
-  outline: var(--link-focus-color, #215cca) dotted 0.125rem;
+  outline: var(--link-focus-color, #215cca) solid 0.125rem;
   outline-offset: 0.0625em;
 }
 
@@ -508,7 +508,7 @@ input[type=reset], button {
 .button:hover, [role=button]:hover, input[type=button]:hover,
 input[type=submit]:hover,
 input[type=reset]:hover, button:hover {
-  outline: solid transparent;
+  outline: transparent solid;
   background-color: var(--button-back-hover-color, #121212);
   color: var(--button-fore-hover-color, #f8f8f8);
   border-color: var(--button-border-hover-color, #121212);
@@ -516,7 +516,7 @@ input[type=reset]:hover, button:hover {
 .button:focus, [role=button]:focus, input[type=button]:focus,
 input[type=submit]:focus,
 input[type=reset]:focus, button:focus {
-  outline: 4px solid var(--button-outline-focus-color, #1b1b1b);
+  outline: var(--button-outline-focus-color, #1b1b1b) solid 4px;
   background-color: var(--button-back-hover-color, #121212);
   color: var(--button-fore-hover-color, #f8f8f8);
   border-color: var(--button-border-hover-color, #121212);
@@ -565,7 +565,7 @@ a.button:focus {
   border-radius: 4px;
 }
 .shadowed-variant:hover, .shadowed-variant:focus {
-  outline: solid transparent;
+  outline: transparent solid;
   box-shadow: 0 0 0 4px;
 }
 
@@ -1360,10 +1360,6 @@ footer.page-footer {
   background-color: var(--footer-back-color, #f8f8f8);
   color: var(--footer-fore-color, #121212);
 }
-footer a,
-footer a:visited {
-  color: var(--footer-link-color, #215cca);
-}
 footer.sticky {
   position: -webkit-sticky;
   position: sticky;
@@ -1428,17 +1424,6 @@ header {
   line-height: calc(3.1875rem - 0.5rem * 1.5);
   text-align: center;
   text-transform: uppercase;
-}
-.page-header button:hover, .page-header button:focus,
-.page-header [type=button]:hover,
-.page-header [type=button]:focus,
-.page-header .button:hover,
-.page-header .button:focus,
-.page-header [role=button]:hover,
-.page-header [role=button]:focus {
-  background-color: var(--header-back-hover-color, #e0e0e0);
-  color: var(--header-fore-hover-color, #121212);
-  transform: scale(1.05);
 }
 .page-header.sticky {
   position: -webkit-sticky;
