@@ -41,7 +41,7 @@ a:visited {
 a:hover {
   outline: transparent solid;
   border-bottom-width: 0.125rem;
-  border-bottom-color: inherit;
+  border-bottom-color: unset;
 }
 a:focus {
   outline: var(--link-focus-color, #215cca) solid 0.125rem;

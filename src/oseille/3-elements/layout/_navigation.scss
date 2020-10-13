@@ -40,20 +40,9 @@ nav {
         padding: boxmodel.get('padding') calc(#{fonts.get-line-spacing('main')} * #{boxmodel.get('padding')});
     }
 
-    a,
-    a:visited {
+    //    a:visited,
+    a {
         display: block;
-        border-radius: borders.get('radius');
-        transition: background 0.3s;
-        text-decoration: none; // We remove it but we provide alternative styling.
-        color: var(--nav-link-color, colors.get('link')); // Apply regardless to de-stylize visited links.
-
-        &:hover,
-        &:focus {
-            background-color: var(--nav-back-hover-color, colors.get('back-hover'));
-            font-weight: bolder;
-            @include boxshadow.box-shadow(none !important);
-        }
     }
 
     // Subcategories in navigation.
@@ -64,7 +53,7 @@ nav {
             &:before {
                 position: absolute;
                 left: calc(#{boxmodel.get('padding')} - #{1 + ($i - 1) * 2} * #{boxmodel.get('padding')});
-                top: calc(0 - 1px);
+                top: -1px;
                 content: '';
                 height: 100%;
                 border: borders.get('width') solid var(--nav-border-color, colors.get('border'));

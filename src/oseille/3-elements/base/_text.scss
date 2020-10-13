@@ -80,7 +80,7 @@ a {
     &:hover {
         outline: transparent solid; // We remove it but we provide alternative styling.
         border-bottom-width: borders.get('width-relative-alt');
-        border-bottom-color: inherit;
+        border-bottom-color: unset;
     }
 
     &:focus {
