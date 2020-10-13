@@ -112,6 +112,10 @@ a.button:focus {
   box-shadow: 0 0 0 4px;
 }
 
+.active-effect:active {
+  transform: scale(0.98);
+}
+
 /* Button group styling. */
 .button-group {
   display: flex;
