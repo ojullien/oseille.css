@@ -1364,12 +1364,15 @@ footer a,
 footer a:visited {
   color: var(--footer-link-color, #215cca);
 }
-@supports (position: sticky) or (position: -webkit-sticky) {
-  footer.sticky {
-    z-index: 1101;
-    bottom: 0;
-    position: -webkit-sticky;
-    position: sticky;
+footer.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  bottom: 0;
+  z-index: 1101;
+}
+@media screen and (max-width: 767px) {
+  footer.sticky.unfix {
+    position: static;
   }
 }
 
@@ -1437,12 +1440,15 @@ header {
   color: var(--header-fore-hover-color, #121212);
   transform: scale(1.05);
 }
-@supports (position: sticky) or (position: -webkit-sticky) {
-  .page-header.sticky {
-    position: -webkit-sticky;
-    position: sticky;
-    z-index: 1101;
-    top: 0;
+.page-header.sticky {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  z-index: 1101;
+}
+@media screen and (max-width: 767px) {
+  .page-header.sticky.unfix {
+    position: static;
   }
 }
 

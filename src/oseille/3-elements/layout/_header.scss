@@ -12,6 +12,7 @@
 @use '../../2-settings/fonts' as fonts;
 @use '../../2-settings/borders' as borders;
 @use '../../2-settings/box-model' as boxmodel;
+@use '../../2-settings/responsive' as breakpoints;
 
 // Private variables.
 //
@@ -20,10 +21,20 @@
 // The configured values will override the variables’ default values.
 // @link: https://sass-lang.com/documentation/variables
 
-$_height: 3.1875rem !default; // Height of the header element.
-$_logo-font-size: 1.75em !default; // Font size for the header logo element.
-$_only-bottom-border: true !default; // Apply styling only to the bottom border of header? (boolean)
-$_links-uppercase: true !default; // Should header links and buttons be uppercase? (boolean)
+// Mobile breakpoint
+$_mobile-breakpoint: breakpoints.get('medium') - 1px;
+
+// Height of the header element.
+$_height: 3.1875rem !default;
+
+// Font size for the header logo element.
+$_logo-font-size: 1.75em !default;
+
+// Apply styling only to the bottom border of header? (boolean)
+$_only-bottom-border: true !default;
+
+// Should header links and buttons be uppercase? (boolean)
+$_links-uppercase: true !default;
 
 // Classnames
 //
@@ -148,11 +159,18 @@ header {
     }
 
     &.#{map.get($_classnames, 'sticky')} {
-        @supports ((position: sticky) or (position: -webkit-sticky)) {
-            position: -webkit-sticky; // One of the rare instances where prefixes are necessary.
-            position: sticky;
-            z-index: 1101; // Deals with certain problems when combined with cards and tables.
-            top: 0;
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+        // Deals with certain problems when combined with cards and tables.
+        z-index: 1101;
+
+        // Uses media queries to un-fix sticky headers / footers to be able to present content without sticky headers
+        // and footers when the space of the viewport is limited.
+        @media screen and (max-width: #{$_mobile-breakpoint}) {
+            &.unfix {
+                position: static;
+            }
         }
     }
 }
