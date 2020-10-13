@@ -42,26 +42,30 @@ $_collapse-name: 'collapse' !default; // Class name for collapse component
         margin: -1px;
         overflow: hidden;
         position: absolute;
+        -webkit-clip-path: inset(100%);
+        clip-path: inset(100%);
         clip: rect(0 0 0 0);
-        @supports ((clip-path: inset(100%)) or (-webkit-clip-path: inset(100%))) {
-            -webkit-clip-path: inset(100%);
-            clip-path: inset(100%);
-        }
     }
+
     & > label {
         flex-grow: 1;
         display: inline-block;
         //height: $_label-height;
         cursor: pointer;
-        transition: background 0.3s;
+        //        transition: background 0.3s;
         color: var(--collapse-fore-color, colors.get('fore'));
         background-color: var(--collapse-back-color, colors.get('back'));
-        border: borders.get('width') solid var(--collapse-border-color, colors.get('border-lightest'));
+        border: borders.get('width') solid var(--collapse-border-color, colors.get('border'));
         padding: calc(1.5 * #{boxmodel.get('padding')});
+
         &:hover,
         &:focus {
-            background-color: var(--collapse-back-hover-color, colors.get('back-hover'));
+            outline: transparent solid;
+            background-color: var(--collapse-back-hover-color, #{colors.get('back-alt')});
+            color: var(--collapse-fore-hover-color, #{colors.get('fore-alt')});
+            border-color: var(--collapse-border-hover-color, #{colors.get('back-alt')});
         }
+
         + div {
             flex-basis: -webkit-auto;
             flex-basis: auto;
@@ -71,17 +75,16 @@ $_collapse-name: 'collapse' !default; // Class name for collapse component
             overflow: hidden;
             position: absolute;
             clip: rect(0 0 0 0);
-            @supports ((clip-path: inset(100%)) or (-webkit-clip-path: inset(100%))) {
-                -webkit-clip-path: inset(100%);
-                clip-path: inset(100%);
-            }
+            -webkit-clip-path: inset(100%);
+            clip-path: inset(100%);
             transition: max-height 0.3s;
             max-height: 1px; // for transition
         }
     }
     > :checked + label {
-        background-color: var(--collapse-back-color, colors.get('back'));
-        border-bottom-color: var(--collapse-border-color, colors.get('blue'));
+        background-color: var(--collapse-back-checked-color, colors.get('back-alt'));
+        color: var(--collapse-fore-checked-color, #{colors.get('fore-alt')});
+        //        border-bottom-color: var(--collapse-border-color, colors.get('blue'));
         & + div {
             position: relative;
             width: 100%;

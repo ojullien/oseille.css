@@ -1507,26 +1507,24 @@ time {
   margin: -1px;
   overflow: hidden;
   position: absolute;
+  -webkit-clip-path: inset(100%);
+  clip-path: inset(100%);
   clip: rect(0 0 0 0);
-}
-@supports (clip-path: inset(100%)) or (-webkit-clip-path: inset(100%)) {
-  .collapse > [type=radio], .collapse > [type=checkbox] {
-    -webkit-clip-path: inset(100%);
-    clip-path: inset(100%);
-  }
 }
 .collapse > label {
   flex-grow: 1;
   display: inline-block;
   cursor: pointer;
-  transition: background 0.3s;
   color: var(--collapse-fore-color, #121212);
   background-color: var(--collapse-back-color, #f8f8f8);
-  border: 1px solid var(--collapse-border-color, #909090);
+  border: 1px solid var(--collapse-border-color, #222222);
   padding: calc(1.5 * 0.5rem);
 }
 .collapse > label:hover, .collapse > label:focus {
-  background-color: var(--collapse-back-hover-color, #e0e0e0);
+  outline: transparent solid;
+  background-color: var(--collapse-back-hover-color, #121212);
+  color: var(--collapse-fore-hover-color, #f8f8f8);
+  border-color: var(--collapse-border-hover-color, #121212);
 }
 .collapse > label + div {
   flex-basis: -webkit-auto;
@@ -1537,18 +1535,14 @@ time {
   overflow: hidden;
   position: absolute;
   clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(100%);
+  clip-path: inset(100%);
   transition: max-height 0.3s;
   max-height: 1px;
 }
-@supports (clip-path: inset(100%)) or (-webkit-clip-path: inset(100%)) {
-  .collapse > label + div {
-    -webkit-clip-path: inset(100%);
-    clip-path: inset(100%);
-  }
-}
 .collapse > :checked + label {
-  background-color: var(--collapse-back-color, #f8f8f8);
-  border-bottom-color: var(--collapse-border-color, #215cca);
+  background-color: var(--collapse-back-checked-color, #121212);
+  color: var(--collapse-fore-checked-color, #f8f8f8);
 }
 .collapse > :checked + label + div {
   position: relative;
