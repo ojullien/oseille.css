@@ -62,30 +62,33 @@
             </details>
 
             <h2 id="accordions">Spoilers & accordions</h2>
+
             <div class="collapse">
-                <input type="checkbox" id="collapse-section1" checked aria-hidden="true">
-                <label for="collapse-section1" aria-hidden="true">Collapse section 1</label>
+                <input type="checkbox" id="collapsible-section-1" checked aria-hidden="true" />
+                <label for="collapsible-section-1" aria-hidden="true">Collapse section 1</label>
                 <div>
                     <p>This is the first section of the collapse</p>
                 </div>
-                <input type="checkbox" id="collapse-section2" aria-hidden="true">
-                <label for="collapse-section2" aria-hidden="true">Collapse section 2</label>
+                <input type="checkbox" id="collapsible-section-2" hidden aria-hidden="true">
+                <label for="collapsible-section-2" aria-hidden="true">Collapse section 2</label>
                 <div>
                     <p>This is the second section of the collapse</p>
                 </div>
             </div>
+            
             <div class="collapse">
-                <input type="radio" id="accordion-section1" checked aria-hidden="true" name="accordion">
+                <input type="radio" id="accordion-section1" checked hidden aria-hidden="true" name="accordion">
                 <label for="accordion-section1" aria-hidden="true">Accordion section 1</label>
                 <div>
                     <p>This is the first section of the accordion</p>
                 </div>
-                <input type="radio" id="accordion-section2" aria-hidden="true" name="accordion">
+                <input type="radio" id="accordion-section2" hidden aria-hidden="true" name="accordion">
                 <label for="accordion-section2" aria-hidden="true">Accordion section 2</label>
                 <div>
                     <p>This is the second section of the accordion</p>
                 </div>
             </div>
+
 
             <h2>Dialog Simple example</h2>
             <button onclick="window.dialog.showModal();">open dialog</button>

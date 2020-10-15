@@ -1,5 +1,5 @@
 //
-// Spoilers & accordions
+// Accordions
 //
 // They are composed of three components - the wrapper, the toggle button and
 // the content container.
@@ -7,6 +7,7 @@
 // You may override the default values of the settings' variables, if needed, with the @use rule.
 // See flavors/oseille.scss and the 2-settings*.scss files.
 //
+@use 'sass:map';
 @use '../1-tools/box-shadow' as boxshadow;
 @use '../2-settings/colors' as colors;
 @use '../2-settings/borders' as borders;
@@ -19,114 +20,91 @@
 // The configured values will override the variables’ default values.
 // @link: https://sass-lang.com/documentation/variables
 
-$_label-height: 1.5rem !default; // Height for the labels in the collapse component
-$_content-max-height: 400px !default; // Max height for the content panes in the collapse component
-$_collapse-name: 'collapse' !default; // Class name for collapse component
+$_content-max-height: 100vh !default; // Max height for the content panes in the collapse component
 
-/* Spoilers & Accordions styling */
+// Classnames
+//
+// Keys:
+//   - wrapper:  Class name for collapse component
+//   - toggle:
+//   - content:
+$_classnames: (
+    'wrapper': 'collapse',
+) !default;
 
-.#{$_collapse-name} {
-    width: calc(100% - 2 * #{boxmodel.get('margin')});
-    opacity: 1;
+/* Accordions styling */
+
+.#{map.get($_classnames, 'wrapper')} {
     display: flex;
     flex-direction: column;
     margin: boxmodel.get('margin');
     border-radius: borders.get('radius');
+    border-right: borders.get('width') solid var(--accordion-border-color, colors.get('border'));
+    border-bottom: borders.get('width') solid var(--accordion-border-color, colors.get('border'));
+    border-left: borders.get('width') solid var(--accordion-border-color, colors.get('border'));
+    overflow: hidden;
 
-    @include boxshadow.box-shadow(borders.get('shadow'));
+    input {
+        display: none;
 
-    & > [type='radio'],
-    & > [type='checkbox'] {
-        height: 1px;
-        width: 1px;
-        margin: -1px;
-        overflow: hidden;
-        position: absolute;
-        -webkit-clip-path: inset(100%);
-        clip-path: inset(100%);
-        clip: rect(0 0 0 0);
-    }
+        & + label {
+            display: flex;
+            justify-content: normal;
+            cursor: pointer;
+            padding: calc(1.5 * #{boxmodel.get('padding')});
+            color: var(--accordion-fore-color, colors.get('fore'));
+            background-color: var(--accordion-back-color, colors.get('back'));
+            border-top: borders.get('width') solid var(--accordion-border-color, colors.get('border'));
 
-    & > label {
-        flex-grow: 1;
-        display: inline-block;
-        //height: $_label-height;
-        cursor: pointer;
-        //        transition: background 0.3s;
-        color: var(--collapse-fore-color, colors.get('fore'));
-        background-color: var(--collapse-back-color, colors.get('back'));
-        border: borders.get('width') solid var(--collapse-border-color, colors.get('border'));
-        padding: calc(1.5 * #{boxmodel.get('padding')});
+            &::before {
+                content: '\276F';
+                width: 1em;
+                height: 1em;
+                text-align: center;
+                transition: all 0.35s;
+                margin-right: boxmodel.get('margin');
+            }
 
-        &:hover,
-        &:focus {
-            outline: transparent solid;
-            background-color: var(--collapse-back-hover-color, #{colors.get('back-alt')});
-            color: var(--collapse-fore-hover-color, #{colors.get('fore-alt')});
-            border-color: var(--collapse-border-hover-color, #{colors.get('back-alt')});
-        }
+            &:hover,
+            &:focus {
+                outline: transparent solid;
+                background-color: var(--accordion-back-hover-color, #{colors.get('back-alt')});
+                color: var(--accordion-fore-hover-color, #{colors.get('fore-alt')});
+                border-color: var(--accordion-border-hover-color, #{colors.get('back-alt')});
+            }
 
-        + div {
-            flex-basis: -webkit-auto;
-            flex-basis: auto;
-            height: 1px;
-            width: 1px;
-            margin: -1px;
-            overflow: hidden;
-            position: absolute;
-            clip: rect(0 0 0 0);
-            -webkit-clip-path: inset(100%);
-            clip-path: inset(100%);
-            transition: max-height 0.3s;
-            max-height: 1px; // for transition
-        }
-    }
-    > :checked + label {
-        background-color: var(--collapse-back-checked-color, colors.get('back-alt'));
-        color: var(--collapse-fore-checked-color, #{colors.get('fore-alt')});
-        //        border-bottom-color: var(--collapse-border-color, colors.get('blue'));
-        & + div {
-            position: relative;
-            width: 100%;
-            height: auto;
-            overflow: auto;
-            margin: 0;
-            background-color: var(--collapse-back-color, colors.get('back'));
-            border: borders.get('width') solid var(--collapse-border-color, colors.get('border-lightest'));
-            border-top: 0;
-            padding: boxmodel.get('padding');
-            max-height: $_content-max-height;
-            clip: auto;
-            @supports ((clip-path: inset(0%)) or (-webkit-clip-path: inset(0%))) {
-                -webkit-clip-path: inset(0%);
-                clip-path: inset(0%);
+            & + div {
+                max-height: 0;
+                padding: 0 1em;
+                overflow: hidden;
+                opacity: 0;
+                visibility: hidden;
             }
         }
-    }
-    & > label:not(:first-of-type) {
-        // Keep these down here, as it overrides some other styles.
-        border-top: 0;
-    }
-    & > label:first-of-type {
-        border-radius: borders.get('radius') borders.get('radius') 0 0;
-    }
-    & > label:last-of-type:not(:first-of-type) {
-        border-radius: 0 0 borders.get('radius') borders.get('radius');
-    }
-    & > label:last-of-type:first-of-type {
-        border-radius: borders.get('radius');
-    }
-    & > :checked:last-of-type:not(:first-of-type) + label {
-        border-radius: 0;
-    }
-    & > :checked:last-of-type + label + div {
-        border-radius: 0 0 borders.get('radius') borders.get('radius');
+
+        &:checked {
+            & + label {
+                background-color: var(--collapse-back-checked-color, colors.get('back-alt'));
+                color: var(--collapse-fore-checked-color, #{colors.get('fore-alt')});
+
+                &::before {
+                    transform: rotate(90deg);
+                }
+
+                & + div {
+                    overflow: auto;
+                    padding: boxmodel.get('padding');
+                    max-height: $_content-max-height;
+                    opacity: 1;
+                    visibility: visible;
+                }
+            }
+        }
     }
 }
 
 .symbol {
     display: inline-block;
-    width: 1em;
     height: 1em;
     vertical-align: -0.125em;
     stroke: currentColor;

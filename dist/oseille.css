@@ -1229,6 +1229,7 @@ details {
   padding: 0.5rem;
   margin: 0.5rem;
   display: block;
+  cursor: pointer;
 }
 details[open] {
   padding: 0.5rem;
@@ -1492,99 +1493,67 @@ time {
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.125), 0 2px 2px -2px rgba(0, 0, 0, 0.25) !important;
 }
 
-/* Spoilers & Accordions styling */
+/* Accordions styling */
 .collapse {
-  width: calc(100% - 2 * 0.5rem);
-  opacity: 1;
   display: flex;
   flex-direction: column;
   margin: 0.5rem;
   border-radius: 4px;
-}
-.collapse > [type=radio], .collapse > [type=checkbox] {
-  height: 1px;
-  width: 1px;
-  margin: -1px;
+  border-right: 1px solid var(--accordion-border-color, #222222);
+  border-bottom: 1px solid var(--accordion-border-color, #222222);
+  border-left: 1px solid var(--accordion-border-color, #222222);
   overflow: hidden;
-  position: absolute;
-  -webkit-clip-path: inset(100%);
-  clip-path: inset(100%);
-  clip: rect(0 0 0 0);
 }
-.collapse > label {
-  flex-grow: 1;
-  display: inline-block;
+.collapse input {
+  display: none;
+}
+.collapse input + label {
+  display: flex;
+  justify-content: normal;
   cursor: pointer;
-  color: var(--collapse-fore-color, #121212);
-  background-color: var(--collapse-back-color, #f8f8f8);
-  border: 1px solid var(--collapse-border-color, #222222);
   padding: calc(1.5 * 0.5rem);
+  color: var(--accordion-fore-color, #121212);
+  background-color: var(--accordion-back-color, #f8f8f8);
+  border-top: 1px solid var(--accordion-border-color, #222222);
 }
-.collapse > label:hover, .collapse > label:focus {
+.collapse input + label::before {
+  content: "❯";
+  width: 1em;
+  height: 1em;
+  text-align: center;
+  transition: all 0.35s;
+  margin-right: 0.5rem;
+}
+.collapse input + label:hover, .collapse input + label:focus {
   outline: transparent solid;
-  background-color: var(--collapse-back-hover-color, #121212);
-  color: var(--collapse-fore-hover-color, #f8f8f8);
-  border-color: var(--collapse-border-hover-color, #121212);
+  background-color: var(--accordion-back-hover-color, #121212);
+  color: var(--accordion-fore-hover-color, #f8f8f8);
+  border-color: var(--accordion-border-hover-color, #121212);
 }
-.collapse > label + div {
-  flex-basis: -webkit-auto;
-  flex-basis: auto;
-  height: 1px;
-  width: 1px;
-  margin: -1px;
+.collapse input + label + div {
+  max-height: 0;
+  padding: 0 1em;
   overflow: hidden;
-  position: absolute;
-  clip: rect(0 0 0 0);
-  -webkit-clip-path: inset(100%);
-  clip-path: inset(100%);
-  transition: max-height 0.3s;
-  max-height: 1px;
+  opacity: 0;
+  visibility: hidden;
 }
-.collapse > :checked + label {
+.collapse input:checked + label {
   background-color: var(--collapse-back-checked-color, #121212);
   color: var(--collapse-fore-checked-color, #f8f8f8);
 }
-.collapse > :checked + label + div {
-  position: relative;
-  width: 100%;
-  height: auto;
+.collapse input:checked + label::before {
+  transform: rotate(90deg);
+}
+.collapse input:checked + label + div {
   overflow: auto;
-  margin: 0;
-  background-color: var(--collapse-back-color, #f8f8f8);
-  border: 1px solid var(--collapse-border-color, #909090);
-  border-top: 0;
   padding: 0.5rem;
-  max-height: 400px;
-  clip: auto;
-}
-@supports (clip-path: inset(0%)) or (-webkit-clip-path: inset(0%)) {
-  .collapse > :checked + label + div {
-    -webkit-clip-path: inset(0%);
-    clip-path: inset(0%);
-  }
-}
-.collapse > label:not(:first-of-type) {
-  border-top: 0;
-}
-.collapse > label:first-of-type {
-  border-radius: 4px 4px 0 0;
-}
-.collapse > label:last-of-type:not(:first-of-type) {
-  border-radius: 0 0 4px 4px;
-}
-.collapse > label:last-of-type:first-of-type {
-  border-radius: 4px;
-}
-.collapse > :checked:last-of-type:not(:first-of-type) + label {
-  border-radius: 0;
-}
-.collapse > :checked:last-of-type + label + div {
-  border-radius: 0 0 4px 4px;
+  max-height: 100vh;
+  opacity: 1;
+  visibility: visible;
 }
 
 .symbol {
   display: inline-block;
-  width: 1em;
   height: 1em;
   vertical-align: -0.125em;
   stroke: currentColor;
