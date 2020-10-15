@@ -18,10 +18,14 @@
 details {
     border: borders.get('width') solid var(--details-border-color, colors.get('border'));
     border-radius: borders.get('radius');
+
     padding: boxmodel.get('padding');
     margin: boxmodel.get('margin');
+
     // Correct display for Edge & Firefox.
     display: block;
+
+    cursor: pointer;
 
     &[open] {
         padding: boxmodel.get('padding');
@@ -37,6 +41,7 @@ summary {
     margin: calc(0 - #{boxmodel.get('margin')}) calc(0 - #{boxmodel.get('margin')}) 0;
     padding: boxmodel.get('padding');
     border: 0;
+
     // Correct display in all browsers.
     display: list-item;
 }
