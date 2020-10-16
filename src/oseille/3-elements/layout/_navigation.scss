@@ -6,7 +6,6 @@
 // You may override the default values of the settings' variables, if needed, with the @use rule.
 // See flavors/oseille.scss and the 2-settings*.scss files.
 //
-@use '../../1-tools/box-shadow' as boxshadow;
 @use '../../2-settings/colors' as colors;
 @use '../../2-settings/fonts' as fonts;
 @use '../../2-settings/borders' as borders;
@@ -33,8 +32,6 @@ nav {
 
     margin: boxmodel.get('margin');
     padding: 0;
-
-    @include boxshadow.box-shadow(borders.get('shadow'));
 
     * {
         padding: boxmodel.get('padding') calc(#{fonts.get-line-spacing('main')} * #{boxmodel.get('padding')});

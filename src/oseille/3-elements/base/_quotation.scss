@@ -15,7 +15,6 @@
 // You may override the default values of the settings' variables, if needed, with the @use rule.
 // See flavors/oseille.scss and the 2-settings*.scss files.
 //
-@use '../../1-tools/box-shadow' as boxshadow;
 @use '../../2-settings/colors' as colors;
 @use '../../2-settings/fonts' as fonts;
 @use '../../2-settings/borders' as borders;
@@ -53,8 +52,6 @@ blockquote {
 
     background-color: var(--blockquote-back-color, #{colors.get('back')}); // Allows live color tunning
     color: var(--blockquote-fore-color, #{colors.get('fore')}); // Allows live color tunning
-
-    @include boxshadow.box-shadow(borders.get('shadow'));
 
     &:before {
         position: absolute;

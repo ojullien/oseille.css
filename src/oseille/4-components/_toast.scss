@@ -6,7 +6,6 @@
 // See flavors/oseille.scss and the 2-settings*.scss files.
 //
 @use 'sass:map';
-@use '../1-tools/box-shadow' as boxshadow;
 @use '../2-settings/colors' as colors;
 @use '../2-settings/borders' as borders;
 @use '../2-settings/box-model' as boxmodel;
@@ -34,6 +33,4 @@ $_classnames: (
     background-color: var(--toast-back-color, colors.get('back-alt'));
     border-radius: calc(#{borders.get('radius')} * 16);
     padding: boxmodel.get('padding') calc(#{boxmodel.get('padding')} * 3);
-
-    @include boxshadow.box-shadow(borders.get('shadow'));
 }

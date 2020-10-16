@@ -18,7 +18,6 @@
 // You may override the default values of the settings' variables, if needed, with the @use rule.
 // See flavors/oseille.scss and the 2-settings*.scss files.
 //
-@use '../../1-tools/box-shadow' as boxshadow;
 @use '../../2-settings/colors' as colors;
 @use '../../2-settings/fonts' as fonts;
 @use '../../2-settings/borders' as borders;
@@ -53,8 +52,6 @@ pre {
     background-color: var(--pre-back-color, #{colors.get('back-alt')}); // Allows live color tunning
     color: var(--pre-fore-color, #{colors.get('fore-alt')}); // Allows live color tunning
 
-    @include boxshadow.box-shadow(borders.get('shadow'));
-
     border: medium solid colors.get('border');
     border-left: thick solid colors.get('sidebar-alt');
     border-radius: 0 #{borders.get('radius')} #{borders.get('radius')} 0;
@@ -74,7 +71,6 @@ code {
     padding: calc(#{boxmodel.get('padding')} / 4) calc(#{boxmodel.get('padding')} / 2);
 
     // No border color by default and fore color is the default for text, can be altered manually.
-    @include boxshadow.box-shadow(borders.get('shadow'));
     border-radius: borders.get('radius');
 
     background-color: var(--code-back-color, #{colors.get('back-alt')}); // Allows live color tunning
@@ -93,7 +89,6 @@ kbd {
     padding: calc(#{boxmodel.get('padding')} / 4) calc(#{boxmodel.get('padding')} / 2);
 
     // No border color by default and fore color is the default for text, can be altered manually.
-    @include boxshadow.box-shadow(borders.get('shadow'));
     border-radius: borders.get('radius');
 
     background-color: var(--kbd-back-color, #{colors.get('back-alt')}); // Allows live color tunning

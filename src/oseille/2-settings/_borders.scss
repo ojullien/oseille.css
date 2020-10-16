@@ -16,16 +16,12 @@
 //
 // Keys:
 //   - radius: rounds the corners of an element's outer border edge.
-//   - shadow: shadow effects around an element's frame.
-//   - shadow-alt: alternative shadow value for more accessibility.
 //   - width: thickness of the border. PX unit only.
 //   - width-alt: alternative thickness for more accessibility. PX unit only.
 //   - width-relative: thickness of the border relative to the html element. Used to style link outline alternative.
 //   - width-relative-alt: alternative thickness. Used to style link outline alternative.
 $borders: (
     'radius': 4px,
-    'shadow': none,
-    'shadow-alt': 0 2px,
     'width': 1px,
     'width-alt': 2px,
     'width-relative': 0.0625rem,

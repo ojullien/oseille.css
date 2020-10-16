@@ -6,7 +6,6 @@
 // See flavors/oseille.scss and the 2-settings*.scss files.
 //
 @use 'sass:map';
-@use '../../1-tools/box-shadow' as boxshadow;
 @use '../../2-settings/colors' as colors;
 @use '../../2-settings/fonts' as fonts;
 @use '../../2-settings/borders' as borders;
@@ -41,8 +40,6 @@ mark {
 
     border: 0;
     border-radius: borders.get('radius');
-
-    @include boxshadow.box-shadow(borders.get('shadow'));
 
     background-color: var(--primary-color, colors.get('primary'));
     color: var(--back-color, colors.get('back'));

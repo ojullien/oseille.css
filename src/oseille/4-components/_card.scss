@@ -5,7 +5,6 @@
 // See flavors/oseille.scss and the 2-settings*.scss files.
 //
 @use 'sass:map';
-@use '../1-tools/box-shadow' as boxshadow;
 @use '../2-settings/colors' as colors;
 @use '../2-settings/borders' as borders;
 @use '../2-settings/box-model' as boxmodel;
@@ -58,8 +57,6 @@ $_section-media-height: 200px !default; // Height for cards' media sections.
     border: borders.get('width') solid var(--card-border-color, #{colors.get('border-lightest')});
     border-radius: borders.get('radius');
     margin: boxmodel.get('margin');
-
-    @include boxshadow.box-shadow(borders.get('shadow'));
 
     // Hide overflow from section borders
     overflow: hidden;

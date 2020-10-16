@@ -7,7 +7,6 @@
 // See flavors/oseille.scss and the 2-settings*.scss files.
 //
 @use 'sass:map';
-@use '../1-tools/box-shadow' as boxshadow;
 @use '../2-settings/colors' as colors;
 @use '../2-settings/borders' as borders;
 @use '../2-settings/box-model' as boxmodel;
@@ -88,8 +87,6 @@ $_classnames: (
         margin: 0;
         border-radius: 0;
         border: borders.get('width') solid var(--drawer-border-color, colors.get('border-lightest'));
-
-        @include boxshadow.box-shadow(borders.get('shadow'));
 
         z-index: 1110;
 
