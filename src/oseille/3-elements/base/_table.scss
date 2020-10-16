@@ -1,18 +1,19 @@
 //
 // The elements here are used to create and handle tabular data.
 //
+// <summary> is deprecated by the HTML5 spec and are not styled anymore.
+//
+// Responsive tables: it's a bad idea to change the way tables are displayed.
+// Instead, use a description list element <dl> that replaces the tables on small screens.
+//
 // You may override the default values of the settings' variables, if needed, with the @use rule.
 // See flavors/oseille.scss and the 2-settings*.scss files.
 //
-// Accessibility https://developer.mozilla.org/en-US/docs/Learn/HTML/Tables/Advanced
-//https://www.w3.org/WAI/tutorials/tables/
-//https://webaim.org/techniques/tables/data
 @use 'sass:map';
 @use '../../2-settings/colors' as colors;
 @use '../../2-settings/fonts' as fonts;
 @use '../../2-settings/borders' as borders;
 @use '../../2-settings/box-model' as boxmodel;
-@use '../../2-settings/responsive' as breakpoints;
 
 // Private variables.
 //
@@ -21,39 +22,43 @@
 // The configured values will override the variables’ default values.
 // @link: https://sass-lang.com/documentation/variables
 
-$_mobile-breakpoint: breakpoints.get('medium') - 1px; // Breakpoint for <table> mobile view.
-$_max-height: 400px !default; // Maximum height of <table> elements (non-horizontal).
-$_include-horizontal-table: true !default; // Flag for horizontal tables (`true` \ `false`).
-$_include-striped-table: true !default; // Flag for striped tables.
-$_include-hoverable-table: true !default; // Flag for striped tables.
-$_mobile-label-font-weight: 600 !default; // Font weight for column header labels in mobile view.
-
 // Classnames
 //
 // Keys:
+//   - container: table's parent element name
 //   - horizontal: horizontal <table> elements
-//   - label: attribute used to replace column headers in mobile view
 //   - hover: hoverable <table> elements
 //   - strip: striped <table> elements
 $_classnames: (
+    'container': 'table-container',
     'horizontal': 'horizontal',
-    'label': 'data-label',
     'hover': 'hoverable',
     'strip': 'striped',
 ) !default;
 
+// Includes design tables.
+//
+// Keys:
+//   - horizontal: flag for horizontal tables
+//   - striped: flag for striped tables.
+//   - hoverable: flag for hoverable tables.
+$_includes: (
+    'horizontal': true,
+    'striped': true,
+    'hoverable': true,
+) !default;
+
 /* Table styling */
 
-// Desktop view (scrollable vertical tables).
+.#{map.get($_classnames,'container')} {
+    // Let the table's parent element scroll horizontally.
+    overflow-x: auto;
+}
+
 table {
-    border-collapse: separate;
-    border-spacing: 0;
-    margin: 0;
-    display: flex;
-    flex: 0 1 auto;
-    flex-flow: row wrap;
-    padding: 0 #{boxmodel.get('padding')} #{boxmodel.get('padding')} #{boxmodel.get('padding')};
-    padding-top: 0;
+    border-collapse: collapse;
+    letter-spacing: 1px;
+    overflow: auto;
 
     // Remove text indentation from table contents in Chrome and Safari.
     // (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)
@@ -61,424 +66,80 @@ table {
 
     // Correct table border color inheritance in all Chrome and Safari.
     // (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)
-    border-color: inherit;
+    //border-color: inherit;
+    border: borders.get('width-alt') solid var(--table-border-color, #{colors.get('border-lightest')});
 
-    @if not($_include-horizontal-table) {
-        overflow: auto;
-        max-height: $_max-height;
+    &.full-wide {
+        width: 100%;
     }
 
-    caption {
-        border: 0;
-        padding: 0;
-        font-style: inherit;
-        font-weight: inherit;
-        font-size: fonts.get-size('input');
-        margin: calc(2 * #{boxmodel.get('margin')}) 0;
-        max-width: 100%;
-        flex: 0 0 100%;
-    }
-
-    thead,
-    tbody {
-        display: flex;
-        flex-flow: row wrap;
-        border: borders.get('width') solid var(--table-border-color, #{colors.get('border')});
-        @if not($_include-horizontal-table) {
-            max-width: 100%;
-            flex: 0 0 100%;
-        }
-    }
-
-    thead {
-        margin: 0;
-        padding: 0;
-        z-index: 999; // Fixes the visibility of the element.
-        border-radius: #{borders.get('radius')} #{borders.get('radius')} 0 0;
-        border-bottom: borders.get('width') solid var(--table-separator-color, #{colors.get('border-darker')});
-        @if not($_include-horizontal-table) {
-            top: 0;
-            @supports ((position: sticky) or (position: -webkit-sticky)) {
-                position: -webkit-sticky; // One of the rare instances where prefixes are necessary.
-                position: sticky;
-            }
-        }
-    }
-
-    tfoot {
-        margin: 0;
-        padding: 0;
-        border: 0;
-    }
-
-    tbody {
-        padding: 0;
-        border-top: 0;
-        margin-top: calc(0 - #{boxmodel.get('margin')});
-        border-radius: 0 0 borders.get('radius') borders.get('radius');
-    }
-
-    tr {
-        margin: 0;
-        border: 0;
-        display: flex;
-        padding: 0; // Apply always to overwrite default.
-        @if not($_include-horizontal-table) {
-            flex-flow: row wrap;
-            flex: 0 0 100%;
-        }
-    }
-
-    th,
-    td {
-        padding: calc(2 * #{boxmodel.get('padding')}); // Apply always to overwrite default.
-        margin: 0;
-        @if not($_include-horizontal-table) {
-            flex: 1 0 0%;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-    }
-
-    th {
-        border: 0;
-        font-style: inherit;
-        font-weight: inherit;
+    &.text-align-left {
         text-align: left;
-        background-color: var(--th-back-color, #{colors.get('back')});
-        color: var(--th-fore-color, #{colors.get('fore')});
     }
 
-    td {
-        background-color: var(--td-back-color, #{colors.get('back')});
-        color: var(--td-fore-color, #{colors.get('fore')});
-        border-top: borders.get('width') solid var(--table-border-color, #{colors.get('border')});
+    &.text-align-center {
+        text-align: center;
     }
+}
 
-    @if not($_include-horizontal-table) {
-        tbody tr:first-child td {
-            border-top: 0;
-        }
-    }
+caption {
+    margin: calc(2 * #{boxmodel.get('margin')}) 0;
+}
+
+thead,
+tbody,
+tfoot,
+tr {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+th,
+td {
+    padding: calc(2 * #{boxmodel.get('padding')}); // Apply always to overwrite default.
+    margin: 0;
+    border: borders.get('width') solid var(--table-border-color, #{colors.get('border-lightest')});
+}
+
+th {
+    background-color: var(--th-back-color, #{colors.get('back-darkest')});
+    color: var(--th-fore-color, #{colors.get('fore')});
+    white-space: nowrap;
+}
+
+td {
+    background-color: var(--td-back-color, #{colors.get('back')});
+    color: var(--td-fore-color, #{colors.get('fore')});
 }
 
 // Styling for horizontal tables
-@if $_include-horizontal-table {
-    table:not(.#{map.get($_classnames, 'horizontal')}) {
-        overflow: auto;
-        max-height: $_max-height;
-
-        thead,
-        tbody {
-            max-width: 100%;
-            flex: 0 0 100%;
-        }
-
-        tr {
-            flex-flow: row wrap;
-            flex: 0 0 100%;
-        }
-
-        th,
-        td {
-            flex: 1 0 0%;
-            overflow: hidden;
-            text-overflow: ellipsis;
-        }
-
-        thead {
-            @supports ((position: sticky) or (position: -webkit-sticky)) {
-                position: -webkit-sticky; // One of the rare instances where prefixes are necessary.
-                position: sticky;
-            }
-            top: 0;
-        }
-
-        tbody tr:first-child td {
-            border-top: 0;
-        }
-
-        thead tr:first-child th {
-            &:first-child {
-                border-top-left-radius: borders.get('radius');
-            }
-
-            &:last-child {
-                border-top-right-radius: borders.get('radius');
-            }
-        }
-
-        tbody tr:last-child td {
-            &:first-child {
-                border-bottom-left-radius: borders.get('radius');
-            }
-
-            &:last-child {
-                border-bottom-right-radius: borders.get('radius');
-            }
-        }
-    }
-
+@if #{map.get($_includes, 'horizontal')} {
     table.#{map.get($_classnames, 'horizontal')} {
-        border: 0;
-
-        thead,
-        tbody {
-            border: 0;
-            flex: 0.2 0 0;
-            flex-flow: row nowrap;
-        }
-
-        tbody {
-            overflow: auto;
-            justify-content: space-between;
-            flex: 0.8 0 0;
-            margin-left: 0;
-            padding-bottom: calc(#{boxmodel.get('padding')} / 4);
-        }
-
-        tr {
-            flex-direction: column;
-            flex: 1 0 auto;
-        }
-
-        th,
-        td {
-            width: auto;
-            border: 0;
-            border-bottom: borders.get('width') solid var(--table-border-color, #{colors.get('border')});
-            &:not(:first-child) {
-                border-top: 0;
-            }
-        }
-
         th {
             text-align: right;
-            border-left: borders.get('width') solid var(--table-border-color, #{colors.get('border')});
-            border-right: borders.get('width') solid var(--table-separator-color, #{colors.get('border-darker')});
-        }
-
-        thead {
-            tr:first-child {
-                padding-left: 0;
-            }
-        }
-
-        th:first-child,
-        td:first-child {
-            border-top: borders.get('width') solid var(--table-border-color, #{colors.get('border')});
-        }
-
-        tbody tr:last-child td {
-            border-right: borders.get('width') solid var(--table-border-color, #{colors.get('border')});
-
-            &:first-child {
-                border-top-right-radius: 0.25rem;
-            }
-
-            &:last-child {
-                border-bottom-right-radius: 0.25rem;
-            }
-        }
-
-        thead tr:first-child th {
-            &:first-child {
-                border-top-left-radius: 0.25rem;
-            }
-
-            &:last-child {
-                border-bottom-left-radius: 0.25rem;
-            }
-        }
-    }
-} @else {
-    table {
-        thead tr:first-child th {
-            &:first-child {
-                border-top-left-radius: borders.get('radius');
-            }
-
-            &:last-child {
-                border-top-right-radius: borders.get('radius');
-            }
-        }
-
-        tbody tr:last-child td {
-            &:first-child {
-                border-bottom-left-radius: borders.get('radius');
-            }
-
-            &:last-child {
-                border-bottom-right-radius: borders.get('radius');
-            }
-        }
-    }
-}
-
-// Mobile
-@media screen and (max-width: #{$_mobile-breakpoint}) {
-    @if $_include-horizontal-table {
-        table,
-        table.#{map.get($_classnames, 'horizontal')} {
-            border-collapse: collapse;
-            border: 0;
-            width: 100%;
-            display: table;
-
-            // Accessibility (element is not visible, but screen readers read it normally)
-            thead,
-            th {
-                border: 0;
-                height: 1px;
-                width: 1px;
-                margin: -1px;
-                overflow: hidden;
-                padding: 0;
-                position: absolute;
-                clip: rect(0 0 0 0);
-                @supports ((clip-path: inset(100%)) or (-webkit-clip-path: inset(100%))) {
-                    -webkit-clip-path: inset(100%);
-                    clip-path: inset(100%);
-                }
-            }
-
-            tbody {
-                border: 0;
-                display: table-row-group;
-            }
-
-            tr {
-                display: block;
-                border: borders.get('width') solid var(--table-border-color, #{colors.get('border')});
-                border-radius: #{borders.get('radius')};
-
-                background-color: var(--tr-back-color, #{colors.get('back')});
-                padding: #{boxmodel.get('padding')};
-                margin: #{boxmodel.get('margin')};
-                margin-bottom: calc(2 * #{boxmodel.get('margin')});
-            }
-
-            th,
-            td {
-                width: auto;
-            }
-
-            td {
-                display: block;
-                border: 0;
-                text-align: right;
-            }
-
-            td:before {
-                content: attr(#{map.get($_classnames, 'label')});
-                float: left;
-                font-weight: $_mobile-label-font-weight;
-            }
-
-            th:first-child,
-            td:first-child {
-                border-top: 0;
-            }
-
-            tbody tr:last-child td {
-                border-right: 0;
-            }
-        }
-    } @else {
-        table {
-            border-collapse: collapse;
-            border: 0;
-            width: 100%;
-            display: table;
-
-            // Accessibility (element is not visible, but screen readers read it normally)
-            thead,
-            th {
-                border: 0;
-                height: 1px;
-                width: 1px;
-                margin: -1px;
-                overflow: hidden;
-                padding: 0;
-                position: absolute;
-                clip: rect(0 0 0 0);
-                @supports ((clip-path: inset(100%)) or (-webkit-clip-path: inset(100%))) {
-                    -webkit-clip-path: inset(100%);
-                    clip-path: inset(100%);
-                }
-            }
-
-            tbody {
-                border: 0;
-                display: table-row-group;
-            }
-
-            tr {
-                display: block;
-                border: borders.get('width') solid var(--table-border-color, #{colors.get('border')});
-                border-radius: #{borders.get('radius')};
-
-                background-color: var(--tr-back-color, #{colors.get('back')});
-                padding: #{boxmodel.get('padding')};
-                margin: #{boxmodel.get('margin')};
-                margin-bottom: calc(2 * #{boxmodel.get('margin')});
-            }
-
-            td {
-                display: block;
-                border: 0;
-                text-align: right;
-            }
-
-            td:before {
-                content: attr(#{map.get($_classnames, 'label')});
-                float: left;
-                font-weight: $_mobile-label-font-weight;
-            }
         }
     }
 }
 
 // Striped tables.
-@if $_include-striped-table {
+@if #{map.get($_includes, 'striped')} {
     table.#{map.get($_classnames, 'strip')} {
         tr:nth-of-type(2n) > td {
-            background-color: var(--tr-back-color, #{colors.get('back')});
-        }
-    }
-
-    // Responsiveness for striped tables.
-    @media screen and (max-width: #{breakpoints.get("medium")}) {
-        table.#{map.get($_classnames, 'strip')} {
-            tr:nth-of-type(2n) {
-                background-color: var(--tr-back-color, #{colors.get('back')});
-            }
+            background-color: var(--tr-back-color, #{colors.get('back-darker')});
         }
     }
 }
+
 // Hoverable tables.
-@if $_include-hoverable-table {
+@if #{map.get($_includes, 'hoverable')} {
     table.#{map.get($_classnames, 'hover')} {
         tr {
             &:hover,
             &:focus {
                 &,
                 & > td {
-                    background-color: var(--table-back-hover-color, #{colors.get('back-darkest')});
-                }
-            }
-        }
-    }
-
-    @media screen and (max-width: #{breakpoints.get("medium")}) {
-        table.#{map.get($_classnames, 'hover')} {
-            tr {
-                &:hover,
-                &:focus {
-                    &,
-                    & > td {
-                        background-color: var(--table-back-hover-color, #{colors.get('back-darkest')});
-                    }
+                    background-color: var(--table-back-hover-color, #{colors.get('back-darker')});
                 }
             }
         }
