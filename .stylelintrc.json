@@ -3,10 +3,6 @@
     "rules": {
         "at-rule-disallowed-list": ["import"],
         "indentation": 4,
-        "string-quotes": "single",
-        "order/properties-alphabetical-order": [
-            false,
-            { "disableFix": true }
-        ]
+        "string-quotes": "single"
       }
 }

@@ -1,12 +1,12 @@
 @charset "UTF-8";
 /* Styling for modal dialogs */
 [type=checkbox].modal {
+  clip: rect(0 0 0 0);
   height: 1px;
-  width: 1px;
   margin: -1px;
   overflow: hidden;
   position: absolute;
-  clip: rect(0 0 0 0);
+  width: 1px;
 }
 @supports (clip-path: inset(100%)) or (-webkit-clip-path: inset(100%)) {
   [type=checkbox].modal {
@@ -15,13 +15,13 @@
   }
 }
 [type=checkbox].modal + div {
+  background-color: var(--modal-back-color, rgba(0, 0, 0, 0.45));
+  display: none;
+  height: 100vh;
+  left: 0;
   position: fixed;
   top: 0;
-  left: 0;
-  display: none;
   width: 100vw;
-  height: 100vh;
-  background-color: var(--modal-back-color, rgba(0, 0, 0, 0.45));
 }
 [type=checkbox].modal + div .card {
   margin: 0 auto;
@@ -29,29 +29,29 @@
   overflow: auto;
 }
 [type=checkbox].modal + div .card .modal-close {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 2rem;
-  height: 2rem;
   border-radius: 4px;
-  padding: 0.5rem;
+  height: 2rem;
   margin: 0;
+  padding: 0.5rem;
+  position: absolute;
+  right: 0;
+  top: 0;
   transition: background 0.3s;
+  width: 2rem;
 }
 @supports (cursor: pointer) {
   [type=checkbox].modal + div .card .modal-close {
     cursor: pointer;
   }
 }
-[type=checkbox].modal + div .card .modal-close:before {
-  display: block;
-  content: "×";
+[type=checkbox].modal + div .card .modal-close::before {
   color: var(--modal-fore-color, #414141);
-  position: relative;
+  content: "×";
+  display: block;
   font-family: sans-serif;
   font-size: 2rem;
   line-height: 1;
+  position: relative;
   text-align: center;
 }
 [type=checkbox].modal + div .card .modal-close:hover, [type=checkbox].modal + div .card .modal-close:focus {

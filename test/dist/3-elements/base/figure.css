@@ -1,19 +1,19 @@
 /* Figure styling */
 figcaption {
+  background-color: var(--caption-back-color, #f8f8f8);
+  border: 0;
+  color: var(--caption-fore-color, #121212);
+  font-family: -apple-system, blinkmacsystemfont, "Segoe UI", roboto, ubuntu, "Helvetica Neue", helvetica, sans-serif;
+  font-size: 1em;
   margin: 0;
   padding: 0;
-  border: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, sans-serif;
-  font-size: 1em;
   text-align: left;
-  background-color: var(--caption-back-color, #f8f8f8);
-  color: var(--caption-fore-color, #121212);
 }
 
 figure {
-  padding: 0;
   border: 0;
   margin: 0.5rem;
+  padding: 0;
 }
 figure.fullWidth {
   margin-left: 0;

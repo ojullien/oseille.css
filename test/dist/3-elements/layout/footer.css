@@ -1,18 +1,18 @@
 /* Footer styling */
 footer {
-  border-top: 1px solid var(--footer-border-color, #909090);
+  font-size: 0.875em;
   margin: 0;
   padding: calc(2 * 0.5rem) 0.5rem;
-  font-size: 0.875em;
+  border-top: 1px solid var(--footer-border-color, #909090);
 }
 footer.page-footer {
   background-color: var(--footer-back-color, #f8f8f8);
   color: var(--footer-fore-color, #121212);
 }
 footer.sticky {
+  bottom: 0;
   position: -webkit-sticky;
   position: sticky;
-  bottom: 0;
   z-index: 1101;
 }
 @media screen and (max-width: 767px) {

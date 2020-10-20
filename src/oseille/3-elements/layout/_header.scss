@@ -55,9 +55,9 @@ $_classnames: (
 /* Header styling */
 
 header {
+    border: 0;
     margin: 0;
     padding: 0;
-    border: 0;
 }
 
 // No box-shadow as it causes lots of weird bugs in Chrome. No margin as it shouldn't have any.
@@ -65,19 +65,19 @@ header {
     // Always apply background color to avoid shine through
     background-color: var(--header-back-color, colors.get('back'));
     color: var(--header-fore-color, colors.get('fore'));
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    padding: calc(#{boxmodel.get('padding')} / 4) 0;
+
+    // Responsiveness for smaller displays, scrolls horizontally.
+    white-space: nowrap;
 
     @if $_only-bottom-border {
         border-bottom: borders.get('width') solid var(--header-border-color, colors.get('border-lightest'));
     } @else {
         border: borders.get('width') solid var(--header-border-color, colors.get('border-lightest'));
     }
-
-    padding: calc(#{boxmodel.get('padding')} / 4) 0;
-
-    // Responsiveness for smaller displays, scrolls horizontally.
-    white-space: nowrap;
-    overflow-x: auto;
-    overflow-y: hidden;
 
     // Fix for responsive header, using the grid system's row and column alignment.
     //&.#{map.get($_classnames, 'row')} {
@@ -89,12 +89,12 @@ header {
 
     // Header logo styling.
     .#{map.get($_classnames, 'logo')} {
+        // Remove also our alternate style
+        box-shadow: none;
         color: var(--header-fore-color, colors.get('fore'));
         font-size: $_logo-font-size;
         padding: boxmodel.get('padding') calc(2 * #{boxmodel.get('padding')});
         text-decoration: none;
-        // Remove also our alternate style
-        box-shadow: none;
     }
 
     // Link styling.
@@ -111,14 +111,12 @@ header {
 
     // Span styling.
     span {
+        line-height: calc(#{$_height} - #{boxmodel.get('padding')} * #{fonts.get-line-spacing('main')});
         position: relative;
+        text-align: center;
 
         // Use universal-padding to offset the padding of the header.
         top: calc(0rem - #{boxmodel.get('padding')} / 4);
-
-        line-height: calc(#{$_height} - #{boxmodel.get('padding')} * #{fonts.get-line-spacing('main')});
-
-        text-align: center;
 
         @if $_links-uppercase {
             text-transform: uppercase;

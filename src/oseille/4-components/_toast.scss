@@ -24,13 +24,13 @@ $_classnames: (
 /* Toast styling */
 
 .#{map.get($_classnames, 'main')} {
-    position: fixed;
-    bottom: calc(#{boxmodel.get('margin')} * 3);
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1111;
-    color: var(--toast-fore-color, colors.get('fore-alt'));
     background-color: var(--toast-back-color, colors.get('back-alt'));
     border-radius: calc(#{borders.get('radius')} * 16);
+    bottom: calc(#{boxmodel.get('margin')} * 3);
+    color: var(--toast-fore-color, colors.get('fore-alt'));
+    left: 50%;
     padding: boxmodel.get('padding') calc(#{boxmodel.get('padding')} * 3);
+    position: fixed;
+    transform: translate(-50%, -50%);
+    z-index: 1111;
 }

@@ -1,21 +1,17 @@
 /* Tooltip styling */
 .tooltip {
-  position: relative;
   display: inline-block;
+  position: relative;
 }
-.tooltip:before, .tooltip:after {
-  position: absolute;
-  opacity: 0;
+.tooltip::before, .tooltip::after {
   clip: rect(0 0 0 0);
+  left: 50%;
+  opacity: 0;
+  position: absolute;
   transition: all 0.3s;
   z-index: 1010;
-  left: 50%;
-}
-@supports (clip-path: inset(100%)) or (-webkit-clip-path: inset(100%)) {
-  .tooltip:before, .tooltip:after {
-    -webkit-clip-path: inset(100%);
-    clip-path: inset(100%);
-  }
+  -webkit-clip-path: inset(100%);
+  clip-path: inset(100%);
 }
 .tooltip:not(.bottom):before, .tooltip:not(.bottom):after {
   bottom: 75%;
@@ -23,20 +19,16 @@
 .tooltip.bottom:before, .tooltip.bottom:after {
   top: 75%;
 }
-.tooltip:hover:before, .tooltip:hover:after, .tooltip:focus:before, .tooltip:focus:after {
-  opacity: 1;
+.tooltip:hover::before, .tooltip:hover::after, .tooltip:focus::before, .tooltip:focus::after {
   clip: auto;
+  opacity: 1;
+  -webkit-clip-path: inset(0%);
+  clip-path: inset(0%);
 }
-@supports (clip-path: inset(0%)) or (-webkit-clip-path: inset(0%)) {
-  .tooltip:hover:before, .tooltip:hover:after, .tooltip:focus:before, .tooltip:focus:after {
-    -webkit-clip-path: inset(0%);
-    clip-path: inset(0%);
-  }
-}
-.tooltip:before {
-  content: "";
+.tooltip::before {
   background: transparent;
   border: 0.5rem solid transparent;
+  content: "";
   left: calc(50% - 0.5rem);
 }
 .tooltip:not(.bottom):before {
@@ -45,14 +37,14 @@
 .tooltip.bottom:before {
   border-bottom-color: var(--tooltip-back-color, #121212);
 }
-.tooltip:after {
-  content: attr(aria-label);
-  color: var(--tooltip-fore-color, #f8f8f8);
+.tooltip::after {
   background-color: var(--tooltip-back-color, #121212);
   border-radius: 4px;
+  color: var(--tooltip-fore-color, #f8f8f8);
+  content: attr(aria-label);
   padding: 0.5rem;
-  white-space: nowrap;
   transform: translateX(-50%);
+  white-space: nowrap;
 }
 .tooltip:not(.bottom):after {
   margin-bottom: calc(2 * 0.5rem);

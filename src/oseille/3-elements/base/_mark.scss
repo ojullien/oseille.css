@@ -32,20 +32,17 @@ $_classnames: (
     'tag': 'tag',
 ) !default;
 
-/* Mark styling*/
+/* Mark styling */
 
 mark {
-    margin: 0;
-    padding: calc(#{boxmodel.get('padding')} / 4) calc(#{boxmodel.get('padding')} / 2);
-
+    background-color: var(--primary-color, colors.get('primary'));
     border: 0;
     border-radius: borders.get('radius');
-
-    background-color: var(--primary-color, colors.get('primary'));
     color: var(--back-color, colors.get('back'));
-
     font-size: fonts.get-size('mark');
     line-height: fonts.get-line-spacing('mark');
+    margin: 0;
+    padding: calc(#{boxmodel.get('padding')} / 4) calc(#{boxmodel.get('padding')} / 2);
 
     &.#{map.get($_classnames, 'mark')} {
         display: inline-block;
@@ -57,8 +54,8 @@ mark {
     }
 
     &.#{map.get($_classnames, 'tag')} {
-        padding: calc(#{boxmodel.get('padding')} / 2) #{boxmodel.get('padding')};
         border-radius: 1em;
+        padding: calc(#{boxmodel.get('padding')} / 2) #{boxmodel.get('padding')};
     }
 
     &.#{map.get($_classnames, 'secondary')} {
@@ -73,25 +70,24 @@ mark {
     // The presence of the mark element is not announced by most screen reading technology
     // in its default configuration. It can be made to be announced by using the CSS
     // content property, along with the ::before and ::after pseudo-elements.
-    &:before,
-    &:after {
+    &::before,
+    &::after {
         clip: rect(1px, 1px, 1px, 1px);
         height: 1px;
         overflow: hidden;
         position: absolute;
         white-space: nowrap;
         width: 1px;
-        @supports ((clip-path: inset(100%)) or (-webkit-clip-path: inset(100%))) {
-            -webkit-clip-path: inset(100%);
-            clip-path: inset(100%);
-        }
+
+        -webkit-clip-path: inset(100%);
+        clip-path: inset(100%);
     }
 
-    &:before {
+    &::before {
         content: ' [highlight start] ';
     }
 
-    &:after {
+    &::after {
         content: ' [highlight end] ';
     }
 }

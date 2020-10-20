@@ -5,6 +5,6 @@
 //
 @mixin map-debug($declarations) {
     @each $property, $value in $declarations {
-        @debug "#{$property}: #{$value}";
+        @debug '#{$property}: #{$value}';
     }
 }

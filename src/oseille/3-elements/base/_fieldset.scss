@@ -22,20 +22,20 @@ fieldset {
 
 legend {
     border: 0;
-    margin: 0;
     // Edge fixes.
     display: table;
-    max-width: 100%;
-    white-space: normal;
+    font-size: fonts.get-size('legend');
     // Actual styling.
     font-weight: bolder;
-    font-size: fonts.get-size('legend');
+    margin: 0;
+    max-width: 100%;
     padding: calc(#{boxmodel.get('padding')} / 2);
+    white-space: normal;
 }
 
 label {
     border: 0;
+    font-size: fonts.get-size('label');
     margin: 0;
     padding: calc(#{boxmodel.get('padding')} / 2) boxmodel.get('padding');
-    font-size: fonts.get-size('label');
 }

@@ -1,13 +1,13 @@
 /* Multimedia resources styling */
 video, object, canvas, audio, img {
+  border: 0;
   margin: 0;
   padding: 0;
-  border: 0;
 }
 
 img, picture {
-  max-width: 100%;
   height: auto;
+  max-width: 100%;
 }
 
 img {
@@ -16,8 +16,8 @@ img {
 
 .img-rounded {
   border-radius: 50%;
-  width: 90px;
   height: auto;
+  width: 90px;
 }
 
 .img-rotate {
@@ -30,8 +30,8 @@ img {
 
 .img-float {
   float: left;
-  margin-right: 1em;
   margin-bottom: 0;
+  margin-right: 1em;
 }
 
 .img-float:last-child {

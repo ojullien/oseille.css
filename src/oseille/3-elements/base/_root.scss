@@ -19,19 +19,17 @@
 }
 
 html {
-    margin: 0;
-    padding: 0;
     border: 0;
-
     font-size: fonts.get-size('accessible');
     line-height: fonts.get-line-spacing('main');
+    margin: 0;
+    padding: 0;
 
     // Prevent adjustments of font size after orientation changes in mobile.
-    @supports ((text-size-adjust: 100%) or (-moz-text-size-adjust: 100%) or (-webkit-text-size-adjust: 100%)) {
-        -webkit-text-size-adjust: 100%;
-        -moz-text-size-adjust: 100%;
-        text-size-adjust: 100%;
-    }
+    -webkit-text-size-adjust: 100%;
+    -moz-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    text-size-adjust: 100%;
 
     @supports (text-rendering: optimizeLegibility) {
         text-rendering: optimizeLegibility;
@@ -43,16 +41,16 @@ html {
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    border: 0;
-    color: var(--fore-color, colors.get('fore'));
-    background-color: var(--back-color, colors.get('back'));
-    font-family: fonts.get-stack('base');
-    font-size: fonts.get-size('body');
     --smaller: #{fonts.get-size('small')};
     --fore-color: #{colors.get('fore')};
     --back-color: #{colors.get('back')};
+    background-color: var(--back-color, colors.get('back'));
+    border: 0;
+    color: var(--fore-color, colors.get('fore'));
+    font-family: fonts.get-stack('base');
+    font-size: fonts.get-size('body');
+    margin: 0;
+    padding: 0;
 
     @supports (font-size-adjust: 0.5) {
         font-size-adjust: 0.5;

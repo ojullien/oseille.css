@@ -4,11 +4,11 @@
 }
 
 table {
+  border: 2px solid var(--table-border-color, #909090);
   border-collapse: collapse;
   letter-spacing: 1px;
   overflow: auto;
   text-indent: 0;
-  border: 2px solid var(--table-border-color, #909090);
 }
 table.full-wide {
   width: 100%;
@@ -28,16 +28,16 @@ thead,
 tbody,
 tfoot,
 tr {
+  border: 0;
   margin: 0;
   padding: 0;
-  border: 0;
 }
 
 th,
 td {
-  padding: calc(2 * 0.5rem);
-  margin: 0;
   border: 1px solid var(--table-border-color, #909090);
+  margin: 0;
+  padding: calc(2 * 0.5rem);
 }
 
 th {

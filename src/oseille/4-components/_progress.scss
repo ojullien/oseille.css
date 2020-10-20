@@ -53,25 +53,24 @@ $_include-spinner-donut: true !default;
 
 /* Default styling for progress. */
 progress {
-    display: block;
-    vertical-align: baseline; // Correct vertical alignment in some browsers.
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    height: map.get($_progress, 'height');
-    width: calc(100% - 2 * #{boxmodel.get('margin')});
-    margin: boxmodel.get('margin');
+    background-color: var(--progress-back-color, #{colors.get('back-darkest')});
     border: 0; // Removes default border
     border-radius: calc(2 * #{borders.get('radius')});
-
-    background-color: var(--progress-back-color, #{colors.get('back-darkest')});
     color: var(--progress-fore-color, #{colors.get('fore')});
+    display: block;
+    height: map.get($_progress, 'height');
+    margin: boxmodel.get('margin');
+    vertical-align: baseline; // Correct vertical alignment in some browsers.
+    width: calc(100% - 2 * #{boxmodel.get('margin')});
 
     // Foreground color on webkit browsers
     &::-webkit-progress-value {
         background-color: var(--progress-fore-color, #{colors.get('fore')});
-        border-top-left-radius: calc(2 * #{borders.get('radius')});
         border-bottom-left-radius: calc(2 * #{borders.get('radius')});
+        border-top-left-radius: calc(2 * #{borders.get('radius')});
     }
 
     // Background color on webkit browser
@@ -82,14 +81,15 @@ progress {
     // Foreground color on Firefox
     &::-moz-progress-bar {
         background-color: var(--progress-fore-color, #{colors.get('fore')});
-        border-top-left-radius: calc(2 * #{borders.get('radius')});
         border-bottom-left-radius: calc(2 * #{borders.get('radius')});
+        border-top-left-radius: calc(2 * #{borders.get('radius')});
     }
 
     &[value='#{map.get($_progress, "max")}'] {
         &::-webkit-progress-value {
             border-radius: calc(2 * #{borders.get('radius')});
         }
+
         &::-moz-progress-bar {
             border-radius: calc(2 * #{borders.get('radius')});
         }
@@ -121,19 +121,20 @@ progress {
         0% {
             transform: rotate(0deg);
         }
+
         100% {
             transform: rotate(360deg);
         }
     }
     .#{map.get($_classnames, 'spinner')} {
-        display: inline-block;
-        margin: boxmodel.get('margin');
+        animation: spinner-donut-anim 1.2s linear infinite;
         border: map.get($_donut, 'thickness') solid var(--spinner-back-color, #{colors.get('back-darkest')});
         border-left: map.get($_donut, 'thickness') solid var(--spinner-fore-color, #{colors.get('fore')});
         border-radius: 50%;
-        width: map.get($_donut, 'size');
+        display: inline-block;
         height: map.get($_donut, 'size');
-        animation: spinner-donut-anim 1.2s linear infinite;
+        margin: boxmodel.get('margin');
+        width: map.get($_donut, 'size');
 
         &.primary {
             --spinner-fore-color: var(--primary-color, #{colors.get('primary')});

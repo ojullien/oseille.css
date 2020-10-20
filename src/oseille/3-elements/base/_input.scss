@@ -47,17 +47,18 @@ $_classnames: (
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    position: relative;
-    height: calc(#{fonts.get-size('input')} + #{boxmodel.get('padding')} / 2);
-    width: calc(#{fonts.get-size('input')} + #{boxmodel.get('padding')} / 2);
-    vertical-align: text-bottom;
-    // Remove padding added from previous styles.
-    padding: 0;
     // Override fluid input-group styling.
     flex-basis: calc(#{fonts.get-size('input')} + #{boxmodel.get('padding')} / 2) !important;
     // Using with fluid input-groups is not recommended.
     flex-grow: 0 !important;
-    &:checked:before {
+    height: calc(#{fonts.get-size('input')} + #{boxmodel.get('padding')} / 2);
+    // Remove padding added from previous styles.
+    padding: 0;
+    position: relative;
+    vertical-align: text-bottom;
+    width: calc(#{fonts.get-size('input')} + #{boxmodel.get('padding')} / 2);
+
+    &:checked::before {
         position: absolute;
     }
 }
@@ -69,9 +70,11 @@ $_classnames: (
         @supports (cursor: not-allowed) {
             cursor: not-allowed;
         }
+
         @supports (filter: grayscale(60%)) {
             filter: grayscale(60%);
         }
+
         opacity: $_disabled-opacity;
         transform: none;
     }
@@ -80,18 +83,15 @@ $_classnames: (
 /* Styling for input */
 
 input {
-    overflow: visible; // Show overflow in Edge.
-
+    @include styleDisable;
     background-color: var(--input-back-color, #{colors.get('back')});
-    color: var(--input-fore-color, #{colors.get('fore')});
     border: borders.get('width-alt') solid var(--input-border-color, #{colors.get('border')});
-
+    color: var(--input-fore-color, #{colors.get('fore')});
     font-family: inherit;
     font-size: fonts.get-size('input');
     line-height: normal;
     margin: 0;
-
-    @include styleDisable;
+    overflow: visible; // Show overflow in Edge.
 }
 
 /* Common textual input styling. */
@@ -110,9 +110,9 @@ textarea,
 select {
     // Background, color and border should not be unassigned, as the browser defaults will apply.
     background-color: var(--input-back-color, #{colors.get('back')});
-    color: var(--input-fore-color, #{colors.get('fore')});
     border: borders.get('width-alt') solid var(--input-border-color, #{colors.get('border')});
     border-radius: borders.get('radius');
+    color: var(--input-fore-color, #{colors.get('fore')});
     margin: calc(#{boxmodel.get('margin')} / 2);
     padding: boxmodel.get('padding') calc(#{fonts.get-line-spacing('main')} * #{boxmodel.get('padding')});
 }
@@ -122,12 +122,12 @@ select {
 [type='checkbox'] {
     @include normalizeRadioCheckbox;
 
-    &:checked:before {
+    &:checked::before {
         content: '\2713';
         font-family: sans-serif;
         font-size: calc(#{fonts.get-size('input')} + #{boxmodel.get('padding')} / 2);
-        top: calc(0rem - #{boxmodel.get('padding')});
         left: calc(#{boxmodel.get('padding')} / 4);
+        top: calc(0rem - #{boxmodel.get('padding')});
     }
 }
 
@@ -138,14 +138,14 @@ select {
 
     border-radius: 100%;
 
-    &:checked:before {
+    &:checked::before {
+        background-color: colors.get('back-alt');
         border-radius: 100%;
         content: '';
-        top: calc(1px + #{boxmodel.get('padding')} / 2);
-        left: calc(1px + #{boxmodel.get('padding')} / 2);
-        background-color: colors.get('back-alt');
-        width: 0.5rem;
         height: 0.5rem;
+        left: calc(1px + #{boxmodel.get('padding')} / 2);
+        top: calc(1px + #{boxmodel.get('padding')} / 2);
+        width: 0.5rem;
     }
 }
 
@@ -164,6 +164,7 @@ select {
     @supports (-webkit-appearance: textfield) {
         -webkit-appearance: textfield;
     }
+
     @supports (outline-offset: -2px) {
         outline-offset: -2px;
     }
@@ -179,24 +180,22 @@ select {
 /* Styling for textarea */
 
 textarea {
+    @include styleDisable;
     font: inherit;
     font-size: 100%;
     line-height: fonts.get-line-spacing('main');
-
-    @include styleDisable;
 }
 
 /* Styling for select */
 
 select {
+    @include styleDisable;
     font: inherit;
     line-height: fonts.get-line-spacing('main');
-    text-transform: none; // Remove inheritance of text-transform in Edge, Firefox, and IE.
 
     // Overflowing parent container.
     max-width: 100%;
-
-    @include styleDisable;
+    text-transform: none; // Remove inheritance of text-transform in Edge, Firefox, and IE.
 }
 
 optgroup {
@@ -212,19 +211,19 @@ option {
     // Overflowing parent container.
     max-width: 100%;
     overflow: hidden;
-    white-space: nowrap;
     text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 // Placeholder styling (keep browser-specific definitions separated, they do not play well together).
 
-:placeholder-shown {
-    color: var(--input-fore-color, #{colors.get('fore')});
-}
-
 ::-ms-placeholder {
     color: var(--input-fore-color, #{colors.get('fore')});
     opacity: 0.54;
+}
+
+:placeholder-shown {
+    color: var(--input-fore-color, #{colors.get('fore')});
 }
 
 /* Hover, focus, disabled, readonly, invalid styling for common textual inputs. */
@@ -236,15 +235,16 @@ select {
         border-color: var(--input-border-hover-color, #{colors.get('sidebar-alt')});
         box-shadow: none;
     }
+
     &:invalid,
     &:focus:invalid {
         border-color: var(--input-border-hover-color, #{colors.get('red')});
         box-shadow: none;
     }
+
     &[readonly] {
-        @supports (filter: grayscale(60%)) {
-            filter: grayscale(60%);
-        }
+        filter: grayscale(60%);
+
         opacity: $_disabled-opacity;
     }
 }
@@ -256,13 +256,14 @@ select {
     // Fluid input groups
     @if $_include-fluid-input-group {
         &.#{map.get($_classnames,'fluid')} {
-            display: flex;
             align-items: center;
+            display: flex;
             justify-content: center;
+
             & > input {
-                max-width: 100%;
-                flex-grow: 1;
                 flex-basis: 0;
+                flex-grow: 1;
+                max-width: 100%;
             }
             // On mobile
             @media screen and (max-width: #{$_mobile-breakpoint}) {
@@ -272,13 +273,14 @@ select {
         }
         // Vertical input groups
         &.#{map.get($_classnames,'vertical')} {
-            display: flex;
             align-items: stretch;
+            display: flex;
             flex-direction: column;
+
             & > input {
-                max-width: 100%;
-                flex-grow: 1;
                 flex-basis: 0;
+                flex-grow: 1;
+                max-width: 100%;
             }
         }
     }

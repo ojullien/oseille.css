@@ -47,7 +47,7 @@ $primary: (
 //   - fore-alt: alternative color for text & foreground.(Inverted)
 //   - back-alt: alternative color for background (Inverted)
 $secondary: (
-    'border': #222222,
+    'border': #222,
     'back': map.get($primary, 'white'),
     'back-alt': map.get($primary, 'black'),
     'fore': map.get($primary, 'black'),

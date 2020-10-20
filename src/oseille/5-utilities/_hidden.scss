@@ -52,10 +52,12 @@ $_medium-breakpoint: breakpoints.get('medium') - 1px;
     border: 0 !important;
     padding: 0 !important;
     clip: rect(0 0 0 0) !important;
+
     @supports ((clip-path: inset(100%)) or (-webkit-clip-path: inset(100%))) {
         -webkit-clip-path: inset(100%) !important;
         clip-path: inset(100%) !important;
     }
+
     overflow: hidden !important;
 }
 
@@ -72,9 +74,11 @@ $_medium-breakpoint: breakpoints.get('medium') - 1px;
 // Responsive margin class. NOTE: Uses !important.
 .#{map.get($_classnames, 'margin')} {
     margin: calc(#{boxmodel.get('margin')} / 4) !important;
+
     @media screen and (min-width: #{breakpoints.get('medium')}) {
         margin: calc(#{boxmodel.get('margin')} / 2) !important;
     }
+
     @media screen and (min-width: #{breakpoints.get('large')}) {
         margin: #{boxmodel.get('margin')} !important;
     }
@@ -83,9 +87,11 @@ $_medium-breakpoint: breakpoints.get('medium') - 1px;
 // Responsive padding class. NOTE: Uses !important.
 .#{map.get($_classnames, 'padding')} {
     padding: calc(#{boxmodel.get('padding')} / 4) !important;
+
     @media screen and (min-width: #{breakpoints.get('medium')}) {
         padding: calc(#{boxmodel.get('padding')} / 2) !important;
     }
+
     @media screen and (min-width: #{breakpoints.get('large')}) {
         padding: #{boxmodel.get('padding')} !important;
     }

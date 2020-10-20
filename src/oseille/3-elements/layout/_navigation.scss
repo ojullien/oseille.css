@@ -26,9 +26,8 @@ $_border-classname: 'bordered' !default; // Add a border to the nav.
 
 nav {
     background-color: var(--nav-back-color, colors.get('back'));
-    color: var(--nav-fore-color, colors.get('fore'));
-
     border: 0;
+    color: var(--nav-fore-color, colors.get('fore'));
     margin: boxmodel.get('margin');
     padding: 0;
 
@@ -49,16 +48,17 @@ nav {
     // Subcategories in navigation.
     @for $i from 1 through $_sublink-depth {
         .#{$_sublink-prefix}-#{$i} {
-            position: relative;
             margin-left: calc(#{$i * 2} * #{boxmodel.get('padding')});
-            &:before {
-                position: absolute;
-                left: calc(#{boxmodel.get('padding')} - #{1 + ($i - 1) * 2} * #{boxmodel.get('padding')});
-                top: -1px;
-                content: '';
-                height: 100%;
+            position: relative;
+
+            &::before {
                 border: borders.get('width') solid var(--nav-border-color, colors.get('border'));
                 border-left: 0;
+                content: '';
+                height: 100%;
+                left: calc(#{boxmodel.get('padding')} - #{1 + ($i - 1) * 2} * #{boxmodel.get('padding')});
+                position: absolute;
+                top: -1px;
             }
         }
     }

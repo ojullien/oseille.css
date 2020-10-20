@@ -13,13 +13,11 @@
 /* Styling for form */
 
 form {
-    width: 100%;
     background-color: var(--form-back-color, colors.get('back'));
-    color: var(--form-fore-color, colors.get('fore'));
-
-    margin: boxmodel.get('margin');
-    padding: calc(2 * #{boxmodel.get('padding')}) boxmodel.get('padding');
-
     border: borders.get('width') solid var(--form-border-color, colors.get('border-lightest'));
     border-radius: borders.get('radius');
+    color: var(--form-fore-color, colors.get('fore'));
+    margin: boxmodel.get('margin');
+    padding: calc(2 * #{boxmodel.get('padding')}) boxmodel.get('padding');
+    width: 100%;
 }

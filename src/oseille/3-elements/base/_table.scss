@@ -56,6 +56,11 @@ $_includes: (
 }
 
 table {
+
+    // Correct table border color inheritance in all Chrome and Safari.
+    // (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)
+    //border-color: inherit;
+    border: borders.get('width-alt') solid var(--table-border-color, #{colors.get('border-lightest')});
     border-collapse: collapse;
     letter-spacing: 1px;
     overflow: auto;
@@ -63,11 +68,6 @@ table {
     // Remove text indentation from table contents in Chrome and Safari.
     // (https://bugs.chromium.org/p/chromium/issues/detail?id=999088, https://bugs.webkit.org/show_bug.cgi?id=201297)
     text-indent: 0;
-
-    // Correct table border color inheritance in all Chrome and Safari.
-    // (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)
-    //border-color: inherit;
-    border: borders.get('width-alt') solid var(--table-border-color, #{colors.get('border-lightest')});
 
     &.full-wide {
         width: 100%;
@@ -90,16 +90,16 @@ thead,
 tbody,
 tfoot,
 tr {
+    border: 0;
     margin: 0;
     padding: 0;
-    border: 0;
 }
 
 th,
 td {
-    padding: calc(2 * #{boxmodel.get('padding')}); // Apply always to overwrite default.
-    margin: 0;
     border: borders.get('width') solid var(--table-border-color, #{colors.get('border-lightest')});
+    margin: 0;
+    padding: calc(2 * #{boxmodel.get('padding')}); // Apply always to overwrite default.
 }
 
 th {

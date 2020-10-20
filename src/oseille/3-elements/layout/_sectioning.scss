@@ -10,20 +10,20 @@ aside,
 section,
 hgroup,
 main {
-    padding: 0;
     border: 0;
-    margin: 0 0 1rem 0;
+    margin: 0 0 1rem;
+    padding: 0;
 }
 
 address {
-    padding: 0;
     border: 0;
-    margin-bottom: 0 0 1rem 0;
     font: inherit;
+    margin-bottom: 1rem;
+    padding: 0;
 }
 
 div {
+    border: 0;
     margin: 0;
     padding: 0;
-    border: 0;
 }

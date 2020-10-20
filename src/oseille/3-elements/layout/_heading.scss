@@ -41,62 +41,65 @@ $_colors: (
 /* Heading styling */
 
 %_normalize {
-    padding: 0;
+    background-color: var(--heading-back-color, #{map.get($_colors, 'back')}); // Allows live color tunning
     border: 0;
-    margin: boxmodel.get('margin');
-
+    color: var(--heading-fore-color, #{map.get($_colors, 'fore')}); // Allows live color tunning
     font-family: fonts.get-stack('heading');
     font-weight: $_font-weight;
-
-    background-color: var(--heading-back-color, #{map.get($_colors, 'back')}); // Allows live color tunning
-    color: var(--heading-fore-color, #{map.get($_colors, 'fore')}); // Allows live color tunning
+    margin: boxmodel.get('margin');
+    padding: 0;
 
     small {
+        background-color: var(--subheading-back-color, #{map.get($_colors, 'subheading-back')}); // Allows live color tunning
+        color: var(--subheading-fore-color, #{map.get($_colors, 'subheading-fore')}); // Allows live color tunning
         display: block;
+
+        line-height: fonts.get-line-spacing('subheading');
 
         @if $_subheading-margin-top != 0 {
             margin-top: $_subheading-margin-top;
         }
-
-        line-height: fonts.get-line-spacing('subheading');
-
-        background-color: var(--subheading-back-color, #{map.get($_colors, 'subheading-back')}); // Allows live color tunning
-        color: var(--subheading-fore-color, #{map.get($_colors, 'subheading-fore')}); // Allows live color tunning
     }
 }
 
 h1 {
     @extend %_normalize;
+
     font-size: calc(1em * #{math.pow(fonts.get-size('ratio-heading'), 4)});
     line-height: fonts.get-line-spacing('h1');
 }
 
 h2 {
     @extend %_normalize;
+
     font-size: calc(1em * #{math.pow(fonts.get-size('ratio-heading'), 3)});
     line-height: fonts.get-line-spacing('h2');
 }
 
 h3 {
     @extend %_normalize;
+
     font-size: calc(1em * #{math.pow(fonts.get-size('ratio-heading'), 2)});
     line-height: fonts.get-line-spacing('h3');
 }
 
 h4 {
     @extend %_normalize;
+
     font-size: calc(1em * #{fonts.get-size('ratio-heading')});
     line-height: fonts.get-line-spacing('h4');
 }
 
 h5 {
     @extend %_normalize;
+
     font-size: 1em;
     line-height: fonts.get-line-spacing('h5');
 }
 
 h6 {
     @extend %_normalize;
+
     font-size: calc(1em / #{fonts.get-size('ratio-heading')});
     line-height: fonts.get-line-spacing('h6');
 }

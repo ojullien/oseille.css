@@ -23,52 +23,46 @@
 /* Blockquote styling */
 
 %normalize {
-    font-family: fonts.get-stack('quotation');
-    font-weight: inherit;
-    font-size: fonts.get-size('cite');
-
     background-color: var(--caption-back-color, #{colors.get('back')}); // Allows live color tunning
+    border: 0;
     color: var(--caption-fore-color, #{colors.get('fore')}); // Allows live color tunning
-
+    font-family: fonts.get-stack('quotation');
+    font-size: fonts.get-size('cite');
+    font-weight: inherit;
     margin: 0;
     padding: 0;
-    border: 0;
 }
 
 blockquote {
-    display: block;
-    position: relative;
-
-    margin: boxmodel.get('margin');
-    padding: calc(3 * #{boxmodel.get('padding')});
-
+    background-color: var(--blockquote-back-color, #{colors.get('back')}); // Allows live color tunning
     border: borders.get('width') solid var(--blockquote-border-color, colors.get('border-lightest'));
     border-left: 6px solid var(--blockquote-sidebar-color, colors.get('sidebar'));
     border-radius: 0 borders.get('radius') borders.get('radius') 0;
-
-    font-family: fonts.get-stack('quotation');
-    font-style: italic;
-    font-size: 1em;
-
-    background-color: var(--blockquote-back-color, #{colors.get('back')}); // Allows live color tunning
     color: var(--blockquote-fore-color, #{colors.get('fore')}); // Allows live color tunning
+    display: block;
+    font-family: fonts.get-stack('quotation');
+    font-size: 1em;
+    font-style: italic;
+    margin: boxmodel.get('margin');
+    padding: calc(3 * #{boxmodel.get('padding')});
+    position: relative;
 
-    &:before {
-        position: absolute;
-        top: calc(0rem - #{boxmodel.get('padding')});
-        left: 0;
+    &::before {
+        color: var(--blockquote-sidebar-color, colors.get('sidebar'));
+        content: '\201c';
         font-family: sans-serif;
         font-size: fonts.get-size('quotation');
         font-weight: 700;
-        content: '\201c';
-        color: var(--blockquote-sidebar-color, colors.get('sidebar'));
+        left: 0;
+        position: absolute;
+        top: calc(0rem - #{boxmodel.get('padding')});
     }
 
-    &[cite]:after {
-        font-style: normal;
-        font-size: fonts.get-size('cite');
-        font-weight: 700;
+    &[cite]::after {
         content: '\a—  'attr(cite);
+        font-size: fonts.get-size('cite');
+        font-style: normal;
+        font-weight: 700;
         white-space: pre;
     }
 }
@@ -77,6 +71,7 @@ blockquote {
 
 q {
     @extend %normalize;
+
     font-style: inherit;
 }
 

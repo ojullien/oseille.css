@@ -1,6 +1,6 @@
 /* Borders styling */
 .bordered {
-  border: 1px solid var(--border-color, #222222) !important;
+  border: 1px solid var(--border-color, #222) !important;
 }
 
 .rounded {

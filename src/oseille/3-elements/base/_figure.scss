@@ -22,23 +22,20 @@ $_text-align: left !default;
 /* Figure styling */
 
 figcaption {
-    margin: 0;
-    padding: 0;
+    background-color: var(--caption-back-color, #{colors.get('back')}); // Allows live color tunning
     border: 0;
-
+    color: var(--caption-fore-color, #{colors.get('fore')}); // Allows live color tunning
     font-family: fonts.get-stack('quotation');
     font-size: fonts.get-size('caption');
-
+    margin: 0;
+    padding: 0;
     text-align: $_text-align;
-
-    background-color: var(--caption-back-color, #{colors.get('back')}); // Allows live color tunning
-    color: var(--caption-fore-color, #{colors.get('fore')}); // Allows live color tunning
 }
 
 figure {
-    padding: 0;
     border: 0;
     margin: boxmodel.get('margin');
+    padding: 0;
 
     &.fullWidth {
         margin-left: 0;

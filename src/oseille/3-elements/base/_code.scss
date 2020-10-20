@@ -26,55 +26,29 @@
 /* Inline code semantic styling */
 
 %_normalize {
-    margin: 0;
-    padding: 0;
     border: 0;
-    // Prevent element from affecting the line height in all browsers.
-    line-height: 0;
-    position: relative;
-    vertical-align: baseline;
     // Correct the inheritance and scaling of font size in all browsers. By re-applying font-family and font-size
     font-family: fonts.get-stack('code');
     font-size: fonts.get-size('code');
     font-weight: inherit;
-}
-
-pre {
-    overflow: auto; // Responsiveness
-
-    padding: calc(#{fonts.get-line-spacing('small')} * #{boxmodel.get('padding')});
-    margin: boxmodel.get('margin');
-
-    font-family: fonts.get-stack('code');
-    font-size: fonts.get-size('code');
-    font-weight: normal;
-
-    background-color: var(--pre-back-color, #{colors.get('back-alt')}); // Allows live color tunning
-    color: var(--pre-fore-color, #{colors.get('fore-alt')}); // Allows live color tunning
-
-    border: medium solid colors.get('border');
-    border-left: thick solid colors.get('sidebar-alt');
-    border-radius: 0 #{borders.get('radius')} #{borders.get('radius')} 0;
-
-    word-break: normal;
-    overflow-wrap: break-word;
-
-    code {
-        font-size: 1em;
-    }
+    // Prevent element from affecting the line height in all browsers.
+    line-height: 0;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    vertical-align: baseline;
 }
 
 code {
     @extend %_normalize;
-
-    // This could be a bit counterintuitive and burden the codebase a bit, look into it again?
-    padding: calc(#{boxmodel.get('padding')} / 4) calc(#{boxmodel.get('padding')} / 2);
+    background-color: var(--code-back-color, #{colors.get('back-alt')}); // Allows live color tunning
 
     // No border color by default and fore color is the default for text, can be altered manually.
     border-radius: borders.get('radius');
-
-    background-color: var(--code-back-color, #{colors.get('back-alt')}); // Allows live color tunning
     color: var(--code-fore-color, #{colors.get('fore-alt')}); // Allows live color tunning
+
+    // This could be a bit counterintuitive and burden the codebase a bit, look into it again?
+    padding: calc(#{boxmodel.get('padding')} / 4) calc(#{boxmodel.get('padding')} / 2);
 
     a:link,
     a:visited {
@@ -82,25 +56,46 @@ code {
     }
 }
 
+pre {
+    background-color: var(--pre-back-color, #{colors.get('back-alt')}); // Allows live color tunning
+    border: medium solid colors.get('border');
+    border-left: thick solid colors.get('sidebar-alt');
+    border-radius: 0 #{borders.get('radius')} #{borders.get('radius')} 0;
+    color: var(--pre-fore-color, #{colors.get('fore-alt')}); // Allows live color tunning
+    font-family: fonts.get-stack('code');
+    font-size: fonts.get-size('code');
+    font-weight: normal;
+    margin: boxmodel.get('margin');
+    overflow: auto; // Responsiveness
+    overflow-wrap: break-word;
+    padding: calc(#{fonts.get-line-spacing('small')} * #{boxmodel.get('padding')});
+    word-break: normal;
+
+    code {
+        font-size: 1em;
+    }
+}
+
 kbd {
     @extend %_normalize;
-
-    // This could be a bit counterintuitive and burden the codebase a bit, look into it again?
-    padding: calc(#{boxmodel.get('padding')} / 4) calc(#{boxmodel.get('padding')} / 2);
+    background-color: var(--kbd-back-color, #{colors.get('back-alt')}); // Allows live color tunning
 
     // No border color by default and fore color is the default for text, can be altered manually.
     border-radius: borders.get('radius');
-
-    background-color: var(--kbd-back-color, #{colors.get('back-alt')}); // Allows live color tunning
     color: var(--kbd-fore-color, #{colors.get('fore-alt')}); // Allows live color tunning
+
+    // This could be a bit counterintuitive and burden the codebase a bit, look into it again?
+    padding: calc(#{boxmodel.get('padding')} / 4) calc(#{boxmodel.get('padding')} / 2);
 }
 
 samp {
     @extend %_normalize;
+
     font-style: inherit;
 }
 
 var {
     @extend %_normalize;
+
     font-style: italic;
 }

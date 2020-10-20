@@ -39,6 +39,10 @@ $_classnames: (
 /* Footer styling */
 
 footer {
+    font-size: fonts.get-size('footer');
+
+    margin: 0;
+    padding: calc(2 * #{boxmodel.get('padding')}) boxmodel.get('padding');
     // Page footer styling.
     &.#{map.get($_classnames, 'footer')} {
         // Always apply background color to avoid shine through
@@ -46,20 +50,10 @@ footer {
         color: var(--footer-fore-color, colors.get('fore'));
     }
 
-    @if $_only-top-border {
-        border-top: borders.get('width') solid var(--footer-border-color, colors.get('border-lightest'));
-    } @else {
-        border: borders.get('width') solid var(--footer-border-color, colors.get('border-lightest'));
-    }
-
-    margin: 0;
-    padding: calc(2 * #{boxmodel.get('padding')}) boxmodel.get('padding');
-    font-size: fonts.get-size('footer');
-
     &.#{map.get($_classnames, 'sticky')} {
+        bottom: 0;
         position: -webkit-sticky;
         position: sticky;
-        bottom: 0;
         // Deals with certain problems when combined with cards and tables.
         z-index: 1101;
 
@@ -70,5 +64,11 @@ footer {
                 position: static;
             }
         }
+    }
+
+    @if $_only-top-border {
+        border-top: borders.get('width') solid var(--footer-border-color, colors.get('border-lightest'));
+    } @else {
+        border: borders.get('width') solid var(--footer-border-color, colors.get('border-lightest'));
     }
 }

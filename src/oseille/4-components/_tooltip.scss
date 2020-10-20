@@ -25,22 +25,22 @@ $_classname: (
 /* Tooltip styling */
 
 .#{map.get($_classname, 'main')} {
-    position: relative;
     display: inline-block;
+    position: relative;
 
-    &:before,
-    &:after {
-        position: absolute;
-        opacity: 0;
+    &::before,
+    &::after {
         clip: rect(0 0 0 0);
-        @supports ((clip-path: inset(100%)) or (-webkit-clip-path: inset(100%))) {
-            -webkit-clip-path: inset(100%);
-            clip-path: inset(100%);
-        }
+        left: 50%;
+        opacity: 0;
+        position: absolute;
+
         transition: all 0.3s;
         // Remember to keep this index a lower value than the one used for stickies.
         z-index: 1010; // Deals with certain problems when combined with cards and tables.
-        left: 50%;
+
+        -webkit-clip-path: inset(100%);
+        clip-path: inset(100%);
     }
 
     &:not(.#{map.get($_classname, 'alternate')}):before,
@@ -57,22 +57,21 @@ $_classname: (
 
     &:hover,
     &:focus {
-        &:before,
-        &:after {
-            opacity: 1;
+        &::before,
+        &::after {
             clip: auto;
-            @supports ((clip-path: inset(0%)) or (-webkit-clip-path: inset(0%))) {
-                -webkit-clip-path: inset(0%);
-                clip-path: inset(0%);
-            }
+            opacity: 1;
+
+            -webkit-clip-path: inset(0%);
+            clip-path: inset(0%);
         }
     }
 
-    &:before {
-        // Little tooltip triangle
-        content: '';
+    &::before {
         background: transparent;
         border: boxmodel.get('margin') solid transparent;
+        // Little tooltip triangle
+        content: '';
         // Newer browsers will center the tail properly
         left: calc(50% - #{boxmodel.get('margin')});
     }
@@ -87,16 +86,15 @@ $_classname: (
         border-bottom-color: var(--tooltip-back-color, colors.get('back-alt'));
     }
 
-    &:after {
-        // Tooltip's text block
-        content: attr(aria-label);
-        color: var(--tooltip-fore-color, colors.get('fore-alt'));
+    &::after {
         background-color: var(--tooltip-back-color, colors.get('back-alt'));
         border-radius: borders.get('radius');
+        color: var(--tooltip-fore-color, colors.get('fore-alt'));
+        // Tooltip's text block
+        content: attr(aria-label);
         padding: boxmodel.get('padding');
-
-        white-space: nowrap;
         transform: translateX(-50%);
+        white-space: nowrap;
     }
 
     &:not(.#{map.get($_classname, 'alternate')}):after {

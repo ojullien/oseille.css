@@ -1,46 +1,46 @@
 @charset "UTF-8";
 /* Accordions styling */
 .collapse {
+  border-bottom: 1px solid var(--accordion-border-color, #222);
+  border-left: 1px solid var(--accordion-border-color, #222);
+  border-radius: 4px;
+  border-right: 1px solid var(--accordion-border-color, #222);
   display: flex;
   flex-direction: column;
   margin: 0.5rem;
-  border-radius: 4px;
-  border-right: 1px solid var(--accordion-border-color, #222222);
-  border-bottom: 1px solid var(--accordion-border-color, #222222);
-  border-left: 1px solid var(--accordion-border-color, #222222);
   overflow: hidden;
 }
 .collapse input {
   display: none;
 }
 .collapse input + label {
+  background-color: var(--accordion-back-color, #f8f8f8);
+  border-top: 1px solid var(--accordion-border-color, #222);
+  color: var(--accordion-fore-color, #121212);
+  cursor: pointer;
   display: flex;
   justify-content: normal;
-  cursor: pointer;
   padding: calc(1.5 * 0.5rem);
-  color: var(--accordion-fore-color, #121212);
-  background-color: var(--accordion-back-color, #f8f8f8);
-  border-top: 1px solid var(--accordion-border-color, #222222);
 }
 .collapse input + label::before {
   content: "❯";
-  width: 1em;
   height: 1em;
+  margin-right: 0.5rem;
   text-align: center;
   transition: all 0.35s;
-  margin-right: 0.5rem;
+  width: 1em;
 }
 .collapse input + label:hover, .collapse input + label:focus {
-  outline: transparent solid;
   background-color: var(--accordion-back-hover-color, #121212);
-  color: var(--accordion-fore-hover-color, #f8f8f8);
   border-color: var(--accordion-border-hover-color, #121212);
+  color: var(--accordion-fore-hover-color, #f8f8f8);
+  outline: transparent solid;
 }
 .collapse input + label + div {
   max-height: 0;
-  padding: 0 1em;
-  overflow: hidden;
   opacity: 0;
+  overflow: hidden;
+  padding: 0 1em;
   visibility: hidden;
 }
 .collapse input:checked + label {
@@ -51,19 +51,19 @@
   transform: rotate(90deg);
 }
 .collapse input:checked + label + div {
-  overflow: auto;
-  padding: 0.5rem;
   max-height: 100vh;
   opacity: 1;
+  overflow: auto;
+  padding: 0.5rem;
   visibility: visible;
 }
 
 .symbol {
   display: inline-block;
+  fill: none;
   height: 1em;
-  vertical-align: -0.125em;
+  padding-left: 3px;
   stroke: currentColor;
   stroke-width: 2;
-  fill: none;
-  padding-left: 3px;
+  vertical-align: -0.125em;
 }

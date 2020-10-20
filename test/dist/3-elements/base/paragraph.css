@@ -1,25 +1,25 @@
 /* paragraph-level elements styling */
 hr {
-  box-sizing: content-box;
+  background: linear-gradient(to right, transparent, #909090 20%, #909090 80%, transparent);
   border: 0;
-  padding: 0;
+  box-sizing: content-box;
+  color: inherit;
+  height: 1px;
   line-height: 1.25;
   margin: 0.5rem;
-  height: 1px;
-  color: inherit;
-  background: linear-gradient(to right, transparent, #909090 20%, #909090 80%, transparent);
   overflow: visible;
+  padding: 0;
 }
 
 p {
-  width: 70ch;
-  max-width: 100%;
-  line-height: calc(1ex / 0.29);
-  text-align: left;
   -ms-hyphens: none;
   -webkit-hyphens: none;
   -moz-hyphens: none;
   hyphens: none;
-  padding: 0;
+  line-height: calc(1ex / 0.29);
   margin: 0.5rem;
+  max-width: 100%;
+  padding: 0;
+  text-align: left;
+  width: 70ch;
 }

@@ -1,7 +1,7 @@
 /* Embedded content styling */
 .iframe-container {
-  position: relative;
   overflow: hidden;
+  position: relative;
 }
 .iframe-container .aspect-ratio-16-9 {
   padding-top: 56.25%;
@@ -19,13 +19,13 @@
   padding-top: 100%;
 }
 .iframe-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
   border: 0;
   border-style: none;
+  height: 100%;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
 }

@@ -1,13 +1,13 @@
-/* Mark styling*/
+/* Mark styling */
 mark {
-  margin: 0;
-  padding: calc(0.5rem / 4) calc(0.5rem / 2);
+  background-color: var(--primary-color, #215cca);
   border: 0;
   border-radius: 4px;
-  background-color: var(--primary-color, #215cca);
   color: var(--back-color, #f8f8f8);
   font-size: 0.95em;
   line-height: 1.5;
+  margin: 0;
+  padding: calc(0.5rem / 4) calc(0.5rem / 2);
 }
 mark.inline-block {
   display: inline-block;
@@ -16,8 +16,8 @@ mark.inline-block {
   padding: calc(0.5rem / 2) 0.5rem;
 }
 mark.tag {
-  padding: calc(0.5rem / 2) 0.5rem;
   border-radius: 1em;
+  padding: calc(0.5rem / 2) 0.5rem;
 }
 mark.secondary {
   background-color: var(--secondary-color, #ad0000);
@@ -26,23 +26,19 @@ mark.tertiary {
   background-color: var(--tertiary-color, #2ecc40);
   color: var(--fore-color, #121212);
 }
-mark:before, mark:after {
+mark::before, mark::after {
   clip: rect(1px, 1px, 1px, 1px);
   height: 1px;
   overflow: hidden;
   position: absolute;
   white-space: nowrap;
   width: 1px;
+  -webkit-clip-path: inset(100%);
+  clip-path: inset(100%);
 }
-@supports (clip-path: inset(100%)) or (-webkit-clip-path: inset(100%)) {
-  mark:before, mark:after {
-    -webkit-clip-path: inset(100%);
-    clip-path: inset(100%);
-  }
-}
-mark:before {
+mark::before {
   content: " [highlight start] ";
 }
-mark:after {
+mark::after {
   content: " [highlight end] ";
 }

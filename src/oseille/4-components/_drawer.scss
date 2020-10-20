@@ -40,17 +40,15 @@ $_classnames: (
 /* Drawer styling */
 
 .#{map.get($_classnames, 'toggle')} {
-    &:before {
-        display: inline-block;
-        position: relative;
-        vertical-align: bottom;
-
+    &::before {
         // Spaces ensure compatibility with buttons that have text and that textless
         // buttons will have some extra padding.
         content: '\00a0\2261\00a0';
-
+        display: inline-block;
         font-family: sans-serif;
         font-size: fonts.get-size('toggle');
+        position: relative;
+        vertical-align: bottom;
     }
 
     @media screen and (min-width: #{breakpoints.get('medium')}) {
@@ -61,33 +59,27 @@ $_classnames: (
 }
 
 [type='checkbox'].#{map.get($_classnames, 'main')} {
-    height: 1px;
-    width: 1px;
-
-    margin: -1px;
-
-    overflow: hidden;
-    position: absolute;
-
     -webkit-clip-path: inset(100%);
     clip-path: inset(100%);
-    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    position: absolute;
+    width: 1px;
 
     + * {
-        display: block;
-        position: fixed;
-        top: 0;
-        width: $_width;
-        height: 100vh;
-        overflow-y: auto;
-
         background-color: var(--drawer-back-color, colors.get('back'));
+        border: borders.get('width') solid var(--drawer-border-color, colors.get('border-lightest'));
+        border-radius: 0;
+        display: block;
+        height: 100vh;
 
         // Set to 0 to override the value from `nav`.
         margin: 0;
-        border-radius: 0;
-        border: borders.get('width') solid var(--drawer-border-color, colors.get('border-lightest'));
-
+        overflow-y: auto;
+        position: fixed;
+        top: 0;
+        width: $_width;
         z-index: 1110;
 
         @if $_right {
@@ -99,29 +91,27 @@ $_classnames: (
         }
 
         & .#{map.get($_classnames, 'close')} {
-            // The close element is a label element styled as a button.
-            // Must also include the .button class
-            position: absolute;
             box-sizing: content-box;
-            top: boxmodel.get('margin');
-            right: boxmodel.get('margin');
-            z-index: 1111;
-
-            width: fonts.get-size('close');
             height: fonts.get-size('close');
-
-            padding: boxmodel.get('padding');
 
             // Fixes the offset from label
             margin: 0;
+            padding: boxmodel.get('padding');
+            // The close element is a label element styled as a button.
+            // Must also include the .button class
+            position: absolute;
+            right: boxmodel.get('margin');
+            top: boxmodel.get('margin');
+            width: fonts.get-size('close');
+            z-index: 1111;
 
-            &:before {
-                display: block;
+            &::before {
                 content: '\00D7';
-                position: relative;
+                display: block;
                 font-family: sans-serif;
                 font-size: fonts.get-size('close');
                 line-height: 1; // Setting to 1 seems to center the 'X' properly.
+                position: relative;
                 text-align: center;
             }
         }
@@ -141,8 +131,8 @@ $_classnames: (
 
     @media screen and (min-width: #{breakpoints.get('medium')}) {
         &:not(.#{map.get($_classnames, 'persistent')}) + * {
-            position: static;
             height: 100%;
+            position: static;
             z-index: 1100;
 
             & .#{map.get($_classnames, 'close')} {

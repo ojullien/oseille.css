@@ -37,18 +37,18 @@ $_disabled-opacity: 0.75 !default;
 
 // Fix for elements inside headings not displaying properly.
 %_normalize_small {
-    margin: 0;
-    padding: 0;
     border: 0;
     font-family: inherit;
     font-size: var(--smaller, #{fonts.get-size('small')});
+    margin: 0;
+    padding: 0;
 }
 
 %_normalize {
-    margin: 0;
-    padding: 0;
     border: 0;
     font-size: 1em;
+    margin: 0;
+    padding: 0;
 }
 
 // Prevent element from affecting the line height in all browsers.
@@ -60,10 +60,10 @@ $_disabled-opacity: 0.75 !default;
 
 a {
     @extend %_normalize;
-    font-family: inherit; // Fix for elements inside headings not displaying properly.
-
-    text-decoration: none; // We remove it but we provide alternative styling.
     border-bottom: borders.get('width-relative') solid transparent;
+
+    font-family: inherit; // Fix for elements inside headings not displaying properly.
+    text-decoration: none; // We remove it but we provide alternative styling.
     transition: border-bottom-color 150ms ease-in-out;
 
     // Same color for visited and not visited link.
@@ -77,9 +77,9 @@ a {
     }
 
     &:hover {
-        outline: transparent solid; // We remove it but we provide alternative styling.
-        border-bottom-width: borders.get('width-relative-alt');
         border-bottom-color: unset;
+        border-bottom-width: borders.get('width-relative-alt');
+        outline: transparent solid; // We remove it but we provide alternative styling.
     }
 
     &:focus {
@@ -90,21 +90,24 @@ a {
 
 abbr[title] {
     @extend %_normalize;
-    border-bottom: none; // Remove bottom border in Firefox 39- & Chrome 57-
+
+    border-bottom: none solid transparent; // Remove bottom border in Firefox 39- & Chrome 57-
     text-decoration: underline dotted; // Opinionated style-fix for all browsers.
 }
 
 b,
 strong {
     @extend %_normalize;
+
     font-weight: $_bold-font-weight;
 }
 
 data {
     @extend %_normalize;
+
     text-decoration: underline dotted; // Opinionated style-fix for all browsers.
 
-    &:hover:after {
+    &:hover::after {
         content: ' (ID ' attr(value) ')';
         font-size: 0.7em;
     }
@@ -114,6 +117,7 @@ data {
     abbr[title] {
         cursor: help;
     }
+
     data {
         cursor: help;
     }
@@ -135,25 +139,22 @@ s {
     // The presence of the s element is not announced by most screen reading technology
     // in its default configuration. It can be made to be announced by using the CSS
     // content property, along with the ::before and ::after pseudo-elements.
-    &:before,
-    &:after {
-        clip: rect(1px, 1px, 1px, 1px);
+    &::before,
+    &::after {
         height: 1px;
         overflow: hidden;
         position: absolute;
         white-space: nowrap;
         width: 1px;
-        @supports ((clip-path: inset(100%)) or (-webkit-clip-path: inset(100%))) {
-            -webkit-clip-path: inset(100%);
-            clip-path: inset(100%);
-        }
+        -webkit-clip-path: inset(100%);
+        clip-path: inset(100%);
     }
 
-    &:before {
+    &::before {
         content: ' [start of stricken text] ';
     }
 
-    &:after {
+    &::after {
         content: ' [end of stricken text] ';
     }
 }
@@ -165,12 +166,14 @@ small {
 sub {
     @extend %_normalize_small;
     @extend %_normalize-line-height;
+
     bottom: map.get($_box-model, 'bottom');
 }
 
 sup {
     @extend %_normalize_small;
     @extend %_normalize-line-height;
+
     top: map.get($_box-model, 'top');
 }
 

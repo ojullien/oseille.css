@@ -43,23 +43,24 @@ $_section-media-height: 200px !default; // Height for cards' media sections.
 /* Card styling */
 
 .#{map.get($_classnames, 'card')} {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    // Responsiveness (if the screen is larger than card, set max-width)
+    @include make-card-alt-size($_normal-width);
     align-self: center;
-    position: relative;
-    width: 100%;
 
     // Actual styling for the cards
     background-color: var(--card-back-color, #{colors.get('back')});
-    color: var(--card-fore-color, #{colors.get('fore')});
-
     border: borders.get('width') solid var(--card-border-color, #{colors.get('border-lightest')});
     border-radius: borders.get('radius');
+    color: var(--card-fore-color, #{colors.get('fore')});
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     margin: boxmodel.get('margin');
 
     // Hide overflow from section borders
     overflow: hidden;
+    position: relative;
+    width: 100%;
 
     // Centering the content
     &.hero {
@@ -70,10 +71,10 @@ $_section-media-height: 200px !default; // Height for cards' media sections.
 
     // Card sections
     & > .#{map.get($_classnames, 'section')} {
-        margin: 0;
         border: 0; // Clean borders and radiuses for any element-based sections
-        border-radius: 0; // Clean borders and radiuses for any element-based sections
         border-bottom: borders.get('width') solid var(--card-border-color, #{colors.get('border-lightest')});
+        border-radius: 0; // Clean borders and radiuses for any element-based sections
+        margin: 0;
         padding: boxmodel.get('padding');
         width: 100%;
 
@@ -81,6 +82,7 @@ $_section-media-height: 200px !default; // Height for cards' media sections.
         &.#{map.get($_classnames, 'media')} {
             height: $_section-media-height;
             padding: 0;
+
             @supports ((object-fit: cover) or (-o-object-fit: cover)) {
                 -o-object-fit: cover;
                 object-fit: cover;
@@ -127,9 +129,6 @@ $_section-media-height: 200px !default; // Height for cards' media sections.
         @include make-card-alt-size(240px);
     }
 
-    // Responsiveness (if the screen is larger than card, set max-width)
-    @include make-card-alt-size($_normal-width);
-
     &.large {
         @include make-card-alt-size(480px);
     }
@@ -141,8 +140,8 @@ $_section-media-height: 200px !default; // Height for cards' media sections.
 
     // Normalize typo
     p {
-        width: unset;
         max-width: unset;
         text-align: unset;
+        width: unset;
     }
 }

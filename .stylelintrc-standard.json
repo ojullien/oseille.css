@@ -1,12 +1,23 @@
 {
     "extends": "stylelint-config-standard",
     "rules": {
+        "at-rule-no-unknown": [ true, { 
+            "ignoreAtRules": [
+                "if", 
+                "else", 
+                "use", 
+                "for", 
+                "function", 
+                "return", 
+                "warn",
+                "mixin",
+                "include",
+                "extend",
+                "each"
+                ]
+            }],
         "at-rule-disallowed-list": ["import"],
         "indentation": 4,
-        "string-quotes": "single",
-        "order/properties-alphabetical-order": [
-            false,
-            { "disableFix": true }
-        ]
+        "string-quotes": "single"
       }
 }
