@@ -1,15 +1,15 @@
 {
     "name": "oseille.css",
     "version": "1.0.0",
-    "description": "A minimal, responsive CSS framework",
+    "description": "A small, responsive and accessible CSS framework",
     "main": "dist/oseille.min.css",
     "keywords": [
         "css",
         "sass",
         "minimal",
         "responsive",
+        "accessible",
         "css-framework",
-        "oseille",
         "oseille.css"
     ],
     "repository": {

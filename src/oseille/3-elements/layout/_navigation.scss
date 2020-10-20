@@ -20,6 +20,7 @@
 
 $_sublink-depth: 2 !default; // Amount of subcategory classes to add.
 $_sublink-prefix: 'sublink' !default; // Prefix for the subcategory tabs in nav.
+$_border-classname: 'bordered' !default; // Add a border to the nav.
 
 /* Navigation styling. */
 
@@ -27,11 +28,14 @@ nav {
     background-color: var(--nav-back-color, colors.get('back'));
     color: var(--nav-fore-color, colors.get('fore'));
 
-    border: borders.get('width') solid var(--nav-border-color, colors.get('border'));
-    border-radius: borders.get('radius');
-
+    border: 0;
     margin: boxmodel.get('margin');
     padding: 0;
+
+    &.#{$_border-classname} {
+        border: borders.get('width') solid var(--nav-border-color, colors.get('border'));
+        border-radius: borders.get('radius');
+    }
 
     * {
         padding: boxmodel.get('padding') calc(#{fonts.get-line-spacing('main')} * #{boxmodel.get('padding')});
