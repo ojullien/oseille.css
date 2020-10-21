@@ -80,8 +80,8 @@ $_classnames: (
     [class^='#{$column}-'],
     [class^='#{$offset}-'],
     .#{$row}[class*='#{$row-parent}-'] > * {
-        //flex: 0 0 auto;
-        flex: 1 1 auto;
+        flex: none;
+        //flex: auto;
         padding: 0 calc(#{boxmodel.get('padding')} / 2);
     }
 
@@ -105,9 +105,7 @@ $_classnames: (
         .#{$offset}-#{($i - 1)} {
             @if ($i - 1) == 0 {
                 margin-left: 0;
-            }
-
-            @else {
+            } @else {
                 margin-left: #{(($i - 1) * 100% / $_column-count)};
             }
         }
@@ -125,8 +123,7 @@ $_classnames: (
     .#{$column},
     [class^='#{$column}-'],
     [class^='#{$offset}-'] {
-        //flex: 0 0 auto;
-        flex: 1 1 auto;
+        flex: 0 0 auto;
         padding: 0 calc(#{boxmodel.get('padding')} / 2);
     }
 
@@ -148,9 +145,7 @@ $_classnames: (
         .#{$offset}-#{($i - 1)} {
             @if ($i - 1) == 0 {
                 margin-left: 0;
-            }
-
-            @else {
+            } @else {
                 margin-left: #{(($i - 1) * 100% / $_column-count)};
             }
         }
@@ -166,7 +161,7 @@ $_classnames: (
 
 .#{map.get($_classnames, 'row')} {
     display: flex;
-    flex: 0 1 auto;
+    flex: initial;
     flex-flow: row wrap;
 }
 
@@ -183,9 +178,7 @@ $_classnames: (
     @media screen and (min-width: #{breakpoints.get('large')}) {
         @include generate-grid-size-include-parent-layout(map.get($_classnames, 'large'));
     }
-}
-
-@else {
+} @else {
     // Definitions for smaller screens.
     @include generate-grid-size-not-including-parent-layout(map.get($_classnames, 'small'));
 

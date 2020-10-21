@@ -565,7 +565,7 @@ a.button:focus {
   border: 0;
   border-radius: 0;
   box-shadow: none;
-  flex: 1 1 auto;
+  flex: auto;
   margin: 0;
   max-width: 100%;
   text-align: center;
@@ -1422,7 +1422,7 @@ time {
 
 .row {
   display: flex;
-  flex: 0 1 auto;
+  flex: initial;
   flex-flow: row wrap;
 }
 
@@ -1442,7 +1442,7 @@ time {
 [class^=col-sm-],
 [class^=col-sm-offset-],
 .row[class*=cols-sm-] > * {
-  flex: 1 1 auto;
+  flex: none;
   padding: 0 calc(0.5rem / 2);
 }
 
@@ -1590,7 +1590,7 @@ time {
 [class^=col-md-],
 [class^=col-md-offset-],
 .row[class*=cols-md-] > * {
-    flex: 1 1 auto;
+    flex: none;
     padding: 0 calc(0.5rem / 2);
   }
 
@@ -1738,7 +1738,7 @@ time {
 [class^=col-lg-],
 [class^=col-lg-offset-],
 .row[class*=cols-lg-] > * {
-    flex: 1 1 auto;
+    flex: none;
     padding: 0 calc(0.5rem / 2);
   }
 
