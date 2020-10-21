@@ -117,6 +117,16 @@ progress {
 // Style for donut spinner
 @if $_include-spinner-donut {
     // Donut spinner animation
+
+    @-webkit-keyframes spinner-donut-anim {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
     @keyframes spinner-donut-anim {
         0% {
             transform: rotate(0deg);
@@ -127,6 +137,7 @@ progress {
         }
     }
     .#{map.get($_classnames, 'spinner')} {
+        -webkit-animation: spinner-donut-anim 1.2s linear infinite;
         animation: spinner-donut-anim 1.2s linear infinite;
         border: map.get($_donut, 'thickness') solid var(--spinner-back-color, #{colors.get('back-darkest')});
         border-left: map.get($_donut, 'thickness') solid var(--spinner-fore-color, #{colors.get('fore')});

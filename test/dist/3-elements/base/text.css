@@ -50,6 +50,7 @@ a:focus {
 
 abbr[title] {
   border-bottom: none solid transparent;
+  -webkit-text-decoration: underline dotted;
   text-decoration: underline dotted;
 }
 
@@ -59,6 +60,7 @@ strong {
 }
 
 data {
+  -webkit-text-decoration: underline dotted;
   text-decoration: underline dotted;
 }
 data:hover::after {

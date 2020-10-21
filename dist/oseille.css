@@ -124,6 +124,7 @@ a:focus {
 
 abbr[title] {
   border-bottom: none solid transparent;
+  -webkit-text-decoration: underline dotted;
   text-decoration: underline dotted;
 }
 
@@ -133,6 +134,7 @@ strong {
 }
 
 data {
+  -webkit-text-decoration: underline dotted;
   text-decoration: underline dotted;
 }
 data:hover::after {
@@ -308,7 +310,6 @@ hr {
 p {
   -ms-hyphens: auto;
   -webkit-hyphens: auto;
-  -moz-hyphens: auto;
   hyphens: auto;
   line-height: calc(1ex / 0.29);
   margin: 0.5rem;
@@ -813,6 +814,14 @@ option {
   opacity: 0.54;
 }
 
+:-moz-placeholder-shown {
+  color: var(--input-fore-color, #121212);
+}
+
+:-ms-input-placeholder {
+  color: var(--input-fore-color, #121212);
+}
+
 :placeholder-shown {
   color: var(--input-fore-color, #121212);
 }
@@ -960,10 +969,6 @@ img {
 }
 
 .img-rotate {
-  -ms-transform: rotate(180deg);
-  -moz-transform: rotate(180deg);
-  -o-transform: rotate(180deg);
-  -webkit-transform: rotate(180deg);
   transform: rotate(180deg);
 }
 
@@ -977,7 +982,7 @@ img {
   margin-bottom: 0;
 }
 
-@supports (object-fit: fill) or (-o-object-fit: fill) {
+@supports (-o-object-fit: fill) or (object-fit: fill) {
   .fill {
     -o-object-fit: fill;
     object-fit: fill;
@@ -1906,7 +1911,7 @@ time {
   height: 200px;
   padding: 0;
 }
-@supports (object-fit: cover) or (-o-object-fit: cover) {
+@supports (-o-object-fit: cover) or (object-fit: cover) {
   .card > .section.media {
     -o-object-fit: cover;
     object-fit: cover;
@@ -1966,7 +1971,7 @@ time {
   position: absolute;
   width: 1px;
 }
-@supports (clip-path: inset(100%)) or (-webkit-clip-path: inset(100%)) {
+@supports (-webkit-clip-path: inset(100%)) or (clip-path: inset(100%)) {
   [type=checkbox].modal {
     -webkit-clip-path: inset(100%);
     clip-path: inset(100%);
@@ -2151,6 +2156,14 @@ progress.tertiary {
   --progress-fore-color: var(--tertiary-color, #2ecc40);
 }
 
+@-webkit-keyframes spinner-donut-anim {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 @keyframes spinner-donut-anim {
   0% {
     transform: rotate(0deg);
@@ -2160,6 +2173,7 @@ progress.tertiary {
   }
 }
 .spinner {
+  -webkit-animation: spinner-donut-anim 1.2s linear infinite;
   animation: spinner-donut-anim 1.2s linear infinite;
   border: 0.25rem solid var(--spinner-back-color, #c6c6c6);
   border-left: 0.25rem solid var(--spinner-fore-color, #121212);
@@ -2194,7 +2208,7 @@ progress.tertiary {
   clip: rect(0 0 0 0) !important;
   overflow: hidden !important;
 }
-@supports (clip-path: inset(100%)) or (-webkit-clip-path: inset(100%)) {
+@supports (-webkit-clip-path: inset(100%)) or (clip-path: inset(100%)) {
   .visually-hidden {
     -webkit-clip-path: inset(100%) !important;
     clip-path: inset(100%) !important;
@@ -2255,7 +2269,7 @@ progress.tertiary {
     clip: rect(0 0 0 0) !important;
     overflow: hidden !important;
   }
-  @supports (clip-path: inset(100%)) or (-webkit-clip-path: inset(100%)) {
+  @supports (-webkit-clip-path: inset(100%)) or (clip-path: inset(100%)) {
     .visually-hidden-sm {
       -webkit-clip-path: inset(100%) !important;
       clip-path: inset(100%) !important;
@@ -2273,7 +2287,7 @@ progress.tertiary {
     clip: rect(0 0 0 0) !important;
     overflow: hidden !important;
   }
-  @supports (clip-path: inset(100%)) or (-webkit-clip-path: inset(100%)) {
+  @supports (-webkit-clip-path: inset(100%)) or (clip-path: inset(100%)) {
     .visually-hidden-md {
       -webkit-clip-path: inset(100%) !important;
       clip-path: inset(100%) !important;
@@ -2291,7 +2305,7 @@ progress.tertiary {
     clip: rect(0 0 0 0) !important;
     overflow: hidden !important;
   }
-  @supports (clip-path: inset(100%)) or (-webkit-clip-path: inset(100%)) {
+  @supports (-webkit-clip-path: inset(100%)) or (clip-path: inset(100%)) {
     .visually-hidden-lg {
       -webkit-clip-path: inset(100%) !important;
       clip-path: inset(100%) !important;

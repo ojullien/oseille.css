@@ -47,6 +47,14 @@ progress.tertiary {
   --progress-fore-color: var(--tertiary-color, #2ecc40);
 }
 
+@-webkit-keyframes spinner-donut-anim {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
 @keyframes spinner-donut-anim {
   0% {
     transform: rotate(0deg);
@@ -56,6 +64,7 @@ progress.tertiary {
   }
 }
 .spinner {
+  -webkit-animation: spinner-donut-anim 1.2s linear infinite;
   animation: spinner-donut-anim 1.2s linear infinite;
   border: 0.25rem solid var(--spinner-back-color, #c6c6c6);
   border-left: 0.25rem solid var(--spinner-fore-color, #121212);

@@ -83,7 +83,7 @@ $_section-media-height: 200px !default; // Height for cards' media sections.
             height: $_section-media-height;
             padding: 0;
 
-            @supports ((object-fit: cover) or (-o-object-fit: cover)) {
+            @supports ((-o-object-fit: cover) or (object-fit: cover)) {
                 -o-object-fit: cover;
                 object-fit: cover;
             }

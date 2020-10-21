@@ -53,7 +53,7 @@ $_medium-breakpoint: breakpoints.get('medium') - 1px;
     padding: 0 !important;
     clip: rect(0 0 0 0) !important;
 
-    @supports ((clip-path: inset(100%)) or (-webkit-clip-path: inset(100%))) {
+    @supports ((-webkit-clip-path: inset(100%)) or (clip-path: inset(100%))) {
         -webkit-clip-path: inset(100%) !important;
         clip-path: inset(100%) !important;
     }

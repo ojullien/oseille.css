@@ -92,6 +92,7 @@ abbr[title] {
     @extend %_normalize;
 
     border-bottom: none solid transparent; // Remove bottom border in Firefox 39- & Chrome 57-
+    -webkit-text-decoration: underline dotted;
     text-decoration: underline dotted; // Opinionated style-fix for all browsers.
 }
 
@@ -105,6 +106,7 @@ strong {
 data {
     @extend %_normalize;
 
+    -webkit-text-decoration: underline dotted;
     text-decoration: underline dotted; // Opinionated style-fix for all browsers.
 
     &:hover::after {

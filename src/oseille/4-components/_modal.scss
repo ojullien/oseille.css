@@ -39,7 +39,7 @@ $_classnames: (
     position: absolute;
     width: 1px;
 
-    @supports ((clip-path: inset(100%)) or (-webkit-clip-path: inset(100%))) {
+    @supports ((-webkit-clip-path: inset(100%)) or (clip-path: inset(100%))) {
         -webkit-clip-path: inset(100%);
         clip-path: inset(100%);
     }

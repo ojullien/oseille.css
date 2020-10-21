@@ -184,6 +184,14 @@ option {
   opacity: 0.54;
 }
 
+:-moz-placeholder-shown {
+  color: var(--input-fore-color, #121212);
+}
+
+:-ms-input-placeholder {
+  color: var(--input-fore-color, #121212);
+}
+
 :placeholder-shown {
   color: var(--input-fore-color, #121212);
 }

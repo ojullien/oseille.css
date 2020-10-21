@@ -14,7 +14,6 @@ hr {
 p {
   -ms-hyphens: none;
   -webkit-hyphens: none;
-  -moz-hyphens: none;
   hyphens: none;
   line-height: calc(1ex / 0.29);
   margin: 0.5rem;

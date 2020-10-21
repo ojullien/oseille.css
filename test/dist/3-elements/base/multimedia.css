@@ -21,10 +21,6 @@ img {
 }
 
 .img-rotate {
-  -ms-transform: rotate(180deg);
-  -moz-transform: rotate(180deg);
-  -o-transform: rotate(180deg);
-  -webkit-transform: rotate(180deg);
   transform: rotate(180deg);
 }
 
@@ -38,7 +34,7 @@ img {
   margin-bottom: 0;
 }
 
-@supports (object-fit: fill) or (-o-object-fit: fill) {
+@supports (-o-object-fit: fill) or (object-fit: fill) {
   .fill {
     -o-object-fit: fill;
     object-fit: fill;

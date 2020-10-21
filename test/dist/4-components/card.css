@@ -35,7 +35,7 @@
   height: 200px;
   padding: 0;
 }
-@supports (object-fit: cover) or (-o-object-fit: cover) {
+@supports (-o-object-fit: cover) or (object-fit: cover) {
   .card > .section.media {
     -o-object-fit: cover;
     object-fit: cover;
