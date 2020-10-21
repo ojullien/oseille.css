@@ -26,8 +26,11 @@
         "stylelint-config-standard": "^20.0.0"
     },
     "browserslist": [
-        "last 4 versions"
-    ],
+        "> 0.5%",
+        "last 4 versions",
+        "Firefox ESR",
+        "not dead"
+      ],
     "scripts": {
         "test": "./node_modules/.bin/sass test/oseille:test/dist --style=expanded --charset --no-error-css --color --unicode --no-source-map",
         "lint-test": "./node_modules/.bin/stylelint src/oseille/5-utilities/*.scss",
