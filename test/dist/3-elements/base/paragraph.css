@@ -17,8 +17,7 @@ p {
   hyphens: none;
   line-height: calc(1ex / 0.29);
   margin: 0.5rem;
-  max-width: 100%;
+  max-width: 75ch;
   padding: 0;
   text-align: left;
-  width: 70ch;
 }

@@ -313,10 +313,9 @@ p {
   hyphens: auto;
   line-height: calc(1ex / 0.29);
   margin: 0.5rem;
-  max-width: 100%;
+  max-width: 75ch;
   padding: 0;
   text-align: justify;
-  width: 70ch;
 }
 
 /* Blockquote styling */
