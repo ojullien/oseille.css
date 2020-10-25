@@ -1,14 +1,15 @@
 {
     "name": "oseille.css",
-    "version": "1.0.0",
+    "version": "0.8.0",
     "description": "A small, responsive and accessible CSS framework",
-    "main": "dist/oseille.min.css",
+    "main": "dist/oseille.css",
     "keywords": [
         "css",
         "sass",
         "minimal",
         "responsive",
         "accessible",
+        "a11y",
         "css-framework",
         "oseille.css"
     ],
@@ -16,9 +17,10 @@
         "type": "git",
         "url": "git+https://github.com/ojullien/oseille.css.git"
     },
-    "homepage": "https://github.com/ojullien/oseille.css",
+    "homepage": "https://github.com/ojullien/oseille.css#readme",
     "author": "Olivier Jullien <https://github.com/ojullien>",
     "license": "MIT",
+    "bugs": "https://github.com/ojullien/oseille.css/issues",
     "devDependencies": {
         "sass": "^1.27.0",
         "stylelint": "^13.7.2",
@@ -30,11 +32,12 @@
         "last 4 versions",
         "Firefox ESR",
         "not dead"
-      ],
+    ],
     "scripts": {
+        "build": "./node_modules/.bin/sass src/flavors:dist --style=compressed --charset --no-error-css --color --unicode --no-source-map",
+        "build-expanded": "./node_modules/.bin/sass src/flavors:dist/expanded --style=expanded --charset --no-error-css --color --unicode --no-source-map",
         "test": "./node_modules/.bin/sass test/oseille:test/dist --style=expanded --charset --no-error-css --color --unicode --no-source-map",
-        "lint-test": "./node_modules/.bin/stylelint src/oseille/5-utilities/*.scss",
-        "lint-test-standard": "./node_modules/.bin/stylelint src/oseille/5-utilities/*.scss --config .stylelintrc-standard.json",
-        "build": "./node_modules/.bin/sass src/flavors:dist --style=expanded --charset --no-error-css --color --unicode --no-source-map"
+        "lint": "./node_modules/.bin/stylelint src/oseille/**/*.scss",
+        "lint-css": "./node_modules/.bin/stylelint dist/*.css --config .stylelintrc-standard.json"
     }
 }

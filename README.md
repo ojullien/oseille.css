@@ -1,68 +1,94 @@
-# mini.css Flavor
+# Oseille.css
 
-[Mini.css](https://github.com/Chalarangelo/mini.css) flavor for the 'La boite à bouillons' web sites.
+*A small, responsive and accessible CSS framework.*
 
-Forked from the [Angelos Chalaris](https://github.com/Chalarangelo) [mini.css](https://github.com/Chalarangelo/mini.css) project (version 3.0.1 aka gluon.v3) to which we have refactored the flavor structure into several modules.
+**Oseille.css** is a fork of the [mini.css](https://github.com/Chalarangelo/mini.css) (v3 gluon) framework, intended to add **accessibility** on top of it.
+It includes new elements styling and is still lightweight **(~ 8k gzip)**.
+It is also more **flexible** on configuration using **custom properties** and **Dart Sass** as prepocessor.
 
-## Table of Contents
-
-- [Setup](#setup)
-- [Features](#features)
-- [Documentation](#documentation)
-- [Test](#test)
-- [Contributing](#contributing)
-- [License](#license)
-
-## Setup
-
-Requires:
-
-- npm v6.14.5
-- node-sass v4.14.1
-
-1. Install **mini.css** framework, the 'La boîte à bouillons' flavors and de dependencies using `npm install`
-2. Build the flavors using `npm run build`
-3. Minifies the css using `npm run minify`
+[Features](#features) | [Setup](#setup) | [Themes](#Themes)  [Documentation](#documentation) | [Test](#test) | [Contributing](#contributing) | [License](#license)
 
 ## Features
 
-### Main theme
+- Accessible
+- Responsive
+- Light-weight
+- Flexbox grid
+- Modular Components
+- Ease to use and customize
+- Built using Dart Sass
 
-![Main](/docs/main.jpg)
+**Oseille.css** is perfect for your *personal website*, *blog*, or *side project*.
 
-- A featured image and a quote hold in the entire screen.
-- An arrow indicates the user to scroll down to read more.
-- Main color is "Vert céladon" (#59BCAB).
-- Full wide.
+## Setup
 
-Watch the [style sheet](/docs/style-sheet.html)
+### Install via NPM
 
-### Maintenance theme
+The quickest and easiest way to include **oseille.css** in to your project is through NPM
 
-![Maintenance](/docs/maintenance.jpg)
+```shell
+// Using NPM
+npm install oseille.css
+```
 
-Theme for a simple maintenance page.
+### Install via CDN
+
+**Oseille.css** is also available via [CDN](https://unpkg.com/oseille.css@latest/dist/oseille.css)
+
+```html
+// Via CDN
+<link rel="stylesheet" href="https://unpkg.com/oseille.css@latest/dist/oseille.css" />
+```
+
+## Themes
+
+### Editing the CSS variables
+
+As **oseille.css** is using [CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties).
+You may open your browser dev-tools, edit the custom properties your are looking for.
+Then, to override the variables, just add them to your :root selector.
+
+```css
+:root {
+  --fore-color: white;
+  --back-color: black;
+}
+```
+
+### Creating a flavor
+
+You may also create your own flavor for a deeper customization.
+The use of [Dart Sass](https://sass-lang.com/documentation) configuration features and the the modular structure of the oseille.css framework make you customize more quickly.
+It is easy to start making your own flavor, just by tweaking the [default flavor](https://github.com/ojullien/oseille.css/blob/master/src/flavors/oseille.scss).
 
 ## Documentation
 
-For instructions on how to use, best practices, templates and other usage information, please visit the framework's [documentation](https://minicss.org/docs). We do not provide documentation about the 'La boîte à bouillons' flavors.
+For instructions on how to use, best practices, templates and other usage information, please visit the framework's [documentation](https://ojullien.github.io/oseille.css/).
+
+## Development
+
+Requires:
+
+- npm v6.14.8
+- sass v1.27.0
+
+1. Install **oseille.css** framework and the dependencies using `npm install`
+2. Build the flavors using `npm run build`
 
 ## Test
 
-We generate the mini-default flavor each time. We compare this mini-default.css with the one generated from the [mini.css](https://github.com/Chalarangelo/mini.css) (version 3.0.1) to detect any regression.
+Use `npm run test` to generate mutliple css files for each elements and components.
 
 ## Contributing
 
 Thanks you for taking the time to contribute. Please fork the repository and make changes as you'd like.
 
-As we use this theme for 'La boîte à bouillons' projects, it contains only the features we need. But If you have any ideas, just open an [issue](https://github.com/laboiteabouillons/mini.css/issues) and tell us what you think. Pull requests are also warmly welcome.
+If you have any ideas, just open an [issue](https://github.com/ojullien/oseille.css/issues) and tell us what you think. Pull requests are also warmly welcome.
 
-If you encounter any **bugs** in the 'La boîte à bouillons' flavors, please open an [issue](https://github.com/laboiteabouillons/mini.css/issues).
+If you encounter any **bugs**, please open an [issue](https://github.com/ojullien/oseille.css/issues).
 
 Be sure to include a title and clear description,as much relevant information as possible, and a code sample or an executable test case demonstrating the expected behavior that is not occurring.
 
 ## License
 
-**mini.css** is an open-source framework and is licensed under the [MIT License](https://github.com/Chalarangelo/mini.css/blob/master/LICENSE).
-
-**La boite à bouillons flavor** are open-source and are licensed under the [MIT License](https://github.com/laboiteabouillons/mini.css/blob/master/LICENSE).
+**Oseille.css** is an open-source framework and is licensed under the [MIT License](https://github.com/ojullien/oseille.css/blob/master/LICENSE).
