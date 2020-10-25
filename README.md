@@ -6,7 +6,7 @@
 It includes new elements styling and is still lightweight **(~ 8k gzip)**.
 It is also more **flexible** on configuration using **custom properties** and **Dart Sass** as prepocessor.
 
-[Features](#features) | [Setup](#setup) | [Themes](#Themes)  [Documentation](#documentation) | [Test](#test) | [Contributing](#contributing) | [License](#license)
+[Features](#features) | [Setup](#setup) | [Themes](#Themes) | [Documentation](#documentation) | [Development](#development) | [Test](#test) | [Contributing](#contributing) | [License](#license)
 
 ## Features
 
