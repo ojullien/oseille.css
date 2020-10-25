@@ -1,0 +1,15 @@
+//
+// Media print.
+//
+// One of the issues with printed web pages is that links are completely useless because you don’t know where they’re
+// are leading. Luckily CSS gives us a way of revealing the values of attributes and showing them on screen
+// (or paper in this case).
+//
+
+/* Media print */
+
+@media print {
+    a[href^='http']::after {
+        content: ' (' attr(href) ')';
+    }
+}

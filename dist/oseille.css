@@ -2311,3 +2311,9 @@ progress.tertiary {
     }
   }
 }
+/* Media print */
+@media print {
+  a[href^=http]::after {
+    content: " (" attr(href) ")";
+  }
+}
