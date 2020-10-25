@@ -39,10 +39,8 @@ $_classnames: (
     position: absolute;
     width: 1px;
 
-    @supports ((-webkit-clip-path: inset(100%)) or (clip-path: inset(100%))) {
-        -webkit-clip-path: inset(100%);
-        clip-path: inset(100%);
-    }
+    -webkit-clip-path: inset(100%);
+    clip-path: inset(100%);
 
     & + div {
         background-color: var(--modal-back-color, #{colors.get('overlay')});

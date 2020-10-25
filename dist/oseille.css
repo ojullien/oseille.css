@@ -1969,12 +1969,8 @@ time {
   overflow: hidden;
   position: absolute;
   width: 1px;
-}
-@supports (-webkit-clip-path: inset(100%)) or (clip-path: inset(100%)) {
-  [type=checkbox].modal {
-    -webkit-clip-path: inset(100%);
-    clip-path: inset(100%);
-  }
+  -webkit-clip-path: inset(100%);
+  clip-path: inset(100%);
 }
 [type=checkbox].modal + div {
   background-color: var(--modal-back-color, rgba(0, 0, 0, 0.45));
@@ -2199,19 +2195,15 @@ progress.tertiary {
 
 .visually-hidden {
   position: absolute !important;
+  white-space: nowrap;
   width: 1px !important;
   height: 1px !important;
-  margin: -1px !important;
   border: 0 !important;
   padding: 0 !important;
-  clip: rect(0 0 0 0) !important;
+  clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(100%) !important;
+  clip-path: inset(100%) !important;
   overflow: hidden !important;
-}
-@supports (-webkit-clip-path: inset(100%)) or (clip-path: inset(100%)) {
-  .visually-hidden {
-    -webkit-clip-path: inset(100%) !important;
-    clip-path: inset(100%) !important;
-  }
 }
 
 .responsive-margin {
@@ -2260,55 +2252,43 @@ progress.tertiary {
 @media screen and (max-width: 767px) {
   .visually-hidden-sm {
     position: absolute !important;
+    white-space: nowrap;
     width: 1px !important;
     height: 1px !important;
-    margin: -1px !important;
     border: 0 !important;
     padding: 0 !important;
-    clip: rect(0 0 0 0) !important;
+    clip: rect(0 0 0 0);
+    -webkit-clip-path: inset(100%) !important;
+    clip-path: inset(100%) !important;
     overflow: hidden !important;
-  }
-  @supports (-webkit-clip-path: inset(100%)) or (clip-path: inset(100%)) {
-    .visually-hidden-sm {
-      -webkit-clip-path: inset(100%) !important;
-      clip-path: inset(100%) !important;
-    }
   }
 }
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   .visually-hidden-md {
     position: absolute !important;
+    white-space: nowrap;
     width: 1px !important;
     height: 1px !important;
-    margin: -1px !important;
     border: 0 !important;
     padding: 0 !important;
-    clip: rect(0 0 0 0) !important;
+    clip: rect(0 0 0 0);
+    -webkit-clip-path: inset(100%) !important;
+    clip-path: inset(100%) !important;
     overflow: hidden !important;
-  }
-  @supports (-webkit-clip-path: inset(100%)) or (clip-path: inset(100%)) {
-    .visually-hidden-md {
-      -webkit-clip-path: inset(100%) !important;
-      clip-path: inset(100%) !important;
-    }
   }
 }
 @media screen and (min-width: 1280px) {
   .visually-hidden-lg {
     position: absolute !important;
+    white-space: nowrap;
     width: 1px !important;
     height: 1px !important;
-    margin: -1px !important;
     border: 0 !important;
     padding: 0 !important;
-    clip: rect(0 0 0 0) !important;
+    clip: rect(0 0 0 0);
+    -webkit-clip-path: inset(100%) !important;
+    clip-path: inset(100%) !important;
     overflow: hidden !important;
-  }
-  @supports (-webkit-clip-path: inset(100%)) or (clip-path: inset(100%)) {
-    .visually-hidden-lg {
-      -webkit-clip-path: inset(100%) !important;
-      clip-path: inset(100%) !important;
-    }
   }
 }
 /* Media print */

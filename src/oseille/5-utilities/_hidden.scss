@@ -45,20 +45,21 @@ $_medium-breakpoint: breakpoints.get('medium') - 1px;
 
 // Mixin
 @mixin hide {
-    position: absolute !important;
+    position: absolute !important; // Remove the item from normal flow
+    white-space: nowrap; // Workaround for falsely pronounced, smushed text
+    // Set it to the smallest possible size (some screen readers ignore elements with zero height and width)
     width: 1px !important;
     height: 1px !important;
-    margin: -1px !important;
+    // Reset any property that may change the elements size
     border: 0 !important;
     padding: 0 !important;
-    clip: rect(0 0 0 0) !important;
 
-    @supports ((-webkit-clip-path: inset(100%)) or (clip-path: inset(100%))) {
-        -webkit-clip-path: inset(100%) !important;
-        clip-path: inset(100%) !important;
-    }
+    // Clipping defines what part of an element should be displayed.
+    clip: rect(0 0 0 0);
+    -webkit-clip-path: inset(100%) !important;
+    clip-path: inset(100%) !important;
 
-    overflow: hidden !important;
+    overflow: hidden !important; // Hide overflowing content after resizing
 }
 
 // Hidden elements class. NOTE: Uses !important.
