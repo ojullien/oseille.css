@@ -6,6 +6,8 @@
 It includes new elements styling and is still lightweight **(~ 8k gzip)**.
 It is also more **flexible** on configuration using **custom properties** and **Dart Sass** as prepocessor.
 
+[![GitHub Super-Linter](https://github.com/ojullien/oseille.css/workflows/Lint%20Code%20Base/badge.svg)](https://github.com/marketplace/actions/super-linter)
+
 [Features](#features) | [Setup](#setup) | [Themes](#Themes) | [Documentation](#documentation) | [Development](#development) | [Test](#test) | [Contributing](#contributing) | [License](#license)
 
 ## Features

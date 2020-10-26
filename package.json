@@ -1,5 +1,5 @@
 {
-    "name": "oseille.css",
+    "name": "@ojullien/oseille.css",
     "version": "0.8.0",
     "description": "A small, responsive and accessible CSS framework",
     "main": "dist/oseille.css",
@@ -16,6 +16,9 @@
     "repository": {
         "type": "git",
         "url": "git+https://github.com/ojullien/oseille.css.git"
+    },
+    "publishConfig": {
+        "registry": "https://npm.pkg.github.com/"
     },
     "homepage": "https://github.com/ojullien/oseille.css#readme",
     "author": "Olivier Jullien <https://github.com/ojullien>",
