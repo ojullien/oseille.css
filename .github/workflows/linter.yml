@@ -15,6 +15,9 @@ name: Lint Code Base
 # Start the job on all push #
 #############################
 on:
+  push:
+    branches-ignore: [master]
+    # Remove the line above to run when pushing to master
   pull_request:
     branches: [master]
 
@@ -37,6 +40,9 @@ jobs:
       ##########################
       - name: Checkout Code
         uses: actions/checkout@v2
+        with:
+          # Full git history is needed to get a proper list of changed files within `super-linter`
+          fetch-depth: 0
 
       ################################
       # Run Linter against code base #
@@ -47,4 +53,4 @@ jobs:
           VALIDATE_ALL_CODEBASE: false
           VALIDATE_CSS: true
           DEFAULT_BRANCH: master
-          FILTER_REGEX_EXCLUDE:.*docs/.*
+          FILTER_REGEX_INCLUDE:.*dist/.*
