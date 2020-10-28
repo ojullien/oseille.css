@@ -51,6 +51,9 @@ footer {
     }
 
     &.#{map.get($_classnames, 'sticky')} {
+        // Scrolling elements containing sticky content can cause performance and accessibility issues.
+        // @link https://developer.mozilla.org/en-US/docs/Web/CSS/position
+        // @link https://developer.mozilla.org/en-US/docs/Web/CSS/will-change
         bottom: 0;
         position: -webkit-sticky;
         position: sticky;
