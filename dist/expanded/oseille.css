@@ -163,19 +163,19 @@ sup {
   top: -0.5em;
 }
 
-.text-align-center {
+.text-centered {
   text-align: center;
 }
 
-.text-align-justify {
+.text-justified {
   text-align: justify;
 }
 
-.text-align-left {
+.text-left-aligned {
   text-align: left;
 }
 
-.text-align-right {
+.text-right-aligned {
   text-align: right;
 }
 
@@ -1175,7 +1175,6 @@ header {
 .page-header span {
   line-height: calc(3.1875rem - 0.5rem * 1.5);
   position: relative;
-  text-align: center;
   top: calc(0rem - 0.5rem / 4);
   text-transform: uppercase;
 }

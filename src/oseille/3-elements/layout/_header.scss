@@ -118,7 +118,6 @@ header {
     span {
         line-height: calc(#{$_height} - #{boxmodel.get('padding')} * #{fonts.get-line-spacing('main')});
         position: relative;
-        text-align: center;
 
         // Use universal-padding to offset the padding of the header.
         top: calc(0rem - #{boxmodel.get('padding')} / 4);
