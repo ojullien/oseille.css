@@ -67,7 +67,6 @@ $_disabled-opacity: 0.75 !default;
 
 .#{map.get($_classnames, 'button')} {
     --button-padding: #{boxmodel.get('padding')} calc(#{fonts.get-line-spacing('main')} * #{boxmodel.get('padding')});
-    align-items: center; // If the container is flex or grid.
     background-color: var(--button-back-color, transparent);
     border: borders.get('width-alt') solid var(--button-border-color, #{colors.get('fore')});
     border-radius: 0;
@@ -76,7 +75,6 @@ $_disabled-opacity: 0.75 !default;
     display: inline-block;
     font: inherit;
     font-size: 1em;
-    justify-content: center; // If the container is flex.
     margin: boxmodel.get('margin');
 
     padding: var(--button-padding);
@@ -86,7 +84,6 @@ $_disabled-opacity: 0.75 !default;
     -webkit-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    vertical-align: middle;
 
     &:hover {
         background-color: var(--button-back-hover-color, #{colors.get('back-alt')});

@@ -453,7 +453,6 @@ input[type=reset] {
 input[type=submit],
 input[type=reset], button {
   --button-padding: 0.5rem calc(1.5 * 0.5rem);
-  align-items: center;
   background-color: var(--button-back-color, transparent);
   border: 2px solid var(--button-border-color, #121212);
   border-radius: 0;
@@ -462,7 +461,6 @@ input[type=reset], button {
   display: inline-block;
   font: inherit;
   font-size: 1em;
-  justify-content: center;
   margin: 0.5rem;
   padding: var(--button-padding);
   text-align: center;
@@ -471,7 +469,6 @@ input[type=reset], button {
   -webkit-user-select: none;
   -ms-user-select: none;
   user-select: none;
-  vertical-align: middle;
 }
 .button:hover, [role=button]:hover, input[type=button]:hover,
 input[type=submit]:hover,
@@ -1169,6 +1166,10 @@ header {
 .page-header .button,
 .page-header [role=button] {
   border: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
   text-transform: uppercase;
 }
 .page-header span {

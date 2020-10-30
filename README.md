@@ -15,7 +15,7 @@ It is also more **flexible** on configuration using **custom properties** and **
 - Accessible
 - Responsive
 - Light-weight
-- Flexbox grid
+- 1-line flexbox layout
 - Modular Components
 - Ease to use and customize
 - Built using Dart Sass

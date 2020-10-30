@@ -103,6 +103,11 @@ header {
     .#{map.get($_classnames, 'button')},
     [role='button'] {
         border: 0;
+        // Fill the header's height for a better style
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
 
         @if $_links-uppercase {
             text-transform: uppercase;
