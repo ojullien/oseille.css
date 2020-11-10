@@ -33,10 +33,8 @@ $_bold-font-weight: 700 !default;
 // Opacity for input elements when disabled.
 $_disabled-opacity: 0.75 !default;
 
-/* Inline text semantic styling */
-
 // Fix for elements inside headings not displaying properly.
-%_normalize_small {
+@mixin normalize_small {
     border: 0;
     font-family: inherit;
     font-size: var(--smaller, #{fonts.get-size('small')});
@@ -44,7 +42,7 @@ $_disabled-opacity: 0.75 !default;
     padding: 0;
 }
 
-%_normalize {
+@mixin normalize {
     border: 0;
     font-size: 1em;
     margin: 0;
@@ -52,44 +50,52 @@ $_disabled-opacity: 0.75 !default;
 }
 
 // Prevent element from affecting the line height in all browsers.
-%_normalize-line-height {
+@mixin normalize-line-height {
     line-height: 0;
     position: relative;
     vertical-align: baseline;
 }
 
+// default link style
+@mixin style-link {
+    &:not([class]) {
+        background-color: var(--link-back-color, transparent);
+        color: var(--link-color, colors.get('link'));
+        &:hover {
+            border-top: 1px solid currentColor;
+            border-bottom: 1px solid currentColor;
+            outline: transparent solid; // We remove it but we provide alternative styling.
+            -webkit-text-decoration: none;
+            text-decoration: none;
+        }
+        &:focus {
+            outline: var(--link-focus-color, colors.get('link')) solid 0.125rem;
+            outline-offset: 0.0625em;
+        }
+    }
+}
+
+/* Inline text semantic styling */
+
 a {
-    @extend %_normalize;
-    border-bottom: borders.get('width-relative') solid transparent;
+    @include normalize;
 
     font-family: inherit; // Fix for elements inside headings not displaying properly.
-    text-decoration: none; // We remove it but we provide alternative styling.
-    transition: border-bottom-color 150ms ease-in-out;
+    -webkit-text-decoration: underline solid currentColor;
+    text-decoration: underline solid currentColor;
 
-    // Same color for visited and not visited link.
-    // But Oseille allow live color tunning
-    &:link {
-        color: var(--link-color, colors.get('link'));
+    // Selects any element that would be matched by :link or :visited
+    &:-webkit-any-link {
+        @include style-link;
     }
 
-    &:visited {
-        color: var(--link-visited-color, colors.get('link'));
-    }
-
-    &:hover {
-        border-bottom-color: unset;
-        border-bottom-width: borders.get('width-relative-alt');
-        outline: transparent solid; // We remove it but we provide alternative styling.
-    }
-
-    &:focus {
-        outline: var(--link-focus-color, colors.get('link')) solid 0.125rem;
-        outline-offset: 0.0625em;
+    &:any-link {
+        @include style-link;
     }
 }
 
 abbr[title] {
-    @extend %_normalize;
+    @include normalize;
 
     border-bottom: none solid transparent; // Remove bottom border in Firefox 39- & Chrome 57-
     -webkit-text-decoration: underline dotted;
@@ -98,13 +104,13 @@ abbr[title] {
 
 b,
 strong {
-    @extend %_normalize;
+    @include normalize;
 
     font-weight: $_bold-font-weight;
 }
 
 data {
-    @extend %_normalize;
+    @include normalize;
 
     -webkit-text-decoration: underline dotted;
     text-decoration: underline dotted; // Opinionated style-fix for all browsers.
@@ -132,11 +138,11 @@ i,
 ins,
 span,
 u {
-    @extend %_normalize;
+    @include normalize;
 }
 
 s {
-    @extend %_normalize;
+    @include normalize;
 
     // The presence of the s element is not announced by most screen reading technology
     // in its default configuration. It can be made to be announced by using the CSS
@@ -162,19 +168,19 @@ s {
 }
 
 small {
-    @extend %_normalize_small;
+    @include normalize_small;
 }
 
 sub {
-    @extend %_normalize_small;
-    @extend %_normalize-line-height;
+    @include normalize_small;
+    @include normalize-line-height;
 
     bottom: map.get($_box-model, 'bottom');
 }
 
 sup {
-    @extend %_normalize_small;
-    @extend %_normalize-line-height;
+    @include normalize_small;
+    @include normalize-line-height;
 
     top: map.get($_box-model, 'top');
 }

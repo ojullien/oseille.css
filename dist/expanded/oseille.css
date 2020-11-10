@@ -61,56 +61,51 @@ div {
 }
 
 /* Inline text semantic styling */
-sup, sub, small {
-  border: 0;
-  font-family: inherit;
-  font-size: var(--smaller, 0.75em);
-  margin: 0;
-  padding: 0;
-}
-
-s, del,
-em,
-i,
-ins,
-span,
-u, data, b,
-strong, abbr[title], a {
+a {
   border: 0;
   font-size: 1em;
   margin: 0;
   padding: 0;
-}
-
-sup, sub {
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline;
-}
-
-a {
-  border-bottom: 0.0625rem solid transparent;
   font-family: inherit;
-  text-decoration: none;
-  transition: border-bottom-color 150ms ease-in-out;
+  -webkit-text-decoration: underline solid currentColor;
+  text-decoration: underline solid currentColor;
 }
-a:link {
+a:-webkit-any-link:not([class]) {
+  background-color: var(--link-back-color, transparent);
   color: var(--link-color, #215cca);
 }
-a:visited {
-  color: var(--link-visited-color, #215cca);
-}
-a:hover {
-  border-bottom-color: unset;
-  border-bottom-width: 0.125rem;
+a:-webkit-any-link:not([class]):hover {
+  border-top: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
   outline: transparent solid;
+  -webkit-text-decoration: none;
+  text-decoration: none;
 }
-a:focus {
+a:-webkit-any-link:not([class]):focus {
+  outline: var(--link-focus-color, #215cca) solid 0.125rem;
+  outline-offset: 0.0625em;
+}
+a:any-link:not([class]) {
+  background-color: var(--link-back-color, transparent);
+  color: var(--link-color, #215cca);
+}
+a:any-link:not([class]):hover {
+  border-top: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
+  outline: transparent solid;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+a:any-link:not([class]):focus {
   outline: var(--link-focus-color, #215cca) solid 0.125rem;
   outline-offset: 0.0625em;
 }
 
 abbr[title] {
+  border: 0;
+  font-size: 1em;
+  margin: 0;
+  padding: 0;
   border-bottom: none solid transparent;
   -webkit-text-decoration: underline dotted;
   text-decoration: underline dotted;
@@ -118,10 +113,18 @@ abbr[title] {
 
 b,
 strong {
+  border: 0;
+  font-size: 1em;
+  margin: 0;
+  padding: 0;
   font-weight: 700;
 }
 
 data {
+  border: 0;
+  font-size: 1em;
+  margin: 0;
+  padding: 0;
   -webkit-text-decoration: underline dotted;
   text-decoration: underline dotted;
 }
@@ -139,6 +142,24 @@ data:hover::after {
     cursor: help;
   }
 }
+del,
+em,
+i,
+ins,
+span,
+u {
+  border: 0;
+  font-size: 1em;
+  margin: 0;
+  padding: 0;
+}
+
+s {
+  border: 0;
+  font-size: 1em;
+  margin: 0;
+  padding: 0;
+}
 s::before, s::after {
   height: 1px;
   overflow: hidden;
@@ -155,11 +176,35 @@ s::after {
   content: " [end of stricken text] ";
 }
 
+small {
+  border: 0;
+  font-family: inherit;
+  font-size: var(--smaller, 0.75em);
+  margin: 0;
+  padding: 0;
+}
+
 sub {
+  border: 0;
+  font-family: inherit;
+  font-size: var(--smaller, 0.75em);
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
   bottom: -0.25em;
 }
 
 sup {
+  border: 0;
+  font-family: inherit;
+  font-size: var(--smaller, 0.75em);
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
   top: -0.5em;
 }
 

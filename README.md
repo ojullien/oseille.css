@@ -6,8 +6,6 @@
 It includes new elements styling and is still lightweight **(~ 8k gzip)**.
 It is also more **flexible** on configuration using **custom properties** and **Dart Sass** as prepocessor.
 
-[![GitHub Super-Linter](https://github.com/ojullien/oseille.css/workflows/Lint%20Code%20Base/badge.svg)](https://github.com/marketplace/actions/super-linter)
-
 [Features](#features) | [Setup](#setup) | [Themes](#Themes) | [Documentation](#documentation) | [Development](#development) | [Test](#test) | [Contributing](#contributing) | [License](#license)
 
 ## Features
@@ -68,6 +66,8 @@ It is easy to start making your own flavor, just by tweaking the [default flavor
 For instructions on how to use, best practices, templates and other usage information, please visit the framework's [documentation](https://ojullien.github.io/oseille.css/).
 
 ## Development
+
+***Oseille.css** is under active development. Design are subject to change without notice.*
 
 Requires:
 
