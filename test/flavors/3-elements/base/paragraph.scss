@@ -1,3 +1,6 @@
 //
+@use '../../../../src/oseille/2-settings/fonts' with (
+    $hyphenation: true,
+);
 @use '../../../../src/oseille/3-elements/base/paragraph';
 @debug 'End generating base/paragraph';

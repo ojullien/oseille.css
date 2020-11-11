@@ -12,12 +12,12 @@ hr {
 }
 
 p {
-  -ms-hyphens: none;
-  -webkit-hyphens: none;
-  hyphens: none;
+  -ms-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
   line-height: calc(1ex / 0.29);
   margin: 0.5rem;
   max-width: 75ch;
   padding: 0;
-  text-align: left;
+  text-align: justify;
 }
