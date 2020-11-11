@@ -58,20 +58,20 @@ $_disabled-opacity: 0.75 !default;
 
 // default link style
 @mixin style-link {
-    &:not([class]) {
-        background-color: var(--link-back-color, transparent);
-        color: var(--link-color, colors.get('link'));
-        &:hover {
-            border-top: 1px solid currentColor;
-            border-bottom: 1px solid currentColor;
-            outline: transparent solid; // We remove it but we provide alternative styling.
-            -webkit-text-decoration: none;
-            text-decoration: none;
-        }
-        &:focus {
-            outline: var(--link-focus-color, colors.get('link')) solid 0.125rem;
-            outline-offset: 0.0625em;
-        }
+    background-color: var(--link-back-color, transparent);
+    color: var(--link-color, colors.get('link'));
+    &:hover {
+        background-color: var(--link-back-hover-color, transparent);
+        border-top: 1px solid currentColor;
+        border-bottom: 1px solid currentColor;
+        color: var(--link-hover-color, colors.get('link'));
+        outline: transparent solid; // We remove it but we provide alternative styling.
+        -webkit-text-decoration: none;
+        text-decoration: none;
+    }
+    &:focus {
+        outline: var(--link-focus-color, colors.get('link')) solid 0.125rem;
+        outline-offset: 0.0625em;
     }
 }
 
@@ -85,11 +85,16 @@ a {
     text-decoration: underline solid currentColor;
 
     // Selects any element that would be matched by :link or :visited
-    &:-webkit-any-link {
+    // Buttons have an another style.
+    &:not([class~='button']):not([role='button']):-webkit-any-link {
         @include style-link;
     }
 
-    &:any-link {
+    &:not([class~='button']):not([role='button']):-moz-any-link {
+        @include style-link;
+    }
+
+    &:not([class~='button']):not([role='button']):any-link {
         @include style-link;
     }
 }

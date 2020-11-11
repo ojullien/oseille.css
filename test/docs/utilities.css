@@ -1,0 +1,38 @@
+.docs-main {
+    padding: 0 calc(0.5rem * 2);
+    max-width: 95vw;
+}
+
+.docs-sidebar {
+    column-count: 1;
+}
+
+.docs-sidebar>ul {
+    list-style-type: none;
+}
+
+@media (min-width: 540px) {
+    .docs-sidebar {
+        column-count: 2;
+        column-rule-style: solid;
+        column-rule-width: 1px;
+    }
+}
+
+@media (min-width: 800px) {
+    .docs-sidebar {
+        column-count: 3;
+    }
+}
+
+@media (min-width: 940px) {
+    .docs-wrapper {
+        display: grid;
+        grid-template-columns: auto 1fr;
+    }
+
+    .docs-sidebar {
+        align-self: start;
+        column-count: 1;
+    }
+}

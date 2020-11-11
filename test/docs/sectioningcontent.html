@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <title>Sectioning content</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="../build/3-elements/base/root.css" rel="stylesheet" type="text/css" id="root-css" disabled />
+        <link href="../build/3-elements/layout/sectioning.css" rel="stylesheet" type="text/css" id="sectioning-css" disabled />
+        <link href="../build/3-elements/base/text.css" rel="stylesheet" type="text/css" id="text-css" disabled />
+        <link href="../build/3-elements/base/mark.css" rel="stylesheet" type="text/css" id="mark-css" disabled />
+        <link href="../build/3-elements/base/code.css" rel="stylesheet" type="text/css" id="code-css" disabled />
+        <link href="../build/3-elements/base/paragraph.css" rel="stylesheet" type="text/css" id="paragraph-css" disabled />
+        <link href="../build/3-elements/base/quotation.css" rel="stylesheet" type="text/css" id="quotation-css" disabled />
+        <link href="../build/3-elements/base/list.css" rel="stylesheet" type="text/css" id="list-css" disabled />
+        <link href="../build/3-elements/base/definition.css" rel="stylesheet" type="text/css" id="definition-css" disabled />
+        <link href="../build/3-elements/base/figure.css" rel="stylesheet" type="text/css" id="figure-css" disabled />
+        <link href="../build/3-elements/base/buttons.css" rel="stylesheet" type="text/css" id="buttons-css" disabled />
+        <link href="../build/3-elements/base/form.css" rel="stylesheet" type="text/css" id="form-css" disabled />
+        <link href="../build/3-elements/base/fieldset.css" rel="stylesheet" type="text/css" id="fieldset-css" disabled />
+        <link href="../build/3-elements/base/input.css" rel="stylesheet" type="text/css" id="input-css" disabled />
+        <link href="../build/3-elements/base/table.css" rel="stylesheet" type="text/css" id="table-css" disabled />
+        <link href="../build/3-elements/base/multimedia.css" rel="stylesheet" type="text/css" id="multimedia-css" disabled />
+        <link href="../build/3-elements/base/details.css" rel="stylesheet" type="text/css" id="details-css" disabled />
+        <link href="../build/3-elements/layout/navigation.css" rel="stylesheet" type="text/css" id="navigation-css" disabled />
+        <link href="../build/3-elements/layout/heading.css" rel="stylesheet" type="text/css" id="heading-css" disabled />
+        <link href="../build/3-elements/layout/footer.css" rel="stylesheet" type="text/css" id="footer-css" disabled />
+        <link href="../build/3-elements/layout/header.css" rel="stylesheet" type="text/css" id="header-css" disabled />
+        <link href="../build/3-elements/base/iframe.css" rel="stylesheet" type="text/css" id="iframe-css" disabled />
+        <link href="../build/3-elements/base/time.css" rel="stylesheet" type="text/css" id="time-css" disabled />
+        <link href="../build/4-components/legibility.css" rel="stylesheet" type="text/css" id="legibility-css" disabled />
+        <link href="../build/4-components/border.css" rel="stylesheet" type="text/css" id="border-css" disabled />
+        <link href="../build/4-components/collapse.css" rel="stylesheet" type="text/css" id="collapse-css" disabled />
+        <link href="../build/4-components/toast.css" rel="stylesheet" type="text/css" id="toast-css" disabled />
+        <link href="../build/4-components/tooltip.css" rel="stylesheet" type="text/css" id="tooltip-css" disabled />
+        <link href="../build/4-components/grid.css" rel="stylesheet" type="text/css" id="grid-css" disabled />
+        <link href="../build/4-components/card.css" rel="stylesheet" type="text/css" id="card-css" disabled />
+        <link href="../build/4-components/modal.css" rel="stylesheet" type="text/css" id="modal-css" disabled />
+        <link href="../build/4-components/drawer.css" rel="stylesheet" type="text/css" id="drawer-css" disabled />
+        <link href="../build/4-components/progress.css" rel="stylesheet" type="text/css" id="progress-css" disabled />
+        <link href="../build/5-utilities/hidden.css" rel="stylesheet" type="text/css" id="utility-css" disabled />
+        <link href="../build/5-utilities/print.css" rel="stylesheet" type="text/css" id="print-css" disabled />
+        <link href="../build/oseille.css" rel="stylesheet" type="text/css" id="oseille-css" />
+        <link href="utilities.css" rel="stylesheet" type="text/css" />
+    </head>
+
+    <body>
+        <header class="page-header row">
+            <span class="logo col-sm col-md">oseille.css</span>
+            <a class="button col-sm col-md hidden-sm" href="https://ojullien.github.io/oseille.css/">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="height: 20px; vertical-align: text-top;">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                    <polyline points="10 9 9 9 8 9"></polyline>
+                </svg>
+                <span>&nbsp;Docs</span>
+            </a>
+            <a class="button col-sm col-md hidden-sm" href="https://github.com/ojullien/oseille.css" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="height: 20px; vertical-align: text-top;">
+                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                </svg>
+                <span>&nbsp;Github</span>
+            </a>
+            <label for="drawer-control" class="button drawer-toggle col-sm"></label>
+        </header>
+
+        <div class="row">
+            <input type="checkbox" id="drawer-control" class="drawer" value="on" />
+            <nav id="nav-drawer" class="hidden-md hidden-lg">
+                <h3>Menu</h3>
+                <label for="drawer-control" class="button drawer-close"></label>
+                <a href="https://ojullien.github.io/oseille.css/" rel="pépite">Documentation</a>
+                <a href="https://github.com/ojullien/oseille.css/" rel="réseau">Github</a>
+            </nav>
+        </div>
+
+        <div class="docs-wrapper">
+
+            <aside>
+                <nav class="docs-sidebar">
+                    <ul>
+                        <li><label for="oseille"><input type="checkbox" id="checkbox-oseille" name="checkbox-oseille" value="oseille" onclick="switchToOseille();" checked />Oseille</label></li>
+                        <li><label for="root"><input type="checkbox" id="checkbox-root" name="checkbox-root" value="root" onclick="switchToLocal(this);" />Root</label></li>
+                        <li><label for="sectioning"><input type="checkbox" id="checkbox-sectioning" name="checkbox-sectioning" value="sectioning" onclick="switchToLocal(this);" />Sectioning</label></li>
+                        <li><label for="text"><input type="checkbox" id="checkbox-text" name="checkbox-text" value="text" onclick="switchToLocal(this);" />Text</label></li>
+                        <li><label for="mark"><input type="checkbox" id="checkbox-mark" name="checkbox-mark" value="mark" onclick="switchToLocal(this);" />Mark</label></li>
+                        <li><label for="code"><input type="checkbox" id="checkbox-code" name="checkbox-code" value="code" onclick="switchToLocal(this);" />Code</label></li>
+                        <li><label for="paragraph"><input type="checkbox" id="checkbox-paragraph" name="checkbox-paragraph" value="paragraph" onclick="switchToLocal(this);" />Paragraph</label></li>
+                        <li><label for="quotation"><input type="checkbox" id="checkbox-quotation" name="checkbox-quotation" value="quotation" onclick="switchToLocal(this);" />Quotation</label></li>
+                        <li><label for="list"><input type="checkbox" id="checkbox-list" name="checkbox-list" value="list" onclick="switchToLocal(this);" />List</label></li>
+                        <li><label for="definition"><input type="checkbox" id="checkbox-definition" name="checkbox-definition" value="definition" onclick="switchToLocal(this);" />Definition</label></li>
+                        <li><label for="figure"><input type="checkbox" id="checkbox-figure" name="checkbox-figure" value="figure" onclick="switchToLocal(this);" />Figure</label></li>
+                        <li><label for="buttons"><input type="checkbox" id="checkbox-buttons" name="checkbox-buttons" value="buttons" onclick="switchToLocal(this);" />Buttons</label></li>
+                        <li><label for="form"><input type="checkbox" id="checkbox-form" name="checkbox-form" value="form" onclick="switchToLocal(this);" />Form</label></li>
+                        <li><label for="fieldset"><input type="checkbox" id="checkbox-fieldset" name="checkbox-fieldset" value="fieldset" onclick="switchToLocal(this);" />Fieldset</label></li>
+                        <li><label for="input"><input type="checkbox" id="checkbox-input" name="checkbox-input" value="input" onclick="switchToLocal(this);" />Input</label></li>
+                        <li><label for="table"><input type="checkbox" id="checkbox-table" name="checkbox-table" value="table" onclick="switchToLocal(this);" />Table</label></li>
+                        <li><label for="multimedia"><input type="checkbox" id="checkbox-multimedia" name="checkbox-multimedia" value="multimedia" onclick="switchToLocal(this);" />Multimedia</label></li>
+                        <li><label for="details"><input type="checkbox" id="checkbox-details" name="checkbox-details" value="details" onclick="switchToLocal(this);" />Details</label></li>
+                        <li><label for="navigation"><input type="checkbox" id="checkbox-navigation" name="checkbox-navigation" value="navigation" onclick="switchToLocal(this);" />Navigation</label></li>
+                        <li><label for="heading"><input type="checkbox" id="checkbox-heading" name="checkbox-heading" value="heading" onclick="switchToLocal(this);" />Heading</label></li>
+                        <li><label for="footer"><input type="checkbox" id="checkbox-footer" name="checkbox-footer" value="footer" onclick="switchToLocal(this);" />Footer</label></li>
+                        <li><label for="header"><input type="checkbox" id="checkbox-header" name="checkbox-header" value="header" onclick="switchToLocal(this);" />Header</label></li>
+                        <li><label for="iframe"><input type="checkbox" id="checkbox-iframe" name="checkbox-iframe" value="iframe" onclick="switchToLocal(this);" />Iframe</label></li>
+                        <li><label for="time"><input type="checkbox" id="checkbox-time" name="checkbox-time" value="time" onclick="switchToLocal(this);" />Time</label></li>
+                        <li><label for="legibility"><input type="checkbox" id="checkbox-legibility" name="checkbox-legibility" value="legibility" onclick="switchToLocal(this);" />Legibility</label></li>
+                        <li><label for="border"><input type="checkbox" id="checkbox-border" name="checkbox-border" value="border" onclick="switchToLocal(this);" />Border</label></li>
+                        <li><label for="collapse"><input type="checkbox" id="checkbox-collapse" name="checkbox-collapse" value="collapse" onclick="switchToLocal(this);" />Collapse</label></li>
+                        <li><label for="toast"><input type="checkbox" id="checkbox-toast" name="checkbox-toast" value="toast" onclick="switchToLocal(this);" />Toast</label></li>
+                        <li><label for="tooltip"><input type="checkbox" id="checkbox-tooltip" name="checkbox-tooltip" value="tooltip" onclick="switchToLocal(this);" />Tooltip</label></li>
+                        <li><label for="grid"><input type="checkbox" id="checkbox-grid" name="checkbox-grid" value="grid" onclick="switchToLocal(this);" />Grid</label></li>
+                        <li><label for="card"><input type="checkbox" id="checkbox-card" name="checkbox-card" value="card" onclick="switchToLocal(this);" />Card</label></li>
+                        <li><label for="modal"><input type="checkbox" id="checkbox-modal" name="checkbox-modal" value="modal" onclick="switchToLocal(this);" />Modal</label></li>
+                        <li><label for="drawer"><input type="checkbox" id="checkbox-drawer" name="checkbox-drawer" value="drawer" onclick="switchToLocal(this);" />Drawer</label></li>
+                        <li><label for="progress"><input type="checkbox" id="checkbox-progress" name="checkbox-progress" value="progress" onclick="switchToLocal(this);" />Progress</label></li>
+                        <li><label for="utility"><input type="checkbox" id="checkbox-utility" name="checkbox-utility" value="utility" onclick="switchToLocal(this);" />Utility</label></li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <main class="docs-main legible">
+                <section>
+                    <h2>My Blog Posts</h2>
+                    <article>
+                        <header>
+                            <h3>The Planet Earth</h3>
+                            <p>Posted on Wednesday, <time datetime="2017-10-04">4 October 2017</time> by Jane Smith</p>
+                        </header>
+                        <p>We live on a planet that's blue and green, with so many things still unseen.</p>
+                        <p><a href="https://janesmith.com/the-planet-earth/">Continue reading....</a></p>
+                    </article>
+                    <article>
+                        <header>
+                            <h3>Article Title</h3>
+                            <p>Posted on Wednesday, <time datetime="2017-10-04">4 October 2017</time> by Jane Smith</p>
+                        </header>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In non ornare turpis. Nunc id bibendum diam. Integer luctus, metus ac ornare faucibus, tellus orci cursus urna, vitae ullamcorper diam augue faucibus tellus. Vivamus ultrices suscipit dignissim. Nulla vulputate, est vitae commodo sollicitudin, metus turpis gravida enim, ut tempus arcu urna ac lorem. Donec in dapibus lorem. Quisque pellentesque ante sit amet feugiat elementum. Nam odio libero, malesuada id finibus tincidunt, aliquam tristique lectus. Quisque fringilla consectetur molestie. Donec vulputate ex eget lobortis tincidunt. Sed malesuada metus id ultricies luctus. Sed ornare urna et massa volutpat, in tristique diam consectetur. Suspendisse potenti.</p>
+                        <p>Nulla at est vel quam vestibulum fringilla. Sed venenatis dolor nec massa feugiat, sed pharetra libero porttitor. Cras in laoreet nibh. Ut blandit lobortis dui, in ultrices urna semper at. Mauris rutrum sapien sed tristique iaculis. Etiam at nunc lacinia, ultrices augue id, ultricies lectus. Nunc consequat quam volutpat augue iaculis, ut euismod quam fringilla. Fusce feugiat consequat dui eget blandit. Nulla facilisi. Sed fringilla mauris sem, sit amet fringilla ipsum feugiat in. Curabitur et nisl sit amet libero commodo porta sed vel nisi.</p>
+                        <h4>Subsection</h4>
+                        <p>Duis non pretium ex. Integer fringilla lacus ipsum. Aenean nec aliquet tortor, ac molestie lectus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed ac turpis venenatis, fringilla odio vitae, dapibus lacus. Praesent feugiat ultricies diam, in sodales leo venenatis a. Nunc ac ligula mollis, iaculis leo id, dignissim lectus. Quisque eget nisi condimentum, convallis mauris sit amet, pellentesque arcu. Morbi tincidunt ante tristique, luctus orci ut, commodo risus. Integer vulputate congue imperdiet. Nam fringilla sem ac metus tempus tempus.</p>
+                        <p>Praesent sit amet porta orci. Nunc ac ligula non nunc facilisis vestibulum. Morbi tincidunt commodo cursus. Interdum et malesuada fames ac ante ipsum primis in faucibus. In hac habitasse platea dictumst. In egestas nisi tincidunt lacus luctus, et fermentum enim vestibulum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla quis ullamcorper libero, at tincidunt sem. Vestibulum mollis fringilla congue.</p>
+                        <h5>Subsection</h5>
+                        <p><a href="#">Inline anchor test.</a> Etiam mollis dolor eget lacinia fermentum. Etiam tincidunt metus felis. Vestibulum at ex laoreet, eleifend lorem vitae, placerat neque. Proin hendrerit eleifend mauris, ut tincidunt enim egestas congue. Mauris orci lorem, tincidunt vitae enim et, porta vulputate turpis. Curabitur vel varius neque. Praesent venenatis semper massa vel commodo. <a href="#">Inline anchor test.</a> Sed pulvinar felis neque, a lobortis leo eleifend eget. Duis placerat sapien dapibus rhoncus aliquam. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec eu ullamcorper ipsum. Suspendisse sit amet leo lacus. Sed tempor convallis nisl, et lacinia turpis vulputate lacinia. Sed rhoncus in velit faucibus cursus. <a href="#">Inline anchor test.</a></p>
+                        <a href="#">Inline anchor test.</a>
+                        <footer>© 2018 Gandalf</footer>
+                    </article>
+                    <article>
+                        <header>
+                            <h2>How to Become an MDN Contributor</h2>
+                        </header>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In non ornare turpis. Nunc id bibendum diam. Integer luctus, metus ac ornare faucibus, tellus orci cursus urna, vitae ullamcorper diam augue faucibus tellus. Vivamus ultrices suscipit dignissim. Nulla vulputate, est vitae commodo sollicitudin, metus turpis gravida enim, ut tempus arcu urna ac lorem. Donec in dapibus lorem. Quisque pellentesque ante sit amet feugiat elementum. Nam odio libero, malesuada id finibus tincidunt, aliquam tristique lectus. Quisque fringilla consectetur molestie. Donec vulputate ex eget lobortis tincidunt. Sed malesuada metus id ultricies luctus. Sed ornare urna et massa volutpat, in tristique diam consectetur. Suspendisse potenti.</p>
+                        <aside>
+                            <blockquote>
+                                Amazing quote from article
+                            </blockquote>
+                        </aside>
+                        <footer>
+                            <p>Footer: Praesent sit amet porta orci. Nunc ac ligula non nunc facilisis vestibulum. Morbi tincidunt commodo cursus. Interdum et malesuada fames ac ante ipsum primis in faucibus. In hac habitasse platea dictumst. In egestas nisi tincidunt lacus luctus, et fermentum enim vestibulum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla quis ullamcorper libero, at tincidunt sem. Vestibulum mollis fringilla congue.</p>
+                        </footer>
+                    </article>
+                </section>
+                <section>
+                    <h1>Getting Involved</h1>
+                    <article>
+                        <header>
+                            <h2>How to Become an MDN Contributor</h2>
+                            <p>Do you want to help protect the web?....</p>
+                        </header>
+                        <section>
+                            <h3>Steps to Editing an Article</h3>
+                        </section>
+                        <footer>
+                            <h6>Footer</h6>
+                            <p>Nulla at est vel quam vestibulum fringilla. Sed venenatis dolor nec massa feugiat, sed pharetra libero porttitor. Cras in laoreet nibh. Ut blandit lobortis dui, in ultrices urna semper at. Mauris rutrum sapien sed tristique iaculis. Etiam at nunc lacinia, ultrices augue id, ultricies lectus. Nunc consequat quam volutpat augue iaculis, ut euismod quam fringilla. Fusce feugiat consequat dui eget blandit. Nulla facilisi. Sed fringilla mauris sem, sit amet fringilla ipsum feugiat in. Curabitur et nisl sit amet libero commodo porta sed vel nisi.</p>
+                            <p>Duis non pretium ex. Integer fringilla lacus ipsum. Aenean nec aliquet tortor, ac molestie lectus. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed ac turpis venenatis, fringilla odio vitae, dapibus lacus. Praesent feugiat ultricies diam, in sodales leo venenatis a. Nunc ac ligula mollis, iaculis leo id, dignissim lectus. Quisque eget nisi condimentum, convallis mauris sit amet, pellentesque arcu. Morbi tincidunt ante tristique, luctus orci ut, commodo risus. Integer vulputate congue imperdiet. Nam fringilla sem ac metus tempus tempus.</p>
+                        </footer>
+                    </article>
+                </section>
+                <section>
+                    <h1>Amazing MDN Contributors</h1>
+                    <ul>
+                        <li><img src="link" alt="descriptive text"></li>
+                        <li><img src="link" alt="descriptive text"></li>
+                        <li><img src="link" alt="descriptive text"></li>
+                    </ul>
+                    <aside>
+                        <h6>aside</h6>
+                        <p>Etiam mollis dolor eget lacinia fermentum. Etiam tincidunt metus felis. Vestibulum at ex laoreet, eleifend lorem vitae, placerat neque. Proin hendrerit eleifend mauris, ut tincidunt enim egestas congue. Mauris orci lorem, tincidunt vitae enim et, porta vulputate turpis. Curabitur vel varius neque. Praesent venenatis semper massa vel commodo. Sed pulvinar felis neque, a lobortis leo eleifend eget. Duis placerat sapien dapibus rhoncus aliquam. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec eu ullamcorper ipsum. Suspendisse sit amet leo lacus. Sed tempor convallis nisl, et lacinia turpis vulputate lacinia. Sed rhoncus in velit faucibus cursus. </p>
+                        <nav>
+                            <ul>
+                                <li><a href="#">link</a></li>
+                                <li><a href="#">link</a></li>
+                                <li><a href="#">link</a></li>
+                            </ul>
+                        </nav>
+                    </aside>
+                </section>
+            </main>
+        </div>
+        <footer class="page-footer">
+            <p>© 2016-2017 Web Corporation | <a href="#" class="doc">About</a> | <a href="#" class="doc">Terms of use</a></p>
+        </footer>
+    </body>
+
+    <script src="utilities.js">
+    </script>
+
+</html>
