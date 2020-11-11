@@ -59,13 +59,7 @@ $_classnames: (
 }
 
 [type='checkbox'].#{map.get($_classnames, 'main')} {
-    -webkit-clip-path: inset(100%);
-    clip-path: inset(100%);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    position: absolute;
-    width: 1px;
+    display: none;
 
     + * {
         background-color: var(--drawer-back-color, colors.get('back'));
