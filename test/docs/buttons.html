@@ -41,7 +41,8 @@
         <link href="../build/5-utilities/hidden.css" rel="stylesheet" type="text/css" id="utility-css" disabled />
         <link href="../build/5-utilities/print.css" rel="stylesheet" type="text/css" id="print-css" disabled />
         <link href="../build/oseille.css" rel="stylesheet" type="text/css" id="oseille-css" />
-        <link href="utilities.css" rel="stylesheet" type="text/css" />
+        <link href="assets/layout.css" rel="stylesheet" type="text/css" />
+        <link href="assets/wysiwyg.css" rel="stylesheet" type="text/css" id="wysiwyg-css" disabled />
     </head>
 
     <body>
@@ -54,6 +55,7 @@
             <aside>
                 <nav class="docs-sidebar">
                     <ul>
+                        <li><label for="wysiwyg"><input type="checkbox" id="checkbox-wysiwyg" name="checkbox-wysiwyg" value="wysiwyg" onclick="switchToWysiwyg(this);" />wysiwyg</label></li>
                         <li><label for="oseille"><input type="checkbox" id="checkbox-oseille" name="checkbox-oseille" value="oseille" onclick="switchToOseille();" checked />Oseille</label></li>
                         <li><label for="root"><input type="checkbox" id="checkbox-root" name="checkbox-root" value="root" onclick="switchToLocal(this);" />Root</label></li>
                         <li><label for="sectioning"><input type="checkbox" id="checkbox-sectioning" name="checkbox-sectioning" value="sectioning" onclick="switchToLocal(this);" />Sectioning</label></li>
@@ -278,93 +280,6 @@
                     </div>
                 </section>
 
-
-                <section style="display:flex;flex-flow:row wrap;">
-                    <h2>Fieldset</h2>
-                    <form action="#" style="--form-back-color: brown;">
-                        <fieldset>
-                            <legend>Choose your favorite monster</legend>
-
-                            <input type="radio" id="kraken" name="monster">
-                            <label for="kraken">Kraken</label><br />
-
-                            <input type="radio" id="sasquatch" name="monster">
-                            <label for="sasquatch">Sasquatch</label><br />
-
-                            <input type="radio" id="mothman" name="monster">
-                            <label for="mothman">Mothman</label>
-                        </fieldset>
-                        <fieldset disabled>
-                            <legend>Disabled fieldset</legend>
-                            <div>
-                                <label for="name">Name: </label>
-                                <input type="text" id="name" value="Chris">
-                            </div>
-                            <div>
-                                <label for="pwd">Archetype: </label>
-                                <input type="password" id="pwd" value="Wookie">
-                            </div>
-                        </fieldset>
-                    </form>
-                </section>
-
-                <section style="display:flex;flex-flow:row wrap;">
-                    <h2>Fieldset & input</h2>
-                    <form action="#">
-                        <fieldset>
-                            <legend class="doc">Sample form</legend>
-                            <div class="row responsive-label">
-                                <div class="col-sm-12 col-md-3"><label for="sf1-text" class="doc">Text</label></div>
-                                <div class="col-sm-12 col-md"><input type="text" placeholder="Text" id="sf1-text" style="width:85%;" class="doc"></div>
-                            </div>
-                            <div class="row responsive-label">
-                                <div class="col-sm-12 col-md-3"><label for="sf1-pwd" class="doc">Password</label></div>
-                                <div class="col-sm-12 col-md"><input type="password" placeholder="Password" id="sf1-pwd" style="width:85%;" class="doc"></div>
-                            </div>
-                            <div class="row responsive-label">
-                                <div class="col-sm-12 col-md-3"><label for="sf1-num" class="doc">Number</label></div>
-                                <div class="col-sm-12 col-md"><input type="number" value="42" id="sf1-num" style="width:85%;" class="doc"></div>
-                            </div>
-                            <div class="row responsive-label">
-                                <div class="col-sm-12 col-md-3"><label for="sf1-select" class="doc">Select</label></div>
-                                <div class="col-sm-12 col-md"><select id="sf1-select" style="width:85%;" class="doc">
-                                        <option class="doc">Apples</option>
-                                        <option class="doc">Oranges</option>
-                                    </select></div>
-                                <div class="col-sm-12 col-md"><select id="sf1-select2" style="width:85%;" class="doc" disabled>
-                                        <option class="doc">Cars</option>
-                                        <option class="doc">Planes</option>
-                                    </select></div>
-                            </div>
-                            <div class="row responsive-label">
-                                <div class="col-sm-12 col-md-3"><label for="sf1-check" class="doc">Checkbox</label></div>
-                                <div class="col-sm-12 col-md"><input type="checkbox" autocomplete="off" id="sf1-check" class="doc"></div>
-                            </div>
-                            <div class="row responsive-label">
-                                <div class="col-sm-12 col-md-3"><label for="sf1-radio" class="doc">Radio</label></div>
-                                <div class="col-sm-12 col-md"><input type="radio" autocomplete="off" id="sf1-radio" class="doc"></div>
-                            </div>
-                            <div class="row responsive-label">
-                                <div class="col-sm-12 col-md-3"><label for="sf1-textarea" class="doc">Textarea</label></div>
-                                <div class="col-sm-12 col-md"><textarea class="doc" style="width:85%;" placeholder="Textarea"></textarea></div>
-                            </div>
-                            <div class="row responsive-label">
-                                <div class="col-sm-12 col-md-3"><label for="sf1-invalid" class="doc">Invalid</label></div>
-                                <div class="col-sm-12 col-md"><input value="Invalid" id="sf1-invalid" style="width:85%;" class="doc"></div>
-                                <script>document.getElementById("sf1-invalid").setCustomValidity("This field is invalid");</script>
-                            </div>
-                            <div class="row responsive-label">
-                                <div class="col-sm-12 col-md-3"><label for="sf1-disabled" class="doc">Disabled</label></div>
-                                <div class="col-sm-12 col-md"><input disabled="" value="Disabled" id="sf1-disabled" style="width:85%;" class="doc"></div>
-                            </div>
-                            <div class="row responsive-label">
-                                <div class="col-sm-12 col-md-3"><label for="sf1-readonly" class="doc">Readonly</label></div>
-                                <div class="col-sm-12 col-md"><input readonly="" value="Readonly" id="sf1-readonly" style="width:85%;" class="doc"></div>
-                            </div>
-                        </fieldset>
-                    </form>
-                </section>
-
                 <section>
                     <h2>&#60;a&#62; no ref</h2>
                     <h3>.button</h3>
@@ -461,7 +376,7 @@
         </div>
 
     </body>
-    <script src="utilities.js">
+    <script src="assets/utilities.js">
     </script>
 
 </html>

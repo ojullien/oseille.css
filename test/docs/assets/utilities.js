@@ -35,6 +35,14 @@ myMap.set('checkbox-collapse', '#collapse-css');
 myMap.set('checkbox-legibility', '#legibility-css');
 myMap.set('checkbox-progress', '#progress-css');
 
+function switchToWysiwyg(element) {
+    if (element.checked != true) {
+        document.querySelector('#wysiwyg-css').disabled = true;
+    } else {
+        document.querySelector('#wysiwyg-css').removeAttribute('disabled');
+    }
+};
+
 function switchToLocal(element) {
     if (element.checked != true) {
         document.querySelector(myMap.get(element.id)).disabled = true;
