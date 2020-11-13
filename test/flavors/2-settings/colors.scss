@@ -1,13 +1,34 @@
 //
 // Debug color values.
 //
-@use '../../../src/oseille/1-tools/map-debug' as stdlib;
 @use '../../../src/oseille/2-settings/colors' as colors;
 
-@include stdlib.map-debug(colors.$primary);
-@include stdlib.map-debug(colors.$secondary);
-@include stdlib.map-debug(colors.$primary-palette);
-@include stdlib.map-debug(colors.$secondary-palette);
+@function set-notification-text-color($color) {
+    @if (lightness($color) > 50) {
+        @return #000000; // Lighter backgorund, return dark color
+    } @else {
+        @return #ffffff; // Darker background, return light color
+    }
+}
+
+@mixin color-dump($declarations) {
+    @each $property, $value in $declarations {
+        .color--#{$property} {
+            background-color: #{$value};
+            color: set-notification-text-color($value);
+        }
+        .color--#{$property}::before {
+            content: '#{$property}:#{$value}';
+        }
+        @debug '#{$property}: #{$value}';
+    }
+}
+
+@include color-dump(colors.$primary);
+@include color-dump(colors.$secondary);
+@include color-dump(colors.$primary-palette);
+@include color-dump(colors.$secondary-palette);
+@include color-dump(colors.$elements);
 
 @debug 'colors.get("orange")=>' colors.get('orange');
 @debug 'colors.get("color-notfound")=>' colors.get('color-notfound');
