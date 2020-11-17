@@ -5,8 +5,8 @@
 @use '../../../src/oseille/2-settings/colors' as colors;
 
 @debug 'get-list("fore")=>' stdlib.get-list('fore', colors.$secondary-palette, colors.$primary, colors.$primary-palette);
-@debug 'get-list("fore-darkest")=>'
-    stdlib.get-list('fore-darkest', colors.$secondary-palette, colors.$primary, colors.$primary-palette);
+@debug 'get-list("grey-darkest")=>'
+    stdlib.get-list('grey-darkest', colors.$secondary-palette, colors.$primary, colors.$primary-palette);
 @debug 'get-list("orange-lighter")=>'
     stdlib.get-list('orange-lighter', colors.$secondary-palette, colors.$primary, colors.$primary-palette);
 @debug 'get-list("orange-notfound")=>'

@@ -1,3 +1,8 @@
+.docs-wrapper {
+    padding: 0 calc(0.5rem * 2);
+    max-width: 95vw;
+}
+
 .docs-main {
     padding: 0 calc(0.5rem * 2);
     max-width: 95vw;
@@ -36,3 +41,6 @@
         column-count: 1;
     }
 }
+
+/* specific */
+

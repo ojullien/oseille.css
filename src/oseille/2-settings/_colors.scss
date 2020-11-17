@@ -20,21 +20,59 @@
 // Primary colors.
 //
 // Keys:
-//   - blue: link color
+//   - blue: link color (#215cca)
 //   - red: error color
 //   - green: success color
 //   - orange: sidebar
 //   - black: text & foreground color
 //   - white: background color
 $primary: (
-    'blue': #215cca,
-    'red': #ad0000,
-    'green': #2ecc40,
-    'orange': #ff851b,
-    'yellow': #ffdc00,
+    'blue': hsla(219deg, 72%, 46%, 1),
+    'red': hsla(3deg, 90%, 46%, 1),
+    'green': hsla(127deg, 63%, 46%, 1),
+    'orange': hsla(12deg, 74%, 46%, 1),
+    'yellow': hsla(45deg, 100%, 46%, 1),
+    'grey': hsla(0deg, 0%, 46%, 1),
     'black': #121212,
     'white': #f8f8f8,
     'transparent': transparent,
+) !default;
+
+//
+// Primary colors palette.
+//
+// Keys:
+//   - blue-*: link color
+//   - red-*: error color
+//   - green-*: success color
+//   - orange-*: more color
+//   - yellow-*: more color
+//   - grey-*: more color
+$primary-palette: (
+    'blue-darkest': darkest(map.get($primary, 'blue')),
+    'blue-darker': darker(map.get($primary, 'blue')),
+    'blue-lighter': lighter(map.get($primary, 'blue')),
+    'blue-lightest': lightest(map.get($primary, 'blue')),
+    'red-darkest': darkest(map.get($primary, 'red')),
+    'red-darker': darker(map.get($primary, 'red')),
+    'red-lighter': lighter(map.get($primary, 'red')),
+    'red-lightest': lightest(map.get($primary, 'red')),
+    'green-darkest': darkest(map.get($primary, 'green')),
+    'green-darker': darker(map.get($primary, 'green')),
+    'green-lighter': lighter(map.get($primary, 'green')),
+    'green-lightest': lightest(map.get($primary, 'green')),
+    'orange-darkest': darkest(map.get($primary, 'orange')),
+    'orange-darker': darker(map.get($primary, 'orange')),
+    'orange-lighter': lighter(map.get($primary, 'orange')),
+    'orange-lightest': lightest(map.get($primary, 'orange')),
+    'yellow-darkest': darkest(map.get($primary, 'yellow')),
+    'yellow-darker': darker(map.get($primary, 'yellow')),
+    'yellow-lighter': lighter(map.get($primary, 'yellow')),
+    'yellow-lightest': lightest(map.get($primary, 'yellow')),
+    'grey-darkest': darkest(map.get($primary, 'grey')),
+    'grey-darker': darker(map.get($primary, 'grey')),
+    'grey-lighter': lighter(map.get($primary, 'grey')),
+    'grey-lightest': lightest(map.get($primary, 'grey')),
 ) !default;
 
 //
@@ -47,43 +85,11 @@ $primary: (
 //   - fore-alt: alternative color for text & foreground.(Inverted)
 //   - back-alt: alternative color for background (Inverted)
 $secondary: (
-    'border': #222,
+    'border': map.get($primary-palette, 'grey-darkest'),
     'back': map.get($primary, 'white'),
     'back-alt': map.get($primary, 'black'),
     'fore': map.get($primary, 'black'),
     'fore-alt': map.get($primary, 'white'),
-) !default;
-
-//
-// Primary colors palette.
-//
-// Keys:
-//   - blue-*: link color
-//   - red-*: error color
-//   - green-*: success color
-//   - orange-*: more color
-//   - yellow-*: more color
-$primary-palette: (
-    'blue-darkest': #0e1c43,
-    'blue-darker': #183889,
-    'blue-lighter': #4083ae,
-    'blue-lightest': #338fff,
-    'red-darkest': shade(map.get($primary, 'red'), 20%),
-    'red-darker': tone(map.get($primary, 'red'), 20%),
-    'red-lighter': tint(map.get($primary, 'red'), 20%),
-    'red-lightest': tint(map.get($primary, 'red'), 38%),
-    'green-darkest': shade(map.get($primary, 'green'), 20%),
-    'green-darker': tone(map.get($primary, 'green'), 20%),
-    'green-lighter': tint(map.get($primary, 'green'), 20%),
-    'green-lightest': tint(map.get($primary, 'green'), 38%),
-    'orange-darkest': shade(map.get($primary, 'orange'), 20%),
-    'orange-darker': tone(map.get($primary, 'orange'), 20%),
-    'orange-lighter': tint(map.get($primary, 'orange'), 20%),
-    'orange-lightest': tint(map.get($primary, 'orange'), 38%),
-    'yellow-darkest': shade(map.get($primary, 'yellow'), 20%),
-    'yellow-darker': tone(map.get($primary, 'yellow'), 20%),
-    'yellow-lighter': tint(map.get($primary, 'yellow'), 20%),
-    'yellow-lightest': tint(map.get($primary, 'yellow'), 38%),
 ) !default;
 
 //
@@ -94,11 +100,6 @@ $primary-palette: (
 //   - back-*: background color
 //   - border-*: border color
 $secondary-palette: (
-    'fore-darkest': shade(map.get($secondary, 'fore'), 20%),
-    'fore-darker': tone(map.get($secondary, 'fore'), 20%),
-    'fore-lighter': tint(map.get($secondary, 'fore'), 20%),
-    'fore-lightest': tint(map.get($secondary, 'fore'), 50%),
-    'back-darkest': shade(map.get($secondary, 'back'), 20%),
     'back-darker': tone(map.get($secondary, 'back'), 20%),
     'back-lighter': tint(map.get($secondary, 'back'), 20%),
     'back-lightest': tint(map.get($secondary, 'back'), 50%),

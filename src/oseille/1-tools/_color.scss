@@ -34,3 +34,39 @@
 @function tone($color, $weight) {
     @return mix(#808080, $color, $weight);
 }
+
+//
+// Makes $color much more darker.
+//
+// @param {string} $color - The color to adjust
+//
+@function darkest($color) {
+    @return color.adjust($color, $lightness: -21%);
+}
+
+//
+// Makes $color darker.
+//
+// @param {string} $color - The color to adjust
+//
+@function darker($color) {
+    @return color.adjust($color, $lightness: -11%);
+}
+
+//
+// Makes $color lighter.
+//
+// @param {string} $color - The color to adjust
+//
+@function lighter($color) {
+    @return color.adjust($color, $lightness: 19%);
+}
+
+//
+// Makes $color much more lightest.
+//
+// @param {string} $color - The color to adjust
+//
+@function lightest($color) {
+    @return color.adjust($color, $lightness: 29%);
+}
