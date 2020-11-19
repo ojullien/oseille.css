@@ -2,7 +2,7 @@
 .card {
   align-self: center;
   background-color: var(--card-back-color, #f8f8f8);
-  border: 1px solid var(--card-border-color, #909090);
+  border: 1px solid var(--card-border-color, #404040);
   border-radius: 4px;
   color: var(--card-fore-color, #121212);
   display: flex;
@@ -25,7 +25,7 @@
 }
 .card > .section {
   border: 0;
-  border-bottom: 1px solid var(--card-border-color, #909090);
+  border-bottom: 1px solid var(--card-border-color, #404040);
   border-radius: 0;
   margin: 0;
   padding: 0.5rem;
@@ -42,7 +42,7 @@
   }
 }
 .card > .section.dark {
-  background-color: var(--card-back-color, #e0e0e0);
+  background-color: var(--card-back-color, #bfbfbf);
   color: var(--card-fore-color, #121212);
 }
 .card > .section.double-padded {
@@ -52,14 +52,14 @@
   border-bottom: 0;
 }
 .card.warning {
-  --card-back-color: var(--warning-back-color, #ffdc00);
-  --card-border-color: var(--warning-border-color, #ccb000);
+  --card-back-color: var(--warning-back-color, #ebb000);
+  --card-border-color: var(--warning-border-color, #806000);
   --card-fore-color: var(--warning-fore-color, #121212);
   border-width: 2px;
 }
 .card.error {
-  --card-back-color: var(--error-back-color, #ad0000);
-  --card-border-color: var(--error-border-color, #8a0000);
+  --card-back-color: var(--error-back-color, #df160c);
+  --card-border-color: var(--error-border-color, #790c06);
   --card-fore-color: var(--error-fore-color, #f8f8f8);
   border-width: 2px;
 }

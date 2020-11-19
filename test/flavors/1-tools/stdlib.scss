@@ -4,14 +4,14 @@
 @use '../../../src/oseille/1-tools/stdlib' as stdlib;
 @use '../../../src/oseille/2-settings/colors' as colors;
 
-@debug 'get-list("fore")=>' stdlib.get-list('fore', colors.$secondary-palette, colors.$primary, colors.$primary-palette);
+@debug 'get-list("fore")=>' stdlib.get-list('fore', colors.$elements, colors.$primary, colors.$primary-palette);
 @debug 'get-list("grey-darkest")=>'
-    stdlib.get-list('grey-darkest', colors.$secondary-palette, colors.$primary, colors.$primary-palette);
+    stdlib.get-list('grey-darkest', colors.$elements, colors.$primary, colors.$primary-palette);
 @debug 'get-list("orange-lighter")=>'
-    stdlib.get-list('orange-lighter', colors.$secondary-palette, colors.$primary, colors.$primary-palette);
+    stdlib.get-list('orange-lighter', colors.$elements, colors.$primary, colors.$primary-palette);
 @debug 'get-list("orange-notfound")=>'
-    stdlib.get-list('orange', colors.$secondary-palette, colors.$primary, colors.$primary-palette);
+    stdlib.get-list('orange', colors.$elements, colors.$primary, colors.$primary-palette);
 
-@debug 'get("orange")=>' stdlib.get('orange', colors.$secondary);
-@debug 'get("orange-notfound")=>' stdlib.get('orange-notfound', colors.$secondary);
+@debug 'get("link")=>' stdlib.get('link', colors.$elements);
+@debug 'get("color-notfound")=>' stdlib.get('color-notfound', colors.$elements);
 @debug '-----------------------------------------------------------------------';

@@ -12,7 +12,7 @@ header {
   overflow-y: hidden;
   padding: calc(0.5rem / 4) 0;
   white-space: nowrap;
-  border-bottom: 1px solid var(--header-border-color, #909090);
+  border-bottom: 1px solid var(--header-border-color, #404040);
 }
 .page-header .logo {
   box-shadow: none;

@@ -7,7 +7,7 @@ summary {
 }
 
 details {
-  border: 1px solid var(--details-border-color, #222);
+  border: 1px solid var(--details-border-color, #404040);
   border-radius: 4px;
   cursor: pointer;
   display: block;
@@ -18,6 +18,6 @@ details[open] {
   padding: 0.5rem;
 }
 details[open] summary {
-  border-bottom: 1px solid var(--details-border-color, #222);
+  border-bottom: 1px solid var(--details-border-color, #404040);
   padding-bottom: 0.5rem;
 }

@@ -13,8 +13,7 @@ cite, q {
 
 blockquote {
   background-color: var(--blockquote-back-color, #f8f8f8);
-  border: 1px solid var(--blockquote-border-color, #909090);
-  border-left: 6px solid var(--blockquote-sidebar-color, #ff851b);
+  border-left: 6px solid var(--blockquote-sidebar-color, #cc411e);
   border-radius: 0 4px 4px 0;
   color: var(--blockquote-fore-color, #121212);
   display: block;
@@ -26,7 +25,7 @@ blockquote {
   position: relative;
 }
 blockquote::before {
-  color: var(--blockquote-sidebar-color, #ff851b);
+  color: var(--blockquote-sidebar-color, #cc411e);
   content: "“";
   font-family: sans-serif;
   font-size: 3em;

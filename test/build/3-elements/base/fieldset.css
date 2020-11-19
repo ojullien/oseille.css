@@ -1,6 +1,6 @@
 /* Styling for fieldset */
 fieldset {
-  border: 1px solid var(--fieldset-border-color, #909090);
+  border: 1px solid var(--fieldset-border-color, #404040);
   border-radius: 4px;
   margin: calc(0.5rem / 4);
   padding: 0.5rem;

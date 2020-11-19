@@ -19,7 +19,7 @@
 }
 [type=checkbox].drawer + * {
   background-color: var(--drawer-back-color, #f8f8f8);
-  border: 1px solid var(--drawer-border-color, #909090);
+  border: 1px solid var(--drawer-border-color, #404040);
   border-radius: 0;
   display: block;
   height: 100vh;

@@ -7,7 +7,7 @@ nav {
   padding: 0;
 }
 nav.bordered {
-  border: 1px solid var(--nav-border-color, #222);
+  border: 1px solid var(--nav-border-color, #404040);
   border-radius: 4px;
 }
 nav * {
@@ -21,7 +21,7 @@ nav .sublink-1 {
   position: relative;
 }
 nav .sublink-1::before {
-  border: 1px solid var(--nav-border-color, #222);
+  border: 1px solid var(--nav-border-color, #404040);
   border-left: 0;
   content: "";
   height: 100%;
@@ -34,7 +34,7 @@ nav .sublink-2 {
   position: relative;
 }
 nav .sublink-2::before {
-  border: 1px solid var(--nav-border-color, #222);
+  border: 1px solid var(--nav-border-color, #404040);
   border-left: 0;
   content: "";
   height: 100%;

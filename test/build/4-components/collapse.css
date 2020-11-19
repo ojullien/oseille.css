@@ -1,10 +1,10 @@
 @charset "UTF-8";
 /* Accordions styling */
 .collapse {
-  border-bottom: 1px solid var(--accordion-border-color, #222);
-  border-left: 1px solid var(--accordion-border-color, #222);
+  border-bottom: 1px solid var(--accordion-border-color, #404040);
+  border-left: 1px solid var(--accordion-border-color, #404040);
   border-radius: 4px;
-  border-right: 1px solid var(--accordion-border-color, #222);
+  border-right: 1px solid var(--accordion-border-color, #404040);
   display: flex;
   flex-direction: column;
   margin: 0.5rem;
@@ -15,7 +15,7 @@
 }
 .collapse input + label {
   background-color: var(--accordion-back-color, #f8f8f8);
-  border-top: 1px solid var(--accordion-border-color, #222);
+  border-top: 1px solid var(--accordion-border-color, #404040);
   color: var(--accordion-fore-color, #121212);
   cursor: pointer;
   display: flex;

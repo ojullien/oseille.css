@@ -51,7 +51,7 @@ input[type=reset]:focus, button:focus {
   background-color: var(--button-back-hover-color, #121212);
   border-color: var(--button-border-hover-color, #121212);
   color: var(--button-fore-hover-color, #f8f8f8);
-  outline: var(--button-outline-focus-color, #1b1b1b) solid 4px;
+  outline: var(--button-outline-focus-color, #121212) solid 4px;
 }
 .button.small, .small[role=button], input.small[type=button],
 input.small[type=submit],
@@ -107,7 +107,7 @@ a.button:focus {
 
 /* Button group styling. */
 .button-group {
-  border: 1px solid var(--button-group-border-color, #909090);
+  border: 1px solid var(--button-group-border-color, #404040);
   border-radius: 4px;
   display: flex;
   margin: 0.5rem;
@@ -123,7 +123,7 @@ a.button:focus {
   text-align: center;
 }
 .button-group > :not(:first-child) {
-  border-left: 1px solid var(--button-group-border-color, #909090);
+  border-left: 1px solid var(--button-group-border-color, #404040);
 }
 @media screen and (max-width: 767px) {
   .button-group {
@@ -131,7 +131,7 @@ a.button:focus {
   }
   .button-group > :not(:first-child) {
     border: 0;
-    border-top: 1px solid var(--button-group-border-color, #909090);
+    border-top: 1px solid var(--button-group-border-color, #404040);
   }
 }
 

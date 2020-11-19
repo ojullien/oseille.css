@@ -3,19 +3,11 @@
 //
 @use '../../../src/oseille/2-settings/colors' as colors;
 
-@function set-notification-text-color($color) {
-    @if (lightness($color) > 50) {
-        @return #000000; // Lighter backgorund, return dark color
-    } @else {
-        @return #ffffff; // Darker background, return light color
-    }
-}
-
 @mixin color-dump($declarations) {
     @each $property, $value in $declarations {
         .color--#{$property} {
             background-color: #{$value};
-            color: set-notification-text-color($value);
+            color: colors.get-text-color($value);
         }
         .color--#{$property}::before {
             content: '#{$property}:#{$value}';
@@ -25,9 +17,8 @@
 }
 
 @include color-dump(colors.$primary);
-@include color-dump(colors.$secondary);
 @include color-dump(colors.$primary-palette);
-@include color-dump(colors.$secondary-palette);
+@include color-dump(colors.$secondary);
 @include color-dump(colors.$elements);
 
 @debug 'colors.get("orange")=>' colors.get('orange');

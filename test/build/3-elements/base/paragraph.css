@@ -1,6 +1,6 @@
 /* paragraph-level elements styling */
 hr {
-  background: linear-gradient(to right, transparent, #909090 20%, #909090 80%, transparent);
+  background: linear-gradient(to right, transparent, #404040 20%, #404040 80%, transparent);
   border: 0;
   box-sizing: content-box;
   color: inherit;

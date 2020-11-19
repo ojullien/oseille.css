@@ -1,7 +1,7 @@
 /* Styling for form */
 form {
   background-color: var(--form-back-color, #f8f8f8);
-  border: 1px solid var(--form-border-color, #909090);
+  border: 1px solid var(--form-border-color, #404040);
   border-radius: 4px;
   color: var(--form-fore-color, #121212);
   margin: 0.5rem;

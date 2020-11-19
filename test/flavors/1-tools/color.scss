@@ -14,7 +14,4 @@ $_color2: #ad0000;
 @debug 'tone(#{$_color2})=>' color.tone($_color2, 20%);
 @debug 'shade(#{$_color2})=>' color.shade($_color2, 20%);
 @debug 'tint(#{$_color2})=>' color.tint($_color2, 20%);
-
-$_color3: #ff7f00;
-
 @debug '-----------------------------------------------------------------------';

@@ -4,7 +4,7 @@
 }
 
 table {
-  border: 2px solid var(--table-border-color, #909090);
+  border: 2px solid var(--table-border-color, #757575);
   border-collapse: collapse;
   letter-spacing: 1px;
   overflow: auto;
@@ -35,13 +35,13 @@ tr {
 
 th,
 td {
-  border: 1px solid var(--table-border-color, #909090);
+  border: 1px solid var(--table-border-color, #757575);
   margin: 0;
   padding: calc(2 * 0.5rem);
 }
 
 th {
-  background-color: var(--th-back-color, #c6c6c6);
+  background-color: var(--th-back-color, #bfbfbf);
   color: var(--th-fore-color, #121212);
   white-space: nowrap;
 }
@@ -56,9 +56,10 @@ table.horizontal th {
 }
 
 table.striped tr:nth-of-type(2n) > td {
-  background-color: var(--tr-back-color, #e0e0e0);
+  background-color: var(--tr-back-color, #bfbfbf);
 }
 
 table.hoverable tr:hover, table.hoverable tr:hover > td, table.hoverable tr:focus, table.hoverable tr:focus > td {
-  background-color: var(--table-back-hover-color, #e0e0e0);
+  background-color: var(--table-back-hover-color, #121212);
+  color: var(--table-fore-hover-color, #f8f8f8);
 }

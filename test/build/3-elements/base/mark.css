@@ -1,6 +1,6 @@
 /* Mark styling */
 mark {
-  background-color: var(--primary-color, #215cca);
+  background-color: var(--primary-color, #19469a);
   border: 0;
   border-radius: 4px;
   color: var(--back-color, #f8f8f8);
@@ -20,10 +20,10 @@ mark.tag {
   padding: calc(0.5rem / 2) 0.5rem;
 }
 mark.secondary {
-  background-color: var(--secondary-color, #ad0000);
+  background-color: var(--secondary-color, #aa1109);
 }
 mark.tertiary {
-  background-color: var(--tertiary-color, #2ecc40);
+  background-color: var(--tertiary-color, #21912e);
   color: var(--fore-color, #121212);
 }
 mark::before, mark::after {
