@@ -14,7 +14,7 @@
 
 form {
     background-color: var(--form-back-color, colors.get('back'));
-    border: borders.get('width') solid var(--form-border-color, colors.get('border-lightest'));
+    border: borders.get('width') solid var(--form-border-color, colors.get('border'));
     border-radius: borders.get('radius');
     color: var(--form-fore-color, colors.get('fore'));
     margin: boxmodel.get('margin');

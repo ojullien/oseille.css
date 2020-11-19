@@ -56,11 +56,10 @@ $_includes: (
 }
 
 table {
-
     // Correct table border color inheritance in all Chrome and Safari.
     // (https://bugs.chromium.org/p/chromium/issues/detail?id=935729, https://bugs.webkit.org/show_bug.cgi?id=195016)
     //border-color: inherit;
-    border: borders.get('width-alt') solid var(--table-border-color, #{colors.get('border-lightest')});
+    border: borders.get('width-alt') solid var(--table-border-color, #{colors.get('grey')});
     border-collapse: collapse;
     letter-spacing: 1px;
     overflow: auto;
@@ -97,13 +96,13 @@ tr {
 
 th,
 td {
-    border: borders.get('width') solid var(--table-border-color, #{colors.get('border-lightest')});
+    border: borders.get('width') solid var(--table-border-color, #{colors.get('grey')});
     margin: 0;
     padding: calc(2 * #{boxmodel.get('padding')}); // Apply always to overwrite default.
 }
 
 th {
-    background-color: var(--th-back-color, #{colors.get('back-darkest')});
+    background-color: var(--th-back-color, #{colors.get('grey-lightest')});
     color: var(--th-fore-color, #{colors.get('fore')});
     white-space: nowrap;
 }
@@ -126,7 +125,7 @@ td {
 @if #{map.get($_includes, 'striped')} {
     table.#{map.get($_classnames, 'strip')} {
         tr:nth-of-type(2n) > td {
-            background-color: var(--tr-back-color, #{colors.get('back-darker')});
+            background-color: var(--tr-back-color, #{colors.get('grey-lightest')});
         }
     }
 }
@@ -139,7 +138,8 @@ td {
             &:focus {
                 &,
                 & > td {
-                    background-color: var(--table-back-hover-color, #{colors.get('back-darker')});
+                    background-color: var(--table-back-hover-color, #{colors.get('fore')});
+                    color: var(--table-fore-hover-color, #{colors.get('back')});
                 }
             }
         }

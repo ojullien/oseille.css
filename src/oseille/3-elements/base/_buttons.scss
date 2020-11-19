@@ -96,7 +96,7 @@ $_disabled-opacity: 0.75 !default;
         background-color: var(--button-back-hover-color, #{colors.get('back-alt')});
         border-color: var(--button-border-hover-color, #{colors.get('back-alt')});
         color: var(--button-fore-hover-color, #{colors.get('fore-alt')});
-        outline: var(--button-outline-focus-color, #{colors.get('border-darkest')}) solid 4px;
+        outline: var(--button-outline-focus-color, #{colors.get('back-alt')}) solid 4px;
     }
 
     // Size variants
@@ -182,7 +182,7 @@ a.button {
 /* Button group styling. */
 
 .#{map.get($_classnames, 'group')} {
-    border: borders.get('width') solid var(--button-group-border-color, #{colors.get('border-lightest')});
+    border: borders.get('width') solid var(--button-group-border-color, #{colors.get('border')});
     border-radius: borders.get('radius');
     display: flex;
     margin: boxmodel.get('margin');
@@ -203,7 +203,7 @@ a.button {
     }
 
     & > :not(:first-child) {
-        border-left: borders.get('width') solid var(--button-group-border-color, #{colors.get('border-lightest')});
+        border-left: borders.get('width') solid var(--button-group-border-color, #{colors.get('border')});
     }
 
     // Responsiveness for button groups
@@ -212,7 +212,7 @@ a.button {
 
         & > :not(:first-child) {
             border: 0; // Reapply to remove the left border from elements.
-            border-top: borders.get('width') solid var(--button-group-border-color, #{colors.get('border-lightest')});
+            border-top: borders.get('width') solid var(--button-group-border-color, #{colors.get('border')});
         }
     }
 }

@@ -56,7 +56,7 @@ progress {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    background-color: var(--progress-back-color, #{colors.get('back-darkest')});
+    background-color: var(--progress-back-color, #{colors.get('grey-lighter')});
     border: 0; // Removes default border
     border-radius: calc(2 * #{borders.get('radius')});
     color: var(--progress-fore-color, #{colors.get('fore')});
@@ -75,7 +75,7 @@ progress {
 
     // Background color on webkit browser
     &::-webkit-progress-bar {
-        background-color: var(--progress-back-color, #{colors.get('back-darkest')});
+        background-color: var(--progress-back-color, #{colors.get('grey-lighter')});
     }
 
     // Foreground color on Firefox
@@ -106,11 +106,11 @@ progress {
     }
 
     &.secondary {
-        --progress-fore-color: var(--secondary-color, #{colors.get('secondary')});
+        --progress-fore-color: var(--secondary-color, #{colors.get('success')});
     }
 
     &.tertiary {
-        --progress-fore-color: var(--tertiary-color, #{colors.get('tertiary')});
+        --progress-fore-color: var(--tertiary-color, #{colors.get('error')});
     }
 }
 
@@ -139,7 +139,7 @@ progress {
     .#{map.get($_classnames, 'spinner')} {
         -webkit-animation: spinner-donut-anim 1.2s linear infinite;
         animation: spinner-donut-anim 1.2s linear infinite;
-        border: map.get($_donut, 'thickness') solid var(--spinner-back-color, #{colors.get('back-darkest')});
+        border: map.get($_donut, 'thickness') solid var(--spinner-back-color, #{colors.get('grey-lighter')});
         border-left: map.get($_donut, 'thickness') solid var(--spinner-fore-color, #{colors.get('fore')});
         border-radius: 50%;
         display: inline-block;
@@ -152,11 +152,11 @@ progress {
         }
 
         &.secondary {
-            --spinner-fore-color: var(--secondary-color, #{colors.get('secondary')});
+            --spinner-fore-color: var(--secondary-color, #{colors.get('success')});
         }
 
         &.tertiary {
-            --spinner-fore-color: var(--tertiary-color, #{colors.get('tertiary')});
+            --spinner-fore-color: var(--tertiary-color, #{colors.get('error')});
         }
     }
 }

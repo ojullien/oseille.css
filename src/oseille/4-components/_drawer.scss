@@ -63,7 +63,7 @@ $_classnames: (
 
     + * {
         background-color: var(--drawer-back-color, colors.get('back'));
-        border: borders.get('width') solid var(--drawer-border-color, colors.get('border-lightest'));
+        border: borders.get('width') solid var(--drawer-border-color, colors.get('border'));
         border-radius: 0;
         display: block;
         height: 100vh;

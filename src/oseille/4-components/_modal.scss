@@ -72,7 +72,7 @@ $_classnames: (
                 }
 
                 &::before {
-                    color: var(--modal-fore-color, #{colors.get('fore-lighter')});
+                    color: var(--modal-fore-color, #{colors.get('grey-darkest')});
                     content: '\00D7';
                     display: block;
                     font-family: sans-serif;

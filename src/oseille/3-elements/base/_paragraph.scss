@@ -22,13 +22,7 @@ $_paragraph_width: 75ch !default;
 /* paragraph-level elements styling */
 
 hr {
-    background: linear-gradient(
-        to right,
-        transparent,
-        colors.get('border-lightest') 20%,
-        colors.get('border-lightest') 80%,
-        transparent
-    );
+    background: linear-gradient(to right, transparent, colors.get('border') 20%, colors.get('border') 80%, transparent);
     border: 0;
     box-sizing: content-box;
     color: inherit;

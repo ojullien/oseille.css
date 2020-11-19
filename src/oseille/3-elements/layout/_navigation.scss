@@ -18,9 +18,14 @@
 // The configured values will override the variables’ default values.
 // @link: https://sass-lang.com/documentation/variables
 
-$_sublink-depth: 2 !default; // Amount of subcategory classes to add.
-$_sublink-prefix: 'sublink' !default; // Prefix for the subcategory tabs in nav.
-$_border-classname: 'bordered' !default; // Add a border to the nav.
+// Amount of subcategory classes to add.
+$_sublink-depth: 2 !default;
+
+// Prefix for the subcategory tabs in nav.
+$_sublink-prefix: 'sublink' !default;
+
+// Add a border to the nav.
+$_border-classname: 'bordered' !default;
 
 /* Navigation styling. */
 

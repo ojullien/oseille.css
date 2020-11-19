@@ -35,7 +35,6 @@
 
 blockquote {
     background-color: var(--blockquote-back-color, #{colors.get('back')}); // Allows live color tunning
-    border: borders.get('width') solid var(--blockquote-border-color, colors.get('border-lightest'));
     border-left: 6px solid var(--blockquote-sidebar-color, colors.get('sidebar'));
     border-radius: 0 borders.get('radius') borders.get('radius') 0;
     color: var(--blockquote-fore-color, #{colors.get('fore')}); // Allows live color tunning

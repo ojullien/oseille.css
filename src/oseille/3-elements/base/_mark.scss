@@ -59,11 +59,11 @@ mark {
     }
 
     &.#{map.get($_classnames, 'secondary')} {
-        background-color: var(--secondary-color, colors.get('secondary'));
+        background-color: var(--secondary-color, colors.get('error'));
     }
 
     &.#{map.get($_classnames, 'tertiary')} {
-        background-color: var(--tertiary-color, colors.get('tertiary'));
+        background-color: var(--tertiary-color, colors.get('success'));
         color: var(--fore-color, colors.get('fore'));
     }
 

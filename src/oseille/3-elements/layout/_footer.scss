@@ -70,8 +70,8 @@ footer {
     }
 
     @if $_only-top-border {
-        border-top: borders.get('width') solid var(--footer-border-color, colors.get('border-lightest'));
+        border-top: borders.get('width') solid var(--footer-border-color, colors.get('border'));
     } @else {
-        border: borders.get('width') solid var(--footer-border-color, colors.get('border-lightest'));
+        border: borders.get('width') solid var(--footer-border-color, colors.get('border'));
     }
 }
