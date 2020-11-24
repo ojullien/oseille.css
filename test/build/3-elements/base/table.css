@@ -41,7 +41,7 @@ td {
 }
 
 th {
-  background-color: var(--th-back-color, #bfbfbf);
+  background-color: var(--th-back-color, #ededed);
   color: var(--th-fore-color, #121212);
   white-space: nowrap;
 }
@@ -56,7 +56,7 @@ table.horizontal th {
 }
 
 table.striped tr:nth-of-type(2n) > td {
-  background-color: var(--tr-back-color, #bfbfbf);
+  background-color: var(--tr-back-color, #ededed);
 }
 
 table.hoverable tr:hover, table.hoverable tr:hover > td, table.hoverable tr:focus, table.hoverable tr:focus > td {

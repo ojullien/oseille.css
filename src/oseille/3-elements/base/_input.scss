@@ -240,7 +240,7 @@ textarea,
 select {
     &:hover,
     &:focus {
-        border-color: var(--input-border-hover-color, #{colors.get('sidebar-alt')});
+        border-color: var(--input-border-hover-color, #{colors.get('sidebar')});
         box-shadow: none;
     }
 

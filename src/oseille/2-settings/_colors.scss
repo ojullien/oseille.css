@@ -59,8 +59,8 @@ $primary-palette: (
     'green-lightest': lightest(map.get($primary, 'green')),
     'grey-darkest': darkest(map.get($primary, 'grey')),
     'grey-darker': darker(map.get($primary, 'grey')),
-    'grey-lighter': lighter(map.get($primary, 'grey')),
-    'grey-lightest': lightest(map.get($primary, 'grey')),
+    'grey-lighter': lightest(map.get($primary, 'grey')),
+    'grey-lightest': hsla(0, 0%, 93%, 1),
     'orange-darkest': darkest(map.get($primary, 'orange')),
     'orange-darker': darker(map.get($primary, 'orange')),
     'orange-lighter': hsla(27deg, 79%, 50%, 1),
@@ -104,12 +104,13 @@ $secondary: (
 //   - overlay: modal dialog component
 $elements: (
     'code-back': map.get($primary-palette, 'grey-lightest'),
+    'code-fore': map.get($secondary, 'fore'),
     'error': map.get($primary-palette, 'red-darker'),
     'link': map.get($primary, 'blue'),
     'overlay': rgba(0, 0, 0, 0.45),
     'primary': map.get($primary-palette, 'blue-darker'),
     'sidebar': map.get($primary, 'blue'),
-    'quote-sidebar': map.get($primary, 'orange'),
+    'sidebar-quote': map.get($primary, 'orange'),
     'success': map.get($primary-palette, 'green-darker'),
     'visited': map.get($primary-palette, 'blue-darkest'),
 ) !default;

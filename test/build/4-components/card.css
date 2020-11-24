@@ -42,7 +42,7 @@
   }
 }
 .card > .section.dark {
-  background-color: var(--card-back-color, #bfbfbf);
+  background-color: var(--card-back-color, #ededed);
   color: var(--card-fore-color, #121212);
 }
 .card > .section.double-padded {

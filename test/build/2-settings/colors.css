@@ -170,21 +170,21 @@
 }
 
 .color--grey-lighter {
-  background-color: #a6a6a6;
-  color: #121212;
-}
-
-.color--grey-lighter::before {
-  content: "grey-lighter:#a6a6a6";
-}
-
-.color--grey-lightest {
   background-color: #bfbfbf;
   color: #121212;
 }
 
+.color--grey-lighter::before {
+  content: "grey-lighter:#bfbfbf";
+}
+
+.color--grey-lightest {
+  background-color: #ededed;
+  color: #121212;
+}
+
 .color--grey-lightest::before {
-  content: "grey-lightest:#bfbfbf";
+  content: "grey-lightest:#ededed";
 }
 
 .color--orange-darkest {
@@ -340,13 +340,22 @@
   content: "fore-alt:#f8f8f8";
 }
 
-.color--link {
-  background-color: #215cca;
+.color--code-back {
+  background-color: #ededed;
+  color: #121212;
+}
+
+.color--code-back::before {
+  content: "code-back:#ededed";
+}
+
+.color--code-fore {
+  background-color: #121212;
   color: #f8f8f8;
 }
 
-.color--link::before {
-  content: "link:#215cca";
+.color--code-fore::before {
+  content: "code-fore:#121212";
 }
 
 .color--error {
@@ -356,6 +365,15 @@
 
 .color--error::before {
   content: "error:#aa1109";
+}
+
+.color--link {
+  background-color: #215cca;
+  color: #f8f8f8;
+}
+
+.color--link::before {
+  content: "link:#215cca";
 }
 
 .color--overlay {
@@ -377,21 +395,21 @@
 }
 
 .color--sidebar {
-  background-color: #cc411e;
-  color: #f8f8f8;
-}
-
-.color--sidebar::before {
-  content: "sidebar:#cc411e";
-}
-
-.color--sidebar-alt {
   background-color: #215cca;
   color: #f8f8f8;
 }
 
-.color--sidebar-alt::before {
-  content: "sidebar-alt:#215cca";
+.color--sidebar::before {
+  content: "sidebar:#215cca";
+}
+
+.color--sidebar-quote {
+  background-color: #cc411e;
+  color: #f8f8f8;
+}
+
+.color--sidebar-quote::before {
+  content: "sidebar-quote:#cc411e";
 }
 
 .color--success {
