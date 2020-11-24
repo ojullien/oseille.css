@@ -85,7 +85,7 @@ $_classnames: (
 input {
     @include styleDisable;
     background-color: var(--input-back-color, #{colors.get('back')});
-    border: borders.get('width-alt') solid var(--input-border-color, #{colors.get('border')});
+    border: borders.get('medium') solid var(--input-border-color, #{colors.get('border')});
     color: var(--input-fore-color, #{colors.get('fore')});
     font-family: inherit;
     font-size: fonts.get-size('input');
@@ -110,7 +110,7 @@ textarea,
 select {
     // Background, color and border should not be unassigned, as the browser defaults will apply.
     background-color: var(--input-back-color, #{colors.get('back')});
-    border: borders.get('width-alt') solid var(--input-border-color, #{colors.get('border')});
+    border: borders.get('medium') solid var(--input-border-color, #{colors.get('border')});
     border-radius: borders.get('radius');
     color: var(--input-fore-color, #{colors.get('fore')});
     margin: calc(#{boxmodel.get('margin')} / 2);

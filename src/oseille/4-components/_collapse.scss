@@ -34,10 +34,10 @@ $_classnames: (
 /* Accordions styling */
 
 .#{map.get($_classnames, 'wrapper')} {
-    border-bottom: borders.get('width') solid var(--accordion-border-color, colors.get('border'));
-    border-left: borders.get('width') solid var(--accordion-border-color, colors.get('border'));
+    border-bottom: borders.get('thin') solid var(--accordion-border-color, colors.get('border'));
+    border-left: borders.get('thin') solid var(--accordion-border-color, colors.get('border'));
     border-radius: borders.get('radius');
-    border-right: borders.get('width') solid var(--accordion-border-color, colors.get('border'));
+    border-right: borders.get('thin') solid var(--accordion-border-color, colors.get('border'));
     display: flex;
     flex-direction: column;
     margin: boxmodel.get('margin');
@@ -48,7 +48,7 @@ $_classnames: (
 
         & + label {
             background-color: var(--accordion-back-color, colors.get('back'));
-            border-top: borders.get('width') solid var(--accordion-border-color, colors.get('border'));
+            border-top: borders.get('thin') solid var(--accordion-border-color, colors.get('border'));
             color: var(--accordion-fore-color, colors.get('fore'));
             cursor: pointer;
             display: flex;

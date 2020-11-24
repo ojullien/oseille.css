@@ -49,7 +49,7 @@ $_section-media-height: 200px !default; // Height for cards' media sections.
 
     // Actual styling for the cards
     background-color: var(--card-back-color, #{colors.get('back')});
-    border: borders.get('width') solid var(--card-border-color, #{colors.get('border')});
+    border: borders.get('thin') solid var(--card-border-color, #{colors.get('border')});
     border-radius: borders.get('radius');
     color: var(--card-fore-color, #{colors.get('fore')});
     display: flex;
@@ -72,7 +72,7 @@ $_section-media-height: 200px !default; // Height for cards' media sections.
     // Card sections
     & > .#{map.get($_classnames, 'section')} {
         border: 0; // Clean borders and radiuses for any element-based sections
-        border-bottom: borders.get('width') solid var(--card-border-color, #{colors.get('border')});
+        border-bottom: borders.get('thin') solid var(--card-border-color, #{colors.get('border')});
         border-radius: 0; // Clean borders and radiuses for any element-based sections
         margin: 0;
         padding: boxmodel.get('padding');
@@ -109,7 +109,7 @@ $_section-media-height: 200px !default; // Height for cards' media sections.
         --card-border-color: var(--warning-border-color, #{colors.get('yellow-darkest')});
         --card-fore-color: var(--warning-fore-color, #{colors.get('fore')});
 
-        border-width: borders.get('width-alt');
+        border-width: borders.get('medium');
     }
 
     &.error {
@@ -117,7 +117,7 @@ $_section-media-height: 200px !default; // Height for cards' media sections.
         --card-border-color: var(--error-border-color, #{colors.get('red-darkest')});
         --card-fore-color: var(--error-fore-color, #{colors.get('back')});
 
-        border-width: borders.get('width-alt');
+        border-width: borders.get('medium');
     }
 
     &.fluid {

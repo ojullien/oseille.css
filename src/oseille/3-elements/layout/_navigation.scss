@@ -37,7 +37,7 @@ nav {
     padding: 0;
 
     &.#{$_border-classname} {
-        border: borders.get('width') solid var(--nav-border-color, colors.get('border'));
+        border: borders.get('thin') solid var(--nav-border-color, colors.get('border'));
         border-radius: borders.get('radius');
     }
 
@@ -57,7 +57,7 @@ nav {
             position: relative;
 
             &::before {
-                border: borders.get('width') solid var(--nav-border-color, colors.get('border'));
+                border: borders.get('thin') solid var(--nav-border-color, colors.get('border'));
                 border-left: 0;
                 content: '';
                 height: 100%;

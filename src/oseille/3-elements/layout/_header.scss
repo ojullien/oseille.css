@@ -74,9 +74,9 @@ header {
     white-space: nowrap;
 
     @if $_only-bottom-border {
-        border-bottom: borders.get('width') solid var(--header-border-color, colors.get('border'));
+        border-bottom: borders.get('thin') solid var(--header-border-color, colors.get('border'));
     } @else {
-        border: borders.get('width') solid var(--header-border-color, colors.get('border'));
+        border: borders.get('thin') solid var(--header-border-color, colors.get('border'));
     }
 
     // Fix for responsive header, using the grid system's row and column alignment.

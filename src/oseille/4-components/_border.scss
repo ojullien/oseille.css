@@ -35,7 +35,7 @@ $_box-shadow-generic: 0 (4 * 1px) (4 * 1px) 0 rgba(0, 0, 0, 0.125), 0 (2 * 1px) 
 
 // Generic bordered element class. NOTE: Uses !important.
 .#{map.get($_classnames, 'generic')} {
-    border: borders.get('width') solid var(--border-color, colors.get('border')) !important;
+    border: borders.get('thin') solid var(--border-color, colors.get('border')) !important;
 }
 
 // Generic rounded-border element class. NOTE: Uses !important.

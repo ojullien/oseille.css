@@ -14,7 +14,7 @@
 
 fieldset {
     // Apply always to overwrite defaults for all of the below.
-    border: borders.get('width') solid var(--fieldset-border-color, colors.get('border'));
+    border: borders.get('thin') solid var(--fieldset-border-color, colors.get('border'));
     border-radius: borders.get('radius');
     margin: calc(#{boxmodel.get('margin')} / 4);
     padding: boxmodel.get('padding');

@@ -25,7 +25,7 @@ summary {
 }
 
 details {
-    border: borders.get('width') solid var(--details-border-color, colors.get('border'));
+    border: borders.get('thin') solid var(--details-border-color, colors.get('border'));
     border-radius: borders.get('radius');
     cursor: pointer;
 
@@ -38,7 +38,7 @@ details {
         padding: boxmodel.get('padding');
 
         summary {
-            border-bottom: borders.get('width') solid var(--details-border-color, colors.get('border'));
+            border-bottom: borders.get('thin') solid var(--details-border-color, colors.get('border'));
             padding-bottom: boxmodel.get('margin');
         }
     }
