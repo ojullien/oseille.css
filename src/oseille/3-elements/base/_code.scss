@@ -23,9 +23,7 @@
 @use '../../2-settings/borders' as borders;
 @use '../../2-settings/box-model' as boxmodel;
 
-/* Inline code semantic styling */
-
-%_normalize {
+@mixin normalize-code {
     border: 0;
     // Correct the inheritance and scaling of font size in all browsers. By re-applying font-family and font-size
     font-family: fonts.get-stack('code');
@@ -36,15 +34,52 @@
     margin: 0;
     padding: 0;
     position: relative;
-    vertical-align: baseline;
+    vertical-align: baseline; // Only applies to inline, inline-block and table-cell elements
 }
 
+@mixin normalize-text {
+    white-space: pre;
+    word-spacing: normal;
+    word-break: normal;
+    word-wrap: normal;
+}
+/* Inline code semantic styling */
+
 code {
-    @extend %_normalize;
-    background-color: var(--code-back-color, #{colors.get('back-alt')}); // Allows live color tunning
+    background-color: var(--code-back-color, #{colors.get('code-back')});
+    border-radius: borders.get('radius');
+    border-style: none;
+
+    //@include normalize-code;
+    @include normalize-text;
+
+    margin: 0;
+    padding: 0;
+
+    font-family: menlo, consolas, monospace;
+    font-size: 0.85em;
+    font-weight: inherit;
+
+    line-height: 0;
+    margin: 0;
+    padding: 0;
+
+    vertical-align: baseline;
+
+    color: var(--code-fore-color, #121212);
+    padding: calc(0.5rem / 4) calc(0.5rem / 2);
+    text-align: left;
+    -moz-tab-size: 4;
+    -o-tab-size: 4;
+    tab-size: 4;
+    -webkit-hyphens: none;
+    -moz-hyphens: none;
+    -ms-hyphens: none;
+    hyphens: none;
+    -webkit-user-select: all;
+    user-select: all;
 
     // No border color by default and fore color is the default for text, can be altered manually.
-    border-radius: borders.get('radius');
     color: var(--code-fore-color, #{colors.get('fore-alt')}); // Allows live color tunning
 
     // This could be a bit counterintuitive and burden the codebase a bit, look into it again?
@@ -57,10 +92,16 @@ code {
 }
 
 pre {
-    background-color: var(--pre-back-color, #{colors.get('back-alt')}); // Allows live color tunning
-    border: medium solid colors.get('border');
+    background-color: var(--pre-back-color, #{colors.get('code-back')});
+    border: 0 solid colors.get('border');
     border-left: thick solid colors.get('sidebar-alt');
     border-radius: 0 #{borders.get('radius')} #{borders.get('radius')} 0;
+
+    @include normalize-text;
+
+    margin: 0;
+    padding: 0;
+
     color: var(--pre-fore-color, #{colors.get('fore-alt')}); // Allows live color tunning
     font-family: fonts.get-stack('code');
     font-size: fonts.get-size('code');
@@ -77,7 +118,7 @@ pre {
 }
 
 kbd {
-    @extend %_normalize;
+    @include normalize-code;
     background-color: var(--kbd-back-color, #{colors.get('back-alt')}); // Allows live color tunning
 
     // No border color by default and fore color is the default for text, can be altered manually.
@@ -89,13 +130,13 @@ kbd {
 }
 
 samp {
-    @extend %_normalize;
+    @include normalize-code;
 
     font-style: inherit;
 }
 
 var {
-    @extend %_normalize;
+    @include normalize-code;
 
     font-style: italic;
 }

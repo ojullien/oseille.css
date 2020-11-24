@@ -35,7 +35,7 @@
 
 blockquote {
     background-color: var(--blockquote-back-color, #{colors.get('back')}); // Allows live color tunning
-    border-left: 6px solid var(--blockquote-sidebar-color, colors.get('sidebar'));
+    border-left: 6px solid var(--blockquote-sidebar-color, colors.get('quote-sidebar'));
     border-radius: 0 borders.get('radius') borders.get('radius') 0;
     color: var(--blockquote-fore-color, #{colors.get('fore')}); // Allows live color tunning
     display: block;
@@ -47,7 +47,7 @@ blockquote {
     position: relative;
 
     &::before {
-        color: var(--blockquote-sidebar-color, colors.get('sidebar'));
+        color: var(--blockquote-sidebar-color, colors.get('quote-sidebar'));
         content: '\201c';
         font-family: sans-serif;
         font-size: fonts.get-size('quotation');

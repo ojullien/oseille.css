@@ -99,16 +99,17 @@ $secondary: (
 //   - link: color for <a>:link
 //   - visited: color for <a>:visited.
 //   - primary: background color variant.
-//   - secondary: background color variant.
-//   - tertiary: background color variant.
+//   - success: background color variant.
+//   - error: background color variant.
 //   - overlay: modal dialog component
 $elements: (
-    'link': map.get($primary, 'blue'),
+    'code-back': map.get($primary-palette, 'grey-lightest'),
     'error': map.get($primary-palette, 'red-darker'),
+    'link': map.get($primary, 'blue'),
     'overlay': rgba(0, 0, 0, 0.45),
     'primary': map.get($primary-palette, 'blue-darker'),
-    'sidebar': map.get($primary, 'orange'),
-    'sidebar-alt': map.get($primary, 'blue'),
+    'sidebar': map.get($primary, 'blue'),
+    'quote-sidebar': map.get($primary, 'orange'),
     'success': map.get($primary-palette, 'green-darker'),
     'visited': map.get($primary-palette, 'blue-darkest'),
 ) !default;
