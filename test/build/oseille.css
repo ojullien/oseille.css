@@ -360,7 +360,7 @@ output {
 
 pre {
   background-color: var(--pre-back-color, #ededed);
-  border: 0 solid #215cca;
+  border: 0 solid var(--pre-sidebar-color, #215cca);
   border-left-width: 5px;
   color: var(--pre-fore-color, #121212);
   font-family: menlo, consolas, monospace;
@@ -534,39 +534,28 @@ p {
 }
 
 /* Blockquote styling */
-cite, q {
-  background-color: var(--caption-back-color, #f8f8f8);
-  border: 0;
-  color: var(--caption-fore-color, #121212);
-  font-family: -apple-system, blinkmacsystemfont, "Segoe UI", roboto, ubuntu, "Helvetica Neue", helvetica, sans-serif;
-  font-size: 1em;
-  font-weight: inherit;
-  margin: 0;
-  padding: 0;
-}
-
 blockquote {
   background-color: var(--blockquote-back-color, #f8f8f8);
-  border-left: 6px solid var(--blockquote-sidebar-color, #cc411e);
-  border-radius: 0 4px 4px 0;
+  border: 0 solid var(--blockquote-sidebar-color, #e4751b);
+  border-left-width: 5px;
   color: var(--blockquote-fore-color, #121212);
-  display: block;
   font-family: -apple-system, blinkmacsystemfont, "Segoe UI", roboto, ubuntu, "Helvetica Neue", helvetica, sans-serif;
   font-size: 1em;
   font-style: italic;
   margin: 0.5rem;
-  padding: calc(3 * 0.5rem);
+  padding: 0.5rem;
+  padding-left: 3rem;
   position: relative;
 }
 blockquote::before {
-  color: var(--blockquote-sidebar-color, #cc411e);
+  color: var(--blockquote-sidebar-color, #e4751b);
   content: "“";
   font-family: sans-serif;
   font-size: 3em;
   font-weight: 700;
-  left: 0;
+  left: 10px;
   position: absolute;
-  top: calc(0rem - 0.5rem);
+  top: -0.5rem;
 }
 blockquote[cite]::after {
   content: "\a—  " attr(cite);
@@ -577,10 +566,33 @@ blockquote[cite]::after {
 }
 
 q {
+  background-color: var(--caption-back-color, #f8f8f8);
+  border: 0;
+  color: var(--caption-fore-color, #121212);
+  font-family: -apple-system, blinkmacsystemfont, "Segoe UI", roboto, ubuntu, "Helvetica Neue", helvetica, sans-serif;
+  font-size: 1em;
+  font-weight: inherit;
+  margin: 0;
+  padding: 0;
   font-style: inherit;
 }
 
+cite {
+  background-color: var(--caption-back-color, #f8f8f8);
+  border: 0;
+  color: var(--caption-fore-color, #121212);
+  font-family: -apple-system, blinkmacsystemfont, "Segoe UI", roboto, ubuntu, "Helvetica Neue", helvetica, sans-serif;
+  font-size: 1em;
+  font-weight: inherit;
+  margin: 0;
+  padding: 0;
+}
+
 blockquote > p {
+  margin: 0.5rem 0;
+}
+
+.legible blockquote > p {
   margin: 0.5rem 0;
 }
 

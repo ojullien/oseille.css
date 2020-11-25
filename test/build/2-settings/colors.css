@@ -404,12 +404,12 @@
 }
 
 .color--sidebar-quote {
-  background-color: #cc411e;
+  background-color: #e4751b;
   color: #f8f8f8;
 }
 
 .color--sidebar-quote::before {
-  content: "sidebar-quote:#cc411e";
+  content: "sidebar-quote:#e4751b";
 }
 
 .color--success {

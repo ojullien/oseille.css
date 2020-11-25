@@ -110,7 +110,7 @@ $elements: (
     'overlay': rgba(0, 0, 0, 0.45),
     'primary': map.get($primary-palette, 'blue-darker'),
     'sidebar': map.get($primary, 'blue'),
-    'sidebar-quote': map.get($primary, 'orange'),
+    'sidebar-quote': map.get($primary-palette, 'orange-lighter'),
     'success': map.get($primary-palette, 'green-darker'),
     'visited': map.get($primary-palette, 'blue-darkest'),
 ) !default;

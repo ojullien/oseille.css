@@ -68,7 +68,7 @@ output {
 
 pre {
   background-color: var(--pre-back-color, #ededed);
-  border: 0 solid #215cca;
+  border: 0 solid var(--pre-sidebar-color, #215cca);
   border-left-width: 5px;
   color: var(--pre-fore-color, #121212);
   font-family: menlo, consolas, monospace;

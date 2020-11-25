@@ -96,7 +96,7 @@ output {
 
 pre {
     background-color: var(--pre-back-color, #{colors.get('code-back')});
-    border: 0 solid colors.get('sidebar');
+    border: 0 solid var(--pre-sidebar-color, #{colors.get('sidebar')});
     border-left-width: borders.get('thick');
     color: var(--pre-fore-color, #{colors.get('code-fore')});
 
