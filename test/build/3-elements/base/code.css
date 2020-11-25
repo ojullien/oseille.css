@@ -13,6 +13,7 @@ code {
   font-weight: inherit;
   line-height: 0;
   -webkit-user-select: all;
+  -ms-user-select: all;
   user-select: all;
   font-style: normal;
   margin: 0;
@@ -27,7 +28,7 @@ code {
   text-align: left;
   text-shadow: none;
   vertical-align: baseline;
-  white-space: pre;
+  white-space: pre-wrap;
   word-spacing: normal;
   word-break: normal;
   word-wrap: normal;
@@ -42,6 +43,7 @@ output {
   font-weight: inherit;
   line-height: 0;
   -webkit-user-select: all;
+  -ms-user-select: all;
   user-select: all;
   font-style: inherit;
   direction: ltr !important;
@@ -55,7 +57,7 @@ output {
   text-align: left;
   text-shadow: none;
   vertical-align: baseline;
-  white-space: pre;
+  white-space: pre-wrap;
   word-spacing: normal;
   word-break: normal;
   word-wrap: normal;
@@ -75,7 +77,6 @@ pre {
   font-weight: normal;
   line-height: 1.5;
   margin: 0.5rem;
-  max-width: 100%;
   overflow: auto;
   overflow-wrap: break-word;
   padding: calc(1.5625 * 0.5rem);
@@ -90,11 +91,10 @@ pre {
   text-align: left;
   text-shadow: none;
   vertical-align: baseline;
-  white-space: pre;
+  white-space: pre-wrap;
   word-spacing: normal;
   word-break: normal;
   word-wrap: normal;
-  width: 100%;
 }
 pre code {
   background-color: transparent;
@@ -113,6 +113,16 @@ pre.line-numbers > code:before {
   text-align: right;
   pointer-events: none;
 }
+pre.contains-code {
+  position: relative;
+}
+pre.contains-code::before {
+  content: attr(data-lang);
+  font-size: 0.85em;
+  position: absolute;
+  right: 0.4rem;
+  top: 0.1rem;
+}
 
 @counter-style linenumber-style {
   suffix: ".";
@@ -127,6 +137,7 @@ kbd {
   font-weight: inherit;
   line-height: 0;
   -webkit-user-select: all;
+  -ms-user-select: all;
   user-select: all;
   font-style: normal;
   direction: ltr !important;
@@ -140,7 +151,7 @@ kbd {
   text-align: left;
   text-shadow: none;
   vertical-align: baseline;
-  white-space: pre;
+  white-space: pre-wrap;
   word-spacing: normal;
   word-break: normal;
   word-wrap: normal;
@@ -154,6 +165,7 @@ samp {
   font-weight: inherit;
   line-height: 0;
   -webkit-user-select: all;
+  -ms-user-select: all;
   user-select: all;
   font-style: inherit;
   direction: ltr !important;
@@ -167,7 +179,7 @@ samp {
   text-align: left;
   text-shadow: none;
   vertical-align: baseline;
-  white-space: pre;
+  white-space: pre-wrap;
   word-spacing: normal;
   word-break: normal;
   word-wrap: normal;
@@ -182,6 +194,7 @@ var {
   font-weight: inherit;
   line-height: 0;
   -webkit-user-select: all;
+  -ms-user-select: all;
   user-select: all;
   font-style: italic;
   direction: ltr !important;
@@ -195,7 +208,7 @@ var {
   text-align: left;
   text-shadow: none;
   vertical-align: baseline;
-  white-space: pre;
+  white-space: pre-wrap;
   word-spacing: normal;
   word-break: normal;
   word-wrap: normal;

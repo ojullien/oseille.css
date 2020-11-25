@@ -32,6 +32,7 @@
     line-height: 0; // Prevent element from affecting the line height in all browsers.
 
     -webkit-user-select: all;
+    -ms-user-select: all;
     user-select: all;
 }
 
@@ -51,7 +52,7 @@
     text-shadow: none;
 
     vertical-align: baseline; // Only applies to inline, inline-block and table-cell elements
-    white-space: pre;
+    white-space: pre-wrap;
     word-spacing: normal;
     word-break: normal;
     word-wrap: normal;
@@ -107,14 +108,11 @@ pre {
     line-height: fonts.get-line-spacing('main');
 
     margin: boxmodel.get('margin');
-    max-width: 100%;
     overflow: auto; // Responsiveness
     overflow-wrap: break-word;
     padding: calc(#{fonts.get-line-spacing('small')} * #{boxmodel.get('padding')});
 
     @include normalize-text;
-
-    width: 100%;
 
     code {
         background-color: transparent;
@@ -132,6 +130,17 @@ pre {
                 text-align: right;
                 pointer-events: none;
             }
+        }
+    }
+
+    &.contains-code {
+        position: relative;
+        &::before {
+            content: attr(data-lang);
+            font-size: fonts.get-size('code');
+            position: absolute;
+            right: 0.4rem;
+            top: 0.1rem;
         }
     }
 }
