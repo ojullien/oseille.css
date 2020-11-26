@@ -160,22 +160,25 @@
                 </section>
 
                 <section>
+                    <h2 id="quote">Quote</h2>
+                    <blockquote cite="www.quotation.source">This is some text quoted from elsewhere.</blockquote>
+                    <blockquote>
+                        <p>
+                            <em>This is a properly formatted blockquote, btw.</em> Measuring
+                            programming progress by lines of code is like measuring aircraft building
+                            progress by weight.
+                        </p>
+                        <footer>
+                            <cite><a href="http://www.thegatesnotes.com">Bill Gates</a></cite>
+                        </footer>
+                    </blockquote>
+                </section>
+
+                <section>
                     <h2 id="code">Code</h2>
                     <p>This is some text with some inline <code>source code</code> and some keyboard <kbd>input</kbd>.</p>
-
                     <code>function mul(num1, num2){ return num1 * num2;} </code><br>
-
-                    <pre>
-    ___________________________
-  < I'm an expert in my field. >
-    ---------------------------
-           \   ^__^
-            \  (oo)\_______
-               (__)\       )\/\
-                   ||----w |
-                   ||     ||
-</pre>
-                    <pre>
+                    <pre class="scrollable">
   .----.-----.-----.-----.
  /      \     \     \     \
 |  \/    |     |   __L_____L__
@@ -189,18 +192,15 @@
     |                  |
     |                  |
 </pre>
-                    <pre class="contains-code" data-lang="HTML">
-<code>function sum(num1, num2){
+                    <pre class="contains-code" data-lang="HTML"><code>function sum(num1, num2){
     return num1 + num2;
 }</code></pre>
 
-                    <pre class="line-numbers">
-<code>function sum(num1, num2){</code>
+                    <pre class="line-numbers"><code>function sum(num1, num2){</code>
 <code>    return num1 + num2;</code>
 <code>}</code></pre>
 
-                    <pre><samp>
-<span class="prompt">mike@interwebz:~$</span> <kbd>md5 -s "Hello world"</kbd>
+                    <pre><samp><span class="prompt">mike@interwebz:~$</span> <kbd>md5 -s "Hello world"</kbd>
 MD5 ("Hello world") = 3e25960a79dbc69b674cd4ec67a72c62
 <span class="prompt">mike@interwebz:~$</span> <span class="cursor">█</span></samp></pre>
                 </section>

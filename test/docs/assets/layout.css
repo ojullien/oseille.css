@@ -1,10 +1,10 @@
 .docs-wrapper {
-    padding: 0 calc(0.5rem * 2);
+    padding: 0 0.5rem;
     max-width: 95vw;
 }
 
 .docs-main {
-    padding: 0 calc(0.5rem * 2);
+    padding: 0 0.5rem;
     max-width: 95vw;
 }
 

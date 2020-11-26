@@ -305,6 +305,7 @@ code {
   font-weight: inherit;
   line-height: 0;
   -webkit-user-select: all;
+  -moz-user-select: all;
   -ms-user-select: all;
   user-select: all;
   font-style: normal;
@@ -319,11 +320,11 @@ code {
   tab-size: 4;
   text-align: left;
   text-shadow: none;
-  vertical-align: baseline;
-  white-space: pre-wrap;
   word-spacing: normal;
   word-break: normal;
   word-wrap: normal;
+  vertical-align: baseline;
+  white-space: pre-wrap;
 }
 code a:any-link {
   color: var(--code-link-color, #121212);
@@ -335,6 +336,7 @@ output {
   font-weight: inherit;
   line-height: 0;
   -webkit-user-select: all;
+  -moz-user-select: all;
   -ms-user-select: all;
   user-select: all;
   font-style: inherit;
@@ -348,11 +350,11 @@ output {
   tab-size: 4;
   text-align: left;
   text-shadow: none;
-  vertical-align: baseline;
-  white-space: pre-wrap;
   word-spacing: normal;
   word-break: normal;
   word-wrap: normal;
+  vertical-align: baseline;
+  white-space: pre-wrap;
   border: 0;
   margin: 0;
   padding: 0;
@@ -370,7 +372,6 @@ pre {
   line-height: 1.5;
   margin: 0.5rem;
   overflow: auto;
-  overflow-wrap: break-word;
   padding: calc(1.5625 * 0.5rem);
   direction: ltr !important;
   -webkit-hyphens: none;
@@ -382,15 +383,18 @@ pre {
   tab-size: 4;
   text-align: left;
   text-shadow: none;
-  vertical-align: baseline;
-  white-space: pre-wrap;
   word-spacing: normal;
   word-break: normal;
   word-wrap: normal;
+  white-space: pre;
 }
 pre code {
   background-color: transparent;
   font-size: 1em;
+}
+pre.scrollable {
+  max-height: 20rem;
+  overflow-y: scroll;
 }
 pre.line-numbers {
   counter-reset: linenumber;
@@ -405,10 +409,10 @@ pre.line-numbers > code:before {
   text-align: right;
   pointer-events: none;
 }
-pre.contains-code {
+pre[data-lang] {
   position: relative;
 }
-pre.contains-code::before {
+pre[data-lang]::before {
   content: attr(data-lang);
   font-size: 0.85em;
   position: absolute;
@@ -429,6 +433,7 @@ kbd {
   font-weight: inherit;
   line-height: 0;
   -webkit-user-select: all;
+  -moz-user-select: all;
   -ms-user-select: all;
   user-select: all;
   font-style: normal;
@@ -442,11 +447,11 @@ kbd {
   tab-size: 4;
   text-align: left;
   text-shadow: none;
-  vertical-align: baseline;
-  white-space: pre-wrap;
   word-spacing: normal;
   word-break: normal;
   word-wrap: normal;
+  vertical-align: baseline;
+  white-space: pre-wrap;
   margin: 0;
   padding: calc(0.5rem / 4) calc(0.5rem / 2);
 }
@@ -457,6 +462,7 @@ samp {
   font-weight: inherit;
   line-height: 0;
   -webkit-user-select: all;
+  -moz-user-select: all;
   -ms-user-select: all;
   user-select: all;
   font-style: inherit;
@@ -470,11 +476,11 @@ samp {
   tab-size: 4;
   text-align: left;
   text-shadow: none;
-  vertical-align: baseline;
-  white-space: pre-wrap;
   word-spacing: normal;
   word-break: normal;
   word-wrap: normal;
+  vertical-align: baseline;
+  white-space: pre-wrap;
   border: 0;
   margin: 0;
   padding: 0;
@@ -486,6 +492,7 @@ var {
   font-weight: inherit;
   line-height: 0;
   -webkit-user-select: all;
+  -moz-user-select: all;
   -ms-user-select: all;
   user-select: all;
   font-style: italic;
@@ -499,11 +506,11 @@ var {
   tab-size: 4;
   text-align: left;
   text-shadow: none;
-  vertical-align: baseline;
-  white-space: pre-wrap;
   word-spacing: normal;
   word-break: normal;
   word-wrap: normal;
+  vertical-align: baseline;
+  white-space: pre-wrap;
   border: 0;
   margin: 0;
   padding: 0;
