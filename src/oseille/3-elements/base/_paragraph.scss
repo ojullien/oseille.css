@@ -36,6 +36,7 @@ hr {
 
 p {
     -ms-hyphens: fonts.get-hyphenation('hyphens');
+    -moz-hyphens: fonts.get-hyphenation('hyphens');
     -webkit-hyphens: fonts.get-hyphenation('hyphens');
     hyphens: fonts.get-hyphenation('hyphens');
     line-height: fonts.get-line-spacing('p');

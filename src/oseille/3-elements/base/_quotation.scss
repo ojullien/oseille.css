@@ -19,6 +19,7 @@
 @use '../../2-settings/fonts' as fonts;
 @use '../../2-settings/borders' as borders;
 @use '../../2-settings/box-model' as boxmodel;
+@use '../../2-settings/responsive' as breakpoints;
 
 /* Blockquote styling */
 
@@ -36,43 +37,58 @@
 blockquote {
     background-color: var(--blockquote-back-color, #{colors.get('back')});
     border: 0 solid var(--blockquote-sidebar-color, colors.get('sidebar-quote'));
-    border-left-width: borders.get('thick');
+    border-bottom-width: borders.get('thin');
+    border-top-width: borders.get('thin');
     color: var(--blockquote-fore-color, #{colors.get('fore')});
 
     font-family: fonts.get-stack('quotation');
-    font-size: 1em;
-    font-style: italic;
+    font-size: fonts.get-size('quotation');
+    font-style: normal;
+    font-weight: 500;
 
     margin: boxmodel.get('margin');
     padding: #{boxmodel.get('padding')};
-    padding-left: 6 * boxmodel.get('padding');
     position: relative;
 
-    &::before {
-        color: var(--blockquote-sidebar-color, colors.get('sidebar-quote'));
-        content: '\201c';
-        font-family: sans-serif;
-        font-size: fonts.get-size('quotation');
-        font-weight: 700;
-        left: 10px;
-        position: absolute;
-        top: -(boxmodel.get('padding'));
-        //top: -10px;
+    @media screen and (min-width: #{breakpoints.get('medium')}) {
+        border-bottom: none;
+        border-left-width: borders.get('thick');
+        border-top: none;
+        padding-left: 6 * boxmodel.get('padding');
+
+        &::before {
+            color: var(--blockquote-sidebar-color, colors.get('sidebar-quote'));
+            content: '\201c';
+            font-family: sans-serif;
+            font-size: fonts.get-size('quotation-before');
+            font-style: italic;
+            font-weight: 700;
+            left: 10px;
+            position: absolute;
+            top: -(boxmodel.get('padding'));
+        }
     }
 
     &[cite]::after {
         content: '\a—  'attr(cite);
         font-size: fonts.get-size('cite');
-        font-style: normal;
-        font-weight: 700;
+        font-style: italic;
+        font-weight: normal;
         white-space: pre;
     }
 
-    & > p {
+    cite {
+        font-style: italic;
+        font-weight: normal;
+        white-space: pre;
+        display: block;
+    }
+
+    p {
         margin: boxmodel.get('margin') 0;
     }
 
-    .legible & > p {
+    .legible & p {
         margin: boxmodel.get('margin') 0;
     }
 }
