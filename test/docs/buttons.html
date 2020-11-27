@@ -46,336 +46,343 @@
     </head>
 
     <body>
-        <header>
-            <h1>Buttons</h1>
-        </header>
 
         <div class="docs-wrapper">
 
-            <aside>
-                <nav class="docs-sidebar">
-                    <ul>
-                        <li><label for="wysiwyg"><input type="checkbox" id="checkbox-wysiwyg" name="checkbox-wysiwyg" value="wysiwyg" onclick="switchToWysiwyg(this);" />wysiwyg</label></li>
-                        <li><label for="oseille"><input type="checkbox" id="checkbox-oseille" name="checkbox-oseille" value="oseille" onclick="switchToOseille();" checked />Oseille</label></li>
-                        <li><label for="root"><input type="checkbox" id="checkbox-root" name="checkbox-root" value="root" onclick="switchToLocal(this);" />Root</label></li>
-                        <li><label for="sectioning"><input type="checkbox" id="checkbox-sectioning" name="checkbox-sectioning" value="sectioning" onclick="switchToLocal(this);" />Sectioning</label></li>
-                        <li><label for="text"><input type="checkbox" id="checkbox-text" name="checkbox-text" value="text" onclick="switchToLocal(this);" />Text</label></li>
-                        <li><label for="mark"><input type="checkbox" id="checkbox-mark" name="checkbox-mark" value="mark" onclick="switchToLocal(this);" />Mark</label></li>
-                        <li><label for="code"><input type="checkbox" id="checkbox-code" name="checkbox-code" value="code" onclick="switchToLocal(this);" />Code</label></li>
-                        <li><label for="paragraph"><input type="checkbox" id="checkbox-paragraph" name="checkbox-paragraph" value="paragraph" onclick="switchToLocal(this);" />Paragraph</label></li>
-                        <li><label for="quotation"><input type="checkbox" id="checkbox-quotation" name="checkbox-quotation" value="quotation" onclick="switchToLocal(this);" />Quotation</label></li>
-                        <li><label for="list"><input type="checkbox" id="checkbox-list" name="checkbox-list" value="list" onclick="switchToLocal(this);" />List</label></li>
-                        <li><label for="definition"><input type="checkbox" id="checkbox-definition" name="checkbox-definition" value="definition" onclick="switchToLocal(this);" />Definition</label></li>
-                        <li><label for="figure"><input type="checkbox" id="checkbox-figure" name="checkbox-figure" value="figure" onclick="switchToLocal(this);" />Figure</label></li>
-                        <li><label for="buttons"><input type="checkbox" id="checkbox-buttons" name="checkbox-buttons" value="buttons" onclick="switchToLocal(this);" />Buttons</label></li>
-                        <li><label for="form"><input type="checkbox" id="checkbox-form" name="checkbox-form" value="form" onclick="switchToLocal(this);" />Form</label></li>
-                        <li><label for="fieldset"><input type="checkbox" id="checkbox-fieldset" name="checkbox-fieldset" value="fieldset" onclick="switchToLocal(this);" />Fieldset</label></li>
-                        <li><label for="input"><input type="checkbox" id="checkbox-input" name="checkbox-input" value="input" onclick="switchToLocal(this);" />Input</label></li>
-                        <li><label for="table"><input type="checkbox" id="checkbox-table" name="checkbox-table" value="table" onclick="switchToLocal(this);" />Table</label></li>
-                        <li><label for="multimedia"><input type="checkbox" id="checkbox-multimedia" name="checkbox-multimedia" value="multimedia" onclick="switchToLocal(this);" />Multimedia</label></li>
-                        <li><label for="details"><input type="checkbox" id="checkbox-details" name="checkbox-details" value="details" onclick="switchToLocal(this);" />Details</label></li>
-                        <li><label for="navigation"><input type="checkbox" id="checkbox-navigation" name="checkbox-navigation" value="navigation" onclick="switchToLocal(this);" />Navigation</label></li>
-                        <li><label for="heading"><input type="checkbox" id="checkbox-heading" name="checkbox-heading" value="heading" onclick="switchToLocal(this);" />Heading</label></li>
-                        <li><label for="footer"><input type="checkbox" id="checkbox-footer" name="checkbox-footer" value="footer" onclick="switchToLocal(this);" />Footer</label></li>
-                        <li><label for="header"><input type="checkbox" id="checkbox-header" name="checkbox-header" value="header" onclick="switchToLocal(this);" />Header</label></li>
-                        <li><label for="iframe"><input type="checkbox" id="checkbox-iframe" name="checkbox-iframe" value="iframe" onclick="switchToLocal(this);" />Iframe</label></li>
-                        <li><label for="time"><input type="checkbox" id="checkbox-time" name="checkbox-time" value="time" onclick="switchToLocal(this);" />Time</label></li>
-                        <li><label for="legibility"><input type="checkbox" id="checkbox-legibility" name="checkbox-legibility" value="legibility" onclick="switchToLocal(this);" />Legibility</label></li>
-                        <li><label for="border"><input type="checkbox" id="checkbox-border" name="checkbox-border" value="border" onclick="switchToLocal(this);" />Border</label></li>
-                        <li><label for="collapse"><input type="checkbox" id="checkbox-collapse" name="checkbox-collapse" value="collapse" onclick="switchToLocal(this);" />Collapse</label></li>
-                        <li><label for="toast"><input type="checkbox" id="checkbox-toast" name="checkbox-toast" value="toast" onclick="switchToLocal(this);" />Toast</label></li>
-                        <li><label for="tooltip"><input type="checkbox" id="checkbox-tooltip" name="checkbox-tooltip" value="tooltip" onclick="switchToLocal(this);" />Tooltip</label></li>
-                        <li><label for="grid"><input type="checkbox" id="checkbox-grid" name="checkbox-grid" value="grid" onclick="switchToLocal(this);" />Grid</label></li>
-                        <li><label for="card"><input type="checkbox" id="checkbox-card" name="checkbox-card" value="card" onclick="switchToLocal(this);" />Card</label></li>
-                        <li><label for="modal"><input type="checkbox" id="checkbox-modal" name="checkbox-modal" value="modal" onclick="switchToLocal(this);" />Modal</label></li>
-                        <li><label for="drawer"><input type="checkbox" id="checkbox-drawer" name="checkbox-drawer" value="drawer" onclick="switchToLocal(this);" />Drawer</label></li>
-                        <li><label for="progress"><input type="checkbox" id="checkbox-progress" name="checkbox-progress" value="progress" onclick="switchToLocal(this);" />Progress</label></li>
-                        <li><label for="utility"><input type="checkbox" id="checkbox-utility" name="checkbox-utility" value="utility" onclick="switchToLocal(this);" />Utility</label></li>
-                    </ul>
-                </nav>
-            </aside>
+            <header>
+                <h1>BUTTONS</h1>
+            </header>
 
-            <main class="docs-main">
+            <div class="docs-grid">
 
-                <section>
-                    <h2>&#60;Button&#62;</h2>
-                    <button>button</button>
-                    <button type=button tabindex="0" disabled>disabled</button>
-                    <button type=button aria-disabled="true">aria-disabled=true</button>
-                    <button type=button class="small">small</button>
-                    <button type=button class="large">large</button>
-                    <div class="button-group"><button type=button class="doc">Buttons</button><button type=button class="doc">can be</button><button type=button class="doc">grouped</button></div>
-                    </br>
-                    <div style="--button-fore-color:#f8f8f8;--button-back-color:#215cca;--button-border-color:#0e1c43;--button-back-hover-color:#183889;--button-border-hover-color:#0e1c43;--button-outline-focus-color:#0e1c43;">
-                        <button>Styled</button>
-                        <button type=button tabindex="0" disabled>disabled</button>
-                        <button type=button aria-disabled="true">aria-disabled=true</button>
-                        <button type=button class="small">small</button>
-                        <button type=button class="large">large</button>
-                        <div class="button-group"><button type=button class="doc">Buttons</button><button type=button class="doc">can be</button><button type=button class="doc">grouped</button></div>
-                    </div>
-                    <div style="--button-fore-color:hsl(240, 8%, 12%);--button-back-color:hsl(0, 0%, 95%);--button-border-color:rgba(0, 0, 0, 0.12);--button-fore-hover-color:hsl(240, 8%, 12%);--button-back-hover-color:hsl(0, 0%, 95%);--button-border-hover-color:rgba(0, 0, 0, 0.1);--button-outline-focus-color:rgba(0, 0, 0, 0.1);">
-                        <button type=button class="scale-on-hover-variant">scale variant</button>
-                        <button type=button class="scale-on-hover-variant" tabindex="0" disabled>disabled</button>
-                        <button type=button class="scale-on-hover-variant" aria-disabled="true">aria-disabled=true</button>
-                        <button type=button class="scale-on-hover-variant small">small</button>
-                        <button type=button class="scale-on-hover-variant large">large</button>
-                        <div class="button-group"><button type=button class="scale-on-hover-variant">Buttons</button><button type=button class="scale-on-hover-variant">can be</button><button type=button class="scale-on-hover-variant">grouped</button></div>
-                    </div>
-                    <div style="--button-fore-color:#121212;--button-back-color:#f8f8f8;--button-border-color:#121212;--button-fore-hover-color:#121212;--button-back-hover-color:#f8f8f8;--button-border-hover-color:#0e1c43;--button-outline-focus-color:#0e1c43;">
-                        <button type=button class="shadowed-variant">shadowed variant</button>
-                        <button type=button class="shadowed-variant" tabindex="0" disabled>disabled</button>
-                        <button type=button class="shadowed-variant" aria-disabled="true">aria-disabled=true</button>
-                        <button type=button class="shadowed-variant small">small</button>
-                        <button type=button class="shadowed-variant large">large</button>
-                        <div class="button-group"><button type=button class="shadowed-variant">Buttons</button><button type=button class="shadowed-variant">can be</button><button type=button class="shadowed-variant">grouped</button></div>
-                    </div>
-                </section>
+                <div class="docs-sidebar">
+                    <aside>
+                        <nav>
+                            <ul>
+                                <li><label for="wysiwyg"><input type="checkbox" id="checkbox-wysiwyg" name="checkbox-wysiwyg" value="wysiwyg" onclick="switchToWysiwyg(this);" />wysiwyg</label></li>
+                                <li><label for="oseille"><input type="checkbox" id="checkbox-oseille" name="checkbox-oseille" value="oseille" onclick="switchToOseille();" checked />Oseille</label></li>
+                                <li><label for="root"><input type="checkbox" id="checkbox-root" name="checkbox-root" value="root" onclick="switchToLocal(this);" />Root</label></li>
+                                <li><label for="sectioning"><input type="checkbox" id="checkbox-sectioning" name="checkbox-sectioning" value="sectioning" onclick="switchToLocal(this);" />Sectioning</label></li>
+                                <li><label for="text"><input type="checkbox" id="checkbox-text" name="checkbox-text" value="text" onclick="switchToLocal(this);" />Text</label></li>
+                                <li><label for="mark"><input type="checkbox" id="checkbox-mark" name="checkbox-mark" value="mark" onclick="switchToLocal(this);" />Mark</label></li>
+                                <li><label for="code"><input type="checkbox" id="checkbox-code" name="checkbox-code" value="code" onclick="switchToLocal(this);" />Code</label></li>
+                                <li><label for="paragraph"><input type="checkbox" id="checkbox-paragraph" name="checkbox-paragraph" value="paragraph" onclick="switchToLocal(this);" />Paragraph</label></li>
+                                <li><label for="quotation"><input type="checkbox" id="checkbox-quotation" name="checkbox-quotation" value="quotation" onclick="switchToLocal(this);" />Quotation</label></li>
+                                <li><label for="list"><input type="checkbox" id="checkbox-list" name="checkbox-list" value="list" onclick="switchToLocal(this);" />List</label></li>
+                                <li><label for="definition"><input type="checkbox" id="checkbox-definition" name="checkbox-definition" value="definition" onclick="switchToLocal(this);" />Definition</label></li>
+                                <li><label for="figure"><input type="checkbox" id="checkbox-figure" name="checkbox-figure" value="figure" onclick="switchToLocal(this);" />Figure</label></li>
+                                <li><label for="buttons"><input type="checkbox" id="checkbox-buttons" name="checkbox-buttons" value="buttons" onclick="switchToLocal(this);" />Buttons</label></li>
+                                <li><label for="form"><input type="checkbox" id="checkbox-form" name="checkbox-form" value="form" onclick="switchToLocal(this);" />Form</label></li>
+                                <li><label for="fieldset"><input type="checkbox" id="checkbox-fieldset" name="checkbox-fieldset" value="fieldset" onclick="switchToLocal(this);" />Fieldset</label></li>
+                                <li><label for="input"><input type="checkbox" id="checkbox-input" name="checkbox-input" value="input" onclick="switchToLocal(this);" />Input</label></li>
+                                <li><label for="table"><input type="checkbox" id="checkbox-table" name="checkbox-table" value="table" onclick="switchToLocal(this);" />Table</label></li>
+                                <li><label for="multimedia"><input type="checkbox" id="checkbox-multimedia" name="checkbox-multimedia" value="multimedia" onclick="switchToLocal(this);" />Multimedia</label></li>
+                                <li><label for="details"><input type="checkbox" id="checkbox-details" name="checkbox-details" value="details" onclick="switchToLocal(this);" />Details</label></li>
+                                <li><label for="navigation"><input type="checkbox" id="checkbox-navigation" name="checkbox-navigation" value="navigation" onclick="switchToLocal(this);" />Navigation</label></li>
+                                <li><label for="heading"><input type="checkbox" id="checkbox-heading" name="checkbox-heading" value="heading" onclick="switchToLocal(this);" />Heading</label></li>
+                                <li><label for="footer"><input type="checkbox" id="checkbox-footer" name="checkbox-footer" value="footer" onclick="switchToLocal(this);" />Footer</label></li>
+                                <li><label for="header"><input type="checkbox" id="checkbox-header" name="checkbox-header" value="header" onclick="switchToLocal(this);" />Header</label></li>
+                                <li><label for="iframe"><input type="checkbox" id="checkbox-iframe" name="checkbox-iframe" value="iframe" onclick="switchToLocal(this);" />Iframe</label></li>
+                                <li><label for="time"><input type="checkbox" id="checkbox-time" name="checkbox-time" value="time" onclick="switchToLocal(this);" />Time</label></li>
+                                <li><label for="legibility"><input type="checkbox" id="checkbox-legibility" name="checkbox-legibility" value="legibility" onclick="switchToLocal(this);" />Legibility</label></li>
+                                <li><label for="border"><input type="checkbox" id="checkbox-border" name="checkbox-border" value="border" onclick="switchToLocal(this);" />Border</label></li>
+                                <li><label for="collapse"><input type="checkbox" id="checkbox-collapse" name="checkbox-collapse" value="collapse" onclick="switchToLocal(this);" />Collapse</label></li>
+                                <li><label for="toast"><input type="checkbox" id="checkbox-toast" name="checkbox-toast" value="toast" onclick="switchToLocal(this);" />Toast</label></li>
+                                <li><label for="tooltip"><input type="checkbox" id="checkbox-tooltip" name="checkbox-tooltip" value="tooltip" onclick="switchToLocal(this);" />Tooltip</label></li>
+                                <li><label for="grid"><input type="checkbox" id="checkbox-grid" name="checkbox-grid" value="grid" onclick="switchToLocal(this);" />Grid</label></li>
+                                <li><label for="card"><input type="checkbox" id="checkbox-card" name="checkbox-card" value="card" onclick="switchToLocal(this);" />Card</label></li>
+                                <li><label for="modal"><input type="checkbox" id="checkbox-modal" name="checkbox-modal" value="modal" onclick="switchToLocal(this);" />Modal</label></li>
+                                <li><label for="drawer"><input type="checkbox" id="checkbox-drawer" name="checkbox-drawer" value="drawer" onclick="switchToLocal(this);" />Drawer</label></li>
+                                <li><label for="progress"><input type="checkbox" id="checkbox-progress" name="checkbox-progress" value="progress" onclick="switchToLocal(this);" />Progress</label></li>
+                                <li><label for="utility"><input type="checkbox" id="checkbox-utility" name="checkbox-utility" value="utility" onclick="switchToLocal(this);" />Utility</label></li>
+                            </ul>
+                        </nav>
+                    </aside>
+                </div>
 
-                <section>
-                    <h2>&#60;Input&#62;</h2>
-                    <h3>type=button</h3>
-                    <input type="button" value="type=button" />
-                    <input disabled type="button" value="disabled" />
-                    <input aria-disabled="true" type="button" value="aria-disabled=true" />
-                    <input class="small" type="button" value="small" />
-                    <input class="large" type="button" value="large" />
-                    </br>
-                    <div style="--button-fore-color:#f8f8f8;--button-back-color:#215cca;--button-border-color:#0e1c43;--button-back-hover-color:#183889;--button-border-hover-color:#0e1c43;--button-outline-focus-color:#0e1c43;">
-                        <input type="button" value="Styled" />
-                        <input tabindex="0" disabled type="button" value="disabled" />
-                        <input aria-disabled="true" type="button" value="aria-disabled=true" />
-                        <input class="small" type="button" value="small" />
-                        <input class="large" type="button" value="large" />
-                    </div>
-                    <div style="--button-fore-color:hsl(240, 8%, 12%);--button-back-color:hsl(0, 0%, 95%);--button-border-color:rgba(0, 0, 0, 0.12);--button-fore-hover-color:hsl(240, 8%, 12%);--button-back-hover-color:hsl(0, 0%, 95%);--button-border-hover-color:rgba(0, 0, 0, 0.1);--button-outline-focus-color:rgba(0, 0, 0, 0.1);">
-                        <input class="scale-on-hover-variant" type="button" value="scale variant" />
-                        <input class="scale-on-hover-variant" tabindex="0" disabled type="button" value="disabled" />
-                        <input class="scale-on-hover-variant" aria-disabled="true" type="button" value="aria-disabled=true" />
-                        <input class="scale-on-hover-variant small" type="button" value="small" />
-                        <input class="scale-on-hover-variant large" type="button" value="large" />
-                    </div>
-                    <div style="--button-fore-color:#121212;--button-back-color:#f8f8f8;--button-border-color:#121212;--button-fore-hover-color:#121212;--button-back-hover-color:#f8f8f8;--button-border-hover-color:#0e1c43;--button-outline-focus-color:#0e1c43;">
-                        <input class="shadowed-variant" type="button" value="shadowed variant" />
-                        <input class="shadowed-variant" tabindex="0" disabled type="button" value="disabled" />
-                        <input class="shadowed-variant" aria-disabled="true" type="button" value="aria-disabled=true" />
-                        <input class="shadowed-variant small" type="button" value="small" />
-                        <input class="shadowed-variant large" type="button" value="large" />
-                    </div>
-                    <h3>type=reset</h3>
-                    <input type="reset" value="type=reset" />
-                    <input disabled type="reset" value="disabled" />
-                    <input aria-disabled="true" type="reset" value="aria-disabled=true" />
-                    <input class="small" type="reset" value="small" />
-                    <input class="large" type="reset" value="large" />
-                    </br>
-                    <div style="--button-fore-color:#f8f8f8;--button-back-color:#215cca;--button-border-color:#0e1c43;--button-back-hover-color:#183889;--button-border-hover-color:#0e1c43;--button-outline-focus-color:#0e1c43;">
-                        <input type="reset" value="Styled" />
-                        <input tabindex="0" disabled type="reset" value="disabled" />
-                        <input aria-disabled="true" type="reset" value="aria-disabled=true" />
-                        <input class="small" type="reset" value="small" />
-                        <input class="large" type="reset" value="large" />
-                    </div>
-                    <div style="--button-fore-color:hsl(240, 8%, 12%);--button-back-color:hsl(0, 0%, 95%);--button-border-color:rgba(0, 0, 0, 0.12);--button-fore-hover-color:hsl(240, 8%, 12%);--button-back-hover-color:hsl(0, 0%, 95%);--button-border-hover-color:rgba(0, 0, 0, 0.1);--button-outline-focus-color:rgba(0, 0, 0, 0.1);">
-                        <input class="scale-on-hover-variant" type="reset" value="scale variant" />
-                        <input class="scale-on-hover-variant" tabindex="0" disabled type="reset" value="disabled" />
-                        <input class="scale-on-hover-variant" aria-disabled="true" type="reset" value="aria-disabled=true" />
-                        <input class="scale-on-hover-variant small" type="reset" value="small" />
-                        <input class="scale-on-hover-variant large" type="reset" value="large" />
-                    </div>
-                    <div style="--button-fore-color:#121212;--button-back-color:#f8f8f8;--button-border-color:#121212;--button-fore-hover-color:#121212;--button-back-hover-color:#f8f8f8;--button-border-hover-color:#0e1c43;--button-outline-focus-color:#0e1c43;">
-                        <input class="shadowed-variant" type="reset" value="shadowed variant" />
-                        <input class="shadowed-variant" tabindex="0" disabled type="reset" value="disabled" />
-                        <input class="shadowed-variant" aria-disabled="true" type="reset" value="aria-disabled=true" />
-                        <input class="shadowed-variant small" type="reset" value="small" />
-                        <input class="shadowed-variant large" type="reset" value="large" />
-                    </div>
-                    <h3>type=submit</h3>
-                    <input type="submit" value="type=submit" />
-                    <input disabled type="submit" value="disabled" />
-                    <input aria-disabled="true" type="submit" value="aria-disabled=true" />
-                    <input class="small" type="submit" value="small" />
-                    <input class="large" type="submit" value="large" />
-                    </br>
-                    <div style="--button-fore-color:#f8f8f8;--button-back-color:#215cca;--button-border-color:#0e1c43;--button-back-hover-color:#183889;--button-border-hover-color:#0e1c43;--button-outline-focus-color:#0e1c43;">
-                        <input type="submit" value="Styled" />
-                        <input tabindex="0" disabled type="submit" value="disabled" />
-                        <input aria-disabled="true" type="submit" value="aria-disabled=true" />
-                        <input class="small" type="submit" value="small" />
-                        <input class="large" type="submit" value="large" />
-                    </div>
-                    <div style="--button-fore-color:hsl(240, 8%, 12%);--button-back-color:hsl(0, 0%, 95%);--button-border-color:rgba(0, 0, 0, 0.12);--button-fore-hover-color:hsl(240, 8%, 12%);--button-back-hover-color:hsl(0, 0%, 95%);--button-border-hover-color:rgba(0, 0, 0, 0.1);--button-outline-focus-color:rgba(0, 0, 0, 0.1);">
-                        <input class="scale-on-hover-variant" type="submit" value="scale variant" />
-                        <input class="scale-on-hover-variant" tabindex="0" disabled type="submit" value="disabled" />
-                        <input class="scale-on-hover-variant" aria-disabled="true" type="submit" value="aria-disabled=true" />
-                        <input class="scale-on-hover-variant small" type="submit" value="small" />
-                        <input class="scale-on-hover-variant large" type="submit" value="large" />
-                    </div>
-                    <div style="--button-fore-color:#121212;--button-back-color:#f8f8f8;--button-border-color:#121212;--button-fore-hover-color:#121212;--button-back-hover-color:#f8f8f8;--button-border-hover-color:#0e1c43;--button-outline-focus-color:#0e1c43;">
-                        <input class="shadowed-variant" type="submit" value="shadowed variant" />
-                        <input class="shadowed-variant" tabindex="0" disabled type="submit" value="disabled" />
-                        <input class="shadowed-variant" aria-disabled="true" type="submit" value="aria-disabled=true" />
-                        <input class="shadowed-variant small" type="submit" value="small" />
-                        <input class="shadowed-variant large" type="submit" value="large" />
-                    </div>
-                </section>
+                <div class="docs-main">
+                    <main>
 
-                <section>
-                    <h2>&#60;a&#62;</h2>
-                    <h3>.button</h3>
-                    <a href="#" class="button">a.button</a>
-                    <a href="#" class="button" disabled>disabled</a>
-                    <a href="#" class="button" aria-disabled="true">aria-disabled=true</a>
-                    <a href="#" class="button small">small</a>
-                    <a href="#" class="button large">large</a>
-                    </br>
-                    <div style="--button-fore-color:#f8f8f8;--button-back-color:#215cca;--button-border-color:#0e1c43;--button-back-hover-color:#183889;--button-border-hover-color:#0e1c43;--button-outline-focus-color:#0e1c43;">
-                        <a href="#" class="button">Styled</a>
-                        <a href="#" class="button" tabindex="0" disabled>disabled</a>
-                        <a href="#" class="button" aria-disabled="true">aria-disabled=true</a>
-                        <a href="#" class="button small">small</a>
-                        <a href="#" class="button large">large</a>
-                    </div>
-                    <div style="--button-fore-color:hsl(240, 8%, 12%);--button-back-color:hsl(0, 0%, 95%);--button-border-color:rgba(0, 0, 0, 0.12);--button-fore-hover-color:hsl(240, 8%, 12%);--button-back-hover-color:hsl(0, 0%, 95%);--button-border-hover-color:rgba(0, 0, 0, 0.1);--button-outline-focus-color:rgba(0, 0, 0, 0.1);">
-                        <a href="#" class="button scale-on-hover-variant">scale variant</a>
-                        <a href="#" class="button scale-on-hover-variant" tabindex="0" disabled>disabled</a>
-                        <a href="#" class="button scale-on-hover-variant" aria-disabled="true">aria-disabled=true</a>
-                        <a href="#" class="button scale-on-hover-variant small">small</a>
-                        <a href="#" class="button scale-on-hover-variant large">large</a>
-                    </div>
-                    <div style="--button-fore-color:#121212;--button-back-color:#f8f8f8;--button-border-color:#121212;--button-fore-hover-color:#121212;--button-back-hover-color:#f8f8f8;--button-border-hover-color:#0e1c43;--button-outline-focus-color:#0e1c43;">
-                        <a href="#" class="button shadowed-variant">shadowed variant</a>
-                        <a href="#" class="button shadowed-variant" tabindex="0" disabled>disabled</a>
-                        <a href="#" class="button shadowed-variant" aria-disabled="true">aria-disabled=true</a>
-                        <a href="#" class="button shadowed-variant small">small</a>
-                        <a href="#" class="button shadowed-variant large">large</a>
-                    </div>
-                    <h3>role="button"</h3>
-                    <a href="#" role="button">role="button"</a>
-                    <a href="#" role="button" disabled>disabled</a>
-                    <a href="#" role="button" aria-disabled="true">aria-disabled=true</a>
-                    <a href="#" role="button" class="small">small</a>
-                    <a href="#" role="button" class="large">large</a>
-                    </br>
-                    <div style="--button-fore-color:#f8f8f8;--button-back-color:#215cca;--button-border-color:#0e1c43;--button-back-hover-color:#183889;--button-border-hover-color:#0e1c43;--button-outline-focus-color:#0e1c43;">
-                        <a href="#" role="button">Styled</a>
-                        <a href="#" role="button" tabindex="0" disabled>disabled</a>
-                        <a href="#" role="button" aria-disabled="true">aria-disabled=true</a>
-                        <a href="#" role="button" class="small">small</a>
-                        <a href="#" role="button" class="large">large</a>
-                    </div>
-                    <div style="--button-fore-color:hsl(240, 8%, 12%);--button-back-color:hsl(0, 0%, 95%);--button-border-color:rgba(0, 0, 0, 0.12);--button-fore-hover-color:hsl(240, 8%, 12%);--button-back-hover-color:hsl(0, 0%, 95%);--button-border-hover-color:rgba(0, 0, 0, 0.1);--button-outline-focus-color:rgba(0, 0, 0, 0.1);">
-                        <a href="#" role="button" class="scale-on-hover-variant">scale variant</a>
-                        <a href="#" role="button" class="scale-on-hover-variant" tabindex="0" disabled>disabled</a>
-                        <a href="#" role="button" class="scale-on-hover-variant" aria-disabled="true">aria-disabled=true</a>
-                        <a href="#" role="button" class="scale-on-hover-variant small">small</a>
-                        <a href="#" role="button" class="scale-on-hover-variant large">large</a>
-                    </div>
-                    <div style="--button-fore-color:#121212;--button-back-color:#f8f8f8;--button-border-color:#121212;--button-fore-hover-color:#121212;--button-back-hover-color:#f8f8f8;--button-border-hover-color:#0e1c43;--button-outline-focus-color:#0e1c43;">
-                        <a href="#" role="button" class="shadowed-variant">shadowed variant</a>
-                        <a href="#" role="button" class="shadowed-variant" tabindex="0" disabled>disabled</a>
-                        <a href="#" role="button" class="shadowed-variant" aria-disabled="true">aria-disabled=true</a>
-                        <a href="#" role="button" class="shadowed-variant small">small</a>
-                        <a href="#" role="button" class="shadowed-variant large">large</a>
-                    </div>
-                </section>
+                        <section>
+                            <h2>&#60;Button&#62;</h2>
+                            <button>button</button>
+                            <button type=button tabindex="0" disabled>disabled</button>
+                            <button type=button aria-disabled="true">aria-disabled=true</button>
+                            <button type=button class="small">small</button>
+                            <button type=button class="large">large</button>
+                            <div class="button-group"><button type=button class="doc">Buttons</button><button type=button class="doc">can be</button><button type=button class="doc">grouped</button></div>
+                            </br>
+                            <div style="--button-fore-color:#f8f8f8;--button-back-color:#215cca;--button-border-color:#0e1c43;--button-back-hover-color:#183889;--button-border-hover-color:#0e1c43;--button-outline-focus-color:#0e1c43;">
+                                <button>Styled</button>
+                                <button type=button tabindex="0" disabled>disabled</button>
+                                <button type=button aria-disabled="true">aria-disabled=true</button>
+                                <button type=button class="small">small</button>
+                                <button type=button class="large">large</button>
+                                <div class="button-group"><button type=button class="doc">Buttons</button><button type=button class="doc">can be</button><button type=button class="doc">grouped</button></div>
+                            </div>
+                            <div style="--button-fore-color:hsl(240, 8%, 12%);--button-back-color:hsl(0, 0%, 95%);--button-border-color:rgba(0, 0, 0, 0.12);--button-fore-hover-color:hsl(240, 8%, 12%);--button-back-hover-color:hsl(0, 0%, 95%);--button-border-hover-color:rgba(0, 0, 0, 0.1);--button-outline-focus-color:rgba(0, 0, 0, 0.1);">
+                                <button type=button class="scale-on-hover-variant">scale variant</button>
+                                <button type=button class="scale-on-hover-variant" tabindex="0" disabled>disabled</button>
+                                <button type=button class="scale-on-hover-variant" aria-disabled="true">aria-disabled=true</button>
+                                <button type=button class="scale-on-hover-variant small">small</button>
+                                <button type=button class="scale-on-hover-variant large">large</button>
+                                <div class="button-group"><button type=button class="scale-on-hover-variant">Buttons</button><button type=button class="scale-on-hover-variant">can be</button><button type=button class="scale-on-hover-variant">grouped</button></div>
+                            </div>
+                            <div style="--button-fore-color:#121212;--button-back-color:#f8f8f8;--button-border-color:#121212;--button-fore-hover-color:#121212;--button-back-hover-color:#f8f8f8;--button-border-hover-color:#0e1c43;--button-outline-focus-color:#0e1c43;">
+                                <button type=button class="shadowed-variant">shadowed variant</button>
+                                <button type=button class="shadowed-variant" tabindex="0" disabled>disabled</button>
+                                <button type=button class="shadowed-variant" aria-disabled="true">aria-disabled=true</button>
+                                <button type=button class="shadowed-variant small">small</button>
+                                <button type=button class="shadowed-variant large">large</button>
+                                <div class="button-group"><button type=button class="shadowed-variant">Buttons</button><button type=button class="shadowed-variant">can be</button><button type=button class="shadowed-variant">grouped</button></div>
+                            </div>
+                        </section>
 
-                <section>
-                    <h2>&#60;a&#62; no ref</h2>
-                    <h3>.button</h3>
-                    <a tabindex="0" class="button">a.button</a>
-                    <a tabindex="0" class="button" disabled>disabled</a>
-                    <a tabindex="0" class="button" aria-disabled="true">aria-disabled=true</a>
-                    <a tabindex="0" class="button small">small</a>
-                    <a tabindex="0" class="button large">large</a>
-                    </br>
-                    <div style="--button-fore-color:#f8f8f8;--button-back-color:#215cca;--button-border-color:#0e1c43;--button-back-hover-color:#183889;--button-border-hover-color:#0e1c43;--button-outline-focus-color:#0e1c43;">
-                        <a tabindex="0" class="button">Styled</a>
-                        <a class="button" tabindex="0" disabled>disabled</a>
-                        <a tabindex="0" class="button" aria-disabled="true">aria-disabled=true</a>
-                        <a tabindex="0" class="button small">small</a>
-                        <a tabindex="0" class="button large">large</a>
-                    </div>
-                    <div style="--button-fore-color:hsl(240, 8%, 12%);--button-back-color:hsl(0, 0%, 95%);--button-border-color:rgba(0, 0, 0, 0.12);--button-fore-hover-color:hsl(240, 8%, 12%);--button-back-hover-color:hsl(0, 0%, 95%);--button-border-hover-color:rgba(0, 0, 0, 0.1);--button-outline-focus-color:rgba(0, 0, 0, 0.1);">
-                        <a tabindex="0" class="button scale-on-hover-variant">scale variant</a>
-                        <a class="button scale-on-hover-variant" tabindex="0" disabled>disabled</a>
-                        <a tabindex="0" class="button scale-on-hover-variant" aria-disabled="true">aria-disabled=true</a>
-                        <a tabindex="0" class="button scale-on-hover-variant small">small</a>
-                        <a tabindex="0" class="button scale-on-hover-variant large">large</a>
-                    </div>
-                    <div style="--button-fore-color:#121212;--button-back-color:#f8f8f8;--button-border-color:#121212;--button-fore-hover-color:#121212;--button-back-hover-color:#f8f8f8;--button-border-hover-color:#0e1c43;--button-outline-focus-color:#0e1c43;">
-                        <a tabindex="0" class="button shadowed-variant">shadowed variant</a>
-                        <a class="button shadowed-variant" tabindex="0" disabled>disabled</a>
-                        <a tabindex="0" class="button shadowed-variant" aria-disabled="true">aria-disabled=true</a>
-                        <a tabindex="0" class="button shadowed-variant small">small</a>
-                        <a tabindex="0" class="button shadowed-variant large">large</a>
-                    </div>
-                    <h3>role="button"</h3>
-                    <a tabindex="0" role="button">role="button"</a>
-                    <a tabindex="0" role="button" disabled>disabled</a>
-                    <a tabindex="0" role="button" aria-disabled="true">aria-disabled=true</a>
-                    <a tabindex="0" role="button" class="small">small</a>
-                    <a tabindex="0" role="button" class="large">large</a>
-                    </br>
-                    <div style="--button-fore-color:#f8f8f8;--button-back-color:#215cca;--button-border-color:#0e1c43;--button-back-hover-color:#183889;--button-border-hover-color:#0e1c43;--button-outline-focus-color:#0e1c43;">
-                        <a tabindex="0" role="button">Styled</a>
-                        <a role="button" tabindex="0" disabled>disabled</a>
-                        <a tabindex="0" role="button" aria-disabled="true">aria-disabled=true</a>
-                        <a tabindex="0" role="button" class="small">small</a>
-                        <a tabindex="0" role="button" class="large">large</a>
-                    </div>
-                    <div style="--button-fore-color:hsl(240, 8%, 12%);--button-back-color:hsl(0, 0%, 95%);--button-border-color:rgba(0, 0, 0, 0.12);--button-fore-hover-color:hsl(240, 8%, 12%);--button-back-hover-color:hsl(0, 0%, 95%);--button-border-hover-color:rgba(0, 0, 0, 0.1);--button-outline-focus-color:rgba(0, 0, 0, 0.1);">
-                        <a tabindex="0" role="button" class="scale-on-hover-variant">scale variant</a>
-                        <a role="button" class="scale-on-hover-variant" tabindex="0" disabled>disabled</a>
-                        <a tabindex="0" role="button" class="scale-on-hover-variant" aria-disabled="true">aria-disabled=true</a>
-                        <a tabindex="0" role="button" class="scale-on-hover-variant small">small</a>
-                        <a tabindex="0" role="button" class="scale-on-hover-variant large">large</a>
-                    </div>
-                    <div style="--button-fore-color:#121212;--button-back-color:#f8f8f8;--button-border-color:#121212;--button-fore-hover-color:#121212;--button-back-hover-color:#f8f8f8;--button-border-hover-color:#0e1c43;--button-outline-focus-color:#0e1c43;">
-                        <a tabindex="0" role="button" class="shadowed-variant">shadowed variant</a>
-                        <a role="button" class="shadowed-variant" tabindex="0" disabled>disabled</a>
-                        <a tabindex="0" role="button" class="shadowed-variant" aria-disabled="true">aria-disabled=true</a>
-                        <a tabindex="0" role="button" class="shadowed-variant small">small</a>
-                        <a tabindex="0" role="button" class="shadowed-variant large">large</a>
-                    </div>
-                </section>
+                        <section>
+                            <h2>&#60;Input&#62;</h2>
+                            <h3>type=button</h3>
+                            <input type="button" value="type=button" />
+                            <input disabled type="button" value="disabled" />
+                            <input aria-disabled="true" type="button" value="aria-disabled=true" />
+                            <input class="small" type="button" value="small" />
+                            <input class="large" type="button" value="large" />
+                            </br>
+                            <div style="--button-fore-color:#f8f8f8;--button-back-color:#215cca;--button-border-color:#0e1c43;--button-back-hover-color:#183889;--button-border-hover-color:#0e1c43;--button-outline-focus-color:#0e1c43;">
+                                <input type="button" value="Styled" />
+                                <input tabindex="0" disabled type="button" value="disabled" />
+                                <input aria-disabled="true" type="button" value="aria-disabled=true" />
+                                <input class="small" type="button" value="small" />
+                                <input class="large" type="button" value="large" />
+                            </div>
+                            <div style="--button-fore-color:hsl(240, 8%, 12%);--button-back-color:hsl(0, 0%, 95%);--button-border-color:rgba(0, 0, 0, 0.12);--button-fore-hover-color:hsl(240, 8%, 12%);--button-back-hover-color:hsl(0, 0%, 95%);--button-border-hover-color:rgba(0, 0, 0, 0.1);--button-outline-focus-color:rgba(0, 0, 0, 0.1);">
+                                <input class="scale-on-hover-variant" type="button" value="scale variant" />
+                                <input class="scale-on-hover-variant" tabindex="0" disabled type="button" value="disabled" />
+                                <input class="scale-on-hover-variant" aria-disabled="true" type="button" value="aria-disabled=true" />
+                                <input class="scale-on-hover-variant small" type="button" value="small" />
+                                <input class="scale-on-hover-variant large" type="button" value="large" />
+                            </div>
+                            <div style="--button-fore-color:#121212;--button-back-color:#f8f8f8;--button-border-color:#121212;--button-fore-hover-color:#121212;--button-back-hover-color:#f8f8f8;--button-border-hover-color:#0e1c43;--button-outline-focus-color:#0e1c43;">
+                                <input class="shadowed-variant" type="button" value="shadowed variant" />
+                                <input class="shadowed-variant" tabindex="0" disabled type="button" value="disabled" />
+                                <input class="shadowed-variant" aria-disabled="true" type="button" value="aria-disabled=true" />
+                                <input class="shadowed-variant small" type="button" value="small" />
+                                <input class="shadowed-variant large" type="button" value="large" />
+                            </div>
+                            <h3>type=reset</h3>
+                            <input type="reset" value="type=reset" />
+                            <input disabled type="reset" value="disabled" />
+                            <input aria-disabled="true" type="reset" value="aria-disabled=true" />
+                            <input class="small" type="reset" value="small" />
+                            <input class="large" type="reset" value="large" />
+                            </br>
+                            <div style="--button-fore-color:#f8f8f8;--button-back-color:#215cca;--button-border-color:#0e1c43;--button-back-hover-color:#183889;--button-border-hover-color:#0e1c43;--button-outline-focus-color:#0e1c43;">
+                                <input type="reset" value="Styled" />
+                                <input tabindex="0" disabled type="reset" value="disabled" />
+                                <input aria-disabled="true" type="reset" value="aria-disabled=true" />
+                                <input class="small" type="reset" value="small" />
+                                <input class="large" type="reset" value="large" />
+                            </div>
+                            <div style="--button-fore-color:hsl(240, 8%, 12%);--button-back-color:hsl(0, 0%, 95%);--button-border-color:rgba(0, 0, 0, 0.12);--button-fore-hover-color:hsl(240, 8%, 12%);--button-back-hover-color:hsl(0, 0%, 95%);--button-border-hover-color:rgba(0, 0, 0, 0.1);--button-outline-focus-color:rgba(0, 0, 0, 0.1);">
+                                <input class="scale-on-hover-variant" type="reset" value="scale variant" />
+                                <input class="scale-on-hover-variant" tabindex="0" disabled type="reset" value="disabled" />
+                                <input class="scale-on-hover-variant" aria-disabled="true" type="reset" value="aria-disabled=true" />
+                                <input class="scale-on-hover-variant small" type="reset" value="small" />
+                                <input class="scale-on-hover-variant large" type="reset" value="large" />
+                            </div>
+                            <div style="--button-fore-color:#121212;--button-back-color:#f8f8f8;--button-border-color:#121212;--button-fore-hover-color:#121212;--button-back-hover-color:#f8f8f8;--button-border-hover-color:#0e1c43;--button-outline-focus-color:#0e1c43;">
+                                <input class="shadowed-variant" type="reset" value="shadowed variant" />
+                                <input class="shadowed-variant" tabindex="0" disabled type="reset" value="disabled" />
+                                <input class="shadowed-variant" aria-disabled="true" type="reset" value="aria-disabled=true" />
+                                <input class="shadowed-variant small" type="reset" value="small" />
+                                <input class="shadowed-variant large" type="reset" value="large" />
+                            </div>
+                            <h3>type=submit</h3>
+                            <input type="submit" value="type=submit" />
+                            <input disabled type="submit" value="disabled" />
+                            <input aria-disabled="true" type="submit" value="aria-disabled=true" />
+                            <input class="small" type="submit" value="small" />
+                            <input class="large" type="submit" value="large" />
+                            </br>
+                            <div style="--button-fore-color:#f8f8f8;--button-back-color:#215cca;--button-border-color:#0e1c43;--button-back-hover-color:#183889;--button-border-hover-color:#0e1c43;--button-outline-focus-color:#0e1c43;">
+                                <input type="submit" value="Styled" />
+                                <input tabindex="0" disabled type="submit" value="disabled" />
+                                <input aria-disabled="true" type="submit" value="aria-disabled=true" />
+                                <input class="small" type="submit" value="small" />
+                                <input class="large" type="submit" value="large" />
+                            </div>
+                            <div style="--button-fore-color:hsl(240, 8%, 12%);--button-back-color:hsl(0, 0%, 95%);--button-border-color:rgba(0, 0, 0, 0.12);--button-fore-hover-color:hsl(240, 8%, 12%);--button-back-hover-color:hsl(0, 0%, 95%);--button-border-hover-color:rgba(0, 0, 0, 0.1);--button-outline-focus-color:rgba(0, 0, 0, 0.1);">
+                                <input class="scale-on-hover-variant" type="submit" value="scale variant" />
+                                <input class="scale-on-hover-variant" tabindex="0" disabled type="submit" value="disabled" />
+                                <input class="scale-on-hover-variant" aria-disabled="true" type="submit" value="aria-disabled=true" />
+                                <input class="scale-on-hover-variant small" type="submit" value="small" />
+                                <input class="scale-on-hover-variant large" type="submit" value="large" />
+                            </div>
+                            <div style="--button-fore-color:#121212;--button-back-color:#f8f8f8;--button-border-color:#121212;--button-fore-hover-color:#121212;--button-back-hover-color:#f8f8f8;--button-border-hover-color:#0e1c43;--button-outline-focus-color:#0e1c43;">
+                                <input class="shadowed-variant" type="submit" value="shadowed variant" />
+                                <input class="shadowed-variant" tabindex="0" disabled type="submit" value="disabled" />
+                                <input class="shadowed-variant" aria-disabled="true" type="submit" value="aria-disabled=true" />
+                                <input class="shadowed-variant small" type="submit" value="small" />
+                                <input class="shadowed-variant large" type="submit" value="large" />
+                            </div>
+                        </section>
 
-                <section>
-                    <h2>&#60;label&#62;</h2>
-                    <label tabindex="0" class="button">a.button</label>
-                    <label tabindex="0" class="button" disabled>disabled</label>
-                    <label tabindex="0" class="button" aria-disabled="true">aria-disabled=true</label>
-                    <label tabindex="0" tabindex="0" class="button small">small</label>
-                    <label tabindex="0" class="button large">large</label>
-                    </br>
-                    <div style="--button-fore-color:#f8f8f8;--button-back-color:#215cca;--button-border-color:#0e1c43;--button-back-hover-color:#183889;--button-border-hover-color:#0e1c43;--button-outline-focus-color:#0e1c43;">
-                        <label tabindex="0" class="button">Styled</label>
-                        <label class="button" tabindex="0" disabled>disabled</label>
-                        <label tabindex="0" class="button" aria-disabled="true">aria-disabled=true</label>
-                        <label tabindex="0" class="button small">small</label>
-                        <label tabindex="0" class="button large">large</label>
-                    </div>
-                    <div style="--button-fore-color:hsl(240, 8%, 12%);--button-back-color:hsl(0, 0%, 95%);--button-border-color:rgba(0, 0, 0, 0.12);--button-fore-hover-color:hsl(240, 8%, 12%);--button-back-hover-color:hsl(0, 0%, 95%);--button-border-hover-color:rgba(0, 0, 0, 0.1);--button-outline-focus-color:rgba(0, 0, 0, 0.1);">
-                        <label tabindex="0" class="button scale-on-hover-variant">scale variant</label>
-                        <label class="button scale-on-hover-variant" tabindex="0" disabled>disabled</label>
-                        <label tabindex="0" class="button scale-on-hover-variant" aria-disabled="true">aria-disabled=true</label>
-                        <label tabindex="0" class="button scale-on-hover-variant small">small</label>
-                        <label tabindex="0" class="button scale-on-hover-variant large">large</label>
-                    </div>
-                    <div style="--button-fore-color:#121212;--button-back-color:#f8f8f8;--button-border-color:#121212;--button-fore-hover-color:#121212;--button-back-hover-color:#f8f8f8;--button-border-hover-color:#0e1c43;--button-outline-focus-color:#0e1c43;">
-                        <label tabindex="0" class="button shadowed-variant">shadowed variant</label>
-                        <label class="button shadowed-variant" tabindex="0" disabled>disabled</label>
-                        <label tabindex="0" class="button shadowed-variant" aria-disabled="true">aria-disabled=true</label>
-                        <label tabindex="0" class="button shadowed-variant small">small</label>
-                        <label tabindex="0" class="button shadowed-variant large">large</label>
-                    </div>
-                </section>
+                        <section>
+                            <h2>&#60;a&#62;</h2>
+                            <h3>.button</h3>
+                            <a href="#" class="button">a.button</a>
+                            <a href="#" class="button" disabled>disabled</a>
+                            <a href="#" class="button" aria-disabled="true">aria-disabled=true</a>
+                            <a href="#" class="button small">small</a>
+                            <a href="#" class="button large">large</a>
+                            </br>
+                            <div style="--button-fore-color:#f8f8f8;--button-back-color:#215cca;--button-border-color:#0e1c43;--button-back-hover-color:#183889;--button-border-hover-color:#0e1c43;--button-outline-focus-color:#0e1c43;">
+                                <a href="#" class="button">Styled</a>
+                                <a href="#" class="button" tabindex="0" disabled>disabled</a>
+                                <a href="#" class="button" aria-disabled="true">aria-disabled=true</a>
+                                <a href="#" class="button small">small</a>
+                                <a href="#" class="button large">large</a>
+                            </div>
+                            <div style="--button-fore-color:hsl(240, 8%, 12%);--button-back-color:hsl(0, 0%, 95%);--button-border-color:rgba(0, 0, 0, 0.12);--button-fore-hover-color:hsl(240, 8%, 12%);--button-back-hover-color:hsl(0, 0%, 95%);--button-border-hover-color:rgba(0, 0, 0, 0.1);--button-outline-focus-color:rgba(0, 0, 0, 0.1);">
+                                <a href="#" class="button scale-on-hover-variant">scale variant</a>
+                                <a href="#" class="button scale-on-hover-variant" tabindex="0" disabled>disabled</a>
+                                <a href="#" class="button scale-on-hover-variant" aria-disabled="true">aria-disabled=true</a>
+                                <a href="#" class="button scale-on-hover-variant small">small</a>
+                                <a href="#" class="button scale-on-hover-variant large">large</a>
+                            </div>
+                            <div style="--button-fore-color:#121212;--button-back-color:#f8f8f8;--button-border-color:#121212;--button-fore-hover-color:#121212;--button-back-hover-color:#f8f8f8;--button-border-hover-color:#0e1c43;--button-outline-focus-color:#0e1c43;">
+                                <a href="#" class="button shadowed-variant">shadowed variant</a>
+                                <a href="#" class="button shadowed-variant" tabindex="0" disabled>disabled</a>
+                                <a href="#" class="button shadowed-variant" aria-disabled="true">aria-disabled=true</a>
+                                <a href="#" class="button shadowed-variant small">small</a>
+                                <a href="#" class="button shadowed-variant large">large</a>
+                            </div>
+                            <h3>role="button"</h3>
+                            <a href="#" role="button">role="button"</a>
+                            <a href="#" role="button" disabled>disabled</a>
+                            <a href="#" role="button" aria-disabled="true">aria-disabled=true</a>
+                            <a href="#" role="button" class="small">small</a>
+                            <a href="#" role="button" class="large">large</a>
+                            </br>
+                            <div style="--button-fore-color:#f8f8f8;--button-back-color:#215cca;--button-border-color:#0e1c43;--button-back-hover-color:#183889;--button-border-hover-color:#0e1c43;--button-outline-focus-color:#0e1c43;">
+                                <a href="#" role="button">Styled</a>
+                                <a href="#" role="button" tabindex="0" disabled>disabled</a>
+                                <a href="#" role="button" aria-disabled="true">aria-disabled=true</a>
+                                <a href="#" role="button" class="small">small</a>
+                                <a href="#" role="button" class="large">large</a>
+                            </div>
+                            <div style="--button-fore-color:hsl(240, 8%, 12%);--button-back-color:hsl(0, 0%, 95%);--button-border-color:rgba(0, 0, 0, 0.12);--button-fore-hover-color:hsl(240, 8%, 12%);--button-back-hover-color:hsl(0, 0%, 95%);--button-border-hover-color:rgba(0, 0, 0, 0.1);--button-outline-focus-color:rgba(0, 0, 0, 0.1);">
+                                <a href="#" role="button" class="scale-on-hover-variant">scale variant</a>
+                                <a href="#" role="button" class="scale-on-hover-variant" tabindex="0" disabled>disabled</a>
+                                <a href="#" role="button" class="scale-on-hover-variant" aria-disabled="true">aria-disabled=true</a>
+                                <a href="#" role="button" class="scale-on-hover-variant small">small</a>
+                                <a href="#" role="button" class="scale-on-hover-variant large">large</a>
+                            </div>
+                            <div style="--button-fore-color:#121212;--button-back-color:#f8f8f8;--button-border-color:#121212;--button-fore-hover-color:#121212;--button-back-hover-color:#f8f8f8;--button-border-hover-color:#0e1c43;--button-outline-focus-color:#0e1c43;">
+                                <a href="#" role="button" class="shadowed-variant">shadowed variant</a>
+                                <a href="#" role="button" class="shadowed-variant" tabindex="0" disabled>disabled</a>
+                                <a href="#" role="button" class="shadowed-variant" aria-disabled="true">aria-disabled=true</a>
+                                <a href="#" role="button" class="shadowed-variant small">small</a>
+                                <a href="#" role="button" class="shadowed-variant large">large</a>
+                            </div>
+                        </section>
 
-            </main>
+                        <section>
+                            <h2>&#60;a&#62; no ref</h2>
+                            <h3>.button</h3>
+                            <a tabindex="0" class="button">a.button</a>
+                            <a tabindex="0" class="button" disabled>disabled</a>
+                            <a tabindex="0" class="button" aria-disabled="true">aria-disabled=true</a>
+                            <a tabindex="0" class="button small">small</a>
+                            <a tabindex="0" class="button large">large</a>
+                            </br>
+                            <div style="--button-fore-color:#f8f8f8;--button-back-color:#215cca;--button-border-color:#0e1c43;--button-back-hover-color:#183889;--button-border-hover-color:#0e1c43;--button-outline-focus-color:#0e1c43;">
+                                <a tabindex="0" class="button">Styled</a>
+                                <a class="button" tabindex="0" disabled>disabled</a>
+                                <a tabindex="0" class="button" aria-disabled="true">aria-disabled=true</a>
+                                <a tabindex="0" class="button small">small</a>
+                                <a tabindex="0" class="button large">large</a>
+                            </div>
+                            <div style="--button-fore-color:hsl(240, 8%, 12%);--button-back-color:hsl(0, 0%, 95%);--button-border-color:rgba(0, 0, 0, 0.12);--button-fore-hover-color:hsl(240, 8%, 12%);--button-back-hover-color:hsl(0, 0%, 95%);--button-border-hover-color:rgba(0, 0, 0, 0.1);--button-outline-focus-color:rgba(0, 0, 0, 0.1);">
+                                <a tabindex="0" class="button scale-on-hover-variant">scale variant</a>
+                                <a class="button scale-on-hover-variant" tabindex="0" disabled>disabled</a>
+                                <a tabindex="0" class="button scale-on-hover-variant" aria-disabled="true">aria-disabled=true</a>
+                                <a tabindex="0" class="button scale-on-hover-variant small">small</a>
+                                <a tabindex="0" class="button scale-on-hover-variant large">large</a>
+                            </div>
+                            <div style="--button-fore-color:#121212;--button-back-color:#f8f8f8;--button-border-color:#121212;--button-fore-hover-color:#121212;--button-back-hover-color:#f8f8f8;--button-border-hover-color:#0e1c43;--button-outline-focus-color:#0e1c43;">
+                                <a tabindex="0" class="button shadowed-variant">shadowed variant</a>
+                                <a class="button shadowed-variant" tabindex="0" disabled>disabled</a>
+                                <a tabindex="0" class="button shadowed-variant" aria-disabled="true">aria-disabled=true</a>
+                                <a tabindex="0" class="button shadowed-variant small">small</a>
+                                <a tabindex="0" class="button shadowed-variant large">large</a>
+                            </div>
+                            <h3>role="button"</h3>
+                            <a tabindex="0" role="button">role="button"</a>
+                            <a tabindex="0" role="button" disabled>disabled</a>
+                            <a tabindex="0" role="button" aria-disabled="true">aria-disabled=true</a>
+                            <a tabindex="0" role="button" class="small">small</a>
+                            <a tabindex="0" role="button" class="large">large</a>
+                            </br>
+                            <div style="--button-fore-color:#f8f8f8;--button-back-color:#215cca;--button-border-color:#0e1c43;--button-back-hover-color:#183889;--button-border-hover-color:#0e1c43;--button-outline-focus-color:#0e1c43;">
+                                <a tabindex="0" role="button">Styled</a>
+                                <a role="button" tabindex="0" disabled>disabled</a>
+                                <a tabindex="0" role="button" aria-disabled="true">aria-disabled=true</a>
+                                <a tabindex="0" role="button" class="small">small</a>
+                                <a tabindex="0" role="button" class="large">large</a>
+                            </div>
+                            <div style="--button-fore-color:hsl(240, 8%, 12%);--button-back-color:hsl(0, 0%, 95%);--button-border-color:rgba(0, 0, 0, 0.12);--button-fore-hover-color:hsl(240, 8%, 12%);--button-back-hover-color:hsl(0, 0%, 95%);--button-border-hover-color:rgba(0, 0, 0, 0.1);--button-outline-focus-color:rgba(0, 0, 0, 0.1);">
+                                <a tabindex="0" role="button" class="scale-on-hover-variant">scale variant</a>
+                                <a role="button" class="scale-on-hover-variant" tabindex="0" disabled>disabled</a>
+                                <a tabindex="0" role="button" class="scale-on-hover-variant" aria-disabled="true">aria-disabled=true</a>
+                                <a tabindex="0" role="button" class="scale-on-hover-variant small">small</a>
+                                <a tabindex="0" role="button" class="scale-on-hover-variant large">large</a>
+                            </div>
+                            <div style="--button-fore-color:#121212;--button-back-color:#f8f8f8;--button-border-color:#121212;--button-fore-hover-color:#121212;--button-back-hover-color:#f8f8f8;--button-border-hover-color:#0e1c43;--button-outline-focus-color:#0e1c43;">
+                                <a tabindex="0" role="button" class="shadowed-variant">shadowed variant</a>
+                                <a role="button" class="shadowed-variant" tabindex="0" disabled>disabled</a>
+                                <a tabindex="0" role="button" class="shadowed-variant" aria-disabled="true">aria-disabled=true</a>
+                                <a tabindex="0" role="button" class="shadowed-variant small">small</a>
+                                <a tabindex="0" role="button" class="shadowed-variant large">large</a>
+                            </div>
+                        </section>
 
+                        <section>
+                            <h2>&#60;label&#62;</h2>
+                            <label tabindex="0" class="button">a.button</label>
+                            <label tabindex="0" class="button" disabled>disabled</label>
+                            <label tabindex="0" class="button" aria-disabled="true">aria-disabled=true</label>
+                            <label tabindex="0" tabindex="0" class="button small">small</label>
+                            <label tabindex="0" class="button large">large</label>
+                            </br>
+                            <div style="--button-fore-color:#f8f8f8;--button-back-color:#215cca;--button-border-color:#0e1c43;--button-back-hover-color:#183889;--button-border-hover-color:#0e1c43;--button-outline-focus-color:#0e1c43;">
+                                <label tabindex="0" class="button">Styled</label>
+                                <label class="button" tabindex="0" disabled>disabled</label>
+                                <label tabindex="0" class="button" aria-disabled="true">aria-disabled=true</label>
+                                <label tabindex="0" class="button small">small</label>
+                                <label tabindex="0" class="button large">large</label>
+                            </div>
+                            <div style="--button-fore-color:hsl(240, 8%, 12%);--button-back-color:hsl(0, 0%, 95%);--button-border-color:rgba(0, 0, 0, 0.12);--button-fore-hover-color:hsl(240, 8%, 12%);--button-back-hover-color:hsl(0, 0%, 95%);--button-border-hover-color:rgba(0, 0, 0, 0.1);--button-outline-focus-color:rgba(0, 0, 0, 0.1);">
+                                <label tabindex="0" class="button scale-on-hover-variant">scale variant</label>
+                                <label class="button scale-on-hover-variant" tabindex="0" disabled>disabled</label>
+                                <label tabindex="0" class="button scale-on-hover-variant" aria-disabled="true">aria-disabled=true</label>
+                                <label tabindex="0" class="button scale-on-hover-variant small">small</label>
+                                <label tabindex="0" class="button scale-on-hover-variant large">large</label>
+                            </div>
+                            <div style="--button-fore-color:#121212;--button-back-color:#f8f8f8;--button-border-color:#121212;--button-fore-hover-color:#121212;--button-back-hover-color:#f8f8f8;--button-border-hover-color:#0e1c43;--button-outline-focus-color:#0e1c43;">
+                                <label tabindex="0" class="button shadowed-variant">shadowed variant</label>
+                                <label class="button shadowed-variant" tabindex="0" disabled>disabled</label>
+                                <label tabindex="0" class="button shadowed-variant" aria-disabled="true">aria-disabled=true</label>
+                                <label tabindex="0" class="button shadowed-variant small">small</label>
+                                <label tabindex="0" class="button shadowed-variant large">large</label>
+                            </div>
+                        </section>
+
+                    </main>
+                </div>
+            </div>
         </div>
-
     </body>
+
     <script src="assets/utilities.js">
     </script>
 

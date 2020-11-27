@@ -46,148 +46,155 @@
     </head>
 
     <body>
-        <header>
-            <h1>Forms</h1>
-        </header>
 
         <div class="docs-wrapper">
 
-            <aside>
-                <nav class="docs-sidebar">
-                    <ul>
-                        <li><label for="wysiwyg"><input type="checkbox" id="checkbox-wysiwyg" name="checkbox-wysiwyg" value="wysiwyg" onclick="switchToWysiwyg(this);" />wysiwyg</label></li>
-                        <li><label for="oseille"><input type="checkbox" id="checkbox-oseille" name="checkbox-oseille" value="oseille" onclick="switchToOseille();" checked />Oseille</label></li>
-                        <li><label for="root"><input type="checkbox" id="checkbox-root" name="checkbox-root" value="root" onclick="switchToLocal(this);" />Root</label></li>
-                        <li><label for="sectioning"><input type="checkbox" id="checkbox-sectioning" name="checkbox-sectioning" value="sectioning" onclick="switchToLocal(this);" />Sectioning</label></li>
-                        <li><label for="text"><input type="checkbox" id="checkbox-text" name="checkbox-text" value="text" onclick="switchToLocal(this);" />Text</label></li>
-                        <li><label for="mark"><input type="checkbox" id="checkbox-mark" name="checkbox-mark" value="mark" onclick="switchToLocal(this);" />Mark</label></li>
-                        <li><label for="code"><input type="checkbox" id="checkbox-code" name="checkbox-code" value="code" onclick="switchToLocal(this);" />Code</label></li>
-                        <li><label for="paragraph"><input type="checkbox" id="checkbox-paragraph" name="checkbox-paragraph" value="paragraph" onclick="switchToLocal(this);" />Paragraph</label></li>
-                        <li><label for="quotation"><input type="checkbox" id="checkbox-quotation" name="checkbox-quotation" value="quotation" onclick="switchToLocal(this);" />Quotation</label></li>
-                        <li><label for="list"><input type="checkbox" id="checkbox-list" name="checkbox-list" value="list" onclick="switchToLocal(this);" />List</label></li>
-                        <li><label for="definition"><input type="checkbox" id="checkbox-definition" name="checkbox-definition" value="definition" onclick="switchToLocal(this);" />Definition</label></li>
-                        <li><label for="figure"><input type="checkbox" id="checkbox-figure" name="checkbox-figure" value="figure" onclick="switchToLocal(this);" />Figure</label></li>
-                        <li><label for="buttons"><input type="checkbox" id="checkbox-buttons" name="checkbox-buttons" value="buttons" onclick="switchToLocal(this);" />Buttons</label></li>
-                        <li><label for="form"><input type="checkbox" id="checkbox-form" name="checkbox-form" value="form" onclick="switchToLocal(this);" />Form</label></li>
-                        <li><label for="fieldset"><input type="checkbox" id="checkbox-fieldset" name="checkbox-fieldset" value="fieldset" onclick="switchToLocal(this);" />Fieldset</label></li>
-                        <li><label for="input"><input type="checkbox" id="checkbox-input" name="checkbox-input" value="input" onclick="switchToLocal(this);" />Input</label></li>
-                        <li><label for="table"><input type="checkbox" id="checkbox-table" name="checkbox-table" value="table" onclick="switchToLocal(this);" />Table</label></li>
-                        <li><label for="multimedia"><input type="checkbox" id="checkbox-multimedia" name="checkbox-multimedia" value="multimedia" onclick="switchToLocal(this);" />Multimedia</label></li>
-                        <li><label for="details"><input type="checkbox" id="checkbox-details" name="checkbox-details" value="details" onclick="switchToLocal(this);" />Details</label></li>
-                        <li><label for="navigation"><input type="checkbox" id="checkbox-navigation" name="checkbox-navigation" value="navigation" onclick="switchToLocal(this);" />Navigation</label></li>
-                        <li><label for="heading"><input type="checkbox" id="checkbox-heading" name="checkbox-heading" value="heading" onclick="switchToLocal(this);" />Heading</label></li>
-                        <li><label for="footer"><input type="checkbox" id="checkbox-footer" name="checkbox-footer" value="footer" onclick="switchToLocal(this);" />Footer</label></li>
-                        <li><label for="header"><input type="checkbox" id="checkbox-header" name="checkbox-header" value="header" onclick="switchToLocal(this);" />Header</label></li>
-                        <li><label for="iframe"><input type="checkbox" id="checkbox-iframe" name="checkbox-iframe" value="iframe" onclick="switchToLocal(this);" />Iframe</label></li>
-                        <li><label for="time"><input type="checkbox" id="checkbox-time" name="checkbox-time" value="time" onclick="switchToLocal(this);" />Time</label></li>
-                        <li><label for="legibility"><input type="checkbox" id="checkbox-legibility" name="checkbox-legibility" value="legibility" onclick="switchToLocal(this);" />Legibility</label></li>
-                        <li><label for="border"><input type="checkbox" id="checkbox-border" name="checkbox-border" value="border" onclick="switchToLocal(this);" />Border</label></li>
-                        <li><label for="collapse"><input type="checkbox" id="checkbox-collapse" name="checkbox-collapse" value="collapse" onclick="switchToLocal(this);" />Collapse</label></li>
-                        <li><label for="toast"><input type="checkbox" id="checkbox-toast" name="checkbox-toast" value="toast" onclick="switchToLocal(this);" />Toast</label></li>
-                        <li><label for="tooltip"><input type="checkbox" id="checkbox-tooltip" name="checkbox-tooltip" value="tooltip" onclick="switchToLocal(this);" />Tooltip</label></li>
-                        <li><label for="grid"><input type="checkbox" id="checkbox-grid" name="checkbox-grid" value="grid" onclick="switchToLocal(this);" />Grid</label></li>
-                        <li><label for="card"><input type="checkbox" id="checkbox-card" name="checkbox-card" value="card" onclick="switchToLocal(this);" />Card</label></li>
-                        <li><label for="modal"><input type="checkbox" id="checkbox-modal" name="checkbox-modal" value="modal" onclick="switchToLocal(this);" />Modal</label></li>
-                        <li><label for="drawer"><input type="checkbox" id="checkbox-drawer" name="checkbox-drawer" value="drawer" onclick="switchToLocal(this);" />Drawer</label></li>
-                        <li><label for="progress"><input type="checkbox" id="checkbox-progress" name="checkbox-progress" value="progress" onclick="switchToLocal(this);" />Progress</label></li>
-                        <li><label for="utility"><input type="checkbox" id="checkbox-utility" name="checkbox-utility" value="utility" onclick="switchToLocal(this);" />Utility</label></li>
-                    </ul>
-                </nav>
-            </aside>
+            <header>
+                <h1>FORMS</h1>
+            </header>
 
-            <main class="docs-main">
+            <div class="docs-grid">
 
-                <section style="display:flex;flex-flow:row wrap;">
-                    <h2>Fieldset</h2>
-                    <form action="#" style="--form-back-color: brown;">
-                        <fieldset>
-                            <legend>Choose your favorite monster</legend>
+                <div class="docs-sidebar">
+                    <aside>
+                        <nav>
+                            <ul>
+                                <li><label for="wysiwyg"><input type="checkbox" id="checkbox-wysiwyg" name="checkbox-wysiwyg" value="wysiwyg" onclick="switchToWysiwyg(this);" />wysiwyg</label></li>
+                                <li><label for="oseille"><input type="checkbox" id="checkbox-oseille" name="checkbox-oseille" value="oseille" onclick="switchToOseille();" checked />Oseille</label></li>
+                                <li><label for="root"><input type="checkbox" id="checkbox-root" name="checkbox-root" value="root" onclick="switchToLocal(this);" />Root</label></li>
+                                <li><label for="sectioning"><input type="checkbox" id="checkbox-sectioning" name="checkbox-sectioning" value="sectioning" onclick="switchToLocal(this);" />Sectioning</label></li>
+                                <li><label for="text"><input type="checkbox" id="checkbox-text" name="checkbox-text" value="text" onclick="switchToLocal(this);" />Text</label></li>
+                                <li><label for="mark"><input type="checkbox" id="checkbox-mark" name="checkbox-mark" value="mark" onclick="switchToLocal(this);" />Mark</label></li>
+                                <li><label for="code"><input type="checkbox" id="checkbox-code" name="checkbox-code" value="code" onclick="switchToLocal(this);" />Code</label></li>
+                                <li><label for="paragraph"><input type="checkbox" id="checkbox-paragraph" name="checkbox-paragraph" value="paragraph" onclick="switchToLocal(this);" />Paragraph</label></li>
+                                <li><label for="quotation"><input type="checkbox" id="checkbox-quotation" name="checkbox-quotation" value="quotation" onclick="switchToLocal(this);" />Quotation</label></li>
+                                <li><label for="list"><input type="checkbox" id="checkbox-list" name="checkbox-list" value="list" onclick="switchToLocal(this);" />List</label></li>
+                                <li><label for="definition"><input type="checkbox" id="checkbox-definition" name="checkbox-definition" value="definition" onclick="switchToLocal(this);" />Definition</label></li>
+                                <li><label for="figure"><input type="checkbox" id="checkbox-figure" name="checkbox-figure" value="figure" onclick="switchToLocal(this);" />Figure</label></li>
+                                <li><label for="buttons"><input type="checkbox" id="checkbox-buttons" name="checkbox-buttons" value="buttons" onclick="switchToLocal(this);" />Buttons</label></li>
+                                <li><label for="form"><input type="checkbox" id="checkbox-form" name="checkbox-form" value="form" onclick="switchToLocal(this);" />Form</label></li>
+                                <li><label for="fieldset"><input type="checkbox" id="checkbox-fieldset" name="checkbox-fieldset" value="fieldset" onclick="switchToLocal(this);" />Fieldset</label></li>
+                                <li><label for="input"><input type="checkbox" id="checkbox-input" name="checkbox-input" value="input" onclick="switchToLocal(this);" />Input</label></li>
+                                <li><label for="table"><input type="checkbox" id="checkbox-table" name="checkbox-table" value="table" onclick="switchToLocal(this);" />Table</label></li>
+                                <li><label for="multimedia"><input type="checkbox" id="checkbox-multimedia" name="checkbox-multimedia" value="multimedia" onclick="switchToLocal(this);" />Multimedia</label></li>
+                                <li><label for="details"><input type="checkbox" id="checkbox-details" name="checkbox-details" value="details" onclick="switchToLocal(this);" />Details</label></li>
+                                <li><label for="navigation"><input type="checkbox" id="checkbox-navigation" name="checkbox-navigation" value="navigation" onclick="switchToLocal(this);" />Navigation</label></li>
+                                <li><label for="heading"><input type="checkbox" id="checkbox-heading" name="checkbox-heading" value="heading" onclick="switchToLocal(this);" />Heading</label></li>
+                                <li><label for="footer"><input type="checkbox" id="checkbox-footer" name="checkbox-footer" value="footer" onclick="switchToLocal(this);" />Footer</label></li>
+                                <li><label for="header"><input type="checkbox" id="checkbox-header" name="checkbox-header" value="header" onclick="switchToLocal(this);" />Header</label></li>
+                                <li><label for="iframe"><input type="checkbox" id="checkbox-iframe" name="checkbox-iframe" value="iframe" onclick="switchToLocal(this);" />Iframe</label></li>
+                                <li><label for="time"><input type="checkbox" id="checkbox-time" name="checkbox-time" value="time" onclick="switchToLocal(this);" />Time</label></li>
+                                <li><label for="legibility"><input type="checkbox" id="checkbox-legibility" name="checkbox-legibility" value="legibility" onclick="switchToLocal(this);" />Legibility</label></li>
+                                <li><label for="border"><input type="checkbox" id="checkbox-border" name="checkbox-border" value="border" onclick="switchToLocal(this);" />Border</label></li>
+                                <li><label for="collapse"><input type="checkbox" id="checkbox-collapse" name="checkbox-collapse" value="collapse" onclick="switchToLocal(this);" />Collapse</label></li>
+                                <li><label for="toast"><input type="checkbox" id="checkbox-toast" name="checkbox-toast" value="toast" onclick="switchToLocal(this);" />Toast</label></li>
+                                <li><label for="tooltip"><input type="checkbox" id="checkbox-tooltip" name="checkbox-tooltip" value="tooltip" onclick="switchToLocal(this);" />Tooltip</label></li>
+                                <li><label for="grid"><input type="checkbox" id="checkbox-grid" name="checkbox-grid" value="grid" onclick="switchToLocal(this);" />Grid</label></li>
+                                <li><label for="card"><input type="checkbox" id="checkbox-card" name="checkbox-card" value="card" onclick="switchToLocal(this);" />Card</label></li>
+                                <li><label for="modal"><input type="checkbox" id="checkbox-modal" name="checkbox-modal" value="modal" onclick="switchToLocal(this);" />Modal</label></li>
+                                <li><label for="drawer"><input type="checkbox" id="checkbox-drawer" name="checkbox-drawer" value="drawer" onclick="switchToLocal(this);" />Drawer</label></li>
+                                <li><label for="progress"><input type="checkbox" id="checkbox-progress" name="checkbox-progress" value="progress" onclick="switchToLocal(this);" />Progress</label></li>
+                                <li><label for="utility"><input type="checkbox" id="checkbox-utility" name="checkbox-utility" value="utility" onclick="switchToLocal(this);" />Utility</label></li>
+                            </ul>
+                        </nav>
+                    </aside>
+                </div>
 
-                            <input type="radio" id="kraken" name="monster">
-                            <label for="kraken">Kraken</label><br />
+                <div class="docs-main">
+                    <main>
 
-                            <input type="radio" id="sasquatch" name="monster">
-                            <label for="sasquatch">Sasquatch</label><br />
+                        <section style="display:flex;flex-flow:row wrap;">
+                            <h2>Fieldset</h2>
+                            <form action="#" style="--form-back-color: brown;">
+                                <fieldset>
+                                    <legend>Choose your favorite monster</legend>
 
-                            <input type="radio" id="mothman" name="monster">
-                            <label for="mothman">Mothman</label>
-                        </fieldset>
-                        <fieldset disabled>
-                            <legend>Disabled fieldset</legend>
-                            <div>
-                                <label for="name">Name: </label>
-                                <input type="text" id="name" value="Chris">
-                            </div>
-                            <div>
-                                <label for="pwd">Archetype: </label>
-                                <input type="password" id="pwd" value="Wookie">
-                            </div>
-                        </fieldset>
-                    </form>
-                </section>
+                                    <input type="radio" id="kraken" name="monster">
+                                    <label for="kraken">Kraken</label><br />
 
-                <section style="display:flex;flex-flow:row wrap;">
-                    <h2>Fieldset & input</h2>
-                    <form action="#">
-                        <fieldset>
-                            <legend class="doc">Sample form</legend>
-                            <div class="row responsive-label">
-                                <div class="col-sm-12 col-md-3"><label for="sf1-text" class="doc">Text</label></div>
-                                <div class="col-sm-12 col-md"><input type="text" placeholder="Text" id="sf1-text" style="width:85%;" class="doc"></div>
-                            </div>
-                            <div class="row responsive-label">
-                                <div class="col-sm-12 col-md-3"><label for="sf1-pwd" class="doc">Password</label></div>
-                                <div class="col-sm-12 col-md"><input type="password" placeholder="Password" id="sf1-pwd" style="width:85%;" class="doc"></div>
-                            </div>
-                            <div class="row responsive-label">
-                                <div class="col-sm-12 col-md-3"><label for="sf1-num" class="doc">Number</label></div>
-                                <div class="col-sm-12 col-md"><input type="number" value="42" id="sf1-num" style="width:85%;" class="doc"></div>
-                            </div>
-                            <div class="row responsive-label">
-                                <div class="col-sm-12 col-md-3"><label for="sf1-select" class="doc">Select</label></div>
-                                <div class="col-sm-12 col-md"><select id="sf1-select" style="width:85%;" class="doc">
-                                        <option class="doc">Apples</option>
-                                        <option class="doc">Oranges</option>
-                                    </select></div>
-                                <div class="col-sm-12 col-md"><select id="sf1-select2" style="width:85%;" class="doc" disabled>
-                                        <option class="doc">Cars</option>
-                                        <option class="doc">Planes</option>
-                                    </select></div>
-                            </div>
-                            <div class="row responsive-label">
-                                <div class="col-sm-12 col-md-3"><label for="sf1-check" class="doc">Checkbox</label></div>
-                                <div class="col-sm-12 col-md"><input type="checkbox" autocomplete="off" id="sf1-check" class="doc"></div>
-                            </div>
-                            <div class="row responsive-label">
-                                <div class="col-sm-12 col-md-3"><label for="sf1-radio" class="doc">Radio</label></div>
-                                <div class="col-sm-12 col-md"><input type="radio" autocomplete="off" id="sf1-radio" class="doc"></div>
-                            </div>
-                            <div class="row responsive-label">
-                                <div class="col-sm-12 col-md-3"><label for="sf1-textarea" class="doc">Textarea</label></div>
-                                <div class="col-sm-12 col-md"><textarea class="doc" style="width:85%;" placeholder="Textarea"></textarea></div>
-                            </div>
-                            <div class="row responsive-label">
-                                <div class="col-sm-12 col-md-3"><label for="sf1-invalid" class="doc">Invalid</label></div>
-                                <div class="col-sm-12 col-md"><input value="Invalid" id="sf1-invalid" style="width:85%;" class="doc"></div>
-                                <script>document.getElementById("sf1-invalid").setCustomValidity("This field is invalid");</script>
-                            </div>
-                            <div class="row responsive-label">
-                                <div class="col-sm-12 col-md-3"><label for="sf1-disabled" class="doc">Disabled</label></div>
-                                <div class="col-sm-12 col-md"><input disabled="" value="Disabled" id="sf1-disabled" style="width:85%;" class="doc"></div>
-                            </div>
-                            <div class="row responsive-label">
-                                <div class="col-sm-12 col-md-3"><label for="sf1-readonly" class="doc">Readonly</label></div>
-                                <div class="col-sm-12 col-md"><input readonly="" value="Readonly" id="sf1-readonly" style="width:85%;" class="doc"></div>
-                            </div>
-                        </fieldset>
-                    </form>
-                </section>
+                                    <input type="radio" id="sasquatch" name="monster">
+                                    <label for="sasquatch">Sasquatch</label><br />
 
-            </main>
+                                    <input type="radio" id="mothman" name="monster">
+                                    <label for="mothman">Mothman</label>
+                                </fieldset>
+                                <fieldset disabled>
+                                    <legend>Disabled fieldset</legend>
+                                    <div>
+                                        <label for="name">Name: </label>
+                                        <input type="text" id="name" value="Chris">
+                                    </div>
+                                    <div>
+                                        <label for="pwd">Archetype: </label>
+                                        <input type="password" id="pwd" value="Wookie">
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </section>
 
+                        <section style="display:flex;flex-flow:row wrap;">
+                            <h2>Fieldset & input</h2>
+                            <form action="#">
+                                <fieldset>
+                                    <legend class="doc">Sample form</legend>
+                                    <div class="row responsive-label">
+                                        <div class="col-sm-12 col-md-3"><label for="sf1-text" class="doc">Text</label></div>
+                                        <div class="col-sm-12 col-md"><input type="text" placeholder="Text" id="sf1-text" style="width:85%;" class="doc"></div>
+                                    </div>
+                                    <div class="row responsive-label">
+                                        <div class="col-sm-12 col-md-3"><label for="sf1-pwd" class="doc">Password</label></div>
+                                        <div class="col-sm-12 col-md"><input type="password" placeholder="Password" id="sf1-pwd" style="width:85%;" class="doc"></div>
+                                    </div>
+                                    <div class="row responsive-label">
+                                        <div class="col-sm-12 col-md-3"><label for="sf1-num" class="doc">Number</label></div>
+                                        <div class="col-sm-12 col-md"><input type="number" value="42" id="sf1-num" style="width:85%;" class="doc"></div>
+                                    </div>
+                                    <div class="row responsive-label">
+                                        <div class="col-sm-12 col-md-3"><label for="sf1-select" class="doc">Select</label></div>
+                                        <div class="col-sm-12 col-md"><select id="sf1-select" style="width:85%;" class="doc">
+                                                <option class="doc">Apples</option>
+                                                <option class="doc">Oranges</option>
+                                            </select></div>
+                                        <div class="col-sm-12 col-md"><select id="sf1-select2" style="width:85%;" class="doc" disabled>
+                                                <option class="doc">Cars</option>
+                                                <option class="doc">Planes</option>
+                                            </select></div>
+                                    </div>
+                                    <div class="row responsive-label">
+                                        <div class="col-sm-12 col-md-3"><label for="sf1-check" class="doc">Checkbox</label></div>
+                                        <div class="col-sm-12 col-md"><input type="checkbox" autocomplete="off" id="sf1-check" class="doc"></div>
+                                    </div>
+                                    <div class="row responsive-label">
+                                        <div class="col-sm-12 col-md-3"><label for="sf1-radio" class="doc">Radio</label></div>
+                                        <div class="col-sm-12 col-md"><input type="radio" autocomplete="off" id="sf1-radio" class="doc"></div>
+                                    </div>
+                                    <div class="row responsive-label">
+                                        <div class="col-sm-12 col-md-3"><label for="sf1-textarea" class="doc">Textarea</label></div>
+                                        <div class="col-sm-12 col-md"><textarea class="doc" style="width:85%;" placeholder="Textarea"></textarea></div>
+                                    </div>
+                                    <div class="row responsive-label">
+                                        <div class="col-sm-12 col-md-3"><label for="sf1-invalid" class="doc">Invalid</label></div>
+                                        <div class="col-sm-12 col-md"><input value="Invalid" id="sf1-invalid" style="width:85%;" class="doc"></div>
+                                        <script>document.getElementById("sf1-invalid").setCustomValidity("This field is invalid");</script>
+                                    </div>
+                                    <div class="row responsive-label">
+                                        <div class="col-sm-12 col-md-3"><label for="sf1-disabled" class="doc">Disabled</label></div>
+                                        <div class="col-sm-12 col-md"><input disabled="" value="Disabled" id="sf1-disabled" style="width:85%;" class="doc"></div>
+                                    </div>
+                                    <div class="row responsive-label">
+                                        <div class="col-sm-12 col-md-3"><label for="sf1-readonly" class="doc">Readonly</label></div>
+                                        <div class="col-sm-12 col-md"><input readonly="" value="Readonly" id="sf1-readonly" style="width:85%;" class="doc"></div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </section>
+
+                    </main>
+                </div>
+            </div>
         </div>
-
     </body>
+
     <script src="assets/utilities.js">
     </script>
 

@@ -47,169 +47,178 @@
 
     <body>
 
-        <header>
-            <h1>SEMANTICS</h1>
-        </header>
-
         <div class="docs-wrapper">
 
-            <aside>
-                <nav class="docs-sidebar">
-                    <ul>
-                        <li><label for="wysiwyg"><input type="checkbox" id="checkbox-wysiwyg" name="checkbox-wysiwyg" value="wysiwyg" onclick="switchToWysiwyg(this);" />wysiwyg</label></li>
-                        <li><label for="oseille"><input type="checkbox" id="checkbox-oseille" name="checkbox-oseille" value="oseille" onclick="switchToOseille();" checked />Oseille</label></li>
-                        <li><label for="root"><input type="checkbox" id="checkbox-root" name="checkbox-root" value="root" onclick="switchToLocal(this);" />Root</label></li>
-                        <li><label for="sectioning"><input type="checkbox" id="checkbox-sectioning" name="checkbox-sectioning" value="sectioning" onclick="switchToLocal(this);" />Sectioning</label></li>
-                        <li><label for="text"><input type="checkbox" id="checkbox-text" name="checkbox-text" value="text" onclick="switchToLocal(this);" />Text</label></li>
-                        <li><label for="mark"><input type="checkbox" id="checkbox-mark" name="checkbox-mark" value="mark" onclick="switchToLocal(this);" />Mark</label></li>
-                        <li><label for="code"><input type="checkbox" id="checkbox-code" name="checkbox-code" value="code" onclick="switchToLocal(this);" />Code</label></li>
-                        <li><label for="paragraph"><input type="checkbox" id="checkbox-paragraph" name="checkbox-paragraph" value="paragraph" onclick="switchToLocal(this);" />Paragraph</label></li>
-                        <li><label for="quotation"><input type="checkbox" id="checkbox-quotation" name="checkbox-quotation" value="quotation" onclick="switchToLocal(this);" />Quotation</label></li>
-                        <li><label for="list"><input type="checkbox" id="checkbox-list" name="checkbox-list" value="list" onclick="switchToLocal(this);" />List</label></li>
-                        <li><label for="definition"><input type="checkbox" id="checkbox-definition" name="checkbox-definition" value="definition" onclick="switchToLocal(this);" />Definition</label></li>
-                        <li><label for="figure"><input type="checkbox" id="checkbox-figure" name="checkbox-figure" value="figure" onclick="switchToLocal(this);" />Figure</label></li>
-                        <li><label for="buttons"><input type="checkbox" id="checkbox-buttons" name="checkbox-buttons" value="buttons" onclick="switchToLocal(this);" />Buttons</label></li>
-                        <li><label for="form"><input type="checkbox" id="checkbox-form" name="checkbox-form" value="form" onclick="switchToLocal(this);" />Form</label></li>
-                        <li><label for="fieldset"><input type="checkbox" id="checkbox-fieldset" name="checkbox-fieldset" value="fieldset" onclick="switchToLocal(this);" />Fieldset</label></li>
-                        <li><label for="input"><input type="checkbox" id="checkbox-input" name="checkbox-input" value="input" onclick="switchToLocal(this);" />Input</label></li>
-                        <li><label for="table"><input type="checkbox" id="checkbox-table" name="checkbox-table" value="table" onclick="switchToLocal(this);" />Table</label></li>
-                        <li><label for="multimedia"><input type="checkbox" id="checkbox-multimedia" name="checkbox-multimedia" value="multimedia" onclick="switchToLocal(this);" />Multimedia</label></li>
-                        <li><label for="details"><input type="checkbox" id="checkbox-details" name="checkbox-details" value="details" onclick="switchToLocal(this);" />Details</label></li>
-                        <li><label for="navigation"><input type="checkbox" id="checkbox-navigation" name="checkbox-navigation" value="navigation" onclick="switchToLocal(this);" />Navigation</label></li>
-                        <li><label for="heading"><input type="checkbox" id="checkbox-heading" name="checkbox-heading" value="heading" onclick="switchToLocal(this);" />Heading</label></li>
-                        <li><label for="footer"><input type="checkbox" id="checkbox-footer" name="checkbox-footer" value="footer" onclick="switchToLocal(this);" />Footer</label></li>
-                        <li><label for="header"><input type="checkbox" id="checkbox-header" name="checkbox-header" value="header" onclick="switchToLocal(this);" />Header</label></li>
-                        <li><label for="iframe"><input type="checkbox" id="checkbox-iframe" name="checkbox-iframe" value="iframe" onclick="switchToLocal(this);" />Iframe</label></li>
-                        <li><label for="time"><input type="checkbox" id="checkbox-time" name="checkbox-time" value="time" onclick="switchToLocal(this);" />Time</label></li>
-                        <li><label for="legibility"><input type="checkbox" id="checkbox-legibility" name="checkbox-legibility" value="legibility" onclick="switchToLocal(this);" />Legibility</label></li>
-                        <li><label for="border"><input type="checkbox" id="checkbox-border" name="checkbox-border" value="border" onclick="switchToLocal(this);" />Border</label></li>
-                        <li><label for="collapse"><input type="checkbox" id="checkbox-collapse" name="checkbox-collapse" value="collapse" onclick="switchToLocal(this);" />Collapse</label></li>
-                        <li><label for="toast"><input type="checkbox" id="checkbox-toast" name="checkbox-toast" value="toast" onclick="switchToLocal(this);" />Toast</label></li>
-                        <li><label for="tooltip"><input type="checkbox" id="checkbox-tooltip" name="checkbox-tooltip" value="tooltip" onclick="switchToLocal(this);" />Tooltip</label></li>
-                        <li><label for="grid"><input type="checkbox" id="checkbox-grid" name="checkbox-grid" value="grid" onclick="switchToLocal(this);" />Grid</label></li>
-                        <li><label for="card"><input type="checkbox" id="checkbox-card" name="checkbox-card" value="card" onclick="switchToLocal(this);" />Card</label></li>
-                        <li><label for="modal"><input type="checkbox" id="checkbox-modal" name="checkbox-modal" value="modal" onclick="switchToLocal(this);" />Modal</label></li>
-                        <li><label for="drawer"><input type="checkbox" id="checkbox-drawer" name="checkbox-drawer" value="drawer" onclick="switchToLocal(this);" />Drawer</label></li>
-                        <li><label for="progress"><input type="checkbox" id="checkbox-progress" name="checkbox-progress" value="progress" onclick="switchToLocal(this);" />Progress</label></li>
-                        <li><label for="utility"><input type="checkbox" id="checkbox-utility" name="checkbox-utility" value="utility" onclick="switchToLocal(this);" />Utility</label></li>
-                    </ul>
-                </nav>
-            </aside>
+            <header>
+                <h1>SEMANTICS</h1>
+            </header>
 
-            <main class="docs-main legible">
+            <div class="docs-grid">
 
-                <section>
-                    <h2 id="heading">Heading</h2>
-                    <h1>Heading <strong>1</strong> <small>Subheading</small></h1>
-                    <h2>Heading 2 <small>Subheading</small></h2>
-                    <h3>Heading 3 <small>Subheading</small></h3>
-                    <h4>Heading 4 <small>Subheading</small></h4>
-                    <h5>Heading 5 <small>Subheading</small></h5>
-                    <h6>Heading 6 <small>Subheading</small></h6>
-                    <hr>
-                </section>
+                <div class="docs-sidebar">
+                    <aside>
+                        <nav>
+                            <ul>
+                                <li><label for="wysiwyg"><input type="checkbox" id="checkbox-wysiwyg" name="checkbox-wysiwyg" value="wysiwyg" onclick="switchToWysiwyg(this);" />wysiwyg</label></li>
+                                <li><label for="oseille"><input type="checkbox" id="checkbox-oseille" name="checkbox-oseille" value="oseille" onclick="switchToOseille();" checked />Oseille</label></li>
+                                <li><label for="root"><input type="checkbox" id="checkbox-root" name="checkbox-root" value="root" onclick="switchToLocal(this);" />Root</label></li>
+                                <li><label for="sectioning"><input type="checkbox" id="checkbox-sectioning" name="checkbox-sectioning" value="sectioning" onclick="switchToLocal(this);" />Sectioning</label></li>
+                                <li><label for="text"><input type="checkbox" id="checkbox-text" name="checkbox-text" value="text" onclick="switchToLocal(this);" />Text</label></li>
+                                <li><label for="mark"><input type="checkbox" id="checkbox-mark" name="checkbox-mark" value="mark" onclick="switchToLocal(this);" />Mark</label></li>
+                                <li><label for="code"><input type="checkbox" id="checkbox-code" name="checkbox-code" value="code" onclick="switchToLocal(this);" />Code</label></li>
+                                <li><label for="paragraph"><input type="checkbox" id="checkbox-paragraph" name="checkbox-paragraph" value="paragraph" onclick="switchToLocal(this);" />Paragraph</label></li>
+                                <li><label for="quotation"><input type="checkbox" id="checkbox-quotation" name="checkbox-quotation" value="quotation" onclick="switchToLocal(this);" />Quotation</label></li>
+                                <li><label for="list"><input type="checkbox" id="checkbox-list" name="checkbox-list" value="list" onclick="switchToLocal(this);" />List</label></li>
+                                <li><label for="definition"><input type="checkbox" id="checkbox-definition" name="checkbox-definition" value="definition" onclick="switchToLocal(this);" />Definition</label></li>
+                                <li><label for="figure"><input type="checkbox" id="checkbox-figure" name="checkbox-figure" value="figure" onclick="switchToLocal(this);" />Figure</label></li>
+                                <li><label for="buttons"><input type="checkbox" id="checkbox-buttons" name="checkbox-buttons" value="buttons" onclick="switchToLocal(this);" />Buttons</label></li>
+                                <li><label for="form"><input type="checkbox" id="checkbox-form" name="checkbox-form" value="form" onclick="switchToLocal(this);" />Form</label></li>
+                                <li><label for="fieldset"><input type="checkbox" id="checkbox-fieldset" name="checkbox-fieldset" value="fieldset" onclick="switchToLocal(this);" />Fieldset</label></li>
+                                <li><label for="input"><input type="checkbox" id="checkbox-input" name="checkbox-input" value="input" onclick="switchToLocal(this);" />Input</label></li>
+                                <li><label for="table"><input type="checkbox" id="checkbox-table" name="checkbox-table" value="table" onclick="switchToLocal(this);" />Table</label></li>
+                                <li><label for="multimedia"><input type="checkbox" id="checkbox-multimedia" name="checkbox-multimedia" value="multimedia" onclick="switchToLocal(this);" />Multimedia</label></li>
+                                <li><label for="details"><input type="checkbox" id="checkbox-details" name="checkbox-details" value="details" onclick="switchToLocal(this);" />Details</label></li>
+                                <li><label for="navigation"><input type="checkbox" id="checkbox-navigation" name="checkbox-navigation" value="navigation" onclick="switchToLocal(this);" />Navigation</label></li>
+                                <li><label for="heading"><input type="checkbox" id="checkbox-heading" name="checkbox-heading" value="heading" onclick="switchToLocal(this);" />Heading</label></li>
+                                <li><label for="footer"><input type="checkbox" id="checkbox-footer" name="checkbox-footer" value="footer" onclick="switchToLocal(this);" />Footer</label></li>
+                                <li><label for="header"><input type="checkbox" id="checkbox-header" name="checkbox-header" value="header" onclick="switchToLocal(this);" />Header</label></li>
+                                <li><label for="iframe"><input type="checkbox" id="checkbox-iframe" name="checkbox-iframe" value="iframe" onclick="switchToLocal(this);" />Iframe</label></li>
+                                <li><label for="time"><input type="checkbox" id="checkbox-time" name="checkbox-time" value="time" onclick="switchToLocal(this);" />Time</label></li>
+                                <li><label for="legibility"><input type="checkbox" id="checkbox-legibility" name="checkbox-legibility" value="legibility" onclick="switchToLocal(this);" />Legibility</label></li>
+                                <li><label for="border"><input type="checkbox" id="checkbox-border" name="checkbox-border" value="border" onclick="switchToLocal(this);" />Border</label></li>
+                                <li><label for="collapse"><input type="checkbox" id="checkbox-collapse" name="checkbox-collapse" value="collapse" onclick="switchToLocal(this);" />Collapse</label></li>
+                                <li><label for="toast"><input type="checkbox" id="checkbox-toast" name="checkbox-toast" value="toast" onclick="switchToLocal(this);" />Toast</label></li>
+                                <li><label for="tooltip"><input type="checkbox" id="checkbox-tooltip" name="checkbox-tooltip" value="tooltip" onclick="switchToLocal(this);" />Tooltip</label></li>
+                                <li><label for="grid"><input type="checkbox" id="checkbox-grid" name="checkbox-grid" value="grid" onclick="switchToLocal(this);" />Grid</label></li>
+                                <li><label for="card"><input type="checkbox" id="checkbox-card" name="checkbox-card" value="card" onclick="switchToLocal(this);" />Card</label></li>
+                                <li><label for="modal"><input type="checkbox" id="checkbox-modal" name="checkbox-modal" value="modal" onclick="switchToLocal(this);" />Modal</label></li>
+                                <li><label for="drawer"><input type="checkbox" id="checkbox-drawer" name="checkbox-drawer" value="drawer" onclick="switchToLocal(this);" />Drawer</label></li>
+                                <li><label for="progress"><input type="checkbox" id="checkbox-progress" name="checkbox-progress" value="progress" onclick="switchToLocal(this);" />Progress</label></li>
+                                <li><label for="utility"><input type="checkbox" id="checkbox-utility" name="checkbox-utility" value="utility" onclick="switchToLocal(this);" />Utility</label></li>
+                            </ul>
+                        </nav>
+                    </aside>
+                </div>
 
-                <section>
-                    <h2 id="inline">Inline texts</h2>
-                    <p>
-                        I am <a href="?abc123">the a tag</a> example<br>
-                        I am <abbr title="test">the abbr tag</abbr> example<br>
-                        I am <b>the b tag</b> example<br>
-                        I am <cite>the cite tag</cite> example<br>
-                        I am <code>the code tag</code> example<br>
-                        I am <del>the del tag</del> example<br>
-                        I am <dfn>the dfn tag</dfn> example<br>
-                        <dfn title="Title text">dfn element with title</dfn> example<br>
-                        I am <em>the em tag</em> example<br>
-                        I am <i>the i tag</i> example<br>
-                        I am <ins>the ins tag</ins> example<br>
-                        I am <kbd>the</kbd> + <kbd>kbd</kbd> + <kbd>tag</kbd> example<br>
-                        <q>q element <q>inside</q> a q element</q> example<br>
-                        I am <samp>the samp tag</samp> example<br>
-                        I am <small>the small tag</small> example<br>
-                        I am <span>the span tag</span> example<br>
-                        I am <strong>the strong tag</strong> example<br>
-                        I am <sub>the sub tag</sub> example<br>
-                        I am <sup>the sup tag</sup> example<br>
-                        A simple var tag equation: <var>x</var> = <var>y</var> + 2<br>
-                        I am <mark>the mark tag</mark> example<br>
-                        This is a <mark class="secondary">secondary highlight</mark> and this is a <mark class="tertiary" style="--fore-color:white;">tertiary highlight</mark><br>
-                        This is a highlight styled as a <mark class="tag">tag</mark><br>
-                        <mark class="inline-block">This is some highlighted text that is displayed as an inline block.</mark><br>
-                        I am <s>the s tag</s> example<br>
-                        I am <data value="398">the data tag</data> example<br>
-                    </p>
-                </section>
+                <div class="docs-main">
+                    <main class="legible">
 
-                <section>
-                    <h2 id="paragraphs">paragraphs</h2>
-                    <p>Separating paragraphs with blank lines is easiest
-                        for readers to scan, but they can also be separated
-                        by indenting their first lines. This is often used
-                        to take up less space, such as to save paper in print.</p>
+                        <section>
+                            <h2 id="heading">Heading</h2>
+                            <h1>Heading <strong>1</strong> <small>Subheading</small></h1>
+                            <h2>Heading 2 <small>Subheading</small></h2>
+                            <h3>Heading 3 <small>Subheading</small></h3>
+                            <h4>Heading 4 <small>Subheading</small></h4>
+                            <h5>Heading 5 <small>Subheading</small></h5>
+                            <h6>Heading 6 <small>Subheading</small></h6>
+                            <hr>
+                        </section>
 
-                    <p>Writing that is intended to be edited, such as school
-                        papers and rough drafts, uses both blank lines and
-                        indentation for separation. In finished works, combining
-                        both is considered redundant and amateurish.</p>
+                        <section>
+                            <h2 id="inline">Inline texts</h2>
+                            <p>
+                                I am <a href="?abc123">the a tag</a> example<br>
+                                I am <abbr title="test">the abbr tag</abbr> example<br>
+                                I am <b>the b tag</b> example<br>
+                                I am <cite>the cite tag</cite> example<br>
+                                I am <code>the code tag</code> example<br>
+                                I am <del>the del tag</del> example<br>
+                                I am <dfn>the dfn tag</dfn> example<br>
+                                <dfn title="Title text">dfn element with title</dfn> example<br>
+                                I am <em>the em tag</em> example<br>
+                                I am <i>the i tag</i> example<br>
+                                I am <ins>the ins tag</ins> example<br>
+                                I am <kbd>the</kbd> + <kbd>kbd</kbd> + <kbd>tag</kbd> example<br>
+                                <q>q element <q>inside</q> a q element</q> example<br>
+                                I am <samp>the samp tag</samp> example<br>
+                                I am <small>the small tag</small> example<br>
+                                I am <span>the span tag</span> example<br>
+                                I am <strong>the strong tag</strong> example<br>
+                                I am <sub>the sub tag</sub> example<br>
+                                I am <sup>the sup tag</sup> example<br>
+                                A simple var tag equation: <var>x</var> = <var>y</var> + 2<br>
+                                I am <mark>the mark tag</mark> example<br>
+                                This is a <mark class="secondary">secondary highlight</mark> and this is a <mark class="tertiary" style="--fore-color:white;">tertiary highlight</mark><br>
+                                This is a highlight styled as a <mark class="tag">tag</mark><br>
+                                <mark class="inline-block">This is some highlighted text that is displayed as an inline block.</mark><br>
+                                I am <s>the s tag</s> example<br>
+                                I am <data value="398">the data tag</data> example<br>
+                            </p>
+                        </section>
 
-                    <hr />
+                        <section>
+                            <h2 id="paragraphs">paragraphs</h2>
+                            <p>Separating paragraphs with blank lines is easiest
+                                for readers to scan, but they can also be separated
+                                by indenting their first lines. This is often used
+                                to take up less space, such as to save paper in print.</p>
 
-                    <p>In very old writing, paragraphs were separated with a
-                        special character: ¶, the <i>pilcrow</i>. Nowadays, this
-                        is considered claustrophobic and hard to read.</p>
-                </section>
+                            <p>Writing that is intended to be edited, such as school
+                                papers and rough drafts, uses both blank lines and
+                                indentation for separation. In finished works, combining
+                                both is considered redundant and amateurish.</p>
 
-                <section>
-                    <h2 id="quote">Quote</h2>
-                    <blockquote cite="www.quotation.source">This is some text quoted from elsewhere.</blockquote>
-                    <blockquote>
-                        <p>
-                            <em>This is a properly formatted blockquote, btw.</em> Measuring
-                            programming progress by lines of code is like measuring aircraft building
-                            progress by weight.
-                        </p>
-                        <footer>
-                            <cite><a href="http://www.thegatesnotes.com">Bill Gates</a></cite>
-                        </footer>
-                    </blockquote>
-                </section>
+                            <hr />
 
-                <section>
-                    <h2 id="code">Code</h2>
-                    <p>This is some text with some inline <code>source code</code> and some keyboard <kbd>input</kbd>.</p>
-                    <code>function mul(num1, num2){ return num1 * num2;} </code><br>
-                    <pre class="scrollable">
-  .----.-----.-----.-----.
- /      \     \     \     \
-|  \/    |     |   __L_____L__
-|   |    |     |  (           \
-|    \___/    /    \______/    |
-|        \___/\___/\___/       |
- \      \     /               /
-  |                        __/
-   \_                   __/
-    |        |         |
-    |                  |
-    |                  |
-</pre>
-                    <pre class="contains-code" data-lang="HTML"><code>function sum(num1, num2){
-    return num1 + num2;
-}</code></pre>
+                            <p>In very old writing, paragraphs were separated with a
+                                special character: ¶, the <i>pilcrow</i>. Nowadays, this
+                                is considered claustrophobic and hard to read.</p>
+                        </section>
 
-                    <pre class="line-numbers"><code>function sum(num1, num2){</code>
-<code>    return num1 + num2;</code>
-<code>}</code></pre>
+                        <section>
+                            <h2 id="quote">Quote</h2>
+                            <blockquote cite="www.quotation.source">This is some text quoted from elsewhere.</blockquote>
+                            <blockquote>
+                                <p>
+                                    <em>This is a properly formatted blockquote, btw.</em> Measuring
+                                    programming progress by lines of code is like measuring aircraft building
+                                    progress by weight.
+                                </p>
+                                <footer>
+                                    <cite><a href="http://www.thegatesnotes.com">Bill Gates</a></cite>
+                                </footer>
+                            </blockquote>
+                            <blockquote>Most good programmers do programming not because they expect to get paid or get adulation by the public, but because it is fun to program.
+                                <cite>- Linus Torvalds</cite>
+                            </blockquote>
+                        </section>
 
-                    <pre><samp><span class="prompt">mike@interwebz:~$</span> <kbd>md5 -s "Hello world"</kbd>
-MD5 ("Hello world") = 3e25960a79dbc69b674cd4ec67a72c62
-<span class="prompt">mike@interwebz:~$</span> <span class="cursor">█</span></samp></pre>
-                </section>
+                        <section>
+                            <h2 id="code">Code</h2>
+                            <p>This is some text with some inline <code>source code</code> and some keyboard <kbd>input</kbd>.</p>
+                            <code>function mul(num1, num2){ return num1 * num2;} </code><br>
+                            <pre class="scrollable">
+    .----.-----.-----.-----.
+    /      \     \     \     \
+    |  \/    |     |   __L_____L__
+    |   |    |     |  (           \
+    |    \___/    /    \______/    |
+    |        \___/\___/\___/       |
+    \      \     /               /
+    |                        __/
+    \_                   __/
+        |        |         |
+        |                  |
+        |                  |
+    </pre>
+                            <pre class="contains-code" data-lang="HTML"><code>function sum(num1, num2){
+        return num1 + num2;
+    }</code></pre>
 
-            </main>
+                            <pre class="line-numbers"><code>function sum(num1, num2){</code>
+    <code>    return num1 + num2;</code>
+    <code>}</code></pre>
 
+                            <pre><samp><span class="prompt">mike@interwebz:~$</span> <kbd>md5 -s "Hello world"</kbd>
+    MD5 ("Hello world") = 3e25960a79dbc69b674cd4ec67a72c62
+    <span class="prompt">mike@interwebz:~$</span> <span class="cursor">█</span></samp></pre>
+                        </section>
+
+                    </main>
+                </div>
+
+            </div>
         </div>
-
     </body>
 
     <script src="assets/utilities.js">
