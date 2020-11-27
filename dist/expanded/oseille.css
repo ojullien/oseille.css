@@ -388,7 +388,10 @@ pre {
   word-wrap: normal;
   white-space: pre;
 }
-pre code {
+pre > code,
+pre > samp,
+pre > kbd,
+pre > var {
   background-color: transparent;
   font-size: 1em;
 }
@@ -571,6 +574,12 @@ blockquote[cite]::after {
   font-weight: 700;
   white-space: pre;
 }
+blockquote > p {
+  margin: 0.5rem 0;
+}
+.legible blockquote > p {
+  margin: 0.5rem 0;
+}
 
 q {
   background-color: var(--caption-back-color, #f8f8f8);
@@ -593,14 +602,6 @@ cite {
   font-weight: inherit;
   margin: 0;
   padding: 0;
-}
-
-blockquote > p {
-  margin: 0.5rem 0;
-}
-
-.legible blockquote > p {
-  margin: 0.5rem 0;
 }
 
 /* List styling */

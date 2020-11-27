@@ -96,7 +96,10 @@ pre {
   word-wrap: normal;
   white-space: pre;
 }
-pre code {
+pre > code,
+pre > samp,
+pre > kbd,
+pre > var {
   background-color: transparent;
   font-size: 1em;
 }

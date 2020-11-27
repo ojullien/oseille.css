@@ -67,6 +67,14 @@ blockquote {
         font-weight: 700;
         white-space: pre;
     }
+
+    & > p {
+        margin: boxmodel.get('margin') 0;
+    }
+
+    .legible & > p {
+        margin: boxmodel.get('margin') 0;
+    }
 }
 
 // Fix for elements inside blockquote not displaying properly.
@@ -79,12 +87,4 @@ q {
 
 cite {
     @include normalize;
-}
-
-blockquote > p {
-    margin: boxmodel.get('margin') 0;
-}
-
-.legible blockquote > p {
-    margin: boxmodel.get('margin') 0;
 }

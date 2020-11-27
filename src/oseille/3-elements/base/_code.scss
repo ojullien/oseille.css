@@ -119,7 +119,10 @@ pre {
     @include normalize-text;
     white-space: pre;
 
-    code {
+    > code,
+    > samp,
+    > kbd,
+    > var {
         background-color: transparent;
         font-size: 1em;
     }
