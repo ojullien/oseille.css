@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <title>Drawer</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="../build/3-elements/base/root.css" rel="stylesheet" type="text/css" id="root-css" disabled />
+        <link href="../build/3-elements/layout/sectioning.css" rel="stylesheet" type="text/css" id="sectioning-css" disabled />
+        <link href="../build/3-elements/base/text.css" rel="stylesheet" type="text/css" id="text-css" disabled />
+        <link href="../build/3-elements/base/mark.css" rel="stylesheet" type="text/css" id="mark-css" disabled />
+        <link href="../build/3-elements/base/code.css" rel="stylesheet" type="text/css" id="code-css" disabled />
+        <link href="../build/3-elements/base/paragraph.css" rel="stylesheet" type="text/css" id="paragraph-css" disabled />
+        <link href="../build/3-elements/base/quotation.css" rel="stylesheet" type="text/css" id="quotation-css" disabled />
+        <link href="../build/3-elements/base/list.css" rel="stylesheet" type="text/css" id="list-css" disabled />
+        <link href="../build/3-elements/base/definition.css" rel="stylesheet" type="text/css" id="definition-css" disabled />
+        <link href="../build/3-elements/base/figure.css" rel="stylesheet" type="text/css" id="figure-css" disabled />
+        <link href="../build/3-elements/base/buttons.css" rel="stylesheet" type="text/css" id="buttons-css" disabled />
+        <link href="../build/3-elements/base/form.css" rel="stylesheet" type="text/css" id="form-css" disabled />
+        <link href="../build/3-elements/base/fieldset.css" rel="stylesheet" type="text/css" id="fieldset-css" disabled />
+        <link href="../build/3-elements/base/input.css" rel="stylesheet" type="text/css" id="input-css" disabled />
+        <link href="../build/3-elements/base/table.css" rel="stylesheet" type="text/css" id="table-css" disabled />
+        <link href="../build/3-elements/base/multimedia.css" rel="stylesheet" type="text/css" id="multimedia-css" disabled />
+        <link href="../build/3-elements/base/details.css" rel="stylesheet" type="text/css" id="details-css" disabled />
+        <link href="../build/3-elements/layout/navigation.css" rel="stylesheet" type="text/css" id="navigation-css" disabled />
+        <link href="../build/3-elements/layout/heading.css" rel="stylesheet" type="text/css" id="heading-css" disabled />
+        <link href="../build/3-elements/layout/footer.css" rel="stylesheet" type="text/css" id="footer-css" disabled />
+        <link href="../build/3-elements/layout/header.css" rel="stylesheet" type="text/css" id="header-css" disabled />
+        <link href="../build/3-elements/base/iframe.css" rel="stylesheet" type="text/css" id="iframe-css" disabled />
+        <link href="../build/3-elements/base/time.css" rel="stylesheet" type="text/css" id="time-css" disabled />
+        <link href="../build/4-components/legibility.css" rel="stylesheet" type="text/css" id="legibility-css" disabled />
+        <link href="../build/4-components/border.css" rel="stylesheet" type="text/css" id="border-css" disabled />
+        <link href="../build/4-components/collapse.css" rel="stylesheet" type="text/css" id="collapse-css" disabled />
+        <link href="../build/4-components/toast.css" rel="stylesheet" type="text/css" id="toast-css" disabled />
+        <link href="../build/4-components/tooltip.css" rel="stylesheet" type="text/css" id="tooltip-css" disabled />
+        <link href="../build/4-components/grid.css" rel="stylesheet" type="text/css" id="grid-css" disabled />
+        <link href="../build/4-components/card.css" rel="stylesheet" type="text/css" id="card-css" disabled />
+        <link href="../build/4-components/modal.css" rel="stylesheet" type="text/css" id="modal-css" disabled />
+        <link href="../build/4-components/drawer.css" rel="stylesheet" type="text/css" id="drawer-css" disabled />
+        <link href="../build/4-components/progress.css" rel="stylesheet" type="text/css" id="progress-css" disabled />
+        <link href="../build/5-utilities/hidden.css" rel="stylesheet" type="text/css" id="utility-css" disabled />
+        <link href="../build/5-utilities/print.css" rel="stylesheet" type="text/css" id="print-css" disabled />
+        <link href="../build/oseille.css" rel="stylesheet" type="text/css" id="oseille-css" />
+        <link href="assets/layout.css" rel="stylesheet" type="text/css" />
+        <link href="assets/wysiwyg.css" rel="stylesheet" type="text/css" id="wysiwyg-css" disabled />
+    </head>
+
+    <body>
+
+        <header class="page-header row sticky unfix">
+            <!--span class="col-md-1 col-lg-2 hidden-sm"></span-->
+            <span class="logo col-sm col-md">hadron.css</span>
+            <a class="button col-sm col-md hidden-sm" href="docs">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="height: 20px;">
+                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                    <polyline points="14 2 14 8 20 8"></polyline>
+                    <line x1="16" y1="13" x2="8" y2="13"></line>
+                    <line x1="16" y1="17" x2="8" y2="17"></line>
+                    <polyline points="10 9 9 9 8 9"></polyline>
+                </svg>
+                <span>&nbsp;Docs</span></a>
+            <a class="button col-sm col-md hidden-sm scale-on-hover-variant" href="https://github.com/Chalarangelo/mini.css" target="_blank">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="height: 20px;">
+                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+                </svg>
+                <span>&nbsp;Github</span></a>
+            <a class="button col-sm col-md hidden-sm shadowed-variant" href="flavors">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="height: 20px;">
+                    <path d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34"></path>
+                    <polygon points="18 2 22 6 12 16 8 16 8 12 18 2"></polygon>
+                </svg>
+                <span>&nbsp;Flavors</span></a>
+            <!--span class="col-md-1 col-lg-2 hidden-sm"></span-->
+
+            <label for="drawer-control" class="button drawer-toggle col-sm"></label>
+        </header>
+
+        <div class="row">
+            <input type="checkbox" id="drawer-control" class="drawer" value="on" />
+            <nav id="nav-drawer" class="hidden-md hidden-lg">
+                <h3>Menu</h3>
+                <label for="drawer-control" class="button drawer-close"></label>
+                <a href="/esprit/" rel="esprit">L&#39;esprit</a>
+
+
+                <a class="sublink-1 scale-on-hover-variant" href="/fondatrice/" rel="author">La Fondatrice</a>
+                <a class="sublink-1 scale-on-hover-variant" href="/votre-challenge/" rel="challenge">Votre Challenge</a>
+                <a href="/bouillon-strategique/" class="scale-on-hover-variant" rel="communication">Le bouillon stratégique</a>
+                <a href="/bouillon-creatif/" class="scale-on-hover-variant" rel="workshop">Le bouillon créatif</a>
+
+
+                <a class="sublink-1 scale-on-hover-variant" href="/bouillon-evasion/" rel="activité">Le bouillon évasion</a>
+                <a href="/bouillon-festif/" class="scale-on-hover-variant" rel="formation">Le bouillon festif</a>
+                <a href="/pepites/" class="scale-on-hover-variant" rel="pépite">Les pépites</a>
+                <a href="/le-reseau/" class="scale-on-hover-variant" rel="réseau">Le réseau</a>
+
+            </nav>
+        </div>
+
+        <div class="docs-wrapper">
+            <div class="docs-grid">
+                <div class="docs-sidebar">
+                    <aside>
+                        <nav>
+                            <ul>
+                                <li><label for="wysiwyg"><input type="checkbox" id="checkbox-wysiwyg" name="checkbox-wysiwyg" value="wysiwyg" onclick="switchToWysiwyg(this);" />wysiwyg</label></li>
+                                <li><label for="oseille"><input type="checkbox" id="checkbox-oseille" name="checkbox-oseille" value="oseille" onclick="switchToOseille();" checked />Oseille</label></li>
+                                <li><label for="root"><input type="checkbox" id="checkbox-root" name="checkbox-root" value="root" onclick="switchToLocal(this);" />Root</label></li>
+                                <li><label for="sectioning"><input type="checkbox" id="checkbox-sectioning" name="checkbox-sectioning" value="sectioning" onclick="switchToLocal(this);" />Sectioning</label></li>
+                                <li><label for="text"><input type="checkbox" id="checkbox-text" name="checkbox-text" value="text" onclick="switchToLocal(this);" />Text</label></li>
+                                <li><label for="mark"><input type="checkbox" id="checkbox-mark" name="checkbox-mark" value="mark" onclick="switchToLocal(this);" />Mark</label></li>
+                                <li><label for="code"><input type="checkbox" id="checkbox-code" name="checkbox-code" value="code" onclick="switchToLocal(this);" />Code</label></li>
+                                <li><label for="paragraph"><input type="checkbox" id="checkbox-paragraph" name="checkbox-paragraph" value="paragraph" onclick="switchToLocal(this);" />Paragraph</label></li>
+                                <li><label for="quotation"><input type="checkbox" id="checkbox-quotation" name="checkbox-quotation" value="quotation" onclick="switchToLocal(this);" />Quotation</label></li>
+                                <li><label for="list"><input type="checkbox" id="checkbox-list" name="checkbox-list" value="list" onclick="switchToLocal(this);" />List</label></li>
+                                <li><label for="definition"><input type="checkbox" id="checkbox-definition" name="checkbox-definition" value="definition" onclick="switchToLocal(this);" />Definition</label></li>
+                                <li><label for="figure"><input type="checkbox" id="checkbox-figure" name="checkbox-figure" value="figure" onclick="switchToLocal(this);" />Figure</label></li>
+                                <li><label for="buttons"><input type="checkbox" id="checkbox-buttons" name="checkbox-buttons" value="buttons" onclick="switchToLocal(this);" />Buttons</label></li>
+                                <li><label for="form"><input type="checkbox" id="checkbox-form" name="checkbox-form" value="form" onclick="switchToLocal(this);" />Form</label></li>
+                                <li><label for="fieldset"><input type="checkbox" id="checkbox-fieldset" name="checkbox-fieldset" value="fieldset" onclick="switchToLocal(this);" />Fieldset</label></li>
+                                <li><label for="input"><input type="checkbox" id="checkbox-input" name="checkbox-input" value="input" onclick="switchToLocal(this);" />Input</label></li>
+                                <li><label for="table"><input type="checkbox" id="checkbox-table" name="checkbox-table" value="table" onclick="switchToLocal(this);" />Table</label></li>
+                                <li><label for="multimedia"><input type="checkbox" id="checkbox-multimedia" name="checkbox-multimedia" value="multimedia" onclick="switchToLocal(this);" />Multimedia</label></li>
+                                <li><label for="details"><input type="checkbox" id="checkbox-details" name="checkbox-details" value="details" onclick="switchToLocal(this);" />Details</label></li>
+                                <li><label for="navigation"><input type="checkbox" id="checkbox-navigation" name="checkbox-navigation" value="navigation" onclick="switchToLocal(this);" />Navigation</label></li>
+                                <li><label for="heading"><input type="checkbox" id="checkbox-heading" name="checkbox-heading" value="heading" onclick="switchToLocal(this);" />Heading</label></li>
+                                <li><label for="footer"><input type="checkbox" id="checkbox-footer" name="checkbox-footer" value="footer" onclick="switchToLocal(this);" />Footer</label></li>
+                                <li><label for="header"><input type="checkbox" id="checkbox-header" name="checkbox-header" value="header" onclick="switchToLocal(this);" />Header</label></li>
+                                <li><label for="iframe"><input type="checkbox" id="checkbox-iframe" name="checkbox-iframe" value="iframe" onclick="switchToLocal(this);" />Iframe</label></li>
+                                <li><label for="time"><input type="checkbox" id="checkbox-time" name="checkbox-time" value="time" onclick="switchToLocal(this);" />Time</label></li>
+                                <li><label for="legibility"><input type="checkbox" id="checkbox-legibility" name="checkbox-legibility" value="legibility" onclick="switchToLocal(this);" />Legibility</label></li>
+                                <li><label for="border"><input type="checkbox" id="checkbox-border" name="checkbox-border" value="border" onclick="switchToLocal(this);" />Border</label></li>
+                                <li><label for="collapse"><input type="checkbox" id="checkbox-collapse" name="checkbox-collapse" value="collapse" onclick="switchToLocal(this);" />Collapse</label></li>
+                                <li><label for="toast"><input type="checkbox" id="checkbox-toast" name="checkbox-toast" value="toast" onclick="switchToLocal(this);" />Toast</label></li>
+                                <li><label for="tooltip"><input type="checkbox" id="checkbox-tooltip" name="checkbox-tooltip" value="tooltip" onclick="switchToLocal(this);" />Tooltip</label></li>
+                                <li><label for="grid"><input type="checkbox" id="checkbox-grid" name="checkbox-grid" value="grid" onclick="switchToLocal(this);" />Grid</label></li>
+                                <li><label for="card"><input type="checkbox" id="checkbox-card" name="checkbox-card" value="card" onclick="switchToLocal(this);" />Card</label></li>
+                                <li><label for="modal"><input type="checkbox" id="checkbox-modal" name="checkbox-modal" value="modal" onclick="switchToLocal(this);" />Modal</label></li>
+                                <li><label for="drawer"><input type="checkbox" id="checkbox-drawer" name="checkbox-drawer" value="drawer" onclick="switchToLocal(this);" />Drawer</label></li>
+                                <li><label for="progress"><input type="checkbox" id="checkbox-progress" name="checkbox-progress" value="progress" onclick="switchToLocal(this);" />Progress</label></li>
+                                <li><label for="utility"><input type="checkbox" id="checkbox-utility" name="checkbox-utility" value="utility" onclick="switchToLocal(this);" />Utility</label></li>
+                            </ul>
+                        </nav>
+                    </aside>
+                </div>
+
+                <div class="docs-main">
+                    <main class="legible">
+
+                        <a href="#" class="button">a.button</a>
+
+                        <h1>Using media queries to un-fix sticky headers / footers</h1>
+                        <p>The objective of this technique is to be able to present content without sticky headers and footers when the space of the viewport is limited. This may be because of a device held in landscape mode or by zooming on a dektop.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc porttitor lorem vitae quam aliquam, vel vulputate dolor ultricies. Sed sed nunc ipsum. Aliquam rhoncus risus pellentesque, faucibus nunc sodales, laoreet risus. Nulla interdum purus at facilisis porta.</p>
+                    </main>
+
+
+                    <div class="subgrid">
+                        <div class="subgrid-item">
+                            <div class="panel">
+                                <h3>Panel 1</h3>
+                                <p>Nam venenatis turpis in erat tincidunt, non laoreet sem egestas. Etiam feugiat vehicula risus, non lobortis turpis aliquam nec. Nunc nec cursus arcu. In felis sapien, dictum a metus in, vehicula sem. Morbi in aliquam lorem. Suspendisse in interdum nunc.</p>
+                            </div>
+                        </div>
+                        <div class="subgrid-item">
+                            <div class="panel">
+                                <h3>Panel 2</h3>
+                                <p>Curabitur semper dui dui, quis interdum felis ullamcorper ut. Sed mauris eros, ullamcorper eget dolor a, fringilla consequat mi. In tortor lorem, varius in accumsan et, volutpat eu dolor. Proin fermentum velit non nulla blandit pharetra.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h2>Donec malesuada maximus mauris, sed dictum augue mattis at.</h2>
+                    <p>Donec eu blandit lorem, in tempus ante. Fusce scelerisque sapien in erat varius, non viverra ex pellentesque.</p>
+                    <p>Aliquam congue vehicula felis, id ultrices tortor hendrerit sit amet. Nunc elementum tincidunt lacus in viverra. Nulla et porta nisi. Cras sit amet justo commodo, tincidunt magna vitae, suscipit libero. Aliquam in metus lectus.</p>
+
+                    <div class="subgrid">
+                        <div class="subgrid-item">
+                            <div class="panel">
+                                <h3>Panel 3</h3>
+                                <p>Nunc elit lacus, porta sit amet tristique at, viverra vitae urna. Proin sit amet velit vel metus posuere pretium a luctus magna. Fusce massa ipsum, ultricies non nisi in, tempus lobortis sem.</p>
+                            </div>
+                        </div>
+                        <div class="subgrid-item">
+                            <div class="panel">
+                                <h3>Panel 4</h3>
+                                <p>Nullam a massa egestas eros suscipit iaculis. Nunc consequat augue at arcu eleifend tempor. Nulla sed lectus maximus consequat diam. Nullam tempor volutpat placerat. Aenean eu porttitor augue.</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <aside role="complementary" class="grid-item">
+                        <h2>Aside</h2>
+                        <p>Quisque ac ultricies massa. Ut eu aliquam sem. Aenean sit amet pharetra tellus, eu sollicitudin sem. Curabitur sit amet erat mi. Proin rutrum pretium nisl nec ornare. Curabitur ultricies eros justo, vel tempus augue consequat eget. Ut lacinia orci a eleifend facilisis.</p>
+                    </aside>
+                </div>
+            </div>
+        </div>
+
+        <footer role="contentinfo" class="page-footer sticky unfix">
+            <h2>Footer</h2>
+            <p>Copyright © 2018 W3C <sup>®</sup>
+                <span class="footer-links">(<a href="http://www.csail.mit.edu/"><abbr title="Massachusetts Institute of Technology">MIT</abbr></a>, <a href="http://www.ercim.eu/"><abbr title="European Research Consortium for Informatics and Mathematics">ERCIM</abbr></a>,
+                    <a href="http://www.keio.ac.jp/">Keio</a>, <a href="http://ev.buaa.edu.cn/">Beihang</a>) <a href="/Consortium/Legal/ipr-notice">Usage policies apply</a>.</span>
+            </p>
+        </footer>
+
+    </body>
+
+    <script src="assets/utilities.js">
+    </script>
+
+</html>
