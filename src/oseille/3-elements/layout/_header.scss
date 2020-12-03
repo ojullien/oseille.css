@@ -36,22 +36,6 @@ $_only-bottom-border: true !default;
 // Should header links and buttons be uppercase? (boolean)
 $_links-uppercase: true !default;
 
-// Classnames
-//
-// Keys:
-//   - header: header class
-//   - logo: header logo element
-//   - button: elements styled as buttons
-//   - sticky: sticky header classe
-//   - row: grid system
-$_classnames: (
-    'header': 'page-header',
-    'logo': 'logo',
-    'button': 'button',
-    'sticky': 'sticky',
-    'row': 'row',
-) !default;
-
 /* Header styling */
 
 header {
@@ -61,7 +45,7 @@ header {
 }
 
 // No box-shadow as it causes lots of weird bugs in Chrome. No margin as it shouldn't have any.
-.#{map.get($_classnames, 'header')} {
+.page-header {
     // Always apply background color to avoid shine through
     background-color: var(--header-back-color, colors.get('back'));
     color: var(--header-fore-color, colors.get('fore'));
@@ -80,15 +64,15 @@ header {
     }
 
     // Fix for responsive header, using the grid system's row and column alignment.
-    //&.#{map.get($_classnames, 'row')} {
+    //&.row {
     //    box-sizing: content-box;
-    //    & .#{map.get($_classnames, 'logo')} {
+    //    & .logo {
     //        line-height: 1;
     //    }
     //}
 
     // Header logo styling.
-    .#{map.get($_classnames, 'logo')} {
+    .logo {
         // Remove also our alternate style
         box-shadow: none;
         color: var(--header-fore-color, colors.get('fore'));
@@ -100,14 +84,15 @@ header {
     // Link styling.
     button,
     [type='button'],
-    .#{map.get($_classnames, 'button')},
+    .button,
     [role='button'] {
         border: 0;
         // Fill the header's height for a better style
         display: flex;
         align-items: center;
         justify-content: center;
-        margin: 0 auto;
+        margin-top: auto;
+        margin-bottom: auto;
 
         @if $_links-uppercase {
             text-transform: uppercase;
@@ -127,7 +112,7 @@ header {
         }
     }
 
-    &.#{map.get($_classnames, 'sticky')} {
+    &.sticky {
         // Scrolling elements containing sticky content can cause performance and accessibility issues.
         // @link https://developer.mozilla.org/en-US/docs/Web/CSS/position
         // @link https://developer.mozilla.org/en-US/docs/Web/CSS/will-change
