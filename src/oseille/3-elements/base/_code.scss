@@ -162,6 +162,32 @@ pre {
     suffix: '.';
 }
 
+script:not([src]),
+style {
+    &.display {
+        background-color: var(--pre-back-color, #{colors.get('code-back')});
+        border: 0 solid var(--pre-sidebar-color, #{colors.get('sidebar')});
+        border-left-width: borders.get('thick');
+        color: var(--pre-fore-color, #{colors.get('code-fore')});
+
+        display: block;
+
+        font-family: fonts.get-stack('code');
+        font-size: 1rem;
+        font-style: normal;
+        font-weight: normal;
+
+        line-height: fonts.get-line-spacing('main');
+
+        margin: boxmodel.get('margin');
+        overflow: scroll;
+        padding: calc(#{fonts.get-line-spacing('small')} * #{boxmodel.get('padding')});
+
+        @include normalize-text;
+        white-space: pre;
+    }
+}
+
 kbd {
     background-color: var(--kbd-back-color, #{colors.get('back-alt')});
     border-radius: borders.get('radius');

@@ -429,6 +429,37 @@ pre[data-lang]::before {
 @counter-style linenumber-style {
   suffix: ".";
 }
+script:not([src]).display,
+style.display {
+  background-color: var(--pre-back-color, #ededed);
+  border: 0 solid var(--pre-sidebar-color, #215cca);
+  border-left-width: 5px;
+  color: var(--pre-fore-color, #121212);
+  display: block;
+  font-family: menlo, consolas, monospace;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1.5;
+  margin: 0.5rem;
+  overflow: scroll;
+  padding: calc(1.5625 * 0.5rem);
+  direction: ltr !important;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  text-align: left;
+  text-shadow: none;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  white-space: pre;
+}
+
 kbd {
   background-color: var(--kbd-back-color, #121212);
   border-radius: 4px;
