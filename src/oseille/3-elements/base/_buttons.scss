@@ -31,10 +31,10 @@ $_mobile-breakpoint: breakpoints.get('medium') - 1px;
 $_classnames: (
     'button': 'button',
     'group': 'button-group',
-    'variant-1': 'scale-on-hover-variant',
-    'variant-2': 'shadowed-variant',
-    'active': 'active-effect',
 ) !default;
+
+// Should variant be included? (boolean)
+$_include-variant: true !default;
 
 // Opacity for input elements when disabled.
 $_disabled-opacity: 0.75 !default;
@@ -156,24 +156,25 @@ a.button {
 }
 
 // Variants
+@if $_include-variant {
+    .scale-on-hover-variant {
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
 
-.#{map.get($_classnames, 'variant-1')} {
-    &:hover {
-        transform: scale(1.05);
+    .shadowed-variant {
+        border-radius: borders.get('radius');
+
+        &:hover,
+        &:focus {
+            box-shadow: 0 0 0 borders.get('radius');
+            outline: transparent solid;
+        }
     }
 }
 
-.#{map.get($_classnames, 'variant-2')} {
-    border-radius: borders.get('radius');
-
-    &:hover,
-    &:focus {
-        box-shadow: 0 0 0 borders.get('radius');
-        outline: transparent solid;
-    }
-}
-
-.#{map.get($_classnames, 'active')} {
+.active-effect {
     &:active {
         transform: scale(0.98);
     }
@@ -188,7 +189,7 @@ a.button {
     margin: boxmodel.get('margin');
 
     & > button,
-    input[type='button'],
+    & > input[type='button'],
     & > input[type='submit'],
     & > input[type='reset'],
     & > .button,

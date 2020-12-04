@@ -789,18 +789,6 @@ a.button:focus {
   outline-offset: unset;
 }
 
-.scale-on-hover-variant:hover {
-  transform: scale(1.05);
-}
-
-.shadowed-variant {
-  border-radius: 4px;
-}
-.shadowed-variant:hover, .shadowed-variant:focus {
-  box-shadow: 0 0 0 4px;
-  outline: transparent solid;
-}
-
 .active-effect:active {
   transform: scale(0.98);
 }
@@ -812,8 +800,7 @@ a.button:focus {
   display: flex;
   margin: 0.5rem;
 }
-.button-group > button,
-.button-group input[type=button], .button-group > input[type=submit], .button-group > input[type=reset], .button-group > .button, .button-group > [role=button] {
+.button-group > button, .button-group > input[type=button], .button-group > input[type=submit], .button-group > input[type=reset], .button-group > .button, .button-group > [role=button] {
   border: 0;
   border-radius: 0;
   box-shadow: none;
