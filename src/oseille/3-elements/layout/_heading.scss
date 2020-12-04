@@ -40,7 +40,7 @@ $_colors: (
 
 /* Heading styling */
 
-%_normalize {
+@mixin normalize {
     background-color: var(--heading-back-color, #{map.get($_colors, 'back')}); // Allows live color tunning
     border: 0;
     color: var(--heading-fore-color, #{map.get($_colors, 'fore')}); // Allows live color tunning
@@ -63,42 +63,42 @@ $_colors: (
 }
 
 h1 {
-    @extend %_normalize;
+    @include normalize;
 
     font-size: calc(1em * #{math.pow(fonts.get-size('ratio-heading'), 4)});
     line-height: fonts.get-line-spacing('h1');
 }
 
 h2 {
-    @extend %_normalize;
+    @include normalize;
 
     font-size: calc(1em * #{math.pow(fonts.get-size('ratio-heading'), 3)});
     line-height: fonts.get-line-spacing('h2');
 }
 
 h3 {
-    @extend %_normalize;
+    @include normalize;
 
     font-size: calc(1em * #{math.pow(fonts.get-size('ratio-heading'), 2)});
     line-height: fonts.get-line-spacing('h3');
 }
 
 h4 {
-    @extend %_normalize;
+    @include normalize;
 
     font-size: calc(1em * #{fonts.get-size('ratio-heading')});
     line-height: fonts.get-line-spacing('h4');
 }
 
 h5 {
-    @extend %_normalize;
+    @include normalize;
 
     font-size: 1em;
     line-height: fonts.get-line-spacing('h5');
 }
 
 h6 {
-    @extend %_normalize;
+    @include normalize;
 
     font-size: calc(1em / #{fonts.get-size('ratio-heading')});
     line-height: fonts.get-line-spacing('h6');

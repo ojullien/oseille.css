@@ -5,43 +5,43 @@
 /* Multimedia resources styling */
 // <map> <area> <audio> <track>
 
-%_normalize {
+@mixin normalize {
     border: 0;
     margin: 0;
     padding: 0;
 }
 
-%_responsive {
+@mixin responsive {
     height: auto;
     max-width: 100%;
 }
 
 // Make images responsive by default.
 picture {
-    @extend %_responsive;
+    @include responsive;
 }
 
 img {
-    @extend %_normalize;
-    @extend %_responsive;
+    @include normalize;
+    @include responsive;
 
     border-style: none;
 }
 
 audio {
-    @extend %_normalize;
+    @include normalize;
 }
 
 canvas {
-    @extend %_normalize;
+    @include normalize;
 }
 
 object {
-    @extend %_normalize;
+    @include normalize;
 }
 
 video {
-    @extend %_normalize;
+    @include normalize;
 }
 
 .img-rounded {

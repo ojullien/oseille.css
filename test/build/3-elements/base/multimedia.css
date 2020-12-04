@@ -1,17 +1,40 @@
 /* Multimedia resources styling */
-video, object, canvas, audio, img {
-  border: 0;
-  margin: 0;
-  padding: 0;
-}
-
-img, picture {
+picture {
   height: auto;
   max-width: 100%;
 }
 
 img {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  height: auto;
+  max-width: 100%;
   border-style: none;
+}
+
+audio {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+canvas {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+object {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+video {
+  border: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .img-rounded {

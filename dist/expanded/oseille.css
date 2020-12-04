@@ -1186,19 +1186,42 @@ table.hoverable tr:hover, table.hoverable tr:hover > td, table.hoverable tr:focu
 }
 
 /* Multimedia resources styling */
-video, object, canvas, audio, img {
-  border: 0;
-  margin: 0;
-  padding: 0;
-}
-
-img, picture {
+picture {
   height: auto;
   max-width: 100%;
 }
 
 img {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  height: auto;
+  max-width: 100%;
   border-style: none;
+}
+
+audio {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+canvas {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+object {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+video {
+  border: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .img-rounded {
@@ -1323,7 +1346,7 @@ menu {
 }
 
 /* Heading styling */
-h6, h5, h4, h3, h2, h1 {
+h1 {
   background-color: var(--heading-back-color, inherit);
   border: 0;
   color: var(--heading-fore-color, inherit);
@@ -1331,8 +1354,10 @@ h6, h5, h4, h3, h2, h1 {
   font-weight: 500;
   margin: 0.5rem;
   padding: 0;
+  font-size: calc(1em * 2.44140625);
+  line-height: calc(1ex / 0.42);
 }
-h6 small, h5 small, h4 small, h3 small, h2 small, h1 small {
+h1 small {
   background-color: var(--subheading-back-color, inherit);
   color: var(--subheading-fore-color, inherit);
   display: block;
@@ -1340,34 +1365,99 @@ h6 small, h5 small, h4 small, h3 small, h2 small, h1 small {
   margin-top: -0.25rem;
 }
 
-h1 {
-  font-size: calc(1em * 2.44140625);
-  line-height: calc(1ex / 0.42);
-}
-
 h2 {
+  background-color: var(--heading-back-color, inherit);
+  border: 0;
+  color: var(--heading-fore-color, inherit);
+  font-family: -apple-system, blinkmacsystemfont, "Segoe UI", roboto, ubuntu, "Helvetica Neue", helvetica, sans-serif;
+  font-weight: 500;
+  margin: 0.5rem;
+  padding: 0;
   font-size: calc(1em * 1.953125);
   line-height: calc(1ex / 0.42);
 }
+h2 small {
+  background-color: var(--subheading-back-color, inherit);
+  color: var(--subheading-fore-color, inherit);
+  display: block;
+  line-height: calc(1ex / 0.32);
+  margin-top: -0.25rem;
+}
 
 h3 {
+  background-color: var(--heading-back-color, inherit);
+  border: 0;
+  color: var(--heading-fore-color, inherit);
+  font-family: -apple-system, blinkmacsystemfont, "Segoe UI", roboto, ubuntu, "Helvetica Neue", helvetica, sans-serif;
+  font-weight: 500;
+  margin: 0.5rem;
+  padding: 0;
   font-size: calc(1em * 1.5625);
   line-height: calc(1ex / 0.38);
 }
+h3 small {
+  background-color: var(--subheading-back-color, inherit);
+  color: var(--subheading-fore-color, inherit);
+  display: block;
+  line-height: calc(1ex / 0.32);
+  margin-top: -0.25rem;
+}
 
 h4 {
+  background-color: var(--heading-back-color, inherit);
+  border: 0;
+  color: var(--heading-fore-color, inherit);
+  font-family: -apple-system, blinkmacsystemfont, "Segoe UI", roboto, ubuntu, "Helvetica Neue", helvetica, sans-serif;
+  font-weight: 500;
+  margin: 0.5rem;
+  padding: 0;
   font-size: calc(1em * 1.25);
   line-height: calc(1ex / 0.37);
 }
+h4 small {
+  background-color: var(--subheading-back-color, inherit);
+  color: var(--subheading-fore-color, inherit);
+  display: block;
+  line-height: calc(1ex / 0.32);
+  margin-top: -0.25rem;
+}
 
 h5 {
+  background-color: var(--heading-back-color, inherit);
+  border: 0;
+  color: var(--heading-fore-color, inherit);
+  font-family: -apple-system, blinkmacsystemfont, "Segoe UI", roboto, ubuntu, "Helvetica Neue", helvetica, sans-serif;
+  font-weight: 500;
+  margin: 0.5rem;
+  padding: 0;
   font-size: 1em;
   line-height: calc(1ex / 0.32);
 }
+h5 small {
+  background-color: var(--subheading-back-color, inherit);
+  color: var(--subheading-fore-color, inherit);
+  display: block;
+  line-height: calc(1ex / 0.32);
+  margin-top: -0.25rem;
+}
 
 h6 {
+  background-color: var(--heading-back-color, inherit);
+  border: 0;
+  color: var(--heading-fore-color, inherit);
+  font-family: -apple-system, blinkmacsystemfont, "Segoe UI", roboto, ubuntu, "Helvetica Neue", helvetica, sans-serif;
+  font-weight: 500;
+  margin: 0.5rem;
+  padding: 0;
   font-size: calc(1em / 1.25);
   line-height: calc(1ex / 0.32);
+}
+h6 small {
+  background-color: var(--subheading-back-color, inherit);
+  color: var(--subheading-fore-color, inherit);
+  display: block;
+  line-height: calc(1ex / 0.32);
+  margin-top: -0.25rem;
 }
 
 /* Footer styling */
