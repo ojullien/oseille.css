@@ -91,8 +91,8 @@ header {
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-top: auto;
-        margin-bottom: auto;
+        margin-top: 0;
+        margin-bottom: 0;
 
         @if $_links-uppercase {
             text-transform: uppercase;
