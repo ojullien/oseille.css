@@ -20,5 +20,5 @@ figure.fullWidth {
   margin-right: 0;
 }
 figure img {
-  width: 100%;
+  max-width: 100%;
 }
