@@ -60,7 +60,8 @@ $_disabled-opacity: 0.75 !default;
 @mixin style-link {
     background-color: var(--link-back-color, transparent);
     color: var(--link-color, colors.get('link'));
-    &:hover {
+    &:hover,
+    &:active {
         background-color: var(--link-back-hover-color, transparent);
         border-top: 1px solid currentColor;
         border-bottom: 1px solid currentColor;
@@ -72,6 +73,7 @@ $_disabled-opacity: 0.75 !default;
     &:focus {
         outline: var(--link-focus-color, colors.get('link')) solid 0.125rem;
         outline-offset: 0.0625em;
+        text-decoration: none;
     }
 }
 

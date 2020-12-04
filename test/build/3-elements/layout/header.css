@@ -29,8 +29,8 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: auto;
-  margin-bottom: auto;
+  margin-top: 0;
+  margin-bottom: 0;
   text-transform: uppercase;
 }
 .page-header span {

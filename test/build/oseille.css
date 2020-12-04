@@ -74,7 +74,7 @@ a:not([class~=button]):not([role=button]):-webkit-any-link {
   background-color: var(--link-back-color, transparent);
   color: var(--link-color, #215cca);
 }
-a:not([class~=button]):not([role=button]):-webkit-any-link:hover {
+a:not([class~=button]):not([role=button]):-webkit-any-link:hover, a:not([class~=button]):not([role=button]):-webkit-any-link:active {
   background-color: var(--link-back-hover-color, transparent);
   border-top: 1px solid currentColor;
   border-bottom: 1px solid currentColor;
@@ -86,12 +86,13 @@ a:not([class~=button]):not([role=button]):-webkit-any-link:hover {
 a:not([class~=button]):not([role=button]):-webkit-any-link:focus {
   outline: var(--link-focus-color, #215cca) solid 0.125rem;
   outline-offset: 0.0625em;
+  text-decoration: none;
 }
 a:not([class~=button]):not([role=button]):-moz-any-link {
   background-color: var(--link-back-color, transparent);
   color: var(--link-color, #215cca);
 }
-a:not([class~=button]):not([role=button]):-moz-any-link:hover {
+a:not([class~=button]):not([role=button]):-moz-any-link:hover, a:not([class~=button]):not([role=button]):-moz-any-link:active {
   background-color: var(--link-back-hover-color, transparent);
   border-top: 1px solid currentColor;
   border-bottom: 1px solid currentColor;
@@ -103,12 +104,13 @@ a:not([class~=button]):not([role=button]):-moz-any-link:hover {
 a:not([class~=button]):not([role=button]):-moz-any-link:focus {
   outline: var(--link-focus-color, #215cca) solid 0.125rem;
   outline-offset: 0.0625em;
+  text-decoration: none;
 }
 a:not([class~=button]):not([role=button]):any-link {
   background-color: var(--link-back-color, transparent);
   color: var(--link-color, #215cca);
 }
-a:not([class~=button]):not([role=button]):any-link:hover {
+a:not([class~=button]):not([role=button]):any-link:hover, a:not([class~=button]):not([role=button]):any-link:active {
   background-color: var(--link-back-hover-color, transparent);
   border-top: 1px solid currentColor;
   border-bottom: 1px solid currentColor;
@@ -120,6 +122,7 @@ a:not([class~=button]):not([role=button]):any-link:hover {
 a:not([class~=button]):not([role=button]):any-link:focus {
   outline: var(--link-focus-color, #215cca) solid 0.125rem;
   outline-offset: 0.0625em;
+  text-decoration: none;
 }
 
 abbr[title] {
@@ -1434,8 +1437,8 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: auto;
-  margin-bottom: auto;
+  margin-top: 0;
+  margin-bottom: 0;
   text-transform: uppercase;
 }
 .page-header span {
