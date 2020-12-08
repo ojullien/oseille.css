@@ -80,6 +80,12 @@ $_disabled-opacity: 0.75 !default;
     padding: var(--button-padding);
     text-align: center;
     text-decoration: none;
+
+    -webkit-transition: all 0.1s;
+    -moz-transition: all 0.1s;
+    -o-transition: all 0.1s;
+    transition: all 0.1s;
+
     -moz-user-select: none;
     -webkit-user-select: none;
     -ms-user-select: none;
@@ -93,10 +99,17 @@ $_disabled-opacity: 0.75 !default;
     }
 
     &:focus {
-        background-color: var(--button-back-hover-color, #{colors.get('back-alt')});
-        border-color: var(--button-border-hover-color, #{colors.get('back-alt')});
-        color: var(--button-fore-hover-color, #{colors.get('fore-alt')});
-        outline: var(--button-outline-focus-color, #{colors.get('back-alt')}) solid 4px;
+        background-color: var(--button-back-focus-color, #{colors.get('back-alt')});
+        border-color: var(--button-border-focus-color, #{colors.get('back-alt')});
+        color: var(--button-fore-focus-color, #{colors.get('fore-alt')});
+        outline: transparent solid;
+    }
+
+    &:active {
+        /*transform: scale(0.9);*/
+        background-color: var(--button-back-active-color, transparent);
+        border-color: var(--button-border-active-color, #{colors.get('fore')});
+        color: var(--button-fore-active-color, #{colors.get('fore')});
     }
 
     // Size variants
