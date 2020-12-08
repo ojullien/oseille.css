@@ -60,8 +60,8 @@ $_disabled-opacity: 0.75 !default;
 @mixin style-link {
     background-color: var(--link-back-color, transparent);
     color: var(--link-color, colors.get('link'));
-    &:hover,
-    &:active {
+    &:not(:focus):hover,
+    &:not(:focus):active {
         background-color: var(--link-back-hover-color, transparent);
         border-top: 1px solid currentColor;
         border-bottom: 1px solid currentColor;

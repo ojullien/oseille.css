@@ -74,7 +74,7 @@ a:not([class~=button]):not([role=button]):-webkit-any-link {
   background-color: var(--link-back-color, transparent);
   color: var(--link-color, #215cca);
 }
-a:not([class~=button]):not([role=button]):-webkit-any-link:hover, a:not([class~=button]):not([role=button]):-webkit-any-link:active {
+a:not([class~=button]):not([role=button]):-webkit-any-link:not(:focus):hover, a:not([class~=button]):not([role=button]):-webkit-any-link:not(:focus):active {
   background-color: var(--link-back-hover-color, transparent);
   border-top: 1px solid currentColor;
   border-bottom: 1px solid currentColor;
@@ -92,7 +92,7 @@ a:not([class~=button]):not([role=button]):-moz-any-link {
   background-color: var(--link-back-color, transparent);
   color: var(--link-color, #215cca);
 }
-a:not([class~=button]):not([role=button]):-moz-any-link:hover, a:not([class~=button]):not([role=button]):-moz-any-link:active {
+a:not([class~=button]):not([role=button]):-moz-any-link:not(:focus):hover, a:not([class~=button]):not([role=button]):-moz-any-link:not(:focus):active {
   background-color: var(--link-back-hover-color, transparent);
   border-top: 1px solid currentColor;
   border-bottom: 1px solid currentColor;
@@ -110,7 +110,7 @@ a:not([class~=button]):not([role=button]):any-link {
   background-color: var(--link-back-color, transparent);
   color: var(--link-color, #215cca);
 }
-a:not([class~=button]):not([role=button]):any-link:hover, a:not([class~=button]):not([role=button]):any-link:active {
+a:not([class~=button]):not([role=button]):any-link:not(:focus):hover, a:not([class~=button]):not([role=button]):any-link:not(:focus):active {
   background-color: var(--link-back-hover-color, transparent);
   border-top: 1px solid currentColor;
   border-bottom: 1px solid currentColor;
