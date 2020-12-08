@@ -204,18 +204,26 @@
         |                  |
     </pre>
                             <pre class="contains-code" data-lang="HTML"><code>function sum(num1, num2){
-        return num1 + num2;
-    }</code></pre>
+  return num1 + num2;
+}</code></pre>
 
                             <pre class="line-numbers"><code>function sum(num1, num2){</code>
-    <code>    return num1 + num2;</code>
-    <code>}</code></pre>
+<code>    return num1 + num2;</code>
+<code>}</code></pre>
 
                             <pre><samp><span class="prompt">mike@interwebz:~$</span> <kbd>md5 -s "Hello world"</kbd>
-    MD5 ("Hello world") = 3e25960a79dbc69b674cd4ec67a72c62
-    <span class="prompt">mike@interwebz:~$</span> <span class="cursor">█</span></samp></pre>
+MD5 ("Hello world") = 3e25960a79dbc69b674cd4ec67a72c62
+<span class="prompt">mike@interwebz:~$</span> <span class="cursor">█</span></samp></pre>
                         </section>
 
+                        <section>
+                            <h2 id="script">Script</h2>
+<style class="display">p.demo {
+  color: lime;
+}</style>
+                            <p id="demo"class="demo"></p>
+<script class="display">document.getElementById("demo").innerHTML = "Hello JavaScript!";</script>
+                        </section>
                     </main>
                 </div>
 
@@ -223,7 +231,7 @@
         </div>
     </body>
 
-    <script src="assets/utilities.js">
+    <script src="assets/utilities.js" async="true">
     </script>
 
 </html>

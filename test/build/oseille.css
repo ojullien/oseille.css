@@ -763,10 +763,10 @@ input[type=reset], button {
   padding: var(--button-padding);
   text-align: center;
   text-decoration: none;
-  -webkit-transition: all 0.1s;
-  -moz-transition: all 0.1s;
-  -o-transition: all 0.1s;
-  transition: all 0.1s;
+  -webkit-transition: all 0.125s linear;
+  -moz-transition: all 0.125s linear;
+  -o-transition: all 0.125s linear;
+  transition: all 0.125s linear;
   -moz-user-select: none;
   -webkit-user-select: none;
   -ms-user-select: none;
@@ -791,7 +791,6 @@ input[type=reset]:focus, button:focus {
 .button:active, [role=button]:active, input[type=button]:active,
 input[type=submit]:active,
 input[type=reset]:active, button:active {
-  /*transform: scale(0.9);*/
   background-color: var(--button-back-active-color, transparent);
   border-color: var(--button-border-active-color, #121212);
   color: var(--button-fore-active-color, #121212);
@@ -832,16 +831,21 @@ a.button:focus {
   outline-offset: unset;
 }
 
-.scale-on-hover-variant:hover {
-  transform: scale(1.05);
-}
-
-.shadowed-variant {
+.scale-on-hover-variant {
   border-radius: 4px;
 }
+.scale-on-hover-variant:hover, .scale-on-hover-variant:focus {
+  transform: scale(1.1);
+}
+.scale-on-hover-variant:active {
+  transform: scale(0.9);
+}
+
 .shadowed-variant:hover, .shadowed-variant:focus {
-  box-shadow: 0 0 0 4px;
-  outline: transparent solid;
+  box-shadow: 0 0 0 0.1875rem var(--button-fore-hover-color, #f8f8f8), 0 0 0 0.375rem var(--button-back-hover-color, #121212);
+}
+.shadowed-variant:active {
+  box-shadow: 0 0 0 0.1875rem var(--button-fore-active-color, #121212), 0 0 0 0.375rem var(--button-back-active-color, #f8f8f8);
 }
 
 .active-effect:active {

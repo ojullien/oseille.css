@@ -81,10 +81,10 @@ $_disabled-opacity: 0.75 !default;
     text-align: center;
     text-decoration: none;
 
-    -webkit-transition: all 0.1s;
-    -moz-transition: all 0.1s;
-    -o-transition: all 0.1s;
-    transition: all 0.1s;
+    -webkit-transition: all 0.125s linear;
+    -moz-transition: all 0.125s linear;
+    -o-transition: all 0.125s linear;
+    transition: all 0.125s linear;
 
     -moz-user-select: none;
     -webkit-user-select: none;
@@ -106,7 +106,6 @@ $_disabled-opacity: 0.75 !default;
     }
 
     &:active {
-        /*transform: scale(0.9);*/
         background-color: var(--button-back-active-color, transparent);
         border-color: var(--button-border-active-color, #{colors.get('fore')});
         color: var(--button-fore-active-color, #{colors.get('fore')});
@@ -171,18 +170,25 @@ a.button {
 // Variants
 @if $_include-variant {
     .scale-on-hover-variant {
-        &:hover {
-            transform: scale(1.05);
+        border-radius: borders.get('radius');
+        &:hover,
+        &:focus {
+            transform: scale(1.1);
+        }
+        &:active {
+            transform: scale(0.9);
         }
     }
 
     .shadowed-variant {
-        border-radius: borders.get('radius');
-
         &:hover,
         &:focus {
-            box-shadow: 0 0 0 borders.get('radius');
-            outline: transparent solid;
+            box-shadow: 0 0 0 (1.5rem / 8) var(--button-fore-hover-color, #{colors.get('fore-alt')}),
+                0 0 0 (1.5rem / 4) var(--button-back-hover-color, #{colors.get('back-alt')});
+        }
+        &:active {
+            box-shadow: 0 0 0 (1.5rem / 8) var(--button-fore-active-color, #{colors.get('back-alt')}),
+                0 0 0 (1.5rem / 4) var(--button-back-active-color, #{colors.get('fore-alt')});
         }
     }
 }
