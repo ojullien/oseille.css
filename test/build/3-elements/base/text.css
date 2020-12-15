@@ -4,63 +4,109 @@ a {
   font-size: 1em;
   margin: 0;
   padding: 0;
+  color: inherit;
   font-family: inherit;
-  -webkit-text-decoration: underline solid currentColor;
-  text-decoration: underline solid currentColor;
+  outline: transparent solid;
+  text-decoration: none;
 }
 a:not([class~=button]):not([role=button]):-webkit-any-link {
-  background-color: var(--link-back-color, transparent);
-  color: var(--link-color, #215cca);
+  background-color: var(--any-link-back-color, transparent);
+  color: var(--any-link-color, #215cca);
+  text-decoration: underline solid currentColor;
+  transition: 250ms ease-in;
 }
 a:not([class~=button]):not([role=button]):-webkit-any-link:not(:focus):hover, a:not([class~=button]):not([role=button]):-webkit-any-link:not(:focus):active {
-  background-color: var(--link-back-hover-color, transparent);
+  background-color: var(--any-link-back-hover-color, transparent);
   border-top: 1px solid currentColor;
   border-bottom: 1px solid currentColor;
-  color: var(--link-hover-color, #215cca);
-  outline: transparent solid;
-  -webkit-text-decoration: none;
+  color: var(--any-link-hover-color, #215cca);
   text-decoration: none;
 }
 a:not([class~=button]):not([role=button]):-webkit-any-link:focus {
-  outline: var(--link-focus-color, #215cca) solid 0.125rem;
+  outline: var(--any-link-focus-color, #215cca) solid 0.125rem;
   outline-offset: 0.0625em;
   text-decoration: none;
 }
+a:not([class~=button]):not([role=button]):-webkit-any-link.variant {
+  background-image: linear-gradient(to right, var(--any-link-back-hover-color-1, transparent), var(--any-link-back-hover-color-2, transparent));
+  background-position: 0 95%;
+  background-repeat: no-repeat;
+  background-size: 100% 1px;
+}
+a:not([class~=button]):not([role=button]):-webkit-any-link.variant:not(:focus):hover, a:not([class~=button]):not([role=button]):-webkit-any-link.variant:not(:focus):active {
+  background-image: linear-gradient(to right, var(--any-link-back-hover-color-1, #215cca), var(--any-link-back-hover-color-2, #215cca));
+  background-size: 100% 100%;
+  border: 0;
+  color: var(--any-link-hover-color, #f8f8f8);
+}
+a:not([class~=button]):not([role=button]):-webkit-any-link.variant:focus {
+  background-image: none;
+}
 a:not([class~=button]):not([role=button]):-moz-any-link {
-  background-color: var(--link-back-color, transparent);
-  color: var(--link-color, #215cca);
+  background-color: var(--any-link-back-color, transparent);
+  color: var(--any-link-color, #215cca);
+  text-decoration: underline solid currentColor;
+  transition: 250ms ease-in;
 }
 a:not([class~=button]):not([role=button]):-moz-any-link:not(:focus):hover, a:not([class~=button]):not([role=button]):-moz-any-link:not(:focus):active {
-  background-color: var(--link-back-hover-color, transparent);
+  background-color: var(--any-link-back-hover-color, transparent);
   border-top: 1px solid currentColor;
   border-bottom: 1px solid currentColor;
-  color: var(--link-hover-color, #215cca);
-  outline: transparent solid;
-  -webkit-text-decoration: none;
+  color: var(--any-link-hover-color, #215cca);
   text-decoration: none;
 }
 a:not([class~=button]):not([role=button]):-moz-any-link:focus {
-  outline: var(--link-focus-color, #215cca) solid 0.125rem;
+  outline: var(--any-link-focus-color, #215cca) solid 0.125rem;
   outline-offset: 0.0625em;
   text-decoration: none;
 }
+a:not([class~=button]):not([role=button]):-moz-any-link.variant {
+  background-image: linear-gradient(to right, var(--any-link-back-hover-color-1, transparent), var(--any-link-back-hover-color-2, transparent));
+  background-position: 0 95%;
+  background-repeat: no-repeat;
+  background-size: 100% 1px;
+}
+a:not([class~=button]):not([role=button]):-moz-any-link.variant:not(:focus):hover, a:not([class~=button]):not([role=button]):-moz-any-link.variant:not(:focus):active {
+  background-image: linear-gradient(to right, var(--any-link-back-hover-color-1, #215cca), var(--any-link-back-hover-color-2, #215cca));
+  background-size: 100% 100%;
+  border: 0;
+  color: var(--any-link-hover-color, #f8f8f8);
+}
+a:not([class~=button]):not([role=button]):-moz-any-link.variant:focus {
+  background-image: none;
+}
 a:not([class~=button]):not([role=button]):any-link {
-  background-color: var(--link-back-color, transparent);
-  color: var(--link-color, #215cca);
+  background-color: var(--any-link-back-color, transparent);
+  color: var(--any-link-color, #215cca);
+  text-decoration: underline solid currentColor;
+  transition: 250ms ease-in;
 }
 a:not([class~=button]):not([role=button]):any-link:not(:focus):hover, a:not([class~=button]):not([role=button]):any-link:not(:focus):active {
-  background-color: var(--link-back-hover-color, transparent);
+  background-color: var(--any-link-back-hover-color, transparent);
   border-top: 1px solid currentColor;
   border-bottom: 1px solid currentColor;
-  color: var(--link-hover-color, #215cca);
-  outline: transparent solid;
-  -webkit-text-decoration: none;
+  color: var(--any-link-hover-color, #215cca);
   text-decoration: none;
 }
 a:not([class~=button]):not([role=button]):any-link:focus {
-  outline: var(--link-focus-color, #215cca) solid 0.125rem;
+  outline: var(--any-link-focus-color, #215cca) solid 0.125rem;
   outline-offset: 0.0625em;
   text-decoration: none;
+}
+a:not([class~=button]):not([role=button]):any-link.variant {
+  background-image: linear-gradient(to right, var(--any-link-back-hover-color-1, transparent), var(--any-link-back-hover-color-2, transparent));
+  background-position: 0 95%;
+  background-repeat: no-repeat;
+  background-size: 100% 1px;
+}
+a:not([class~=button]):not([role=button]):any-link.variant:not(:focus):hover, a:not([class~=button]):not([role=button]):any-link.variant:not(:focus):active {
+  background-image: linear-gradient(to right, var(--any-link-back-hover-color-1, #215cca), var(--any-link-back-hover-color-2, #215cca));
+  background-size: 100% 100%;
+  border: 0;
+  color: var(--any-link-hover-color, #f8f8f8);
+}
+a:not([class~=button]):not([role=button]):any-link.variant:focus {
+  background-image: none;
 }
 
 abbr[title] {
@@ -69,7 +115,6 @@ abbr[title] {
   margin: 0;
   padding: 0;
   border-bottom: none solid transparent;
-  -webkit-text-decoration: underline dotted;
   text-decoration: underline dotted;
 }
 
@@ -87,7 +132,6 @@ data {
   font-size: 1em;
   margin: 0;
   padding: 0;
-  -webkit-text-decoration: underline dotted;
   text-decoration: underline dotted;
 }
 data:hover::after {

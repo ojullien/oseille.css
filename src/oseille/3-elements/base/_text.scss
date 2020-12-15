@@ -58,22 +58,51 @@ $_disabled-opacity: 0.75 !default;
 
 // default link style
 @mixin style-link {
-    background-color: var(--link-back-color, transparent);
-    color: var(--link-color, colors.get('link'));
+    background-color: var(--any-link-back-color, transparent);
+    color: var(--any-link-color, colors.get('link'));
+    text-decoration: underline solid currentColor;
+    transition: 250ms ease-in;
+
     &:not(:focus):hover,
     &:not(:focus):active {
-        background-color: var(--link-back-hover-color, transparent);
+        background-color: var(--any-link-back-hover-color, transparent);
         border-top: 1px solid currentColor;
         border-bottom: 1px solid currentColor;
-        color: var(--link-hover-color, colors.get('link'));
-        outline: transparent solid; // We remove it but we provide alternative styling.
-        -webkit-text-decoration: none;
+        color: var(--any-link-hover-color, colors.get('link'));
         text-decoration: none;
     }
+
     &:focus {
-        outline: var(--link-focus-color, colors.get('link')) solid 0.125rem;
+        outline: var(--any-link-focus-color, colors.get('link')) solid 0.125rem;
         outline-offset: 0.0625em;
         text-decoration: none;
+    }
+
+    &.variant {
+        background-image: linear-gradient(
+            to right,
+            var(--any-link-back-hover-color-1, colors.get('transparent')),
+            var(--any-link-back-hover-color-2, colors.get('transparent'))
+        );
+        background-position: 0 95%;
+        background-repeat: no-repeat;
+        background-size: 100% 1px;
+
+        &:not(:focus):hover,
+        &:not(:focus):active {
+            background-image: linear-gradient(
+                to right,
+                var(--any-link-back-hover-color-1, colors.get('link')),
+                var(--any-link-back-hover-color-2, colors.get('link'))
+            );
+            background-size: 100% 100%;
+            border: 0;
+            color: var(--any-link-hover-color, colors.get('white'));
+        }
+
+        &:focus {
+            background-image: none;
+        }
     }
 }
 
@@ -82,9 +111,10 @@ $_disabled-opacity: 0.75 !default;
 a {
     @include normalize;
 
+    color: inherit;
     font-family: inherit; // Fix for elements inside headings not displaying properly.
-    -webkit-text-decoration: underline solid currentColor;
-    text-decoration: underline solid currentColor;
+    outline: transparent solid; // We remove it but we provide alternative styling.
+    text-decoration: none;
 
     // Selects any element that would be matched by :link or :visited
     // Buttons have an another style.
@@ -105,7 +135,6 @@ abbr[title] {
     @include normalize;
 
     border-bottom: none solid transparent; // Remove bottom border in Firefox 39- & Chrome 57-
-    -webkit-text-decoration: underline dotted;
     text-decoration: underline dotted; // Opinionated style-fix for all browsers.
 }
 
@@ -119,7 +148,6 @@ strong {
 data {
     @include normalize;
 
-    -webkit-text-decoration: underline dotted;
     text-decoration: underline dotted; // Opinionated style-fix for all browsers.
 
     &:hover::after {
