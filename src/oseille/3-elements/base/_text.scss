@@ -56,11 +56,23 @@ $_disabled-opacity: 0.75 !default;
     vertical-align: baseline;
 }
 
+@mixin text-decoration($line: underline, $style: solid, $color: currentColor) {
+    // As text-decoration shorthand may be too recent for your browser.
+    // We use also longhand declarations.
+    text-decoration: var(--text-decoration-line, $line);
+    -moz-text-decoration-style: var(--text-decoration-style, $style);
+    -moz-text-decoration-color: var(--text-decoration-color, $color);
+    -webkit-text-decoration-style: var(--text-decoration-style, $style);
+    -webkit-text-decoration-color: var(--text-decoration-color, $color);
+    text-decoration-style: var(--text-decoration-style, $style);
+    text-decoration-color: var(--text-decoration-color, $color);
+}
+
 // default link style
 @mixin style-link {
     background-color: var(--any-link-back-color, transparent);
     color: var(--any-link-color, colors.get('link'));
-    text-decoration: underline solid currentColor;
+    @include text-decoration; // Opinionated style-fix for all browsers.
     transition: 250ms ease-in;
 
     &:not(:focus):hover,
@@ -81,8 +93,8 @@ $_disabled-opacity: 0.75 !default;
     &.variant {
         background-image: linear-gradient(
             to right,
-            var(--any-link-back-hover-color-1, colors.get('transparent')),
-            var(--any-link-back-hover-color-2, colors.get('transparent'))
+            var(--any-link-back-color-1, colors.get('transparent')),
+            var(--any-link-back-color-2, colors.get('transparent'))
         );
         background-position: 0 95%;
         background-repeat: no-repeat;
@@ -133,9 +145,7 @@ a {
 
 abbr[title] {
     @include normalize;
-
-    border-bottom: none solid transparent; // Remove bottom border in Firefox 39- & Chrome 57-
-    text-decoration: underline dotted; // Opinionated style-fix for all browsers.
+    @include text-decoration($style: dotted); // Opinionated style-fix for all browsers.
 }
 
 b,
@@ -147,10 +157,11 @@ strong {
 
 data {
     @include normalize;
+    @include text-decoration($style: dotted); // Opinionated style-fix for all browsers.
 
-    text-decoration: underline dotted; // Opinionated style-fix for all browsers.
-
-    &:hover::after {
+    &:hover::after,
+    &:active::after,
+    &:focus::after {
         content: ' (ID ' attr(value) ')';
         font-size: 0.7em;
     }

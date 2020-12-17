@@ -12,7 +12,13 @@ a {
 a:not([class~=button]):not([role=button]):-webkit-any-link {
   background-color: var(--any-link-back-color, transparent);
   color: var(--any-link-color, #215cca);
-  text-decoration: underline solid currentColor;
+  text-decoration: var(--text-decoration-line, underline);
+  -moz-text-decoration-style: var(--text-decoration-style, solid);
+  -moz-text-decoration-color: var(--text-decoration-color, currentColor);
+  -webkit-text-decoration-style: var(--text-decoration-style, solid);
+  -webkit-text-decoration-color: var(--text-decoration-color, currentColor);
+  text-decoration-style: var(--text-decoration-style, solid);
+  text-decoration-color: var(--text-decoration-color, currentColor);
   transition: 250ms ease-in;
 }
 a:not([class~=button]):not([role=button]):-webkit-any-link:not(:focus):hover, a:not([class~=button]):not([role=button]):-webkit-any-link:not(:focus):active {
@@ -28,7 +34,7 @@ a:not([class~=button]):not([role=button]):-webkit-any-link:focus {
   text-decoration: none;
 }
 a:not([class~=button]):not([role=button]):-webkit-any-link.variant {
-  background-image: linear-gradient(to right, var(--any-link-back-hover-color-1, transparent), var(--any-link-back-hover-color-2, transparent));
+  background-image: linear-gradient(to right, var(--any-link-back-color-1, transparent), var(--any-link-back-color-2, transparent));
   background-position: 0 95%;
   background-repeat: no-repeat;
   background-size: 100% 1px;
@@ -45,7 +51,13 @@ a:not([class~=button]):not([role=button]):-webkit-any-link.variant:focus {
 a:not([class~=button]):not([role=button]):-moz-any-link {
   background-color: var(--any-link-back-color, transparent);
   color: var(--any-link-color, #215cca);
-  text-decoration: underline solid currentColor;
+  text-decoration: var(--text-decoration-line, underline);
+  -moz-text-decoration-style: var(--text-decoration-style, solid);
+  -moz-text-decoration-color: var(--text-decoration-color, currentColor);
+  -webkit-text-decoration-style: var(--text-decoration-style, solid);
+  -webkit-text-decoration-color: var(--text-decoration-color, currentColor);
+  text-decoration-style: var(--text-decoration-style, solid);
+  text-decoration-color: var(--text-decoration-color, currentColor);
   transition: 250ms ease-in;
 }
 a:not([class~=button]):not([role=button]):-moz-any-link:not(:focus):hover, a:not([class~=button]):not([role=button]):-moz-any-link:not(:focus):active {
@@ -61,7 +73,7 @@ a:not([class~=button]):not([role=button]):-moz-any-link:focus {
   text-decoration: none;
 }
 a:not([class~=button]):not([role=button]):-moz-any-link.variant {
-  background-image: linear-gradient(to right, var(--any-link-back-hover-color-1, transparent), var(--any-link-back-hover-color-2, transparent));
+  background-image: linear-gradient(to right, var(--any-link-back-color-1, transparent), var(--any-link-back-color-2, transparent));
   background-position: 0 95%;
   background-repeat: no-repeat;
   background-size: 100% 1px;
@@ -78,7 +90,13 @@ a:not([class~=button]):not([role=button]):-moz-any-link.variant:focus {
 a:not([class~=button]):not([role=button]):any-link {
   background-color: var(--any-link-back-color, transparent);
   color: var(--any-link-color, #215cca);
-  text-decoration: underline solid currentColor;
+  text-decoration: var(--text-decoration-line, underline);
+  -moz-text-decoration-style: var(--text-decoration-style, solid);
+  -moz-text-decoration-color: var(--text-decoration-color, currentColor);
+  -webkit-text-decoration-style: var(--text-decoration-style, solid);
+  -webkit-text-decoration-color: var(--text-decoration-color, currentColor);
+  text-decoration-style: var(--text-decoration-style, solid);
+  text-decoration-color: var(--text-decoration-color, currentColor);
   transition: 250ms ease-in;
 }
 a:not([class~=button]):not([role=button]):any-link:not(:focus):hover, a:not([class~=button]):not([role=button]):any-link:not(:focus):active {
@@ -94,7 +112,7 @@ a:not([class~=button]):not([role=button]):any-link:focus {
   text-decoration: none;
 }
 a:not([class~=button]):not([role=button]):any-link.variant {
-  background-image: linear-gradient(to right, var(--any-link-back-hover-color-1, transparent), var(--any-link-back-hover-color-2, transparent));
+  background-image: linear-gradient(to right, var(--any-link-back-color-1, transparent), var(--any-link-back-color-2, transparent));
   background-position: 0 95%;
   background-repeat: no-repeat;
   background-size: 100% 1px;
@@ -114,8 +132,13 @@ abbr[title] {
   font-size: 1em;
   margin: 0;
   padding: 0;
-  border-bottom: none solid transparent;
-  text-decoration: underline dotted;
+  text-decoration: var(--text-decoration-line, underline);
+  -moz-text-decoration-style: var(--text-decoration-style, dotted);
+  -moz-text-decoration-color: var(--text-decoration-color, currentColor);
+  -webkit-text-decoration-style: var(--text-decoration-style, dotted);
+  -webkit-text-decoration-color: var(--text-decoration-color, currentColor);
+  text-decoration-style: var(--text-decoration-style, dotted);
+  text-decoration-color: var(--text-decoration-color, currentColor);
 }
 
 b,
@@ -132,9 +155,15 @@ data {
   font-size: 1em;
   margin: 0;
   padding: 0;
-  text-decoration: underline dotted;
+  text-decoration: var(--text-decoration-line, underline);
+  -moz-text-decoration-style: var(--text-decoration-style, dotted);
+  -moz-text-decoration-color: var(--text-decoration-color, currentColor);
+  -webkit-text-decoration-style: var(--text-decoration-style, dotted);
+  -webkit-text-decoration-color: var(--text-decoration-color, currentColor);
+  text-decoration-style: var(--text-decoration-style, dotted);
+  text-decoration-color: var(--text-decoration-color, currentColor);
 }
-data:hover::after {
+data:hover::after, data:active::after, data:focus::after {
   content: " (ID " attr(value) ")";
   font-size: 0.7em;
 }
