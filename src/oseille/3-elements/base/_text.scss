@@ -163,7 +163,6 @@ data {
     &:active::after,
     &:focus::after {
         content: ' (ID ' attr(value) ')';
-        font-size: 0.7em;
     }
 }
 

@@ -227,7 +227,6 @@ data {
 }
 data:hover::after, data:active::after, data:focus::after {
   content: " (ID " attr(value) ")";
-  font-size: 0.7em;
 }
 
 @supports (cursor: help) {
