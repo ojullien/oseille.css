@@ -57,15 +57,35 @@
     }
 
     .docs-grid {
-        display: grid;
-        grid-template-columns: auto 1fr;
-        gap: 0.5rem;
+        display: flex;
+        flex-wrap: wrap;
     }
 
     .docs-sidebar {
+        width: 25%;
+        flex: 0 0 25%;
         align-self: start;
         column-count: 1;
     }
+
+    .docs-main {
+        width: 75%;
+        flex: 0 0 75%;
+    }
+
+    @supports (grid-area: auto) {
+        .docs-grid {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 0.5rem;
+        }
+        .docs-sidebar,
+        .docs-main {
+            width: 100%;
+            flex: none;
+        }
+    }
+
 }
 
 /* specific */
