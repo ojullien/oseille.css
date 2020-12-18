@@ -627,15 +627,31 @@ var {
 
 /* paragraph-level elements styling */
 hr {
-  background: linear-gradient(to right, transparent, #404040 20%, #404040 80%, transparent);
-  border: 0;
   box-sizing: content-box;
   color: inherit;
-  height: 1px;
   line-height: 1.25;
   margin: 0.5rem;
   overflow: visible;
   padding: 0;
+}
+hr.variant-dashed {
+  border-top: 1px dashed var(--hr-color-1, #404040);
+}
+hr.variant-dotted {
+  border-top: 1px dotted var(--hr-color-1, #404040);
+}
+hr.variant-shadow {
+  height: 10px;
+  border: 0;
+  box-shadow: 0 10px 10px -10px var(--hr-color-1, #404040) inset;
+}
+hr:not([class^=variant]) {
+  background-image: -webkit-linear-gradient(to right, transparent, var(--hr-color-1, #404040) 20%, var(--hr-color-2, #404040) 80%, transparent);
+  background-image: -moz-linear-gradient(to right, transparent, var(--hr-color-1, #404040) 20%, var(--hr-color-2, #404040) 80%, transparent);
+  background-image: -o-linear-gradient(to right, transparent, var(--hr-color-1, #404040) 20%, var(--hr-color-2, #404040) 80%, transparent);
+  background-image: linear-gradient(to right, transparent, var(--hr-color-1, #404040) 20%, var(--hr-color-2, #404040) 80%, transparent);
+  border: 0;
+  height: 1px;
 }
 
 p {
