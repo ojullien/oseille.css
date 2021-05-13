@@ -1,3 +1,6 @@
+.vscode/
+olivier/
+olivier.*
 node_modules/
 .sass-cache/
 .history
