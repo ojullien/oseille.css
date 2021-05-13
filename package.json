@@ -25,10 +25,10 @@
     "license": "MIT",
     "bugs": "https://github.com/ojullien/oseille.css/issues",
     "devDependencies": {
-        "sass": "^1.27.0",
-        "stylelint": "^13.7.2",
-        "stylelint-config-sass-guidelines": "^7.1.0",
-        "stylelint-config-standard": "^20.0.0"
+        "sass": "^1.32.13",
+        "stylelint": "^13.13.1",
+        "stylelint-config-sass-guidelines": "^8.0.0",
+        "stylelint-config-standard": "^22.0.0"
     },
     "browserslist": [
         "> 0.5%",
