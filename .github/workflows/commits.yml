@@ -10,4 +10,4 @@ jobs:
           fetch-depth: 0
       - uses: wagoid/commitlint-github-action@v3
         with:
-          configFile: './.commitlintrc.yml'
+          configFile: '.github/commitlint.yml'
