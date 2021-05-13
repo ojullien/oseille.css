@@ -1,38 +1,25 @@
-# This is a basic workflow that is manually triggered
+name: Build
 
-name: Lint
-
-# Controls when the action will run. Workflow runs when manually triggered using the UI
-# or API.
+# on: [push, pull_request]
 on:
   workflow_dispatch:
 
 jobs:
   build:
-    name: Lint Code Base
     runs-on: ubuntu-latest
 
+    strategy:
+      matrix:
+        node_version: [14.x,16.x]
+
+
     steps:
-      - name: Checkout Code
         uses: actions/checkout@v2.3.4
-          
-      - name: Setup Node.js environment
+      - name: Setup Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2.1.5
         with:
-          node-version: 15.14.0
-      
-      - name: Install dependencies
-        run: npm install
-      
-      - name: Build
-        run: npm run build
-        
-      - name: Lint
-        uses: github/super-linter@v3.17.1
-        env:
-          VALIDATE_ALL_CODEBASE: false
-          VALIDATE_CSS: true
-          DEFAULT_BRANCH: master
-          FILTER_REGEX_INCLUDE: .*dist/.*
-          GITHUB_TOKEN: ${{ secrets.AO_20210513 }}
-          CSS_FILE_NAME: .stylelintrc.json
+          node-version: ${{ matrix.node-version }}
+      - name: Install dependencies & Build
+        run: |
+          npm install
+          npm run build
