@@ -40,4 +40,5 @@ jobs:
           VALIDATE_ALL_CODEBASE: false
           VALIDATE_CSS: true
           DEFAULT_BRANCH: master
-          FILTER_REGEX_INCLUDE: .*dist/.*
+          FILTER_REGEX_INCLUDE: ${{ GITHUB_WORKSPACE }}/dist/.*
+          GITHUB_TOKEN: ${{ secrets.AO_20210513 }}
