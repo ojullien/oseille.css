@@ -6,11 +6,6 @@ name: Lint
 # or API.
 on:
   workflow_dispatch:
-    inputs:
-      name:
-        description: 'Person to greet'
-        default: 'World'
-        required: true
 
 jobs:
   build:
@@ -20,8 +15,6 @@ jobs:
     steps:
       - name: Checkout Code
         uses: actions/checkout@v2.3.4
-        with:
-          fetch-depth: 0
           
       - name: Setup Node.js environment
         uses: actions/setup-node@v2.1.5
@@ -42,3 +35,4 @@ jobs:
           DEFAULT_BRANCH: master
           FILTER_REGEX_INCLUDE: .*dist/.*
           GITHUB_TOKEN: ${{ secrets.AO_20210513 }}
+          CSS_FILE_NAME: .stylelintrc.json
