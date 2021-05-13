@@ -25,6 +25,7 @@
     "license": "MIT",
     "bugs": "https://github.com/ojullien/oseille.css/issues",
     "devDependencies": {
+        "postcss": ">=8.2.10",
         "sass": "^1.32.13",
         "stylelint": "^13.13.1",
         "stylelint-config-sass-guidelines": "^8.0.0",
