@@ -8,13 +8,13 @@ h1 {
   margin: 0.5rem;
   padding: 0;
   font-size: calc(1em * 2.44140625);
-  line-height: calc(1ex / 0.42);
+  line-height: 2.380952381ex;
 }
 h1 small {
   background-color: var(--subheading-back-color, inherit);
   color: var(--subheading-fore-color, inherit);
   display: block;
-  line-height: calc(1ex / 0.32);
+  line-height: 3.125ex;
   margin-top: -0.25rem;
 }
 
@@ -27,13 +27,13 @@ h2 {
   margin: 0.5rem;
   padding: 0;
   font-size: calc(1em * 1.953125);
-  line-height: calc(1ex / 0.42);
+  line-height: 2.380952381ex;
 }
 h2 small {
   background-color: var(--subheading-back-color, inherit);
   color: var(--subheading-fore-color, inherit);
   display: block;
-  line-height: calc(1ex / 0.32);
+  line-height: 3.125ex;
   margin-top: -0.25rem;
 }
 
@@ -46,13 +46,13 @@ h3 {
   margin: 0.5rem;
   padding: 0;
   font-size: calc(1em * 1.5625);
-  line-height: calc(1ex / 0.38);
+  line-height: 2.6315789474ex;
 }
 h3 small {
   background-color: var(--subheading-back-color, inherit);
   color: var(--subheading-fore-color, inherit);
   display: block;
-  line-height: calc(1ex / 0.32);
+  line-height: 3.125ex;
   margin-top: -0.25rem;
 }
 
@@ -65,13 +65,13 @@ h4 {
   margin: 0.5rem;
   padding: 0;
   font-size: calc(1em * 1.25);
-  line-height: calc(1ex / 0.37);
+  line-height: 2.7027027027ex;
 }
 h4 small {
   background-color: var(--subheading-back-color, inherit);
   color: var(--subheading-fore-color, inherit);
   display: block;
-  line-height: calc(1ex / 0.32);
+  line-height: 3.125ex;
   margin-top: -0.25rem;
 }
 
@@ -84,13 +84,13 @@ h5 {
   margin: 0.5rem;
   padding: 0;
   font-size: 1em;
-  line-height: calc(1ex / 0.32);
+  line-height: 3.125ex;
 }
 h5 small {
   background-color: var(--subheading-back-color, inherit);
   color: var(--subheading-fore-color, inherit);
   display: block;
-  line-height: calc(1ex / 0.32);
+  line-height: 3.125ex;
   margin-top: -0.25rem;
 }
 
@@ -103,12 +103,12 @@ h6 {
   margin: 0.5rem;
   padding: 0;
   font-size: calc(1em / 1.25);
-  line-height: calc(1ex / 0.32);
+  line-height: 3.125ex;
 }
 h6 small {
   background-color: var(--subheading-back-color, inherit);
   color: var(--subheading-fore-color, inherit);
   display: block;
-  line-height: calc(1ex / 0.32);
+  line-height: 3.125ex;
   margin-top: -0.25rem;
 }

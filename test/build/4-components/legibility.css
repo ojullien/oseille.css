@@ -1,22 +1,22 @@
 /* Improve legibility */
 .legible h1 {
-  margin: calc(1ex / 0.42) 0.5rem;
+  margin: 2.380952381ex 0.5rem;
 }
 .legible h2 {
-  margin: calc(1ex / 0.42) 0.5rem;
+  margin: 2.380952381ex 0.5rem;
 }
 .legible h3 {
-  margin: calc(1ex / 0.38) 0.5rem;
+  margin: 2.6315789474ex 0.5rem;
 }
 .legible h4 {
-  margin: calc(1ex / 0.37) 0.5rem;
+  margin: 2.7027027027ex 0.5rem;
 }
 .legible h5 {
-  margin: calc(1ex / 0.32) 0.5rem;
+  margin: 3.125ex 0.5rem;
 }
 .legible h6 {
-  margin: calc(1ex / 0.32) 0.5rem;
+  margin: 3.125ex 0.5rem;
 }
 .legible p {
-  margin: calc(1ex / 0.29) 0.5rem;
+  margin: 3.4482758621ex 0.5rem;
 }
