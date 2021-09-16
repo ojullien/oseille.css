@@ -1,18 +1,7 @@
 {
     "name": "@ojullien/oseille.css",
-    "version": "0.8.0",
     "description": "A small, responsive and accessible CSS framework",
     "main": "dist/oseille.css",
-    "keywords": [
-        "css",
-        "sass",
-        "minimal",
-        "responsive",
-        "accessible",
-        "a11y",
-        "css-framework",
-        "oseille.css"
-    ],
     "repository": {
         "type": "git",
         "url": "git+https://github.com/ojullien/oseille.css.git"
@@ -27,9 +16,14 @@
     "devDependencies": {
         "postcss": ">=8.2.15",
         "sass": ">=1.32.13",
-        "stylelint": ">=13.13.1",
-        "stylelint-config-sass-guidelines": ">=8.0.0",
-        "stylelint-config-standard": ">=22.0.0"
+        "stylelint": "^13.13.1",
+        "stylelint-config-sass-guidelines": "^8.0.0",
+        "stylelint-config-standard": "^22.0.0",
+        "stylelint-scss": "^3.21.0"
+    },
+    "engines": {
+        "node": ">= 16.9.1",
+        "npm": ">= 7.23.0"
     },
     "browserslist": [
         "> 0.5%",
@@ -44,7 +38,8 @@
         "build:expanded": "./node_modules/.bin/sass src/flavors:dist/expanded --style=expanded --charset --no-error-css --color --unicode --no-source-map",
         "build": "npm run build:mini && npm run build:expanded",
         "test": "./node_modules/.bin/sass test/flavors:test/build --style=expanded --charset --no-error-css --color --unicode --no-source-map",
-        "lint": "./node_modules/.bin/stylelint src/oseille/**/*.scss",
-        "lint-css": "./node_modules/.bin/stylelint dist/*.css --config .stylelintrc-standard.json"
+        "lint-sass": "./node_modules/.bin/stylelint src/oseille/**/*.scss --config linters/.stylelintrc-sass.json",
+        "lint": "./node_modules/.bin/stylelint dist/expanded/*.css --config linters/.stylelintrc.json",
+        "fix": "./node_modules/.bin/stylelint dist/expanded/*.css --config linters/.stylelintrc.json --fix"
     }
 }
