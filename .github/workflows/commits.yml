@@ -1,5 +1,5 @@
 name: Validate Commit Messages
-on: [push, pull_request]
+on: [pull_request]
 
 jobs:
   commitlint:
@@ -8,6 +8,4 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      - uses: wagoid/commitlint-github-action@v3
-        with:
-          configFile: '.github/commits.yml'
+      - uses: wagoid/commitlint-github-action@v4
