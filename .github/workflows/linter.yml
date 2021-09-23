@@ -13,14 +13,14 @@ jobs:
           # Full git history is needed to get a proper list of changed files within `super-linter`
           fetch-depth: 0
 
-      - name: Check NPM version
-        run: npm -v
+#      - name: Check NPM version
+#        run: npm -v
 
-      - name: Install dependencies
-        run: npm install --cache=false
+#      - name: Install dependencies
+#        run: npm install --cache=false
 
-      - name: Build css
-        run: npm run-script build
+#      - name: Build css
+#        run: npm run-script build
 
       - name: Lint Code Base
         uses: github/super-linter/slim@v4
