@@ -1,4 +1,4 @@
-@use 'sass:color';
+@use "sass:color";
 //
 // Mixes a color with white.
 //
@@ -7,8 +7,9 @@
 // @param {number} $weight - number between 0% and 100% (inclusive). A larger weight indicates that more of white
 //                           should be used, and a smaller weight indicates that more of $color should be used.
 //
+
 @function tint($color, $weight) {
-    @return mix(#fff, $color, $weight);
+  @return mix(#fff, $color, $weight);
 }
 
 //
@@ -19,8 +20,9 @@
 // @param {number} $weight - number between 0% and 100% (inclusive). A larger weight indicates that more of black
 //                           should be used, and a smaller weight indicates that more of $color should be used.
 //
+
 @function shade($color, $weight) {
-    @return mix(#000, $color, $weight);
+  @return mix(#000, $color, $weight);
 }
 
 //
@@ -31,8 +33,9 @@
 // @param {number} $weight - number between 0% and 100% (inclusive). A larger weight indicates that more of grey
 //                           should be used, and a smaller weight indicates that more of $color2should be used.
 //
+
 @function tone($color, $weight) {
-    @return mix(#808080, $color, $weight);
+  @return mix(#808080, $color, $weight);
 }
 
 //
@@ -40,8 +43,9 @@
 //
 // @param {string} $color - The color to adjust
 //
+
 @function darkest($color) {
-    @return color.adjust($color, $lightness: -21%);
+  @return color.adjust($color, $lightness: -21%);
 }
 
 //
@@ -49,8 +53,9 @@
 //
 // @param {string} $color - The color to adjust
 //
+
 @function darker($color) {
-    @return color.adjust($color, $lightness: -11%);
+  @return color.adjust($color, $lightness: -11%);
 }
 
 //
@@ -58,8 +63,9 @@
 //
 // @param {string} $color - The color to adjust
 //
+
 @function lighter($color) {
-    @return color.adjust($color, $lightness: 19%);
+  @return color.adjust($color, $lightness: 19%);
 }
 
 //
@@ -67,6 +73,7 @@
 //
 // @param {string} $color - The color to adjust
 //
+
 @function lightest($color) {
-    @return color.adjust($color, $lightness: 29%);
+  @return color.adjust($color, $lightness: 29%);
 }

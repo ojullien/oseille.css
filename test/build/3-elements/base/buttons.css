@@ -16,7 +16,7 @@ input[type=reset] {
     -moz-appearance: button;
   }
 }
-.button, [role=button], input[type=button],
+[role=button], .button, input[type=button],
 input[type=submit],
 input[type=reset], button {
   --button-padding: 0.5rem calc(1.5 * 0.5rem);
@@ -32,16 +32,12 @@ input[type=reset], button {
   padding: var(--button-padding);
   text-align: center;
   text-decoration: none;
-  -webkit-transition: all 0.125s linear;
-  -moz-transition: all 0.125s linear;
-  -o-transition: all 0.125s linear;
   transition: all 0.125s linear;
   -moz-user-select: none;
   -webkit-user-select: none;
-  -ms-user-select: none;
   user-select: none;
 }
-.button:hover, [role=button]:hover, input[type=button]:hover,
+[role=button]:hover, .button:hover, input[type=button]:hover,
 input[type=submit]:hover,
 input[type=reset]:hover, button:hover {
   background-color: var(--button-back-hover-color, #121212);
@@ -49,7 +45,7 @@ input[type=reset]:hover, button:hover {
   color: var(--button-fore-hover-color, #f8f8f8);
   outline: transparent solid;
 }
-.button:focus, [role=button]:focus, input[type=button]:focus,
+[role=button]:focus, .button:focus, input[type=button]:focus,
 input[type=submit]:focus,
 input[type=reset]:focus, button:focus {
   background-color: var(--button-back-focus-color, #121212);
@@ -57,28 +53,28 @@ input[type=reset]:focus, button:focus {
   color: var(--button-fore-focus-color, #f8f8f8);
   outline: transparent solid;
 }
-.button:active, [role=button]:active, input[type=button]:active,
+[role=button]:active, .button:active, input[type=button]:active,
 input[type=submit]:active,
 input[type=reset]:active, button:active {
   background-color: var(--button-back-active-color, transparent);
   border-color: var(--button-border-active-color, #121212);
   color: var(--button-fore-active-color, #121212);
 }
-.button.small, .small[role=button], input.small[type=button],
+.small[role=button], .small.button, input.small[type=button],
 input.small[type=submit],
 input.small[type=reset], button.small {
   --button-padding: calc(0.5 * 0.5rem) calc(0.75 * 0.5rem);
 }
-.button.large, .large[role=button], input.large[type=button],
+.large[role=button], .large.button, input.large[type=button],
 input.large[type=submit],
 input.large[type=reset], button.large {
   --button-padding: calc(1.5 * 0.5rem) calc(2 * 0.5rem);
 }
-.button:disabled, [role=button]:disabled, input[type=button]:disabled,
+[role=button]:disabled, .button:disabled, input[type=button]:disabled,
 input[type=submit]:disabled,
-input[type=reset]:disabled, button:disabled, .button[aria-disabled=true], [aria-disabled=true][role=button], input[aria-disabled=true][type=button],
+input[type=reset]:disabled, button:disabled, [aria-disabled=true][role=button], [aria-disabled=true].button, input[aria-disabled=true][type=button],
 input[aria-disabled=true][type=submit],
-input[aria-disabled=true][type=reset], button[aria-disabled=true], .button[disabled], [disabled][role=button], input[disabled][type=button],
+input[aria-disabled=true][type=reset], button[aria-disabled=true], [disabled][role=button], [disabled].button, input[disabled][type=button],
 input[disabled][type=submit],
 input[disabled][type=reset], button[disabled] {
   cursor: not-allowed;
@@ -128,7 +124,12 @@ a.button:focus {
   display: flex;
   margin: 0.5rem;
 }
-.button-group > button, .button-group > input[type=button], .button-group > input[type=submit], .button-group > input[type=reset], .button-group > .button, .button-group > [role=button] {
+.button-group > button,
+.button-group > input[type=button],
+.button-group > input[type=submit],
+.button-group > input[type=reset],
+.button-group > .button,
+.button-group > [role=button] {
   border: 0;
   border-radius: 0;
   box-shadow: none;

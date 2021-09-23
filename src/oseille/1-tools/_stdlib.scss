@@ -1,4 +1,4 @@
-@use 'sass:map';
+@use "sass:map";
 //
 // Returns the value in the map list associated with the given key.
 // It returns null if any map doesn’t contain the key.
@@ -6,16 +6,17 @@
 // @param {string} $key - The key that you want to search for
 // @param {map} $maps - The map list that you want to search in
 //
+
 @function get-list($key, $maps...) {
-    $value: null;
+  $value: null;
 
-    @each $map in $maps {
-        @if map.has-key($map, $key) {
-            $value: map.get($map, $key);
-        }
+  @each $map in $maps {
+    @if map.has-key($map, $key) {
+      $value: map.get($map, $key);
     }
+  }
 
-    @return $value;
+  @return $value;
 }
 
 //
@@ -25,12 +26,13 @@
 // @param {string} $key - The key that you want to search for
 // @param {map} $map - The map that you want to search in
 //
+
 @function get($key, $map) {
-    $value: null;
+  $value: null;
 
-    @if map.has-key($map, $key) {
-        $value: map.get($map, $key);
-    }
+  @if map.has-key($map, $key) {
+    $value: map.get($map, $key);
+  }
 
-    @return $value;
+  @return $value;
 }

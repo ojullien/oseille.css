@@ -5,9 +5,10 @@
 // You may override the default values of the settings' variables, if needed, with the @use rule.
 // See flavors/oseille.scss and the 2-settings*.scss files.
 //
-@use 'sass:map';
-@use '../2-settings/box-model' as boxmodel;
-@use '../2-settings/responsive' as breakpoints;
+
+@use "sass:map";
+@use "../2-settings/box-model" as boxmodel;
+@use "../2-settings/responsive" as breakpoints;
 
 // Private variables.
 //
@@ -34,161 +35,174 @@ $_column-count: 12 !default; // Number of columns in the grid (integer value onl
 //   - medium: Medium screen class prefix
 //   - large: Large screen class prefix
 $_classnames: (
-    'container': 'container',
-    'row-parent': 'cols',
-    'column': 'col',
-    'offset': 'offset',
-    'row': 'row',
-    'normal': 'normal',
-    'first': 'first',
-    'last': 'last',
-    'small': 'sm',
-    'medium': 'md',
-    'large': 'lg',
+  "container": "container",
+  "row-parent": "cols",
+  "column": "col",
+  "offset": "offset",
+  "row": "row",
+  "normal": "normal",
+  "first": "first",
+  "last": "last",
+  "small": "sm",
+  "medium": "md",
+  "large": "lg",
 ) !default;
 
 // Inline mixins, used to generate class definitions for each grid step.
 
 @mixin reorder-definitions($size-prefix) {
-    $column: #{map.get($_classnames, 'column')}-#{$size-prefix};
+  $column: #{map.get($_classnames, "column")}-#{$size-prefix};
 
-    .#{$column}-#{map.get($_classnames, 'normal')} {
-        order: initial;
-    }
+  .#{$column}-#{map.get($_classnames, 'normal')} {
+    order: initial;
+  }
 
-    .#{$column}-#{map.get($_classnames, 'first')} {
-        order: -999;
-    }
+  .#{$column}-#{map.get($_classnames, 'first')} {
+    order: -999;
+  }
 
-    .#{$column}-#{map.get($_classnames, 'last')} {
-        order: 999;
-    }
+  .#{$column}-#{map.get($_classnames, 'last')} {
+    order: 999;
+  }
 }
 
 @mixin generate-grid-size-include-parent-layout($size-prefix) {
-    $column: #{map.get($_classnames, 'column')}-#{$size-prefix};
-    $offset: #{$column}-#{map.get($_classnames, 'offset')};
-    $row: #{map.get($_classnames, 'row')};
-    $row-parent: #{map.get($_classnames, 'row-parent')}-#{$size-prefix};
+  $column: #{map.get($_classnames, "column")}-#{$size-prefix};
+  $offset: #{$column}-#{map.get($_classnames, "offset")};
+  $row: #{map.get($_classnames, "row")};
+  $row-parent: #{map.get($_classnames, "row-parent")}-#{$size-prefix};
 
-    // Reordering definitions.
-    @include reorder-definitions($size-prefix);
+  // Reordering definitions.
 
-    // Grid column generic definitions.
+  @include reorder-definitions($size-prefix);
 
-    .#{$column},
-    [class^='#{$column}-'],
-    [class^='#{$offset}-'],
-    .#{$row}[class*='#{$row-parent}-'] > * {
-        flex: none;
-        //flex: auto;
-        padding: 0 calc(#{boxmodel.get('padding')} / 2);
+  // Grid column generic definitions.
+
+  .#{$column},
+  [class^='#{$column}-'],
+  [class^='#{$offset}-'],
+  .#{$row}[class*='#{$row-parent}-'] > * {
+    flex: none;
+    //flex: auto;
+    padding: 0 calc(#{boxmodel.get("padding")} / 2);
+  }
+
+  // Grid column specific definition for flexible column.
+  .#{$column},
+  .#{$row}.#{$row-parent} > * {
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%;
+  }
+
+  // Grid column specific definitions for predefined columns.
+
+  @for $i from 1 through $_column-count {
+    .#{$column}-#{$i},
+    .#{$row}.#{$row-parent}-#{$i} > * {
+      flex-basis: #{($i * 100% / $_column-count)};
+      max-width: #{($i * 100% / $_column-count)};
     }
 
-    // Grid column specific definition for flexible column.
-    .#{$column},
-    .#{$row}.#{$row-parent} > * {
-        flex-basis: 0;
-        flex-grow: 1;
-        max-width: 100%;
+    // Offest definitions.
+    .#{$offset}-#{($i - 1)} {
+      @if ($i - 1) == 0 {
+        margin-left: 0;
+      }
+      @else {
+        margin-left: #{(($i - 1) * 100% / $_column-count)};
+      }
     }
-
-    // Grid column specific definitions for predefined columns.
-    @for $i from 1 through $_column-count {
-        .#{$column}-#{$i},
-        .#{$row}.#{$row-parent}-#{$i} > * {
-            flex-basis: #{($i * 100% / $_column-count)};
-            max-width: #{($i * 100% / $_column-count)};
-        }
-
-        // Offest definitions.
-        .#{$offset}-#{($i - 1)} {
-            @if ($i - 1) == 0 {
-                margin-left: 0;
-            } @else {
-                margin-left: #{(($i - 1) * 100% / $_column-count)};
-            }
-        }
-    }
+  }
 }
 
 @mixin generate-grid-size-not-including-parent-layout($size-prefix) {
-    $column: #{map.get($_classnames, 'column')}-#{$size-prefix};
-    $offset: #{$column}-#{map.get($_classnames, 'offset')};
+  $column: #{map.get($_classnames, "column")}-#{$size-prefix};
+  $offset: #{$column}-#{map.get($_classnames, "offset")};
 
-    // Reordering definitions.
-    @include reorder-definitions($size-prefix);
+  // Reordering definitions.
 
-    // Grid column generic definitions.
-    .#{$column},
-    [class^='#{$column}-'],
-    [class^='#{$offset}-'] {
-        flex: 0 0 auto;
-        padding: 0 calc(#{boxmodel.get('padding')} / 2);
+  @include reorder-definitions($size-prefix);
+
+  // Grid column generic definitions.
+  .#{$column},
+  [class^='#{$column}-'],
+  [class^='#{$offset}-'] {
+    flex: 0 0 auto;
+    padding: 0 calc(#{boxmodel.get("padding")} / 2);
+  }
+
+  // Grid column specific definition for flexible column.
+  .#{$column} {
+    flex-basis: 0;
+    flex-grow: 1;
+    max-width: 100%;
+  }
+
+  // Grid column specific definitions for predefined columns.
+
+  @for $i from 1 through $_column-count {
+    .#{$column}-#{$i} {
+      flex-basis: #{($i * 100% / $_column-count)};
+      max-width: #{($i * 100% / $_column-count)};
     }
 
-    // Grid column specific definition for flexible column.
-    .#{$column} {
-        flex-basis: 0;
-        flex-grow: 1;
-        max-width: 100%;
+    // Offest definitions.
+    .#{$offset}-#{($i - 1)} {
+      @if ($i - 1) == 0 {
+        margin-left: 0;
+      }
+      @else {
+        margin-left: #{(($i - 1) * 100% / $_column-count)};
+      }
     }
-
-    // Grid column specific definitions for predefined columns.
-    @for $i from 1 through $_column-count {
-        .#{$column}-#{$i} {
-            flex-basis: #{($i * 100% / $_column-count)};
-            max-width: #{($i * 100% / $_column-count)};
-        }
-
-        // Offest definitions.
-        .#{$offset}-#{($i - 1)} {
-            @if ($i - 1) == 0 {
-                margin-left: 0;
-            } @else {
-                margin-left: #{(($i - 1) * 100% / $_column-count)};
-            }
-        }
-    }
+  }
 }
 
 /* Fluid grid system container styling */
 
 .#{map.get($_classnames, 'container')} {
-    margin: 0 auto;
-    padding: 0 calc(1.5 * #{boxmodel.get('padding')});
+  margin: 0 auto;
+  padding: 0 calc(1.5 * #{boxmodel.get("padding")});
 }
 
 .#{map.get($_classnames, 'row')} {
-    display: flex;
-    flex: initial;
-    flex-flow: row wrap;
+  display: flex;
+  flex: initial;
+  flex-flow: row wrap;
 }
 
 @if $_include-parent-layout {
-    // Definitions for smaller screens.
-    @include generate-grid-size-include-parent-layout(map.get($_classnames, 'small'));
+  // Definitions for smaller screens.
 
-    // Definitions for medium screens.
-    @media screen and (min-width: #{breakpoints.get('medium')}) {
-        @include generate-grid-size-include-parent-layout(map.get($_classnames, 'medium'));
-    }
+  @include generate-grid-size-include-parent-layout(map.get($_classnames, "small"));
 
-    // Definitions for large screens.
-    @media screen and (min-width: #{breakpoints.get('large')}) {
-        @include generate-grid-size-include-parent-layout(map.get($_classnames, 'large'));
-    }
-} @else {
-    // Definitions for smaller screens.
-    @include generate-grid-size-not-including-parent-layout(map.get($_classnames, 'small'));
+  // Definitions for medium screens.
 
-    // Definitions for medium screens.
-    @media screen and (min-width: #{breakpoints.get('medium')}) {
-        @include generate-grid-size-not-including-parent-layout(map.get($_classnames, 'medium'));
-    }
+  @media screen and (min-width: #{breakpoints.get("medium")}) {
+    @include generate-grid-size-include-parent-layout(map.get($_classnames, "medium"));
+  }
 
-    // Definitions for large screens.
-    @media screen and (min-width: #{breakpoints.get('large')}) {
-        @include generate-grid-size-not-including-parent-layout(map.get($_classnames, 'large'));
-    }
+  // Definitions for large screens.
+
+  @media screen and (min-width: #{breakpoints.get("large")}) {
+    @include generate-grid-size-include-parent-layout(map.get($_classnames, "large"));
+  }
+}
+@else {
+  // Definitions for smaller screens.
+
+  @include generate-grid-size-not-including-parent-layout(map.get($_classnames, "small"));
+
+  // Definitions for medium screens.
+
+  @media screen and (min-width: #{breakpoints.get("medium")}) {
+    @include generate-grid-size-not-including-parent-layout(map.get($_classnames, "medium"));
+  }
+
+  // Definitions for large screens.
+
+  @media screen and (min-width: #{breakpoints.get("large")}) {
+    @include generate-grid-size-not-including-parent-layout(map.get($_classnames, "large"));
+  }
 }

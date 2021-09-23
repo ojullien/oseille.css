@@ -1,12 +1,8 @@
-//
-// Debug stdlib.
-//
+/* Debug stdlib */
 @use '../../../src/oseille/1-tools/color' as color;
-
 // Color to modify
 $_color: hsla(219deg, 72%, 46%, 100%); //#215cca;
 $_color2: #ad0000;
-
 @debug 'lightest(#{$_color})=>' color.lightest($_color);
 @debug 'lighter(#{$_color})=>' color.lighter($_color);
 @debug 'darker(#{$_color})=>' color.darker($_color);

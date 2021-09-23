@@ -77,7 +77,7 @@
     max-width: 480px;
   }
 }
-.card__link {
+.card-link {
   margin-top: auto !important;
 }
 .card p {

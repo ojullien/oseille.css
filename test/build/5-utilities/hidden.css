@@ -4,16 +4,16 @@
 }
 
 .visually-hidden {
-  position: absolute !important;
-  white-space: nowrap;
-  width: 1px !important;
-  height: 1px !important;
   border: 0 !important;
-  padding: 0 !important;
   clip: rect(0 0 0 0);
   -webkit-clip-path: inset(100%) !important;
   clip-path: inset(100%) !important;
+  height: 1px !important;
   overflow: hidden !important;
+  padding: 0 !important;
+  position: absolute !important;
+  white-space: nowrap;
+  width: 1px !important;
 }
 
 .responsive-margin {
@@ -61,43 +61,43 @@
 }
 @media screen and (max-width: 767px) {
   .visually-hidden-sm {
-    position: absolute !important;
-    white-space: nowrap;
-    width: 1px !important;
-    height: 1px !important;
     border: 0 !important;
-    padding: 0 !important;
     clip: rect(0 0 0 0);
     -webkit-clip-path: inset(100%) !important;
     clip-path: inset(100%) !important;
+    height: 1px !important;
     overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    white-space: nowrap;
+    width: 1px !important;
   }
 }
 @media screen and (min-width: 768px) and (max-width: 1279px) {
   .visually-hidden-md {
-    position: absolute !important;
-    white-space: nowrap;
-    width: 1px !important;
-    height: 1px !important;
     border: 0 !important;
-    padding: 0 !important;
     clip: rect(0 0 0 0);
     -webkit-clip-path: inset(100%) !important;
     clip-path: inset(100%) !important;
+    height: 1px !important;
     overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    white-space: nowrap;
+    width: 1px !important;
   }
 }
 @media screen and (min-width: 1280px) {
   .visually-hidden-lg {
-    position: absolute !important;
-    white-space: nowrap;
-    width: 1px !important;
-    height: 1px !important;
     border: 0 !important;
-    padding: 0 !important;
     clip: rect(0 0 0 0);
     -webkit-clip-path: inset(100%) !important;
     clip-path: inset(100%) !important;
+    height: 1px !important;
     overflow: hidden !important;
+    padding: 0 !important;
+    position: absolute !important;
+    white-space: nowrap;
+    width: 1px !important;
   }
 }

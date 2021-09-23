@@ -14,22 +14,17 @@ hr.variant-dotted {
   border-top: 1px dotted var(--hr-color-1, #404040);
 }
 hr.variant-shadow {
-  height: 10px;
   border: 0;
   box-shadow: 0 10px 10px -10px var(--hr-color-1, #404040) inset;
+  height: 10px;
 }
 hr:not([class^=variant]) {
-  background-image: -webkit-linear-gradient(to right, transparent, var(--hr-color-1, #404040) 20%, var(--hr-color-2, #404040) 80%, transparent);
-  background-image: -moz-linear-gradient(to right, transparent, var(--hr-color-1, #404040) 20%, var(--hr-color-2, #404040) 80%, transparent);
-  background-image: -o-linear-gradient(to right, transparent, var(--hr-color-1, #404040) 20%, var(--hr-color-2, #404040) 80%, transparent);
   background-image: linear-gradient(to right, transparent, var(--hr-color-1, #404040) 20%, var(--hr-color-2, #404040) 80%, transparent);
   border: 0;
   height: 1px;
 }
 
 p {
-  -ms-hyphens: auto;
-  -moz-hyphens: auto;
   -webkit-hyphens: auto;
   hyphens: auto;
   line-height: 3.4482758621ex;

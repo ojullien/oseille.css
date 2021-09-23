@@ -1,8 +1,9 @@
 //
 // Default responsive' properties.
 //
-@use 'sass:map';
-@use '../1-tools/stdlib' as stdlib;
+
+@use "sass:map";
+@use "../1-tools/stdlib" as stdlib;
 
 // Variables.
 //
@@ -18,8 +19,8 @@
 //   - medium: medium/mobile screen breakpoint for grid
 //   - large: large screen breakpoint for grid
 $breakpoints: (
-    'medium': 768px,
-    'large': 1280px,
+  "medium": 768px,
+  "large": 1280px,
 ) !default;
 
 // Accessors.
@@ -29,12 +30,13 @@ $breakpoints: (
 //
 // @param {string} $key - The property we are looking for
 //
+
 @function get($key) {
-    $value: stdlib.get($key, $breakpoints);
+  $value: stdlib.get($key, $breakpoints);
 
-    @if $value == null {
-        @warn #{'Breakpoint "' + $key + '" not found!'};
-    }
+  @if $value == null {
+    @warn #{'Breakpoint "' + $key + '" not found!'};
+  }
 
-    @return $value;
+  @return $value;
 }

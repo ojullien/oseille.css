@@ -5,10 +5,11 @@
 // You may override the default values of the settings' variables, if needed, with the @use rule.
 // See flavors/oseille.scss and the 2-settings*.scss files.
 //
-@use 'sass:map';
-@use '../2-settings/colors' as colors;
-@use '../2-settings/borders' as borders;
-@use '../2-settings/box-model' as boxmodel;
+
+@use "sass:map";
+@use "../2-settings/colors" as colors;
+@use "../2-settings/borders" as borders;
+@use "../2-settings/box-model" as boxmodel;
 
 // Private variables.
 //
@@ -18,19 +19,19 @@
 // @link: https://sass-lang.com/documentation/variables
 
 $_classnames: (
-    'main': 'toast',
+  "main": "toast",
 ) !default;
 
 /* Toast styling */
 
 .#{map.get($_classnames, 'main')} {
-    background-color: var(--toast-back-color, colors.get('back-alt'));
-    border-radius: calc(#{borders.get('radius')} * 16);
-    bottom: calc(#{boxmodel.get('margin')} * 3);
-    color: var(--toast-fore-color, colors.get('fore-alt'));
-    left: 50%;
-    padding: boxmodel.get('padding') calc(#{boxmodel.get('padding')} * 3);
-    position: fixed;
-    transform: translate(-50%, -50%);
-    z-index: 1111;
+  background-color: var(--toast-back-color, colors.get("back-alt"));
+  border-radius: calc(#{borders.get("radius")} * 16);
+  bottom: calc(#{boxmodel.get("margin")} * 3);
+  color: var(--toast-fore-color, colors.get("fore-alt"));
+  left: 50%;
+  padding: boxmodel.get("padding") calc(#{boxmodel.get("padding")} * 3);
+  position: fixed;
+  transform: translate(-50%, -50%);
+  z-index: 1111;
 }

@@ -1,8 +1,9 @@
 //
 // Default fonts' properties.
 //
-@use 'sass:map';
-@use '../1-tools/stdlib' as stdlib;
+
+@use "sass:map";
+@use "../1-tools/stdlib" as stdlib;
 
 // Variables.
 //
@@ -19,41 +20,41 @@
 //   - caption: Font stack 'for <q> <figcaption> <blockquote>
 //   - heading: Heading font stack
 $stacks: (
-    'base': (
-        -apple-system,
-        blinkmacsystemfont,
-        'Segoe UI',
-        roboto,
-        ubuntu,
-        'Helvetica Neue',
-        helvetica,
-        sans-serif,
-    ),
-    'code': (
-        menlo,
-        consolas,
-        monospace,
-    ),
-    'quotation': (
-        -apple-system,
-        blinkmacsystemfont,
-        'Segoe UI',
-        roboto,
-        ubuntu,
-        'Helvetica Neue',
-        helvetica,
-        sans-serif,
-    ),
-    'heading': (
-        -apple-system,
-        blinkmacsystemfont,
-        'Segoe UI',
-        roboto,
-        ubuntu,
-        'Helvetica Neue',
-        helvetica,
-        sans-serif,
-    ),
+  "base": (
+    -apple-system,
+    blinkmacsystemfont,
+    "Segoe UI",
+    roboto,
+    ubuntu,
+    "Helvetica Neue",
+    helvetica,
+    sans-serif,
+  ),
+  "code": (
+    menlo,
+    consolas,
+    monospace,
+  ),
+  "quotation": (
+    -apple-system,
+    blinkmacsystemfont,
+    "Segoe UI",
+    roboto,
+    ubuntu,
+    "Helvetica Neue",
+    helvetica,
+    sans-serif,
+  ),
+  "heading": (
+    -apple-system,
+    blinkmacsystemfont,
+    "Segoe UI",
+    roboto,
+    ubuntu,
+    "Helvetica Neue",
+    helvetica,
+    sans-serif,
+  ),
 ) !default;
 
 //
@@ -76,23 +77,23 @@ $stacks: (
 //   - input: Font size for all inputs
 //   - close: Font size for the close button of the modal dialog
 $sizes: (
-    'accessible': 100%,
-    'not-accessible': 16px,
-    'body': medium,
-    'ratio-heading': 1.25,
-    'small': 0.75em,
-    'code': 0.85em,
-    'footer': 0.875em,
-    'mark': 0.95em,
-    'cite': 1em,
-    'caption': 1em,
-    'legend': 1em,
-    'label': 1em,
-    'quotation': 1em,
-    'quotation-before': 3em,
-    'input': 1rem,
-    'close': 2rem,
-    'toggle': 1.5em,
+  "accessible": 100%,
+  "not-accessible": 16px,
+  "body": medium,
+  "ratio-heading": 1.25,
+  "small": 0.75em,
+  "code": 0.85em,
+  "footer": 0.875em,
+  "mark": 0.95em,
+  "cite": 1em,
+  "caption": 1em,
+  "legend": 1em,
+  "label": 1em,
+  "quotation": 1em,
+  "quotation-before": 3em,
+  "input": 1rem,
+  "close": 2rem,
+  "toggle": 1.5em,
 ) !default;
 
 //
@@ -109,18 +110,18 @@ $sizes: (
 //   - small: line height for smaller text sizes
 //   - hr : line height for thematic break
 $line-spacing: (
-    'h1': calc(1ex / 0.42),
-    'h2': calc(1ex / 0.42),
-    'h3': calc(1ex / 0.38),
-    'h4': calc(1ex / 0.37),
-    'h5': calc(1ex / 0.32),
-    'h6': calc(1ex / 0.32),
-    'subheading': calc(1ex / 0.32),
-    'main': 1.5,
-    'mark': 1.5,
-    'p': calc(1ex / 0.29),
-    'hr': 1.25,
-    'small': 1.5625,
+  "h1": calc(1ex / 0.42),
+  "h2": calc(1ex / 0.42),
+  "h3": calc(1ex / 0.38),
+  "h4": calc(1ex / 0.37),
+  "h5": calc(1ex / 0.32),
+  "h6": calc(1ex / 0.32),
+  "subheading": calc(1ex / 0.32),
+  "main": 1.5,
+  "mark": 1.5,
+  "p": calc(1ex / 0.29),
+  "hr": 1.25,
+  "small": 1.5625,
 ) !default;
 
 // Hyphenation
@@ -129,15 +130,15 @@ $line-spacing: (
 // Avoid justified text in the absence of hyphenation.
 $hyphenation: false !default;
 $hyphenations: (
-    'text-align': left,
-    'hyphens': none,
+  "text-align": left,
+  "hyphens": none,
 ) !default;
 
 @if $hyphenation {
-    $hyphenations: (
-        'text-align': justify,
-        'hyphens': auto,
-    );
+  $hyphenations: (
+    "text-align": justify,
+    "hyphens": auto,
+  );
 }
 
 // Accessors.
@@ -148,20 +149,21 @@ $hyphenations: (
 //
 // @param {string} $key - The property we are looking for
 //
+
 @function get-stack($key) {
-    $value: stdlib.get($key, $stacks);
+  $value: stdlib.get($key, $stacks);
+
+  @if $value == null {
+    @warn #{'Font-stack "' + $key + '" not found! Use base font stack.'};
+
+    $value: stdlib.get("base", $stacks);
 
     @if $value == null {
-        @warn #{'Font-stack "' + $key + '" not found! Use base font stack.'};
-
-        $value: stdlib.get('base', $stacks);
-
-        @if $value == null {
-            @warn #{'Font-stack "base" not found!'};
-        }
+      @warn #{'Font-stack "base" not found!'};
     }
+  }
 
-    @return $value;
+  @return $value;
 }
 
 //
@@ -170,14 +172,15 @@ $hyphenations: (
 //
 // @param {string} $key - The property we are looking for
 //
+
 @function get-size($key) {
-    $value: stdlib.get($key, $sizes);
+  $value: stdlib.get($key, $sizes);
 
-    @if $value == null {
-        @warn #{'Font size "' + $key + '" not found!'};
-    }
+  @if $value == null {
+    @warn #{'Font size "' + $key + '" not found!'};
+  }
 
-    @return $value;
+  @return $value;
 }
 
 //
@@ -186,14 +189,15 @@ $hyphenations: (
 //
 // @param {string} $key - The property we are looking for
 //
+
 @function get-line-spacing($key) {
-    $value: stdlib.get($key, $line-spacing);
+  $value: stdlib.get($key, $line-spacing);
 
-    @if $value == null {
-        @warn #{'Line-spacing "' + $key + '" not found!'};
-    }
+  @if $value == null {
+    @warn #{'Line-spacing "' + $key + '" not found!'};
+  }
 
-    @return $value;
+  @return $value;
 }
 
 //
@@ -202,12 +206,13 @@ $hyphenations: (
 //
 // @param {string} $key - The property we are looking for
 //
+
 @function get-hyphenation($key) {
-    $value: stdlib.get($key, $hyphenations);
+  $value: stdlib.get($key, $hyphenations);
 
-    @if $value == null {
-        @warn #{'Hyphenation "' + $key + '" not found!'};
-    }
+  @if $value == null {
+    @warn #{'Hyphenation "' + $key + '" not found!'};
+  }
 
-    @return $value;
+  @return $value;
 }

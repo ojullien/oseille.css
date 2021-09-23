@@ -6,12 +6,13 @@
 // You may override the default values of the settings' variables, if needed, with the @use rule.
 // See flavors/oseille.scss and the 2-settings*.scss files.
 //
-@use 'sass:map';
-@use '../../2-settings/colors' as colors;
-@use '../../2-settings/fonts' as fonts;
-@use '../../2-settings/borders' as borders;
-@use '../../2-settings/box-model' as boxmodel;
-@use '../../2-settings/responsive' as breakpoints;
+
+@use "sass:map";
+@use "../../2-settings/colors" as colors;
+@use "../../2-settings/fonts" as fonts;
+@use "../../2-settings/borders" as borders;
+@use "../../2-settings/box-model" as boxmodel;
+@use "../../2-settings/responsive" as breakpoints;
 
 // Private variables.
 //
@@ -21,17 +22,7 @@
 // @link: https://sass-lang.com/documentation/variables
 
 // Mobile breakpoint for button groups.
-$_mobile-breakpoint: breakpoints.get('medium') - 1px;
-
-// Classnames
-//
-// Keys:
-//   - button: elements styled as buttons
-//   - group: button groups
-$_classnames: (
-    'button': 'button',
-    'group': 'button-group',
-) !default;
+$_mobile-breakpoint: breakpoints.get("medium") - 1px;
 
 // Should variant be included? (boolean)
 $_include-variant: true !default;
@@ -53,11 +44,12 @@ $_disabled-opacity: 0.75 !default;
 }
 
 // Fixes for Android 4, iOS and Safari.
+
 @supports (-webkit-appearance: button) or (-moz-appearance: button) {
     button,
-    input[type='button'],
-    input[type='submit'],
-    input[type='reset'] {
+    input[type="button"],
+    input[type="submit"],
+    input[type="reset"] {
         -webkit-appearance: button;
         -moz-appearance: button;
     }
@@ -65,59 +57,53 @@ $_disabled-opacity: 0.75 !default;
 
 // Button styling
 
-.#{map.get($_classnames, 'button')} {
-    --button-padding: #{boxmodel.get('padding')} calc(#{fonts.get-line-spacing('main')} * #{boxmodel.get('padding')});
+%button {
+    --button-padding: #{boxmodel.get("padding")} calc(#{fonts.get-line-spacing("main")} * #{boxmodel.get("padding")});
+
     background-color: var(--button-back-color, transparent);
-    border: borders.get('medium') solid var(--button-border-color, #{colors.get('fore')});
+    border: borders.get("medium") solid var(--button-border-color, #{colors.get("fore")});
     border-radius: 0;
-    color: var(--button-fore-color, #{colors.get('fore')});
+    color: var(--button-fore-color, #{colors.get("fore")});
     cursor: pointer;
     display: inline-block;
     font: inherit;
     font-size: 1em;
-    margin: boxmodel.get('margin');
-
+    margin: boxmodel.get("margin");
     padding: var(--button-padding);
     text-align: center;
     text-decoration: none;
-
-    -webkit-transition: all 0.125s linear;
-    -moz-transition: all 0.125s linear;
-    -o-transition: all 0.125s linear;
     transition: all 0.125s linear;
-
     -moz-user-select: none;
     -webkit-user-select: none;
-    -ms-user-select: none;
     user-select: none;
 
     &:hover {
-        background-color: var(--button-back-hover-color, #{colors.get('back-alt')});
-        border-color: var(--button-border-hover-color, #{colors.get('back-alt')});
-        color: var(--button-fore-hover-color, #{colors.get('fore-alt')});
+        background-color: var(--button-back-hover-color, #{colors.get("back-alt")});
+        border-color: var(--button-border-hover-color, #{colors.get("back-alt")});
+        color: var(--button-fore-hover-color, #{colors.get("fore-alt")});
         outline: transparent solid;
     }
 
     &:focus {
-        background-color: var(--button-back-focus-color, #{colors.get('back-alt')});
-        border-color: var(--button-border-focus-color, #{colors.get('back-alt')});
-        color: var(--button-fore-focus-color, #{colors.get('fore-alt')});
+        background-color: var(--button-back-focus-color, #{colors.get("back-alt")});
+        border-color: var(--button-border-focus-color, #{colors.get("back-alt")});
+        color: var(--button-fore-focus-color, #{colors.get("fore-alt")});
         outline: transparent solid;
     }
 
     &:active {
         background-color: var(--button-back-active-color, transparent);
-        border-color: var(--button-border-active-color, #{colors.get('fore')});
-        color: var(--button-fore-active-color, #{colors.get('fore')});
+        border-color: var(--button-border-active-color, #{colors.get("fore")});
+        color: var(--button-fore-active-color, #{colors.get("fore")});
     }
 
     // Size variants
     &.small {
-        --button-padding: calc(0.5 * #{boxmodel.get('padding')}) calc(0.75 * #{boxmodel.get('padding')});
+        --button-padding: calc(0.5 * #{boxmodel.get("padding")}) calc(0.75 * #{boxmodel.get("padding")});
     }
 
     &.large {
-        --button-padding: calc(1.5 * #{boxmodel.get('padding')}) calc(2 * #{boxmodel.get('padding')});
+        --button-padding: calc(1.5 * #{boxmodel.get("padding")}) calc(2 * #{boxmodel.get("padding")});
     }
 
     // Disabled styling button elements.
@@ -125,7 +111,7 @@ $_disabled-opacity: 0.75 !default;
     // The user keeps clicking the button and is totally in the dark why nothing happens. Keep the button enabled.
     // Let the user click the button. Then show the message why it can’t proceed.
     &:disabled,
-    &[aria-disabled='true'],
+    &[aria-disabled="true"],
     &[disabled] {
         cursor: not-allowed;
         filter: grayscale(60%);
@@ -134,7 +120,7 @@ $_disabled-opacity: 0.75 !default;
 }
 
 button {
-    @extend .#{map.get($_classnames, 'button')};
+    @extend %button;
 
     overflow: visible; // Show the overflow in IE.
     text-transform: none; // Remove inheritance of text-transform in Edge, Firefox, and IE.
@@ -142,23 +128,28 @@ button {
 
 // Input button styling
 
-input[type='button'],
-input[type='submit'],
-input[type='reset'] {
-    @extend .#{map.get($_classnames, 'button')};
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+    @extend %button;
+}
+
+// Class button-like styling
+.button {
+    @extend %button;
 }
 
 // Role button-like styling
 
-[role='button'] {
-    @extend .#{map.get($_classnames, 'button')};
+[role="button"] {
+    @extend %button;
 }
 
 // Anchor button-like styling. Overrides a:link
 
-a[role='button'],
+a[role="button"],
 a.button {
-    color: var(--button-fore-color, #{colors.get('fore')});
+    color: var(--button-fore-color, #{colors.get("fore")});
 
     &:focus {
         outline-offset: unset;
@@ -168,9 +159,10 @@ a.button {
 }
 
 // Variants
+
 @if $_include-variant {
     .scale-on-hover-variant {
-        border-radius: borders.get('radius');
+        border-radius: borders.get("radius");
         &:hover,
         &:focus {
             transform: scale(1.1);
@@ -183,12 +175,14 @@ a.button {
     .shadowed-variant {
         &:hover,
         &:focus {
-            box-shadow: 0 0 0 (1.5rem / 8) var(--button-fore-hover-color, #{colors.get('fore-alt')}),
-                0 0 0 (1.5rem / 4) var(--button-back-hover-color, #{colors.get('back-alt')});
+            box-shadow:
+                0 0 0 (1.5rem / 8) var(--button-fore-hover-color, #{colors.get("fore-alt")}),
+                0 0 0 (1.5rem / 4) var(--button-back-hover-color, #{colors.get("back-alt")});
         }
         &:active {
-            box-shadow: 0 0 0 (1.5rem / 8) var(--button-fore-active-color, #{colors.get('back-alt')}),
-                0 0 0 (1.5rem / 4) var(--button-back-active-color, #{colors.get('fore-alt')});
+            box-shadow:
+                0 0 0 (1.5rem / 8) var(--button-fore-active-color, #{colors.get("back-alt")}),
+                0 0 0 (1.5rem / 4) var(--button-back-active-color, #{colors.get("fore-alt")});
         }
     }
 }
@@ -201,18 +195,18 @@ a.button {
 
 /* Button group styling. */
 
-.#{map.get($_classnames, 'group')} {
-    border: borders.get('thin') solid var(--button-group-border-color, #{colors.get('border')});
-    border-radius: borders.get('radius');
+.button-group {
+    border: borders.get("thin") solid var(--button-group-border-color, #{colors.get("border")});
+    border-radius: borders.get("radius");
     display: flex;
-    margin: boxmodel.get('margin');
+    margin: boxmodel.get("margin");
 
-    & > button,
-    & > input[type='button'],
-    & > input[type='submit'],
-    & > input[type='reset'],
-    & > .button,
-    & > [role='button'] {
+    > button,
+    > input[type="button"],
+    > input[type="submit"],
+    > input[type="reset"],
+    > .button,
+    > [role="button"] {
         border: 0;
         border-radius: 0;
         box-shadow: none;
@@ -222,26 +216,27 @@ a.button {
         text-align: center;
     }
 
-    & > :not(:first-child) {
-        border-left: borders.get('thin') solid var(--button-group-border-color, #{colors.get('border')});
+    > :not(:first-child) {
+        border-left: borders.get("thin") solid var(--button-group-border-color, #{colors.get("border")});
     }
 
     // Responsiveness for button groups
+
     @media screen and (max-width: #{$_mobile-breakpoint}) {
         flex-direction: column;
 
-        & > :not(:first-child) {
+        > :not(:first-child) {
             border: 0; // Reapply to remove the left border from elements.
-            border-top: borders.get('thin') solid var(--button-group-border-color, #{colors.get('border')});
+            border-top: borders.get("thin") solid var(--button-group-border-color, #{colors.get("border")});
         }
     }
 }
 
 // Reset for Firefox focusing on button elements.
 button::-moz-focus-inner,
-input[type='button']::-moz-focus-inner,
-input[type='reset']::-moz-focus-inner,
-input[type='submit']::-moz-focus-inner {
+input[type="button"]::-moz-focus-inner,
+input[type="reset"]::-moz-focus-inner,
+input[type="submit"]::-moz-focus-inner {
     border-style: none;
     padding: 0;
 }

@@ -59,7 +59,9 @@ table.striped tr:nth-of-type(2n) > td {
   background-color: var(--tr-back-color, #ededed);
 }
 
-table.hoverable tr:hover, table.hoverable tr:hover > td, table.hoverable tr:focus, table.hoverable tr:focus > td {
+table.hoverable tr:hover,
+table.hoverable tr:hover > td, table.hoverable tr:focus,
+table.hoverable tr:focus > td {
   background-color: var(--table-back-hover-color, #121212);
   color: var(--table-fore-hover-color, #f8f8f8);
 }

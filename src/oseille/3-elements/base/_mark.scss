@@ -5,11 +5,12 @@
 // You may override the default values of the settings' variables, if needed, with the @use rule.
 // See flavors/oseille.scss and the 2-settings*.scss files.
 //
-@use 'sass:map';
-@use '../../2-settings/colors' as colors;
-@use '../../2-settings/fonts' as fonts;
-@use '../../2-settings/borders' as borders;
-@use '../../2-settings/box-model' as boxmodel;
+
+@use "sass:map";
+@use "../../2-settings/colors" as colors;
+@use "../../2-settings/fonts" as fonts;
+@use "../../2-settings/borders" as borders;
+@use "../../2-settings/box-model" as boxmodel;
 
 // Private variables.
 //
@@ -26,45 +27,45 @@
 //   - tertiary: tertiary <mark> color variant.
 //   - tag: padding and border radius for tag <mark> size variant.
 $_classnames: (
-    'mark': 'inline-block',
-    'secondary': 'secondary',
-    'tertiary': 'tertiary',
-    'tag': 'tag',
+    "mark": "inline-block",
+    "secondary": "secondary",
+    "tertiary": "tertiary",
+    "tag": "tag",
 ) !default;
 
 /* Mark styling */
 
 mark {
-    background-color: var(--primary-color, colors.get('primary'));
+    background-color: var(--primary-color, colors.get("primary"));
     border: 0;
-    border-radius: borders.get('radius');
-    color: var(--back-color, colors.get('back'));
-    font-size: fonts.get-size('mark');
-    line-height: fonts.get-line-spacing('mark');
+    border-radius: borders.get("radius");
+    color: var(--back-color, colors.get("back"));
+    font-size: fonts.get-size("mark");
+    line-height: fonts.get-line-spacing("mark");
     margin: 0;
-    padding: calc(#{boxmodel.get('padding')} / 4) calc(#{boxmodel.get('padding')} / 2);
+    padding: calc(#{boxmodel.get("padding")} / 4) calc(#{boxmodel.get("padding")} / 2);
 
     &.#{map.get($_classnames, 'mark')} {
         display: inline-block;
         // This is hardcoded, as we want inline-block <mark> elements to be styled as normal pieces of text, instead of look small and weird.
         font-size: 1em;
         // Line height is reset to the normal line-height.
-        line-height: fonts.get-line-spacing('main');
-        padding: calc(#{boxmodel.get('padding')} / 2) #{boxmodel.get('padding')};
+        line-height: fonts.get-line-spacing("main");
+        padding: calc(#{boxmodel.get("padding")} / 2) #{boxmodel.get("padding")};
     }
 
     &.#{map.get($_classnames, 'tag')} {
         border-radius: 1em;
-        padding: calc(#{boxmodel.get('padding')} / 2) #{boxmodel.get('padding')};
+        padding: calc(#{boxmodel.get("padding")} / 2) #{boxmodel.get("padding")};
     }
 
     &.#{map.get($_classnames, 'secondary')} {
-        background-color: var(--secondary-color, colors.get('error'));
+        background-color: var(--secondary-color, colors.get("error"));
     }
 
     &.#{map.get($_classnames, 'tertiary')} {
-        background-color: var(--tertiary-color, colors.get('success'));
-        color: var(--fore-color, colors.get('fore'));
+        background-color: var(--tertiary-color, colors.get("success"));
+        color: var(--fore-color, colors.get("fore"));
     }
 
     // The presence of the mark element is not announced by most screen reading technology
@@ -73,21 +74,20 @@ mark {
     &::before,
     &::after {
         clip: rect(1px, 1px, 1px, 1px);
+        -webkit-clip-path: inset(100%);
+        clip-path: inset(100%);
         height: 1px;
         overflow: hidden;
         position: absolute;
         white-space: nowrap;
         width: 1px;
-
-        -webkit-clip-path: inset(100%);
-        clip-path: inset(100%);
     }
 
     &::before {
-        content: ' [highlight start] ';
+        content: " [highlight start] ";
     }
 
     &::after {
-        content: ' [highlight end] ';
+        content: " [highlight end] ";
     }
 }

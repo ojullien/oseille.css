@@ -2,13 +2,13 @@
 /* Styling for modal dialogs */
 [type=checkbox].modal {
   clip: rect(0 0 0 0);
+  -webkit-clip-path: inset(100%);
+  clip-path: inset(100%);
   height: 1px;
   margin: -1px;
   overflow: hidden;
   position: absolute;
   width: 1px;
-  -webkit-clip-path: inset(100%);
-  clip-path: inset(100%);
 }
 [type=checkbox].modal + div {
   background-color: var(--modal-back-color, rgba(0, 0, 0, 0.45));

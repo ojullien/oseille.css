@@ -4,8 +4,9 @@
 // You may override the default values of the settings' variables, if needed, with the @use rule.
 // See flavors/oseille.scss and the 2-settings*.scss files.
 //
-@use '../2-settings/box-model' as boxmodel;
-@use '../2-settings/fonts' as fonts;
+
+@use "../2-settings/box-model" as boxmodel;
+@use "../2-settings/fonts" as fonts;
 
 // Private variables.
 //
@@ -14,18 +15,18 @@
 // The configured values will override the variables’ default values.
 // @link: https://sass-lang.com/documentation/variables
 
-$_classname: 'legible' !default;
+$_classname: "legible" !default;
 
 /* Improve legibility */
 
-@mixin _improveLegibility($args...) {
-    @each $element in $args {
-        #{$element} {
-            margin: fonts.get-line-spacing(#{$element}) boxmodel.get('margin');
-        }
+@mixin improve-legibility($args...) {
+  @each $element in $args {
+    #{$element} {
+      margin: fonts.get-line-spacing(#{$element}) boxmodel.get("margin");
     }
+  }
 }
 
 .#{$_classname} {
-    @include _improveLegibility(h1, h2, h3, h4, h5, h6, p);
+  @include improve-legibility(h1, h2, h3, h4, h5, h6, p);
 }

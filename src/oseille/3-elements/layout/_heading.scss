@@ -9,10 +9,11 @@
 // You may override the default values of the settings' variables, if needed, with the @use rule.
 // See flavors/oseille.scss and the 2-settings*.scss files.
 //
-@use 'sass:map';
-@use '../../2-settings/fonts' as fonts;
-@use '../../2-settings/box-model' as boxmodel;
-@use 'sass:math';
+
+@use "sass:map";
+@use "../../2-settings/fonts" as fonts;
+@use "../../2-settings/box-model" as boxmodel;
+@use "sass:math";
 
 // Private variables.
 //
@@ -32,29 +33,28 @@ $_subheading-margin-top: -0.25rem !default; // Top margin of <small> elements in
 //   - subheading-fore: subheading foreground color
 //   - subheading-back: subheading background color
 $_colors: (
-    'fore': inherit,
-    'back': inherit,
-    'subheading-fore': inherit,
-    'subheading-back': inherit,
+    "fore": inherit,
+    "back": inherit,
+    "subheading-fore": inherit,
+    "subheading-back": inherit,
 ) !default;
 
 /* Heading styling */
 
 @mixin normalize {
-    background-color: var(--heading-back-color, #{map.get($_colors, 'back')}); // Allows live color tunning
+    background-color: var(--heading-back-color, #{map.get($_colors, "back")}); // Allows live color tunning
     border: 0;
-    color: var(--heading-fore-color, #{map.get($_colors, 'fore')}); // Allows live color tunning
-    font-family: fonts.get-stack('heading');
+    color: var(--heading-fore-color, #{map.get($_colors, "fore")}); // Allows live color tunning
+    font-family: fonts.get-stack("heading");
     font-weight: $_font-weight;
-    margin: boxmodel.get('margin');
+    margin: boxmodel.get("margin");
     padding: 0;
 
     small {
-        background-color: var(--subheading-back-color, #{map.get($_colors, 'subheading-back')}); // Allows live color tunning
-        color: var(--subheading-fore-color, #{map.get($_colors, 'subheading-fore')}); // Allows live color tunning
+        background-color: var(--subheading-back-color, #{map.get($_colors, "subheading-back")}); // Allows live color tunning
+        color: var(--subheading-fore-color, #{map.get($_colors, "subheading-fore")}); // Allows live color tunning
         display: block;
-
-        line-height: fonts.get-line-spacing('subheading');
+        line-height: fonts.get-line-spacing("subheading");
 
         @if $_subheading-margin-top != 0 {
             margin-top: $_subheading-margin-top;
@@ -65,41 +65,41 @@ $_colors: (
 h1 {
     @include normalize;
 
-    font-size: calc(1em * #{math.pow(fonts.get-size('ratio-heading'), 4)});
-    line-height: fonts.get-line-spacing('h1');
+    font-size: calc(1em * #{math.pow(fonts.get-size("ratio-heading"), 4)});
+    line-height: fonts.get-line-spacing("h1");
 }
 
 h2 {
     @include normalize;
 
-    font-size: calc(1em * #{math.pow(fonts.get-size('ratio-heading'), 3)});
-    line-height: fonts.get-line-spacing('h2');
+    font-size: calc(1em * #{math.pow(fonts.get-size("ratio-heading"), 3)});
+    line-height: fonts.get-line-spacing("h2");
 }
 
 h3 {
     @include normalize;
 
-    font-size: calc(1em * #{math.pow(fonts.get-size('ratio-heading'), 2)});
-    line-height: fonts.get-line-spacing('h3');
+    font-size: calc(1em * #{math.pow(fonts.get-size("ratio-heading"), 2)});
+    line-height: fonts.get-line-spacing("h3");
 }
 
 h4 {
     @include normalize;
 
-    font-size: calc(1em * #{fonts.get-size('ratio-heading')});
-    line-height: fonts.get-line-spacing('h4');
+    font-size: calc(1em * #{fonts.get-size("ratio-heading")});
+    line-height: fonts.get-line-spacing("h4");
 }
 
 h5 {
     @include normalize;
 
     font-size: 1em;
-    line-height: fonts.get-line-spacing('h5');
+    line-height: fonts.get-line-spacing("h5");
 }
 
 h6 {
     @include normalize;
 
-    font-size: calc(1em / #{fonts.get-size('ratio-heading')});
-    line-height: fonts.get-line-spacing('h6');
+    font-size: calc(1em / #{fonts.get-size("ratio-heading")});
+    line-height: fonts.get-line-spacing("h6");
 }

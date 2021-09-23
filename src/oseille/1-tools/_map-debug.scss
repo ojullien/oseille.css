@@ -3,8 +3,9 @@
 //
 // @param {map} $declarations - The map to debug
 //
+
 @mixin map-debug($declarations) {
-    @each $property, $value in $declarations {
-        @debug '#{$property}: #{$value}';
-    }
+  @each $property, $value in $declarations {
+    @debug "#{$property}: #{$value}";
+  }
 }
