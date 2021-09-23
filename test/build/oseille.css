@@ -58,6 +58,7 @@ div {
 }
 
 /* Inline text semantic styling */
+/* stylelint-disable order/properties-alphabetical-order */
 a {
   border: 0;
   font-size: 1em;
@@ -108,6 +109,7 @@ a:not([class~=button]):not([role=button]):-webkit-any-link.variant:focus, a:not(
   background-image: none;
 }
 
+/* stylelint-enable order/properties-alphabetical-order */
 abbr[title] {
   border: 0;
   font-size: 1em;
@@ -127,7 +129,9 @@ strong {
   font-size: 1em;
   margin: 0;
   padding: 0;
+  /* stylelint-disable order/properties-alphabetical-order */
   font-weight: 700;
+  /* stylelint-enable order/properties-alphabetical-order */
 }
 
 data {
@@ -197,6 +201,7 @@ small {
   padding: 0;
 }
 
+/* stylelint-disable order/properties-alphabetical-order */
 sub {
   border: 0;
   font-family: inherit;
@@ -221,6 +226,7 @@ sup {
   top: -0.5em;
 }
 
+/* stylelint-enable order/properties-alphabetical-order */
 .text-centered {
   text-align: center;
 }
@@ -283,6 +289,7 @@ mark::after {
 }
 
 /* Inline code semantic styling */
+/* stylelint-disable order/properties-alphabetical-order */
 code {
   font-family: menlo, consolas, monospace;
   font-size: 0.85em;
@@ -525,6 +532,7 @@ var {
   padding: 0;
 }
 
+/* stylelint-enable order/properties-alphabetical-order */
 /* paragraph-level elements styling */
 hr {
   box-sizing: content-box;
@@ -571,7 +579,9 @@ q {
   font-weight: inherit;
   margin: 0;
   padding: 0;
+  /* stylelint-disable order/properties-alphabetical-order */
   font-style: inherit;
+  /* stylelint-enable order/properties-alphabetical-order */
 }
 
 cite {
@@ -665,7 +675,7 @@ dd {
 
 dl {
   border: 0;
-  margin: 0.5rem 0 0.5rem;
+  margin: 0.5rem 0;
   padding: 0;
   padding-left: calc(2 * 0.5rem);
 }
@@ -971,13 +981,11 @@ select {
   width: calc(1rem + 0.5rem / 2);
 }
 [type=checkbox]:checked::before {
-  position: absolute;
-}
-[type=checkbox]:checked::before {
   content: "✓";
   font-family: sans-serif;
   font-size: calc(1rem + 0.5rem / 2);
   left: calc(0.5rem / 4);
+  position: absolute;
   top: calc(0rem - 0.5rem);
 }
 
@@ -993,10 +1001,9 @@ select {
   position: relative;
   vertical-align: text-bottom;
   width: calc(1rem + 0.5rem / 2);
+  /* stylelint-disable order/properties-alphabetical-order */
   border-radius: 100%;
-}
-[type=radio]:checked::before {
-  position: absolute;
+  /* stylelint-enable order/properties-alphabetical-order */
 }
 [type=radio]:checked::before {
   background-color: #121212;
@@ -1004,6 +1011,7 @@ select {
   content: "";
   height: 0.5rem;
   left: calc(1px + 0.5rem / 2);
+  position: absolute;
   top: calc(1px + 0.5rem / 2);
   width: 0.5rem;
 }
@@ -1232,6 +1240,7 @@ picture {
   max-width: 100%;
 }
 
+/* stylelint-disable order/properties-alphabetical-order */
 img {
   border: 0;
   margin: 0;
@@ -1241,6 +1250,7 @@ img {
   border-style: none;
 }
 
+/* stylelint-enable order/properties-alphabetical-order */
 audio {
   border: 0;
   margin: 0;
@@ -1315,7 +1325,7 @@ video {
 summary {
   border: 0;
   display: list-item;
-  margin: calc(0 - 0.5rem) calc(0 - 0.5rem) 0;
+  margin: calc(0rem - 0.5rem) calc(0rem - 0.5rem) 0;
   padding: 0.5rem;
 }
 
@@ -1387,6 +1397,7 @@ menu {
 }
 
 /* Heading styling */
+/* stylelint-disable order/properties-alphabetical-order */
 h1 {
   background-color: var(--heading-back-color, inherit);
   border: 0;
@@ -1501,12 +1512,13 @@ h6 small {
   margin-top: -0.25rem;
 }
 
+/* stylelint-enable order/properties-alphabetical-order */
 /* Footer styling */
 footer {
+  border-top: 1px solid var(--footer-border-color, #404040);
   font-size: 0.875em;
   margin: 0;
   padding: calc(2 * 0.5rem) 0.5rem;
-  border-top: 1px solid var(--footer-border-color, #404040);
 }
 footer.page-footer {
   background-color: var(--footer-back-color, #f8f8f8);
@@ -1532,12 +1544,12 @@ header {
 
 .page-header {
   background-color: var(--header-back-color, #f8f8f8);
+  border-bottom: 1px solid var(--header-border-color, #404040);
   color: var(--header-fore-color, #121212);
   overflow-x: auto;
   overflow-y: hidden;
   padding: calc(0.5rem / 4) 0;
   white-space: nowrap;
-  border-bottom: 1px solid var(--header-border-color, #404040);
 }
 .page-header .logo {
   box-shadow: none;
@@ -1561,8 +1573,8 @@ header {
 .page-header span {
   line-height: calc(3.1875rem - 0.5rem * 1.5);
   position: relative;
-  top: calc(0rem - 0.5rem / 4);
   text-transform: uppercase;
+  top: calc(0rem - 0.5rem / 4);
 }
 .page-header.sticky {
   position: sticky;

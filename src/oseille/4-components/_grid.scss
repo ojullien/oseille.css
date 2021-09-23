@@ -7,6 +7,7 @@
 //
 
 @use "sass:map";
+@use "sass:math";
 @use "../2-settings/box-model" as boxmodel;
 @use "../2-settings/responsive" as breakpoints;
 
@@ -100,8 +101,8 @@ $_classnames: (
   @for $i from 1 through $_column-count {
     .#{$column}-#{$i},
     .#{$row}.#{$row-parent}-#{$i} > * {
-      flex-basis: #{($i * 100% / $_column-count)};
-      max-width: #{($i * 100% / $_column-count)};
+      flex-basis: #{math.div($i * 100%, $_column-count)};
+      max-width: #{math.div($i * 100%, $_column-count)};
     }
 
     // Offest definitions.
@@ -110,7 +111,7 @@ $_classnames: (
         margin-left: 0;
       }
       @else {
-        margin-left: #{(($i - 1) * 100% / $_column-count)};
+        margin-left: #{math.div(($i - 1) * 100%, $_column-count)};
       }
     }
   }
@@ -143,8 +144,8 @@ $_classnames: (
 
   @for $i from 1 through $_column-count {
     .#{$column}-#{$i} {
-      flex-basis: #{($i * 100% / $_column-count)};
-      max-width: #{($i * 100% / $_column-count)};
+      flex-basis: #{math.div($i * 100%, $_column-count)};
+      max-width: #{math.div($i * 100%, $_column-count)};
     }
 
     // Offest definitions.
@@ -153,7 +154,7 @@ $_classnames: (
         margin-left: 0;
       }
       @else {
-        margin-left: #{(($i - 1) * 100% / $_column-count)};
+        margin-left: #{math.div(($i - 1) * 100%, $_column-count)};
       }
     }
   }

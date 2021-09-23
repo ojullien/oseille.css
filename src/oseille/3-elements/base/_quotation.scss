@@ -49,7 +49,9 @@ $_padding-left: 2 * boxmodel.get("padding");
 q {
     @include normalize;
 
+    /* stylelint-disable order/properties-alphabetical-order */
     font-style: inherit;
+    /* stylelint-enable order/properties-alphabetical-order */
 }
 
 cite {

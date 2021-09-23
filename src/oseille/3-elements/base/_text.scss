@@ -114,7 +114,7 @@ $_disabled-opacity: 0.75 !default;
 }
 
 /* Inline text semantic styling */
-
+/* stylelint-disable order/properties-alphabetical-order */
 a {
     @include normalize;
 
@@ -131,6 +131,7 @@ a {
         @include style-link;
     }
 }
+/* stylelint-enable order/properties-alphabetical-order */
 
 abbr[title] {
     @include normalize;
@@ -140,8 +141,9 @@ abbr[title] {
 b,
 strong {
     @include normalize;
-
+    /* stylelint-disable order/properties-alphabetical-order */
     font-weight: $_bold-font-weight;
+    /* stylelint-enable order/properties-alphabetical-order */
 }
 
 data {
@@ -204,7 +206,7 @@ s {
 small {
     @include normalize-small;
 }
-
+/* stylelint-disable order/properties-alphabetical-order */
 sub {
     @include normalize-small;
     @include normalize-line-height;
@@ -218,6 +220,7 @@ sup {
 
     top: map.get($_box-model, "top");
 }
+/* stylelint-enable order/properties-alphabetical-order */
 
 .text-centered {
     text-align: center;

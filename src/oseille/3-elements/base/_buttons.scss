@@ -176,13 +176,13 @@ a.button {
         &:hover,
         &:focus {
             box-shadow:
-                0 0 0 (1.5rem / 8) var(--button-fore-hover-color, #{colors.get("fore-alt")}),
-                0 0 0 (1.5rem / 4) var(--button-back-hover-color, #{colors.get("back-alt")});
+                0 0 0 (1.5rem * 0.125) var(--button-fore-hover-color, #{colors.get("fore-alt")}),
+                0 0 0 (1.5rem * 0.25) var(--button-back-hover-color, #{colors.get("back-alt")});
         }
         &:active {
             box-shadow:
-                0 0 0 (1.5rem / 8) var(--button-fore-active-color, #{colors.get("back-alt")}),
-                0 0 0 (1.5rem / 4) var(--button-back-active-color, #{colors.get("fore-alt")});
+                0 0 0 (1.5rem * 0.125) var(--button-fore-active-color, #{colors.get("back-alt")}),
+                0 0 0 (1.5rem * 0.25) var(--button-back-active-color, #{colors.get("fore-alt")});
         }
     }
 }

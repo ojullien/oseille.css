@@ -2,7 +2,7 @@
 summary {
   border: 0;
   display: list-item;
-  margin: calc(0 - 0.5rem) calc(0 - 0.5rem) 0;
+  margin: calc(0rem - 0.5rem) calc(0rem - 0.5rem) 0;
   padding: 0.5rem;
 }
 

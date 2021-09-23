@@ -4,6 +4,7 @@ picture {
   max-width: 100%;
 }
 
+/* stylelint-disable order/properties-alphabetical-order */
 img {
   border: 0;
   margin: 0;
@@ -13,6 +14,7 @@ img {
   border-style: none;
 }
 
+/* stylelint-enable order/properties-alphabetical-order */
 audio {
   border: 0;
   margin: 0;

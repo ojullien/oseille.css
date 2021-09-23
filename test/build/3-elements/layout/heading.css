@@ -1,4 +1,5 @@
 /* Heading styling */
+/* stylelint-disable order/properties-alphabetical-order */
 h1 {
   background-color: var(--heading-back-color, inherit);
   border: 0;
@@ -112,3 +113,5 @@ h6 small {
   line-height: 3.125ex;
   margin-top: -0.25rem;
 }
+
+/* stylelint-enable order/properties-alphabetical-order */

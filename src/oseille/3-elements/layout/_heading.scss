@@ -62,6 +62,7 @@ $_colors: (
     }
 }
 
+/* stylelint-disable order/properties-alphabetical-order */
 h1 {
     @include normalize;
 
@@ -103,3 +104,4 @@ h6 {
     font-size: calc(1em / #{fonts.get-size("ratio-heading")});
     line-height: fonts.get-line-spacing("h6");
 }
+/* stylelint-enable order/properties-alphabetical-order */

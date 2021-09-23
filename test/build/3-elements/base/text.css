@@ -1,4 +1,5 @@
 /* Inline text semantic styling */
+/* stylelint-disable order/properties-alphabetical-order */
 a {
   border: 0;
   font-size: 1em;
@@ -49,6 +50,7 @@ a:not([class~=button]):not([role=button]):-webkit-any-link.variant:focus, a:not(
   background-image: none;
 }
 
+/* stylelint-enable order/properties-alphabetical-order */
 abbr[title] {
   border: 0;
   font-size: 1em;
@@ -68,7 +70,9 @@ strong {
   font-size: 1em;
   margin: 0;
   padding: 0;
+  /* stylelint-disable order/properties-alphabetical-order */
   font-weight: 700;
+  /* stylelint-enable order/properties-alphabetical-order */
 }
 
 data {
@@ -138,6 +142,7 @@ small {
   padding: 0;
 }
 
+/* stylelint-disable order/properties-alphabetical-order */
 sub {
   border: 0;
   font-family: inherit;
@@ -162,6 +167,7 @@ sup {
   top: -0.5em;
 }
 
+/* stylelint-enable order/properties-alphabetical-order */
 .text-centered {
   text-align: center;
 }

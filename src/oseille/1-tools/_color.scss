@@ -9,7 +9,7 @@
 //
 
 @function tint($color, $weight) {
-  @return mix(#fff, $color, $weight);
+  @return color.mix(#fff, $color, $weight);
 }
 
 //
@@ -22,7 +22,7 @@
 //
 
 @function shade($color, $weight) {
-  @return mix(#000, $color, $weight);
+  @return color.mix(#000, $color, $weight);
 }
 
 //
@@ -35,7 +35,7 @@
 //
 
 @function tone($color, $weight) {
-  @return mix(#808080, $color, $weight);
+  @return color.mix(#808080, $color, $weight);
 }
 
 //

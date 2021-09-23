@@ -33,7 +33,7 @@ dd {
 
 dl {
     border: 0;
-    margin: boxmodel.get("margin") 0 boxmodel.get("margin");
+    margin: boxmodel.get("margin") 0;
     padding: 0;
     padding-left: calc(2 * #{boxmodel.get("margin")});
 }

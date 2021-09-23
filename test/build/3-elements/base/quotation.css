@@ -9,7 +9,9 @@ q {
   font-weight: inherit;
   margin: 0;
   padding: 0;
+  /* stylelint-disable order/properties-alphabetical-order */
   font-style: inherit;
+  /* stylelint-enable order/properties-alphabetical-order */
 }
 
 cite {

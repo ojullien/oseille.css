@@ -1,6 +1,5 @@
 .vscode/
-olivier/
-olivier.*
+/dist/extended/prefix/
 node_modules/
 .sass-cache/
 .history

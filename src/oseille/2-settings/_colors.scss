@@ -6,6 +6,7 @@
 //  - Use WCAG Grading tool to find the best shade/tone/tint with your fore / background combinaison
 //
 
+@use "sass:color";
 @use "sass:map";
 @use "../1-tools/stdlib" as stdlib;
 @use "../1-tools/color" as *;
@@ -125,7 +126,7 @@ $elements: (
 //
 
 @function get-text-color($color) {
-  @if (lightness($color) > 50) {
+  @if (color.lightness($color) > 50) {
     @return map.get($primary, "black"); // Lighter background, return dark color
   }
   @else {

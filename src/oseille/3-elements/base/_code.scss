@@ -36,6 +36,7 @@
     -moz-user-select: all;
     user-select: all;
 }
+
 @mixin normalize-text {
     direction: ltr !important;
     -webkit-hyphens: none;
@@ -49,13 +50,14 @@
     word-spacing: normal;
     word-wrap: normal;
 }
+
 @mixin normalize-inline {
     vertical-align: baseline;
     white-space: pre-wrap;
 }
 
 /* Inline code semantic styling */
-
+/* stylelint-disable order/properties-alphabetical-order */
 code {
     @include normalize-font;
     @include normalize-text;
@@ -207,3 +209,4 @@ var {
     margin: 0;
     padding: 0;
 }
+/* stylelint-enable order/properties-alphabetical-order */

@@ -49,13 +49,6 @@ header {
 .page-header {
     // Always apply background color to avoid shine through
     background-color: var(--header-back-color, colors.get("back"));
-    color: var(--header-fore-color, colors.get("fore"));
-    overflow-x: auto;
-    overflow-y: hidden;
-    padding: calc(#{boxmodel.get("padding")} / 4) 0;
-
-    // Responsiveness for smaller displays, scrolls horizontally.
-    white-space: nowrap;
 
     @if $_only-bottom-border {
         border-bottom: borders.get("thin") solid var(--header-border-color, colors.get("border"));
@@ -63,6 +56,14 @@ header {
     @else {
         border: borders.get("thin") solid var(--header-border-color, colors.get("border"));
     }
+
+    color: var(--header-fore-color, colors.get("fore"));
+    overflow-x: auto;
+    overflow-y: hidden;
+    padding: calc(#{boxmodel.get("padding")} / 4) 0;
+
+    // Responsiveness for smaller displays, scrolls horizontally.
+    white-space: nowrap;
 
     // Fix for responsive header, using the grid system's row and column alignment.
     //&.row {
@@ -105,12 +106,12 @@ header {
         line-height: calc(#{$_height} - #{boxmodel.get("padding")} * #{fonts.get-line-spacing("main")});
         position: relative;
 
-        // Use universal-padding to offset the padding of the header.
-        top: calc(0rem - #{boxmodel.get("padding")} / 4);
-
         @if $_links-uppercase {
             text-transform: uppercase;
         }
+
+        // Use universal-padding to offset the padding of the header.
+        top: calc(0rem - #{boxmodel.get("padding")} / 4);
     }
 
     &.sticky {

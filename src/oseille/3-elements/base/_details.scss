@@ -21,7 +21,7 @@ summary {
 
     // Correct display in all browsers.
     display: list-item;
-    margin: calc(0 - #{boxmodel.get("margin")}) calc(0 - #{boxmodel.get("margin")}) 0;
+    margin: calc(0rem - #{boxmodel.get("margin")}) calc(0rem - #{boxmodel.get("margin")}) 0;
     padding: boxmodel.get("padding");
 }
 

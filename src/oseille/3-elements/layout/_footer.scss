@@ -40,6 +40,14 @@ $_classnames: (
 /* Footer styling */
 
 footer {
+
+    @if $_only-top-border {
+        border-top: borders.get("thin") solid var(--footer-border-color, colors.get("border"));
+    }
+    @else {
+        border: borders.get("thin") solid var(--footer-border-color, colors.get("border"));
+    }
+
     font-size: fonts.get-size("footer");
     margin: 0;
     padding: calc(2 * #{boxmodel.get("padding")}) boxmodel.get("padding");
@@ -67,12 +75,5 @@ footer {
                 position: static;
             }
         }
-    }
-
-    @if $_only-top-border {
-        border-top: borders.get("thin") solid var(--footer-border-color, colors.get("border"));
-    }
-    @else {
-        border: borders.get("thin") solid var(--footer-border-color, colors.get("border"));
     }
 }
