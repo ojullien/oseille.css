@@ -1,10 +1,10 @@
 .vscode/
-/dist/extended/prefix/
-/node_modules/
+dist/extended/prefix
+node_modules/
 .sass-cache/
 .history
 *.css.map
 *.sass.map
 *.scss.map
-/test/autoprefixer/*
-/test/build/*
+test/autoprefixer
+test/build
