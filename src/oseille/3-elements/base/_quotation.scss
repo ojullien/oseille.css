@@ -113,8 +113,4 @@ blockquote {
     p {
         margin: boxmodel.get("margin") 0;
     }
-
-    .legible & p {
-        margin: boxmodel.get("margin") 0;
-    }
 }

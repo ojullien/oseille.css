@@ -33,7 +33,7 @@ $_classnames: (
 ) !default;
 
 /* Accordions styling */
-
+/* stylelint-disable no-descending-specificity */
 .#{map.get($_classnames, 'wrapper')} {
   border-bottom: borders.get("thin") solid var(--accordion-border-color, colors.get("border"));
   border-left: borders.get("thin") solid var(--accordion-border-color, colors.get("border"));
@@ -102,7 +102,7 @@ $_classnames: (
     }
   }
 }
-
+/* stylelint-enable no-descending-specificity */
 .symbol {
   display: inline-block;
   fill: none;

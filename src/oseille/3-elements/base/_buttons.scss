@@ -32,17 +32,6 @@ $_disabled-opacity: 0.75 !default;
 
 /* Button and button-like styling */
 
-// Change font properties to 'inherit' in Safari.
-::-webkit-file-upload-button {
-    font: inherit;
-}
-
-// Remove the additional ':invalid' styles in Firefox.
-// See: https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737
-:-moz-ui-invalid {
-    box-shadow: none;
-}
-
 // Fixes for Android 4, iOS and Safari.
 
 @supports (-webkit-appearance: button) or (-moz-appearance: button) {
@@ -134,7 +123,19 @@ input[type="reset"] {
     @extend %button;
 }
 
+// Change font properties to 'inherit' in Safari.
+input[type="file"]::-webkit-file-upload-button {
+    @extend %button;
+    font: inherit;
+}
+
+// see: https://developer.mozilla.org/en-US/docs/Web/CSS/::file-selector-button
+input[type="file"]::file-selector-button {
+    @extend %button;
+}
+
 // Class button-like styling
+
 .button {
     @extend %button;
 }

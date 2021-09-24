@@ -219,22 +219,8 @@ option {
     white-space: nowrap;
 }
 
-// Placeholder styling (keep browser-specific definitions separated, they do not play well together).
-
-::-ms-placeholder {
-    color: var(--input-fore-color, #{colors.get("fore")});
-    opacity: 0.54;
-}
-
-:-moz-placeholder-shown {
-    color: var(--input-fore-color, #{colors.get("fore")});
-}
-
-:placeholder-shown {
-    color: var(--input-fore-color, #{colors.get("fore")});
-}
-
 /* Hover, focus, disabled, readonly, invalid styling for common textual inputs. */
+
 input:not([type="button"]):not([type="submit"]):not([type="reset"]),
 textarea,
 select {
@@ -254,6 +240,18 @@ select {
         filter: grayscale(60%);
         opacity: $_disabled-opacity;
     }
+}
+
+// Remove the additional ':invalid' styles in Firefox.
+// See: https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737
+input:-moz-ui-invalid {
+    box-shadow: none;
+}
+
+// see: https://developer.mozilla.org/en-US/docs/Web/CSS/:user-invalid
+input:user-invalid {
+    border-color: var(--input-border-hover-color, #{colors.get("red")});
+    box-shadow: none;
 }
 
 /* Input group styling. */
@@ -292,5 +290,21 @@ select {
                 max-width: 100%;
             }
         }
+    }
+}
+
+// Placeholder styling (keep browser-specific definitions separated, they do not play well together).
+
+input,
+textarea {
+    &:-ms-placeholder {
+        color: var(--input-fore-color, #{colors.get("fore")});
+        opacity: 0.54;
+    }
+    &:-moz-placeholder-shown {
+        color: var(--input-fore-color, #{colors.get("fore")});
+    }
+    &:placeholder-shown {
+        color: var(--input-fore-color, #{colors.get("fore")});
     }
 }
