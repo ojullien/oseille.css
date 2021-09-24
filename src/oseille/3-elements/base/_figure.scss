@@ -6,9 +6,10 @@
 // You may override the default values of the settings' variables, if needed, with the @use rule.
 // See flavors/oseille.scss and the 2-settings*.scss files.
 //
-@use '../../2-settings/colors' as colors;
-@use '../../2-settings/fonts' as fonts;
-@use '../../2-settings/box-model' as boxmodel;
+
+@use "../../2-settings/colors" as colors;
+@use "../../2-settings/fonts" as fonts;
+@use "../../2-settings/box-model" as boxmodel;
 
 // Private variables.
 //
@@ -22,11 +23,11 @@ $_text-align: left !default;
 /* Figure styling */
 
 figcaption {
-    background-color: var(--caption-back-color, #{colors.get('back')}); // Allows live color tunning
+    background-color: var(--caption-back-color, #{colors.get("back")}); // Allows live color tunning
     border: 0;
-    color: var(--caption-fore-color, #{colors.get('fore')}); // Allows live color tunning
-    font-family: fonts.get-stack('quotation');
-    font-size: fonts.get-size('caption');
+    color: var(--caption-fore-color, #{colors.get("fore")}); // Allows live color tunning
+    font-family: fonts.get-stack("quotation");
+    font-size: fonts.get-size("caption");
     margin: 0;
     padding: 0;
     text-align: $_text-align;
@@ -34,10 +35,10 @@ figcaption {
 
 figure {
     border: 0;
-    margin: boxmodel.get('margin');
+    margin: boxmodel.get("margin");
     padding: 0;
 
-    &.fullWidth {
+    &.fullwidth {
         margin-left: 0;
         margin-right: 0;
     }

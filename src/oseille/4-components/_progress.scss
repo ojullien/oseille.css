@@ -4,10 +4,11 @@
 // You may override the default values of the settings' variables, if needed, with the @use rule.
 // See flavors/oseille.scss and the 2-settings*.scss files.
 //
-@use 'sass:map';
-@use '../2-settings/colors' as colors;
-@use '../2-settings/borders' as borders;
-@use '../2-settings/box-model' as boxmodel;
+
+@use "sass:map";
+@use "../2-settings/colors" as colors;
+@use "../2-settings/borders" as borders;
+@use "../2-settings/box-model" as boxmodel;
 
 // Private variables.
 //
@@ -22,8 +23,8 @@
 //   - inline: inline <progress> elements
 //   - spinner: spinner donuts
 $_classnames: (
-    'inline': 'inline',
-    'spinner': 'spinner',
+  "inline": "inline",
+  "spinner": "spinner",
 ) !default;
 
 // Progess
@@ -33,9 +34,9 @@ $_classnames: (
 //   - height: Height of <progress>
 //   - max: Arithmetic max value
 $_progress: (
-    'width': 60%,
-    'height': 0.75rem,
-    'max': 1000,
+  "width": 60%,
+  "height": 0.75rem,
+  "max": 1000,
 ) !default;
 
 // Donut
@@ -44,8 +45,8 @@ $_progress: (
 //   - size:Size
 //   - thickness: Border thickness
 $_donut: (
-    'size': 1.25rem,
-    'thickness': 0.25rem,
+  "size": 1.25rem,
+  "thickness": 0.25rem,
 ) !default;
 
 // Should spinner donuts be included? (boolean)
@@ -53,110 +54,111 @@ $_include-spinner-donut: true !default;
 
 /* Default styling for progress. */
 progress {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    background-color: var(--progress-back-color, #{colors.get('grey-lighter')});
-    border: 0; // Removes default border
-    border-radius: calc(2 * #{borders.get('radius')});
-    color: var(--progress-fore-color, #{colors.get('fore')});
-    display: block;
-    height: map.get($_progress, 'height');
-    margin: boxmodel.get('margin');
-    vertical-align: baseline; // Correct vertical alignment in some browsers.
-    width: calc(100% - 2 * #{boxmodel.get('margin')});
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: var(--progress-back-color, #{colors.get("grey-lighter")});
+  border: 0; // Removes default border
+  border-radius: calc(2 * #{borders.get("radius")});
+  color: var(--progress-fore-color, #{colors.get("fore")});
+  display: block;
+  height: map.get($_progress, "height");
+  margin: boxmodel.get("margin");
+  vertical-align: baseline; // Correct vertical alignment in some browsers.
+  width: calc(100% - 2 * #{boxmodel.get("margin")});
 
-    // Foreground color on webkit browsers
+  // Foreground color on webkit browsers
+  &::-webkit-progress-value {
+    background-color: var(--progress-fore-color, #{colors.get("fore")});
+    border-bottom-left-radius: calc(2 * #{borders.get("radius")});
+    border-top-left-radius: calc(2 * #{borders.get("radius")});
+  }
+
+  // Background color on webkit browser
+  &::-webkit-progress-bar {
+    background-color: var(--progress-back-color, #{colors.get("grey-lighter")});
+  }
+
+  // Foreground color on Firefox
+  &::-moz-progress-bar {
+    background-color: var(--progress-fore-color, #{colors.get("fore")});
+    border-bottom-left-radius: calc(2 * #{borders.get("radius")});
+    border-top-left-radius: calc(2 * #{borders.get("radius")});
+  }
+
+  &[value='#{map.get($_progress, "max")}'] {
     &::-webkit-progress-value {
-        background-color: var(--progress-fore-color, #{colors.get('fore')});
-        border-bottom-left-radius: calc(2 * #{borders.get('radius')});
-        border-top-left-radius: calc(2 * #{borders.get('radius')});
+      border-radius: calc(2 * #{borders.get("radius")});
     }
 
-    // Background color on webkit browser
-    &::-webkit-progress-bar {
-        background-color: var(--progress-back-color, #{colors.get('grey-lighter')});
-    }
-
-    // Foreground color on Firefox
     &::-moz-progress-bar {
-        background-color: var(--progress-fore-color, #{colors.get('fore')});
-        border-bottom-left-radius: calc(2 * #{borders.get('radius')});
-        border-top-left-radius: calc(2 * #{borders.get('radius')});
+      border-radius: calc(2 * #{borders.get("radius")});
     }
+  }
 
-    &[value='#{map.get($_progress, "max")}'] {
-        &::-webkit-progress-value {
-            border-radius: calc(2 * #{borders.get('radius')});
-        }
+  &.#{#{map.get($_classnames, 'inline')}} {
+    display: inline-block;
+    vertical-align: middle; // Align progress bar vertically to look better with text next to it.
+    width: map.get($_progress, "width");
+  }
 
-        &::-moz-progress-bar {
-            border-radius: calc(2 * #{borders.get('radius')});
-        }
-    }
+  &.primary {
+    --progress-fore-color: var(--primary-color, #{colors.get("primary")});
+  }
 
-    &.#{#{map.get($_classnames, 'inline')}} {
-        display: inline-block;
-        vertical-align: middle; // Align progress bar vertically to look better with text next to it.
-        width: map.get($_progress, 'width');
-    }
+  &.secondary {
+    --progress-fore-color: var(--secondary-color, #{colors.get("success")});
+  }
 
-    &.primary {
-        --progress-fore-color: var(--primary-color, #{colors.get('primary')});
-    }
-
-    &.secondary {
-        --progress-fore-color: var(--secondary-color, #{colors.get('success')});
-    }
-
-    &.tertiary {
-        --progress-fore-color: var(--tertiary-color, #{colors.get('error')});
-    }
+  &.tertiary {
+    --progress-fore-color: var(--tertiary-color, #{colors.get("error")});
+  }
 }
 
 // Style for donut spinner
+
 @if $_include-spinner-donut {
-    // Donut spinner animation
+  // Donut spinner animation
 
-    @-webkit-keyframes spinner-donut-anim {
-        0% {
-            transform: rotate(0deg);
-        }
-        100% {
-            transform: rotate(360deg);
-        }
+  @-webkit-keyframes spinner-donut-anim {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes spinner-donut-anim {
+    0% {
+      transform: rotate(0deg);
     }
 
-    @keyframes spinner-donut-anim {
-        0% {
-            transform: rotate(0deg);
-        }
-
-        100% {
-            transform: rotate(360deg);
-        }
+    100% {
+      transform: rotate(360deg);
     }
-    .#{map.get($_classnames, 'spinner')} {
-        -webkit-animation: spinner-donut-anim 1.2s linear infinite;
-        animation: spinner-donut-anim 1.2s linear infinite;
-        border: map.get($_donut, 'thickness') solid var(--spinner-back-color, #{colors.get('grey-lighter')});
-        border-left: map.get($_donut, 'thickness') solid var(--spinner-fore-color, #{colors.get('fore')});
-        border-radius: 50%;
-        display: inline-block;
-        height: map.get($_donut, 'size');
-        margin: boxmodel.get('margin');
-        width: map.get($_donut, 'size');
+  }
+  .#{map.get($_classnames, 'spinner')} {
+    -webkit-animation: spinner-donut-anim 1.2s linear infinite;
+    animation: spinner-donut-anim 1.2s linear infinite;
+    border: map.get($_donut, "thickness") solid var(--spinner-back-color, #{colors.get("grey-lighter")});
+    border-left: map.get($_donut, "thickness") solid var(--spinner-fore-color, #{colors.get("fore")});
+    border-radius: 50%;
+    display: inline-block;
+    height: map.get($_donut, "size");
+    margin: boxmodel.get("margin");
+    width: map.get($_donut, "size");
 
-        &.primary {
-            --spinner-fore-color: var(--primary-color, #{colors.get('primary')});
-        }
-
-        &.secondary {
-            --spinner-fore-color: var(--secondary-color, #{colors.get('success')});
-        }
-
-        &.tertiary {
-            --spinner-fore-color: var(--tertiary-color, #{colors.get('error')});
-        }
+    &.primary {
+      --spinner-fore-color: var(--primary-color, #{colors.get("primary")});
     }
+
+    &.secondary {
+      --spinner-fore-color: var(--secondary-color, #{colors.get("success")});
+    }
+
+    &.tertiary {
+      --spinner-fore-color: var(--tertiary-color, #{colors.get("error")});
+    }
+  }
 }

@@ -6,18 +6,19 @@
 // See flavors/oseille.scss and the 2-settings*.scss files.
 //
 //@use 'sass:map';
-@use '../../2-settings/colors' as colors;
-@use '../../2-settings/borders' as borders;
-@use '../../2-settings/box-model' as boxmodel;
+
+@use "../../2-settings/colors" as colors;
+@use "../../2-settings/borders" as borders;
+@use "../../2-settings/box-model" as boxmodel;
 
 /* Styling for form */
 
 form {
-    background-color: var(--form-back-color, colors.get('back'));
-    border: borders.get('thin') solid var(--form-border-color, colors.get('border'));
-    border-radius: borders.get('radius');
-    color: var(--form-fore-color, colors.get('fore'));
-    margin: boxmodel.get('margin');
-    padding: calc(2 * #{boxmodel.get('padding')}) boxmodel.get('padding');
+    background-color: var(--form-back-color, colors.get("back"));
+    border: borders.get("thin") solid var(--form-border-color, colors.get("border"));
+    border-radius: borders.get("radius");
+    color: var(--form-fore-color, colors.get("fore"));
+    margin: boxmodel.get("margin");
+    padding: calc(2 * #{boxmodel.get("padding")}) boxmodel.get("padding");
     width: 100%;
 }

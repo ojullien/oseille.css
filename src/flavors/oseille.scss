@@ -38,15 +38,15 @@
 @use '../oseille/3-elements/base/quotation';
 @use '../oseille/3-elements/base/list';
 @use '../oseille/3-elements/base/definition';
-@use '../oseille/3-elements/base/figure';
-@use '../oseille/3-elements/base/buttons' with (
-    $_include-variant: false
-);
 @use '../oseille/3-elements/base/form';
 @use '../oseille/3-elements/base/fieldset';
 @use '../oseille/3-elements/base/input';
+@use '../oseille/3-elements/base/buttons' with (
+    $_include-variant: false
+);
 @use '../oseille/3-elements/base/table';
 @use '../oseille/3-elements/base/multimedia';
+@use '../oseille/3-elements/base/figure';
 @use '../oseille/3-elements/base/details';
 @use '../oseille/3-elements/layout/navigation';
 @use '../oseille/3-elements/layout/heading';
@@ -54,9 +54,7 @@
 @use '../oseille/3-elements/layout/header';
 @use '../oseille/3-elements/base/iframe';
 @use '../oseille/3-elements/base/time';
-@use '../oseille/4-components/legibility';
 @use '../oseille/4-components/border';
-@use '../oseille/4-components/collapse';
 @use '../oseille/4-components/toast';
 @use '../oseille/4-components/tooltip';
 @use '../oseille/4-components/grid';
@@ -64,5 +62,7 @@
 @use '../oseille/4-components/modal';
 @use '../oseille/4-components/drawer';
 @use '../oseille/4-components/progress';
+@use '../oseille/4-components/collapse';
+@use '../oseille/4-components/legibility';
 @use '../oseille/5-utilities/hidden';
 @use '../oseille/5-utilities/print';

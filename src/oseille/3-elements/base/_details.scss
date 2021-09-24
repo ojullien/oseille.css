@@ -9,9 +9,10 @@
 // You may override the default values of the settings' variables, if needed, with the @use rule.
 // See flavors/oseille.scss and the 2-settings*.scss files.
 //
-@use '../../2-settings/colors' as colors;
-@use '../../2-settings/borders' as borders;
-@use '../../2-settings/box-model' as boxmodel;
+
+@use "../../2-settings/colors" as colors;
+@use "../../2-settings/borders" as borders;
+@use "../../2-settings/box-model" as boxmodel;
 
 /* Details styling */
 
@@ -20,26 +21,26 @@ summary {
 
     // Correct display in all browsers.
     display: list-item;
-    margin: calc(0 - #{boxmodel.get('margin')}) calc(0 - #{boxmodel.get('margin')}) 0;
-    padding: boxmodel.get('padding');
+    margin: calc(0rem - #{boxmodel.get("margin")}) calc(0rem - #{boxmodel.get("margin")}) 0;
+    padding: boxmodel.get("padding");
 }
 
 details {
-    border: borders.get('thin') solid var(--details-border-color, colors.get('border'));
-    border-radius: borders.get('radius');
+    border: borders.get("thin") solid var(--details-border-color, colors.get("border"));
+    border-radius: borders.get("radius");
     cursor: pointer;
 
     // Correct display for Edge & Firefox.
     display: block;
-    margin: boxmodel.get('margin');
-    padding: boxmodel.get('padding');
+    margin: boxmodel.get("margin");
+    padding: boxmodel.get("padding");
 
     &[open] {
-        padding: boxmodel.get('padding');
+        padding: boxmodel.get("padding");
 
         summary {
-            border-bottom: borders.get('thin') solid var(--details-border-color, colors.get('border'));
-            padding-bottom: boxmodel.get('margin');
+            border-bottom: borders.get("thin") solid var(--details-border-color, colors.get("border"));
+            padding-bottom: boxmodel.get("margin");
         }
     }
 }

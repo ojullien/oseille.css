@@ -10,15 +10,17 @@
         "summary"
     ],
     "parsers": [
+        "package-json",
         "css",
         "html",
-        "less",
         "sass"
     ],
     "browserslist": [
         "> 0.5%",
-        "last 2 versions",
+        "last 4 versions",
         "Firefox ESR",
+        "not IE 11",
+        "not IE_Mob 11",
         "not dead"
     ],
     "hints": {

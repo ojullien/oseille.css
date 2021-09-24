@@ -15,11 +15,12 @@
 // You may override the default values of the settings' variables, if needed, with the @use rule.
 // See flavors/oseille.scss and the 2-settings*.scss files.
 //
-@use '../../2-settings/colors' as colors;
-@use '../../2-settings/fonts' as fonts;
-@use '../../2-settings/borders' as borders;
-@use '../../2-settings/box-model' as boxmodel;
-@use '../../2-settings/responsive' as breakpoints;
+
+@use "../../2-settings/colors" as colors;
+@use "../../2-settings/fonts" as fonts;
+@use "../../2-settings/borders" as borders;
+@use "../../2-settings/box-model" as boxmodel;
+@use "../../2-settings/responsive" as breakpoints;
 
 // Private variables.
 //
@@ -28,82 +29,19 @@
 // The configured values will override the variables’ default values.
 // @link: https://sass-lang.com/documentation/variables
 
-$_padding-left: 2 * boxmodel.get('padding');
+$_padding-left: 2 * boxmodel.get("padding");
 
 /* Blockquote styling */
 
 @mixin normalize {
-    background-color: var(--caption-back-color, #{colors.get('back')});
+    background-color: var(--caption-back-color, #{colors.get("back")});
     border: 0;
-    color: var(--caption-fore-color, #{colors.get('fore')});
-    font-family: fonts.get-stack('quotation');
-    font-size: fonts.get-size('cite');
+    color: var(--caption-fore-color, #{colors.get("fore")});
+    font-family: fonts.get-stack("quotation");
+    font-size: fonts.get-size("cite");
     font-weight: inherit;
     margin: 0;
     padding: 0;
-}
-
-blockquote {
-    background-color: var(--blockquote-back-color, #{colors.get('back')});
-    color: var(--blockquote-fore-color, #{colors.get('fore')});
-
-    font-family: fonts.get-stack('quotation');
-    font-size: fonts.get-size('quotation');
-    font-style: normal;
-    font-weight: 500;
-
-    margin: boxmodel.get('margin');
-    padding: #{boxmodel.get('padding')} #{boxmodel.get('padding')} #{boxmodel.get('padding')} #{$_padding-left};
-    position: relative;
-
-    &::before {
-        color: var(--blockquote-sidebar-color, colors.get('sidebar-quote'));
-        content: '\201c';
-
-        font-family: sans-serif;
-        font-size: 2 * fonts.get-size('quotation');
-        font-style: italic;
-        font-weight: 700;
-
-        left: -5px;
-        position: absolute;
-        top: -(boxmodel.get('padding'));
-    }
-
-    @media screen and (min-width: #{breakpoints.get('medium')}) {
-        border: 0 solid var(--blockquote-sidebar-color, colors.get('sidebar-quote'));
-        border-left-width: borders.get('thick');
-        padding-left: 6 * boxmodel.get('padding');
-
-        &::before {
-            font-size: fonts.get-size('quotation-before');
-            left: 10px;
-            position: absolute;
-        }
-    }
-
-    &[cite]::after {
-        content: '\a—  'attr(cite);
-        font-size: fonts.get-size('cite');
-        font-style: italic;
-        font-weight: normal;
-        white-space: pre;
-    }
-
-    cite {
-        font-style: italic;
-        font-weight: normal;
-        white-space: pre;
-        display: block;
-    }
-
-    p {
-        margin: boxmodel.get('margin') 0;
-    }
-
-    .legible & p {
-        margin: boxmodel.get('margin') 0;
-    }
 }
 
 // Fix for elements inside blockquote not displaying properly.
@@ -111,9 +49,68 @@ blockquote {
 q {
     @include normalize;
 
+    /* stylelint-disable order/properties-alphabetical-order */
     font-style: inherit;
+    /* stylelint-enable order/properties-alphabetical-order */
 }
 
 cite {
     @include normalize;
+}
+
+// Blockquote styling
+
+blockquote {
+    background-color: var(--blockquote-back-color, #{colors.get("back")});
+    color: var(--blockquote-fore-color, #{colors.get("fore")});
+    font-family: fonts.get-stack("quotation");
+    font-size: fonts.get-size("quotation");
+    font-style: normal;
+    font-weight: 500;
+    margin: boxmodel.get("margin");
+    padding: #{boxmodel.get("padding")} #{boxmodel.get("padding")} #{boxmodel.get("padding")} #{$_padding-left};
+    position: relative;
+
+    &::before {
+        color: var(--blockquote-sidebar-color, colors.get("sidebar-quote"));
+        content: "\201c";
+        font-family: sans-serif;
+        font-size: 2 * fonts.get-size("quotation");
+        font-style: italic;
+        font-weight: 700;
+        left: -5px;
+        position: absolute;
+        top: -(boxmodel.get("padding"));
+    }
+
+    @media screen and (min-width: #{breakpoints.get("medium")}) {
+        border: 0 solid var(--blockquote-sidebar-color, colors.get("sidebar-quote"));
+        border-left-width: borders.get("thick");
+        padding-left: 6 * boxmodel.get("padding");
+
+        &::before {
+            font-size: fonts.get-size("quotation-before");
+            left: 10px;
+            position: absolute;
+        }
+    }
+
+    &[cite]::after {
+        content: "\a—  "attr(cite);
+        font-size: fonts.get-size("cite");
+        font-style: italic;
+        font-weight: normal;
+        white-space: pre;
+    }
+
+    cite {
+        display: block;
+        font-style: italic;
+        font-weight: normal;
+        white-space: pre;
+    }
+
+    p {
+        margin: boxmodel.get("margin") 0;
+    }
 }

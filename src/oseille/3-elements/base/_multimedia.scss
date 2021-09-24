@@ -10,7 +10,6 @@
     margin: 0;
     padding: 0;
 }
-
 @mixin responsive {
     height: auto;
     max-width: 100%;
@@ -21,12 +20,14 @@ picture {
     @include responsive;
 }
 
+/* stylelint-disable order/properties-alphabetical-order */
 img {
     @include normalize;
     @include responsive;
 
     border-style: none;
 }
+/* stylelint-enable order/properties-alphabetical-order */
 
 audio {
     @include normalize;

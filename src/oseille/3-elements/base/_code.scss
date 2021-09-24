@@ -18,42 +18,36 @@
 // You may override the default values of the settings' variables, if needed, with the @use rule.
 // See flavors/oseille.scss and the 2-settings*.scss files.
 //
-@use '../../2-settings/colors' as colors;
-@use '../../2-settings/fonts' as fonts;
-@use '../../2-settings/borders' as borders;
-@use '../../2-settings/box-model' as boxmodel;
+
+@use "../../2-settings/colors" as colors;
+@use "../../2-settings/fonts" as fonts;
+@use "../../2-settings/borders" as borders;
+@use "../../2-settings/box-model" as boxmodel;
 
 // Correct the inheritance and scaling of font size in all browsers.
 // By re-applying font-family and font-size
+
 @mixin normalize-font {
-    font-family: fonts.get-stack('code');
-    font-size: fonts.get-size('code');
+    font-family: fonts.get-stack("code");
+    font-size: fonts.get-size("code");
     font-weight: inherit;
     line-height: 0; // Prevent element from affecting the line height in all browsers.
-
     -webkit-user-select: all;
     -moz-user-select: all;
-    -ms-user-select: all;
     user-select: all;
 }
 
 @mixin normalize-text {
     direction: ltr !important;
-
     -webkit-hyphens: none;
-    -moz-hyphens: none;
-    -ms-hyphens: none;
     hyphens: none;
-
     -moz-tab-size: 4;
     -o-tab-size: 4;
     tab-size: 4;
-
     text-align: left;
     text-shadow: none;
-
-    word-spacing: normal;
     word-break: normal;
+    word-spacing: normal;
     word-wrap: normal;
 }
 
@@ -63,60 +57,56 @@
 }
 
 /* Inline code semantic styling */
-
-:not(pre) > code {
-    padding: calc(#{boxmodel.get('padding')} / 4) calc(#{boxmodel.get('padding')} / 2);
-}
-
+/* stylelint-disable order/properties-alphabetical-order */
 code {
-    background-color: var(--code-back-color, #{colors.get('code-back')});
-    border-radius: borders.get('radius');
-    border-style: none;
-    color: var(--code-fore-color, #{colors.get('code-fore')});
-
     @include normalize-font;
-    font-style: normal;
-
-    margin: 0;
-
     @include normalize-text;
     @include normalize-inline;
 
+    background-color: var(--code-back-color, #{colors.get("code-back")});
+    border-radius: borders.get("radius");
+    border-style: none;
+    color: var(--code-fore-color, #{colors.get("code-fore")});
+    font-style: normal;
+    margin: 0;
+
+    a:-webkit-any-link,
+    a:-moz-any-link,
     a:any-link {
-        color: var(--code-link-color, #{colors.get('code-fore')});
+        color: var(--code-link-color, #{colors.get("code-fore")});
     }
+}
+
+:not(pre) > code {
+    padding: calc(#{boxmodel.get("padding")} / 4) calc(#{boxmodel.get("padding")} / 2);
 }
 
 output {
     @include normalize-font;
-    font-style: inherit;
-
     @include normalize-text;
     @include normalize-inline;
 
     border: 0;
+    font-style: inherit;
     margin: 0;
     padding: 0;
 }
 
 pre {
-    background-color: var(--pre-back-color, #{colors.get('code-back')});
-    border: 0 solid var(--pre-sidebar-color, #{colors.get('sidebar')});
-    border-left-width: borders.get('thick');
-    color: var(--pre-fore-color, #{colors.get('code-fore')});
+    @include normalize-text;
 
-    font-family: fonts.get-stack('code');
+    background-color: var(--pre-back-color, #{colors.get("code-back")});
+    border: 0 solid var(--pre-sidebar-color, #{colors.get("sidebar")});
+    border-left-width: borders.get("thick");
+    color: var(--pre-fore-color, #{colors.get("code-fore")});
+    font-family: fonts.get-stack("code");
     font-size: 1rem;
     font-style: normal;
     font-weight: normal;
-
-    line-height: fonts.get-line-spacing('main');
-
-    margin: boxmodel.get('margin');
+    line-height: fonts.get-line-spacing("main");
+    margin: boxmodel.get("margin");
     overflow: auto; // Responsiveness
-    padding: calc(#{fonts.get-line-spacing('small')} * #{boxmodel.get('padding')});
-
-    @include normalize-text;
+    padding: calc(#{fonts.get-line-spacing("small")} * #{boxmodel.get("padding")});
     white-space: pre;
 
     > code,
@@ -134,14 +124,14 @@ pre {
 
     &.line-numbers {
         counter-reset: linenumber;
-        & > code {
+        > code {
             counter-increment: linenumber;
-            &:before {
-                content: counter(linenumber) '.';
+            &::before {
                 color: inherit;
+                content: counter(linenumber) ".";
                 padding-right: 0.8em;
-                text-align: right;
                 pointer-events: none;
+                text-align: right;
             }
         }
     }
@@ -150,7 +140,7 @@ pre {
         position: relative;
         &::before {
             content: attr(data-lang);
-            font-size: fonts.get-size('code');
+            font-size: fonts.get-size("code");
             position: absolute;
             right: 0.4rem;
             top: 0.1rem;
@@ -159,71 +149,64 @@ pre {
 }
 
 @counter-style linenumber-style {
-    suffix: '.';
+    suffix: ".";
 }
 
 script:not([src]),
 style {
     &.display {
-        background-color: var(--pre-back-color, #{colors.get('code-back')});
-        border: 0 solid var(--pre-sidebar-color, #{colors.get('sidebar')});
-        border-left-width: borders.get('thick');
-        color: var(--pre-fore-color, #{colors.get('code-fore')});
+        @include normalize-text;
 
+        background-color: var(--pre-back-color, #{colors.get("code-back")});
+        border: 0 solid var(--pre-sidebar-color, #{colors.get("sidebar")});
+        border-left-width: borders.get("thick");
+        color: var(--pre-fore-color, #{colors.get("code-fore")});
         display: block;
-
-        font-family: fonts.get-stack('code');
+        font-family: fonts.get-stack("code");
         font-size: 1rem;
         font-style: normal;
         font-weight: normal;
-
-        line-height: fonts.get-line-spacing('main');
-
-        margin: boxmodel.get('margin');
+        line-height: fonts.get-line-spacing("main");
+        margin: boxmodel.get("margin");
         overflow: scroll;
-        padding: calc(#{fonts.get-line-spacing('small')} * #{boxmodel.get('padding')});
-
-        @include normalize-text;
+        padding: calc(#{fonts.get-line-spacing("small")} * #{boxmodel.get("padding")});
         white-space: pre;
     }
 }
 
 kbd {
-    background-color: var(--kbd-back-color, #{colors.get('back-alt')});
-    border-radius: borders.get('radius');
-    border-style: none;
-    color: var(--kbd-fore-color, #{colors.get('fore-alt')});
-
     @include normalize-font;
-    font-style: normal;
-
     @include normalize-text;
     @include normalize-inline;
 
+    background-color: var(--kbd-back-color, #{colors.get("back-alt")});
+    border-radius: borders.get("radius");
+    border-style: none;
+    color: var(--kbd-fore-color, #{colors.get("fore-alt")});
+    font-style: normal;
     margin: 0;
-    padding: calc(#{boxmodel.get('padding')} / 4) calc(#{boxmodel.get('padding')} / 2);
+    padding: calc(#{boxmodel.get("padding")} / 4) calc(#{boxmodel.get("padding")} / 2);
 }
 
 samp {
     @include normalize-font;
-    font-style: inherit;
-
     @include normalize-text;
     @include normalize-inline;
 
     border: 0;
+    font-style: inherit;
     margin: 0;
     padding: 0;
 }
 
 var {
     @include normalize-font;
-    font-style: italic;
-
     @include normalize-text;
     @include normalize-inline;
 
     border: 0;
+    font-style: italic;
     margin: 0;
     padding: 0;
 }
+/* stylelint-enable order/properties-alphabetical-order */

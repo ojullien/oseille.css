@@ -1,18 +1,7 @@
 {
     "name": "@ojullien/oseille.css",
-    "version": "0.8.0",
     "description": "A small, responsive and accessible CSS framework",
     "main": "dist/oseille.css",
-    "keywords": [
-        "css",
-        "sass",
-        "minimal",
-        "responsive",
-        "accessible",
-        "a11y",
-        "css-framework",
-        "oseille.css"
-    ],
     "repository": {
         "type": "git",
         "url": "git+https://github.com/ojullien/oseille.css.git"
@@ -25,11 +14,65 @@
     "license": "MIT",
     "bugs": "https://github.com/ojullien/oseille.css/issues",
     "devDependencies": {
+        "autoprefixer": "^10.3.4",
         "postcss": ">=8.2.15",
+        "postcss-cli": "^8.3.1",
         "sass": ">=1.32.13",
-        "stylelint": ">=13.13.1",
-        "stylelint-config-sass-guidelines": ">=8.0.0",
-        "stylelint-config-standard": ">=22.0.0"
+        "stylelint": "^13.13.1",
+        "stylelint-config-sass-guidelines": "^8.0.0",
+        "stylelint-config-standard": "^22.0.0",
+        "stylelint-scss": "^3.21.0"
+    },
+    "engines": {
+        "node": ">= 16.9.1",
+        "npm": ">= 7.23.0"
+    },
+    "hintConfig": {
+        "connector": {
+            "name": "local"
+        },
+        "extends": [
+            "accessibility",
+            "progressive-web-apps",
+            "web-recommended"
+        ],
+        "formatters": [
+            "html",
+            "summary"
+        ],
+        "parsers": [
+            "package-json",
+            "css",
+            "html",
+            "sass"
+        ],
+        "hints": {
+            "axe": "error",
+            "disown-opener": "error",
+            "highest-available-document-mode": "error",
+            "meta-charset-utf-8": "error",
+            "meta-viewport": "error",
+            "apple-touch-icons": "error",
+            "manifest-app-name": "error",
+            "manifest-exists": "error",
+            "manifest-file-extension": "error",
+            "manifest-icons": "error",
+            "manifest-is-valid": "error",
+            "button-type": "error",
+            "compat-api/css": "error",
+            "compat-api/html": "error",
+            "create-element-svg": "error",
+            "css-prefix-order": "error",
+            "no-bom": "error",
+            "no-protocol-relative-urls": "error",
+            "scoped-svg-styles": "error",
+            "sri": "error",
+            "content-type": "error",
+            "html-checker": "error",
+            "http-cache": "error",
+            "http-compression": "error"
+        },
+        "hintsTimeout": 10000
     },
     "browserslist": [
         "> 0.5%",
@@ -40,11 +83,30 @@
         "not dead"
     ],
     "scripts": {
-        "build:mini": "./node_modules/.bin/sass src/flavors:dist --style=compressed --charset --no-error-css --color --unicode --no-source-map",
+        "autoprefix:tools": "./node_modules/.bin/postcss test/build/1-tools --use autoprefixer -d test/autoprefixer/1-tools --no-map",
+        "autoprefix:settings": "./node_modules/.bin/postcss test/build/2-settings --use autoprefixer -d test/autoprefixer/2-settings --no-map",
+        "autoprefix:base": "./node_modules/.bin/postcss test/build/3-elements/base --use autoprefixer -d test/autoprefixer/3-elements/base --no-map",
+        "autoprefix:layout": "./node_modules/.bin/postcss test/build/3-elements/layout --use autoprefixer -d test/autoprefixer/3-elements/layout --no-map",
+        "autoprefix:components": "./node_modules/.bin/postcss test/build/4-components --use autoprefixer -d test/autoprefixer/4-components --no-map",
+        "autoprefix:utilities": "./node_modules/.bin/postcss test/build/5-utilities --use autoprefixer -d test/autoprefixer/5-utilities --no-map",
+        "autoprefix": "npm run autoprefix:tools && npm run autoprefix:settings && npm run autoprefix:base && npm run autoprefix:layout && npm run autoprefix:components && npm run autoprefix:utilities",
+        "build:compressed": "./node_modules/.bin/sass src/flavors:dist --style=compressed --charset --no-error-css --color --unicode --no-source-map",
         "build:expanded": "./node_modules/.bin/sass src/flavors:dist/expanded --style=expanded --charset --no-error-css --color --unicode --no-source-map",
-        "build": "npm run build:mini && npm run build:expanded",
-        "test": "./node_modules/.bin/sass test/flavors:test/build --style=expanded --charset --no-error-css --color --unicode --no-source-map",
-        "lint": "./node_modules/.bin/stylelint src/oseille/**/*.scss",
-        "lint-css": "./node_modules/.bin/stylelint dist/*.css --config .stylelintrc-standard.json"
+        "build": "npm run build:compressed && npm run build:expanded",
+        "lint": "./node_modules/.bin/stylelint dist/expanded/*.css --config linters/.stylelintrc.json",
+        "fix": "./node_modules/.bin/stylelint dist/expanded/*.css --config linters/.stylelintrc.json --fix",
+        "fix:sass:elements": "./node_modules/.bin/stylelint src/oseille/3-elements/**/*.scss --config linters/.stylelintrc.json --fix",
+        "fix:sass:others": "./node_modules/.bin/stylelint src/oseille/**/*.scss --config linters/.stylelintrc.json --fix",
+        "fix:sass": "npm run fix:sass:others && npm run fix:sass:elements",
+        "lint:sass:elements": "./node_modules/.bin/stylelint src/oseille/3-elements/**/*.scss --config linters/.stylelintrc.json",
+        "lint:sass:others": "./node_modules/.bin/stylelint src/oseille/**/*.scss --config linters/.stylelintrc.json",
+        "lint:sass": "npm run lint:sass:others && npm run lint:sass:elements",
+        "fix:test:elements": "./node_modules/.bin/stylelint test/build/3-elements/**/*.css --config linters/.stylelintrc.json --fix",
+        "fix:test:others": "./node_modules/.bin/stylelint test/build/**/*.css --config linters/.stylelintrc.json --fix",
+        "fix:test": "npm run lint:test:others && npm run lint:test:elements",
+        "lint:test:elements": "./node_modules/.bin/stylelint test/build/3-elements/**/*.css --config linters/.stylelintrc.json",
+        "lint:test:others": "./node_modules/.bin/stylelint test/build/**/*.css --config linters/.stylelintrc.json",
+        "lint:test": "npm run lint:test:others && npm run lint:test:elements",
+        "test": "./node_modules/.bin/sass test/flavors:test/build --style=expanded --charset --no-error-css --color --unicode --no-source-map"
     }
 }

@@ -7,12 +7,13 @@
 // You may override the default values of the settings' variables, if needed, with the @use rule.
 // See flavors/oseille.scss and the 2-settings*.scss files.
 //
-@use 'sass:map';
-@use '../../2-settings/colors' as colors;
-@use '../../2-settings/fonts' as fonts;
-@use '../../2-settings/borders' as borders;
-@use '../../2-settings/box-model' as boxmodel;
-@use '../../2-settings/responsive' as breakpoints;
+
+@use "sass:map";
+@use "../../2-settings/colors" as colors;
+@use "../../2-settings/fonts" as fonts;
+@use "../../2-settings/borders" as borders;
+@use "../../2-settings/box-model" as boxmodel;
+@use "../../2-settings/responsive" as breakpoints;
 
 // Private variables.
 //
@@ -22,7 +23,7 @@
 // @link: https://sass-lang.com/documentation/variables
 
 // Mobile breakpoint
-$_mobile-breakpoint: breakpoints.get('medium') - 1px;
+$_mobile-breakpoint: breakpoints.get("medium") - 1px;
 
 // Height of the header element.
 $_height: 3.1875rem !default;
@@ -47,21 +48,22 @@ header {
 // No box-shadow as it causes lots of weird bugs in Chrome. No margin as it shouldn't have any.
 .page-header {
     // Always apply background color to avoid shine through
-    background-color: var(--header-back-color, colors.get('back'));
-    color: var(--header-fore-color, colors.get('fore'));
+    background-color: var(--header-back-color, colors.get("back"));
+
+    @if $_only-bottom-border {
+        border-bottom: borders.get("thin") solid var(--header-border-color, colors.get("border"));
+    }
+    @else {
+        border: borders.get("thin") solid var(--header-border-color, colors.get("border"));
+    }
+
+    color: var(--header-fore-color, colors.get("fore"));
     overflow-x: auto;
     overflow-y: hidden;
-
-    padding: calc(#{boxmodel.get('padding')} / 4) 0;
+    padding: calc(#{boxmodel.get("padding")} / 4) 0;
 
     // Responsiveness for smaller displays, scrolls horizontally.
     white-space: nowrap;
-
-    @if $_only-bottom-border {
-        border-bottom: borders.get('thin') solid var(--header-border-color, colors.get('border'));
-    } @else {
-        border: borders.get('thin') solid var(--header-border-color, colors.get('border'));
-    }
 
     // Fix for responsive header, using the grid system's row and column alignment.
     //&.row {
@@ -75,24 +77,24 @@ header {
     .logo {
         // Remove also our alternate style
         box-shadow: none;
-        color: var(--header-fore-color, colors.get('fore'));
+        color: var(--header-fore-color, colors.get("fore"));
         font-size: $_logo-font-size;
-        padding: boxmodel.get('padding') calc(2 * #{boxmodel.get('padding')});
+        padding: boxmodel.get("padding") calc(2 * #{boxmodel.get("padding")});
         text-decoration: none;
     }
 
     // Link styling.
     button,
-    [type='button'],
+    [type="button"],
     .button,
-    [role='button'] {
+    [role="button"] {
+        align-items: center;
         border: 0;
         // Fill the header's height for a better style
         display: flex;
-        align-items: center;
         justify-content: center;
-        margin-top: 0;
         margin-bottom: 0;
+        margin-top: 0;
 
         @if $_links-uppercase {
             text-transform: uppercase;
@@ -101,22 +103,21 @@ header {
 
     // Span styling.
     span {
-        line-height: calc(#{$_height} - #{boxmodel.get('padding')} * #{fonts.get-line-spacing('main')});
+        line-height: calc(#{$_height} - #{boxmodel.get("padding")} * #{fonts.get-line-spacing("main")});
         position: relative;
-
-        // Use universal-padding to offset the padding of the header.
-        top: calc(0rem - #{boxmodel.get('padding')} / 4);
 
         @if $_links-uppercase {
             text-transform: uppercase;
         }
+
+        // Use universal-padding to offset the padding of the header.
+        top: calc(0rem - #{boxmodel.get("padding")} / 4);
     }
 
     &.sticky {
         // Scrolling elements containing sticky content can cause performance and accessibility issues.
         // @link https://developer.mozilla.org/en-US/docs/Web/CSS/position
         // @link https://developer.mozilla.org/en-US/docs/Web/CSS/will-change
-        position: -webkit-sticky;
         position: sticky;
         top: 0;
         // Deals with certain problems when combined with cards and tables.
@@ -124,6 +125,7 @@ header {
 
         // Uses media queries to un-fix sticky headers / footers to be able to present content without sticky headers
         // and footers when the space of the viewport is limited.
+
         @media screen and (max-width: #{$_mobile-breakpoint}) {
             &.unfix {
                 position: static;

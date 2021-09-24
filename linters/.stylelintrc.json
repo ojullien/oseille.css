@@ -1,0 +1,98 @@
+{
+    "extends": [
+        "stylelint-config-standard",
+        "stylelint-config-sass-guidelines"
+    ],
+    "rules": {
+        "scss/at-extend-no-missing-placeholder": true,
+        "selector-max-id": 2,
+        "declaration-block-no-duplicate-properties": true,
+        "block-no-empty": [
+            true,
+            {
+                "ignore": [
+                    "comments"
+                ]
+            }
+        ],
+        "no-descending-specificity": [
+            true,
+            {
+                "ignore": [
+                    "selectors-within-list"
+                ]
+            }
+        ],
+        "length-zero-no-unit": [
+            true,
+            {
+                "ignore": [
+                    "custom-properties"
+                ]
+            }
+        ],
+        "selector-no-qualifying-type": [
+            true,
+            {
+                "ignore": [
+                    "attribute",
+                    "class"
+                ]
+            }
+        ],
+        "value-no-vendor-prefix": [
+            true,
+            {
+                "ignoreValues": [
+                    "sticky"
+                ]
+            }
+        ],
+        "declaration-block-semicolon-newline-after": "always",
+        "block-opening-brace-newline-after": "always",
+        "declaration-colon-space-after": "always-single-line",
+        "at-rule-no-unknown": [
+            true,
+            {
+                "ignoreAtRules": [
+                    "if",
+                    "else",
+                    "use",
+                    "for",
+                    "function",
+                    "return",
+                    "warn",
+                    "mixin",
+                    "include",
+                    "extend",
+                    "each",
+                    "debug"
+                ]
+            }
+        ],
+        "at-rule-disallowed-list": [
+            "import"
+        ],
+        "property-no-unknown": [
+            true,
+            {
+                "ignoreProperties": [
+                    "suffix"
+                ]
+            }
+        ],
+        "property-no-vendor-prefix": null,
+        "selector-no-vendor-prefix": null,
+        "indentation": null,
+        "comment-empty-line-before": null,
+        "rule-empty-line-before": null,
+        "at-rule-empty-line-before": null,
+        "selector-list-comma-newline-after": null,
+        "declaration-empty-line-before": null,
+        "order/properties-alphabetical-order": true,
+        "selector-max-compound-selectors": 4,
+        "at-rule-no-vendor-prefix": null,
+        "string-quotes": "double",
+        "max-nesting-depth": 4
+    }
+}

@@ -7,10 +7,11 @@
 // You may override the default values of the settings' variables, if needed, with the @use rule.
 // See flavors/oseille.scss and the 2-settings*.scss files.
 //
-@use 'sass:map';
-@use '../2-settings/colors' as colors;
-@use '../2-settings/borders' as borders;
-@use '../2-settings/box-model' as boxmodel;
+
+@use "sass:map";
+@use "../2-settings/colors" as colors;
+@use "../2-settings/borders" as borders;
+@use "../2-settings/box-model" as boxmodel;
 
 // Private variables.
 //
@@ -28,86 +29,86 @@ $_content-max-height: 100vh !default; // Max height for the content panes in the
 //   - toggle:
 //   - content:
 $_classnames: (
-    'wrapper': 'collapse',
+  "wrapper": "collapse",
 ) !default;
 
 /* Accordions styling */
-
+/* stylelint-disable no-descending-specificity */
 .#{map.get($_classnames, 'wrapper')} {
-    border-bottom: borders.get('thin') solid var(--accordion-border-color, colors.get('border'));
-    border-left: borders.get('thin') solid var(--accordion-border-color, colors.get('border'));
-    border-radius: borders.get('radius');
-    border-right: borders.get('thin') solid var(--accordion-border-color, colors.get('border'));
-    display: flex;
-    flex-direction: column;
-    margin: boxmodel.get('margin');
-    overflow: hidden;
+  border-bottom: borders.get("thin") solid var(--accordion-border-color, colors.get("border"));
+  border-left: borders.get("thin") solid var(--accordion-border-color, colors.get("border"));
+  border-radius: borders.get("radius");
+  border-right: borders.get("thin") solid var(--accordion-border-color, colors.get("border"));
+  display: flex;
+  flex-direction: column;
+  margin: boxmodel.get("margin");
+  overflow: hidden;
 
-    input {
-        display: none;
+  input {
+    display: none;
 
-        & + label {
-            background-color: var(--accordion-back-color, colors.get('back'));
-            border-top: borders.get('thin') solid var(--accordion-border-color, colors.get('border'));
-            color: var(--accordion-fore-color, colors.get('fore'));
-            cursor: pointer;
-            display: flex;
-            justify-content: normal;
-            padding: calc(1.5 * #{boxmodel.get('padding')});
+    + label {
+      background-color: var(--accordion-back-color, colors.get("back"));
+      border-top: borders.get("thin") solid var(--accordion-border-color, colors.get("border"));
+      color: var(--accordion-fore-color, colors.get("fore"));
+      cursor: pointer;
+      display: flex;
+      justify-content: normal;
+      padding: calc(1.5 * #{boxmodel.get("padding")});
 
-            &::before {
-                content: '\276F';
-                height: 1em;
-                margin-right: boxmodel.get('margin');
-                text-align: center;
-                transition: all 0.35s;
-                width: 1em;
-            }
+      &::before {
+        content: "\276F";
+        height: 1em;
+        margin-right: boxmodel.get("margin");
+        text-align: center;
+        transition: all 0.35s;
+        width: 1em;
+      }
 
-            &:hover,
-            &:focus {
-                background-color: var(--accordion-back-hover-color, #{colors.get('back-alt')});
-                border-color: var(--accordion-border-hover-color, #{colors.get('back-alt')});
-                color: var(--accordion-fore-hover-color, #{colors.get('fore-alt')});
-                outline: transparent solid;
-            }
+      &:hover,
+      &:focus {
+        background-color: var(--accordion-back-hover-color, #{colors.get("back-alt")});
+        border-color: var(--accordion-border-hover-color, #{colors.get("back-alt")});
+        color: var(--accordion-fore-hover-color, #{colors.get("fore-alt")});
+        outline: transparent solid;
+      }
 
-            & + div {
-                max-height: 0;
-                opacity: 0;
-                overflow: hidden;
-                padding: 0 1em;
-                visibility: hidden;
-            }
-        }
-
-        &:checked {
-            & + label {
-                background-color: var(--collapse-back-checked-color, colors.get('back-alt'));
-                color: var(--collapse-fore-checked-color, #{colors.get('fore-alt')});
-
-                &::before {
-                    transform: rotate(90deg);
-                }
-
-                & + div {
-                    max-height: $_content-max-height;
-                    opacity: 1;
-                    overflow: auto;
-                    padding: boxmodel.get('padding');
-                    visibility: visible;
-                }
-            }
-        }
+      + div {
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+        padding: 0 1em;
+        visibility: hidden;
+      }
     }
-}
 
+    &:checked {
+      + label {
+        background-color: var(--collapse-back-checked-color, colors.get("back-alt"));
+        color: var(--collapse-fore-checked-color, #{colors.get("fore-alt")});
+
+        &::before {
+          transform: rotate(90deg);
+        }
+
+        + div {
+          max-height: $_content-max-height;
+          opacity: 1;
+          overflow: auto;
+          padding: boxmodel.get("padding");
+          visibility: visible;
+        }
+      }
+    }
+  }
+}
+/* stylelint-enable no-descending-specificity */
 .symbol {
-    display: inline-block;
-    fill: none;
-    height: 1em;
-    padding-left: 3px;
-    stroke: currentColor;
-    stroke-width: 2;
-    vertical-align: -0.125em;
+  display: inline-block;
+  fill: none;
+  height: 1em;
+  padding-left: 3px;
+  stroke: currentColor;
+  stroke-width: 2;
+  vertical-align: -0.125em;
 }

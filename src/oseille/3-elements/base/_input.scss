@@ -7,12 +7,13 @@
 // You may override the default values of the settings' variables, if needed, with the @use rule.
 // See flavors/oseille.scss and the 2-settings*.scss files.
 //
-@use 'sass:map';
-@use '../../2-settings/colors' as colors;
-@use '../../2-settings/fonts' as fonts;
-@use '../../2-settings/borders' as borders;
-@use '../../2-settings/box-model' as boxmodel;
-@use '../../2-settings/responsive' as breakpoints;
+
+@use "sass:map";
+@use "../../2-settings/colors" as colors;
+@use "../../2-settings/fonts" as fonts;
+@use "../../2-settings/borders" as borders;
+@use "../../2-settings/box-model" as boxmodel;
+@use "../../2-settings/responsive" as breakpoints;
 
 // Private variables.
 //
@@ -28,7 +29,7 @@ $_disabled-opacity: 0.75 !default;
 $_include-fluid-input-group: true !default;
 
 // Mobile breakpoint for button groups.
-$_mobile-breakpoint: breakpoints.get('medium') - 1px;
+$_mobile-breakpoint: breakpoints.get("medium") - 1px;
 
 // Classnames
 //
@@ -37,40 +38,37 @@ $_mobile-breakpoint: breakpoints.get('medium') - 1px;
 //   - fluid: fluid input groups
 //   - vertical: vertical input groups
 $_classnames: (
-    'group': 'input-group',
-    'fluid': 'fluid',
-    'vertical': 'vertical',
+    "group": "input-group",
+    "fluid": "fluid",
+    "vertical": "vertical",
 ) !default;
 
 // Styling for checkboxes and radio buttons:
-@mixin normalizeRadioCheckbox {
+
+@mixin normalizeradiocheckbox {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
     // Override fluid input-group styling.
-    flex-basis: calc(#{fonts.get-size('input')} + #{boxmodel.get('padding')} / 2) !important;
+    flex-basis: calc(#{fonts.get-size("input")} + #{boxmodel.get("padding")} / 2) !important;
     // Using with fluid input-groups is not recommended.
     flex-grow: 0 !important;
-    height: calc(#{fonts.get-size('input')} + #{boxmodel.get('padding')} / 2);
+    height: calc(#{fonts.get-size("input")} + #{boxmodel.get("padding")} / 2);
     // Remove padding added from previous styles.
     padding: 0;
     position: relative;
     vertical-align: text-bottom;
-    width: calc(#{fonts.get-size('input')} + #{boxmodel.get('padding')} / 2);
-
-    &:checked::before {
-        position: absolute;
-    }
+    width: calc(#{fonts.get-size("input")} + #{boxmodel.get("padding")} / 2);
 }
 
 // Disabled styling for input and button elements.
-@mixin styleDisable {
+
+@mixin styledisable {
     &:disabled,
     &[disabled] {
         @supports (cursor: not-allowed) {
             cursor: not-allowed;
         }
-
         @supports (filter: grayscale(60%)) {
             filter: grayscale(60%);
         }
@@ -83,12 +81,13 @@ $_classnames: (
 /* Styling for input */
 
 input {
-    @include styleDisable;
-    background-color: var(--input-back-color, #{colors.get('back')});
-    border: borders.get('medium') solid var(--input-border-color, #{colors.get('border')});
-    color: var(--input-fore-color, #{colors.get('fore')});
+    @include styledisable;
+
+    background-color: var(--input-back-color, #{colors.get("back")});
+    border: borders.get("medium") solid var(--input-border-color, #{colors.get("border")});
+    color: var(--input-fore-color, #{colors.get("fore")});
     font-family: inherit;
-    font-size: fonts.get-size('input');
+    font-size: fonts.get-size("input");
     line-height: normal;
     margin: 0;
     overflow: visible; // Show overflow in Edge.
@@ -97,54 +96,58 @@ input {
 /* Common textual input styling. */
 // - Avoid using box-shadow with these.
 input:not([type]),
-[type='text'],
-[type='email'],
-[type='number'],
-[type='search'],
-[type='password'],
-[type='url'],
-[type='tel'],
-[type='checkbox'],
-[type='radio'],
+[type="text"],
+[type="email"],
+[type="number"],
+[type="search"],
+[type="password"],
+[type="url"],
+[type="tel"],
+[type="checkbox"],
+[type="radio"],
 textarea,
 select {
     // Background, color and border should not be unassigned, as the browser defaults will apply.
-    background-color: var(--input-back-color, #{colors.get('back')});
-    border: borders.get('medium') solid var(--input-border-color, #{colors.get('border')});
-    border-radius: borders.get('radius');
-    color: var(--input-fore-color, #{colors.get('fore')});
-    margin: calc(#{boxmodel.get('margin')} / 2);
-    padding: boxmodel.get('padding') calc(#{fonts.get-line-spacing('main')} * #{boxmodel.get('padding')});
+    background-color: var(--input-back-color, #{colors.get("back")});
+    border: borders.get("medium") solid var(--input-border-color, #{colors.get("border")});
+    border-radius: borders.get("radius");
+    color: var(--input-fore-color, #{colors.get("fore")});
+    margin: calc(#{boxmodel.get("margin")} / 2);
+    padding: boxmodel.get("padding") calc(#{fonts.get-line-spacing("main")} * #{boxmodel.get("padding")});
 }
 
 /* Styling for checkbox */
 
-[type='checkbox'] {
-    @include normalizeRadioCheckbox;
+[type="checkbox"] {
+    @include normalizeradiocheckbox;
 
     &:checked::before {
-        content: '\2713';
+        content: "\2713";
         font-family: sans-serif;
-        font-size: calc(#{fonts.get-size('input')} + #{boxmodel.get('padding')} / 2);
-        left: calc(#{boxmodel.get('padding')} / 4);
-        top: calc(0rem - #{boxmodel.get('padding')});
+        font-size: calc(#{fonts.get-size("input")} + #{boxmodel.get("padding")} / 2);
+        left: calc(#{boxmodel.get("padding")} / 4);
+        position: absolute;
+        top: calc(0rem - #{boxmodel.get("padding")});
     }
 }
 
 /* Styling for radio */
 
-[type='radio'] {
-    @include normalizeRadioCheckbox;
+[type="radio"] {
+    @include normalizeradiocheckbox;
 
+    /* stylelint-disable order/properties-alphabetical-order */
     border-radius: 100%;
+    /* stylelint-enable order/properties-alphabetical-order */
 
     &:checked::before {
-        background-color: colors.get('back-alt');
+        background-color: colors.get("back-alt");
         border-radius: 100%;
-        content: '';
+        content: "";
         height: 0.5rem;
-        left: calc(1px + #{boxmodel.get('padding')} / 2);
-        top: calc(1px + #{boxmodel.get('padding')} / 2);
+        left: calc(1px + #{boxmodel.get("padding")} / 2);
+        position: absolute;
+        top: calc(1px + #{boxmodel.get("padding")} / 2);
         width: 0.5rem;
     }
 }
@@ -160,19 +163,18 @@ select {
 /* Styling for search */
 
 // Correct style in Chrome and Safari.
-[type='search'] {
+[type="search"] {
     @supports (-webkit-appearance: textfield) {
         -webkit-appearance: textfield;
     }
-
     @supports (outline-offset: -2px) {
         outline-offset: -2px;
     }
 }
 
 @supports (-webkit-appearance: none) {
-    [type='search']::-webkit-search-cancel-button,
-    [type='search']::-webkit-search-decoration {
+    [type="search"]::-webkit-search-cancel-button,
+    [type="search"]::-webkit-search-decoration {
         -webkit-appearance: none;
     }
 }
@@ -180,18 +182,20 @@ select {
 /* Styling for textarea */
 
 textarea {
-    @include styleDisable;
+    @include styledisable;
+
     font: inherit;
     font-size: 100%;
-    line-height: fonts.get-line-spacing('main');
+    line-height: fonts.get-line-spacing("main");
 }
 
 /* Styling for select */
 
 select {
-    @include styleDisable;
+    @include styledisable;
+
     font: inherit;
-    line-height: fonts.get-line-spacing('main');
+    line-height: fonts.get-line-spacing("main");
 
     // Overflowing parent container.
     max-width: 100%;
@@ -201,7 +205,7 @@ select {
 optgroup {
     font-family: inherit;
     font-size: 100%;
-    line-height: fonts.get-line-spacing('main');
+    line-height: fonts.get-line-spacing("main");
     margin: 0;
 }
 
@@ -215,46 +219,39 @@ option {
     white-space: nowrap;
 }
 
-// Placeholder styling (keep browser-specific definitions separated, they do not play well together).
-
-::-ms-placeholder {
-    color: var(--input-fore-color, #{colors.get('fore')});
-    opacity: 0.54;
-}
-
-:-moz-placeholder-shown {
-    color: var(--input-fore-color, #{colors.get('fore')});
-}
-
-:-ms-input-placeholder {
-    color: var(--input-fore-color, #{colors.get('fore')});
-}
-
-:placeholder-shown {
-    color: var(--input-fore-color, #{colors.get('fore')});
-}
-
 /* Hover, focus, disabled, readonly, invalid styling for common textual inputs. */
-input:not([type='button']):not([type='submit']):not([type='reset']),
+
+input:not([type="button"]):not([type="submit"]):not([type="reset"]),
 textarea,
 select {
     &:hover,
     &:focus {
-        border-color: var(--input-border-hover-color, #{colors.get('sidebar')});
+        border-color: var(--input-border-hover-color, #{colors.get("sidebar")});
         box-shadow: none;
     }
 
     &:invalid,
     &:focus:invalid {
-        border-color: var(--input-border-hover-color, #{colors.get('red')});
+        border-color: var(--input-border-hover-color, #{colors.get("red")});
         box-shadow: none;
     }
 
     &[readonly] {
         filter: grayscale(60%);
-
         opacity: $_disabled-opacity;
     }
+}
+
+// Remove the additional ':invalid' styles in Firefox.
+// See: https://github.com/mozilla/gecko-dev/blob/2f9eacd9d3d995c937b4251a5557d95d494c9be1/layout/style/res/forms.css#L728-L737
+input:-moz-ui-invalid {
+    box-shadow: none;
+}
+
+// see: https://developer.mozilla.org/en-US/docs/Web/CSS/:user-invalid
+input:user-invalid {
+    border-color: var(--input-border-hover-color, #{colors.get("red")});
+    box-shadow: none;
 }
 
 /* Input group styling. */
@@ -262,18 +259,20 @@ select {
 .#{map.get($_classnames,'group')} {
     display: inline-block;
     // Fluid input groups
+
     @if $_include-fluid-input-group {
         &.#{map.get($_classnames,'fluid')} {
             align-items: center;
             display: flex;
             justify-content: center;
 
-            & > input {
+            > input {
                 flex-basis: 0;
                 flex-grow: 1;
                 max-width: 100%;
             }
             // On mobile
+
             @media screen and (max-width: #{$_mobile-breakpoint}) {
                 align-items: stretch;
                 flex-direction: column;
@@ -285,11 +284,27 @@ select {
             display: flex;
             flex-direction: column;
 
-            & > input {
+            > input {
                 flex-basis: 0;
                 flex-grow: 1;
                 max-width: 100%;
             }
         }
+    }
+}
+
+// Placeholder styling (keep browser-specific definitions separated, they do not play well together).
+
+input,
+textarea {
+    &:-ms-placeholder {
+        color: var(--input-fore-color, #{colors.get("fore")});
+        opacity: 0.54;
+    }
+    &:-moz-placeholder-shown {
+        color: var(--input-fore-color, #{colors.get("fore")});
+    }
+    &:placeholder-shown {
+        color: var(--input-fore-color, #{colors.get("fore")});
     }
 }

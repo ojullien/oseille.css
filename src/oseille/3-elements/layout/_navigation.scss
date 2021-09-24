@@ -6,10 +6,11 @@
 // You may override the default values of the settings' variables, if needed, with the @use rule.
 // See flavors/oseille.scss and the 2-settings*.scss files.
 //
-@use '../../2-settings/colors' as colors;
-@use '../../2-settings/fonts' as fonts;
-@use '../../2-settings/borders' as borders;
-@use '../../2-settings/box-model' as boxmodel;
+
+@use "../../2-settings/colors" as colors;
+@use "../../2-settings/fonts" as fonts;
+@use "../../2-settings/borders" as borders;
+@use "../../2-settings/box-model" as boxmodel;
 
 // Private variables.
 //
@@ -22,27 +23,27 @@
 $_sublink-depth: 2 !default;
 
 // Prefix for the subcategory tabs in nav.
-$_sublink-prefix: 'sublink' !default;
+$_sublink-prefix: "sublink" !default;
 
 // Add a border to the nav.
-$_border-classname: 'bordered' !default;
+$_border-classname: "bordered" !default;
 
 /* Navigation styling. */
 
 nav {
-    background-color: var(--nav-back-color, colors.get('back'));
+    background-color: var(--nav-back-color, colors.get("back"));
     border: 0;
-    color: var(--nav-fore-color, colors.get('fore'));
-    margin: boxmodel.get('margin');
+    color: var(--nav-fore-color, colors.get("fore"));
+    margin: boxmodel.get("margin");
     padding: 0;
 
     &.#{$_border-classname} {
-        border: borders.get('thin') solid var(--nav-border-color, colors.get('border'));
-        border-radius: borders.get('radius');
+        border: borders.get("thin") solid var(--nav-border-color, colors.get("border"));
+        border-radius: borders.get("radius");
     }
 
     * {
-        padding: boxmodel.get('padding') calc(#{fonts.get-line-spacing('main')} * #{boxmodel.get('padding')});
+        padding: boxmodel.get("padding") calc(#{fonts.get-line-spacing("main")} * #{boxmodel.get("padding")});
     }
 
     //    a:visited,
@@ -51,17 +52,18 @@ nav {
     }
 
     // Subcategories in navigation.
+
     @for $i from 1 through $_sublink-depth {
         .#{$_sublink-prefix}-#{$i} {
-            margin-left: calc(#{$i * 2} * #{boxmodel.get('padding')});
+            margin-left: calc(#{$i * 2} * #{boxmodel.get("padding")});
             position: relative;
 
             &::before {
-                border: borders.get('thin') solid var(--nav-border-color, colors.get('border'));
+                border: borders.get("thin") solid var(--nav-border-color, colors.get("border"));
                 border-left: 0;
-                content: '';
+                content: "";
                 height: 100%;
-                left: calc(#{boxmodel.get('padding')} - #{1 + ($i - 1) * 2} * #{boxmodel.get('padding')});
+                left: calc(#{boxmodel.get("padding")} - #{1 + ($i - 1) * 2} * #{boxmodel.get("padding")});
                 position: absolute;
                 top: -1px;
             }

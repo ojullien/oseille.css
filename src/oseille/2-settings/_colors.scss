@@ -5,9 +5,11 @@
 //  - The colour of text and background content must have sufficient contrast
 //  - Use WCAG Grading tool to find the best shade/tone/tint with your fore / background combinaison
 //
-@use 'sass:map';
-@use '../1-tools/stdlib' as stdlib;
-@use '../1-tools/color' as *;
+
+@use "sass:color";
+@use "sass:map";
+@use "../1-tools/stdlib" as stdlib;
+@use "../1-tools/color" as *;
 
 // Variables.
 //
@@ -27,15 +29,15 @@
 //   - black: text & foreground color
 //   - white: background color
 $primary: (
-    'black': #121212,
-    'blue': hsla(219deg, 72%, 46%, 1),
-    'green': hsla(127deg, 63%, 46%, 1),
-    'grey': hsla(0deg, 0%, 46%, 1),
-    'orange': hsla(12deg, 74%, 46%, 1),
-    'red': hsla(3deg, 90%, 46%, 1),
-    'transparent': transparent,
-    'white': #f8f8f8,
-    'yellow': hsla(45deg, 100%, 46%, 1),
+  "black": #121212,
+  "blue": hsla(219deg, 72%, 46%, 1),
+  "green": hsla(127deg, 63%, 46%, 1),
+  "grey": hsla(0deg, 0%, 46%, 1),
+  "orange": hsla(12deg, 74%, 46%, 1),
+  "red": hsla(3deg, 90%, 46%, 1),
+  "transparent": transparent,
+  "white": #f8f8f8,
+  "yellow": hsla(45deg, 100%, 46%, 1),
 ) !default;
 
 //
@@ -49,30 +51,30 @@ $primary: (
 //   - yellow-*: more color
 //   - grey-*: more color
 $primary-palette: (
-    'blue-darkest': darkest(map.get($primary, 'blue')),
-    'blue-darker': darker(map.get($primary, 'blue')),
-    'blue-lighter': hsla(211deg, 82%, 58%, 1),
-    'blue-lightest': hsla(211deg, 86%, 66%, 1),
-    'green-darkest': darkest(map.get($primary, 'green')),
-    'green-darker': darker(map.get($primary, 'green')),
-    'green-lighter': lighter(map.get($primary, 'green')),
-    'green-lightest': lightest(map.get($primary, 'green')),
-    'grey-darkest': darkest(map.get($primary, 'grey')),
-    'grey-darker': darker(map.get($primary, 'grey')),
-    'grey-lighter': lightest(map.get($primary, 'grey')),
-    'grey-lightest': hsla(0, 0%, 93%, 1),
-    'orange-darkest': darkest(map.get($primary, 'orange')),
-    'orange-darker': darker(map.get($primary, 'orange')),
-    'orange-lighter': hsla(27deg, 79%, 50%, 1),
-    'orange-lightest': hsla(31deg, 87%, 58%, 1),
-    'red-darkest': darkest(map.get($primary, 'red')),
-    'red-darker': darker(map.get($primary, 'red')),
-    'red-lighter': hsla(360deg, 69%, 54%, 1),
-    'red-lightest': hsla(358deg, 75%, 64%, 1),
-    'yellow-darkest': darkest(map.get($primary, 'yellow')),
-    'yellow-darker': darker(map.get($primary, 'yellow')),
-    'yellow-lighter': lighter(map.get($primary, 'yellow')),
-    'yellow-lightest': lightest(map.get($primary, 'yellow')),
+  "blue-darkest": darkest(map.get($primary, "blue")),
+  "blue-darker": darker(map.get($primary, "blue")),
+  "blue-lighter": hsla(211deg, 82%, 58%, 1),
+  "blue-lightest": hsla(211deg, 86%, 66%, 1),
+  "green-darkest": darkest(map.get($primary, "green")),
+  "green-darker": darker(map.get($primary, "green")),
+  "green-lighter": lighter(map.get($primary, "green")),
+  "green-lightest": lightest(map.get($primary, "green")),
+  "grey-darkest": darkest(map.get($primary, "grey")),
+  "grey-darker": darker(map.get($primary, "grey")),
+  "grey-lighter": lightest(map.get($primary, "grey")),
+  "grey-lightest": hsla(0, 0%, 93%, 1),
+  "orange-darkest": darkest(map.get($primary, "orange")),
+  "orange-darker": darker(map.get($primary, "orange")),
+  "orange-lighter": hsla(27deg, 79%, 50%, 1),
+  "orange-lightest": hsla(31deg, 87%, 58%, 1),
+  "red-darkest": darkest(map.get($primary, "red")),
+  "red-darker": darker(map.get($primary, "red")),
+  "red-lighter": hsla(360deg, 69%, 54%, 1),
+  "red-lightest": hsla(358deg, 75%, 64%, 1),
+  "yellow-darkest": darkest(map.get($primary, "yellow")),
+  "yellow-darker": darker(map.get($primary, "yellow")),
+  "yellow-lighter": lighter(map.get($primary, "yellow")),
+  "yellow-lightest": lightest(map.get($primary, "yellow")),
 ) !default;
 
 //
@@ -85,11 +87,11 @@ $primary-palette: (
 //   - fore-alt: alternative color for text & foreground.(Inverted)
 //   - back-alt: alternative color for background (Inverted)
 $secondary: (
-    'back': map.get($primary, 'white'),
-    'back-alt': map.get($primary, 'black'),
-    'border': map.get($primary-palette, 'grey-darkest'),
-    'fore': map.get($primary, 'black'),
-    'fore-alt': map.get($primary, 'white'),
+  "back": map.get($primary, "white"),
+  "back-alt": map.get($primary, "black"),
+  "border": map.get($primary-palette, "grey-darkest"),
+  "fore": map.get($primary, "black"),
+  "fore-alt": map.get($primary, "white"),
 ) !default;
 
 //
@@ -103,16 +105,16 @@ $secondary: (
 //   - error: background color variant.
 //   - overlay: modal dialog component
 $elements: (
-    'code-back': map.get($primary-palette, 'grey-lightest'),
-    'code-fore': map.get($secondary, 'fore'),
-    'error': map.get($primary-palette, 'red-darker'),
-    'link': map.get($primary, 'blue'),
-    'overlay': rgba(0, 0, 0, 0.45),
-    'primary': map.get($primary-palette, 'blue-darker'),
-    'sidebar': map.get($primary, 'blue'),
-    'sidebar-quote': map.get($primary-palette, 'orange-lighter'),
-    'success': map.get($primary-palette, 'green-darker'),
-    'visited': map.get($primary-palette, 'blue-darkest'),
+  "code-back": map.get($primary-palette, "grey-lightest"),
+  "code-fore": map.get($secondary, "fore"),
+  "error": map.get($primary-palette, "red-darker"),
+  "link": map.get($primary, "blue"),
+  "overlay": rgba(0, 0, 0, 0.45),
+  "primary": map.get($primary-palette, "blue-darker"),
+  "sidebar": map.get($primary, "blue"),
+  "sidebar-quote": map.get($primary-palette, "orange-lighter"),
+  "success": map.get($primary-palette, "green-darker"),
+  "visited": map.get($primary-palette, "blue-darkest"),
 ) !default;
 
 // Functions.
@@ -122,12 +124,14 @@ $elements: (
 //
 // @param {string} $key - The background color.
 //
+
 @function get-text-color($color) {
-    @if (lightness($color) > 50) {
-        @return map.get($primary, 'black'); // Lighter background, return dark color
-    } @else {
-        @return map.get($primary, 'white'); // Darker background, return light color
-    }
+  @if (color.lightness($color) > 50) {
+    @return map.get($primary, "black"); // Lighter background, return dark color
+  }
+  @else {
+    @return map.get($primary, "white"); // Darker background, return light color
+  }
 }
 
 //
@@ -136,12 +140,13 @@ $elements: (
 //
 // @param {string} $key - The color that you want to search for
 //
+
 @function get($key) {
-    $color: stdlib.get-list($key, $primary, $primary-palette, $secondary, $elements);
+  $color: stdlib.get-list($key, $primary, $primary-palette, $secondary, $elements);
 
-    @if $color == null {
-        @warn #{'Color "' + $key + '" not found!'};
-    }
+  @if $color == null {
+    @warn #{'Color "' + $key + '" not found!'};
+  }
 
-    @return $color;
+  @return $color;
 }

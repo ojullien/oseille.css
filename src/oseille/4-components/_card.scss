@@ -4,11 +4,12 @@
 // You may override the default values of the settings' variables, if needed, with the @use rule.
 // See flavors/oseille.scss and the 2-settings*.scss files.
 //
-@use 'sass:map';
-@use '../2-settings/colors' as colors;
-@use '../2-settings/borders' as borders;
-@use '../2-settings/box-model' as boxmodel;
-@use '../2-settings/fonts' as fonts;
+
+@use "sass:map";
+@use "../2-settings/colors" as colors;
+@use "../2-settings/borders" as borders;
+@use "../2-settings/box-model" as boxmodel;
+@use "../2-settings/fonts" as fonts;
 
 // Private variables.
 //
@@ -24,9 +25,9 @@
 //   - section: cards' sections
 //   - media: cards' sections (media content)
 $_classnames: (
-    'card': 'card',
-    'section': 'section',
-    'media': 'media',
+  "card": "card",
+  "section": "section",
+  "media": "media",
 ) !default;
 
 $_normal-width: 320px !default; // Width for normal cards.
@@ -34,114 +35,117 @@ $_section-media-height: 200px !default; // Height for cards' media sections.
 
 // Mixin for alternate card (card size variants):
 //  $alt-size: The width of the alternate size card.
+
 @mixin make-card-alt-size($alt-size) {
-    @media screen and (min-width: #{$alt-size}) {
-        max-width: $alt-size;
-    }
+  @media screen and (min-width: #{$alt-size}) {
+    max-width: $alt-size;
+  }
 }
 
 /* Card styling */
 
 .#{map.get($_classnames, 'card')} {
-    // Responsiveness (if the screen is larger than card, set max-width)
-    @include make-card-alt-size($_normal-width);
-    align-self: center;
+  // Responsiveness (if the screen is larger than card, set max-width)
 
-    // Actual styling for the cards
-    background-color: var(--card-back-color, #{colors.get('back')});
-    border: borders.get('thin') solid var(--card-border-color, #{colors.get('border')});
-    border-radius: borders.get('radius');
-    color: var(--card-fore-color, #{colors.get('fore')});
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin: boxmodel.get('margin');
+  @include make-card-alt-size($_normal-width);
 
-    // Hide overflow from section borders
-    overflow: hidden;
-    position: relative;
+  align-self: center;
+
+  // Actual styling for the cards
+  background-color: var(--card-back-color, #{colors.get("back")});
+  border: borders.get("thin") solid var(--card-border-color, #{colors.get("border")});
+  border-radius: borders.get("radius");
+  color: var(--card-fore-color, #{colors.get("fore")});
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: boxmodel.get("margin");
+
+  // Hide overflow from section borders
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+
+  // Centering the content
+  &.hero {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+
+  // Card sections
+  > .#{map.get($_classnames, 'section')} {
+    border: 0; // Clean borders and radiuses for any element-based sections
+    border-bottom: borders.get("thin") solid var(--card-border-color, #{colors.get("border")});
+    border-radius: 0; // Clean borders and radiuses for any element-based sections
+    margin: 0;
+    padding: boxmodel.get("padding");
     width: 100%;
 
-    // Centering the content
-    &.hero {
-        align-items: center;
-        justify-content: center;
-        text-align: center;
+    // Media sections
+    &.#{map.get($_classnames, 'media')} {
+      height: $_section-media-height;
+      padding: 0;
+
+      @supports ((-o-object-fit: cover) or (object-fit: cover)) {
+        -o-object-fit: cover;
+        object-fit: cover;
+      }
     }
 
-    // Card sections
-    & > .#{map.get($_classnames, 'section')} {
-        border: 0; // Clean borders and radiuses for any element-based sections
-        border-bottom: borders.get('thin') solid var(--card-border-color, #{colors.get('border')});
-        border-radius: 0; // Clean borders and radiuses for any element-based sections
-        margin: 0;
-        padding: boxmodel.get('padding');
-        width: 100%;
-
-        // Media sections
-        &.#{map.get($_classnames, 'media')} {
-            height: $_section-media-height;
-            padding: 0;
-
-            @supports ((-o-object-fit: cover) or (object-fit: cover)) {
-                -o-object-fit: cover;
-                object-fit: cover;
-            }
-        }
-
-        // Alternative sections
-        &.dark {
-            background-color: var(--card-back-color, #{colors.get('grey-lightest')});
-            color: var(--card-fore-color, #{colors.get('fore')});
-        }
-
-        &.double-padded {
-            padding: calc(#{fonts.get-line-spacing('main')} * #{boxmodel.get('padding')});
-        }
-
-        &:last-child {
-            border-bottom: 0; // Clean the extra border for last section
-        }
+    // Alternative sections
+    &.dark {
+      background-color: var(--card-back-color, #{colors.get("grey-lightest")});
+      color: var(--card-fore-color, #{colors.get("fore")});
     }
 
-    &.warning {
-        --card-back-color: var(--warning-back-color, #{colors.get('yellow')});
-        --card-border-color: var(--warning-border-color, #{colors.get('yellow-darkest')});
-        --card-fore-color: var(--warning-fore-color, #{colors.get('fore')});
-
-        border-width: borders.get('medium');
+    &.double-padded {
+      padding: calc(#{fonts.get-line-spacing("main")} * #{boxmodel.get("padding")});
     }
 
-    &.error {
-        --card-back-color: var(--error-back-color, #{colors.get('red')});
-        --card-border-color: var(--error-border-color, #{colors.get('red-darkest')});
-        --card-fore-color: var(--error-fore-color, #{colors.get('back')});
-
-        border-width: borders.get('medium');
+    &:last-child {
+      border-bottom: 0; // Clean the extra border for last section
     }
+  }
 
-    &.fluid {
-        max-width: 100%;
-        width: auto;
-    }
+  &.warning {
+    --card-back-color: var(--warning-back-color, #{colors.get("yellow")});
+    --card-border-color: var(--warning-border-color, #{colors.get("yellow-darkest")});
+    --card-fore-color: var(--warning-fore-color, #{colors.get("fore")});
 
-    &.small {
-        @include make-card-alt-size(240px);
-    }
+    border-width: borders.get("medium");
+  }
 
-    &.large {
-        @include make-card-alt-size(480px);
-    }
+  &.error {
+    --card-back-color: var(--error-back-color, #{colors.get("red")});
+    --card-border-color: var(--error-border-color, #{colors.get("red-darkest")});
+    --card-fore-color: var(--error-fore-color, #{colors.get("back")});
 
-    &__link {
-        // Push the link down. This will keep it positioned at the end regardless of the card height.
-        margin-top: auto !important;
-    }
+    border-width: borders.get("medium");
+  }
 
-    // Normalize typo
-    p {
-        max-width: unset;
-        text-align: unset;
-        width: unset;
-    }
+  &.fluid {
+    max-width: 100%;
+    width: auto;
+  }
+
+  &.small {
+    @include make-card-alt-size(240px);
+  }
+
+  &.large {
+    @include make-card-alt-size(480px);
+  }
+
+  &-link {
+    // Push the link down. This will keep it positioned at the end regardless of the card height.
+    margin-top: auto !important;
+  }
+
+  // Normalize typo
+  p {
+    max-width: unset;
+    text-align: unset;
+    width: unset;
+  }
 }

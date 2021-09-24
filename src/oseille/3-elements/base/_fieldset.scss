@@ -5,37 +5,38 @@
 // You may override the default values of the settings' variables, if needed, with the @use rule.
 // See flavors/oseille.scss and the 2-settings*.scss files.
 //
-@use '../../2-settings/colors' as colors;
-@use '../../2-settings/fonts' as fonts;
-@use '../../2-settings/borders' as borders;
-@use '../../2-settings/box-model' as boxmodel;
+
+@use "../../2-settings/colors" as colors;
+@use "../../2-settings/fonts" as fonts;
+@use "../../2-settings/borders" as borders;
+@use "../../2-settings/box-model" as boxmodel;
 
 /* Styling for fieldset */
 
 fieldset {
     // Apply always to overwrite defaults for all of the below.
-    border: borders.get('thin') solid var(--fieldset-border-color, colors.get('border'));
-    border-radius: borders.get('radius');
-    margin: calc(#{boxmodel.get('margin')} / 4);
-    padding: boxmodel.get('padding');
+    border: borders.get("thin") solid var(--fieldset-border-color, colors.get("border"));
+    border-radius: borders.get("radius");
+    margin: calc(#{boxmodel.get("margin")} / 4);
+    padding: boxmodel.get("padding");
 }
 
 legend {
     border: 0;
     // Edge fixes.
     display: table;
-    font-size: fonts.get-size('legend');
+    font-size: fonts.get-size("legend");
     // Actual styling.
     font-weight: bolder;
     margin: 0;
     max-width: 100%;
-    padding: calc(#{boxmodel.get('padding')} / 2);
+    padding: calc(#{boxmodel.get("padding")} / 2);
     white-space: normal;
 }
 
 label {
     border: 0;
-    font-size: fonts.get-size('label');
+    font-size: fonts.get-size("label");
     margin: 0;
-    padding: calc(#{boxmodel.get('padding')} / 2) boxmodel.get('padding');
+    padding: calc(#{boxmodel.get("padding")} / 2) boxmodel.get("padding");
 }

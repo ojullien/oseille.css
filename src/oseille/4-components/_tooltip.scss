@@ -5,10 +5,11 @@
 // You may override the default values of the settings' variables, if needed, with the @use rule.
 // See flavors/oseille.scss and the 2-settings*.scss files.
 //
-@use 'sass:map';
-@use '../2-settings/colors' as colors;
-@use '../2-settings/borders' as borders;
-@use '../2-settings/box-model' as boxmodel;
+
+@use "sass:map";
+@use "../2-settings/colors" as colors;
+@use "../2-settings/borders" as borders;
+@use "../2-settings/box-model" as boxmodel;
 
 // Private variables.
 //
@@ -18,92 +19,89 @@
 // @link: https://sass-lang.com/documentation/variables
 
 $_classname: (
-    'main': 'tooltip',
-    'alternate': 'bottom',
+  "main": "tooltip",
+  "alternate": "bottom",
 );
 
 /* Tooltip styling */
 
 .#{map.get($_classname, 'main')} {
-    display: inline-block;
-    position: relative;
+  display: inline-block;
+  position: relative;
 
+  &::before,
+  &::after {
+    clip: rect(0 0 0 0);
+    -webkit-clip-path: inset(100%);
+    clip-path: inset(100%);
+    left: 50%;
+    opacity: 0;
+    position: absolute;
+    transition: all 0.3s;
+    // Remember to keep this index a lower value than the one used for stickies.
+    z-index: 1010; // Deals with certain problems when combined with cards and tables.
+  }
+
+  &:not(.#{map.get($_classname, 'alternate')})::before,
+  &:not(.#{map.get($_classname, 'alternate')})::after {
+    // Top (default) tooltip styling
+    bottom: 75%;
+  }
+
+  &.#{map.get($_classname, 'alternate')}::before,
+  &.#{map.get($_classname, 'alternate')}::after {
+    // Bottom tooltip styling
+    top: 75%;
+  }
+
+  &:hover,
+  &:focus {
     &::before,
     &::after {
-        clip: rect(0 0 0 0);
-        left: 50%;
-        opacity: 0;
-        position: absolute;
-
-        transition: all 0.3s;
-        // Remember to keep this index a lower value than the one used for stickies.
-        z-index: 1010; // Deals with certain problems when combined with cards and tables.
-
-        -webkit-clip-path: inset(100%);
-        clip-path: inset(100%);
+      clip: auto;
+      -webkit-clip-path: inset(0%);
+      clip-path: inset(0%);
+      opacity: 1;
     }
+  }
 
-    &:not(.#{map.get($_classname, 'alternate')}):before,
-    &:not(.#{map.get($_classname, 'alternate')}):after {
-        // Top (default) tooltip styling
-        bottom: 75%;
-    }
+  &::before {
+    background: transparent;
+    border: boxmodel.get("margin") solid transparent;
+    // Little tooltip triangle
+    content: "";
+    // Newer browsers will center the tail properly
+    left: calc(50% - #{boxmodel.get("margin")});
+  }
 
-    &.#{map.get($_classname, 'alternate')}:before,
-    &.#{map.get($_classname, 'alternate')}:after {
-        // Bottom tooltip styling
-        top: 75%;
-    }
+  &:not(.#{map.get($_classname, 'alternate')})::before {
+    // Top (default) tooltip styling
+    border-top-color: var(--tooltip-back-color, colors.get("back-alt"));
+  }
 
-    &:hover,
-    &:focus {
-        &::before,
-        &::after {
-            clip: auto;
-            opacity: 1;
+  &.#{map.get($_classname, 'alternate')}::before {
+    // Bottom tooltip styling
+    border-bottom-color: var(--tooltip-back-color, colors.get("back-alt"));
+  }
 
-            -webkit-clip-path: inset(0%);
-            clip-path: inset(0%);
-        }
-    }
+  &::after {
+    background-color: var(--tooltip-back-color, colors.get("back-alt"));
+    border-radius: borders.get("radius");
+    color: var(--tooltip-fore-color, colors.get("fore-alt"));
+    // Tooltip's text block
+    content: attr(aria-label);
+    padding: boxmodel.get("padding");
+    transform: translateX(-50%);
+    white-space: nowrap;
+  }
 
-    &::before {
-        background: transparent;
-        border: boxmodel.get('margin') solid transparent;
-        // Little tooltip triangle
-        content: '';
-        // Newer browsers will center the tail properly
-        left: calc(50% - #{boxmodel.get('margin')});
-    }
+  &:not(.#{map.get($_classname, 'alternate')})::after {
+    // Top (default) tooltip styling
+    margin-bottom: calc(2 * #{boxmodel.get("margin")});
+  }
 
-    &:not(.#{map.get($_classname, 'alternate')}):before {
-        // Top (default) tooltip styling
-        border-top-color: var(--tooltip-back-color, colors.get('back-alt'));
-    }
-
-    &.#{map.get($_classname, 'alternate')}:before {
-        // Bottom tooltip styling
-        border-bottom-color: var(--tooltip-back-color, colors.get('back-alt'));
-    }
-
-    &::after {
-        background-color: var(--tooltip-back-color, colors.get('back-alt'));
-        border-radius: borders.get('radius');
-        color: var(--tooltip-fore-color, colors.get('fore-alt'));
-        // Tooltip's text block
-        content: attr(aria-label);
-        padding: boxmodel.get('padding');
-        transform: translateX(-50%);
-        white-space: nowrap;
-    }
-
-    &:not(.#{map.get($_classname, 'alternate')}):after {
-        // Top (default) tooltip styling
-        margin-bottom: calc(2 * #{boxmodel.get('margin')});
-    }
-
-    &.#{map.get($_classname, 'alternate')}:after {
-        // Bottom tooltip styling
-        margin-top: calc(2 * #{boxmodel.get('margin')});
-    }
+  &.#{map.get($_classname, 'alternate')}::after {
+    // Bottom tooltip styling
+    margin-top: calc(2 * #{boxmodel.get("margin")});
+  }
 }

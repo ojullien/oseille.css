@@ -6,9 +6,10 @@
 // You may override the default values of the settings' variables, if needed, with the @use rule.
 // See flavors/oseille.scss and the 2-settings*.scss files.
 //
-@use '../../2-settings/colors' as colors;
-@use '../../2-settings/fonts' as fonts;
-@use '../../2-settings/box-model' as boxmodel;
+
+@use "../../2-settings/colors" as colors;
+@use "../../2-settings/fonts" as fonts;
+@use "../../2-settings/box-model" as boxmodel;
 
 // Private variables.
 //
@@ -17,74 +18,45 @@
 // The configured values will override the variables’ default values.
 // @link: https://sass-lang.com/documentation/variables
 
-$_paragraph_width: 75ch !default;
+$_paragraph-width: 75ch !default;
 
 /* paragraph-level elements styling */
 
 hr {
     box-sizing: content-box;
     color: inherit;
-    line-height: fonts.get-line-spacing('hr');
-    margin: boxmodel.get('margin');
+    line-height: fonts.get-line-spacing("hr");
+    margin: boxmodel.get("margin");
     overflow: visible;
     padding: 0;
 
     &.variant-dashed {
-        border-top: 1px dashed var(--hr-color-1, colors.get('border'));
+        border-top: 1px dashed var(--hr-color-1, colors.get("border"));
     }
 
     &.variant-dotted {
-        border-top: 1px dotted var(--hr-color-1, colors.get('border'));
+        border-top: 1px dotted var(--hr-color-1, colors.get("border"));
     }
 
     &.variant-shadow {
-        height: 10px;
         border: 0;
-        box-shadow: 0 10px 10px -10px var(--hr-color-1, colors.get('border')) inset;
+        box-shadow: 0 10px 10px -10px var(--hr-color-1, colors.get("border")) inset;
+        height: 10px;
     }
 
-    &:not([class^='variant']) {
-        background-image: -webkit-linear-gradient(
-            to right,
-            transparent,
-            var(--hr-color-1, colors.get('border')) 20%,
-            var(--hr-color-2, colors.get('border')) 80%,
-            transparent
-        );
-        background-image: -moz-linear-gradient(
-            to right,
-            transparent,
-            var(--hr-color-1, colors.get('border')) 20%,
-            var(--hr-color-2, colors.get('border')) 80%,
-            transparent
-        );
-        background-image: -o-linear-gradient(
-            to right,
-            transparent,
-            var(--hr-color-1, colors.get('border')) 20%,
-            var(--hr-color-2, colors.get('border')) 80%,
-            transparent
-        );
-        background-image: linear-gradient(
-            to right,
-            transparent,
-            var(--hr-color-1, colors.get('border')) 20%,
-            var(--hr-color-2, colors.get('border')) 80%,
-            transparent
-        );
+    &:not([class^="variant"]) {
+        background-image: linear-gradient(to right, transparent, var(--hr-color-1, colors.get("border")) 20%, var(--hr-color-2, colors.get("border")) 80%, transparent);
         border: 0;
         height: 1px;
     }
 }
 
 p {
-    -ms-hyphens: fonts.get-hyphenation('hyphens');
-    -moz-hyphens: fonts.get-hyphenation('hyphens');
-    -webkit-hyphens: fonts.get-hyphenation('hyphens');
-    hyphens: fonts.get-hyphenation('hyphens');
-    line-height: fonts.get-line-spacing('p');
-    margin: boxmodel.get('margin');
+    -webkit-hyphens: fonts.get-hyphenation("hyphens");
+    hyphens: fonts.get-hyphenation("hyphens");
+    line-height: fonts.get-line-spacing("p");
+    margin: boxmodel.get("margin");
     max-width: $_paragraph_width;
     padding: 0;
-    text-align: fonts.get-hyphenation('text-align');
+    text-align: fonts.get-hyphenation("text-align");
 }

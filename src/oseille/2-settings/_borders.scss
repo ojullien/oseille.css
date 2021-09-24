@@ -1,8 +1,9 @@
 //
 // Default borders' properties.
 //
-@use 'sass:map';
-@use '../1-tools/stdlib' as stdlib;
+
+@use "sass:map";
+@use "../1-tools/stdlib" as stdlib;
 
 // Variables.
 //
@@ -21,12 +22,12 @@
 //   - thick: alternative thickness of the border. PX unit only.
 //   - *-relative: thickness of the border relative to the html element. Used to style link outline alternative.
 $borders: (
-    'radius': 4px,
-    'thin': 1px,
-    'medium': 2px,
-    'thick': 5px,
-    'thin-relative': 0.0625rem,
-    'medium-relative': 0.125rem,
+  "radius": 4px,
+  "thin": 1px,
+  "medium": 2px,
+  "thick": 5px,
+  "thin-relative": 0.0625rem,
+  "medium-relative": 0.125rem,
 ) !default;
 
 // Functions.
@@ -36,12 +37,13 @@ $borders: (
 //
 // @param {string} $key - The property we are looking for
 //
+
 @function get($key) {
-    $value: stdlib.get($key, $borders);
+  $value: stdlib.get($key, $borders);
 
-    @if $value == null {
-        @warn #{'Border "' + $key + '" not found!'};
-    }
+  @if $value == null {
+    @warn #{'Border "' + $key + '" not found!'};
+  }
 
-    @return $value;
+  @return $value;
 }
