@@ -1,13 +1,13 @@
 /* Debug stdlib */
-@use '../../../src/oseille/1-tools/color' as color;
+@use "../../../src/oseille/1-tools/color" as color;
 // Color to modify
 $_color: hsla(219deg, 72%, 46%, 100%); //#215cca;
 $_color2: #ad0000;
-@debug 'lightest(#{$_color})=>' color.lightest($_color);
-@debug 'lighter(#{$_color})=>' color.lighter($_color);
-@debug 'darker(#{$_color})=>' color.darker($_color);
-@debug 'darkest(#{$_color})=>' color.darkest($_color);
-@debug 'tone(#{$_color2})=>' color.tone($_color2, 20%);
-@debug 'shade(#{$_color2})=>' color.shade($_color2, 20%);
-@debug 'tint(#{$_color2})=>' color.tint($_color2, 20%);
-@debug '-----------------------------------------------------------------------';
+@debug "lightest(#{$_color})=>" color.lightest($_color);
+@debug "lighter(#{$_color})=>" color.lighter($_color);
+@debug "darker(#{$_color})=>" color.darker($_color);
+@debug "darkest(#{$_color})=>" color.darkest($_color);
+@debug "tone(#{$_color2})=>" color.tone($_color2, 20%);
+@debug "shade(#{$_color2})=>" color.shade($_color2, 20%);
+@debug "tint(#{$_color2})=>" color.tint($_color2, 20%);
+@debug "-----------------------------------------------------------------------";
