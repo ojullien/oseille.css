@@ -1,7 +1,7 @@
 //
 // Debug color values.
 //
-@use '../../../src/oseille/2-settings/colors' as colors;
+@use "../../../src/oseille/2-settings/colors" as colors;
 
 @mixin color-dump($declarations) {
     @each $property, $value in $declarations {
@@ -10,9 +10,9 @@
             color: colors.get-text-color($value);
         }
         .color--#{$property}::before {
-            content: '#{$property}:#{$value}';
+            content: "#{$property}:#{$value}";
         }
-        @debug '#{$property}: #{$value}';
+        @debug "#{$property}: #{$value}";
     }
 }
 
@@ -21,6 +21,6 @@
 @include color-dump(colors.$secondary);
 @include color-dump(colors.$elements);
 
-@debug 'colors.get("orange")=>' colors.get('orange');
-@debug 'colors.get("color-notfound")=>' colors.get('color-notfound');
-@debug '-----------------------------------------------------------------------';
+@debug 'colors.get("orange")=>' colors.get("orange");
+@debug 'colors.get("color-notfound")=>' colors.get("color-notfound");
+@debug "-----------------------------------------------------------------------";

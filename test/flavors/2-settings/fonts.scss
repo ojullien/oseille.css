@@ -1,9 +1,9 @@
 /* Debug color values. */
-@use '../../../src/oseille/2-settings/fonts' as fonts;
-@debug 'fonts.get-stack("quotation")=>' fonts.get-stack('quotation');
-@debug 'fonts.get-stack("stack-notfound")=>' fonts.get-stack('stack-notfound');
-@debug 'fonts.get-size("cite")=>' fonts.get-size('cite');
-@debug 'fonts.get-size("size-notfound")=>' fonts.get-size('size-notfound');
-@debug 'fonts.get-line-spacing("h3")=>' fonts.get-line-spacing('h3');
-@debug 'fonts.get-line-spacing("spacing-notfound")=>' fonts.get-line-spacing('spacing-notfound');
-@debug '-----------------------------------------------------------------------';
+@use "../../../src/oseille/2-settings/fonts" as fonts;
+@debug 'fonts.get-stack("quotation")=>' fonts.get-stack("quotation");
+@debug 'fonts.get-stack("stack-notfound")=>' fonts.get-stack("stack-notfound");
+@debug 'fonts.get-size("cite")=>' fonts.get-size("cite");
+@debug 'fonts.get-size("size-notfound")=>' fonts.get-size("size-notfound");
+@debug 'fonts.get-line-spacing("h3")=>' fonts.get-line-spacing("h3");
+@debug 'fonts.get-line-spacing("spacing-notfound")=>' fonts.get-line-spacing("spacing-notfound");
+@debug "-----------------------------------------------------------------------";
