@@ -1,44 +1,44 @@
 //
 // Oseille.css flavor.
 //
-@use '../../src/oseille/2-settings/fonts' with (
+@use "../../src/oseille/2-settings/fonts" with (
     $hyphenation: true,
 );
 
 // 2. Build the css
-@use '../../src/oseille/3-elements/base/root';
-@use '../../src/oseille/3-elements/layout/sectioning';
-@use '../../src/oseille/3-elements/base/text';
-@use '../../src/oseille/3-elements/base/mark';
-@use '../../src/oseille/3-elements/base/code';
-@use '../../src/oseille/3-elements/base/paragraph';
-@use '../../src/oseille/3-elements/base/quotation';
-@use '../../src/oseille/3-elements/base/list';
-@use '../../src/oseille/3-elements/base/definition';
-@use '../../src/oseille/3-elements/base/figure';
-@use '../../src/oseille/3-elements/base/buttons';
-@use '../../src/oseille/3-elements/base/form';
-@use '../../src/oseille/3-elements/base/fieldset';
-@use '../../src/oseille/3-elements/base/input';
-@use '../../src/oseille/3-elements/base/table';
-@use '../../src/oseille/3-elements/base/multimedia';
-@use '../../src/oseille/3-elements/base/details';
-@use '../../src/oseille/3-elements/layout/navigation';
-@use '../../src/oseille/3-elements/layout/heading';
-@use '../../src/oseille/3-elements/layout/footer';
-@use '../../src/oseille/3-elements/layout/header';
-@use '../../src/oseille/3-elements/base/iframe';
-@use '../../src/oseille/3-elements/base/time';
-@use '../../src/oseille/4-components/legibility';
-@use '../../src/oseille/4-components/border';
-@use '../../src/oseille/4-components/collapse';
-@use '../../src/oseille/4-components/toast';
-@use '../../src/oseille/4-components/tooltip';
-@use '../../src/oseille/4-components/grid';
-@use '../../src/oseille/4-components/card';
-@use '../../src/oseille/4-components/modal';
-@use '../../src/oseille/4-components/drawer';
-@use '../../src/oseille/4-components/_progress';
-@use '../../src/oseille/5-utilities/hidden';
-@use '../../src/oseille/5-utilities/print';
-@debug 'End generating oseille.css';
+@use "../../src/oseille/3-elements/base/root";
+@use "../../src/oseille/3-elements/layout/sectioning";
+@use "../../src/oseille/3-elements/base/text";
+@use "../../src/oseille/3-elements/base/mark";
+@use "../../src/oseille/3-elements/base/code";
+@use "../../src/oseille/3-elements/base/paragraph";
+@use "../../src/oseille/3-elements/base/quotation";
+@use "../../src/oseille/3-elements/base/list";
+@use "../../src/oseille/3-elements/base/definition";
+@use "../../src/oseille/3-elements/base/form";
+@use "../../src/oseille/3-elements/base/fieldset";
+@use "../../src/oseille/3-elements/base/input";
+@use "../../src/oseille/3-elements/base/buttons";
+@use "../../src/oseille/3-elements/base/table";
+@use "../../src/oseille/3-elements/base/multimedia";
+@use "../../src/oseille/3-elements/base/figure";
+@use "../../src/oseille/3-elements/base/details";
+@use "../../src/oseille/3-elements/layout/navigation";
+@use "../../src/oseille/3-elements/layout/heading";
+@use "../../src/oseille/3-elements/layout/footer";
+@use "../../src/oseille/3-elements/layout/header";
+@use "../../src/oseille/3-elements/base/iframe";
+@use "../../src/oseille/3-elements/base/time";
+@use "../../src/oseille/4-components/border";
+@use "../../src/oseille/4-components/toast";
+@use "../../src/oseille/4-components/tooltip";
+@use "../../src/oseille/4-components/grid";
+@use "../../src/oseille/4-components/card";
+@use "../../src/oseille/4-components/modal";
+@use "../../src/oseille/4-components/drawer";
+@use "../../src/oseille/4-components/_progress";
+@use "../../src/oseille/4-components/collapse";
+@use "../../src/oseille/4-components/legibility";
+@use "../../src/oseille/5-utilities/hidden";
+@use "../../src/oseille/5-utilities/print";
+@debug "End generating oseille.css";
