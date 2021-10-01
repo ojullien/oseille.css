@@ -42,7 +42,9 @@
 @use "../oseille/3-elements/base/fieldset";
 @use "../oseille/3-elements/base/input";
 @use "../oseille/3-elements/base/buttons" with (
-    $_include-variant: false
+    $_include-scale-on-hover-variant: false,
+    $_include-shadowed-variant: false,
+    $_include-feel-pressed-variant: false
 );
 @use "../oseille/3-elements/base/table";
 @use "../oseille/3-elements/base/multimedia";

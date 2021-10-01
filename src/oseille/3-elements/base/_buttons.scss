@@ -1,10 +1,19 @@
 //
-// The HTML <button> element represents a clickable button, used to submit forms or anywhere in a document for
-// accessible, standard button functionality. By default, HTML buttons are presented in a style resembling the
-// platform the user agent runs on, but you can change buttons’ appearance with CSS.
+// Buttons are used to trigger an action or event (i.e. submitting a form, opening a dialog, canceling an action, or deleting an item).
+// Buttons are not used to open webpages, instead use Links.
+//
+// We are styling the semantic <button> or <input type=”button”> elements only.
+// Those two elements are proper buttons, are focusable, have correct key events by default and the correct button role.
+// <button> supports HTML content, <input type=”button”> supports only text content.
+//
+// If using role="button" or other elements instead of the semantic <button> or <input type="button"> elements,
+// you will need to make the element focusable and have to define event handlers for click and keydown events,
+// including the Enter and Space keys, in order to process the user's input.
+//
+// Variables.
 //
 // You may override the default values of the settings' variables, if needed, with the @use rule.
-// See flavors/oseille.scss and the 2-settings*.scss files.
+// See /flavors/oseille.scss and the /2-settings/*.scss files.
 //
 
 @use "sass:map";
@@ -14,6 +23,7 @@
 @use "../../2-settings/box-model" as boxmodel;
 @use "../../2-settings/responsive" as breakpoints;
 
+//
 // Private variables.
 //
 // Variables defined with !default can be configured when loading this module with the @use rule.
@@ -24,39 +34,24 @@
 // Mobile breakpoint for button groups.
 $_mobile-breakpoint: breakpoints.get("medium") - 1px;
 
-// Should variant be included? (boolean)
-$_include-variant: true !default;
+// Should variants be included? (boolean)
+$_include-scale-on-hover-variant: true !default;
+$_include-shadowed-variant: true !default;
+$_include-feel-pressed-variant: true !default;
 
-// Opacity for input elements when disabled.
-$_disabled-opacity: 0.75 !default;
+/* Button styling */
 
-/* Button and button-like styling */
-
-// Fixes for Android 4, iOS and Safari.
-
-@supports (-webkit-appearance: button) or (-moz-appearance: button) {
-    button,
-    input[type="button"],
-    input[type="submit"],
-    input[type="reset"] {
-        -webkit-appearance: button;
-        -moz-appearance: button;
-    }
-}
-
-// Button styling
-
-%button {
+@mixin button {
     --button-padding: #{boxmodel.get("padding")} calc(#{fonts.get-line-spacing("main")} * #{boxmodel.get("padding")});
 
+    @content;
     background-color: var(--button-back-color, transparent);
     border: borders.get("medium") solid var(--button-border-color, #{colors.get("fore")});
-    border-radius: 0;
+    border-radius: var(--button-border-radius, 0);
     color: var(--button-fore-color, #{colors.get("fore")});
     cursor: pointer;
     display: inline-block;
     font: inherit;
-    font-size: 1em;
     margin: boxmodel.get("margin");
     padding: var(--button-padding);
     text-align: center;
@@ -100,101 +95,98 @@ $_disabled-opacity: 0.75 !default;
     // The user keeps clicking the button and is totally in the dark why nothing happens. Keep the button enabled.
     // Let the user click the button. Then show the message why it can’t proceed.
     &:disabled,
-    &[aria-disabled="true"],
     &[disabled] {
         cursor: not-allowed;
-        filter: grayscale(60%);
-        opacity: $_disabled-opacity;
+    }
+}
+
+@mixin scale-on-hover-variant {
+    border-radius: var(--button-border-radius, 0);
+
+    &:hover,
+    &:focus {
+        transform: scale(1.1);
+    }
+
+    &:active {
+        transform: scale(0.9);
+    }
+}
+
+@mixin shadowed-variant {
+    &:hover,
+    &:focus {
+        box-shadow:
+            0 0 0 (1.5rem * 0.125) var(--button-fore-hover-color, #{colors.get("fore-alt")}),
+            0 0 0 (1.5rem * 0.25) var(--button-back-hover-color, #{colors.get("back-alt")});
+    }
+
+    &:active {
+        box-shadow:
+            0 0 0 (1.5rem * 0.125) var(--button-fore-active-color, #{colors.get("back-alt")}),
+            0 0 0 (1.5rem * 0.25) var(--button-back-active-color, #{colors.get("fore-alt")});
+    }
+}
+
+@mixin feel-pressed-variant {
+    &:active {
+        transform: scale(0.85);
+    }
+}
+
+// Button and input of type button styling
+
+button,
+input[type="button"],
+input[type="submit"],
+input[type="reset"] {
+    @include button {
+        -webkit-appearance: button; // Correct the inability to style clickable types in iOS and Safari.
+        appearance: button;
     }
 }
 
 button {
-    @extend %button;
-
-    overflow: visible; // Show the overflow in IE.
-    text-transform: none; // Remove inheritance of text-transform in Edge, Firefox, and IE.
-}
-
-// Input button styling
-
-input[type="button"],
-input[type="submit"],
-input[type="reset"] {
-    @extend %button;
-}
-
-// Change font properties to 'inherit' in Safari.
-input[type="file"]::-webkit-file-upload-button {
-    @extend %button;
-    font: inherit;
-}
-
-// see: https://developer.mozilla.org/en-US/docs/Web/CSS/::file-selector-button
-input[type="file"]::file-selector-button {
-    @extend %button;
-}
-
-// Class button-like styling
-
-.button {
-    @extend %button;
-}
-
-// Role button-like styling
-
-[role="button"] {
-    @extend %button;
-}
-
-// Anchor button-like styling. Overrides a:link
-
-a[role="button"],
-a.button {
-    color: var(--button-fore-color, #{colors.get("fore")});
-
-    &:focus {
-        outline-offset: unset;
-    }
-
-    // .button[disabled] is actually higher specificity than a.button, so no need for more than that
+    overflow: visible; // Show the overflow in IE and Edge
+    text-transform: none; // Remove inheritance of text-transform in Edge, Firefox and IE.
 }
 
 // Variants
 
-@if $_include-variant {
-    .scale-on-hover-variant {
-        border-radius: borders.get("radius");
-        &:hover,
-        &:focus {
-            transform: scale(1.1);
-        }
-        &:active {
-            transform: scale(0.9);
-        }
-    }
-
-    .shadowed-variant {
-        &:hover,
-        &:focus {
-            box-shadow:
-                0 0 0 (1.5rem * 0.125) var(--button-fore-hover-color, #{colors.get("fore-alt")}),
-                0 0 0 (1.5rem * 0.25) var(--button-back-hover-color, #{colors.get("back-alt")});
-        }
-        &:active {
-            box-shadow:
-                0 0 0 (1.5rem * 0.125) var(--button-fore-active-color, #{colors.get("back-alt")}),
-                0 0 0 (1.5rem * 0.25) var(--button-back-active-color, #{colors.get("fore-alt")});
+@if $_include-scale-on-hover-variant {
+    button,
+    input[type="button"],
+    input[type="submit"],
+    input[type="reset"] {
+        &.scale-on-hover-variant {
+            @include scale-on-hover-variant;
         }
     }
 }
 
-.active-effect {
-    &:active {
-        transform: scale(0.98);
+@if $_include-shadowed-variant {
+    button,
+    input[type="button"],
+    input[type="submit"],
+    input[type="reset"] {
+        &.shadowed-variant {
+            @include shadowed-variant;
+        }
     }
 }
 
-/* Button group styling. */
+@if $_include-feel-pressed-variant {
+    button,
+    input[type="button"],
+    input[type="submit"],
+    input[type="reset"] {
+        &.active-effect {
+            @include feel-pressed-variant;
+        }
+    }
+}
+
+// Button group styling
 
 .button-group {
     border: borders.get("thin") solid var(--button-group-border-color, #{colors.get("border")});
@@ -205,9 +197,7 @@ a.button {
     > button,
     > input[type="button"],
     > input[type="submit"],
-    > input[type="reset"],
-    > .button,
-    > [role="button"] {
+    > input[type="reset"] {
         border: 0;
         border-radius: 0;
         box-shadow: none;
@@ -233,11 +223,47 @@ a.button {
     }
 }
 
+// Styling of a button of an <input> of type="file".
+// see: https://developer.mozilla.org/en-US/docs/Web/CSS/::file-selector-button
+// see: https://jsfiddle.net/4cwpLvae/
+// see: https://stackoverflow.com/questions/572768/styling-an-input-type-file-button
+
+input[type="file"]::-ms-browse {
+    @include button;
+}
+
+input[type="file"]::-webkit-file-upload-button {
+    @include button {
+        -webkit-appearance: button; // Correct the inability to style clickable types in iOS and Safari.
+        appearance: button;
+    }
+}
+
+input[type="file"]::file-selector-button {
+    @include button {
+        -webkit-appearance: button; // Correct the inability to style clickable types in iOS and Safari.
+        appearance: button;
+    }
+}
+
+
 // Reset for Firefox focusing on button elements.
+
 button::-moz-focus-inner,
 input[type="button"]::-moz-focus-inner,
 input[type="reset"]::-moz-focus-inner,
-input[type="submit"]::-moz-focus-inner {
+input[type="submit"]::-moz-focus-inner,
+input[type="file"]::-moz-focus-inne {
     border-style: none;
     padding: 0;
+}
+
+// Restore the focus styles unset by the previous rule.
+
+button::-moz-focusring,
+input[type="button"]::-moz-focusring,
+input[type="reset"]::-moz-focusring,
+input[type="submit"]::-moz-focusring,
+input[type="file"]::-moz-focusring {
+    outline: 1px dotted ButtonText;
 }

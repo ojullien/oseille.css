@@ -132,6 +132,17 @@ a {
     }
 }
 /* stylelint-enable order/properties-alphabetical-order */
+// Anchor button-like styling. Overrides a:link
+//a[role="button"],
+//a.button {
+//    color: var(--button-fore-color, #{colors.get("fore")});
+//
+//    &:focus {
+//        outline-offset: unset;
+//    }
+
+    // .button[disabled] is actually higher specificity than a.button, so no need for more than that
+//}
 
 abbr[title] {
     @include normalize;
