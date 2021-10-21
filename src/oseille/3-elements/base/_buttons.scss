@@ -42,8 +42,6 @@ $_include-feel-pressed-variant: true !default;
 /* Button styling */
 
 @mixin button {
-    --button-padding: #{boxmodel.get("padding")} calc(#{fonts.get-line-spacing("main")} * #{boxmodel.get("padding")});
-
     @content;
     background-color: var(--button-back-color, transparent);
     border: borders.get("medium") solid var(--button-border-color, #{colors.get("fore")});
@@ -53,7 +51,7 @@ $_include-feel-pressed-variant: true !default;
     display: inline-block;
     font: inherit;
     margin: boxmodel.get("margin");
-    padding: var(--button-padding);
+    padding: var(--button-padding, #{boxmodel.get("padding")} calc(#{fonts.get-line-spacing("main")} * #{boxmodel.get("padding")}));
     text-align: center;
     text-decoration: none;
     transition: all 0.125s linear;
@@ -79,15 +77,6 @@ $_include-feel-pressed-variant: true !default;
         background-color: var(--button-back-active-color, transparent);
         border-color: var(--button-border-active-color, #{colors.get("fore")});
         color: var(--button-fore-active-color, #{colors.get("fore")});
-    }
-
-    // Size variants
-    &.small {
-        --button-padding: calc(0.5 * #{boxmodel.get("padding")}) calc(0.75 * #{boxmodel.get("padding")});
-    }
-
-    &.large {
-        --button-padding: calc(1.5 * #{boxmodel.get("padding")}) calc(2 * #{boxmodel.get("padding")});
     }
 
     // Disabled styling button elements.
@@ -246,14 +235,13 @@ input[type="file"]::file-selector-button {
     }
 }
 
-
 // Reset for Firefox focusing on button elements.
 
 button::-moz-focus-inner,
 input[type="button"]::-moz-focus-inner,
 input[type="reset"]::-moz-focus-inner,
 input[type="submit"]::-moz-focus-inner,
-input[type="file"]::-moz-focus-inne {
+input[type="file"]::-moz-focus-inner {
     border-style: none;
     padding: 0;
 }
