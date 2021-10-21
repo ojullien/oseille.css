@@ -1,0 +1,207 @@
+#doc-wrapper{
+    align-items: stretch;
+    display: grid;
+    grid-template-areas: "menu-area article-area";
+    grid-template-columns: -webkit-min-content 1fr;
+    grid-template-columns: min-content 1fr;
+    grid-template-rows: 1fr;
+    justify-items: stretch;
+    margin: 0 auto;
+    max-width: 1280px;
+}
+
+/* menu */
+
+#doc-menu{
+    display: grid;
+    grid-area: article-area;
+    grid-template-columns: [nav-area] 2fr [escape-area] 1fr;
+    overflow-x:hidden;
+    overflow-y:auto;
+    overflow:hidden auto;
+    overscroll-behavior:contain;
+    transform:translateX(-110vw);
+}
+
+#doc-menu:target{
+    transform:translateX(0);
+}
+
+/* menu navigation */
+
+#doc-menu-navigation{
+    background-color:var(--surface2);
+    -webkit-border-end:1px var(--surface1);
+    border-inline-end:1px var(--surface1);
+    box-shadow:5px 0 40px rgba(0,0,0,.45);
+    color: var(--text);
+    display: inline-flex;
+    flex-direction: column;
+    font-size: 1.5rem;
+    padding: 2rem;
+}
+
+/* open/close menu button  */
+
+#doc-menu-button, #doc-menu-close{
+    -webkit-tap-highlight-color:transparent;
+    -webkit-touch-callout:none;
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+    touch-action:manipulation;
+}
+
+/* page */
+
+#doc-page{
+    grid-area: article-area;
+    padding: .5rem 1.5rem;
+}
+
+/* page navigation */
+
+#doc-page-navigation{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-block-size: 3rem;
+    -webkit-margin-after: 1rem;
+    margin-block-end: 1rem;
+}
+
+/* page article */
+
+#doc-page-article{
+    display: grid;
+    grid-template-areas: "content-area toc-area";
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr;
+}
+
+/* article content */
+
+#doc-page-article-content{
+    grid-area: content-area / content-area / content-area / toc-area ;
+}
+
+/* article toc */
+
+#doc-page-article-toc{
+    max-height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overflow: hidden auto;
+    overscroll-behavior: contain;
+    transform: translateX(-110vw);
+}
+
+/* desktop */
+
+@media (min-width: 64em) {
+
+    #doc-menu{
+        grid-area: menu-area;
+        overflow: visible;
+        overscroll-behavior: auto;
+        transform: translateX(0);        
+    }
+
+    #doc-menu-button, #doc-menu-close{
+        display: none;
+    }
+
+    #doc-menu-navigation{
+        box-shadow: none;
+        font-size: 1.25rem;
+        -webkit-padding-before:4.5rem;
+        padding-block-start:4.5rem
+    }
+
+    #doc-page{
+        grid-area: article-area;
+    }
+
+    #doc-page-article-content {
+        grid-area: content-area;
+    }
+
+    #doc-page-article-toc {
+        grid-area: toc-area;
+        overflow: visible;
+        overscroll-behavior: auto;
+        transform: translateX(0);
+    }
+
+}
+
+/* hamburger */
+
+.hamburger{
+    --size:4rem;
+    display:flex;
+    align-content:center;
+    justify-content:center;
+    place-content:center;
+    padding:1rem;
+    box-sizing:border-box;
+    border-radius:50%;
+    border:2px solid transparent;
+    -webkit-margin-start:-1rem;
+    margin-inline-start:-1rem;
+    block-size:var(--size);
+    inline-size:var(--size);
+    outline:none;
+    transition:border-color .25s ease,background-color .25s ease;
+}
+
+.hamburger:hover{
+    border-color:rgba(255,20,146,.5);
+    border-color:hsl(var(--brandHSL)/50%)
+}
+
+.hamburger:focus{
+    border-color:rgba(255,20,146,.12);
+    border-color:hsl(var(--brandHSL)/12%);
+    background:rgba(255,20,146,.1);
+    background:hsl(var(--brandHSL)/10%);
+}
+
+.hamburger:hover svg>line{
+    stroke:#ff1492;
+    stroke:hsl(var(--brandHSL))
+}
+
+.hamburger:active{
+    background:rgba(255,20,146,.2);
+    background:hsl(var(--brandHSL)/20%);
+}
+
+.hamburger>svg{
+    width:100%;
+}
+
+.hamburger>svg>line{
+    stroke:#e2e2e2;
+    stroke:var(--text);
+    stroke-width:7px;
+    transition:stroke .25s ease;
+}
+
+:root{
+    --surface:#1b1b1b;
+    --surface2:#303030;
+    --text:#e2e2e2;
+    --text2:#ababab;
+    --brandHSL:328 100% 54%
+}
+
+@media (prefers-color-scheme:light){
+    :root{
+        --surface:#e2e2e2;
+        --surface2:#fffffe;
+        --text:#303030;
+        --text2:#5e5e5e
+    }
+}
