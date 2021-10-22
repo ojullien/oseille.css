@@ -8,7 +8,7 @@
 
 If you have encountered a potential security vulnerability in this project,
 
-please report it to us at <security@oseille.tech>. We will work with you to
+please report it to us at <ojullien@netcourrier.com>. We will work with you to
 
 verify the vulnerability and patch it.
 
